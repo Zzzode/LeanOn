@@ -1,9 +1,10 @@
 {
-  "name": "health-app",
+  "name": "leanon",
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "双人饮食与运动健康管理 App（Lynx × Native 混合架构）",
+  "description": "Get healthy together — a couples' health & weight-loss companion (Lynx × Native)",
+  "license": "Apache-2.0",
   "engines": {
     "node": ">=20",
     "pnpm": ">=9"

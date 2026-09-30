@@ -1,8 +1,31 @@
 {
-  "name": "@health/core",
+  "name": "@zzzode/core",
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "description": "LeanOn domain engine: adaptive TDEE, trend smoothing, plateau detection, nutrition scoring",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Zzzode",
+    "url": "https://github.com/Zzzode"
+  },
+  "homepage": "https://github.com/Zzzode/LeanOn#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zzzode/LeanOn.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/Zzzode/LeanOn/issues"
+  },
+  "keywords": [
+    "health",
+    "weight-loss",
+    "nutrition",
+    "tdee",
+    "fitness",
+    "leanon"
+  ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -10,6 +33,13 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "build": "tsc",

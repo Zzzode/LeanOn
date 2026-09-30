@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: RFC proposals
+    url: https://github.com/Zzzode/LeanOn/tree/main/rfcs
+    about: Significant changes to architecture or public APIs go through the RFC process.
+  - name: Report a security vulnerability
+    url: https://github.com/Zzzode/LeanOn/security/advisories/new
+    about: Please report security issues privately rather than opening a public issue.

@@ -1,4 +1,4 @@
-# @health/core
+# @zzzode/core
 
 跨端领域引擎，**纯 TypeScript、零 UI、零原生依赖**。
 
@@ -17,8 +17,8 @@
 ## 命令
 
 ```bash
-pnpm --filter @health/core typecheck
-pnpm --filter @health/core build
+pnpm --filter @zzzode/core typecheck
+pnpm --filter @zzzode/core build
 ```
 
-设计文档：`rfcs/0001`（基线）、RFC 0002（待编写）。
+设计文档：`rfcs/0001`（基线）、`rfcs/0002`（命名与开源治理）、RFC 0003（待编写）。

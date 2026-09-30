@@ -1,0 +1,14 @@
+# Normalize line endings
+* text=auto eol=lf
+
+# Binary assets
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+
+# Text assets
+*.svg text eol=lf
+*.md text eol=lf

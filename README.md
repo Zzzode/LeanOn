@@ -1,41 +1,120 @@
-# health-app（工作名）
+<div align="center">
 
-面向两人（本人与爱人）的每日饮食与运动健康管理 App，核心目标是**体重控制与长期健康，尤其是减重成功且不反弹**。
+<img src="assets/logo.svg" width="84" height="84" alt="LeanOn logo" />
 
-技术方向：**Lynx × Native 混合架构**——Lynx 负责可动态化下发的页面与卡片，Native 负责健康数据采集、蓝牙、后台任务与系统能力。
+# LeanOn
 
-## 快速开始
+**Get healthy together — track meals and movement with the person you love.**
+
+English · [简体中文](README.zh-CN.md)
+
+[![CI](https://img.shields.io/github/license/Zzzode/LeanOn)](LICENSE)
+[![CI](https://github.com/Zzzode/LeanOn/actions/workflows/ci.yml/badge.svg)](https://github.com/Zzzode/LeanOn/actions/workflows/ci.yml)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](.github/CONTRIBUTING.md)
+
+</div>
+
+## About
+
+**LeanOn** is a personal health companion built for **two people** — you and your partner.
+It helps you log daily meals, exercise, weight and body measurements, with a clear focus on
+**sustainable weight loss and long-term health**, rather than short-term crash dieting.
+
+The name says it all: getting **lean**, while being able to **lean on** each other.
+
+## Why LeanOn
+
+- **Built for two, by design** — shared goals and challenges, with privacy levels so it
+  feels like support, not surveillance.
+- **Logging that takes seconds** — AI photo logging, voice/text quick entry, barcodes and a
+  personal food library tuned to Chinese home cooking and takeout.
+- **A metabolism engine that learns your body** — your real calorie burn is inferred from
+  your own data (not a static formula), with plateau detection and trend smoothing.
+- **Dynamic UI** — pages and cards are built with [Lynx](https://lynxjs.org) and can be
+  updated over the air without an app-store release.
+- **Health before the number on the scale** — waist circumference, body composition,
+  sleep and non-scale wins keep you going through plateaus.
+
+## Features
+
+- Meal tracking: AI photo recognition, cooking-oil & portion estimation, barcode scanning,
+  takeout-order import, simple/detailed logging modes, water intake
+- Weight & body composition: smart-scale sync, daily weigh-in, body fat / muscle mass,
+  weekly circumference measurements, monthly progress photos
+- Exercise & activity: step sync, strength and cardio logging, smartwatch integration
+- Recovery: sleep stages, resting heart rate / HRV, stress and mood
+- Insights: today dashboard, instant meal feedback, weekly review, CBT mini-lessons,
+  AI coach, trajectory forecast and a dedicated weight-maintenance phase
+- Together: privacy tiers, shared & individual goals, reactions, joint challenges,
+  shared recipes and split-portion logging for home meals
+
+## Architecture
+
+LeanOn uses a **Lynx × Native hybrid architecture**:
+
+- **Lynx** renders pages and cards that iterate quickly and can be delivered dynamically.
+- **Native** (Swift / Kotlin) owns the health-data lifeline: HealthKit / Health Connect,
+  Bluetooth scales, background tasks, notifications, widgets and watch apps.
+- A pure-TypeScript domain core (`@zzzode/core`) holds the metabolism and nutrition logic,
+  reusable on device and server.
+
+See [`rfcs/`](rfcs/) for design decisions, starting with
+[RFC 0001](rfcs/0001-monorepo-and-tooling.md) and
+[RFC 0002](rfcs/0002-project-naming-and-open-source-governance.md).
+
+## Project structure
+
+| Path | Description |
+|---|---|
+| `apps/ios` | iOS native host (Swift) |
+| `apps/android` | Android native host (Kotlin) |
+| `packages/core` | Pure-TS domain engine (TDEE, trends, nutrition) |
+| `packages/bridge` | Lynx ↔ Native communication |
+| `packages/ui` | Design system & components (built on lynx-ui) |
+| `packages/pages` | Lynx page bundles |
+| `packages/cards` | Dynamically delivered card bundles |
+| `native/` | Cross-cutting native capabilities |
+| `server/` | Manifest, sync and intelligence backends |
+| `rfcs/` | Design documents |
+
+## Getting started
+
+**Prerequisites:** Node.js >= 20 and pnpm >= 9
 
 ```bash
-# 环境：Node >= 20，pnpm >= 9（推荐 corepack enable）
+corepack enable
 pnpm install
-pnpm typecheck   # 全部包类型检查
-pnpm build       # 构建全部包
+pnpm typecheck   # type-check all packages
+pnpm build        # build all packages
 ```
 
-## 目录结构
+## Roadmap
 
-| 路径 | 说明 |
-|---|---|
-| `apps/ios` | iOS 原生宿主（Swift） |
-| `apps/android` | Android 原生宿主（Kotlin） |
-| `packages/core` | 纯 TS 领域引擎（TDEE / 趋势 / 营养） |
-| `packages/bridge` | Lynx ↔ Native 通信封装 |
-| `packages/ui` | 设计系统与组件（基于 lynx-ui） |
-| `packages/pages` | Lynx 页面 bundle |
-| `packages/cards` | 可动态下发的卡片 bundle |
-| `native/` | 跨端原生能力（health-adapter / ble-scale / offline-kit） |
-| `server/` | Manifest、同步与智能能力后端 |
-| `rfcs/` | 设计决策文档（RFC） |
+- [ ] Domain engine: adaptive TDEE, trend smoothing, plateau detection
+- [ ] Bridge protocol and native module registry
+- [ ] Native host and Lynx container integration
+- [ ] Dynamic delivery channel (manifest, signing, offline fallback)
+- [ ] Data model, encrypted local storage and cloud sync
 
-## 设计流程
+See the RFC roadmap in [RFC 0001](rfcs/0001-monorepo-and-tooling.md).
 
-所有重要设计以 **RFC** 推进，流程与模板见 [`rfcs/README.md`](./rfcs/README.md)。
-当前基线：[RFC 0001 Monorepo 结构与工程基线](./rfcs/0001-monorepo-and-tooling.md)。
+## Contributing
 
-## 当前状态
+Contributions are welcome! Please read the [contributing guide](.github/CONTRIBUTING.md),
+and note that significant changes go through the [RFC process](rfcs/README.md).
 
-- [x] pnpm workspace 与 TS 基线
-- [x] 五个 TS 包骨架（可安装、可类型检查）
-- [x] RFC 机制与基线 RFC
-- [ ] 领域引擎、Bridge、Lynx 接入、动态化、云同步（见 RFC 0001 的路线图）
+This project follows the [Contributor Covenant Code of Conduct](.github/CODE_OF_CONDUCT.md).
+
+## Security
+
+To report a vulnerability, please review the [security policy](.github/SECURITY.md) and use
+private vulnerability reporting instead of public issues.
+
+## License
+
+Licensed under the [Apache License, Version 2.0](LICENSE).
+
+## Acknowledgements
+
+- [Lynx](https://lynxjs.org) — the cross-platform native UI framework
+- [lynx-ui](https://lynxjs.org/zh/blog/lynx-ui) — official component library

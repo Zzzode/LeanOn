@@ -1,8 +1,30 @@
 {
-  "name": "@health/pages",
+  "name": "@zzzode/pages",
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "description": "LeanOn Lynx page bundles: home, diary, weight, exercise, reports, lessons, couple, settings",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Zzzode",
+    "url": "https://github.com/Zzzode"
+  },
+  "homepage": "https://github.com/Zzzode/LeanOn#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zzzode/LeanOn.git",
+    "directory": "packages/pages"
+  },
+  "bugs": {
+    "url": "https://github.com/Zzzode/LeanOn/issues"
+  },
+  "keywords": [
+    "lynx",
+    "pages",
+    "health",
+    "weight-loss",
+    "leanon"
+  ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -10,6 +32,13 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "build": "tsc",

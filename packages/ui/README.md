@@ -1,4 +1,4 @@
-# @health/ui
+# @zzzode/ui
 
 设计系统与组件库，基于官方 `lynx-ui` 二次封装。
 
@@ -9,4 +9,4 @@
 
 ## 边界
 
-- 只包含表现层，不含领域计算（计算归 `@health/core`）与原生调用（归 `@health/bridge`）。
+- 只包含表现层，不含领域计算（计算归 `@zzzode/core`）与原生调用（归 `@zzzode/bridge`）。

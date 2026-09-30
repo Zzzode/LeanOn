@@ -1,8 +1,30 @@
 {
-  "name": "@health/bridge",
+  "name": "@zzzode/bridge",
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "description": "LeanOn bridge: typed NativeModules and events between Lynx and the native host",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Zzzode",
+    "url": "https://github.com/Zzzode"
+  },
+  "homepage": "https://github.com/Zzzode/LeanOn#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zzzode/LeanOn.git",
+    "directory": "packages/bridge"
+  },
+  "bugs": {
+    "url": "https://github.com/Zzzode/LeanOn/issues"
+  },
+  "keywords": [
+    "lynx",
+    "bridge",
+    "native-modules",
+    "health",
+    "leanon"
+  ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -10,6 +32,13 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "build": "tsc",
