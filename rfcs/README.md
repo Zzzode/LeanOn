@@ -53,3 +53,12 @@ Not needed for:
 - Keep them short: enough to explain the decision, nothing more.
 - Documentation is English by default; a Chinese translation, if provided, uses the same name
   with the `.zh-CN` suffix (see `AGENTS.md`).
+
+## RFC index
+
+| # | Title | Status |
+|---|---|---|
+| [0001](0001-monorepo-and-tooling.md) | Monorepo baseline and tooling | Accepted |
+| [0002](0002-project-naming-and-open-source-governance.md) | Project naming and open-source governance | Accepted |
+| [0003](0003-docs-typescript7-build-system.md) | Docs, TypeScript 7 and the build system | Accepted |
+| [0004](0004-core-domain-engine.md) | Core domain engine | Accepted |

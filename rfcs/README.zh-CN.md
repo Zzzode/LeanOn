@@ -41,3 +41,13 @@
 - 编号一旦使用不复用、不重排。
 - RFC 是**历史文档**：合并后不原地改写结论；需求变化用新 RFC 取代旧 RFC。
 - 保持简短：能讲清决策即可，避免堆砌。
+- 文档默认英文；若提供中文翻译，使用同名并加 `.zh-CN` 后缀（见 `AGENTS.md`）。
+
+## RFC 索引
+
+| # | 标题 | 状态 |
+|---|---|---|
+| [0001](0001-monorepo-and-tooling.md) | Monorepo 基线与工具链 | Accepted |
+| [0002](0002-project-naming-and-open-source-governance.md) | 项目命名与开源治理 | Accepted |
+| [0003](0003-docs-typescript7-build-system.md) | 文档、TypeScript 7 与构建系统 | Accepted |
+| [0004](0004-core-domain-engine.md) | Core 领域引擎 | Accepted |

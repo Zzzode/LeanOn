@@ -1,6 +1,6 @@
 {
   "name": "@zzzode/core",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "type": "module",
   "description": "LeanOn domain engine: adaptive TDEE, trend smoothing, plateau detection, nutrition scoring",
