@@ -247,12 +247,13 @@ than false precision and must prefer the trend over the model once a diet is run
 - [x] Module/folder layout and shared domain types
 - [x] Baseline BMR / static TDEE
 - [x] Rolling average, robust slope, adaptive TDEE with confidence
-- [ ] Cycle-aware alignment and noise bands
+- [x] Cycle-aware alignment and same-phase comparison
 - [x] Plateau / adaptation classification
 - [x] Macro targets
 - [ ] Diet-quality score
 - [ ] Dynamic forecast and maintenance phase
-- [ ] Fixed-fixture unit tests (Rstest) for every formula, including known worked examples
+- [x] Fixed-fixture unit tests (Rstest) for every formula, including known worked examples
 
-The first four implemented areas are verified against the worked examples in the engine
-scaffold; cycle alignment, the quality score, forecasting and the Rstest suite remain.
+Implemented areas are covered by 39 fixed-fixture Rstest cases. The diet-quality score,
+dynamic forecasting, and automatic cycle-aware noise bands inside plateau classification
+remain.

@@ -78,6 +78,17 @@ The **Rspack** ecosystem is the standard; pick the tool that matches the target:
 - `pages` and `cards` currently build with `tsc` as placeholders; switch to Rspeedy when the
   first real Lynx screen is added.
 - Rslib generates declaration files with `tsgo`; type-checking itself is a separate step.
+- Libraries use `dts.isolated`, which follows the entry graph (so colocated test files stay out
+  of `dist`); `dts.bundle` would additionally require `@microsoft/api-extractor`.
+
+## Testing
+
+- **Rstest** (`@rstest/core`) is the test runner for TypeScript packages.
+- Colocate tests next to the source as `*.test.ts` (`energy/bmr.ts` → `energy/bmr.test.ts`).
+- Tests run in the default Node environment; add `happy-dom` only when a test actually needs a DOM.
+- A package exposes `"test": "rstest run"` for CI and may add `"test:watch": "rstest"`.
+- Prefer fixed fixtures and known worked examples for formulas, asserting numeric results with
+  explicit precision; do not test implementation details.
 
 ## Monorepo conventions
 

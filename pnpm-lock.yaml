@@ -19,7 +19,11 @@ importers:
 
   packages/cards: {}
 
-  packages/core: {}
+  packages/core:
+    devDependencies:
+      '@rstest/core':
+        specifier: ^0.12.2
+        version: 0.12.2
 
   packages/pages: {}
 
@@ -219,11 +223,30 @@ packages:
       '@swc/helpers':
         optional: true
 
+  '@rstest/core@0.12.2':
+    resolution: {integrity: sha512-vDn3fCWnfv1UnjG0ZBUyDyQstRNEuceBFMLKuvPvsSm+8vTRj3ad0O2izRdj0MuPj4AqzgYVlDMv+cGBYHTUlw==}
+    engines: {node: ^20.19.0 || >=22.12.0}
+    hasBin: true
+    peerDependencies:
+      happy-dom: ^20.8.3
+      jsdom: '>=15.0.0'
+    peerDependenciesMeta:
+      happy-dom:
+        optional: true
+      jsdom:
+        optional: true
+
   '@swc/helpers@0.5.23':
     resolution: {integrity: sha512-5lSsMOTXURePglDfvuAQUqkGek9Hg2kksOYay2m0+XR++b2NWYL/4sWyuvVBIs8oKnJaxkdi9whaL/sqN13afw==}
 
   '@tybys/wasm-util@0.10.4':
     resolution: {integrity: sha512-W3c4gRigFS0T/Ma4qIYF3GDAc5AQdHb1yL5znJT1Zv1YaD9Kitx656wBjvr19qbiosmZT8lWDM5BEMynUqX65A==}
+
+  '@types/chai@5.2.3':
+    resolution: {integrity: sha512-Mw558oeA9fFbv65/y4mHtXDs9bPnFMZAL/jxdPFUpOHHIXX91mcgEHbS5Lahr+pwZFR8A7GQleRWeI6cGFC2UA==}
+
+  '@types/deep-eql@4.0.2':
+    resolution: {integrity: sha512-c9h9dVVMigMPc4bwTvC5dxqtqJZwQPePsWjPlpSOnojbor6pGqdk541lfA7AqFQr5pB1BRdq0juY9db81BwyFw==}
 
   '@typescript/typescript-aix-ppc64@7.0.2':
     resolution: {integrity: sha512-MTKKkWB7p/0E9xi1d1tHtZ5PiLkGEMIq88pK2CubZjOsLtYTLqhgIgi6zepFa+9GHZ6h05NMCkQxGKiPXMxXtQ==}
@@ -344,6 +367,13 @@ packages:
     engines: {node: '>=16.20.0'}
     cpu: [x64]
     os: [win32]
+
+  assertion-error@2.0.1:
+    resolution: {integrity: sha512-Izi8RQcffqCeNVgFigKli1ssklIbpHnCYc6AknXGYoB6grJqyeby7jv12JUQgmTAnIDnbck1uxksT4dzN3PWBA==}
+    engines: {node: '>=12'}
+
+  cjs-module-lexer@2.2.1:
+    resolution: {integrity: sha512-Ca8swihM+/4yKecYHY52kgJd300hi2lADU/a1RxNTRe+RJ9jvqQlESpbz9DnG9mowez8qwXHB8qYdIUw9e+F5Q==}
 
   rsbuild-plugin-dts@1.0.3:
     resolution: {integrity: sha512-wVxMYvWmVPam6SeZsz8OixHm+4JPfLJAAMTD0Q2te2SxksvjuHC3wuvU12teSmloQ3nFX1YC6guNzuYqDYw+vQ==}
@@ -516,6 +546,15 @@ snapshots:
     optionalDependencies:
       '@swc/helpers': 0.5.23
 
+  '@rstest/core@0.12.2':
+    dependencies:
+      '@rsbuild/core': 2.2.11
+      '@types/chai': 5.2.3
+      cjs-module-lexer: 2.2.1
+    transitivePeerDependencies:
+      - '@module-federation/runtime-tools'
+      - core-js
+
   '@swc/helpers@0.5.23':
     dependencies:
       tslib: 2.8.1
@@ -524,6 +563,13 @@ snapshots:
     dependencies:
       tslib: 2.8.1
     optional: true
+
+  '@types/chai@5.2.3':
+    dependencies:
+      '@types/deep-eql': 4.0.2
+      assertion-error: 2.0.1
+
+  '@types/deep-eql@4.0.2': {}
 
   '@typescript/typescript-aix-ppc64@7.0.2':
     optional: true
@@ -584,6 +630,10 @@ snapshots:
 
   '@typescript/typescript-win32-x64@7.0.2':
     optional: true
+
+  assertion-error@2.0.1: {}
+
+  cjs-module-lexer@2.2.1: {}
 
   rsbuild-plugin-dts@1.0.3(@rsbuild/core@2.2.11)(typescript@7.0.2):
     dependencies:

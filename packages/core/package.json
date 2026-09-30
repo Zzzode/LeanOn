@@ -44,6 +44,11 @@
   "scripts": {
     "dev": "rslib dev",
     "build": "rslib build",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "rstest run",
+    "test:watch": "rstest"
+  },
+  "devDependencies": {
+    "@rstest/core": "^0.12.2"
   }
 }

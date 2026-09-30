@@ -36,6 +36,15 @@ export interface WeightSample {
   weightKg: number;
 }
 
+/**
+ * A logged menstrual period. `startDate` is the first day of menstruation
+ * (cycle day 1); `cycleLengthDays` is the length of that cycle if known.
+ */
+export interface PeriodRecord {
+  startDate: string;
+  cycleLengthDays?: number;
+}
+
 export interface IntakeSample {
   date: string;
   kcal: number;

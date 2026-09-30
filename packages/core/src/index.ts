@@ -20,6 +20,7 @@ export type {
   Estimate,
   IntakeSample,
   Macros,
+  PeriodRecord,
   Profile,
   Sex,
   WeightSample,
@@ -50,6 +51,12 @@ export {
   PLATEAU_WINDOW_DAYS,
 } from './weight/plateau';
 export type { PlateauInput, WeightStatus, WeightStatusResult } from './weight/plateau';
+export { alignToCycle, weightsAtCycleDay } from './weight/cycle';
+export type {
+  CycleAlignment,
+  CyclePhase,
+  SameCycleDayPoint,
+} from './weight/cycle';
 
 export {
   FAT_MIN_CALORIE_FRACTION,
