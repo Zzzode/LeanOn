@@ -1,12 +1,14 @@
 # @zzzode/cards
 
-可独立、动态下发的卡片集合，嵌入首页或双人页的卡片槽。
+English · [简体中文](README.zh-CN.md)
 
-## 规划卡片
+Independently, dynamically delivered cards embedded in card slots on the home or couple pages.
 
-挑战卡 / 任务卡 / 活动卡 / A2UI 生成式卡片。
+## Planned cards
 
-## 边界
+Challenge / task / campaign / A2UI generative cards.
 
-- 卡片粒度小于页面，支持 Lazy Bundle 懒加载与远端下发。
-- 复用 `@zzzode/core`、`@zzzode/bridge`、`@zzzode/ui`，不重复实现。
+## Boundaries
+
+- Finer-grained than pages; support lazy bundles and remote delivery.
+- Reuse `@zzzode/core`, `@zzzode/bridge` and `@zzzode/ui`; no reimplementation.

@@ -1,24 +1,28 @@
 # @zzzode/core
 
-跨端领域引擎，**纯 TypeScript、零 UI、零原生依赖**。
+English · [简体中文](README.zh-CN.md)
 
-## 职责
+Cross-platform domain engine — **pure TypeScript, zero UI and zero native dependencies**.
 
-- 能量平衡：自适应 TDEE 反推、每日热量目标
-- 体重信号：趋势去噪、平台期 / 代谢适应识别
-- 营养：宏量目标、食物密度评分、结构诊断
-- 预测：目标日期、减重→维持期过渡
+## Responsibilities
 
-## 边界
+- Energy balance: adaptive TDEE inference, daily calorie targets
+- Weight signals: trend smoothing, plateau / metabolic-adaptation detection
+- Nutrition: macro targets, food-density scoring, structure diagnosis
+- Forecasting: target date, weight-loss → maintenance transition
 
-- 不依赖 Lynx、React 或任何原生模块，保证可在 Lynx 后台线程与服务端复用。
-- 不直接采集数据；输入为结构化记录，输出为计算结果。
+## Boundaries
 
-## 命令
+- No Lynx, React or native-module dependencies, so it can be reused on a Lynx background
+  thread and on the server.
+- It does not collect data; inputs are structured records and outputs are computed results.
+
+## Commands
 
 ```bash
-pnpm --filter @zzzode/core typecheck
+pnpm --filter @zzzode/core dev
 pnpm --filter @zzzode/core build
+pnpm --filter @zzzode/core typecheck
 ```
 
-设计文档：`rfcs/0001`（基线）、`rfcs/0002`（命名与开源治理）、RFC 0003（待编写）。
+Design docs: `rfcs/0001` (baseline), `rfcs/0002` (naming & governance), RFC 0004 (planned).

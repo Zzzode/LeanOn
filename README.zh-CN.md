@@ -92,7 +92,7 @@ pnpm build       # 构建全部包
 
 ## 参与贡献
 
-欢迎贡献！请先阅读[贡献指南](CONTRIBUTING.zh-CN.md)；重大变更需走
+欢迎贡献！请先阅读[贡献指南](.github/CONTRIBUTING.zh-CN.md)；重大变更需走
 [RFC 流程](rfcs/README.md)。
 
 本项目遵循 [Contributor Covenant 行为准则](.github/CODE_OF_CONDUCT.md)。

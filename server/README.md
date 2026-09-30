@@ -1,13 +1,16 @@
 # server
 
-后端服务（形态待 RFC 确定）。
+English · [简体中文](README.zh-CN.md)
 
-## 规划职责
+Backend services (shape to be decided by RFC).
 
-- 离线包：Manifest 服务、CDN 回源与灰度控制
-- 数据同步：账号、家庭组、健康数据云同步与冲突合并
-- 智能能力（可选）：饮食拍照识别、AI 教练服务端
+## Planned responsibilities
 
-## 待定
+- Offline packages: manifest service, CDN origin and rollout control
+- Data sync: accounts, family groups, cloud sync of health data and conflict resolution
+- Intelligence (optional): meal-photo recognition, the AI coach backend
 
-- 技术栈与部署方式；确定后本目录加入 pnpm workspace。
+## Open questions
+
+- Technology stack and deployment; once decided, this directory joins the pnpm workspace (see
+  RFC 0008).

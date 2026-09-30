@@ -16,7 +16,8 @@
     "clean": "pnpm -r exec rm -rf dist node_modules/.cache"
   },
   "devDependencies": {
-    "typescript": "^5.7.2"
+    "@rslib/core": "^1.0.3",
+    "typescript": "^7.0.2"
   },
   "packageManager": "pnpm@11.7.0"
 }

@@ -1,5 +1,7 @@
 # Contributing to LeanOn
 
+English · [简体中文](CONTRIBUTING.zh-CN.md)
+
 Thanks for your interest in LeanOn! There are many ways to help: filing bugs, suggesting
 features, improving documentation, writing RFCs, or contributing code.
 

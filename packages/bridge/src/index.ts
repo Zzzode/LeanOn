@@ -1,11 +1,12 @@
 /**
- * @zzzode/bridge —— Lynx 与 Native 通信的统一封装。
+ * @zzzode/bridge — unified wrapper for Lynx ↔ Native communication.
  *
- * 规划能力：
- * - NativeModules 调用封装（Lynx → Native，仅后台线程调用）
- * - GlobalEventEmitter 事件订阅（Native → Lynx）
- * - 接口 TS 类型与能力版本协商（minNativeVersion）
+ * Planned capabilities:
+ * - NativeModules call wrappers (Lynx → Native, background thread only)
+ * - GlobalEventEmitter subscriptions (Native → Lynx)
+ * - TS interface types and capability-version negotiation (minNativeVersion)
  *
- * 仓库基线见 rfcs/0001，命名与开源治理见 rfcs/0002，详细设计见后续 RFC 0004。
+ * Repository baseline: rfcs/0001; naming & governance: rfcs/0002;
+ * detailed design: RFC 0005.
  */
 export const BRIDGE_VERSION = '0.0.0' as const;

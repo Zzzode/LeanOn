@@ -1,43 +1,52 @@
 - Start Date: 2026-10-01
 - RFC Type: process
 - Status: Accepted
-- Supersedes: 0001（仅取代其中 `@health/*` 包命名约定）
+- Supersedes: 0001 (only the `@health/*` package naming convention)
 
-# 项目命名与开源治理
+# Project Naming and Open-Source Governance
+
+English · [简体中文](0002-project-naming-and-open-source-governance.zh-CN.md)
 
 ## Summary
 
-确定项目品牌名为 **LeanOn**，代码仓库托管于个人 GitHub 账号 `Zzzode/LeanOn`，npm 包统一使用
-`@zzzode/*` scope，开源协议采用 **Apache License 2.0**，并建立完整的社区健康文件与 CI 基线。
+Set the project brand name to **LeanOn**, host the repository under the personal GitHub account
+`Zzzode/LeanOn`, use the `@zzzode/*` npm scope for packages, license the project under the
+**Apache License 2.0**, and establish the full set of community-health files and a CI baseline.
 
 ## Motivation
 
-项目决定开源。开源的长期资产首先是**名字与治理结构**：名字决定辨识度与传播，治理文件决定
-外部贡献者能否顺畅参与、漏洞如何被负责任地处理。需要在项目早期一次性确定，避免开源后改名
-带来链接、文档与包名的迁移成本。
+The project is going open source. Its long-term assets start with the **name and governance
+structure**: the name drives recognition and spread, while governance files determine how
+smoothly external contributors can participate and how vulnerabilities are handled responsibly.
+Both should be settled early to avoid the cost of renaming links, docs and packages after launch.
 
 ## Guide-level explanation
 
-- 项目对外统一称 **LeanOn**：寓意两人一起变 **lean（精瘦）**，也能彼此 **lean on（依靠）**，
-  与 "Lean on me" 的文化意象一致。
-- 仓库地址：`https://github.com/Zzzode/LeanOn`。
-- 安装 TS 包：`pnpm add @zzzode/core`（npm 用户 `zzzode` 注册后生效）。
-- 贡献者入口：README → CONTRIBUTING；重大变更先写 RFC；漏洞走私密报告。
+- The project is publicly called **LeanOn**: two people getting **lean** while being able to
+  **lean on** each other, echoing the "Lean on me" sentiment.
+- Repository: `https://github.com/Zzzode/LeanOn`.
+- Install a TS package: `pnpm add @zzzode/core` (effective once the npm user `zzzode` is
+  registered).
+- Contributor entry points: README → CONTRIBUTING; significant changes start with an RFC;
+  vulnerabilities are reported privately.
 
 ## Reference-level explanation
 
-### 命名可用性核查
+### Naming availability checks
 
-- `leanon`：GitHub 上为 2017 年停更的个人组织；npm 上是 2017 年的废弃包，且 npm 官方
-  保留该包名（"hanging on to the package name"），无法重新注册。
-- 因此品牌名用 LeanOn，但**技术 handle 不占用 `leanon`**：
-  - GitHub 仓库放在作者个人账号下：`Zzzode/LeanOn`。
-  - npm scope 使用作者 handle：`@zzzode/*`（核查时 `zzzode` 包名空闲）。
-- 备选组织名（若未来需要独立组织）：`leanonhq` / `leanon-app`（核查时 npm 均空闲）。
+- `leanon`: on GitHub it is a personal organization dormant since 2017; on npm it is an
+  abandoned package from 2017 whose name npm officially keeps ("hanging on to the package
+  name"), so it cannot be re-registered.
+- Therefore the brand is LeanOn but the **technical handles do not occupy `leanon`**:
+  - The GitHub repository lives under the author's personal account: `Zzzode/LeanOn`.
+  - The npm scope uses the author handle: `@zzzode/*` (the `zzzode` package name was free when
+    checked).
+- Alternative organization names if an independent org is needed later: `leanonhq` /
+  `leanon-app` (both free on npm when checked).
 
-### 包命名映射
+### Package naming map
 
-| 旧名（RFC 0001） | 新名 |
+| Old name (RFC 0001) | New name |
 |---|---|
 | `@health/core` | `@zzzode/core` |
 | `@health/bridge` | `@zzzode/bridge` |
@@ -45,58 +54,67 @@
 | `@health/pages` | `@zzzode/pages` |
 | `@health/cards` | `@zzzode/cards` |
 
-包的 `package.json` 统一补充 `license`、`author`、`repository`、`homepage`、`bugs`、
-`keywords`、`files` 与 `publishConfig`。
+Package manifests consistently include `license`, `author`, `repository`, `homepage`, `bugs`,
+`keywords`, `files` and `publishConfig`.
 
-### 开源协议
+### Open-source license
 
-采用 **Apache License 2.0**：
+Use the **Apache License 2.0**:
 
-- 与上游 [Lynx](https://lynxjs.org)（Apache-2.0）生态一致。
-- 相比 MIT，包含明确的**专利授权与终止条款**，对包含原生端、可能被商业使用的项目更稳妥。
-- 根目录提供 `LICENSE` 全文与 `NOTICE`；第三方许可说明见 `docs/licenses.md`。
+- Consistent with the upstream [Lynx](https://lynxjs.org) ecosystem (Apache-2.0).
+- Compared to MIT, it includes explicit **patent grant and termination clauses**, which are
+  safer for a project with native clients that may be used commercially.
+- The root provides the full `LICENSE` and a `NOTICE`; third-party licenses are documented in
+  `docs/licenses.md`.
 
-### 社区与工程文件
+### Community and engineering files
 
-- 文档：`README.md`（英文，默认）与 `README.zh-CN.md`（中文），顶部互相链接。
-- 贡献：`.github/CONTRIBUTING.md`（英文）与 `CONTRIBUTING.zh-CN.md`（中文）。
-- 行为准则：`.github/CODE_OF_CONDUCT.md`（Contributor Covenant 2.1）。
-- 安全：`.github/SECURITY.md`，使用 GitHub 私密漏洞报告。
-- Issue 模板：bug report / feature request / config（blank issues 关闭）。
-- PR 模板、`CODEOWNERS`、`FUNDING.yml`（占位）、`dependabot.yml`。
-- CI：`.github/workflows/ci.yml`，在 Node 22 / 24 上执行 install、typecheck、build。
-- 其他：`CHANGELOG.md`（Keep a Changelog）、`.gitattributes`、`assets/logo.svg`。
+- Docs: `README.md` (English, default) and `README.zh-CN.md` (Chinese), linked at the top.
+- Contributing: `.github/CONTRIBUTING.md` (English) and `.github/CONTRIBUTING.zh-CN.md`
+  (Chinese).
+- Code of conduct: `.github/CODE_OF_CONDUCT.md` (Contributor Covenant 2.1).
+- Security: `.github/SECURITY.md`, using GitHub private vulnerability reporting.
+- Issue templates: bug report / feature request / config (blank issues disabled).
+- PR template, `CODEOWNERS`, `FUNDING.yml` (placeholder), `dependabot.yml`.
+- CI: `.github/workflows/ci.yml`, running install, typecheck and build on Node 22 / 24.
+- Others: `CHANGELOG.md` (Keep a Changelog), `.gitattributes`, `assets/logo.svg`.
 
 ## Drawbacks
 
-- 品牌名（LeanOn）与 npm 名（@zzzode/*）不一致，需要在 README 中明确解释，否则使用者
-  初次安装时略有认知成本。
-- Apache-2.0 比 MIT 多了 NOTICE 与文件头约定，维护上略繁琐。
-- 双语 README / CONTRIBUTING 带来长期双份维护成本。
+- The brand (LeanOn) and npm names (`@zzzode/*`) differ, which must be explained in the README
+  or first-time install carries a small cognitive cost.
+- Apache-2.0 adds NOTICE and file-header conventions over MIT, slightly more upkeep.
+- Bilingual README / CONTRIBUTING means long-term dual maintenance.
 
 ## Rationale and alternatives
 
-- **MIT**：更简单、更宽松，但缺少专利授权条款；考虑到与 Apache-2.0 的 Lynx 集成及原生端
-  分发，选择 Apache-2.0。
-- **AGPL**：可强制网络服务开源，但会提高企业与社区使用门槛，不符合本项目定位。
-- **npm 扁平包名 `lean-on`**：核查时空闲，但五个包需要多个扁平名且缺少 scope 聚合；
-  作者 scope `@zzzode/*` 更清晰，扁平名作为未来需要时的备选。
-- **独立 GitHub 组织**：`leanon` / `lean-on` / `leanon-dev` 均被空账号占用；个人账号托管
-  对当前阶段最省事，组织化留待项目成熟后再迁移。
+- **MIT**: simpler and more permissive, but lacks a patent grant; given integration with the
+  Apache-2.0 Lynx and native client distribution, Apache-2.0 is preferred.
+- **AGPL**: would force network services to open source but raises the barrier for companies
+  and community use; not aligned with this project.
+- **Flat npm name `lean-on`**: free when checked, but five packages would need multiple flat
+  names with no scope to group them; the author scope `@zzzode/*` is clearer, with flat names
+  as a fallback if ever needed.
+- **Independent GitHub organization**: `leanon` / `lean-on` / `leanon-dev` are all occupied by
+  empty accounts; personal-account hosting is simplest at this stage, with organization
+  deferred until the project matures.
 
 ## Unresolved questions
 
-- npm 用户 `zzzode` 的实际注册与包发布流程（需作者亲自完成）。
-- 是否启用 GitHub Sponsors / FUNDING。
-- 是否引入 DCO（Developer Certificate of Origin）检查。
-- 未来成立独立组织时的迁移与重定向方案。
+- Actual registration of the npm user `zzzode` and the package release flow (requires the
+  author).
+- Whether to enable GitHub Sponsors / FUNDING.
+- Whether to introduce a DCO (Developer Certificate of Origin) check.
+- Migration and redirect plan if an independent organization is created later.
 
 ## Implementation plan
 
-- [x] 下载并放置 Apache-2.0 `LICENSE` 与 `NOTICE`
-- [x] 社区健康文件（CoC、CONTRIBUTING 双语、SECURITY、Issue/PR 模板、CODEOWNERS、FUNDING、dependabot）
-- [x] CI 工作流
-- [x] 双语 README、Logo、CHANGELOG、`.gitattributes`、`docs/licenses.md`
-- [x] 五个包改名为 `@zzzode/*` 并补齐元信息
-- [ ] 作者注册 npm 用户并发布首个版本
-- [ ] 推送仓库并在 GitHub 设置中开启 Discussions / 私密漏洞报告
+- [x] Place the Apache-2.0 `LICENSE` and `NOTICE`
+- [x] Community-health files (CoC, bilingual CONTRIBUTING, SECURITY, Issue/PR templates,
+  CODEOWNERS, FUNDING, dependabot)
+- [x] CI workflow
+- [x] Bilingual README, logo, CHANGELOG, `.gitattributes`, `docs/licenses.md`
+- [x] Rename the five packages to `@zzzode/*` and complete their metadata
+- [ ] Author registers the npm user and publishes the first release
+- [ ] Push the repository and enable Discussions / private vulnerability reporting in GitHub
+  settings

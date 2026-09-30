@@ -1,12 +1,16 @@
 # @zzzode/ui
 
-设计系统与组件库，基于官方 `lynx-ui` 二次封装。
+English · [简体中文](README.zh-CN.md)
 
-## 职责
+Design system and component library, wrapped on top of the official `lynx-ui`.
 
-- 设计 token：颜色、字号、间距、圆角、动效时长
-- 基础组件与业务复合组件（进度环、趋势图、餐食卡、双人状态卡）
+## Responsibilities
 
-## 边界
+- Design tokens: colors, font sizes, spacing, radii, animation durations
+- Base components and business composites (progress ring, trend chart, meal card, couple status
+  card)
 
-- 只包含表现层，不含领域计算（计算归 `@zzzode/core`）与原生调用（归 `@zzzode/bridge`）。
+## Boundaries
+
+- Presentation only; no domain computation (belongs to `@zzzode/core`) and no native calls
+  (belongs to `@zzzode/bridge`).

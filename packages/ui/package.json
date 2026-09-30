@@ -41,7 +41,8 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsc",
+    "dev": "rslib dev",
+    "build": "rslib build",
     "typecheck": "tsc --noEmit"
   }
 }

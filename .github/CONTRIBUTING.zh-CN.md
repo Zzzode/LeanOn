@@ -1,5 +1,7 @@
 # 为 LeanOn 做贡献
 
+[English](CONTRIBUTING.md) · 简体中文
+
 感谢你关注 LeanOn！你可以通过很多方式参与：提交 Bug、提出功能建议、改进文档、编写 RFC
 或贡献代码。
 

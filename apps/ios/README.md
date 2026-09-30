@@ -1,17 +1,20 @@
-# iOS 宿主（Swift）
+# iOS Host (Swift)
 
-App 的 iOS 原生壳与 Lynx 运行容器。
+English · [简体中文](README.zh-CN.md)
 
-## 规划职责
+The iOS native shell and Lynx runtime container.
 
-- App Shell：启动、导航/Tab、登录鉴权
-- Lynx 容器：`LynxView` 创建与池化、生命周期、`LynxResourceProvider` 注入
-- Bridge 的 iOS 实现（见 `@health/bridge` 与 RFC 0003）
-- 原生能力：HealthKit、后台任务（BGTaskScheduler）、通知、相机、蓝牙
-- 系统目标：Widget / Live Activity / App Shortcut、watchOS 独立 App
+## Planned responsibilities
 
-## 相关 RFC
+- App shell: launch, navigation/tabs, authentication
+- Lynx container: `LynxView` creation and pooling, lifecycle, `LynxResourceProvider` injection
+- iOS bridge implementation (see `@zzzode/bridge` and RFC 0005)
+- Native capabilities: HealthKit, background tasks (`BGTaskScheduler`), notifications, camera,
+  Bluetooth
+- System targets: Widget / Live Activity / App Shortcuts, standalone watchOS app
 
-- RFC 0003 Bridge 协议
-- RFC 0004 原生宿主与 Lynx 容器接入
-- RFC 0005 动态化下发通道
+## Related RFCs
+
+- RFC 0005 bridge protocol
+- RFC 0006 native host and Lynx container integration
+- RFC 0007 dynamic-delivery channel

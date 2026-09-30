@@ -1,16 +1,19 @@
 # @zzzode/bridge
 
-Lynx 与 Native 之间的唯一通信入口。
+English · [简体中文](README.zh-CN.md)
 
-## 职责
+The single communication entry point between Lynx and the native host.
 
-- 封装 `NativeModules` 调用（健康数据、蓝牙、相机、通知、存储）
-- 封装原生 → Lynx 的全局事件订阅（体重、步数、同步完成）
-- 维护接口类型与原生能力版本协商
+## Responsibilities
 
-## 边界
+- Wrap `NativeModules` calls (health data, Bluetooth, camera, notifications, storage)
+- Wrap native → Lynx global event subscriptions (weight, steps, sync complete)
+- Maintain interface types and native capability-version negotiation
 
-- 页面与卡片只允许通过本包访问原生能力，不直接散落调用。
-- 原生调用只能在 Lynx 后台线程发起。
+## Boundaries
 
-设计文档：`rfcs/0001`（基线）、`rfcs/0002`（命名与开源治理）、RFC 0004（待编写）。
+- Pages and cards may access native capabilities only through this package; no scattered direct
+  calls.
+- Native calls may only be initiated on a Lynx background thread.
+
+Design docs: `rfcs/0001` (baseline), `rfcs/0002` (naming & governance), RFC 0005 (planned).

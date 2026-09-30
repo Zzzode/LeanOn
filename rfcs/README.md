@@ -1,43 +1,55 @@
-# RFC 流程
+# RFC Process
 
-本仓库的所有重要设计决策都通过 **RFC（Request for Comments）** 沉淀。RFC 是一份简短的设计文档，描述一个变更、它的动机、技术方案、备选方案与未决问题。
+English · [简体中文](README.zh-CN.md)
 
-## 什么时候需要 RFC
+All significant design decisions in this repository are captured as **RFCs (Request for
+Comments)**. An RFC is a short design document describing a change, its motivation, the
+proposed approach, alternatives and open questions.
 
-需要：
+## When an RFC is needed
 
-- 影响整体架构或跨模块协作的决策（如 Lynx 容器方案、Bridge 协议、数据同步策略）
-- 引入新的技术栈、依赖或工程约定
-- 新的核心业务能力（如自适应 TDEE 引擎、动态化下发通道）
-- 事后发现"如果当时记录下来就不会踩坑"的决策
+Needed for:
 
-不需要：
+- Decisions that affect overall architecture or cross-module collaboration (the Lynx container
+  approach, the bridge protocol, the data-sync strategy)
+- Introducing a new technology stack, dependency or engineering convention
+- New core business capabilities (the adaptive TDEE engine, the dynamic-delivery channel)
+- Any decision you later realize "would have saved us pain if we had written it down"
 
-- 单模块内部的实现细节、重命名、格式调整
-- Bug 修复、依赖升级
-- 代码能直接表达清楚的小改动（拿不准就先写，成本很低）
+Not needed for:
 
-## 流程
+- Implementation details, renames or formatting within a single module
+- Bug fixes and dependency upgrades
+- Small changes that the code already expresses clearly (when in doubt, write one — it is cheap)
 
-1. **复制模板**：从 `0000-template.md` 复制，编号取下一个四位序号，文件名形如 `0002-adaptive-tdee.md`。
-2. **填写并提交**：新建分支 `rfc/<编号>-<短名>`，提交后发起 Merge/Pull Request；只有两个人时，直接在 PR 评论区讨论即可。
-3. **讨论与修改**：根据反馈迭代文档。
-4. **合并即 Accepted**：讨论收敛、两人无阻塞异议后合并，状态改为 `Accepted`。
-5. **实施**：代码落地完成后状态改为 `Implemented`，并在 RFC 末尾补记实际实现与偏差。
+## Process
 
-## 状态
+1. **Copy the template**: copy `0000-template.md`, take the next four-digit number, and name
+   the file like `0003-adaptive-tdee.md`.
+2. **Fill it in and open a PR**: create a branch `rfc/<number>-<short-name>`, commit and open a
+   pull request. With only two people, discussion can happen directly in the PR comments.
+3. **Discuss and revise**: iterate on the document based on feedback.
+4. **Merge means Accepted**: once discussion converges with no blocking objection, merge and
+   set the status to `Accepted`.
+5. **Implement**: after the code lands, set the status to `Implemented` and note the actual
+   implementation and any deviations at the end of the RFC.
 
-| 状态 | 含义 |
+## Status
+
+| Status | Meaning |
 |---|---|
-| `Proposed` | 已提出，讨论中 |
-| `Accepted` | 已达成一致，待实施或实施中 |
-| `Implemented` | 已在代码中落地 |
-| `Rejected` | 经讨论不采纳（文档保留以记录原因） |
-| `Withdrawn` | 提出者撤回 |
-| `Superseded` | 被更新的 RFC 取代，头部注明取代关系 |
+| `Proposed` | Raised, under discussion |
+| `Accepted` | Agreed, pending or in implementation |
+| `Implemented` | Landed in code |
+| `Rejected` | Not adopted after discussion (kept to record why) |
+| `Withdrawn` | Withdrawn by the author |
+| `Superseded` | Replaced by a newer RFC; the header notes the relationship |
 
-## 约定
+## Conventions
 
-- 编号一旦使用不复用、不重排。
-- RFC 是**历史文档**：合并后不原地改写结论；需求变化用新 RFC 取代旧 RFC。
-- 保持简短：能讲清决策即可，避免堆砌。
+- Numbers are never reused or reordered once assigned.
+- RFCs are **historical documents**: do not rewrite their conclusions after merge; use a new
+  RFC to supersede an old one.
+- Keep them short: enough to explain the decision, nothing more.
+- Documentation is English by default; a Chinese translation, if provided, uses the same name
+  with the `.zh-CN` suffix (see `AGENTS.md`).

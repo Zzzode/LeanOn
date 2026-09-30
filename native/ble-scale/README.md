@@ -1,10 +1,12 @@
 # ble-scale
 
-智能体脂秤的蓝牙接入能力。
+English · [简体中文](README.zh-CN.md)
 
-## 规划职责
+Bluetooth support for smart body-composition scales.
 
-- BLE 扫描、连接与断线重连
-- 通用 GATT / 厂商私有协议解析
-- 体重、体脂、肌肉量等数据的标准化输出
-- 后台测量结果入库与事件通知
+## Planned responsibilities
+
+- BLE scanning, connection and reconnect
+- Parse generic GATT / vendor-private protocols
+- Standardize weight, body fat, muscle mass and other measurements
+- Persist background measurements and emit event notifications

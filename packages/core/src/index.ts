@@ -1,12 +1,13 @@
 /**
- * @zzzode/core —— 纯 TS 领域引擎（零 UI、零原生依赖）。
+ * @zzzode/core — pure-TS domain engine (zero UI, zero native dependencies).
  *
- * 规划能力：
- * - 自适应 TDEE 反推（BMR + NEAT + EAT + TEF）
- * - 体重趋势去噪（7 日趋势 / 周均值）
- * - 平台期与代谢适应识别
- * - 营养质量评分与饮食结构诊断
+ * Planned capabilities:
+ * - Adaptive TDEE inference (BMR + NEAT + EAT + TEF)
+ * - Weight-trend denoising (7-day trend / weekly average)
+ * - Plateau and metabolic-adaptation detection
+ * - Nutrition-quality scoring and diet-structure diagnosis
  *
- * 仓库基线见 rfcs/0001，命名与开源治理见 rfcs/0002，详细设计见后续 RFC 0003。
+ * Repository baseline: rfcs/0001; naming & governance: rfcs/0002;
+ * detailed design: RFC 0004.
  */
 export const ENGINE_VERSION = '0.0.0' as const;
