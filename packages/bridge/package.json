@@ -1,6 +1,6 @@
 {
   "name": "@zzzode/bridge",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "type": "module",
   "description": "LeanOn bridge: typed NativeModules and events between Lynx and the native host",
@@ -43,6 +43,11 @@
   "scripts": {
     "dev": "rslib dev",
     "build": "rslib build",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "rstest run",
+    "test:watch": "rstest"
+  },
+  "devDependencies": {
+    "@rstest/core": "^0.12.2"
   }
 }

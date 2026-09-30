@@ -15,7 +15,11 @@ importers:
         specifier: ^7.0.2
         version: 7.0.2
 
-  packages/bridge: {}
+  packages/bridge:
+    devDependencies:
+      '@rstest/core':
+        specifier: ^0.12.2
+        version: 0.12.2
 
   packages/cards: {}
 

@@ -62,3 +62,4 @@ Not needed for:
 | [0002](0002-project-naming-and-open-source-governance.md) | Project naming and open-source governance | Accepted |
 | [0003](0003-docs-typescript7-build-system.md) | Docs, TypeScript 7 and the build system | Accepted |
 | [0004](0004-core-domain-engine.md) | Core domain engine | Accepted |
+| [0005](0005-typed-bridge.md) | Typed Lynx ↔ Native bridge | Accepted |
