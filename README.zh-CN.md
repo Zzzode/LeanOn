@@ -71,7 +71,7 @@ LeanOn 采用 **Lynx × Native 混合架构**：
 
 ## 快速开始
 
-**环境要求：** Node.js >= 20、pnpm >= 9
+**环境要求：** Node.js >= 22.13、pnpm >= 11
 
 ```bash
 corepack enable

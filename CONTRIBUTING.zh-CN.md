@@ -10,7 +10,7 @@
 
 ## 开发环境
 
-**环境要求：** Node.js >= 20、pnpm >= 9（可通过 `corepack enable` 启用）。
+**环境要求：** Node.js >= 22.13、pnpm >= 11（可通过 `corepack enable` 启用）。
 
 ```bash
 git clone https://github.com/Zzzode/LeanOn.git

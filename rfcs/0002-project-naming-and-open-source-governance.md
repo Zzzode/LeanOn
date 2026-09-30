@@ -64,7 +64,7 @@
 - 安全：`.github/SECURITY.md`，使用 GitHub 私密漏洞报告。
 - Issue 模板：bug report / feature request / config（blank issues 关闭）。
 - PR 模板、`CODEOWNERS`、`FUNDING.yml`（占位）、`dependabot.yml`。
-- CI：`.github/workflows/ci.yml`，在 Node 20 / 22 上执行 install、typecheck、build。
+- CI：`.github/workflows/ci.yml`，在 Node 22 / 24 上执行 install、typecheck、build。
 - 其他：`CHANGELOG.md`（Keep a Changelog）、`.gitattributes`、`assets/logo.svg`。
 
 ## Drawbacks

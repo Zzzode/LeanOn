@@ -11,7 +11,7 @@ features, improving documentation, writing RFCs, or contributing code.
 
 ## Development setup
 
-**Prerequisites:** Node.js >= 20, pnpm >= 9 (enable with `corepack enable`).
+**Prerequisites:** Node.js >= 22.13, pnpm >= 11 (enable with `corepack enable`).
 
 ```bash
 git clone https://github.com/Zzzode/LeanOn.git

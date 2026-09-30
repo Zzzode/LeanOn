@@ -79,7 +79,7 @@ See [`rfcs/`](rfcs/) for design decisions, starting with
 
 ## Getting started
 
-**Prerequisites:** Node.js >= 20 and pnpm >= 9
+**Prerequisites:** Node.js >= 22.13 and pnpm >= 11
 
 ```bash
 corepack enable
