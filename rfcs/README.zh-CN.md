@@ -52,3 +52,4 @@
 | [0003](0003-docs-typescript7-build-system.md) | 文档、TypeScript 7 与构建系统 | Accepted |
 | [0004](0004-core-domain-engine.md) | Core 领域引擎 | Accepted |
 | [0005](0005-typed-bridge.md) | 类型化 Lynx ↔ Native 桥 | Accepted |
+| [0006](0006-native-host-and-container.md) | 原生宿主与 Lynx 容器 | Accepted |

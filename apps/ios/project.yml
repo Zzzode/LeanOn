@@ -1,0 +1,45 @@
+# XcodeGen project definition. Generate the Xcode project with:
+#   brew install xcodegen && xcodegen generate
+# The generated .xcodeproj is intentionally not committed.
+name: LeanOn
+
+options:
+  bundleIdPrefix: com.zzzode
+  deploymentTarget:
+    iOS: "15.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    SWIFT_VERSION: "5.0"
+    DEVELOPMENT_TEAM: ""
+
+targets:
+  LeanOn:
+    type: application
+    platform: iOS
+    sources:
+      - path: LeanOn
+    info:
+      path: LeanOn/Info.plist
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.zzzode.leanon
+        SWIFT_OBJC_BRIDGING_HEADER: LeanOn/LeanOn-Bridging-Header.h
+        TARGETED_DEVICE_FAMILY: "1,2"
+    # Lynx is integrated via CocoaPods (pod 'Lynx') or the Swift package once the
+    # pinned 3.9.x distribution is confirmed; add the dependency here accordingly.
+
+schemes:
+  LeanOn:
+    build:
+      targets:
+        LeanOn: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - LeanOn

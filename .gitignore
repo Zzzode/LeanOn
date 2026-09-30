@@ -24,3 +24,20 @@ coverage/
 .tmp-tool-results/
 .env
 .env.local
+
+# Android (Gradle)
+apps/android/.gradle/
+apps/android/build/
+apps/android/app/build/
+apps/android/local.properties
+apps/android/captures/
+*.apk
+*.aab
+
+# iOS (generated projects and local tooling)
+apps/ios/*.xcodeproj
+apps/ios/*.xcworkspace
+apps/ios/Pods/
+apps/ios/DerivedData/
+*.xcuserstate
+xcuserdata/

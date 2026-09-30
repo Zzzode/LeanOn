@@ -63,3 +63,4 @@ Not needed for:
 | [0003](0003-docs-typescript7-build-system.md) | Docs, TypeScript 7 and the build system | Accepted |
 | [0004](0004-core-domain-engine.md) | Core domain engine | Accepted |
 | [0005](0005-typed-bridge.md) | Typed Lynx ↔ Native bridge | Accepted |
+| [0006](0006-native-host-and-container.md) | Native host and Lynx container | Accepted |
