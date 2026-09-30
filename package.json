@@ -1,0 +1,21 @@
+{
+  "name": "health-app",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "双人饮食与运动健康管理 App（Lynx × Native 混合架构）",
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=9"
+  },
+  "scripts": {
+    "build": "pnpm -r run build",
+    "typecheck": "pnpm -r run typecheck",
+    "test": "pnpm -r run test",
+    "clean": "pnpm -r exec rm -rf dist node_modules/.cache"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  },
+  "packageManager": "pnpm@11.7.0"
+}
