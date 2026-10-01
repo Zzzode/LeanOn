@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="LeanOn">
+  <title>LeanOn</title>
+  <path fill="currentColor" d="
+    M50 84
+    C46 74 16 58 16 40
+    C16 30 24 22 34 24
+    C41 25 47 31 50 36
+    C50 48 50 70 50 84 Z"/>
+  <path fill="currentColor" d="
+    M50 84
+    C54 74 84 58 84 40
+    C84 30 76 22 66 24
+    C60 25 53 31 50 36
+    C49 49 49 70 50 84 Z"/>
+</svg>

@@ -1,23 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="LeanOn">
   <title>LeanOn</title>
   <defs>
-    <linearGradient id="leanLeft" x1="0.15" y1="0.15" x2="0.5" y2="1">
+    <linearGradient id="leanLeftMark" x1="0.15" y1="0.15" x2="0.5" y2="1">
       <stop offset="0" stop-color="#CDF3DE"/>
       <stop offset="1" stop-color="#46C98B"/>
     </linearGradient>
-    <linearGradient id="leanRight" x1="0.85" y1="0.15" x2="0.5" y2="1">
+    <linearGradient id="leanRightMark" x1="0.85" y1="0.15" x2="0.5" y2="1">
       <stop offset="0" stop-color="#E7FBF0"/>
       <stop offset="1" stop-color="#2ABB7A"/>
     </linearGradient>
   </defs>
-  <rect width="100" height="100" rx="22" fill="#FFFFFF"/>
-  <path fill="url(#leanLeft)" d="
+  <path fill="url(#leanLeftMark)" d="
     M50 84
     C46 74 16 58 16 40
     C16 30 24 22 34 24
     C41 25 47 31 50 36
     C50 48 50 70 50 84 Z"/>
-  <path fill="url(#leanRight)" d="
+  <path fill="url(#leanRightMark)" d="
     M50 84
     C54 74 84 58 84 40
     C84 30 76 22 66 24
