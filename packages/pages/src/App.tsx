@@ -6,6 +6,7 @@ import {
   type Locale,
 } from '@zzzode/i18n';
 import { EnergyCard } from './components/EnergyCard.js';
+import { FoodSheet } from './components/FoodSheet.js';
 import { Header } from './components/Header.js';
 import { MacroCard } from './components/MacroCard.js';
 import { QuickActions } from './components/QuickActions.js';
@@ -17,7 +18,7 @@ import { sampleHostData } from './state/sample.js';
 import { selectToday } from './state/select.js';
 import type { HostData } from './state/types.js';
 
-type ActiveSheet = 'none' | 'weight' | 'scale';
+type ActiveSheet = 'none' | 'weight' | 'scale' | 'food';
 
 interface BootstrapData {
   hostData?: HostData;
@@ -54,6 +55,19 @@ export function App() {
     setActiveSheet('none');
   };
 
+  const handleSaveIntake = async (meal: {
+    kcal: number;
+    macros: HostData['intake'][number]['macros'];
+  }) => {
+    const response = await bridge.invoke('health.writeIntake', {
+      date: hostData.today,
+      kcal: meal.kcal,
+      macros: meal.macros,
+    });
+    setHostData(response.hostData);
+    setActiveSheet('none');
+  };
+
   return (
     <page className="Page">
       <scroll-view scroll-y className="Scroll">
@@ -72,7 +86,11 @@ export function App() {
           )}
           <WeightCard state={state} t={t} />
           <MacroCard state={state} t={t} />
-          <QuickActions t={t} onLogWeight={() => setActiveSheet('weight')} />
+          <QuickActions
+            t={t}
+            onLogFood={() => setActiveSheet('food')}
+            onLogWeight={() => setActiveSheet('weight')}
+          />
           <text className="Footer">{t('footer.disclaimer')}</text>
         </view>
       </scroll-view>
@@ -90,6 +108,14 @@ export function App() {
           bridge={bridge}
           t={t}
           onClose={() => setActiveSheet('none')}
+        />
+      )}
+      {activeSheet === 'food' && (
+        <FoodSheet
+          t={t}
+          locale={locale}
+          onClose={() => setActiveSheet('none')}
+          onSave={handleSaveIntake}
         />
       )}
     </page>

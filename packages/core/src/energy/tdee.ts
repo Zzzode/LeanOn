@@ -108,11 +108,14 @@ export function adaptiveTdee(input: AdaptiveTdeeInput): AdaptiveTdeeResult | nul
   }
   const spanDays = (points[points.length - 1]?.x ?? 0) - (points[0]?.x ?? 0);
 
-  // Aggregate intake per calendar day, then keep days inside the window.
+  // Aggregate intake per calendar day over COMPLETED days only. The anchor day
+  // is the latest weight sample (typically today's morning weigh-in) and is still
+  // in progress, so its partial intake must not move the maintenance estimate
+  // and make the day's calorie budget jump on every logged meal.
   const kcalByDay = new Map<number, number>();
   for (const sample of intake) {
     const day = dayIndex(sample.date);
-    if (day < windowStartDay || day > anchorDay) {
+    if (day < windowStartDay || day >= anchorDay) {
       continue;
     }
     kcalByDay.set(day, (kcalByDay.get(day) ?? 0) + sample.kcal);

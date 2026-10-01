@@ -44,6 +44,42 @@ function createPreviewBridge(): LeanOnBridgeClient {
     return { success: true, hostData: clone(hostData) };
   });
 
+  memory.handle<
+    {
+      date: string;
+      kcal: number;
+      macros: HostData['intake'][number]['macros'];
+    },
+    { success: true; hostData: HostData }
+  >('health.writeIntake', (request) => {
+    // Accumulate the meal into the day's intake (multiple meals add together).
+    const hasToday = hostData.intake.some((s) => s.date === request.date);
+    const intake = hasToday
+      ? hostData.intake.map((s) =>
+          s.date === request.date
+            ? {
+                date: s.date,
+                kcal: s.kcal + request.kcal,
+                macros: {
+                  proteinG: s.macros.proteinG + request.macros.proteinG,
+                  carbsG: s.macros.carbsG + request.macros.carbsG,
+                  fatG: s.macros.fatG + request.macros.fatG,
+                },
+              }
+            : s,
+        )
+      : [
+          ...hostData.intake,
+          {
+            date: request.date,
+            kcal: request.kcal,
+            macros: request.macros,
+          },
+        ];
+    hostData = { ...hostData, intake };
+    return { success: true, hostData: clone(hostData) };
+  });
+
   memory.handle('scale.getStatus', () => ({
     state: scaleState,
     pairedDeviceId: null,

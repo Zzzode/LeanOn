@@ -28,7 +28,9 @@ test('adaptiveTdee infers ~2370 kcal from the losing trend and 1800 intake', () 
   expect(result!.lower).toBeLessThan(result!.tdee);
   expect(result!.upper).toBeGreaterThan(result!.tdee);
   expect(result!.confidence).toBe('high');
-  expect(result!.coverage).toBeCloseTo(1);
+  // The anchor day (latest weight) is still in progress and excluded from the
+  // completed-day intake, so coverage is 27 of 28 days.
+  expect(result!.coverage).toBeCloseTo(27 / 28, 2);
   expect(result!.slopePerDay).toBeCloseTo(-2 / 27, 4);
 });
 

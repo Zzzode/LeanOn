@@ -45,6 +45,12 @@ importers:
         specifier: ^0.12.2
         version: 0.12.2
 
+  packages/food-data:
+    devDependencies:
+      '@rstest/core':
+        specifier: ^0.12.2
+        version: 0.12.2
+
   packages/i18n:
     devDependencies:
       '@rstest/core':
@@ -62,6 +68,9 @@ importers:
       '@zzzode/core':
         specifier: workspace:*
         version: link:../core
+      '@zzzode/food-data':
+        specifier: workspace:*
+        version: link:../food-data
       '@zzzode/i18n':
         specifier: workspace:*
         version: link:../i18n

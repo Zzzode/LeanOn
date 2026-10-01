@@ -58,3 +58,4 @@
 | [0009](0009-internationalization.md) | 国际化（英文 + 简体中文） | Accepted |
 | [0010](0010-interactive-logging-write-path.md) | 交互式记录写入链路 | Accepted |
 | [0011](0011-ble-scale-and-records-changed.md) | BLE 体重秤与 `records.changed` | Accepted |
+| [0012](0012-offline-food-logging.md) | 离线记录饮食 | Accepted |

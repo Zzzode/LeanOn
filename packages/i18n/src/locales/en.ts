@@ -54,6 +54,15 @@ export const en = {
   'scaleSheet.waiting': 'Connected. Step on the scale.',
   'scaleSheet.close': 'Close',
 
+  // Food logging sheet
+  'foodSheet.title': 'Log food',
+  'foodSheet.searchPlaceholder': 'Search foods',
+  'foodSheet.back': 'Back to results',
+  'foodSheet.cancel': 'Cancel',
+  'foodSheet.save': 'Add meal',
+  'foodSheet.invalid': 'Enter a positive amount in grams.',
+  'foodSheet.error': 'Could not save. Please try again.',
+
   // Notice & footer
   'notice.safeFloor': 'Your target was raised to the safe minimum.',
   'footer.disclaimer': 'LeanOn · not medical advice',

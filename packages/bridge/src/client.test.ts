@@ -112,6 +112,25 @@ test('scale.disconnect resolves with connected false', async () => {
   expect(result.connected).toBe(false);
 });
 
+test('health.writeIntake forwards the meal and returns hostData', async () => {
+  const bridge = createMemoryBridge();
+  bridge.handle<
+    { date: string; kcal: number; macros: unknown },
+    { success: true; hostData: { today: string } }
+  >('health.writeIntake', (request) => ({
+    success: true,
+    hostData: { today: request.date },
+  }));
+  const client = createLeanOnBridgeClient(bridge.transport);
+  const response = await client.invoke('health.writeIntake', {
+    date: '2026-10-01',
+    kcal: 500,
+    macros: { proteinG: 30, carbsG: 50, fatG: 15 },
+  });
+  expect(response.success).toBe(true);
+  expect(response.hostData.today).toBe('2026-10-01');
+});
+
 test('records.changed delivers the refreshed hostData snapshot', () => {
   const bridge = createMemoryBridge();
   const client = createLeanOnBridgeClient(bridge.transport);

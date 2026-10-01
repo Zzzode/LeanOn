@@ -1,4 +1,4 @@
-import type { IntakeSample, Profile, WeightSample } from '@zzzode/core';
+import type { IntakeSample, Macros, Profile, WeightSample } from '@zzzode/core';
 import type { JsonValue } from './types';
 
 /**
@@ -109,6 +109,10 @@ export type LeanOnRpcContract = {
     request: { date: string; weightKg: number };
     response: { success: true; hostData: HostDataDto };
   };
+  'health.writeIntake': {
+    request: { date: string; kcal: number; macros: Macros };
+    response: { success: true; hostData: HostDataDto };
+  };
   'scale.scan': {
     request: void;
     response: { scanning: boolean };
@@ -177,6 +181,7 @@ export const RpcMethods = {
   healthAuthorize: 'health.authorize',
   healthReadSamples: 'health.readSamples',
   healthWriteWeight: 'health.writeWeight',
+  healthWriteIntake: 'health.writeIntake',
   scaleScan: 'scale.scan',
   scaleConnect: 'scale.connect',
   scaleDisconnect: 'scale.disconnect',

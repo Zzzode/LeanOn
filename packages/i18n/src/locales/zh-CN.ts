@@ -53,6 +53,15 @@ export const zhCN = {
   'scaleSheet.waiting': '已连接，请站上秤。',
   'scaleSheet.close': '关闭',
 
+  // Food logging sheet
+  'foodSheet.title': '记录饮食',
+  'foodSheet.searchPlaceholder': '搜索食物',
+  'foodSheet.back': '返回结果',
+  'foodSheet.cancel': '取消',
+  'foodSheet.save': '添加',
+  'foodSheet.invalid': '请输入正数克数。',
+  'foodSheet.error': '保存失败，请重试。',
+
   // Notice & footer
   'notice.safeFloor': '目标已调整到安全下限。',
   'footer.disclaimer': 'LeanOn · 非医疗建议',

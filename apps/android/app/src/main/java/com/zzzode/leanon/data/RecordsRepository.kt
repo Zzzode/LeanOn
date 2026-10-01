@@ -54,6 +54,52 @@ class RecordsRepository(context: Context) {
     return data
   }
 
+  /**
+   * Add a meal to [date], accumulating calories and macros into the day's intake
+   * sample (multiple meals add together) or creating it, then persist and return
+   * the full HostData (RFC 0012).
+   */
+  fun addIntake(
+    date: String,
+    kcal: Double,
+    proteinG: Double,
+    carbsG: Double,
+    fatG: Double,
+  ): JSONObject {
+    val data = loadHostData()
+    val intake = data.getJSONArray(INTAKE)
+
+    var existing = -1
+    for (index in 0 until intake.length()) {
+      if (intake.getJSONObject(index).getString(DATE) == date) {
+        existing = index
+        break
+      }
+    }
+
+    if (existing >= 0) {
+      val sample = intake.getJSONObject(existing)
+      sample.put(KCAL, sample.getDouble(KCAL) + kcal)
+      val macros = sample.getJSONObject(MACROS)
+      macros.put(PROTEIN_G, macros.getDouble(PROTEIN_G) + proteinG)
+      macros.put(CARBS_G, macros.getDouble(CARBS_G) + carbsG)
+      macros.put(FAT_G, macros.getDouble(FAT_G) + fatG)
+    } else {
+      val macros = JSONObject()
+        .put(PROTEIN_G, proteinG)
+        .put(CARBS_G, carbsG)
+        .put(FAT_G, fatG)
+      val sample = JSONObject()
+        .put(DATE, date)
+        .put(KCAL, kcal)
+        .put(MACROS, macros)
+      intake.put(sample)
+    }
+
+    recordFile.writeText(data.toString(), Charsets.UTF_8)
+    return data
+  }
+
   private fun ensureSeeded() {
     if (recordFile.exists()) return
     val seed = appContext.assets
@@ -67,7 +113,13 @@ class RecordsRepository(context: Context) {
     const val RECORD_FILE = "records.json"
     const val SEED_ASSET = "seed/hostData.json"
     const val WEIGHTS = "weights"
+    const val INTAKE = "intake"
     const val DATE = "date"
     const val WEIGHT_KG = "weightKg"
+    const val KCAL = "kcal"
+    const val MACROS = "macros"
+    const val PROTEIN_G = "proteinG"
+    const val CARBS_G = "carbsG"
+    const val FAT_G = "fatG"
   }
 }

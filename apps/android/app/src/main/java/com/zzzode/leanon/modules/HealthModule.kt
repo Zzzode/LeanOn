@@ -8,10 +8,9 @@ import com.lynx.react.bridge.JavaOnlyMap
 import com.lynx.react.bridge.ReadableMap
 import com.lynx.tasm.behavior.LynxContext
 import com.zzzode.leanon.LeanOnApplication
-import com.zzzode.leanon.data.RecordsRepository
 import com.zzzode.leanon.data.toJavaOnlyMap
 
-/** Native module backing the `health.*` methods; delegates to native/health-adapter. */
+/** Native module backing the `health.*` methods; delegates to the record store. */
 class HealthModule(context: Context) : LynxModule(context) {
 
   private val moduleContext: Context = context
@@ -28,9 +27,8 @@ class HealthModule(context: Context) : LynxModule(context) {
   }
 
   /**
-   * Persist today's weight and return the updated HostData snapshot in a single
-   * round trip (RFC 0010). Validation failures return `invalid-request`; any
-   * storage problem returns `unavailable`.
+   * Persist today's weight and return the updated HostData in one round trip
+   * (RFC 0010). After the write the host emits `records.changed` (RFC 0011).
    */
   @LynxMethod
   fun writeWeight(params: ReadableMap, callback: Callback) {
@@ -53,11 +51,10 @@ class HealthModule(context: Context) : LynxModule(context) {
         return
       }
 
-      val hostData = records().addWeight(date, weightKg)
-      val result = JavaOnlyMap()
-      result.putBoolean("success", true)
-      result.putMap("hostData", hostData.toJavaOnlyMap())
-      callback.invoke(result)
+      val application = app()
+      val hostData = application.records.addWeight(date, weightKg)
+      application.events.dispatch("records.changed", changedPayload(hostData))
+      callback.invoke(successResult(hostData))
     } catch (error: Exception) {
       callback.invoke(
         errorResult("unavailable", error.message ?: "Could not save weight"),
@@ -65,10 +62,78 @@ class HealthModule(context: Context) : LynxModule(context) {
     }
   }
 
-  private fun records(): RecordsRepository {
+  /**
+   * Add a meal to the day's intake (accumulated) and return the updated HostData
+   * (RFC 0012). Emits `records.changed` after the write like the other paths.
+   */
+  @LynxMethod
+  fun writeIntake(params: ReadableMap, callback: Callback) {
+    try {
+      if (
+        !params.hasKey("date") ||
+        !params.hasKey("kcal") ||
+        !params.hasKey("macros")
+      ) {
+        callback.invoke(
+          errorResult("invalid-request", "Missing date, kcal or macros"),
+        )
+        return
+      }
+      val date = params.getString("date")
+      val kcal = params.getDouble("kcal")
+      val macros = params.getMap("macros")
+      if (
+        date == null ||
+        !kcal.isFinite() ||
+        kcal <= 0 ||
+        macros == null ||
+        !macros.hasKey("proteinG") ||
+        !macros.hasKey("carbsG") ||
+        !macros.hasKey("fatG")
+      ) {
+        callback.invoke(errorResult("invalid-request", "Invalid meal"))
+        return
+      }
+      val proteinG = macros.getDouble("proteinG")
+      val carbsG = macros.getDouble("carbsG")
+      val fatG = macros.getDouble("fatG")
+      if (
+        !proteinG.isFinite() || !carbsG.isFinite() || !fatG.isFinite() ||
+        proteinG < 0 || carbsG < 0 || fatG < 0
+      ) {
+        callback.invoke(errorResult("invalid-request", "Invalid macros"))
+        return
+      }
+
+      val application = app()
+      val hostData =
+        application.records.addIntake(date, kcal, proteinG, carbsG, fatG)
+      application.events.dispatch("records.changed", changedPayload(hostData))
+      callback.invoke(successResult(hostData))
+    } catch (error: Exception) {
+      callback.invoke(
+        errorResult("unavailable", error.message ?: "Could not save meal"),
+      )
+    }
+  }
+
+  private fun app(): LeanOnApplication {
     val androidContext =
       (moduleContext as? LynxContext)?.getContext() ?: moduleContext
-    return (androidContext.applicationContext as LeanOnApplication).records
+    return androidContext.applicationContext as LeanOnApplication
+  }
+
+  private fun changedPayload(hostData: org.json.JSONObject): JavaOnlyMap {
+    val payload = JavaOnlyMap()
+    payload.putMap("hostData", hostData.toJavaOnlyMap())
+    return payload
+  }
+
+  private fun successResult(hostData: org.json.JSONObject): JavaOnlyMap {
+    val result = JavaOnlyMap()
+    result.putBoolean("success", true)
+    result.putMap("hostData", hostData.toJavaOnlyMap())
+    return result
   }
 
   private fun errorResult(code: String, message: String): JavaOnlyMap {
