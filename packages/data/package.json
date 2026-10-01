@@ -1,0 +1,55 @@
+{
+  "name": "@zzzode/data",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "LeanOn data: versioned schema, deterministic merge/sync and encrypted storage contracts",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Zzzode",
+    "url": "https://github.com/Zzzode"
+  },
+  "homepage": "https://github.com/Zzzode/LeanOn#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zzzode/LeanOn.git",
+    "directory": "packages/data"
+  },
+  "bugs": {
+    "url": "https://github.com/Zzzode/LeanOn/issues"
+  },
+  "keywords": [
+    "lynx",
+    "data",
+    "schema",
+    "encryption",
+    "sync",
+    "e2ee",
+    "leanon"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "rslib dev",
+    "build": "rslib build",
+    "typecheck": "tsc --noEmit",
+    "test": "rstest run",
+    "test:watch": "rstest"
+  },
+  "devDependencies": {
+    "@rstest/core": "^0.12.2"
+  }
+}

@@ -65,3 +65,4 @@ Not needed for:
 | [0005](0005-typed-bridge.md) | Typed Lynx ↔ Native bridge | Accepted |
 | [0006](0006-native-host-and-container.md) | Native host and Lynx container | Accepted |
 | [0007](0007-dynamic-delivery.md) | Dynamic bundle delivery | Accepted |
+| [0008](0008-data-model-encrypted-storage-sync.md) | Data model, encrypted storage and sync | Accepted |

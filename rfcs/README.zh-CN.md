@@ -54,3 +54,4 @@
 | [0005](0005-typed-bridge.md) | 类型化 Lynx ↔ Native 桥 | Accepted |
 | [0006](0006-native-host-and-container.md) | 原生宿主与 Lynx 容器 | Accepted |
 | [0007](0007-dynamic-delivery.md) | 动态化下发 | Accepted |
+| [0008](0008-data-model-encrypted-storage-sync.md) | 数据模型、加密存储与同步 | Accepted |
