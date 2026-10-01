@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-01T00:00:00Z",
+  "bundles": {
+    "home": {
+      "version": 7,
+      "url": "https://cdn.example.com/leanon/bundles/home@7.lynx",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "signature": "<base64 detached signature over home@7.lynx>",
+      "minHostVersion": "0.1.0",
+      "requiredCapabilities": ["health.readSamples", "app.getCapabilities"],
+      "size": 184320,
+      "rolloutPercentage": 25
+    },
+    "card:today": {
+      "version": 3,
+      "url": "https://cdn.example.com/leanon/bundles/card-today@3.lynx",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "signature": "<base64 detached signature over card-today@3.lynx>",
+      "minHostVersion": "0.1.0",
+      "requiredCapabilities": ["app.getCapabilities"],
+      "size": 40960
+    }
+  }
+}

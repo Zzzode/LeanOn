@@ -64,3 +64,4 @@ Not needed for:
 | [0004](0004-core-domain-engine.md) | Core domain engine | Accepted |
 | [0005](0005-typed-bridge.md) | Typed Lynx ↔ Native bridge | Accepted |
 | [0006](0006-native-host-and-container.md) | Native host and Lynx container | Accepted |
+| [0007](0007-dynamic-delivery.md) | Dynamic bundle delivery | Accepted |
