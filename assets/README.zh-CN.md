@@ -31,12 +31,12 @@ LeanOn 帮助两位伴侣一起变得更健康——既能变“**瘦（lean）*
 
 ## 文件
 
-- [`logo.svg`](logo.svg)——主标：白底上的绿色心叶。
+- [`app-icon.png`](app-icon.png)——**权威（canonical）**、完整质感的 App 图标，README 展示与宣传使用的就是这一版。
+- [`app-icon-ios-1024.png`](app-icon-ios-1024.png)——iOS App Store 图标（满版、无圆角，由系统裁切）。
+- [`logo.svg`](logo.svg)——白底心叶的简化可缩放矢量版，用于必须使用 SVG 的排版。
 - [`favicon.svg`](favicon.svg)——满版绿底白心，用于浏览器标签页。
 - [`logo-mark.svg`](logo-mark.svg)——透明底心叶，用于浅色排版。
 - [`logo-monochrome.svg`](logo-monochrome.svg)——使用 `currentColor` 的单色标志。
-- [`app-icon-ios-1024.png`](app-icon-ios-1024.png)——iOS App Store 图标（满版、无圆角，由系统裁切）。
-- [`app-icon.png`](app-icon.png)——圆角 App 图标预览，用于网页与宣传。
 
 ## App 图标
 

@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/logo.svg" width="84" height="84" alt="LeanOn logo" />
+<img src="assets/app-icon.png" width="96" height="96" alt="LeanOn logo" />
 
 # LeanOn
 

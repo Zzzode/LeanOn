@@ -31,12 +31,12 @@ The mark is deliberately simple — a single, clear silhouette with no small sym
 
 ## Files
 
-- [`logo.svg`](logo.svg) — primary mark: a white tile with the green leaf-heart.
+- [`app-icon.png`](app-icon.png) — **canonical**, full-fidelity app icon; this is the version shown in the README and used for marketing.
+- [`app-icon-ios-1024.png`](app-icon-ios-1024.png) — iOS App Store icon (edge-to-edge, no rounded corners; iOS applies the mask).
+- [`logo.svg`](logo.svg) — simplified, fully scalable vector leaf-heart on a white tile, for layouts that require an SVG.
 - [`favicon.svg`](favicon.svg) — solid green tile with a white heart, for browser tabs.
 - [`logo-mark.svg`](logo-mark.svg) — leaf-heart on a transparent background, for light layouts.
 - [`logo-monochrome.svg`](logo-monochrome.svg) — single-color mark using `currentColor`.
-- [`app-icon-ios-1024.png`](app-icon-ios-1024.png) — iOS App Store icon (edge-to-edge, no rounded corners; iOS applies the mask).
-- [`app-icon.png`](app-icon.png) — rounded app-icon preview for the web and marketing.
 
 ## App icons
 
