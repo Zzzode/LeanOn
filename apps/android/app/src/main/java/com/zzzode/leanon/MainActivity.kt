@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
       capabilities = app.capabilities,
       resourceProvider = app.resourceProvider,
       events = app.events,
+      records = app.records,
     )
     container.attach(root)
     container.loadRoute("home")

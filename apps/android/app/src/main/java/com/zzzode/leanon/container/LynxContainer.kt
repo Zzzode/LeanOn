@@ -7,6 +7,8 @@ import com.lynx.tasm.LynxView
 import com.lynx.tasm.LynxViewBuilder
 import com.zzzode.leanon.bridge.CapabilityRegistry
 import com.zzzode.leanon.bridge.GlobalEventDispatcher
+import com.zzzode.leanon.data.RecordsRepository
+import org.json.JSONObject
 
 /**
  * Owns the [LynxView] for the single-activity shell and loads routes through a
@@ -17,6 +19,7 @@ class LynxContainer(
   @Suppress("unused") private val capabilities: CapabilityRegistry,
   @Suppress("unused") private val resourceProvider: BundleResourceProvider,
   private val events: GlobalEventDispatcher,
+  private val records: RecordsRepository,
 ) {
   private var lynxView: LynxView? = null
 
@@ -36,14 +39,17 @@ class LynxContainer(
     )
   }
 
-  /** Resolve a route and render its template, optionally with init data. */
-  fun loadRoute(route: String, initData: Map<String, Any?>? = null) {
+  /**
+   * Resolve a route and render its template, seeding it with the host-owned
+   * data snapshot and the system locale (RFC 0010). The page reads these via
+   * `useInitData()`; writes return a fresh HostData from the native method.
+   */
+  fun loadRoute(route: String) {
     val uri = routeBundles[route] ?: return
-    // First slice: no init data; the page uses its bundled sample. The host data
-    // injection (initData/global props) lands in the following slice.
-    @Suppress("UNUSED_PARAMETER")
-    initData
-    lynxView?.renderTemplateUrl(uri, "")
+    val initData = JSONObject()
+      .put("hostData", records.loadHostData())
+      .put("locale", systemLocale())
+    lynxView?.renderTemplateUrl(uri, initData.toString())
   }
 
   fun detach() {
@@ -51,7 +57,14 @@ class LynxContainer(
     lynxView = null
   }
 
+  private fun systemLocale(): String {
+    val locales = activity.resources.configuration.locales
+    return if (locales.size() > 0) locales[0].toLanguageTag() else DEFAULT_LOCALE
+  }
+
   private companion object {
+    const val DEFAULT_LOCALE = "en-US"
+
     val routeBundles = mapOf(
       "home" to "main.lynx.bundle",
     )

@@ -34,6 +34,14 @@ export const zhCN = {
   'action.logFood': '记录饮食',
   'action.logWeight': '记录体重',
 
+  // Weight logging sheet
+  'weightSheet.title': '记录体重',
+  'weightSheet.hint': '当前体重',
+  'weightSheet.save': '保存',
+  'weightSheet.cancel': '取消',
+  'weightSheet.invalid': '请输入 20–300 kg 之间的体重。',
+  'weightSheet.error': '保存失败，请重试。',
+
   // Notice & footer
   'notice.safeFloor': '目标已调整到安全下限。',
   'footer.disclaimer': 'LeanOn · 非医疗建议',

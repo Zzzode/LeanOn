@@ -47,6 +47,9 @@
     "test": "rstest run",
     "test:watch": "rstest"
   },
+  "dependencies": {
+    "@zzzode/core": "workspace:*"
+  },
   "devDependencies": {
     "@rstest/core": "^0.12.2"
   }

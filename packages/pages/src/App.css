@@ -312,3 +312,96 @@
   font-size: 22rpx;
   color: #93a09a;
 }
+
+/* Weight logging sheet */
+.Sheet-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+.Sheet {
+  background-color: #ffffff;
+  border-top-left-radius: 36rpx;
+  border-top-right-radius: 36rpx;
+  padding: 40rpx 36rpx 48rpx;
+}
+
+.Sheet-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #16261f;
+  margin-bottom: 30rpx;
+}
+
+.Sheet-field {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom-width: 2rpx;
+  border-bottom-style: solid;
+  border-bottom-color: #d9e3de;
+  padding-bottom: 12rpx;
+}
+
+.Sheet-input {
+  flex: 1;
+  font-size: 56rpx;
+  font-weight: 700;
+  color: #14352a;
+}
+
+.Sheet-unit {
+  margin-left: 12rpx;
+  font-size: 30rpx;
+  color: #6c7c75;
+}
+
+.Sheet-error {
+  margin-top: 18rpx;
+  font-size: 24rpx;
+  color: #e0594b;
+}
+
+.Sheet-actions {
+  display: flex;
+  flex-direction: row;
+  margin-top: 40rpx;
+}
+
+.Sheet-btn {
+  flex: 1;
+  height: 92rpx;
+  border-radius: 22rpx;
+  align-items: center;
+  justify-content: center;
+  background-color: #eef3f0;
+}
+
+.Sheet-btn + .Sheet-btn {
+  margin-left: 24rpx;
+}
+
+.Sheet-btn.primary {
+  background-color: #218967;
+}
+
+.Sheet-btn.disabled {
+  opacity: 0.5;
+}
+
+.Sheet-btn-label {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #218967;
+}
+
+.Sheet-btn-label.primary {
+  color: #ffffff;
+}

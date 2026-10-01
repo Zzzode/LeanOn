@@ -1,11 +1,6 @@
 import { root } from '@lynx-js/react';
 import { App } from './App.js';
-import { sampleHostData } from './state/sample.js';
-import type { HostData } from './state/types.js';
 
-const injected = lynx.__globalProps?.hostData as HostData | undefined;
-const initialLocale = lynx.__globalProps?.locale as string | undefined;
-
-root.render(
-  <App hostData={injected ?? sampleHostData} initialLocale={initialLocale} />,
-);
+// Bootstrap (hostData + locale) is provided by the host as initData and read with
+// useInitData() inside App; off-device it falls back to the bundled sample.
+root.render(<App />);

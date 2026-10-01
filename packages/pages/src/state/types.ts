@@ -1,27 +1,9 @@
-import type { IntakeSample, Profile, WeightSample } from '@zzzode/core';
-
 /**
- * Raw records the host platform provides (in production via the typed bridge;
- * for the first slice, injected through global props with a bundled sample).
- * The UI never owns a clock or persistence layer.
+ * Raw records the host platform provides via the typed bridge (bootstrapped from
+ * initData; see RFC 0010). The UI never owns a clock or persistence layer. The
+ * shape is owned by the bridge as `HostDataDto` and re-exported here.
  */
-export interface HostData {
-  /** ISO date `YYYY-MM-DD` the host considers "today". */
-  today: string;
-  /** Local hour 0-23, used only for the greeting. */
-  todayHour?: number;
-  profile: Profile;
-  /** Goal/target weight in kilograms. */
-  goalWeightKg: number;
-  /** Desired loss rate in kilograms per week (0.5-1 is the safe range). */
-  weeklyLossKg: number;
-  weights: WeightSample[];
-  intake: IntakeSample[];
-  /** Kilocalories burned through intentional exercise today. */
-  todayExerciseKcal?: number;
-  /** Number of consecutive logging days. */
-  streak: number;
-}
+export type { HostDataDto as HostData } from '@zzzode/bridge';
 
 /** Part of day used to pick a localized greeting. */
 export type DayPart = 'morning' | 'afternoon' | 'evening';

@@ -56,3 +56,4 @@
 | [0007](0007-dynamic-delivery.md) | 动态化下发 | Accepted |
 | [0008](0008-data-model-encrypted-storage-sync.md) | 数据模型、加密存储与同步 | Accepted |
 | [0009](0009-internationalization.md) | 国际化（英文 + 简体中文） | Accepted |
+| [0010](0010-interactive-logging-write-path.md) | 交互式记录写入链路 | Accepted |

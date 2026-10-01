@@ -35,6 +35,14 @@ export const en = {
   'action.logFood': 'Log food',
   'action.logWeight': 'Log weight',
 
+  // Weight logging sheet
+  'weightSheet.title': 'Log weight',
+  'weightSheet.hint': 'Current weight',
+  'weightSheet.save': 'Save',
+  'weightSheet.cancel': 'Cancel',
+  'weightSheet.invalid': 'Enter a weight between 20 and 300 kg.',
+  'weightSheet.error': 'Could not save. Please try again.',
+
   // Notice & footer
   'notice.safeFloor': 'Your target was raised to the safe minimum.',
   'footer.disclaimer': 'LeanOn · not medical advice',

@@ -1,9 +1,33 @@
+import type { IntakeSample, Profile, WeightSample } from '@zzzode/core';
 import type { JsonValue } from './types';
 
 /**
  * LeanOn capability contracts. These are the only serialized shapes that cross
  * the bridge; they are deliberately flat and JSON-compatible.
  */
+
+/**
+ * Cross-boundary snapshot of the records the host owns for the Home page. It is
+ * composed of core's JSON-friendly domain types and is structurally identical
+ * to the page's HostData. The UI never owns a clock or persistence layer.
+ */
+export interface HostDataDto {
+  /** ISO date `YYYY-MM-DD` the host considers "today". */
+  today: string;
+  /** Local hour 0-23, used only for the greeting. */
+  todayHour?: number;
+  profile: Profile;
+  /** Goal/target weight in kilograms. */
+  goalWeightKg: number;
+  /** Desired loss rate in kilograms per week (0.5-1 is the safe range). */
+  weeklyLossKg: number;
+  weights: WeightSample[];
+  intake: IntakeSample[];
+  /** Kilocalories burned through intentional exercise today. */
+  todayExerciseKcal?: number;
+  /** Number of consecutive logging days. */
+  streak: number;
+}
 
 export type HealthDataType =
   | 'weight'
@@ -76,7 +100,7 @@ export type LeanOnRpcContract = {
   };
   'health.writeWeight': {
     request: { date: string; weightKg: number };
-    response: { success: true };
+    response: { success: true; hostData: HostDataDto };
   };
   'scale.scan': {
     request: void;

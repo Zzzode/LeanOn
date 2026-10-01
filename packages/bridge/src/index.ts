@@ -23,6 +23,8 @@ export { BridgeError, isRpcError, normalizeError } from './types';
 export { createMemoryBridge } from './memory-transport';
 export type { MemoryBridge } from './memory-transport';
 
+export { createLynxTransport, hasLynxHost } from './lynx-transport';
+
 export {
   createBridgeClient,
 } from './client';
@@ -38,6 +40,7 @@ export type {
   HealthDataType,
   HealthSampleDto,
   HostCapabilities,
+  HostDataDto,
   LeanOnEventContract,
   LeanOnRpcContract,
   ReadSamplesRequest,
