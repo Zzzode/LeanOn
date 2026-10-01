@@ -42,6 +42,17 @@ export const en = {
   'weightSheet.cancel': 'Cancel',
   'weightSheet.invalid': 'Enter a weight between 20 and 300 kg.',
   'weightSheet.error': 'Could not save. Please try again.',
+  'weightSheet.pairScale': 'Pair a scale',
+
+  // Scale pairing sheet
+  'scaleSheet.title': 'Pair scale',
+  'scaleSheet.scan': 'Scan for scales',
+  'scaleSheet.scanning': 'Scanning for nearby scales…',
+  'scaleSheet.noDevices': 'No scales found yet. Wake the scale and try again.',
+  'scaleSheet.connecting': 'Connecting…',
+  'scaleSheet.paired': 'Paired',
+  'scaleSheet.waiting': 'Connected. Step on the scale.',
+  'scaleSheet.close': 'Close',
 
   // Notice & footer
   'notice.safeFloor': 'Your target was raised to the safe minimum.',

@@ -9,6 +9,7 @@ interface WeightSheetProps {
   currentWeightKg: number;
   t: Translator;
   onClose: () => void;
+  onPairScale: () => void;
   onSave: (weightKg: number) => Promise<void>;
 }
 
@@ -23,6 +24,7 @@ export function WeightSheet({
   currentWeightKg,
   t,
   onClose,
+  onPairScale,
   onSave,
 }: WeightSheetProps) {
   const initial = String(currentWeightKg);
@@ -86,6 +88,11 @@ export function WeightSheet({
               {t('weightSheet.save')}
             </text>
           </view>
+        </view>
+        <view className="Sheet-link" bindtap={onPairScale}>
+          <text className="Sheet-link-label">
+            {t('weightSheet.pairScale')}
+          </text>
         </view>
       </view>
     </view>

@@ -405,3 +405,78 @@
 .Sheet-btn-label.primary {
   color: #ffffff;
 }
+
+/* Scale pairing sheet */
+.ScaleSheet {
+  background-color: #ffffff;
+  border-top-left-radius: 36rpx;
+  border-top-right-radius: 36rpx;
+  padding: 40rpx 36rpx 48rpx;
+}
+
+.Scale-reading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 24rpx 0 8rpx;
+}
+
+.Scale-reading-value {
+  font-size: 96rpx;
+  font-weight: 700;
+  color: #14352a;
+}
+
+.Scale-reading-unit {
+  margin-left: 14rpx;
+  font-size: 32rpx;
+  color: #6c7c75;
+}
+
+.Scale-hint {
+  margin: 20rpx 4rpx 8rpx;
+  font-size: 26rpx;
+  color: #6c7c75;
+  text-align: center;
+}
+
+.Scale-devices {
+  margin-top: 24rpx;
+}
+
+.Scale-device {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28rpx;
+  border-radius: 20rpx;
+  background-color: #f3f7f5;
+  margin-bottom: 18rpx;
+}
+
+.Scale-device.active {
+  background-color: #e3f0ea;
+}
+
+.Scale-device-name {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #16261f;
+}
+
+.Scale-device-meta {
+  font-size: 24rpx;
+  color: #218967;
+}
+
+.Sheet-link {
+  align-items: center;
+  margin-top: 28rpx;
+}
+
+.Sheet-link-label {
+  font-size: 26rpx;
+  color: #218967;
+}

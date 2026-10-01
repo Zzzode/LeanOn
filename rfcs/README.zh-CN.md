@@ -57,3 +57,4 @@
 | [0008](0008-data-model-encrypted-storage-sync.md) | 数据模型、加密存储与同步 | Accepted |
 | [0009](0009-internationalization.md) | 国际化（英文 + 简体中文） | Accepted |
 | [0010](0010-interactive-logging-write-path.md) | 交互式记录写入链路 | Accepted |
+| [0011](0011-ble-scale-and-records-changed.md) | BLE 体重秤与 `records.changed` | Accepted |

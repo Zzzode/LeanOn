@@ -44,6 +44,7 @@ export type {
   LeanOnEventContract,
   LeanOnRpcContract,
   ReadSamplesRequest,
+  ScaleConnectionState,
   ScaleDeviceDto,
   ScaleReadingDto,
   ScheduleNotificationRequest,

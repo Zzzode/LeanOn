@@ -91,3 +91,34 @@ test('multiple subscribers to the same event each receive payloads', () => {
   expect(a).toBe(1);
   expect(b).toBe(1);
 });
+
+test('scale.getStatus reports lifecycle state and the paired device', async () => {
+  const bridge = createMemoryBridge();
+  bridge.handle('scale.getStatus', () => ({
+    state: 'connected' as const,
+    pairedDeviceId: 'mac',
+  }));
+  const client = createLeanOnBridgeClient(bridge.transport);
+  const status = await client.invoke('scale.getStatus');
+  expect(status.state).toBe('connected');
+  expect(status.pairedDeviceId).toBe('mac');
+});
+
+test('scale.disconnect resolves with connected false', async () => {
+  const bridge = createMemoryBridge();
+  bridge.handle('scale.disconnect', () => ({ connected: false as const }));
+  const client = createLeanOnBridgeClient(bridge.transport);
+  const result = await client.invoke('scale.disconnect');
+  expect(result.connected).toBe(false);
+});
+
+test('records.changed delivers the refreshed hostData snapshot', () => {
+  const bridge = createMemoryBridge();
+  const client = createLeanOnBridgeClient(bridge.transport);
+  let seenToday: string | null = null;
+  client.subscribe('records.changed', (payload) => {
+    seenToday = payload.hostData.today;
+  });
+  bridge.emit('records.changed', { hostData: { today: '2026-10-01' } });
+  expect(seenToday).toBe('2026-10-01');
+});

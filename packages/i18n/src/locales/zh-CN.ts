@@ -41,6 +41,17 @@ export const zhCN = {
   'weightSheet.cancel': '取消',
   'weightSheet.invalid': '请输入 20–300 kg 之间的体重。',
   'weightSheet.error': '保存失败，请重试。',
+  'weightSheet.pairScale': '配对体重秤',
+
+  // Scale pairing sheet
+  'scaleSheet.title': '配对体重秤',
+  'scaleSheet.scan': '搜索体重秤',
+  'scaleSheet.scanning': '正在搜索附近的体重秤…',
+  'scaleSheet.noDevices': '暂未发现秤，请唤醒秤后重试。',
+  'scaleSheet.connecting': '正在连接…',
+  'scaleSheet.paired': '已配对',
+  'scaleSheet.waiting': '已连接，请站上秤。',
+  'scaleSheet.close': '关闭',
 
   // Notice & footer
   'notice.safeFloor': '目标已调整到安全下限。',

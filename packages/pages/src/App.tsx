@@ -1,5 +1,5 @@
 import './App.css';
-import { useInitData, useMemo, useState } from '@lynx-js/react';
+import { useEffect, useInitData, useMemo, useState } from '@lynx-js/react';
 import {
   createTranslator,
   resolveLocale,
@@ -9,12 +9,15 @@ import { EnergyCard } from './components/EnergyCard.js';
 import { Header } from './components/Header.js';
 import { MacroCard } from './components/MacroCard.js';
 import { QuickActions } from './components/QuickActions.js';
+import { ScaleSheet } from './components/ScaleSheet.js';
 import { WeightCard } from './components/WeightCard.js';
 import { WeightSheet } from './components/WeightSheet.js';
 import { createAppBridge } from './state/app-bridge.js';
 import { sampleHostData } from './state/sample.js';
 import { selectToday } from './state/select.js';
 import type { HostData } from './state/types.js';
+
+type ActiveSheet = 'none' | 'weight' | 'scale';
 
 interface BootstrapData {
   hostData?: HostData;
@@ -27,11 +30,20 @@ export function App() {
     initData?.hostData ?? sampleHostData,
   );
   const [locale, setLocale] = useState<Locale>(resolveLocale(initData?.locale));
-  const [sheetOpen, setSheetOpen] = useState<boolean>(false);
+  const [activeSheet, setActiveSheet] = useState<ActiveSheet>('none');
 
   const bridge = useMemo(() => createAppBridge(), []);
   const t = useMemo(() => createTranslator(locale), [locale]);
   const state = useMemo(() => selectToday(hostData), [hostData]);
+
+  // External writes (BLE scale, later sync) push a fresh snapshot through
+  // records.changed; Home refreshes without knowing the source (RFC 0011).
+  useEffect(() => {
+    const unsubscribe = bridge.subscribe('records.changed', (payload) => {
+      setHostData(payload.hostData);
+    });
+    return unsubscribe;
+  }, [bridge]);
 
   const handleSaveWeight = async (weightKg: number) => {
     const response = await bridge.invoke('health.writeWeight', {
@@ -39,7 +51,7 @@ export function App() {
       weightKg,
     });
     setHostData(response.hostData);
-    setSheetOpen(false);
+    setActiveSheet('none');
   };
 
   return (
@@ -60,16 +72,24 @@ export function App() {
           )}
           <WeightCard state={state} t={t} />
           <MacroCard state={state} t={t} />
-          <QuickActions t={t} onLogWeight={() => setSheetOpen(true)} />
+          <QuickActions t={t} onLogWeight={() => setActiveSheet('weight')} />
           <text className="Footer">{t('footer.disclaimer')}</text>
         </view>
       </scroll-view>
-      {sheetOpen && (
+      {activeSheet === 'weight' && (
         <WeightSheet
           currentWeightKg={state.currentWeightKg}
           t={t}
-          onClose={() => setSheetOpen(false)}
+          onClose={() => setActiveSheet('none')}
+          onPairScale={() => setActiveSheet('scale')}
           onSave={handleSaveWeight}
+        />
+      )}
+      {activeSheet === 'scale' && (
+        <ScaleSheet
+          bridge={bridge}
+          t={t}
+          onClose={() => setActiveSheet('none')}
         />
       )}
     </page>

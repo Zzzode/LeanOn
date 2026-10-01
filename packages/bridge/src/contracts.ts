@@ -64,6 +64,13 @@ export interface ScaleReadingDto {
   impedance?: number;
 }
 
+/** High-level scale lifecycle state reported by the host. */
+export type ScaleConnectionState =
+  | 'idle'
+  | 'scanning'
+  | 'connecting'
+  | 'connected';
+
 export interface AppInfo {
   platform: 'ios' | 'android';
   hostVersion: string;
@@ -110,6 +117,14 @@ export type LeanOnRpcContract = {
     request: { deviceId: string };
     response: { connected: boolean };
   };
+  'scale.disconnect': {
+    request: void;
+    response: { connected: false };
+  };
+  'scale.getStatus': {
+    request: void;
+    response: { state: ScaleConnectionState; pairedDeviceId: string | null };
+  };
   'storage.get': {
     request: { key: string };
     response: { value: JsonValue | null };
@@ -150,6 +165,9 @@ export type LeanOnEventContract = {
   'scale.reading': {
     payload: ScaleReadingDto;
   };
+  'records.changed': {
+    payload: { hostData: HostDataDto };
+  };
   'app.lifecycle': {
     payload: { state: 'background' | 'foreground' };
   };
@@ -161,6 +179,8 @@ export const RpcMethods = {
   healthWriteWeight: 'health.writeWeight',
   scaleScan: 'scale.scan',
   scaleConnect: 'scale.connect',
+  scaleDisconnect: 'scale.disconnect',
+  scaleGetStatus: 'scale.getStatus',
   storageGet: 'storage.get',
   storageSet: 'storage.set',
   storageRemove: 'storage.remove',
@@ -174,5 +194,6 @@ export const BridgeEvents = {
   healthAuthorizationChanged: 'health.authorizationChanged',
   scaleDiscovered: 'scale.discovered',
   scaleReading: 'scale.reading',
+  recordsChanged: 'records.changed',
   appLifecycle: 'app.lifecycle',
 } as const satisfies Record<string, keyof LeanOnEventContract>;

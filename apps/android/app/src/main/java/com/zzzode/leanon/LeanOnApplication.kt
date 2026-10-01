@@ -7,6 +7,7 @@ import com.zzzode.leanon.bridge.GlobalEventDispatcher
 import com.zzzode.leanon.bridge.LynxModuleBootstrap
 import com.zzzode.leanon.container.BundleResourceProvider
 import com.zzzode.leanon.container.DefaultBundleResourceProvider
+import com.zzzode.leanon.ble.BleScaleManager
 import com.zzzode.leanon.data.RecordsRepository
 
 /** Process-wide entry point: initializes Lynx and wires host singletons. */
@@ -20,6 +21,8 @@ class LeanOnApplication : Application() {
     private set
   lateinit var records: RecordsRepository
     private set
+  lateinit var scaleManager: BleScaleManager
+    private set
 
   override fun onCreate() {
     super.onCreate()
@@ -31,6 +34,7 @@ class LeanOnApplication : Application() {
     events = GlobalEventDispatcher()
     resourceProvider = DefaultBundleResourceProvider(this)
     records = RecordsRepository(this)
+    scaleManager = BleScaleManager(this)
     LynxModuleBootstrap.initialize(this)
   }
 }

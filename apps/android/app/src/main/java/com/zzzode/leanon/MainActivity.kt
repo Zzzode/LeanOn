@@ -3,6 +3,7 @@ package com.zzzode.leanon
 import android.os.Bundle
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.zzzode.leanon.ble.PermissionRequests
 import com.zzzode.leanon.container.LynxContainer
 
 /** Single-activity shell that hosts the reusable Lynx container. */
@@ -25,6 +26,15 @@ class MainActivity : AppCompatActivity() {
     )
     container.attach(root)
     container.loadRoute("home")
+  }
+
+  override fun onRequestPermissionsResult(
+    requestCode: Int,
+    permissions: Array<out String>,
+    grantResults: IntArray,
+  ) {
+    super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    PermissionRequests.handleResult(requestCode, grantResults)
   }
 
   override fun onDestroy() {

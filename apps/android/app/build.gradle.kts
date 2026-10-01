@@ -66,4 +66,6 @@ dependencies {
   implementation(libs.lynx.trace)
   implementation(libs.primjs)
   kapt(libs.lynx.processor)
+
+  testImplementation("junit:junit:4.13.2")
 }
