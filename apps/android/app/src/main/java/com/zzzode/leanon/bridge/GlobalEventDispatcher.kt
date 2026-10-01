@@ -1,5 +1,6 @@
 package com.zzzode.leanon.bridge
 
+import com.lynx.react.bridge.JavaOnlyArray
 import com.lynx.tasm.LynxView
 
 /**
@@ -19,7 +20,8 @@ class GlobalEventDispatcher {
   }
 
   fun dispatch(event: String, payload: Any?) {
-    // sendGlobalEvent delivers a parameter list; wrap a single payload.
-    view?.sendGlobalEvent(event, arrayOf(payload))
+    // sendGlobalEvent takes a JavaOnlyArray parameter list; wrap one payload so
+    // the JS transport can read it as args[0].
+    view?.sendGlobalEvent(event, JavaOnlyArray.of(payload))
   }
 }
