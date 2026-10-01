@@ -59,11 +59,12 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Accept Android SDK licenses
-        uses: android-actions/setup-android@v3
-
       - name: Install Android 35 platform
-        run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
+        # ubuntu-latest ships the Android SDK; accept licenses and add the
+        # platform/build-tools we target (avoids the setup-android 'tools' issue).
+        run: |
+          yes | sdkmanager --licenses >/dev/null
+          sdkmanager "platforms;android-35" "build-tools;35.0.0"
 
       - name: Build debug APK
         working-directory: apps/android
