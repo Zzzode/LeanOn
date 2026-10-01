@@ -1,6 +1,7 @@
 package com.zzzode.leanon
 
 import android.app.Application
+import com.lynx.tasm.LynxEnv
 import com.zzzode.leanon.bridge.CapabilityRegistry
 import com.zzzode.leanon.bridge.GlobalEventDispatcher
 import com.zzzode.leanon.bridge.LynxModuleBootstrap
@@ -19,6 +20,10 @@ class LeanOnApplication : Application() {
 
   override fun onCreate() {
     super.onCreate()
+    // Initialize the Lynx engine before any other Lynx API is touched. The
+    // container supplies its own asset-backed template provider.
+    LynxEnv.inst().init(this, null, null, null)
+
     capabilities = CapabilityRegistry()
     events = GlobalEventDispatcher()
     resourceProvider = DefaultBundleResourceProvider(this)

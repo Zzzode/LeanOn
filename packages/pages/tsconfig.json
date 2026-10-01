@@ -1,8 +1,10 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "dist",
-    "rootDir": "src"
+    "jsx": "react-jsx",
+    "jsxImportSource": "@lynx-js/react",
+    "types": ["@lynx-js/rspeedy/client", "@lynx-js/types"],
+    "noEmit": true
   },
-  "include": ["src"]
+  "include": ["src", "lynx.config.ts"]
 }

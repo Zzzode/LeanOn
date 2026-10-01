@@ -64,6 +64,10 @@ long-term health. The name combines getting **lean** with being able to **lean o
   thread and on the server.
 - Route all native access through `packages/bridge`; pages and cards never call native modules
   directly.
+- **Toolchain version exception.** The root and the published libraries use TypeScript 7,
+  but `packages/pages` pins TypeScript `6.0.3`. Rspeedy 0.18 supports only `5.1.6 - 6.0.x`,
+  and TypeScript 7 changed the ESM default export Rspeedy reads (`ScriptTarget` becomes
+  `undefined`). Do not bump the pages package to TypeScript 7 until Rspeedy adds support.
 
 ## Build system
 
@@ -75,8 +79,10 @@ The **Rspack** ecosystem is the standard; pick the tool that matches the target:
 | Lynx pages & cards (`pages`, `cards`) | [Rspeedy](https://lynxjs.org/rspeedy) | `rspeedy build` |
 | Web-style app (if ever needed) | [Rsbuild](https://rsbuild.rs) | `rsbuild build` |
 
-- `pages` and `cards` currently build with `tsc` as placeholders; switch to Rspeedy when the
-  first real Lynx screen is added.
+- `packages/pages` builds with Rspeedy (`rspeedy build`), emitting both `main.lynx.bundle`
+  (native) and `main.web.bundle` (web preview, enabled by `environments.web`). The Android
+  Gradle task `prepareLynxAssets` stages the Lynx bundle into the APK's assets.
+- `packages/cards` still builds with `tsc` as a placeholder until it ships real content.
 - Rslib generates declaration files with `tsgo`; type-checking itself is a separate step.
 - Libraries use `dts.isolated`, which follows the entry graph (so colocated test files stay out
   of `dist`); `dts.bundle` would additionally require `@microsoft/api-extractor`.

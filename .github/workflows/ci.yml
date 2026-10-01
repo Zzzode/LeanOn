@@ -59,6 +59,22 @@ jobs:
           distribution: temurin
           java-version: '17'
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22.x
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Lynx bundle
+        # prepareLynxAssets stages packages/pages/dist into the APK's assets.
+        run: pnpm --filter @zzzode/pages build
+
       - name: Install Android 35 platform
         # ubuntu-latest ships the Android SDK; accept licenses and add the
         # platform/build-tools we target (avoids the setup-android 'tools' issue).

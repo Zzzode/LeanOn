@@ -1,0 +1,276 @@
+.Page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #edf2ef;
+}
+
+.Scroll {
+  flex: 1;
+}
+
+.Content {
+  flex-direction: column;
+  padding: 0 32rpx 56rpx;
+}
+
+/* Header */
+.Header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30rpx 8rpx 26rpx;
+}
+
+.Header-greeting {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #16261f;
+}
+
+.Header-date {
+  margin-top: 6rpx;
+  font-size: 26rpx;
+  color: #6c7c75;
+}
+
+.Header-streak {
+  align-items: flex-end;
+}
+
+.Header-streak-num {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #218967;
+}
+
+.Header-streak-label {
+  margin-top: 2rpx;
+  font-size: 22rpx;
+  color: #6c7c75;
+}
+
+/* Card */
+.Card {
+  background-color: #ffffff;
+  border-radius: 28rpx;
+  padding: 36rpx;
+  margin-bottom: 28rpx;
+}
+
+.Card-title {
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+  color: #82918a;
+  margin-bottom: 22rpx;
+}
+
+/* Energy */
+.Energy-main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Energy-headline {
+  flex-direction: column;
+}
+
+.Energy-num {
+  font-size: 92rpx;
+  font-weight: 700;
+  line-height: 104rpx;
+  color: #14352a;
+}
+
+.Energy-unit {
+  margin-top: 4rpx;
+  font-size: 24rpx;
+  color: #6c7c75;
+}
+
+.Energy-rows {
+  align-items: flex-end;
+}
+
+.Energy-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.Energy-row-label {
+  font-size: 26rpx;
+  color: #6c7c75;
+  margin-right: 20rpx;
+}
+
+.Energy-row-value {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #1c2b25;
+}
+
+/* Progress bar */
+.ProgressBar {
+  height: 16rpx;
+  border-radius: 8rpx;
+  background-color: #e8efeb;
+  margin-top: 26rpx;
+  overflow: hidden;
+}
+
+.ProgressBar-fill {
+  height: 16rpx;
+  border-radius: 8rpx;
+}
+
+/* Weight */
+.Weight-main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Weight-current-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.Weight-current {
+  font-size: 76rpx;
+  font-weight: 700;
+  color: #14352a;
+}
+
+.Weight-unit {
+  margin-left: 8rpx;
+  margin-bottom: 12rpx;
+  font-size: 28rpx;
+  color: #6c7c75;
+}
+
+.Weight-trend {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #218967;
+}
+
+.Weight-rows {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 28rpx;
+}
+
+.Weight-stat {
+  align-items: center;
+}
+
+.Weight-stat-value {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #1c2b25;
+}
+
+.Weight-stat-label {
+  margin-top: 4rpx;
+  font-size: 22rpx;
+  color: #82918a;
+}
+
+/* Macros */
+.Macro-grid {
+  display: flex;
+  flex-direction: row;
+}
+
+.Macro-col {
+  flex: 1;
+  flex-direction: column;
+}
+
+.Macro-col + .Macro-col {
+  margin-left: 24rpx;
+}
+
+.Macro-grams {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #1c2b25;
+}
+
+.Macro-label {
+  margin-top: 2rpx;
+  font-size: 24rpx;
+  color: #6c7c75;
+}
+
+.Macro-target {
+  margin-top: 8rpx;
+  font-size: 20rpx;
+  color: #82918a;
+}
+
+.Macro-col .ProgressBar {
+  margin-top: 14rpx;
+}
+
+/* Quick actions */
+.Actions {
+  display: flex;
+  flex-direction: row;
+  margin-top: 4rpx;
+}
+
+.Action-btn {
+  flex: 1;
+  height: 92rpx;
+  border-radius: 22rpx;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.Action-btn + .Action-btn {
+  margin-left: 24rpx;
+}
+
+.Action-btn.primary {
+  background-color: #218967;
+}
+
+.Action-label {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #218967;
+}
+
+.Action-label.primary {
+  color: #ffffff;
+}
+
+/* Notice and footer */
+.Notice {
+  background-color: #fbf0e2;
+  border-radius: 20rpx;
+  padding: 24rpx 30rpx;
+  margin-bottom: 28rpx;
+}
+
+.Notice-text {
+  font-size: 24rpx;
+  color: #97662c;
+}
+
+.Footer {
+  margin-top: 14rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #93a09a;
+}

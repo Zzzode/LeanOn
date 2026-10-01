@@ -1,0 +1,136 @@
+import {
+  adaptiveTdee,
+  estimateBmr,
+  fitWeightTrend,
+  macroTargets,
+  staticTdee,
+} from '@zzzode/core';
+import type { HostData, MacroProgress, TodayState } from './types';
+
+/** Safe minimum daily calories by sex (see RFC 0004 health floor). */
+const MIN_CALORIES = { male: 1500, female: 1200 } as const;
+
+const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const MONTHS = [
+  'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+];
+
+function greetingFor(hour: number | undefined): string {
+  if (hour === undefined) {
+    return 'Today';
+  }
+  if (hour < 12) {
+    return 'Good morning';
+  }
+  if (hour < 18) {
+    return 'Good afternoon';
+  }
+  return 'Good evening';
+}
+
+function formatDate(iso: string): string {
+  const d = new Date(`${iso}T00:00:00Z`);
+  return `${WEEKDAYS[d.getUTCDay()]}, ${MONTHS[d.getUTCMonth()]} ${d.getUTCDate()}`;
+}
+
+function round0(value: number): number {
+  return Math.round(value);
+}
+
+/** Resolve raw host records into the presentation model for Home. */
+export function selectToday(data: HostData): TodayState {
+  const first = data.weights[0];
+  const last = data.weights[data.weights.length - 1];
+  if (first === undefined || last === undefined) {
+    throw new RangeError('selectToday() requires at least one weight sample');
+  }
+
+  const currentWeightKg = last.weightKg;
+  const startWeightKg = first.weightKg;
+
+  // Maintenance energy: prefer the adaptive estimate when enough data exists,
+  // otherwise fall back to the static day-zero estimate.
+  const bmr = estimateBmr(data.profile, {
+    weightKg: currentWeightKg,
+    onDate: data.today,
+  });
+  const adaptive = adaptiveTdee({ weights: data.weights, intake: data.intake });
+  const tdee =
+    adaptive?.tdee ?? staticTdee(bmr, data.profile.activityLevel);
+
+  // Planned daily deficit from the desired weekly loss rate.
+  const dailyDeficit = (data.weeklyLossKg / 7) * 7700;
+  const floor = MIN_CALORIES[data.profile.sex];
+  const requestedGoal = tdee - dailyDeficit;
+  const safe = requestedGoal >= floor;
+  const energyGoalKcal = round0(Math.max(requestedGoal, floor));
+
+  // Today's food and macros (there may be several logged meals).
+  let foodKcal = 0;
+  let proteinG = 0;
+  let carbsG = 0;
+  let fatG = 0;
+  for (const meal of data.intake) {
+    if (meal.date === data.today) {
+      foodKcal += meal.kcal;
+      proteinG += meal.macros.proteinG;
+      carbsG += meal.macros.carbsG;
+      fatG += meal.macros.fatG;
+    }
+  }
+
+  const exerciseKcal = data.todayExerciseKcal ?? 0;
+  const remainingKcal = energyGoalKcal - foodKcal + exerciseKcal;
+  const overBudget = remainingKcal < 0;
+  const remainingFraction = Math.min(
+    1,
+    Math.max(0, remainingKcal / energyGoalKcal),
+  );
+
+  const targets = macroTargets({
+    targetKcal: energyGoalKcal,
+    goalWeightKg: data.goalWeightKg,
+    currentWeightKg,
+  });
+
+  const macro = (
+    label: string,
+    grams: number,
+    targetGrams: number,
+  ): MacroProgress => ({
+    label,
+    grams: Math.round(grams),
+    targetGrams: Math.round(targetGrams),
+  });
+
+  // Weight trend over the recent window, expressed per week.
+  const trend = fitWeightTrend(data.weights);
+  const kgPerWeek = (trend?.slopePerDay ?? 0) * 7;
+  const sign = kgPerWeek > 0 ? '+' : '';
+  const trendLabel = `${sign}${kgPerWeek.toFixed(1)} kg/week`;
+
+  return {
+    greeting: greetingFor(data.todayHour),
+    dateLabel: formatDate(data.today),
+    energyGoalKcal,
+    foodKcal: round0(foodKcal),
+    exerciseKcal: round0(exerciseKcal),
+    remainingKcal: round0(remainingKcal),
+    remainingFraction,
+    overBudget,
+    currentWeightKg,
+    startWeightKg,
+    goalWeightKg: data.goalWeightKg,
+    weightToGoalKg: Math.round((currentWeightKg - data.goalWeightKg) * 10) / 10,
+    weightLostKg: Math.round((startWeightKg - currentWeightKg) * 10) / 10,
+    trendLabel,
+    streak: data.streak,
+    macros: {
+      protein: macro('Protein', proteinG, targets.proteinG),
+      carbs: macro('Carbs', carbsG, targets.carbsG),
+      fat: macro('Fat', fatG, targets.fatG),
+    },
+    safe,
+  };
+}

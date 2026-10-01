@@ -1,7 +1,21 @@
+import org.gradle.api.tasks.Copy
+
 plugins {
   alias(libs.plugins.android.application)
   alias(libs.plugins.kotlin.android)
   alias(libs.plugins.kotlin.kapt)
+}
+
+// Lynx bundle produced by packages/pages via Rspeedy.
+val lynxDistDir = rootProject.projectDir.resolve("../../packages/pages/dist")
+val generatedLynxAssets = layout.buildDirectory.dir("generated/lynxAssets")
+
+// Stage the built Lynx bundle into a generated assets source set.
+val prepareLynxAssets by tasks.registering(Copy::class) {
+  from(lynxDistDir) {
+    include("*.lynx.bundle")
+  }
+  into(generatedLynxAssets)
 }
 
 android {
@@ -26,6 +40,19 @@ android {
   buildFeatures {
     buildConfig = true
   }
+
+  sourceSets {
+    getByName("main") {
+      assets.srcDir(generatedLynxAssets)
+    }
+  }
+}
+
+// Ensure the bundle is staged before any variant merges its assets.
+tasks.matching {
+  it.name.startsWith("merge") && it.name.endsWith("Assets")
+}.configureEach {
+  dependsOn(prepareLynxAssets)
 }
 
 dependencies {
