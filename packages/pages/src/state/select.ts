@@ -5,40 +5,42 @@ import {
   macroTargets,
   staticTdee,
 } from '@zzzode/core';
-import type { HostData, MacroProgress, TodayState } from './types';
+import type {
+  DateParts,
+  DayPart,
+  HostData,
+  MacroProgress,
+  TodayState,
+} from './types';
 
 /** Safe minimum daily calories by sex (see RFC 0004 health floor). */
 const MIN_CALORIES = { male: 1500, female: 1200 } as const;
 
-const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-const MONTHS = [
-  'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
-];
-
-function greetingFor(hour: number | undefined): string {
+function dayPartFor(hour: number | undefined): DayPart {
   if (hour === undefined) {
-    return 'Today';
+    return 'morning';
   }
   if (hour < 12) {
-    return 'Good morning';
+    return 'morning';
   }
   if (hour < 18) {
-    return 'Good afternoon';
+    return 'afternoon';
   }
-  return 'Good evening';
+  return 'evening';
 }
 
-function formatDate(iso: string): string {
+function datePartsFor(iso: string): DateParts {
   const d = new Date(`${iso}T00:00:00Z`);
-  return `${WEEKDAYS[d.getUTCDay()]}, ${MONTHS[d.getUTCMonth()]} ${d.getUTCDate()}`;
+  return {
+    weekday: d.getUTCDay(),
+    month: d.getUTCMonth(),
+    day: d.getUTCDate(),
+  };
 }
 
-function round0(value: number): number {
-  return Math.round(value);
-}
+const round0 = (value: number): number => Math.round(value);
 
-/** Resolve raw host records into the presentation model for Home. */
+/** Resolve raw host records into the language-neutral model for Home. */
 export function selectToday(data: HostData): TodayState {
   const first = data.weights[0];
   const last = data.weights[data.weights.length - 1];
@@ -56,8 +58,7 @@ export function selectToday(data: HostData): TodayState {
     onDate: data.today,
   });
   const adaptive = adaptiveTdee({ weights: data.weights, intake: data.intake });
-  const tdee =
-    adaptive?.tdee ?? staticTdee(bmr, data.profile.activityLevel);
+  const tdee = adaptive?.tdee ?? staticTdee(bmr, data.profile.activityLevel);
 
   // Planned daily deficit from the desired weekly loss rate.
   const dailyDeficit = (data.weeklyLossKg / 7) * 7700;
@@ -94,25 +95,18 @@ export function selectToday(data: HostData): TodayState {
     currentWeightKg,
   });
 
-  const macro = (
-    label: string,
-    grams: number,
-    targetGrams: number,
-  ): MacroProgress => ({
-    label,
+  const macro = (grams: number, targetGrams: number): MacroProgress => ({
     grams: Math.round(grams),
     targetGrams: Math.round(targetGrams),
   });
 
   // Weight trend over the recent window, expressed per week.
   const trend = fitWeightTrend(data.weights);
-  const kgPerWeek = (trend?.slopePerDay ?? 0) * 7;
-  const sign = kgPerWeek > 0 ? '+' : '';
-  const trendLabel = `${sign}${kgPerWeek.toFixed(1)} kg/week`;
+  const trendKgPerWeek = (trend?.slopePerDay ?? 0) * 7;
 
   return {
-    greeting: greetingFor(data.todayHour),
-    dateLabel: formatDate(data.today),
+    dayPart: dayPartFor(data.todayHour),
+    dateParts: datePartsFor(data.today),
     energyGoalKcal,
     foodKcal: round0(foodKcal),
     exerciseKcal: round0(exerciseKcal),
@@ -124,12 +118,12 @@ export function selectToday(data: HostData): TodayState {
     goalWeightKg: data.goalWeightKg,
     weightToGoalKg: Math.round((currentWeightKg - data.goalWeightKg) * 10) / 10,
     weightLostKg: Math.round((startWeightKg - currentWeightKg) * 10) / 10,
-    trendLabel,
+    trendKgPerWeek,
     streak: data.streak,
     macros: {
-      protein: macro('Protein', proteinG, targets.proteinG),
-      carbs: macro('Carbs', carbsG, targets.carbsG),
-      fat: macro('Fat', fatG, targets.fatG),
+      protein: macro(proteinG, targets.proteinG),
+      carbs: macro(carbsG, targets.carbsG),
+      fat: macro(fatG, targets.fatG),
     },
     safe,
   };

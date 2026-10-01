@@ -23,18 +23,32 @@ export interface HostData {
   streak: number;
 }
 
+/** Part of day used to pick a localized greeting. */
+export type DayPart = 'morning' | 'afternoon' | 'evening';
+
+/** Calendar parts; the view localizes names and order. */
+export interface DateParts {
+  /** 0 = Sunday. */
+  weekday: number;
+  /** 0 = January. */
+  month: number;
+  day: number;
+}
+
 export interface MacroProgress {
-  label: string;
   /** Grams logged today. */
   grams: number;
   /** Target grams for the day. */
   targetGrams: number;
 }
 
-/** The fully resolved, presentation-ready model for the Home screen. */
+/**
+ * The fully resolved, language-neutral presentation model for Home. The view
+ * combines it with a translator (`@zzzode/i18n`) to render text.
+ */
 export interface TodayState {
-  greeting: string;
-  dateLabel: string;
+  dayPart: DayPart;
+  dateParts: DateParts;
   /** Daily calorie target after the planned deficit. */
   energyGoalKcal: number;
   /** Calories eaten today. */
@@ -53,8 +67,8 @@ export interface TodayState {
   weightToGoalKg: number;
   /** Kilograms lost since the first sample. */
   weightLostKg: number;
-  /** Human-readable weight trend, e.g. "-0.6 kg/week". */
-  trendLabel: string;
+  /** Fitted trend in kilograms per week (negative = losing). */
+  trendKgPerWeek: number;
   streak: number;
   macros: {
     protein: MacroProgress;

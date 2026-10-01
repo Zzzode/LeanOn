@@ -32,7 +32,8 @@
   },
   "dependencies": {
     "@lynx-js/react": "^0.126.2",
-    "@zzzode/core": "workspace:*"
+    "@zzzode/core": "workspace:*",
+    "@zzzode/i18n": "workspace:*"
   },
   "devDependencies": {
     "@lynx-js/qrcode-rsbuild-plugin": "^0.7.3",

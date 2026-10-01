@@ -55,3 +55,4 @@
 | [0006](0006-native-host-and-container.md) | 原生宿主与 Lynx 容器 | Accepted |
 | [0007](0007-dynamic-delivery.md) | 动态化下发 | Accepted |
 | [0008](0008-data-model-encrypted-storage-sync.md) | 数据模型、加密存储与同步 | Accepted |
+| [0009](0009-internationalization.md) | 国际化（英文 + 简体中文） | Accepted |

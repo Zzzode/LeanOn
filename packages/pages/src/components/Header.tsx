@@ -1,19 +1,52 @@
+import { formatDate, type Locale, type Translator } from '@zzzode/i18n';
+import type { TodayState } from '../state/types.js';
+
 interface HeaderProps {
-  greeting: string;
-  dateLabel: string;
-  streak: number;
+  state: TodayState;
+  locale: Locale;
+  t: Translator;
+  onLocaleChange: (locale: Locale) => void;
 }
 
-export function Header({ greeting, dateLabel, streak }: HeaderProps) {
+const LOCALE_OPTIONS: ReadonlyArray<{ value: Locale; label: string }> = [
+  { value: 'en', label: 'EN' },
+  { value: 'zh-CN', label: '中' },
+];
+
+export function Header({ state, locale, t, onLocaleChange }: HeaderProps) {
   return (
     <view className="Header">
       <view className="Header-text">
-        <text className="Header-greeting">{greeting}</text>
-        <text className="Header-date">{dateLabel}</text>
+        <text className="Header-greeting">
+          {t(`home.greeting.${state.dayPart}`)}
+        </text>
+        <text className="Header-date">{formatDate(t, state.dateParts)}</text>
       </view>
-      <view className="Header-streak">
-        <text className="Header-streak-num">{streak}</text>
-        <text className="Header-streak-label">day streak</text>
+      <view className="Header-side">
+        <view className="LangSwitch">
+          {LOCALE_OPTIONS.map((option) => {
+            const active = option.value === locale;
+            return (
+              <view
+                key={option.value}
+                className={active ? 'LangSwitch-item active' : 'LangSwitch-item'}
+                bindtap={() => onLocaleChange(option.value)}
+              >
+                <text
+                  className={
+                    active ? 'LangSwitch-label active' : 'LangSwitch-label'
+                  }
+                >
+                  {option.label}
+                </text>
+              </view>
+            );
+          })}
+        </view>
+        <view className="Header-streak">
+          <text className="Header-streak-num">{state.streak}</text>
+          <text className="Header-streak-label">{t('home.dayStreak')}</text>
+        </view>
       </view>
     </view>
   );

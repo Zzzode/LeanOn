@@ -66,3 +66,4 @@ Not needed for:
 | [0006](0006-native-host-and-container.md) | Native host and Lynx container | Accepted |
 | [0007](0007-dynamic-delivery.md) | Dynamic bundle delivery | Accepted |
 | [0008](0008-data-model-encrypted-storage-sync.md) | Data model, encrypted storage and sync | Accepted |
+| [0009](0009-internationalization.md) | Internationalization (English + 简体中文) | Accepted |

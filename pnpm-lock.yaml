@@ -41,6 +41,12 @@ importers:
         specifier: ^0.12.2
         version: 0.12.2
 
+  packages/i18n:
+    devDependencies:
+      '@rstest/core':
+        specifier: ^0.12.2
+        version: 0.12.2
+
   packages/pages:
     dependencies:
       '@lynx-js/react':
@@ -49,6 +55,9 @@ importers:
       '@zzzode/core':
         specifier: workspace:*
         version: link:../core
+      '@zzzode/i18n':
+        specifier: workspace:*
+        version: link:../i18n
     devDependencies:
       '@lynx-js/qrcode-rsbuild-plugin':
         specifier: ^0.7.3

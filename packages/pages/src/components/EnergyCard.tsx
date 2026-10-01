@@ -1,3 +1,4 @@
+import type { Translator } from '@zzzode/i18n';
 import type { TodayState } from '../state/types.js';
 import { Card } from './Card.js';
 import { ProgressBar } from './ProgressBar.js';
@@ -12,12 +13,12 @@ function Row({ label, value }: { label: string; value: number }) {
   );
 }
 
-export function EnergyCard({ state }: { state: TodayState }) {
+export function EnergyCard({ state, t }: { state: TodayState; t: Translator }) {
   const usedFraction = 1 - state.remainingFraction;
   const accent = state.overBudget ? '#E0594B' : '#218967';
   return (
     <Card>
-      <text className="Card-title">Energy</text>
+      <text className="Card-title">{t('energy.title')}</text>
       <view className="Energy-main">
         <view className="Energy-headline">
           <text
@@ -27,13 +28,13 @@ export function EnergyCard({ state }: { state: TodayState }) {
             {Math.abs(state.remainingKcal)}
           </text>
           <text className="Energy-unit">
-            {state.overBudget ? 'kcal over' : 'kcal left'}
+            {t(state.overBudget ? 'energy.kcalOver' : 'energy.kcalLeft')}
           </text>
         </view>
         <view className="Energy-rows">
-          <Row label="Goal" value={state.energyGoalKcal} />
-          <Row label="Food" value={-state.foodKcal} />
-          <Row label="Exercise" value={state.exerciseKcal} />
+          <Row label={t('energy.goal')} value={state.energyGoalKcal} />
+          <Row label={t('energy.food')} value={-state.foodKcal} />
+          <Row label={t('energy.exercise')} value={state.exerciseKcal} />
         </view>
       </view>
       <ProgressBar fraction={usedFraction} color={accent} />

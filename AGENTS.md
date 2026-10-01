@@ -22,6 +22,7 @@ long-term health. The name combines getting **lean** with being able to **lean o
 | `apps/ios` | iOS native host (Swift): shell, Lynx container, bridge implementations |
 | `apps/android` | Android native host (Kotlin) |
 | `packages/core` | Pure-TS domain engine (TDEE, trends, nutrition) |
+| `packages/i18n` | Typed message catalogs, locale resolution and interpolation |
 | `packages/bridge` | Typed Lynx ↔ Native bridge |
 | `packages/ui` | Design system and components (built on lynx-ui) |
 | `packages/pages` | Lynx page bundles |
@@ -95,6 +96,19 @@ The **Rspack** ecosystem is the standard; pick the tool that matches the target:
 - A package exposes `"test": "rstest run"` for CI and may add `"test:watch": "rstest"`.
 - Prefer fixed fixtures and known worked examples for formulas, asserting numeric results with
   explicit precision; do not test implementation details.
+
+## Internationalization
+
+- User-facing text lives in `packages/i18n`; never hardcode a sentence in a component. Build a
+  translator with `createTranslator(locale)`, call `t('key', params?)`, and format dates with
+  `formatDate`.
+- English (`src/locales/en.ts`) is the canonical catalog: add a key there first, then every
+  other locale. The catalog-parity test fails on missing/extra keys or mismatched placeholders.
+- Supported locales are `en` (default) and `zh-CN`; map system tags through `resolveLocale`
+  (unknown tags fall back to English). Keep `kg`/`kcal` as international symbols and localize
+  word order and rate units.
+- Selectors return language-neutral values (day part, date parts, numbers), not composed text.
+  See RFC 0009.
 
 ## Monorepo conventions
 
