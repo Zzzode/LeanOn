@@ -57,7 +57,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Setup JDK 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '17'
@@ -75,8 +75,9 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build Lynx bundle
-        # prepareLynxAssets stages packages/pages/dist into the APK's assets.
-        run: pnpm --filter @zzzode/pages build
+        # Topological build (core before pages) so Rspack can resolve
+        # @zzzode/core; prepareLynxAssets then stages pages/dist into assets.
+        run: pnpm build
 
       - name: Install Android 35 platform
         # ubuntu-latest ships the Android SDK; accept licenses and add the
