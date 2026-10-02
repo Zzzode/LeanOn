@@ -74,3 +74,4 @@ Not needed for:
 | [0014](0014-manage-custom-foods.md) | Manage custom foods (edit/delete) | Accepted |
 | [0015](0015-favorites-and-recent-foods.md) | Favorites and recently eaten foods | Accepted |
 | [0016](0016-barcode-scan-and-open-food-facts.md) | Barcode scanning and Open Food Facts lookup | Accepted |
+| [0017](0017-exercise-logging.md) | Exercise logging | Accepted |

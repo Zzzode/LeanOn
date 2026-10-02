@@ -33,6 +33,20 @@ export const zhCN = {
   // Quick actions
   'action.logFood': '记录饮食',
   'action.logWeight': '记录体重',
+  'action.logExercise': '记录运动',
+
+  // 运动弹层与卡片（RFC 0017）。
+  'exerciseSheet.title': '记录运动',
+  'exerciseSheet.durationHint': '时长',
+  'exerciseSheet.minutes': '分钟',
+  'exerciseSheet.kcal': '千卡',
+  'exerciseSheet.invalid': '请选择运动类型并输入有效时长。',
+  'exerciseSheet.error': '保存失败，请重试。',
+  'exerciseSheet.cancel': '取消',
+  'exerciseSheet.save': '保存',
+  'exerciseCard.title': '今日运动',
+  'exerciseCard.kcal': '千卡',
+  'exerciseCard.min': '分钟',
 
   // Weight logging sheet
   'weightSheet.title': '记录体重',

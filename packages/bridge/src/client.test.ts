@@ -131,6 +131,26 @@ test('health.writeIntake forwards the meal and returns hostData', async () => {
   expect(response.hostData.today).toBe('2026-10-01');
 });
 
+test('health.writeExercise forwards the session and returns hostData', async () => {
+  const bridge = createMemoryBridge();
+  bridge.handle<
+    { date: string; typeId: string; durationMin: number; kcal: number },
+    { success: true; hostData: { today: string } }
+  >('health.writeExercise', (request) => ({
+    success: true,
+    hostData: { today: request.date },
+  }));
+  const client = createLeanOnBridgeClient(bridge.transport);
+  const response = await client.invoke('health.writeExercise', {
+    date: '2026-10-01',
+    typeId: 'running',
+    durationMin: 30,
+    kcal: 332,
+  });
+  expect(response.success).toBe(true);
+  expect(response.hostData.today).toBe('2026-10-01');
+});
+
 test('health.writeCustomFood stores the food and returns hostData', async () => {
   const bridge = createMemoryBridge();
   bridge.handle<

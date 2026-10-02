@@ -7,6 +7,8 @@ import {
 } from '@zzzode/i18n';
 import { createFoodFromBarcode } from '@zzzode/food-data';
 import { EnergyCard } from './components/EnergyCard.js';
+import { ExerciseCard } from './components/ExerciseCard.js';
+import { ExerciseSheet } from './components/ExerciseSheet.js';
 import { FoodSheet } from './components/FoodSheet.js';
 import { Header } from './components/Header.js';
 import { MacroCard } from './components/MacroCard.js';
@@ -19,7 +21,7 @@ import { sampleHostData } from './state/sample.js';
 import { selectToday } from './state/select.js';
 import type { HostData } from './state/types.js';
 
-type ActiveSheet = 'none' | 'weight' | 'scale' | 'food';
+type ActiveSheet = 'none' | 'weight' | 'scale' | 'food' | 'exercise';
 
 interface BootstrapData {
   hostData?: HostData;
@@ -70,6 +72,19 @@ export function App() {
       kcal: meal.kcal,
       macros: meal.macros,
       foodId: meal.foodId,
+    });
+    setHostData(response.hostData);
+    setActiveSheet('none');
+  };
+
+  const handleSaveExercise = async (session: {
+    typeId: string;
+    durationMin: number;
+    kcal: number;
+  }) => {
+    const response = await bridge.invoke('health.writeExercise', {
+      date: hostData.today,
+      ...session,
     });
     setHostData(response.hostData);
     setActiveSheet('none');
@@ -191,6 +206,7 @@ export function App() {
           )}
           <WeightCard state={state} t={t} />
           <MacroCard state={state} t={t} />
+          <ExerciseCard state={state} locale={locale} t={t} />
           <QuickActions
             t={t}
             onLogFood={() => {
@@ -199,6 +215,7 @@ export function App() {
               setActiveSheet('food');
             }}
             onLogWeight={() => setActiveSheet('weight')}
+            onLogExercise={() => setActiveSheet('exercise')}
           />
           <text className="Footer">{t('footer.disclaimer')}</text>
         </view>
@@ -239,6 +256,15 @@ export function App() {
           initialSelectedId={initialFoodId}
           scanError={scanError ?? undefined}
           onScanBarcode={handleScanBarcode}
+        />
+      )}
+      {activeSheet === 'exercise' && (
+        <ExerciseSheet
+          currentWeightKg={state.currentWeightKg}
+          locale={locale}
+          t={t}
+          onClose={() => setActiveSheet('none')}
+          onSave={handleSaveExercise}
         />
       )}
     </page>

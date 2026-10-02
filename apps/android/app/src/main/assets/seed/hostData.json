@@ -279,7 +279,14 @@
       }
     }
   ],
-  "todayExerciseKcal": 240,
+  "exercises": [
+    {
+      "date": "2026-10-01",
+      "typeId": "strength",
+      "durationMin": 36,
+      "kcal": 240
+    }
+  ],
   "streak": 13,
   "customFoods": [],
   "favoriteFoodIds": [],

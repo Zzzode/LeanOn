@@ -4,12 +4,14 @@ interface QuickActionsProps {
   t: Translator;
   onLogFood: () => void;
   onLogWeight: () => void;
+  onLogExercise: () => void;
 }
 
 export function QuickActions({
   t,
   onLogFood,
   onLogWeight,
+  onLogExercise,
 }: QuickActionsProps) {
   return (
     <view className="Actions">
@@ -18,6 +20,9 @@ export function QuickActions({
       </view>
       <view className="Action-btn" bindtap={onLogWeight}>
         <text className="Action-label">{t('action.logWeight')}</text>
+      </view>
+      <view className="Action-btn" bindtap={onLogExercise}>
+        <text className="Action-label">{t('action.logExercise')}</text>
       </view>
     </view>
   );

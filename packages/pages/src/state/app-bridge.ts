@@ -241,6 +241,22 @@ function createPreviewBridge(): LeanOnBridgeClient {
     hostData = { ...hostData, customFoods };
     return { success: true, hostData: clone(hostData) };
   });
+  memory.handle<
+    { date: string; typeId: string; durationMin: number; kcal: number },
+    { success: true; hostData: HostData }
+  >('health.writeExercise', (request) => {
+    const exercises = [
+      ...hostData.exercises,
+      {
+        date: request.date,
+        typeId: request.typeId,
+        durationMin: request.durationMin,
+        kcal: request.kcal,
+      },
+    ];
+    hostData = { ...hostData, exercises };
+    return { success: true, hostData: clone(hostData) };
+  });
 
   memory.handle('scale.getStatus', () => ({
     state: scaleState,

@@ -34,6 +34,7 @@
     "@lynx-js/react": "^0.126.2",
     "@zzzode/bridge": "workspace:*",
     "@zzzode/core": "workspace:*",
+    "@zzzode/exercise-data": "workspace:*",
     "@zzzode/food-data": "workspace:*",
     "@zzzode/i18n": "workspace:*"
   },

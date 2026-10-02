@@ -18,6 +18,7 @@ export type {
   Confidence,
   DateRange,
   Estimate,
+  ExerciseSample,
   IntakeSample,
   Macros,
   PeriodRecord,

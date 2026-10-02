@@ -1,4 +1,10 @@
-import type { IntakeSample, Macros, Profile, WeightSample } from '@zzzode/core';
+import type {
+  ExerciseSample,
+  IntakeSample,
+  Macros,
+  Profile,
+  WeightSample,
+} from '@zzzode/core';
 import type { FoodItem, OffProduct } from '@zzzode/food-data';
 import type { JsonValue } from './types';
 
@@ -24,8 +30,8 @@ export interface HostDataDto {
   weeklyLossKg: number;
   weights: WeightSample[];
   intake: IntakeSample[];
-  /** Kilocalories burned through intentional exercise today. */
-  todayExerciseKcal?: number;
+  /** Logged intentional-exercise sessions (RFC 0017). */
+  exercises: ExerciseSample[];
   /** Number of consecutive logging days. */
   streak: number;
   /** User-created foods persisted by the host (RFC 0013); empty by default. */
@@ -123,6 +129,15 @@ export type LeanOnRpcContract = {
       macros: Macros;
       /** When present, the host moves this food to the front of recent (RFC 0015). */
       foodId?: string;
+    };
+    response: { success: true; hostData: HostDataDto };
+  };
+  'health.writeExercise': {
+    request: {
+      date: string;
+      typeId: string;
+      durationMin: number;
+      kcal: number;
     };
     response: { success: true; hostData: HostDataDto };
   };
@@ -250,6 +265,7 @@ export const RpcMethods = {
   healthReadSamples: 'health.readSamples',
   healthWriteWeight: 'health.writeWeight',
   healthWriteIntake: 'health.writeIntake',
+  healthWriteExercise: 'health.writeExercise',
   healthSetFoodFavorite: 'health.setFoodFavorite',
   healthWriteCustomFood: 'health.writeCustomFood',
   healthUpdateCustomFood: 'health.updateCustomFood',

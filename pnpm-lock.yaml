@@ -48,6 +48,12 @@ importers:
         specifier: ^0.12.2
         version: 0.12.2
 
+  packages/exercise-data:
+    devDependencies:
+      '@rstest/core':
+        specifier: ^0.12.2
+        version: 0.12.2
+
   packages/food-data:
     devDependencies:
       '@rstest/core':
@@ -71,6 +77,9 @@ importers:
       '@zzzode/core':
         specifier: workspace:*
         version: link:../core
+      '@zzzode/exercise-data':
+        specifier: workspace:*
+        version: link:../exercise-data
       '@zzzode/food-data':
         specifier: workspace:*
         version: link:../food-data

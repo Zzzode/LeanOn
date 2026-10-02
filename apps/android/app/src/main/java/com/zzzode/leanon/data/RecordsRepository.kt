@@ -105,6 +105,31 @@ class RecordsRepository(context: Context) {
   }
 
   /**
+   * Append an exercise session (RFC 0017) to `exercises`, persist, and return the
+   * full HostData. Sessions are kept individually rather than merged per day.
+   */
+  fun addExercise(
+    date: String,
+    typeId: String,
+    durationMin: Double,
+    kcal: Double,
+  ): JSONObject {
+    val data = loadHostData()
+    val exercises =
+      data.optJSONArray(EXERCISES)
+        ?: JSONArray().also { data.put(EXERCISES, it) }
+    val session = JSONObject()
+      .put(DATE, date)
+      .put(TYPE_ID, typeId)
+      .put(DURATION_MIN, durationMin)
+      .put(KCAL, kcal)
+    exercises.put(session)
+
+    recordFile.writeText(data.toString(), Charsets.UTF_8)
+    return data
+  }
+
+  /**
    * Append a user-created food (RFC 0013) to `customFoods`, persist, and return
    * the full HostData. Records written before this slice lack the field, so it is
    * created on demand. The typed name is mirrored across both locales.
@@ -311,6 +336,9 @@ class RecordsRepository(context: Context) {
     const val SEED_ASSET = "seed/hostData.json"
     const val WEIGHTS = "weights"
     const val INTAKE = "intake"
+    const val EXERCISES = "exercises"
+    const val TYPE_ID = "typeId"
+    const val DURATION_MIN = "durationMin"
     const val DATE = "date"
     const val WEIGHT_KG = "weightKg"
     const val KCAL = "kcal"

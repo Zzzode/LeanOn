@@ -34,6 +34,21 @@ export const en = {
   // Quick actions
   'action.logFood': 'Log food',
   'action.logWeight': 'Log weight',
+  'action.logExercise': 'Log exercise',
+
+  // Exercise sheet and card (RFC 0017).
+  'exerciseSheet.title': 'Log exercise',
+  'exerciseSheet.durationHint': 'Duration',
+  'exerciseSheet.minutes': 'min',
+  'exerciseSheet.kcal': 'kcal',
+  'exerciseSheet.invalid':
+    'Choose an activity and enter a valid duration.',
+  'exerciseSheet.error': 'Could not save the workout. Please try again.',
+  'exerciseSheet.cancel': 'Cancel',
+  'exerciseSheet.save': 'Save',
+  'exerciseCard.title': "Today's exercise",
+  'exerciseCard.kcal': 'kcal',
+  'exerciseCard.min': 'min',
 
   // Weight logging sheet
   'weightSheet.title': 'Log weight',

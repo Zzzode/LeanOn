@@ -37,6 +37,14 @@ export interface TodayState {
   foodKcal: number;
   /** Calories burned through exercise today. */
   exerciseKcal: number;
+  /** Minutes of exercise today. */
+  exerciseMin: number;
+  /** Today's exercise sessions, in logged order (RFC 0017). */
+  exerciseSessions: {
+    typeId: string;
+    durationMin: number;
+    kcal: number;
+  }[];
   /** Calories still available (goal - food + exercise). */
   remainingKcal: number;
   /** Fraction of the budget remaining, clamped to [0, 1]. */

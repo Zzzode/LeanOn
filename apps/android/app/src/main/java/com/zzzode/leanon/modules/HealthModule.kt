@@ -246,6 +246,38 @@ class HealthModule(context: Context) : LynxModule(context) {
     }
   }
 
+  /**
+   * Log an exercise session (RFC 0017) and return the updated HostData. The page
+   * passes the kilocalories it calculated; the host only validates and persists.
+   */
+  @LynxMethod
+  fun writeExercise(params: ReadableMap, callback: Callback) {
+    try {
+      val date = requiredString(params, "date")
+      val typeId = requiredString(params, "typeId")
+      if (!params.hasKey("durationMin")) {
+        throw InvalidRequest("Missing durationMin")
+      }
+      val durationMin = params.getDouble("durationMin")
+      if (!durationMin.isFinite() || durationMin <= 0) {
+        throw InvalidRequest("durationMin must be a finite positive number")
+      }
+      if (!params.hasKey("kcal")) throw InvalidRequest("Missing kcal")
+      val kcal = params.getDouble("kcal")
+      if (!kcal.isFinite() || kcal <= 0) {
+        throw InvalidRequest("kcal must be a finite positive number")
+      }
+
+      val application = app()
+      val hostData =
+        application.records.addExercise(date, typeId, durationMin, kcal)
+      application.events.dispatch("records.changed", changedPayload(hostData))
+      callback.invoke(successResult(hostData))
+    } catch (error: Exception) {
+      callback.invoke(failure(error))
+    }
+  }
+
   /** Read an optional per-100 g macro; missing = 0, invalid = null. */
   private fun optionalMacro(params: ReadableMap, key: String): Double? {
     if (!params.hasKey(key)) return 0.0

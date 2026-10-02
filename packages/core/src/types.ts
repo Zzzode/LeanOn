@@ -51,6 +51,16 @@ export interface IntakeSample {
   macros: Macros;
 }
 
+/** A logged intentional-exercise session (RFC 0017). */
+export interface ExerciseSample {
+  date: string;
+  /** Id of the exercise type in the exercise-data catalogue. */
+  typeId: string;
+  durationMin: number;
+  /** Kilocalories burned for this session. */
+  kcal: number;
+}
+
 export type Confidence = 'low' | 'medium' | 'high';
 
 /** A value paired with an explicit confidence level instead of false precision. */

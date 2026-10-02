@@ -81,7 +81,22 @@ export function selectToday(data: HostData): TodayState {
     }
   }
 
-  const exerciseKcal = data.todayExerciseKcal ?? 0;
+  // Today's exercise sessions (RFC 0017), summed for the eat-back budget.
+  const exerciseSessions = data.exercises
+    .filter((session) => session.date === data.today)
+    .map((session) => ({
+      typeId: session.typeId,
+      durationMin: session.durationMin,
+      kcal: session.kcal,
+    }));
+  const exerciseKcal = exerciseSessions.reduce(
+    (sum, session) => sum + session.kcal,
+    0,
+  );
+  const exerciseMin = exerciseSessions.reduce(
+    (sum, session) => sum + session.durationMin,
+    0,
+  );
   const remainingKcal = energyGoalKcal - foodKcal + exerciseKcal;
   const overBudget = remainingKcal < 0;
   const remainingFraction = Math.min(
@@ -110,6 +125,8 @@ export function selectToday(data: HostData): TodayState {
     energyGoalKcal,
     foodKcal: round0(foodKcal),
     exerciseKcal: round0(exerciseKcal),
+    exerciseMin: round0(exerciseMin),
+    exerciseSessions,
     remainingKcal: round0(remainingKcal),
     remainingFraction,
     overBudget,

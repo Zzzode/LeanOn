@@ -41,6 +41,11 @@ export const sampleHostData: HostData = (() => {
     macros: { proteinG: 78, carbsG: 128, fatG: 36 },
   };
 
+  // Today: one strength session (RFC 0017), matching the previous 240 kcal.
+  const todayExercises = [
+    { date: isoDaysAgo(0), typeId: 'strength', durationMin: 36, kcal: 240 },
+  ];
+
   return {
     today: isoDaysAgo(0),
     todayHour: 19,
@@ -54,7 +59,7 @@ export const sampleHostData: HostData = (() => {
     weeklyLossKg: 0.6,
     weights,
     intake: [...historicalIntake, todayIntake],
-    todayExerciseKcal: 240,
+    exercises: todayExercises,
     streak: 13,
     customFoods: [],
     favoriteFoodIds: [],

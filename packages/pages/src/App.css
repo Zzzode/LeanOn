@@ -284,7 +284,7 @@
 }
 
 .Action-label {
-  font-size: 28rpx;
+  font-size: 26rpx;
   font-weight: 600;
   color: #218967;
 }
@@ -696,4 +696,94 @@
 
 .Food-star-label.on {
   color: #218967;
+}
+
+/* Exercise sheet (RFC 0017). */
+.Exercise-type-list {
+  height: 420rpx;
+  margin-bottom: 20rpx;
+}
+
+.Exercise-type {
+  padding: 24rpx;
+  border-radius: 18rpx;
+  margin-bottom: 10rpx;
+  background-color: #f3f7f5;
+}
+
+.Exercise-type.selected {
+  background-color: #218967;
+}
+
+.Exercise-type-label {
+  font-size: 28rpx;
+  color: #16261f;
+}
+
+.Exercise-type.selected .Exercise-type-label {
+  color: #ffffff;
+}
+
+.Exercise-duration-input {
+  flex: 0 0 220rpx;
+}
+
+.Exercise-kcal-row {
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: center;
+  margin: 8rpx 0 18rpx;
+}
+
+.Exercise-kcal {
+  font-size: 64rpx;
+  font-weight: 700;
+  color: #14352a;
+}
+
+.Exercise-kcal-unit {
+  font-size: 26rpx;
+  color: #5b6b63;
+  margin-left: 10rpx;
+}
+
+/* Exercise card on Home (RFC 0017). */
+.Exercise-card {
+  margin-top: 20rpx;
+}
+
+.Exercise-head {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12rpx;
+}
+
+.Exercise-head-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #14352a;
+}
+
+.Exercise-head-total {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #218967;
+}
+
+.Exercise-row-item {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16rpx 4rpx;
+}
+
+.Exercise-row-name {
+  font-size: 27rpx;
+  color: #16261f;
+}
+
+.Exercise-row-meta {
+  font-size: 25rpx;
+  color: #6b7a72;
 }

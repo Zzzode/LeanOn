@@ -63,3 +63,4 @@
 | [0014](0014-manage-custom-foods.md) | 管理自定义食物（编辑/删除） | Accepted |
 | [0015](0015-favorites-and-recent-foods.zh-CN.md) | 收藏与最近常吃食物 | Accepted |
 | [0016](0016-barcode-scan-and-open-food-facts.zh-CN.md) | 条码扫描与 Open Food Facts 查询 | Accepted |
+| [0017](0017-exercise-logging.zh-CN.md) | 运动记录 | Accepted |
