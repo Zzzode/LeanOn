@@ -314,6 +314,26 @@ function createPreviewBridge(): LeanOnBridgeClient {
   });
   memory.handle('notification.requestPermission', () => ({ granted: true }));
 
+  // --- Health Connect export simulation (RFC 0021) ---
+  let hcEnabled = false;
+  let hcGranted = false;
+  memory.handle('healthConnect.getStatus', () => ({
+    supported: true,
+    enabled: hcEnabled,
+    permissionsGranted: hcGranted,
+  }));
+  memory.handle('healthConnect.requestPermission', () => {
+    hcGranted = true;
+    return { granted: true };
+  });
+  memory.handle<{ enabled: boolean }, { success: true }>(
+    'healthConnect.setEnabled',
+    (request) => {
+      hcEnabled = request.enabled;
+      return { success: true };
+    },
+  );
+
   memory.handle('scale.getStatus', () => ({
     state: scaleState,
     pairedDeviceId: null,

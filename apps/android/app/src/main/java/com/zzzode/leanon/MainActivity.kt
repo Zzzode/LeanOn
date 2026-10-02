@@ -6,11 +6,18 @@ import androidx.appcompat.app.AppCompatActivity
 import com.zzzode.leanon.ble.PermissionRequests
 import com.zzzode.leanon.container.LynxContainer
 import com.zzzode.leanon.reminders.NotificationPermission
+import com.zzzode.leanon.healthconnect.HealthConnectPermission
 
 /** Single-activity shell that hosts the reusable Lynx container. */
 class MainActivity : AppCompatActivity() {
 
   private lateinit var container: LynxContainer
+
+  // Registered before STARTED; Health Connect returns the granted permission set here.
+  val healthConnectPermissionLauncher =
+    registerForActivityResult(HealthConnectPermission.contract) { grantedPermissions ->
+      HealthConnectPermission.handleResult(grantedPermissions)
+    }
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)

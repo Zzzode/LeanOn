@@ -11,6 +11,7 @@ import { EnergyCard } from './components/EnergyCard.js';
 import { ExerciseCard } from './components/ExerciseCard.js';
 import { ExerciseSheet } from './components/ExerciseSheet.js';
 import { FoodSheet } from './components/FoodSheet.js';
+import { HealthConnectSheet, type HealthConnectStatus } from './components/HealthConnectSheet.js';
 import { Header } from './components/Header.js';
 import { InsightsScreen } from './components/InsightsScreen.js';
 import { MacroCard } from './components/MacroCard.js';
@@ -46,6 +47,12 @@ export function App() {
   const [reminderSettings, setReminderSettings] =
     useState<ReminderSettings | null>(null);
   const [reminderOpen, setReminderOpen] = useState<boolean>(false);
+  const [hcStatus, setHcStatus] = useState<HealthConnectStatus>({
+    supported: false,
+    enabled: false,
+    permissionsGranted: false,
+  });
+  const [hcOpen, setHcOpen] = useState<boolean>(false);
 
   const bridge = useMemo(() => createAppBridge(), []);
   const t = useMemo(() => createTranslator(locale), [locale]);
@@ -67,6 +74,26 @@ export function App() {
       .invoke('notification.getSettings')
       .then((response) => {
         if (active) setReminderSettings(response.settings);
+      })
+      .catch(() => {});
+    return () => {
+      active = false;
+    };
+  }, [bridge]);
+
+  // Load Health Connect availability/export status once (RFC 0021).
+  useEffect(() => {
+    let active = true;
+    bridge
+      .invoke('healthConnect.getStatus')
+      .then((response) => {
+        if (active) {
+          setHcStatus({
+            supported: response.supported,
+            enabled: response.enabled,
+            permissionsGranted: response.permissionsGranted,
+          });
+        }
       })
       .catch(() => {});
     return () => {
@@ -267,6 +294,43 @@ export function App() {
     setReminderOpen(false);
   };
 
+  const handleOpenHealthConnect = () => {
+    // Open immediately; refresh availability in the background so the tap is
+    // never blocked by an asynchronous status check (RFC 0021).
+    setHcOpen(true);
+    bridge
+      .invoke('healthConnect.getStatus')
+      .then((response) => {
+        setHcStatus({
+          supported: response.supported,
+          enabled: response.enabled,
+          permissionsGranted: response.permissionsGranted,
+        });
+      })
+      .catch(() => {});
+  };
+
+  const handleRequestHealthConnectPermission = async () => {
+    try {
+      const response = await bridge.invoke('healthConnect.requestPermission');
+      setHcStatus((previous) => ({
+        ...previous,
+        permissionsGranted: response.granted,
+      }));
+    } catch {
+      // The user can retry from the sheet.
+    }
+  };
+
+  const handleSetHealthConnectEnabled = async (enabled: boolean) => {
+    try {
+      await bridge.invoke('healthConnect.setEnabled', { enabled });
+      setHcStatus((previous) => ({ ...previous, enabled }));
+    } catch {
+      // Keep the switch unchanged on failure.
+    }
+  };
+
   return (
     <page className="Page">
       <scroll-view scroll-y className="Scroll">
@@ -277,6 +341,7 @@ export function App() {
             t={t}
             onLocaleChange={setLocale}
             onOpenReminders={handleOpenReminders}
+            onOpenHealthConnect={handleOpenHealthConnect}
           />
           <view className="LangSwitch TabSwitch">
             {(
@@ -407,6 +472,15 @@ export function App() {
           settings={reminderSettings}
           onClose={() => setReminderOpen(false)}
           onSave={handleSaveReminders}
+        />
+      )}
+      {hcOpen && (
+        <HealthConnectSheet
+          t={t}
+          status={hcStatus}
+          onClose={() => setHcOpen(false)}
+          onRequestPermission={handleRequestHealthConnectPermission}
+          onSetEnabled={handleSetHealthConnectEnabled}
         />
       )}
     </page>

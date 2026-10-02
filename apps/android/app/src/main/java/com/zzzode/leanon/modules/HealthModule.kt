@@ -57,6 +57,7 @@ class HealthModule(context: Context) : LynxModule(context) {
       val application = app()
       val hostData = application.records.addWeight(date, weightKg)
       application.events.dispatch("records.changed", changedPayload(hostData))
+      application.healthConnect.onRecordsChanged()
       callback.invoke(successResult(hostData))
     } catch (error: Exception) {
       callback.invoke(
@@ -121,6 +122,7 @@ class HealthModule(context: Context) : LynxModule(context) {
           date, kcal, proteinG, carbsG, fatG, foodId,
         )
       application.events.dispatch("records.changed", changedPayload(hostData))
+      application.healthConnect.onRecordsChanged()
       callback.invoke(successResult(hostData))
     } catch (error: Exception) {
       callback.invoke(
@@ -272,6 +274,7 @@ class HealthModule(context: Context) : LynxModule(context) {
       val hostData =
         application.records.addExercise(date, typeId, durationMin, kcal)
       application.events.dispatch("records.changed", changedPayload(hostData))
+      application.healthConnect.onRecordsChanged()
       callback.invoke(successResult(hostData))
     } catch (error: Exception) {
       callback.invoke(failure(error))
@@ -308,6 +311,7 @@ class HealthModule(context: Context) : LynxModule(context) {
           kcal,
         )
       application.events.dispatch("records.changed", changedPayload(hostData))
+      application.healthConnect.onRecordsChanged()
       callback.invoke(successResult(hostData))
     } catch (error: Exception) {
       callback.invoke(failure(error))
@@ -322,6 +326,7 @@ class HealthModule(context: Context) : LynxModule(context) {
       val application = app()
       val hostData = application.records.deleteExercise(id)
       application.events.dispatch("records.changed", changedPayload(hostData))
+      application.healthConnect.onRecordsChanged()
       callback.invoke(successResult(hostData))
     } catch (error: Exception) {
       callback.invoke(failure(error))

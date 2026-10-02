@@ -6,4 +6,5 @@
     <string name="notif_weight_body">起床后站上体重秤称一下吧。</string>
     <string name="notif_meals_title">记录今天的饮食</string>
     <string name="notif_meals_body">几下点按，让今天保持在正轨。</string>
+    <string name="health_connect_rationale">LeanOn 会把你的体重、饮食和运动写入 Health Connect，使其与你的其他健康 App 和可穿戴设备一起呈现。它只写入你在这里记录的数据，不会读取你的其他数据。</string>
 </resources>

@@ -163,5 +163,15 @@ export const zhCN = {
   'reminder.save': '保存',
   'reminder.cancel': '取消',
 
+  'healthConnect.title': 'Health Connect',
+  'healthConnect.description':
+    '将你的体重、饮食和运动数据导出到 Health Connect。',
+  'healthConnect.unsupported': '此设备不支持 Health Connect。',
+  'healthConnect.permission': '权限',
+  'healthConnect.grantPermission': '授权',
+  'healthConnect.permissionGranted': '已授权',
+  'healthConnect.export': '导出',
+  'healthConnect.done': '完成',
+
   'date.format': '{month}月{day}日 {weekday}',
 } satisfies Record<MessageKey, string>;

@@ -374,3 +374,34 @@ test('notification.requestPermission returns the granted state', async () => {
   const result = await client.invoke('notification.requestPermission');
   expect(result.granted).toBe(true);
 });
+
+test('healthConnect.getStatus returns availability and flags', async () => {
+  const bridge = createMemoryBridge();
+  bridge.handle('healthConnect.getStatus', () => ({
+    supported: true,
+    enabled: false,
+    permissionsGranted: false,
+  }));
+  const client = createLeanOnBridgeClient(bridge.transport);
+  const result = await client.invoke('healthConnect.getStatus');
+  expect(result.supported).toBe(true);
+  expect(result.enabled).toBe(false);
+});
+
+test('healthConnect.requestPermission returns the granted state', async () => {
+  const bridge = createMemoryBridge();
+  bridge.handle('healthConnect.requestPermission', () => ({ granted: true }));
+  const client = createLeanOnBridgeClient(bridge.transport);
+  const result = await client.invoke('healthConnect.requestPermission');
+  expect(result.granted).toBe(true);
+});
+
+test('healthConnect.setEnabled returns success', async () => {
+  const bridge = createMemoryBridge();
+  bridge.handle('healthConnect.setEnabled', () => ({ success: true }));
+  const client = createLeanOnBridgeClient(bridge.transport);
+  const result = await client.invoke('healthConnect.setEnabled', {
+    enabled: true,
+  });
+  expect(result.success).toBe(true);
+});

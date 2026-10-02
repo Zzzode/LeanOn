@@ -267,6 +267,22 @@ export type LeanOnRpcContract = {
     request: void;
     response: { granted: boolean };
   };
+  'healthConnect.getStatus': {
+    request: void;
+    response: {
+      supported: boolean;
+      enabled: boolean;
+      permissionsGranted: boolean;
+    };
+  };
+  'healthConnect.requestPermission': {
+    request: void;
+    response: { granted: boolean };
+  };
+  'healthConnect.setEnabled': {
+    request: { enabled: boolean };
+    response: { success: boolean };
+  };
 };
 
 export type LeanOnEventContract = {
@@ -316,6 +332,9 @@ export const RpcMethods = {
   notificationGetSettings: 'notification.getSettings',
   notificationUpdateSettings: 'notification.updateSettings',
   notificationRequestPermission: 'notification.requestPermission',
+  healthConnectGetStatus: 'healthConnect.getStatus',
+  healthConnectRequestPermission: 'healthConnect.requestPermission',
+  healthConnectSetEnabled: 'healthConnect.setEnabled',
 } as const satisfies Record<string, keyof LeanOnRpcContract>;
 
 export const BridgeEvents = {

@@ -12,6 +12,7 @@ import com.zzzode.leanon.data.RecordsRepository
 import com.zzzode.leanon.data.SettingsRepository
 import com.zzzode.leanon.reminders.Notifier
 import com.zzzode.leanon.reminders.ReminderScheduler
+import com.zzzode.leanon.healthconnect.HealthConnectManager
 
 /** Process-wide entry point: initializes Lynx and wires host singletons. */
 class LeanOnApplication : Application() {
@@ -32,6 +33,8 @@ class LeanOnApplication : Application() {
     private set
   lateinit var reminderScheduler: ReminderScheduler
     private set
+  lateinit var healthConnect: HealthConnectManager
+    private set
 
   override fun onCreate() {
     super.onCreate()
@@ -47,6 +50,7 @@ class LeanOnApplication : Application() {
     settings = SettingsRepository(this)
     notifier = Notifier(this)
     reminderScheduler = ReminderScheduler(this)
+    healthConnect = HealthConnectManager(this)
     // Re-arm the persisted daily reminders on process start (RFC 0020).
     reminderScheduler.applySettings(settings.getReminderSettings())
     LynxModuleBootstrap.initialize(this)

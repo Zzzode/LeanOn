@@ -86,7 +86,7 @@ jobs:
           ANDROID_SDK="${ANDROID_HOME:-$ANDROID_SDK_ROOT}"
           SDKM="$(ls -d "$ANDROID_SDK"/cmdline-tools/*/bin/sdkmanager | head -1)"
           yes | "$SDKM" --licenses >/dev/null
-          "$SDKM" "platforms;android-35" "build-tools;35.0.0"
+          "$SDKM" "platforms;android-36" "build-tools;35.0.0"
 
       - name: Run JVM unit tests
         working-directory: apps/android

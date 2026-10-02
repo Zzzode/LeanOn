@@ -4,6 +4,7 @@ import android.content.Context
 import com.lynx.tasm.LynxEnv
 import com.zzzode.leanon.modules.AppModule
 import com.zzzode.leanon.modules.FoodModule
+import com.zzzode.leanon.modules.HealthConnectModule
 import com.zzzode.leanon.modules.HealthModule
 import com.zzzode.leanon.modules.NotificationModule
 import com.zzzode.leanon.modules.ResourceModule
@@ -27,5 +28,6 @@ object LynxModuleBootstrap {
     env.registerModule("resource", ResourceModule::class.java)
     env.registerModule("app", AppModule::class.java)
     env.registerModule("notification", NotificationModule::class.java)
+    env.registerModule("healthConnect", HealthConnectModule::class.java)
   }
 }

@@ -20,7 +20,7 @@ val prepareLynxAssets by tasks.registering(Copy::class) {
 
 android {
   namespace = "com.zzzode.leanon"
-  compileSdk = 35
+  compileSdk = 36
 
   defaultConfig {
     applicationId = "com.zzzode.leanon"
@@ -60,12 +60,15 @@ dependencies {
   implementation(libs.androidx.appcompat)
   implementation(libs.androidx.activity.ktx)
   implementation(libs.androidx.work.runtime)
+  implementation(libs.androidx.health.connect)
 
   implementation(libs.androidx.camera.core)
   implementation(libs.androidx.camera.camera2)
   implementation(libs.androidx.camera.lifecycle)
   implementation(libs.androidx.camera.view)
   implementation(libs.mlkit.barcode.scanning)
+  // CameraX ListenableFuture APIs (explicit after the toolchain upgrade).
+  implementation("com.google.guava:guava:33.4.0-android")
 
   implementation(libs.lynx)
   implementation(libs.lynx.jssdk)

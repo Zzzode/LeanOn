@@ -168,6 +168,17 @@ export const en = {
   'reminder.save': 'Save',
   'reminder.cancel': 'Cancel',
 
+  'healthConnect.title': 'Health Connect',
+  'healthConnect.description':
+    'Export your weight, nutrition and workouts to Health Connect.',
+  'healthConnect.unsupported':
+    'Health Connect is not available on this device.',
+  'healthConnect.permission': 'Permission',
+  'healthConnect.grantPermission': 'Grant',
+  'healthConnect.permissionGranted': 'Granted',
+  'healthConnect.export': 'Export',
+  'healthConnect.done': 'Done',
+
   'date.format': '{weekday}, {month} {day}',
 } as const;
 

@@ -7,6 +7,7 @@ interface HeaderProps {
   t: Translator;
   onLocaleChange: (locale: Locale) => void;
   onOpenReminders: () => void;
+  onOpenHealthConnect: () => void;
 }
 
 const LOCALE_OPTIONS: ReadonlyArray<{ value: Locale; label: string }> = [
@@ -20,6 +21,7 @@ export function Header({
   t,
   onLocaleChange,
   onOpenReminders,
+  onOpenHealthConnect,
 }: HeaderProps) {
   return (
     <view className="Header">
@@ -32,6 +34,9 @@ export function Header({
       <view className="Header-side">
         <view className="Header-bell" bindtap={onOpenReminders}>
           <text className="Header-bell-glyph">🔔</text>
+        </view>
+        <view className="Header-bell" bindtap={onOpenHealthConnect}>
+          <text className="Header-bell-glyph">🔗</text>
         </view>
         <view className="LangSwitch">
           {LOCALE_OPTIONS.map((option) => {

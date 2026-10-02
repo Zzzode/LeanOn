@@ -38,8 +38,16 @@ class SettingsRepository(context: Context) {
       .apply()
   }
 
+  fun getHealthConnectEnabled(): Boolean =
+    prefs.getBoolean(KEY_HEALTH_CONNECT_ENABLED, false)
+
+  fun setHealthConnectEnabled(enabled: Boolean) {
+    prefs.edit().putBoolean(KEY_HEALTH_CONNECT_ENABLED, enabled).apply()
+  }
+
   private companion object {
     const val PREFS_NAME = "leanon_settings"
+    const val KEY_HEALTH_CONNECT_ENABLED = "health_connect_enabled"
     const val KEY_WEIGHT_ENABLED = "weight_enabled"
     const val KEY_WEIGHT_HOUR = "weight_hour"
     const val KEY_WEIGHT_MINUTE = "weight_minute"

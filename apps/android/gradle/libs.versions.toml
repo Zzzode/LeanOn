@@ -1,10 +1,11 @@
 [versions]
-agp = "8.7.3"
+agp = "8.9.1"
 kotlin = "2.1.0"
 coreKtx = "1.15.0"
 appcompat = "1.7.0"
 activity = "1.9.3"
 workManager = "2.10.0"
+healthConnect = "1.1.0"
 camera = "1.4.2"
 mlkitBarcode = "17.3.0"
 lynx = "3.9.0"
@@ -16,6 +17,7 @@ androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx"
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activity" }
 androidx-work-runtime = { module = "androidx.work:work-runtime-ktx", version.ref = "workManager" }
+androidx-health-connect = { module = "androidx.health.connect:connect-client", version.ref = "healthConnect" }
 androidx-camera-core = { module = "androidx.camera:camera-core", version.ref = "camera" }
 androidx-camera-camera2 = { module = "androidx.camera:camera-camera2", version.ref = "camera" }
 androidx-camera-lifecycle = { module = "androidx.camera:camera-lifecycle", version.ref = "camera" }

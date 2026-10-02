@@ -78,3 +78,4 @@ Not needed for:
 | [0018](0018-manage-exercise.md) | Edit and delete exercise sessions | Accepted |
 | [0019](0019-progress-insights.md) | Progress insights and weekly review | Accepted |
 | [0020](0020-smart-reminders.md) | Smart reminders | Accepted |
+| [0021](0021-health-connect-export.md) | Health Connect export | Accepted |

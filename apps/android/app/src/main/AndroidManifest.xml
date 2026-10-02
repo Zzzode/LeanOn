@@ -6,6 +6,10 @@
   <uses-permission android:name="android.permission.CAMERA" />
   <!-- Daily local reminders on Android 13+ (RFC 0020). -->
   <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+  <!-- One-way export to Health Connect (RFC 0021). -->
+  <uses-permission android:name="android.permission.health.WRITE_WEIGHT" />
+  <uses-permission android:name="android.permission.health.WRITE_NUTRITION" />
+  <uses-permission android:name="android.permission.health.WRITE_EXERCISE" />
 
   <!-- Legacy Bluetooth (API 30 and below). -->
   <uses-permission
@@ -31,6 +35,11 @@
     android:name="android.hardware.camera"
     android:required="false" />
 
+  <!-- Locate the Health Connect app/package for availability and permission flows. -->
+  <queries>
+    <package android:name="com.google.android.apps.healthdata" />
+  </queries>
+
   <application
     android:name=".LeanOnApplication"
     android:allowBackup="false"
@@ -51,5 +60,24 @@
       android:name=".scanner.BarcodeScanActivity"
       android:exported="false"
       android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+    <!-- Health Connect permission rationale (pre-Android 14) and usage link (14+). -->
+    <activity
+      android:name=".healthconnect.HealthConnectRationaleActivity"
+      android:exported="true">
+      <intent-filter>
+        <action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE" />
+      </intent-filter>
+    </activity>
+    <activity-alias
+      android:name="ViewPermissionUsageActivity"
+      android:exported="true"
+      android:targetActivity=".healthconnect.HealthConnectRationaleActivity"
+      android:permission="android.permission.START_VIEW_PERMISSION_USAGE">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW_PERMISSION_USAGE" />
+        <category android:name="android.intent.category.HEALTH_PERMISSIONS" />
+      </intent-filter>
+    </activity-alias>
   </application>
 </manifest>
