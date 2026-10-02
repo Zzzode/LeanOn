@@ -86,6 +86,31 @@ export function App() {
     ]!;
   };
 
+  const handleUpdateCustomFood = async (request: {
+    id: string;
+    name: string;
+    kcal: number;
+    proteinG: number;
+    carbsG: number;
+    fatG: number;
+    defaultGrams: number | null;
+  }) => {
+    const response = await bridge.invoke(
+      'health.updateCustomFood',
+      request,
+    );
+    setHostData(response.hostData);
+    return response.hostData.customFoods.find(
+      (food) => food.id === request.id,
+    )!;
+  };
+
+  const handleDeleteCustomFood = async (id: string) => {
+    const response = await bridge.invoke('health.deleteCustomFood', { id });
+    setHostData(response.hostData);
+    setActiveSheet('none');
+  };
+
   return (
     <page className="Page">
       <scroll-view scroll-y className="Scroll">
@@ -136,6 +161,8 @@ export function App() {
           onClose={() => setActiveSheet('none')}
           onSave={handleSaveIntake}
           onCreateCustomFood={handleCreateCustomFood}
+          onUpdateCustomFood={handleUpdateCustomFood}
+          onDeleteCustomFood={handleDeleteCustomFood}
         />
       )}
     </page>

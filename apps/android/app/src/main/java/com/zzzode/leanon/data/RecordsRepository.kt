@@ -142,6 +142,77 @@ class RecordsRepository(context: Context) {
     return data
   }
 
+  /**
+   * Replace the editable content of the custom food with [id], keeping its id and
+   * source (RFC 0014), then persist and return the full HostData. Throws when the
+   * id is absent.
+   */
+  fun updateCustomFood(
+    id: String,
+    name: String,
+    kcal: Double,
+    proteinG: Double,
+    carbsG: Double,
+    fatG: Double,
+    defaultGrams: Double?,
+  ): JSONObject {
+    val data = loadHostData()
+    val customFoods =
+      data.optJSONArray(CUSTOM_FOODS)
+        ?: throw NoSuchElementException("Custom food $id not found")
+
+    var index = -1
+    for (candidate in 0 until customFoods.length()) {
+      if (customFoods.getJSONObject(candidate).getString(ID) == id) {
+        index = candidate
+        break
+      }
+    }
+    if (index < 0) throw NoSuchElementException("Custom food $id not found")
+    val source = customFoods.getJSONObject(index).optString(SOURCE, CUSTOM)
+
+    val foodName = JSONObject().put(EN, name).put(ZH_CN, name)
+    val macros = JSONObject()
+      .put(PROTEIN_G, proteinG)
+      .put(CARBS_G, carbsG)
+      .put(FAT_G, fatG)
+    val item = JSONObject()
+      .put(ID, id)
+      .put(NAME, foodName)
+      .put(KCAL, kcal)
+      .put(MACROS, macros)
+      .put(SOURCE, source)
+    if (defaultGrams !== null) item.put(DEFAULT_GRAMS, defaultGrams)
+    customFoods.put(index, item)
+
+    recordFile.writeText(data.toString(), Charsets.UTF_8)
+    return data
+  }
+
+  /** Remove the custom food with [id], persist, and return the full HostData. */
+  fun deleteCustomFood(id: String): JSONObject {
+    val data = loadHostData()
+    val customFoods =
+      data.optJSONArray(CUSTOM_FOODS)
+        ?: throw NoSuchElementException("Custom food $id not found")
+
+    val remaining = JSONArray()
+    var found = false
+    for (candidate in 0 until customFoods.length()) {
+      val existing = customFoods.getJSONObject(candidate)
+      if (existing.getString(ID) == id) {
+        found = true
+      } else {
+        remaining.put(existing)
+      }
+    }
+    if (!found) throw NoSuchElementException("Custom food $id not found")
+    data.put(CUSTOM_FOODS, remaining)
+
+    recordFile.writeText(data.toString(), Charsets.UTF_8)
+    return data
+  }
+
   private fun ensureSeeded() {
     if (recordFile.exists()) return
     val seed = appContext.assets

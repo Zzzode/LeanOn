@@ -152,6 +152,44 @@ test('health.writeCustomFood stores the food and returns hostData', async () => 
   expect(response.hostData.customFoods).toHaveLength(1);
 });
 
+test('health.updateCustomFood replaces the food and returns hostData', async () => {
+  const bridge = createMemoryBridge();
+  bridge.handle<
+    { id: string; name: string; kcal: number },
+    { success: true; hostData: { customFoods: unknown[] } }
+  >('health.updateCustomFood', (request) => ({
+    success: true,
+    hostData: {
+      customFoods: [{ id: request.id, name: { en: request.name } }],
+    },
+  }));
+  const client = createLeanOnBridgeClient(bridge.transport);
+  const response = await client.invoke('health.updateCustomFood', {
+    id: 'custom-1',
+    name: 'Renamed Bar',
+    kcal: 420,
+  });
+  expect(response.success).toBe(true);
+  expect(response.hostData.customFoods).toHaveLength(1);
+});
+
+test('health.deleteCustomFood removes the food and returns hostData', async () => {
+  const bridge = createMemoryBridge();
+  bridge.handle<
+    { id: string },
+    { success: true; hostData: { customFoods: unknown[] } }
+  >('health.deleteCustomFood', () => ({
+    success: true,
+    hostData: { customFoods: [] },
+  }));
+  const client = createLeanOnBridgeClient(bridge.transport);
+  const response = await client.invoke('health.deleteCustomFood', {
+    id: 'custom-1',
+  });
+  expect(response.success).toBe(true);
+  expect(response.hostData.customFoods).toHaveLength(0);
+});
+
 test('records.changed delivers the refreshed hostData snapshot', () => {
   const bridge = createMemoryBridge();
   const client = createLeanOnBridgeClient(bridge.transport);

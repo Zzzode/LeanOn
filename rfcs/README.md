@@ -71,3 +71,4 @@ Not needed for:
 | [0011](0011-ble-scale-and-records-changed.md) | BLE weight scale and `records.changed` | Accepted |
 | [0012](0012-offline-food-logging.md) | Offline food logging | Accepted |
 | [0013](0013-custom-foods.md) | Custom foods | Accepted |
+| [0014](0014-manage-custom-foods.md) | Manage custom foods (edit/delete) | Accepted |

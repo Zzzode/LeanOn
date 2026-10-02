@@ -81,6 +81,11 @@ export const en = {
   'customFood.invalidDefault':
     'Default serving must be greater than zero.',
   'customFood.error': 'Could not save. Please try again.',
+  'customFood.editTitle': 'Edit food',
+  'customFood.edit': 'Edit',
+  'customFood.saveChanges': 'Save changes',
+  'customFood.delete': 'Delete',
+  'customFood.deleteNow': 'Delete now',
 
   // Notice & footer
   'notice.safeFloor': 'Your target was raised to the safe minimum.',

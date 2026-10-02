@@ -13,13 +13,27 @@ interface InputEvent {
   detail: { value: string };
 }
 
-interface CreateFoodRequest {
+interface FoodFields {
   name: string;
   kcal: number;
   proteinG: number;
   carbsG: number;
   fatG: number;
+}
+
+interface UpdateFoodRequest extends FoodFields {
+  id: string;
+  /** A number sets the default serving; null clears it. */
+  defaultGrams: number | null;
+}
+
+interface CreateFoodRequest extends FoodFields {
   defaultGrams?: number;
+}
+
+/** A food the user owns (not shipped in the catalogue) can be edited/deleted. */
+function isUserOwned(item: FoodItem): boolean {
+  return item.source !== 'usda-fdc' && item.source !== 'curated';
 }
 
 interface FoodSheetProps {
@@ -34,13 +48,17 @@ interface FoodSheetProps {
   }) => Promise<void>;
   /** Persist a new custom food and return the created entry. */
   onCreateCustomFood: (request: CreateFoodRequest) => Promise<FoodItem>;
+  /** Replace a custom food and return the updated entry. */
+  onUpdateCustomFood: (request: UpdateFoodRequest) => Promise<FoodItem>;
+  /** Remove a custom food. */
+  onDeleteCustomFood: (id: string) => Promise<void>;
 }
 
 /**
- * Bottom sheet for logging a meal (RFC 0012) and creating custom foods when the
- * catalogue has no match (RFC 0013). Search runs fully offline over the bundled
- * foods plus the host-persisted custom foods. After creating a food, the sheet
- * jumps straight to logging today's portion of it.
+ * Bottom sheet for logging a meal (RFC 0012), creating custom foods (RFC 0013)
+ * and managing them (RFC 0014). Search runs fully offline over the bundled foods
+ * plus the host-persisted custom foods. The same form serves create and edit;
+ * deleting uses a two-step confirmation.
  */
 export function FoodSheet({
   t,
@@ -49,22 +67,26 @@ export function FoodSheet({
   onClose,
   onSave,
   onCreateCustomFood,
+  onUpdateCustomFood,
+  onDeleteCustomFood,
 }: FoodSheetProps) {
   const [query, setQuery] = useState<string>('');
   const [selected, setSelected] = useState<FoodItem | null>(null);
   const [grams, setGrams] = useState<string>('100');
   const [creating, setCreating] = useState<boolean>(false);
+  const [editing, setEditing] = useState<boolean>(false);
+  const [confirmDelete, setConfirmDelete] = useState<boolean>(false);
   const [saving, setSaving] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Creation form state.
+  // Shared food form state.
   const [cName, setCName] = useState<string>('');
   const [cKcal, setCKcal] = useState<string>('');
   const [cProtein, setCProtein] = useState<string>('');
   const [cCarbs, setCCarbs] = useState<string>('');
   const [cFat, setCFat] = useState<string>('');
   const [cDefault, setCDefault] = useState<string>('');
-  const [createError, setCreateError] = useState<string | null>(null);
+  const [formError, setFormError] = useState<string | null>(null);
 
   const database = useMemo<FoodDatabase>(
     () => [...foods, ...customFoods],
@@ -86,33 +108,46 @@ export function FoodSheet({
     }
   }, [selected, grams]);
 
+  const setField = (id: string, value: string) => {
+    lynx
+      .createSelectorQuery()
+      .select(id)
+      .invoke({ method: 'setValue', params: { value } })
+      .exec();
+  };
+
   // Controlled `value` is unavailable on Lynx 3.9 input, so prefill imperatively.
   useEffect(() => {
     if (selected === null) return;
-    lynx
-      .createSelectorQuery()
-      .select('#food-grams')
-      .invoke({
-        method: 'setValue',
-        params: { value: String(selected.defaultGrams ?? 100) },
-      })
-      .exec();
+    setField('#food-grams', String(selected.defaultGrams ?? 100));
   }, [selected]);
 
-  // When the create form opens, seed its name field with the searched text.
+  // Prefill the shared form: create seeds the name with the query and clears the
+  // rest; edit fills every field from the selected food.
   useEffect(() => {
-    if (!creating) return;
-    lynx
-      .createSelectorQuery()
-      .select('#cf-name')
-      .invoke({ method: 'setValue', params: { value: query } })
-      .exec();
-  }, [creating]);
+    if (creating) {
+      setField('#cf-name', query);
+      setField('#cf-kcal', '');
+      setField('#cf-protein', '');
+      setField('#cf-carbs', '');
+      setField('#cf-fat', '');
+      setField('#cf-default', '');
+    } else if (editing && selected !== null) {
+      setField('#cf-name', selected.name[locale]);
+      setField('#cf-kcal', String(selected.kcal));
+      setField('#cf-protein', String(selected.macros.proteinG));
+      setField('#cf-carbs', String(selected.macros.carbsG));
+      setField('#cf-fat', String(selected.macros.fatG));
+      setField('#cf-default',
+        selected.defaultGrams === undefined ? '' : String(selected.defaultGrams));
+    }
+  }, [creating, editing]);
 
   const choose = (item: FoodItem) => {
     setSelected(item);
     setGrams(String(item.defaultGrams ?? 100));
     setError(null);
+    setConfirmDelete(false);
   };
 
   const openCreate = () => {
@@ -122,19 +157,38 @@ export function FoodSheet({
     setCCarbs('');
     setCFat('');
     setCDefault('');
-    setCreateError(null);
+    setFormError(null);
     setCreating(true);
   };
 
-  const submitCreate = async () => {
+  const openEdit = () => {
+    if (selected === null) return;
+    setCName(selected.name[locale]);
+    setCKcal(String(selected.kcal));
+    setCProtein(String(selected.macros.proteinG));
+    setCCarbs(String(selected.macros.carbsG));
+    setCFat(String(selected.macros.fatG));
+    setCDefault(selected.defaultGrams === undefined ? '' : String(selected.defaultGrams));
+    setFormError(null);
+    setConfirmDelete(false);
+    setEditing(true);
+  };
+
+  const closeForm = () => {
+    setCreating(false);
+    setEditing(false);
+    setFormError(null);
+  };
+
+  const submitForm = async () => {
     const name = cName.trim();
     const kcal = Number(cKcal);
     if (name.length === 0) {
-      setCreateError(t('customFood.nameRequired'));
+      setFormError(t('customFood.nameRequired'));
       return;
     }
     if (!Number.isFinite(kcal) || kcal <= 0) {
-      setCreateError(t('customFood.kcalRequired'));
+      setFormError(t('customFood.kcalRequired'));
       return;
     }
     const optional = (text: string): number =>
@@ -143,36 +197,53 @@ export function FoodSheet({
     const carbsG = optional(cCarbs);
     const fatG = optional(cFat);
     if (![proteinG, carbsG, fatG].every((v) => Number.isFinite(v) && v >= 0)) {
-      setCreateError(t('customFood.invalidMacros'));
+      setFormError(t('customFood.invalidMacros'));
       return;
     }
-    let defaultGrams: number | undefined;
+    let defaultNumber: number | null = null;
     if (cDefault.trim() !== '') {
       const value = Number(cDefault);
       if (!Number.isFinite(value) || value <= 0) {
-        setCreateError(t('customFood.invalidDefault'));
+        setFormError(t('customFood.invalidDefault'));
         return;
       }
-      defaultGrams = value;
+      defaultNumber = value;
     }
 
     setSaving(true);
     try {
-      const created = await onCreateCustomFood({
-        name,
-        kcal,
-        proteinG,
-        carbsG,
-        fatG,
-        ...(defaultGrams === undefined ? {} : { defaultGrams }),
-      });
-      setCreating(false);
-      setSelected(created);
-      setGrams(String(created.defaultGrams ?? 100));
+      if (editing && selected !== null) {
+        const updated = await onUpdateCustomFood({
+          id: selected.id, name, kcal, proteinG, carbsG, fatG,
+          defaultGrams: defaultNumber,
+        });
+        setEditing(false);
+        setSelected(updated);
+      } else {
+        const created = await onCreateCustomFood({
+          name, kcal, proteinG, carbsG, fatG,
+          ...(defaultNumber === null ? {} : { defaultGrams: defaultNumber }),
+        });
+        setCreating(false);
+        setSelected(created);
+        setGrams(String(created.defaultGrams ?? 100));
+      }
     } catch {
-      setCreateError(t('customFood.error'));
+      setFormError(t('customFood.error'));
     }
     setSaving(false);
+  };
+
+  const handleDelete = async () => {
+    if (selected === null) return;
+    setSaving(true);
+    try {
+      await onDeleteCustomFood(selected.id);
+    } catch {
+      setError(t('customFood.error'));
+      setSaving(false);
+      setConfirmDelete(false);
+    }
   };
 
   const handleSave = async () => {
@@ -191,15 +262,20 @@ export function FoodSheet({
 
   const trimmedQuery = query.trim();
   const showCreateRow = trimmedQuery.length > 0 && results.length === 0;
+  const showForm = creating || editing;
 
   return (
     <view className="Sheet-overlay Food-overlay" bindtap={onClose}>
       <view className="FoodSheet" catchtap={() => {}}>
         <text className="Sheet-title">
-          {creating ? t('customFood.title') : t('foodSheet.title')}
+          {showForm
+            ? editing
+              ? t('customFood.editTitle')
+              : t('customFood.title')
+            : t('foodSheet.title')}
         </text>
 
-        {creating ? (
+        {showForm ? (
           <view className="Food-detail">
             <view className="Food-form">
               <view className="Sheet-field">
@@ -272,21 +348,23 @@ export function FoodSheet({
                 <text className="Sheet-unit">g</text>
               </view>
             </view>
-            {createError !== null && (
-              <text className="Sheet-error">{createError}</text>
+            {formError !== null && (
+              <text className="Sheet-error">{formError}</text>
             )}
             <view className="Sheet-actions">
-              <view className="Sheet-btn" bindtap={() => setCreating(false)}>
+              <view className="Sheet-btn" bindtap={closeForm}>
                 <text className="Sheet-btn-label">
                   {t('customFood.cancel')}
                 </text>
               </view>
               <view
                 className={`Sheet-btn primary${saving ? ' disabled' : ''}`}
-                bindtap={saving ? undefined : submitCreate}
+                bindtap={saving ? undefined : submitForm}
               >
                 <text className="Sheet-btn-label primary">
-                  {t('customFood.save')}
+                  {editing
+                    ? t('customFood.saveChanges')
+                    : t('customFood.save')}
                 </text>
               </view>
             </view>
@@ -372,6 +450,45 @@ export function FoodSheet({
               <text className="Sheet-error">{t('foodSheet.invalid')}</text>
             )}
             {error !== null && <text className="Sheet-error">{error}</text>}
+
+            {isUserOwned(selected) && (
+              <view className="Food-manage">
+                <view className="Food-manage-btn" bindtap={openEdit}>
+                  <text className="Food-manage-label">
+                    {t('customFood.edit')}
+                  </text>
+                </view>
+                {confirmDelete ? (
+                  <view className="Food-manage-row">
+                    <view
+                      className="Food-manage-btn"
+                      bindtap={() => setConfirmDelete(false)}
+                    >
+                      <text className="Food-manage-label">
+                        {t('customFood.cancel')}
+                      </text>
+                    </view>
+                    <view
+                      className="Food-manage-btn danger"
+                      bindtap={saving ? undefined : handleDelete}
+                    >
+                      <text className="Food-manage-label danger">
+                        {t('customFood.deleteNow')}
+                      </text>
+                    </view>
+                  </view>
+                ) : (
+                  <view
+                    className="Food-manage-btn danger"
+                    bindtap={() => setConfirmDelete(true)}
+                  >
+                    <text className="Food-manage-label danger">
+                      {t('customFood.delete')}
+                    </text>
+                  </view>
+                )}
+              </view>
+            )}
 
             <view className="Sheet-actions">
               <view className="Sheet-btn" bindtap={onClose}>

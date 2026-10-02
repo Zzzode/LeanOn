@@ -605,3 +605,35 @@
   font-size: 28rpx;
   color: #218967;
 }
+
+.Food-manage {
+  display: flex;
+  flex-direction: column;
+  margin: 10rpx 0 4rpx;
+  padding: 14rpx 0 4rpx;
+  border-top: 1rpx solid #e4ece7;
+}
+
+.Food-manage-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.Food-manage-btn {
+  padding: 14rpx 20rpx;
+  margin: 4rpx 0;
+}
+
+.Food-manage-row .Food-manage-btn {
+  flex: 1;
+  margin-right: 16rpx;
+}
+
+.Food-manage-label {
+  font-size: 27rpx;
+  color: #218967;
+}
+
+.Food-manage-label.danger {
+  color: #e0594b;
+}

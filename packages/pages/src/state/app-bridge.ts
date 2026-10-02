@@ -5,7 +5,7 @@ import {
   hasLynxHost,
   type LeanOnBridgeClient,
 } from '@zzzode/bridge';
-import { createCustomFood } from '@zzzode/food-data';
+import { createCustomFood, updateCustomFood } from '@zzzode/food-data';
 import { sampleHostData } from './sample.js';
 import type { HostData } from './types.js';
 
@@ -107,6 +107,53 @@ function createPreviewBridge(): LeanOnBridgeClient {
     hostData = {
       ...hostData,
       customFoods: [...hostData.customFoods, item],
+    };
+    return { success: true, hostData: clone(hostData) };
+  });
+
+  memory.handle<
+    {
+      id: string;
+      name: string;
+      kcal: number;
+      proteinG?: number;
+      carbsG?: number;
+      fatG?: number;
+      defaultGrams?: number | null;
+    },
+    { success: true; hostData: HostData }
+  >('health.updateCustomFood', (request) => {
+    const target = hostData.customFoods.find((f) => f.id === request.id);
+    if (target === undefined) throw new Error('not-found');
+    const updated = updateCustomFood(target, {
+      name: request.name,
+      kcal: request.kcal,
+      proteinG: request.proteinG,
+      carbsG: request.carbsG,
+      fatG: request.fatG,
+      defaultGrams: request.defaultGrams,
+    });
+    hostData = {
+      ...hostData,
+      customFoods: hostData.customFoods.map((f) =>
+        f.id === request.id ? updated : f,
+      ),
+    };
+    return { success: true, hostData: clone(hostData) };
+  });
+
+  memory.handle<
+    { id: string },
+    { success: true; hostData: HostData }
+  >('health.deleteCustomFood', (request) => {
+    if (!hostData.customFoods.some((f) => f.id === request.id)) {
+      throw new Error('not-found');
+    }
+    hostData = {
+      ...hostData,
+      customFoods: hostData.customFoods.filter(
+        (f) => f.id !== request.id,
+      ),
     };
     return { success: true, hostData: clone(hostData) };
   });

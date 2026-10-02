@@ -44,6 +44,20 @@ export interface CreateCustomFoodInput {
   defaultGrams?: number;
 }
 
+/**
+ * Full desired state when editing a user-owned food (RFC 0014). `id` is supplied
+ * separately. A positive `defaultGrams` sets it; `null` explicitly clears it.
+ */
+export interface EditCustomFoodInput {
+  name: string;
+  /** Energy per 100 g (kcal), must be finite and greater than zero. */
+  kcal: number;
+  proteinG?: number;
+  carbsG?: number;
+  fatG?: number;
+  defaultGrams?: number | null;
+}
+
 /** Read-only catalogue. */
 export type FoodDatabase = readonly FoodItem[];
 

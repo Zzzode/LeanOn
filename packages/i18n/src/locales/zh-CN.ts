@@ -78,6 +78,11 @@ export const zhCN = {
   'customFood.invalidMacros': '宏量须为非负数字。',
   'customFood.invalidDefault': '默认份量须大于零。',
   'customFood.error': '保存失败，请重试。',
+  'customFood.editTitle': '编辑食物',
+  'customFood.edit': '编辑',
+  'customFood.saveChanges': '保存修改',
+  'customFood.delete': '删除',
+  'customFood.deleteNow': '确认删除',
 
   // Notice & footer
   'notice.safeFloor': '目标已调整到安全下限。',

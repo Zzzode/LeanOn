@@ -128,6 +128,24 @@ export type LeanOnRpcContract = {
     };
     response: { success: true; hostData: HostDataDto };
   };
+  'health.updateCustomFood': {
+    request: {
+      id: string;
+      name: string;
+      /** Per 100 g. */
+      kcal: number;
+      proteinG?: number;
+      carbsG?: number;
+      fatG?: number;
+      /** A number sets it; null clears the stored default. */
+      defaultGrams?: number | null;
+    };
+    response: { success: true; hostData: HostDataDto };
+  };
+  'health.deleteCustomFood': {
+    request: { id: string };
+    response: { success: true; hostData: HostDataDto };
+  };
   'scale.scan': {
     request: void;
     response: { scanning: boolean };
@@ -198,6 +216,8 @@ export const RpcMethods = {
   healthWriteWeight: 'health.writeWeight',
   healthWriteIntake: 'health.writeIntake',
   healthWriteCustomFood: 'health.writeCustomFood',
+  healthUpdateCustomFood: 'health.updateCustomFood',
+  healthDeleteCustomFood: 'health.deleteCustomFood',
   scaleScan: 'scale.scan',
   scaleConnect: 'scale.connect',
   scaleDisconnect: 'scale.disconnect',

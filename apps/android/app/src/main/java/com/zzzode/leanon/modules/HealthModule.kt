@@ -9,6 +9,7 @@ import com.lynx.react.bridge.ReadableMap
 import com.lynx.tasm.behavior.LynxContext
 import com.zzzode.leanon.LeanOnApplication
 import com.zzzode.leanon.data.toJavaOnlyMap
+import java.util.NoSuchElementException
 import java.util.UUID
 
 /** Native module backing the `health.*` methods; delegates to the record store. */
@@ -120,57 +121,66 @@ class HealthModule(context: Context) : LynxModule(context) {
 
   /**
    * Create and persist a user-owned custom food (RFC 0013), then return the
-   * updated HostData. The host generates the id, mirrors the name across locales,
-   * and emits `records.changed` like every other write.
+   * updated HostData. The host generates the id and emits `records.changed`.
    */
   @LynxMethod
   fun writeCustomFood(params: ReadableMap, callback: Callback) {
     try {
-      if (!params.hasKey("name") || !params.hasKey("kcal")) {
-        callback.invoke(errorResult("invalid-request", "Missing name or kcal"))
-        return
-      }
-      val name = params.getString("name")?.trim()
-      val kcal = params.getDouble("kcal")
-      if (name == null || name.isEmpty() || !kcal.isFinite() || kcal <= 0) {
-        callback.invoke(
-          errorResult("invalid-request", "Name is required and kcal > 0"),
-        )
-        return
-      }
-      val proteinG = optionalMacro(params, "proteinG")
-      val carbsG = optionalMacro(params, "carbsG")
-      val fatG = optionalMacro(params, "fatG")
-      if (proteinG == null || carbsG == null || fatG == null) {
-        callback.invoke(
-          errorResult("invalid-request", "Macros must be finite and non-negative"),
-        )
-        return
-      }
-      var defaultGrams: Double? = null
-      if (params.hasKey("defaultGrams")) {
-        val value = params.getDouble("defaultGrams")
-        if (!value.isFinite() || value <= 0) {
-          callback.invoke(
-            errorResult("invalid-request", "defaultGrams must be greater than 0"),
-          )
-          return
-        }
-        defaultGrams = value
-      }
-
+      val fields = parseCustomFoodFields(params)
       val id = "custom-" + UUID.randomUUID().toString().take(8)
       val application = app()
       val hostData =
         application.records.addCustomFood(
-          id, name, kcal, proteinG, carbsG, fatG, defaultGrams,
+          id,
+          fields.name,
+          fields.kcal,
+          fields.proteinG,
+          fields.carbsG,
+          fields.fatG,
+          fields.defaultGrams,
         )
       application.events.dispatch("records.changed", changedPayload(hostData))
       callback.invoke(successResult(hostData))
     } catch (error: Exception) {
-      callback.invoke(
-        errorResult("unavailable", error.message ?: "Could not save food"),
-      )
+      callback.invoke(failure(error))
+    }
+  }
+
+  /** Replace a user-owned custom food (RFC 0014) and return the HostData. */
+  @LynxMethod
+  fun updateCustomFood(params: ReadableMap, callback: Callback) {
+    try {
+      val id = requiredString(params, "id")
+      val fields = parseCustomFoodFields(params)
+      val application = app()
+      val hostData =
+        application.records.updateCustomFood(
+          id,
+          fields.name,
+          fields.kcal,
+          fields.proteinG,
+          fields.carbsG,
+          fields.fatG,
+          fields.defaultGrams,
+        )
+      application.events.dispatch("records.changed", changedPayload(hostData))
+      callback.invoke(successResult(hostData))
+    } catch (error: Exception) {
+      callback.invoke(failure(error))
+    }
+  }
+
+  /** Remove a user-owned custom food (RFC 0014) and return the HostData. */
+  @LynxMethod
+  fun deleteCustomFood(params: ReadableMap, callback: Callback) {
+    try {
+      val id = requiredString(params, "id")
+      val application = app()
+      val hostData = application.records.deleteCustomFood(id)
+      application.events.dispatch("records.changed", changedPayload(hostData))
+      callback.invoke(successResult(hostData))
+    } catch (error: Exception) {
+      callback.invoke(failure(error))
     }
   }
 
@@ -180,6 +190,61 @@ class HealthModule(context: Context) : LynxModule(context) {
     val value = params.getDouble(key)
     return if (value.isFinite() && value >= 0) value else null
   }
+
+  /** Read a mandatory non-empty string parameter. */
+  private fun requiredString(params: ReadableMap, key: String): String {
+    val value = if (params.hasKey(key)) params.getString(key) else null
+    if (value == null) throw InvalidRequest("Missing $key")
+    return value
+  }
+
+  /** Validate the editable content shared by create and update. */
+  private fun parseCustomFoodFields(params: ReadableMap): CustomFoodFields {
+    if (!params.hasKey("name") || !params.hasKey("kcal")) {
+      throw InvalidRequest("Missing name or kcal")
+    }
+    val name = params.getString("name")?.trim()
+    val kcal = params.getDouble("kcal")
+    if (name == null || name.isEmpty() || !kcal.isFinite() || kcal <= 0) {
+      throw InvalidRequest("Name is required and kcal > 0")
+    }
+    val proteinG = optionalMacro(params, "proteinG")
+    val carbsG = optionalMacro(params, "carbsG")
+    val fatG = optionalMacro(params, "fatG")
+    if (proteinG == null || carbsG == null || fatG == null) {
+      throw InvalidRequest("Macros must be finite and non-negative")
+    }
+    var defaultGrams: Double? = null
+    if (params.hasKey("defaultGrams") && !params.isNull("defaultGrams")) {
+      val value = params.getDouble("defaultGrams")
+      if (!value.isFinite() || value <= 0) {
+        throw InvalidRequest("defaultGrams must be greater than 0")
+      }
+      defaultGrams = value
+    }
+    return CustomFoodFields(name, kcal, proteinG, carbsG, fatG, defaultGrams)
+  }
+
+  /** Map a thrown error to the native error result the bridge expects. */
+  private fun failure(error: Exception): JavaOnlyMap =
+    when (error) {
+      is NoSuchElementException ->
+        errorResult("not-found", error.message ?: "Not found")
+      is InvalidRequest ->
+        errorResult("invalid-request", error.message ?: "Invalid request")
+      else -> errorResult("unavailable", error.message ?: "Request failed")
+    }
+
+  private class InvalidRequest(message: String) : Exception(message)
+
+  private data class CustomFoodFields(
+    val name: String,
+    val kcal: Double,
+    val proteinG: Double,
+    val carbsG: Double,
+    val fatG: Double,
+    val defaultGrams: Double?,
+  )
 
   private fun app(): LeanOnApplication {
     val androidContext =
