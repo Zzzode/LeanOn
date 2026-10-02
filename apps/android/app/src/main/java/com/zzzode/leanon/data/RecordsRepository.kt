@@ -4,6 +4,7 @@ import android.content.Context
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
+import java.util.UUID
 
 /**
  * App-private JSON record store. The native side is the persistence authority
@@ -21,8 +22,35 @@ class RecordsRepository(context: Context) {
   /** Load the current HostData, seeding the private store on first launch. */
   fun loadHostData(): JSONObject {
     ensureSeeded()
-    return JSONObject(recordFile.readText(Charsets.UTF_8))
+    val data = JSONObject(recordFile.readText(Charsets.UTF_8))
+    if (ensureExerciseIds(data)) {
+      recordFile.writeText(data.toString(), Charsets.UTF_8)
+    }
+    return data
   }
+
+  /**
+   * Ensure every exercise session has a non-empty id (RFC 0018); create the
+   * array when missing and assign ids to legacy sessions. Returns true when the
+   * data was modified so the caller can persist it.
+   */
+  private fun ensureExerciseIds(data: JSONObject): Boolean {
+    val exercises =
+      data.optJSONArray(EXERCISES)
+        ?: JSONArray().also { data.put(EXERCISES, it) }
+    var changed = false
+    for (index in 0 until exercises.length()) {
+      val session = exercises.optJSONObject(index) ?: continue
+      if (session.optString(ID).isBlank()) {
+        session.put(ID, newExerciseId())
+        changed = true
+      }
+    }
+    return changed
+  }
+
+  private fun newExerciseId(): String =
+    "ex-${UUID.randomUUID().toString().take(8)}"
 
   /**
    * Insert or replace the weight sample for [date], persist, and return the full
@@ -115,15 +143,68 @@ class RecordsRepository(context: Context) {
     kcal: Double,
   ): JSONObject {
     val data = loadHostData()
-    val exercises =
-      data.optJSONArray(EXERCISES)
-        ?: JSONArray().also { data.put(EXERCISES, it) }
+    val exercises = data.getJSONArray(EXERCISES)
     val session = JSONObject()
+      .put(ID, newExerciseId())
       .put(DATE, date)
       .put(TYPE_ID, typeId)
       .put(DURATION_MIN, durationMin)
       .put(KCAL, kcal)
     exercises.put(session)
+
+    recordFile.writeText(data.toString(), Charsets.UTF_8)
+    return data
+  }
+
+  /** Replace a session (RFC 0018) in place, keeping its id; throw if absent. */
+  fun updateExercise(
+    id: String,
+    date: String,
+    typeId: String,
+    durationMin: Double,
+    kcal: Double,
+  ): JSONObject {
+    val data = loadHostData()
+    val exercises = data.getJSONArray(EXERCISES)
+    var found = false
+    for (index in 0 until exercises.length()) {
+      val session = exercises.getJSONObject(index)
+      if (session.optString(ID) == id) {
+        session
+          .put(DATE, date)
+          .put(TYPE_ID, typeId)
+          .put(DURATION_MIN, durationMin)
+          .put(KCAL, kcal)
+        found = true
+        break
+      }
+    }
+    if (!found) {
+      throw NoSuchElementException("Exercise session not found: $id")
+    }
+
+    recordFile.writeText(data.toString(), Charsets.UTF_8)
+    return data
+  }
+
+  /** Remove a session (RFC 0018); throw if the id is absent. */
+  fun deleteExercise(id: String): JSONObject {
+    val data = loadHostData()
+    val existing = data.getJSONArray(EXERCISES)
+    val updated = JSONArray()
+    var found = false
+    for (index in 0 until existing.length()) {
+      val session = existing.getJSONObject(index)
+      if (session.optString(ID) == id) {
+        found = true
+      } else {
+        updated.put(session)
+      }
+    }
+    if (!found) {
+      throw NoSuchElementException("Exercise session not found: $id")
+    }
+    data.put(EXERCISES, updated)
 
     recordFile.writeText(data.toString(), Charsets.UTF_8)
     return data

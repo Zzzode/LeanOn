@@ -786,4 +786,30 @@
 .Exercise-row-meta {
   font-size: 25rpx;
   color: #6b7a72;
+  margin-left: 12rpx;
+}
+
+.Exercise-row-actions {
+  flex-direction: row;
+  align-items: center;
+  margin-left: 12rpx;
+  flex-shrink: 0;
+}
+
+.Exercise-row-btn {
+  font-size: 24rpx;
+  color: #218967;
+  padding: 8rpx 10rpx;
+}
+
+.Exercise-row-btn.danger {
+  color: #e0594b;
+}
+
+.Exercise-row-btn.confirm {
+  font-weight: 700;
+}
+
+.Exercise-row-btn + .Exercise-row-btn {
+  margin-left: 6rpx;
 }

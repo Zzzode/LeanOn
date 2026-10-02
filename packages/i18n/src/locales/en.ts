@@ -38,6 +38,7 @@ export const en = {
 
   // Exercise sheet and card (RFC 0017).
   'exerciseSheet.title': 'Log exercise',
+  'exerciseSheet.editTitle': 'Edit exercise',
   'exerciseSheet.durationHint': 'Duration',
   'exerciseSheet.minutes': 'min',
   'exerciseSheet.kcal': 'kcal',
@@ -49,6 +50,9 @@ export const en = {
   'exerciseCard.title': "Today's exercise",
   'exerciseCard.kcal': 'kcal',
   'exerciseCard.min': 'min',
+  'exerciseCard.edit': 'Edit',
+  'exerciseCard.delete': 'Delete',
+  'exerciseCard.confirmDelete': 'Sure?',
 
   // Weight logging sheet
   'weightSheet.title': 'Log weight',

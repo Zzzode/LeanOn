@@ -248,12 +248,47 @@ function createPreviewBridge(): LeanOnBridgeClient {
     const exercises = [
       ...hostData.exercises,
       {
+        id: `ex-preview-${Date.now().toString(36)}`,
         date: request.date,
         typeId: request.typeId,
         durationMin: request.durationMin,
         kcal: request.kcal,
       },
     ];
+    hostData = { ...hostData, exercises };
+    return { success: true, hostData: clone(hostData) };
+  });
+  memory.handle<
+    {
+      id: string;
+      date: string;
+      typeId: string;
+      durationMin: number;
+      kcal: number;
+    },
+    { success: true; hostData: HostData }
+  >('health.updateExercise', (request) => {
+    const exercises = hostData.exercises.map((session) =>
+      session.id === request.id
+        ? {
+            id: session.id,
+            date: request.date,
+            typeId: request.typeId,
+            durationMin: request.durationMin,
+            kcal: request.kcal,
+          }
+        : session,
+    );
+    hostData = { ...hostData, exercises };
+    return { success: true, hostData: clone(hostData) };
+  });
+  memory.handle<
+    { id: string },
+    { success: true; hostData: HostData }
+  >('health.deleteExercise', (request) => {
+    const exercises = hostData.exercises.filter(
+      (session) => session.id !== request.id,
+    );
     hostData = { ...hostData, exercises };
     return { success: true, hostData: clone(hostData) };
   });

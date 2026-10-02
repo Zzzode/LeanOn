@@ -85,6 +85,7 @@ export function selectToday(data: HostData): TodayState {
   const exerciseSessions = data.exercises
     .filter((session) => session.date === data.today)
     .map((session) => ({
+      id: session.id,
       typeId: session.typeId,
       durationMin: session.durationMin,
       kcal: session.kcal,

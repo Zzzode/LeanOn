@@ -16,6 +16,8 @@ interface ExerciseSheetProps {
   currentWeightKg: number;
   locale: SheetLocale;
   t: Translator;
+  /** When provided the sheet edits this session instead of logging a new one. */
+  initialSession?: { typeId: string; durationMin: number };
   onClose: () => void;
   onSave: (session: {
     typeId: string;
@@ -33,11 +35,18 @@ export function ExerciseSheet({
   currentWeightKg,
   locale,
   t,
+  initialSession,
   onClose,
   onSave,
 }: ExerciseSheetProps) {
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [duration, setDuration] = useState<string>('30');
+  const isEdit = initialSession !== undefined;
+  const initialDuration = isEdit
+    ? String(initialSession.durationMin)
+    : '30';
+  const [selectedId, setSelectedId] = useState<string | null>(
+    initialSession?.typeId ?? null,
+  );
+  const [duration, setDuration] = useState<string>(initialDuration);
   const [saving, setSaving] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -46,7 +55,7 @@ export function ExerciseSheet({
     lynx
       .createSelectorQuery()
       .select('#exercise-duration')
-      .invoke({ method: 'setValue', params: { value: '30' } })
+      .invoke({ method: 'setValue', params: { value: initialDuration } })
       .exec();
   }, []);
 
@@ -84,7 +93,11 @@ export function ExerciseSheet({
   return (
     <view className="Sheet-overlay" bindtap={onClose}>
       <view className="Sheet" catchtap={() => {}}>
-        <text className="Sheet-title">{t('exerciseSheet.title')}</text>
+        <text className="Sheet-title">
+          {isEdit
+            ? t('exerciseSheet.editTitle')
+            : t('exerciseSheet.title')}
+        </text>
 
         <scroll-view scroll-y className="Exercise-type-list">
           {exercises.map((type) => (

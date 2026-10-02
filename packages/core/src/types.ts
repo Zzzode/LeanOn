@@ -51,8 +51,10 @@ export interface IntakeSample {
   macros: Macros;
 }
 
-/** A logged intentional-exercise session (RFC 0017). */
+/** A logged intentional-exercise session (RFC 0017; id added in RFC 0018). */
 export interface ExerciseSample {
+  /** Stable per-session id, e.g. `ex-1a2b3c4d`. */
+  id: string;
   date: string;
   /** Id of the exercise type in the exercise-data catalogue. */
   typeId: string;

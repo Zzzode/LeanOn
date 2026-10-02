@@ -141,6 +141,20 @@ export type LeanOnRpcContract = {
     };
     response: { success: true; hostData: HostDataDto };
   };
+  'health.updateExercise': {
+    request: {
+      id: string;
+      date: string;
+      typeId: string;
+      durationMin: number;
+      kcal: number;
+    };
+    response: { success: true; hostData: HostDataDto };
+  };
+  'health.deleteExercise': {
+    request: { id: string };
+    response: { success: true; hostData: HostDataDto };
+  };
   'health.setFoodFavorite': {
     request: { id: string; favorite: boolean };
     response: { success: true; hostData: HostDataDto };
@@ -266,6 +280,8 @@ export const RpcMethods = {
   healthWriteWeight: 'health.writeWeight',
   healthWriteIntake: 'health.writeIntake',
   healthWriteExercise: 'health.writeExercise',
+  healthUpdateExercise: 'health.updateExercise',
+  healthDeleteExercise: 'health.deleteExercise',
   healthSetFoodFavorite: 'health.setFoodFavorite',
   healthWriteCustomFood: 'health.writeCustomFood',
   healthUpdateCustomFood: 'health.updateCustomFood',

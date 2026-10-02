@@ -41,6 +41,7 @@ export interface TodayState {
   exerciseMin: number;
   /** Today's exercise sessions, in logged order (RFC 0017). */
   exerciseSessions: {
+    id: string;
     typeId: string;
     durationMin: number;
     kcal: number;

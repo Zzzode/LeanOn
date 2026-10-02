@@ -43,7 +43,13 @@ export const sampleHostData: HostData = (() => {
 
   // Today: one strength session (RFC 0017), matching the previous 240 kcal.
   const todayExercises = [
-    { date: isoDaysAgo(0), typeId: 'strength', durationMin: 36, kcal: 240 },
+    {
+      id: 'ex-seed-strength',
+      date: isoDaysAgo(0),
+      typeId: 'strength',
+      durationMin: 36,
+      kcal: 240,
+    },
   ];
 
   return {

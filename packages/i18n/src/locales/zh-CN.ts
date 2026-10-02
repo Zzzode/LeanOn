@@ -37,6 +37,7 @@ export const zhCN = {
 
   // 运动弹层与卡片（RFC 0017）。
   'exerciseSheet.title': '记录运动',
+  'exerciseSheet.editTitle': '编辑运动',
   'exerciseSheet.durationHint': '时长',
   'exerciseSheet.minutes': '分钟',
   'exerciseSheet.kcal': '千卡',
@@ -47,6 +48,9 @@ export const zhCN = {
   'exerciseCard.title': '今日运动',
   'exerciseCard.kcal': '千卡',
   'exerciseCard.min': '分钟',
+  'exerciseCard.edit': '编辑',
+  'exerciseCard.delete': '删除',
+  'exerciseCard.confirmDelete': '确认删除',
 
   // Weight logging sheet
   'weightSheet.title': '记录体重',

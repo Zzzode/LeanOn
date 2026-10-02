@@ -77,17 +77,47 @@ export function App() {
     setActiveSheet('none');
   };
 
+  const [editingExercise, setEditingExercise] = useState<{
+    id: string;
+    typeId: string;
+    durationMin: number;
+  } | null>(null);
+
+  const handleEditExercise = (session: {
+    id: string;
+    typeId: string;
+    durationMin: number;
+  }) => {
+    setEditingExercise(session);
+    setActiveSheet('exercise');
+  };
+
   const handleSaveExercise = async (session: {
     typeId: string;
     durationMin: number;
     kcal: number;
   }) => {
-    const response = await bridge.invoke('health.writeExercise', {
-      date: hostData.today,
-      ...session,
-    });
-    setHostData(response.hostData);
+    if (editingExercise !== null) {
+      const response = await bridge.invoke('health.updateExercise', {
+        id: editingExercise.id,
+        date: hostData.today,
+        ...session,
+      });
+      setHostData(response.hostData);
+    } else {
+      const response = await bridge.invoke('health.writeExercise', {
+        date: hostData.today,
+        ...session,
+      });
+      setHostData(response.hostData);
+    }
+    setEditingExercise(null);
     setActiveSheet('none');
+  };
+
+  const handleDeleteExercise = async (id: string) => {
+    const response = await bridge.invoke('health.deleteExercise', { id });
+    setHostData(response.hostData);
   };
 
   const handleCreateCustomFood = async (request: {
@@ -206,7 +236,13 @@ export function App() {
           )}
           <WeightCard state={state} t={t} />
           <MacroCard state={state} t={t} />
-          <ExerciseCard state={state} locale={locale} t={t} />
+          <ExerciseCard
+            state={state}
+            locale={locale}
+            t={t}
+            onEdit={handleEditExercise}
+            onDelete={handleDeleteExercise}
+          />
           <QuickActions
             t={t}
             onLogFood={() => {
@@ -215,7 +251,10 @@ export function App() {
               setActiveSheet('food');
             }}
             onLogWeight={() => setActiveSheet('weight')}
-            onLogExercise={() => setActiveSheet('exercise')}
+            onLogExercise={() => {
+              setEditingExercise(null);
+              setActiveSheet('exercise');
+            }}
           />
           <text className="Footer">{t('footer.disclaimer')}</text>
         </view>
@@ -263,7 +302,11 @@ export function App() {
           currentWeightKg={state.currentWeightKg}
           locale={locale}
           t={t}
-          onClose={() => setActiveSheet('none')}
+          initialSession={editingExercise ?? undefined}
+          onClose={() => {
+            setEditingExercise(null);
+            setActiveSheet('none');
+          }}
           onSave={handleSaveExercise}
         />
       )}

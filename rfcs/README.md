@@ -75,3 +75,4 @@ Not needed for:
 | [0015](0015-favorites-and-recent-foods.md) | Favorites and recently eaten foods | Accepted |
 | [0016](0016-barcode-scan-and-open-food-facts.md) | Barcode scanning and Open Food Facts lookup | Accepted |
 | [0017](0017-exercise-logging.md) | Exercise logging | Accepted |
+| [0018](0018-manage-exercise.md) | Edit and delete exercise sessions | Accepted |

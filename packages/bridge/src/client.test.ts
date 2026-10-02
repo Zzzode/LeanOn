@@ -151,6 +151,50 @@ test('health.writeExercise forwards the session and returns hostData', async () 
   expect(response.hostData.today).toBe('2026-10-01');
 });
 
+test('health.updateExercise replaces the session and returns hostData', async () => {
+  const bridge = createMemoryBridge();
+  bridge.handle<
+    {
+      id: string;
+      date: string;
+      typeId: string;
+      durationMin: number;
+      kcal: number;
+    },
+    { success: true; hostData: { today: string } }
+  >('health.updateExercise', (request) => ({
+    success: true,
+    hostData: { today: request.typeId },
+  }));
+  const client = createLeanOnBridgeClient(bridge.transport);
+  const response = await client.invoke('health.updateExercise', {
+    id: 'ex-1',
+    date: '2026-10-01',
+    typeId: 'cycling',
+    durationMin: 45,
+    kcal: 452,
+  });
+  expect(response.success).toBe(true);
+  expect(response.hostData.today).toBe('cycling');
+});
+
+test('health.deleteExercise removes the session and returns hostData', async () => {
+  const bridge = createMemoryBridge();
+  bridge.handle<
+    { id: string },
+    { success: true; hostData: { today: string } }
+  >('health.deleteExercise', () => ({
+    success: true,
+    hostData: { today: '2026-10-01' },
+  }));
+  const client = createLeanOnBridgeClient(bridge.transport);
+  const response = await client.invoke('health.deleteExercise', {
+    id: 'ex-1',
+  });
+  expect(response.success).toBe(true);
+  expect(response.hostData.today).toBe('2026-10-01');
+});
+
 test('health.writeCustomFood stores the food and returns hostData', async () => {
   const bridge = createMemoryBridge();
   bridge.handle<
