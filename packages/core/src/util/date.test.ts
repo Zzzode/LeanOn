@@ -1,5 +1,5 @@
 import { expect, test } from '@rstest/core';
-import { ageOn, dayIndex, daysBetween } from './date';
+import { ageOn, dayIndex, daysBetween, isoFromDayIndex } from './date';
 
 test('dayIndex counts UTC days since the epoch', () => {
   expect(dayIndex('1970-01-01')).toBe(0);
@@ -16,6 +16,13 @@ test('ageOn accounts for whether the birthday occurred that year', () => {
   expect(ageOn(birth, '2026-05-19')).toBe(29);
   expect(ageOn(birth, '2026-05-20')).toBe(30);
   expect(ageOn(birth, '2026-10-01')).toBe(30);
+});
+
+test('isoFromDayIndex inverts dayIndex across month boundaries', () => {
+  expect(isoFromDayIndex(0)).toBe('1970-01-01');
+  expect(isoFromDayIndex(dayIndex('2026-10-01'))).toBe('2026-10-01');
+  expect(isoFromDayIndex(dayIndex('2026-03-01'))).toBe('2026-03-01');
+  expect(() => isoFromDayIndex(1.5)).toThrow(RangeError);
 });
 
 test('date helpers reject malformed input', () => {

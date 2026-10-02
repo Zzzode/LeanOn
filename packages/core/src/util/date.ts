@@ -21,6 +21,20 @@ export function daysBetween(a: string, b: string): number {
   return dayIndex(b) - dayIndex(a);
 }
 
+/** Inverse of {@link dayIndex}: a whole-day index back to ISO `YYYY-MM-DD` (UTC). */
+export function isoFromDayIndex(index: number): string {
+  if (!Number.isInteger(index)) {
+    throw new RangeError(
+      `isoFromDayIndex() expects an integer, received: ${index}`,
+    );
+  }
+  const date = new Date(index * 86_400_000);
+  const year = date.getUTCFullYear();
+  const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+  const day = String(date.getUTCDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
 /** Completed years of age on a given ISO date, using UTC calendar comparison. */
 export function ageOn(birthDate: string, onDate: string): number {
   const birth = /^(\d{4})-(\d{2})-(\d{2})$/.exec(birthDate);

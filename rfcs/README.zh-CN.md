@@ -65,3 +65,4 @@
 | [0016](0016-barcode-scan-and-open-food-facts.zh-CN.md) | 条码扫描与 Open Food Facts 查询 | Accepted |
 | [0017](0017-exercise-logging.zh-CN.md) | 运动记录 | Accepted |
 | [0018](0018-manage-exercise.zh-CN.md) | 编辑与删除运动条目 | Accepted |
+| [0019](0019-progress-insights.zh-CN.md) | 进度洞察与周回顾 | Accepted |

@@ -67,3 +67,13 @@ export {
   PROTEIN_G_PER_KG,
 } from './nutrition/macros';
 export type { MacroTargetInput, MacroTargets } from './nutrition/macros';
+
+export { buildProgressInsights } from './insights';
+export type {
+  BuildInsightsInput,
+  DailyKcalPoint,
+  ExerciseInsight,
+  NutritionInsight,
+  ProgressInsights,
+  WeightInsight,
+} from './insights';

@@ -76,3 +76,4 @@ Not needed for:
 | [0016](0016-barcode-scan-and-open-food-facts.md) | Barcode scanning and Open Food Facts lookup | Accepted |
 | [0017](0017-exercise-logging.md) | Exercise logging | Accepted |
 | [0018](0018-manage-exercise.md) | Edit and delete exercise sessions | Accepted |
+| [0019](0019-progress-insights.md) | Progress insights and weekly review | Accepted |

@@ -11,6 +11,7 @@ import { ExerciseCard } from './components/ExerciseCard.js';
 import { ExerciseSheet } from './components/ExerciseSheet.js';
 import { FoodSheet } from './components/FoodSheet.js';
 import { Header } from './components/Header.js';
+import { InsightsScreen } from './components/InsightsScreen.js';
 import { MacroCard } from './components/MacroCard.js';
 import { QuickActions } from './components/QuickActions.js';
 import { ScaleSheet } from './components/ScaleSheet.js';
@@ -35,6 +36,7 @@ export function App() {
   );
   const [locale, setLocale] = useState<Locale>(resolveLocale(initData?.locale));
   const [activeSheet, setActiveSheet] = useState<ActiveSheet>('none');
+  const [tab, setTab] = useState<'today' | 'insights'>('today');
   const [initialFoodId, setInitialFoodId] = useState<string | undefined>(
     undefined,
   );
@@ -228,35 +230,76 @@ export function App() {
             t={t}
             onLocaleChange={setLocale}
           />
-          <EnergyCard state={state} t={t} />
-          {!state.safe && (
-            <view className="Notice">
-              <text className="Notice-text">{t('notice.safeFloor')}</text>
+          <view className="LangSwitch TabSwitch">
+            {(
+              [
+                { value: 'today', label: t('tab.today') },
+                { value: 'insights', label: t('tab.insights') },
+              ] as const
+            ).map((option) => {
+              const active = tab === option.value;
+              return (
+                <view
+                  key={option.value}
+                  className={
+                    active ? 'LangSwitch-item active' : 'LangSwitch-item'
+                  }
+                  bindtap={() => setTab(option.value)}
+                >
+                  <text
+                    className={
+                      active
+                        ? 'LangSwitch-label active'
+                        : 'LangSwitch-label'
+                    }
+                  >
+                    {option.label}
+                  </text>
+                </view>
+              );
+            })}
+          </view>
+          {tab === 'today' ? (
+            <view className="Tab-pane">
+              <EnergyCard state={state} t={t} />
+              {!state.safe && (
+                <view className="Notice">
+                  <text className="Notice-text">
+                    {t('notice.safeFloor')}
+                  </text>
+                </view>
+              )}
+              <WeightCard state={state} t={t} />
+              <MacroCard state={state} t={t} />
+              <ExerciseCard
+                state={state}
+                locale={locale}
+                t={t}
+                onEdit={handleEditExercise}
+                onDelete={handleDeleteExercise}
+              />
+              <QuickActions
+                t={t}
+                onLogFood={() => {
+                  setInitialFoodId(undefined);
+                  setScanError(null);
+                  setActiveSheet('food');
+                }}
+                onLogWeight={() => setActiveSheet('weight')}
+                onLogExercise={() => {
+                  setEditingExercise(null);
+                  setActiveSheet('exercise');
+                }}
+              />
+              <text className="Footer">{t('footer.disclaimer')}</text>
             </view>
+          ) : (
+            <InsightsScreen
+              hostData={hostData}
+              budgetKcal={state.energyGoalKcal}
+              t={t}
+            />
           )}
-          <WeightCard state={state} t={t} />
-          <MacroCard state={state} t={t} />
-          <ExerciseCard
-            state={state}
-            locale={locale}
-            t={t}
-            onEdit={handleEditExercise}
-            onDelete={handleDeleteExercise}
-          />
-          <QuickActions
-            t={t}
-            onLogFood={() => {
-              setInitialFoodId(undefined);
-              setScanError(null);
-              setActiveSheet('food');
-            }}
-            onLogWeight={() => setActiveSheet('weight')}
-            onLogExercise={() => {
-              setEditingExercise(null);
-              setActiveSheet('exercise');
-            }}
-          />
-          <text className="Footer">{t('footer.disclaimer')}</text>
         </view>
       </scroll-view>
       {activeSheet === 'weight' && (

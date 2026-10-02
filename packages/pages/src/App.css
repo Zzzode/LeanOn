@@ -813,3 +813,95 @@
 .Exercise-row-btn + .Exercise-row-btn {
   margin-left: 6rpx;
 }
+
+/* ===== Tabs & Progress insights (RFC 0019) ===== */
+.TabSwitch {
+  margin: 6rpx 0 20rpx;
+}
+
+.Insights-range {
+  margin: 2rpx 0 20rpx;
+}
+
+.Insights-card {
+  margin-bottom: 22rpx;
+  padding: 28rpx 30rpx;
+}
+
+.Insights-card-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #14352a;
+  margin-bottom: 14rpx;
+}
+
+.Insights-empty {
+  font-size: 26rpx;
+  color: #8a978f;
+  padding: 6rpx 0;
+}
+
+.Insights-weight-main {
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.Insights-big {
+  font-size: 56rpx;
+  font-weight: 700;
+  color: #14352a;
+}
+
+.Insights-big.loss {
+  color: #218967;
+}
+
+.Insights-big.gain {
+  color: #e0594b;
+}
+
+.Insights-big-unit {
+  font-size: 26rpx;
+  color: #6b7a72;
+  margin-left: 10rpx;
+}
+
+.Insights-slope {
+  font-size: 26rpx;
+  color: #6b7a72;
+  margin-top: 10rpx;
+}
+
+.Trend-hbars {
+  margin-top: 22rpx;
+}
+
+.Trend-hrow {
+  flex-direction: row;
+  align-items: center;
+  margin: 3rpx 0;
+}
+
+.Trend-hbar {
+  background: linear-gradient(90deg, #218967, #58ab8d);
+  border-radius: 4rpx;
+  min-width: 12rpx;
+}
+
+.Insights-row {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12rpx 0;
+}
+
+.Insights-row-label {
+  font-size: 26rpx;
+  color: #5a6b62;
+}
+
+.Insights-row-value {
+  font-size: 26rpx;
+  color: #16261f;
+  font-weight: 600;
+}

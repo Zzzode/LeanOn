@@ -138,6 +138,28 @@ export const en = {
   'date.month.9': 'Oct',
   'date.month.10': 'Nov',
   'date.month.11': 'Dec',
+  // Tabs and Progress insights (RFC 0019).
+  'tab.today': 'Today',
+  'tab.insights': 'Insights',
+  'insights.range7': '7 days',
+  'insights.range30': '30 days',
+  'insights.weight': 'Weight',
+  'insights.nutrition': 'Nutrition',
+  'insights.exercise': 'Exercise',
+  'insights.consistency': 'Consistency',
+  'insights.kg': 'kg',
+  'insights.kgPerWeek': 'kg/week',
+  'insights.kcal': 'kcal',
+  'insights.min': 'min',
+  'insights.average': 'Average intake',
+  'insights.onTarget': 'On-target days',
+  'insights.deficit': 'Average deficit',
+  'insights.activeDays': 'Active days',
+  'insights.exerciseTotal': 'Total exercise',
+  'insights.weightLogged': 'Weight logged',
+  'insights.foodLogged': 'Food logged',
+  'insights.notEnough': 'Not enough data yet',
+
   'date.format': '{weekday}, {month} {day}',
 } as const;
 
