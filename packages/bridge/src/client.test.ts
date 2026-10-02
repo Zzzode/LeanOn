@@ -152,7 +152,7 @@ test('health.writeWater upserts the day total and returns hostData', async () =>
     amountMl: 1750,
   });
   expect(response.success).toBe(true);
-  expect(response.hostData.water[0].amountMl).toBe(1750);
+  expect(response.hostData.water[0]!.amountMl).toBe(1750);
 });
 
 test('health.writeExercise forwards the session and returns hostData', async () => {
