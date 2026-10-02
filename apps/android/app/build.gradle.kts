@@ -74,4 +74,6 @@ dependencies {
   kapt(libs.lynx.processor)
 
   testImplementation("junit:junit:4.13.2")
+  // Real org.json for JVM unit tests (the Android jar ships an empty stub).
+  testImplementation("org.json:json:20231013")
 }

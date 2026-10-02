@@ -155,5 +155,13 @@ export const zhCN = {
   'insights.foodLogged': '记录饮食',
   'insights.notEnough': '数据尚不足',
 
+  'reminder.title': '提醒',
+  'reminder.weight': '晨起称重',
+  'reminder.meals': '每日饮食',
+  'reminder.on': '开',
+  'reminder.off': '关',
+  'reminder.save': '保存',
+  'reminder.cancel': '取消',
+
   'date.format': '{month}月{day}日 {weekday}',
 } satisfies Record<MessageKey, string>;

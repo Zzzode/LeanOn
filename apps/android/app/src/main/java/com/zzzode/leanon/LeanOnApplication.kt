@@ -9,6 +9,9 @@ import com.zzzode.leanon.container.BundleResourceProvider
 import com.zzzode.leanon.container.DefaultBundleResourceProvider
 import com.zzzode.leanon.ble.BleScaleManager
 import com.zzzode.leanon.data.RecordsRepository
+import com.zzzode.leanon.data.SettingsRepository
+import com.zzzode.leanon.reminders.Notifier
+import com.zzzode.leanon.reminders.ReminderScheduler
 
 /** Process-wide entry point: initializes Lynx and wires host singletons. */
 class LeanOnApplication : Application() {
@@ -23,6 +26,12 @@ class LeanOnApplication : Application() {
     private set
   lateinit var scaleManager: BleScaleManager
     private set
+  lateinit var settings: SettingsRepository
+    private set
+  lateinit var notifier: Notifier
+    private set
+  lateinit var reminderScheduler: ReminderScheduler
+    private set
 
   override fun onCreate() {
     super.onCreate()
@@ -35,6 +44,11 @@ class LeanOnApplication : Application() {
     resourceProvider = DefaultBundleResourceProvider(this)
     records = RecordsRepository(this)
     scaleManager = BleScaleManager(this)
+    settings = SettingsRepository(this)
+    notifier = Notifier(this)
+    reminderScheduler = ReminderScheduler(this)
+    // Re-arm the persisted daily reminders on process start (RFC 0020).
+    reminderScheduler.applySettings(settings.getReminderSettings())
     LynxModuleBootstrap.initialize(this)
   }
 }

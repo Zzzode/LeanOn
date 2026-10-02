@@ -3,6 +3,7 @@ import type {
   IntakeSample,
   Macros,
   Profile,
+  ReminderSettings,
   WeightSample,
 } from '@zzzode/core';
 import type { FoodItem, OffProduct } from '@zzzode/food-data';
@@ -254,6 +255,18 @@ export type LeanOnRpcContract = {
     request: ScheduleNotificationRequest;
     response: { id: string };
   };
+  'notification.getSettings': {
+    request: void;
+    response: { settings: ReminderSettings };
+  };
+  'notification.updateSettings': {
+    request: { settings: ReminderSettings };
+    response: { success: true; settings: ReminderSettings };
+  };
+  'notification.requestPermission': {
+    request: void;
+    response: { granted: boolean };
+  };
 };
 
 export type LeanOnEventContract = {
@@ -300,6 +313,9 @@ export const RpcMethods = {
   appGetInfo: 'app.getInfo',
   appGetCapabilities: 'app.getCapabilities',
   notificationSchedule: 'notification.schedule',
+  notificationGetSettings: 'notification.getSettings',
+  notificationUpdateSettings: 'notification.updateSettings',
+  notificationRequestPermission: 'notification.requestPermission',
 } as const satisfies Record<string, keyof LeanOnRpcContract>;
 
 export const BridgeEvents = {

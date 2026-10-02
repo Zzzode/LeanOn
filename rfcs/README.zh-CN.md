@@ -66,3 +66,4 @@
 | [0017](0017-exercise-logging.zh-CN.md) | 运动记录 | Accepted |
 | [0018](0018-manage-exercise.zh-CN.md) | 编辑与删除运动条目 | Accepted |
 | [0019](0019-progress-insights.zh-CN.md) | 进度洞察与周回顾 | Accepted |
+| [0020](0020-smart-reminders.zh-CN.md) | 智能提醒 | Accepted |

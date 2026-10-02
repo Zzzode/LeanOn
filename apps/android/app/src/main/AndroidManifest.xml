@@ -4,6 +4,8 @@
   <uses-permission android:name="android.permission.INTERNET" />
   <!-- Camera used by the barcode scanner (RFC 0016). -->
   <uses-permission android:name="android.permission.CAMERA" />
+  <!-- Daily local reminders on Android 13+ (RFC 0020). -->
+  <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
   <!-- Legacy Bluetooth (API 30 and below). -->
   <uses-permission

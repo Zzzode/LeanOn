@@ -905,3 +905,97 @@
   color: #16261f;
   font-weight: 600;
 }
+
+/* Header reminders bell (RFC 0020) */
+.Header-bell {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 999rpx;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  margin-right: 16rpx;
+}
+
+.Header-bell-glyph {
+  font-size: 30rpx;
+}
+
+/* Reminder sheet (RFC 0020) */
+.Reminder-kind {
+  margin-top: 16rpx;
+  padding: 22rpx 24rpx;
+  border-radius: 24rpx;
+  background-color: #f3f7f5;
+}
+
+.Reminder-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Reminder-label {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #16261f;
+}
+
+.Reminder-toggle {
+  display: flex;
+  flex-direction: row;
+}
+
+.Reminder-seg {
+  padding: 8rpx 26rpx;
+  border-radius: 999rpx;
+  background-color: #e3ebe6;
+}
+
+.Reminder-seg + .Reminder-seg {
+  margin-left: 10rpx;
+}
+
+.Reminder-seg.active {
+  background-color: #218967;
+}
+
+.Reminder-seg-label {
+  font-size: 24rpx;
+  color: #5f7067;
+}
+
+.Reminder-seg-label.active {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.Reminder-times {
+  display: flex;
+  flex-direction: row;
+  margin-top: 18rpx;
+  justify-content: space-between;
+}
+
+.Reminder-time {
+  padding: 12rpx 20rpx;
+  border-radius: 16rpx;
+  align-items: center;
+  justify-content: center;
+  background-color: #e3ebe6;
+}
+
+.Reminder-time.active {
+  background-color: #d7ebe2;
+}
+
+.Reminder-time-label {
+  font-size: 24rpx;
+  color: #5f7067;
+}
+
+.Reminder-time-label.active {
+  font-weight: 600;
+  color: #218967;
+}

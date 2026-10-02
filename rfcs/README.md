@@ -77,3 +77,4 @@ Not needed for:
 | [0017](0017-exercise-logging.md) | Exercise logging | Accepted |
 | [0018](0018-manage-exercise.md) | Edit and delete exercise sessions | Accepted |
 | [0019](0019-progress-insights.md) | Progress insights and weekly review | Accepted |
+| [0020](0020-smart-reminders.md) | Smart reminders | Accepted |

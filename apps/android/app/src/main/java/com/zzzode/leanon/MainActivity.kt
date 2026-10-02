@@ -5,6 +5,7 @@ import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.zzzode.leanon.ble.PermissionRequests
 import com.zzzode.leanon.container.LynxContainer
+import com.zzzode.leanon.reminders.NotificationPermission
 
 /** Single-activity shell that hosts the reusable Lynx container. */
 class MainActivity : AppCompatActivity() {
@@ -35,6 +36,7 @@ class MainActivity : AppCompatActivity() {
   ) {
     super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     PermissionRequests.handleResult(requestCode, grantResults)
+    NotificationPermission.handleResult(requestCode, grantResults)
   }
 
   override fun onDestroy() {

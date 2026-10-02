@@ -6,6 +6,7 @@ import {
   type Locale,
 } from '@zzzode/i18n';
 import { createFoodFromBarcode } from '@zzzode/food-data';
+import type { ReminderSettings } from '@zzzode/core';
 import { EnergyCard } from './components/EnergyCard.js';
 import { ExerciseCard } from './components/ExerciseCard.js';
 import { ExerciseSheet } from './components/ExerciseSheet.js';
@@ -14,6 +15,7 @@ import { Header } from './components/Header.js';
 import { InsightsScreen } from './components/InsightsScreen.js';
 import { MacroCard } from './components/MacroCard.js';
 import { QuickActions } from './components/QuickActions.js';
+import { ReminderSheet } from './components/ReminderSheet.js';
 import { ScaleSheet } from './components/ScaleSheet.js';
 import { WeightCard } from './components/WeightCard.js';
 import { WeightSheet } from './components/WeightSheet.js';
@@ -41,6 +43,9 @@ export function App() {
     undefined,
   );
   const [scanError, setScanError] = useState<string | null>(null);
+  const [reminderSettings, setReminderSettings] =
+    useState<ReminderSettings | null>(null);
+  const [reminderOpen, setReminderOpen] = useState<boolean>(false);
 
   const bridge = useMemo(() => createAppBridge(), []);
   const t = useMemo(() => createTranslator(locale), [locale]);
@@ -53,6 +58,20 @@ export function App() {
       setHostData(payload.hostData);
     });
     return unsubscribe;
+  }, [bridge]);
+
+  // Load persisted reminder preferences once (RFC 0020).
+  useEffect(() => {
+    let active = true;
+    bridge
+      .invoke('notification.getSettings')
+      .then((response) => {
+        if (active) setReminderSettings(response.settings);
+      })
+      .catch(() => {});
+    return () => {
+      active = false;
+    };
   }, [bridge]);
 
   const handleSaveWeight = async (weightKg: number) => {
@@ -220,6 +239,34 @@ export function App() {
     }
   };
 
+  const handleOpenReminders = async () => {
+    if (reminderSettings === null) {
+      try {
+        const response = await bridge.invoke('notification.getSettings');
+        setReminderSettings(response.settings);
+      } catch {
+        // The sheet falls back to defaults; Save still works.
+      }
+    }
+    setReminderOpen(true);
+  };
+
+  const handleSaveReminders = async (settings: ReminderSettings) => {
+    // Request the runtime permission when any reminder is enabled (RFC 0020).
+    if (settings.weight.enabled || settings.meals.enabled) {
+      try {
+        await bridge.invoke('notification.requestPermission');
+      } catch {
+        // Preferences are still persisted; the user can grant permission later.
+      }
+    }
+    const response = await bridge.invoke('notification.updateSettings', {
+      settings,
+    });
+    setReminderSettings(response.settings);
+    setReminderOpen(false);
+  };
+
   return (
     <page className="Page">
       <scroll-view scroll-y className="Scroll">
@@ -229,6 +276,7 @@ export function App() {
             locale={locale}
             t={t}
             onLocaleChange={setLocale}
+            onOpenReminders={handleOpenReminders}
           />
           <view className="LangSwitch TabSwitch">
             {(
@@ -351,6 +399,14 @@ export function App() {
             setActiveSheet('none');
           }}
           onSave={handleSaveExercise}
+        />
+      )}
+      {reminderOpen && (
+        <ReminderSheet
+          t={t}
+          settings={reminderSettings}
+          onClose={() => setReminderOpen(false)}
+          onSave={handleSaveReminders}
         />
       )}
     </page>

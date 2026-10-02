@@ -333,3 +333,44 @@ test('records.changed delivers the refreshed hostData snapshot', () => {
   bridge.emit('records.changed', { hostData: { today: '2026-10-01' } });
   expect(seenToday).toBe('2026-10-01');
 });
+
+test('notification.getSettings returns reminder settings', async () => {
+  const bridge = createMemoryBridge();
+  const settings = {
+    weight: { enabled: true, hour: 7, minute: 30 },
+    meals: { enabled: false, hour: 21, minute: 0 },
+  };
+  bridge.handle('notification.getSettings', () => ({ settings }));
+  const client = createLeanOnBridgeClient(bridge.transport);
+  const result = await client.invoke('notification.getSettings');
+  expect(result.settings.weight.hour).toBe(7);
+  expect(result.settings.meals.enabled).toBe(false);
+});
+
+test('notification.updateSettings returns the persisted settings', async () => {
+  const bridge = createMemoryBridge();
+  bridge.handle<
+    { settings: { weight: { enabled: boolean } } },
+    { success: true; settings: { weight: { enabled: boolean } } }
+  >('notification.updateSettings', (request) => ({
+    success: true as const,
+    settings: request.settings,
+  }));
+  const client = createLeanOnBridgeClient(bridge.transport);
+  const result = await client.invoke('notification.updateSettings', {
+    settings: {
+      weight: { enabled: false, hour: 7, minute: 30 },
+      meals: { enabled: true, hour: 21, minute: 0 },
+    },
+  });
+  expect(result.success).toBe(true);
+  expect(result.settings.weight.enabled).toBe(false);
+});
+
+test('notification.requestPermission returns the granted state', async () => {
+  const bridge = createMemoryBridge();
+  bridge.handle('notification.requestPermission', () => ({ granted: true }));
+  const client = createLeanOnBridgeClient(bridge.transport);
+  const result = await client.invoke('notification.requestPermission');
+  expect(result.granted).toBe(true);
+});

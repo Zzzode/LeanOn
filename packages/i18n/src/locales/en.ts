@@ -160,6 +160,14 @@ export const en = {
   'insights.foodLogged': 'Food logged',
   'insights.notEnough': 'Not enough data yet',
 
+  'reminder.title': 'Reminders',
+  'reminder.weight': 'Morning weight',
+  'reminder.meals': 'Daily meals',
+  'reminder.on': 'On',
+  'reminder.off': 'Off',
+  'reminder.save': 'Save',
+  'reminder.cancel': 'Cancel',
+
   'date.format': '{weekday}, {month} {day}',
 } as const;
 

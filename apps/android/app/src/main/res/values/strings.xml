@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LeanOn</string>
+    <string name="notif_channel_name">Reminders</string>
+    <string name="notif_weight_title">Log your weight</string>
+    <string name="notif_weight_body">Step on the scale after waking up.</string>
+    <string name="notif_meals_title">Log today\'s meals</string>
+    <string name="notif_meals_body">A few taps keep your day on track.</string>
+</resources>

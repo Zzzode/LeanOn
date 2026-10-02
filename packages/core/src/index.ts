@@ -77,3 +77,13 @@ export type {
   ProgressInsights,
   WeightInsight,
 } from './insights';
+
+export {
+  DEFAULT_REMINDER_SETTINGS,
+  normalizeReminderSettings,
+} from './reminders';
+export type {
+  ReminderKind,
+  ReminderSettings,
+  ReminderSlot,
+} from './reminders';

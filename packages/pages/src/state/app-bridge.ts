@@ -5,6 +5,10 @@ import {
   hasLynxHost,
   type LeanOnBridgeClient,
 } from '@zzzode/bridge';
+import {
+  DEFAULT_REMINDER_SETTINGS,
+  type ReminderSettings,
+} from '@zzzode/core';
 import { createCustomFood, updateCustomFood } from '@zzzode/food-data';
 import { sampleHostData } from './sample.js';
 import type { HostData } from './types.js';
@@ -292,6 +296,23 @@ function createPreviewBridge(): LeanOnBridgeClient {
     hostData = { ...hostData, exercises };
     return { success: true, hostData: clone(hostData) };
   });
+
+  // --- Reminder preferences simulation (RFC 0020) ---
+  let reminderSettings: ReminderSettings = {
+    weight: { ...DEFAULT_REMINDER_SETTINGS.weight },
+    meals: { ...DEFAULT_REMINDER_SETTINGS.meals },
+  };
+  memory.handle('notification.getSettings', () => ({
+    settings: reminderSettings,
+  }));
+  memory.handle<
+    { settings: ReminderSettings },
+    { success: true; settings: ReminderSettings }
+  >('notification.updateSettings', (request) => {
+    reminderSettings = request.settings;
+    return { success: true, settings: request.settings };
+  });
+  memory.handle('notification.requestPermission', () => ({ granted: true }));
 
   memory.handle('scale.getStatus', () => ({
     state: scaleState,

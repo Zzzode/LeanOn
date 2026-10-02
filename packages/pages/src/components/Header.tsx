@@ -6,6 +6,7 @@ interface HeaderProps {
   locale: Locale;
   t: Translator;
   onLocaleChange: (locale: Locale) => void;
+  onOpenReminders: () => void;
 }
 
 const LOCALE_OPTIONS: ReadonlyArray<{ value: Locale; label: string }> = [
@@ -13,7 +14,13 @@ const LOCALE_OPTIONS: ReadonlyArray<{ value: Locale; label: string }> = [
   { value: 'zh-CN', label: '中' },
 ];
 
-export function Header({ state, locale, t, onLocaleChange }: HeaderProps) {
+export function Header({
+  state,
+  locale,
+  t,
+  onLocaleChange,
+  onOpenReminders,
+}: HeaderProps) {
   return (
     <view className="Header">
       <view className="Header-text">
@@ -23,6 +30,9 @@ export function Header({ state, locale, t, onLocaleChange }: HeaderProps) {
         <text className="Header-date">{formatDate(t, state.dateParts)}</text>
       </view>
       <view className="Header-side">
+        <view className="Header-bell" bindtap={onOpenReminders}>
+          <text className="Header-bell-glyph">🔔</text>
+        </view>
         <view className="LangSwitch">
           {LOCALE_OPTIONS.map((option) => {
             const active = option.value === locale;
