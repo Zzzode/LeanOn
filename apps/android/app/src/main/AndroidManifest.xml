@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
   <uses-permission android:name="android.permission.INTERNET" />
+  <!-- Camera used by the barcode scanner (RFC 0016). -->
+  <uses-permission android:name="android.permission.CAMERA" />
 
   <!-- Legacy Bluetooth (API 30 and below). -->
   <uses-permission
@@ -23,6 +25,9 @@
   <uses-feature
     android:name="android.hardware.bluetooth_le"
     android:required="false" />
+  <uses-feature
+    android:name="android.hardware.camera"
+    android:required="false" />
 
   <application
     android:name=".LeanOnApplication"
@@ -39,5 +44,10 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
+
+    <activity
+      android:name=".scanner.BarcodeScanActivity"
+      android:exported="false"
+      android:theme="@style/Theme.AppCompat.NoActionBar" />
   </application>
 </manifest>

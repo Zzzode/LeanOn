@@ -1,5 +1,5 @@
 import type { IntakeSample, Macros, Profile, WeightSample } from '@zzzode/core';
-import type { FoodItem } from '@zzzode/food-data';
+import type { FoodItem, OffProduct } from '@zzzode/food-data';
 import type { JsonValue } from './types';
 
 /**
@@ -160,6 +160,19 @@ export type LeanOnRpcContract = {
     request: { id: string };
     response: { success: true; hostData: HostDataDto };
   };
+  'health.writeScannedFood': {
+    request: {
+      barcode: string;
+      name: string;
+      /** Per 100 g. */
+      kcal: number;
+      proteinG?: number;
+      carbsG?: number;
+      fatG?: number;
+      defaultGrams?: number;
+    };
+    response: { success: true; hostData: HostDataDto };
+  };
   'scale.scan': {
     request: void;
     response: { scanning: boolean };
@@ -175,6 +188,14 @@ export type LeanOnRpcContract = {
   'scale.getStatus': {
     request: void;
     response: { state: ScaleConnectionState; pairedDeviceId: string | null };
+  };
+  'scanner.scanBarcode': {
+    request: void;
+    response: { barcode: string } | { cancelled: true };
+  };
+  'food.lookupProduct': {
+    request: { barcode: string };
+    response: { found: true; product: OffProduct } | { found: false };
   };
   'storage.get': {
     request: { key: string };
@@ -233,6 +254,9 @@ export const RpcMethods = {
   healthWriteCustomFood: 'health.writeCustomFood',
   healthUpdateCustomFood: 'health.updateCustomFood',
   healthDeleteCustomFood: 'health.deleteCustomFood',
+  healthWriteScannedFood: 'health.writeScannedFood',
+  scannerScanBarcode: 'scanner.scanBarcode',
+  foodLookupProduct: 'food.lookupProduct',
   scaleScan: 'scale.scan',
   scaleConnect: 'scale.connect',
   scaleDisconnect: 'scale.disconnect',

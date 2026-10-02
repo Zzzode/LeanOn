@@ -5,6 +5,8 @@ coreKtx = "1.15.0"
 appcompat = "1.7.0"
 activity = "1.9.3"
 workManager = "2.10.0"
+camera = "1.4.2"
+mlkitBarcode = "17.3.0"
 lynx = "3.9.0"
 # PrimJS is versioned independently of the Lynx engine (per Lynx integration docs).
 primjs = "3.8.0-alpha.6"
@@ -14,6 +16,11 @@ androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx"
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activity" }
 androidx-work-runtime = { module = "androidx.work:work-runtime-ktx", version.ref = "workManager" }
+androidx-camera-core = { module = "androidx.camera:camera-core", version.ref = "camera" }
+androidx-camera-camera2 = { module = "androidx.camera:camera-camera2", version.ref = "camera" }
+androidx-camera-lifecycle = { module = "androidx.camera:camera-lifecycle", version.ref = "camera" }
+androidx-camera-view = { module = "androidx.camera:camera-view", version.ref = "camera" }
+mlkit-barcode-scanning = { module = "com.google.mlkit:barcode-scanning", version.ref = "mlkitBarcode" }
 lynx = { module = "org.lynxsdk.lynx:lynx", version.ref = "lynx" }
 lynx-jssdk = { module = "org.lynxsdk.lynx:lynx-jssdk", version.ref = "lynx" }
 lynx-trace = { module = "org.lynxsdk.lynx:lynx-trace", version.ref = "lynx" }

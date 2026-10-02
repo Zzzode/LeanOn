@@ -5,6 +5,7 @@ import {
   resolveLocale,
   type Locale,
 } from '@zzzode/i18n';
+import { createFoodFromBarcode } from '@zzzode/food-data';
 import { EnergyCard } from './components/EnergyCard.js';
 import { FoodSheet } from './components/FoodSheet.js';
 import { Header } from './components/Header.js';
@@ -32,6 +33,10 @@ export function App() {
   );
   const [locale, setLocale] = useState<Locale>(resolveLocale(initData?.locale));
   const [activeSheet, setActiveSheet] = useState<ActiveSheet>('none');
+  const [initialFoodId, setInitialFoodId] = useState<string | undefined>(
+    undefined,
+  );
+  const [scanError, setScanError] = useState<string | null>(null);
 
   const bridge = useMemo(() => createAppBridge(), []);
   const t = useMemo(() => createTranslator(locale), [locale]);
@@ -121,6 +126,53 @@ export function App() {
     setHostData(response.hostData);
   };
 
+  /**
+   * Scan a barcode, look it up in Open Food Facts, persist it as a user food and
+   * open its detail (RFC 0016). Reuses an already-imported product, and reports
+   * not-found / no-energy / offline states inline.
+   */
+  const handleScanBarcode = async () => {
+    setScanError(null);
+    try {
+      const scan = await bridge.invoke('scanner.scanBarcode');
+      if ('cancelled' in scan) return;
+      const barcode = scan.barcode;
+      const offId = `off-${barcode}`;
+
+      if (hostData.customFoods.some((food) => food.id === offId)) {
+        setInitialFoodId(offId);
+        return;
+      }
+      const lookup = await bridge.invoke('food.lookupProduct', { barcode });
+      if (!lookup.found) {
+        setScanError(t('foodSheet.scanNotFound'));
+        return;
+      }
+      let item;
+      try {
+        item = createFoodFromBarcode(barcode, lookup.product);
+      } catch {
+        setScanError(t('foodSheet.scanNoEnergy'));
+        return;
+      }
+      const written = await bridge.invoke('health.writeScannedFood', {
+        barcode,
+        name: item.name.en,
+        kcal: item.kcal,
+        proteinG: item.macros.proteinG,
+        carbsG: item.macros.carbsG,
+        fatG: item.macros.fatG,
+        ...(item.defaultGrams === undefined
+          ? {}
+          : { defaultGrams: item.defaultGrams }),
+      });
+      setHostData(written.hostData);
+      setInitialFoodId(offId);
+    } catch {
+      setScanError(t('foodSheet.scanUnavailable'));
+    }
+  };
+
   return (
     <page className="Page">
       <scroll-view scroll-y className="Scroll">
@@ -141,7 +193,11 @@ export function App() {
           <MacroCard state={state} t={t} />
           <QuickActions
             t={t}
-            onLogFood={() => setActiveSheet('food')}
+            onLogFood={() => {
+              setInitialFoodId(undefined);
+              setScanError(null);
+              setActiveSheet('food');
+            }}
             onLogWeight={() => setActiveSheet('weight')}
           />
           <text className="Footer">{t('footer.disclaimer')}</text>
@@ -170,12 +226,19 @@ export function App() {
           customFoods={hostData.customFoods}
           favoriteFoodIds={hostData.favoriteFoodIds}
           recentFoodIds={hostData.recentFoodIds}
-          onClose={() => setActiveSheet('none')}
+          onClose={() => {
+            setInitialFoodId(undefined);
+            setScanError(null);
+            setActiveSheet('none');
+          }}
           onSave={handleSaveIntake}
           onCreateCustomFood={handleCreateCustomFood}
           onUpdateCustomFood={handleUpdateCustomFood}
           onDeleteCustomFood={handleDeleteCustomFood}
           onSetFavorite={handleSetFavorite}
+          initialSelectedId={initialFoodId}
+          scanError={scanError ?? undefined}
+          onScanBarcode={handleScanBarcode}
         />
       )}
     </page>

@@ -60,6 +60,11 @@ export const en = {
   'foodSheet.favorites': 'Favorites',
   'foodSheet.recent': 'Recent',
   'foodSheet.suggested': 'Suggested',
+  'foodSheet.scan': 'Scan',
+  'foodSheet.scanNotFound': 'No product found for this barcode. Create it manually.',
+  'foodSheet.scanNoEnergy': 'This product has no energy data. Create it manually.',
+  'foodSheet.scanUnavailable':
+    'Could not reach Open Food Facts. Check your connection and try again.',
   'foodSheet.back': 'Back to results',
   'foodSheet.cancel': 'Cancel',
   'foodSheet.save': 'Add meal',

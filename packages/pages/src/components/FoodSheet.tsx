@@ -59,6 +59,12 @@ interface FoodSheetProps {
   onDeleteCustomFood: (id: string) => Promise<void>;
   /** Pin (favorite true) or unpin a food id. */
   onSetFavorite: (id: string, favorite: boolean) => Promise<void>;
+  /** When set after a barcode scan (RFC 0016), open this food's detail. */
+  initialSelectedId?: string;
+  /** Inline message for a failed barcode lookup (not found/offline). */
+  scanError?: string;
+  /** Trigger the native barcode scan and lookup orchestration (RFC 0016). */
+  onScanBarcode: () => void;
 }
 
 /**
@@ -79,6 +85,9 @@ export function FoodSheet({
   onUpdateCustomFood,
   onDeleteCustomFood,
   onSetFavorite,
+  initialSelectedId,
+  scanError,
+  onScanBarcode,
 }: FoodSheetProps) {
   const [query, setQuery] = useState<string>('');
   const [selected, setSelected] = useState<FoodItem | null>(null);
@@ -131,6 +140,18 @@ export function FoodSheet({
     const shown = new Set([...favoriteFoodIds, ...recentFoodIds]);
     return results.filter((item) => !shown.has(item.id));
   }, [query, results, favoriteFoodIds, recentFoodIds]);
+
+  // After a barcode scan, land on the scanned food's detail once it is present.
+  useEffect(() => {
+    if (initialSelectedId === undefined) return;
+    const item = foodById.get(initialSelectedId);
+    if (item !== undefined) {
+      setSelected(item);
+      setQuery('');
+      setCreating(false);
+      setEditing(false);
+    }
+  }, [initialSelectedId, foodById]);
 
   const meal = useMemo(() => {
     if (selected === null) return null;
@@ -421,14 +442,24 @@ export function FoodSheet({
           </view>
         ) : selected === null ? (
           <view className="Food-search">
-            <view className="Food-search-field">
-              <input
-                id="food-search-input"
-                className="Food-search-input"
-                bindinput={(event: InputEvent) => setQuery(event.detail.value)}
-                placeholder={t('foodSheet.searchPlaceholder')}
-              />
+            <view className="Food-search-row">
+              <view className="Food-search-field">
+                <input
+                  id="food-search-input"
+                  className="Food-search-input"
+                  bindinput={(event: InputEvent) => setQuery(event.detail.value)}
+                  placeholder={t('foodSheet.searchPlaceholder')}
+                />
+              </view>
+              <view className="Food-scan-btn" bindtap={onScanBarcode}>
+                <text className="Food-scan-label">
+                  {t('foodSheet.scan')}
+                </text>
+              </view>
             </view>
+            {scanError !== undefined && scanError.length > 0 && (
+              <text className="Food-scan-error">{scanError}</text>
+            )}
             <view className="Food-results">
               {trimmedQuery === '' && favoriteItems.length > 0 && (
                 <view className="Food-quick-section">

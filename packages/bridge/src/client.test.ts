@@ -212,6 +212,53 @@ test('health.setFoodFavorite toggles the pinned id and returns hostData', async 
   expect(unpinned.hostData.favoriteFoodIds).toEqual([]);
 });
 
+test('scanner.scanBarcode returns a barcode or cancellation', async () => {
+  const bridge = createMemoryBridge();
+  bridge.handle('scanner.scanBarcode', () => ({ barcode: '5010251638056' }));
+  const client = createLeanOnBridgeClient(bridge.transport);
+  const result = await client.invoke('scanner.scanBarcode');
+  expect('barcode' in result ? result.barcode : null).toBe(
+    '5010251638056',
+  );
+});
+
+test('food.lookupProduct reports found with the raw product', async () => {
+  const bridge = createMemoryBridge();
+  bridge.handle<
+    { barcode: string },
+    | { found: true; product: { product_name?: string } }
+    | { found: false }
+  >('food.lookupProduct', (request) =>
+    request.barcode === 'known'
+      ? { found: true, product: { product_name: 'Granola' } }
+      : { found: false },
+  );
+  const client = createLeanOnBridgeClient(bridge.transport);
+  const hit = await client.invoke('food.lookupProduct', { barcode: 'known' });
+  expect(hit.found).toBe(true);
+  if (hit.found) expect(hit.product.product_name).toBe('Granola');
+  const miss = await client.invoke('food.lookupProduct', { barcode: 'nope' });
+  expect(miss.found).toBe(false);
+});
+
+test('health.writeScannedFood persists and returns hostData', async () => {
+  const bridge = createMemoryBridge();
+  bridge.handle<
+    { barcode: string; name: string; kcal: number },
+    { success: true; hostData: { customFoods: { id: string }[] } }
+  >('health.writeScannedFood', (request) => ({
+    success: true,
+    hostData: { customFoods: [{ id: `off-${request.barcode}` }] },
+  }));
+  const client = createLeanOnBridgeClient(bridge.transport);
+  const result = await client.invoke('health.writeScannedFood', {
+    barcode: '123',
+    name: 'Bar',
+    kcal: 400,
+  });
+  expect(result.hostData.customFoods).toEqual([{ id: 'off-123' }]);
+});
+
 test('records.changed delivers the refreshed hostData snapshot', () => {
   const bridge = createMemoryBridge();
   const client = createLeanOnBridgeClient(bridge.transport);

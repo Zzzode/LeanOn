@@ -494,11 +494,36 @@
   padding: 40rpx 32rpx;
 }
 
+.Food-search-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 18rpx;
+}
+
 .Food-search-field {
+  flex: 1;
   background-color: #f3f7f5;
   border-radius: 20rpx;
   padding: 22rpx 24rpx;
-  margin-bottom: 20rpx;
+}
+
+.Food-scan-btn {
+  margin-left: 14rpx;
+  background-color: #218967;
+  border-radius: 20rpx;
+  padding: 22rpx 26rpx;
+}
+
+.Food-scan-label {
+  font-size: 27rpx;
+  color: #ffffff;
+}
+
+.Food-scan-error {
+  font-size: 24rpx;
+  color: #e0594b;
+  margin: 0 4rpx 14rpx;
 }
 
 .Food-search-input {

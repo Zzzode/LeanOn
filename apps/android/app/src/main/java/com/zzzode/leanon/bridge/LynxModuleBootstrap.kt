@@ -3,10 +3,12 @@ package com.zzzode.leanon.bridge
 import android.content.Context
 import com.lynx.tasm.LynxEnv
 import com.zzzode.leanon.modules.AppModule
+import com.zzzode.leanon.modules.FoodModule
 import com.zzzode.leanon.modules.HealthModule
 import com.zzzode.leanon.modules.NotificationModule
 import com.zzzode.leanon.modules.ResourceModule
 import com.zzzode.leanon.modules.ScaleModule
+import com.zzzode.leanon.modules.ScannerModule
 import com.zzzode.leanon.modules.StorageModule
 
 /** Registers the Lynx native modules once, before any container loads a page. */
@@ -18,6 +20,8 @@ object LynxModuleBootstrap {
     val env = LynxEnv.inst()
     // Exported module names match the capability domains; methods match actions.
     env.registerModule("health", HealthModule::class.java)
+    env.registerModule("food", FoodModule::class.java)
+    env.registerModule("scanner", ScannerModule::class.java)
     env.registerModule("scale", ScaleModule::class.java)
     env.registerModule("storage", StorageModule::class.java)
     env.registerModule("resource", ResourceModule::class.java)

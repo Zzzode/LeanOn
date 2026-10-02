@@ -146,6 +146,31 @@ class RecordsRepository(context: Context) {
   }
 
   /**
+   * Insert or replace a user-owned food by id (RFC 0016 scanned foods), persist,
+   * and return the full HostData. An entry with the same id is replaced instead
+   * of being duplicated.
+   */
+  fun upsertUserFood(item: JSONObject): JSONObject {
+    val data = loadHostData()
+    val customFoods =
+      data.optJSONArray(CUSTOM_FOODS)
+        ?: JSONArray().also { data.put(CUSTOM_FOODS, it) }
+    val id = item.getString(ID)
+
+    var index = -1
+    for (candidate in 0 until customFoods.length()) {
+      if (customFoods.getJSONObject(candidate).getString(ID) == id) {
+        index = candidate
+        break
+      }
+    }
+    if (index >= 0) customFoods.put(index, item) else customFoods.put(item)
+
+    recordFile.writeText(data.toString(), Charsets.UTF_8)
+    return data
+  }
+
+  /**
    * Replace the editable content of the custom food with [id], keeping its id and
    * source (RFC 0014), then persist and return the full HostData. Throws when the
    * id is absent.
@@ -301,6 +326,8 @@ class RecordsRepository(context: Context) {
     const val DEFAULT_GRAMS = "defaultGrams"
     const val SOURCE = "source"
     const val CUSTOM = "custom"
+    const val OPEN_FOOD_FACTS = "open-food-facts"
+    const val BARCODE = "barcode"
     const val FAVORITE_FOOD_IDS = "favoriteFoodIds"
     const val RECENT_FOOD_IDS = "recentFoodIds"
     const val RECENT_LIMIT = 12

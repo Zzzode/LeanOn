@@ -9,6 +9,7 @@ import com.lynx.react.bridge.ReadableMap
 import com.lynx.tasm.behavior.LynxContext
 import com.zzzode.leanon.LeanOnApplication
 import com.zzzode.leanon.data.toJavaOnlyMap
+import org.json.JSONObject
 import java.util.NoSuchElementException
 import java.util.UUID
 
@@ -202,6 +203,42 @@ class HealthModule(context: Context) : LynxModule(context) {
       val id = requiredString(params, "id")
       val application = app()
       val hostData = application.records.deleteCustomFood(id)
+      application.events.dispatch("records.changed", changedPayload(hostData))
+      callback.invoke(successResult(hostData))
+    } catch (error: Exception) {
+      callback.invoke(failure(error))
+    }
+  }
+
+  /**
+   * Upsert a food imported from Open Food Facts (RFC 0016), keyed by
+   * `off-<barcode>`, and return the updated HostData.
+   */
+  @LynxMethod
+  fun writeScannedFood(params: ReadableMap, callback: Callback) {
+    try {
+      val barcode = requiredString(params, "barcode")
+      val fields = parseCustomFoodFields(params)
+      val foodName = JSONObject()
+        .put("en", fields.name)
+        .put("zh-CN", fields.name)
+      val macros = JSONObject()
+        .put("proteinG", fields.proteinG)
+        .put("carbsG", fields.carbsG)
+        .put("fatG", fields.fatG)
+      val item = JSONObject()
+        .put("id", "off-$barcode")
+        .put("name", foodName)
+        .put("kcal", fields.kcal)
+        .put("macros", macros)
+        .put("source", "open-food-facts")
+        .put("barcode", barcode)
+      if (fields.defaultGrams !== null) {
+        item.put("defaultGrams", fields.defaultGrams)
+      }
+
+      val application = app()
+      val hostData = application.records.upsertUserFood(item)
       application.events.dispatch("records.changed", changedPayload(hostData))
       callback.invoke(successResult(hostData))
     } catch (error: Exception) {

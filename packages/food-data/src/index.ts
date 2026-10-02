@@ -1,3 +1,4 @@
+export { createFoodFromBarcode } from './barcode.js';
 export { createCustomFood, updateCustomFood } from './custom.js';
 export { foods } from './data.js';
 export { portion } from './portion.js';
@@ -11,3 +12,4 @@ export type {
   Macros,
   Portion,
 } from './types.js';
+export type { OffNutriments, OffProduct } from './barcode.js';

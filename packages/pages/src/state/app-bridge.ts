@@ -186,6 +186,62 @@ function createPreviewBridge(): LeanOnBridgeClient {
     return { success: true, hostData: clone(hostData) };
   });
 
+  // --- Barcode scan + Open Food Facts simulation (RFC 0016) ---
+  const scanBarcode = '0012345678905';
+  const scannedProduct = {
+    product_name: 'Granola Test Bar',
+    nutriments: {
+      'energy-kcal_100g': 420,
+      'proteins_100g': 12,
+      'carbohydrates_100g': 55,
+      'fat_100g': 16,
+    },
+    serving_quantity: 35,
+  };
+  memory.handle('scanner.scanBarcode', () => ({ barcode: scanBarcode }));
+  memory.handle<
+    { barcode: string },
+    { found: true; product: typeof scannedProduct } | { found: false }
+  >('food.lookupProduct', (request) =>
+    request.barcode === scanBarcode
+      ? { found: true, product: scannedProduct }
+      : { found: false },
+  );
+  memory.handle<
+    {
+      barcode: string;
+      name: string;
+      kcal: number;
+      proteinG?: number;
+      carbsG?: number;
+      fatG?: number;
+      defaultGrams?: number;
+    },
+    { success: true; hostData: HostData }
+  >('health.writeScannedFood', (request) => {
+    const item = {
+      id: `off-${request.barcode}`,
+      name: { en: request.name, 'zh-CN': request.name },
+      kcal: request.kcal,
+      macros: {
+        proteinG: request.proteinG ?? 0,
+        carbsG: request.carbsG ?? 0,
+        fatG: request.fatG ?? 0,
+      },
+      source: 'open-food-facts' as const,
+      barcode: request.barcode,
+      ...(request.defaultGrams !== undefined
+        ? { defaultGrams: request.defaultGrams }
+        : {}),
+    };
+    const customFoods = hostData.customFoods.filter(
+      (food) => food.id !== item.id,
+    );
+    customFoods.push(item);
+    hostData = { ...hostData, customFoods };
+    return { success: true, hostData: clone(hostData) };
+  });
+
   memory.handle('scale.getStatus', () => ({
     state: scaleState,
     pairedDeviceId: null,

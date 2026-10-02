@@ -29,7 +29,9 @@ export interface FoodItem {
   macros: Macros;
   /** A sensible default serving in grams. */
   defaultGrams?: number;
-  source: 'usda-fdc' | 'curated' | 'custom';
+  source: 'usda-fdc' | 'curated' | 'custom' | 'open-food-facts';
+  /** Package barcode for a food imported from Open Food Facts (RFC 0016). */
+  barcode?: string;
 }
 
 /** Input for creating a user-owned custom food (values per 100 g). */
