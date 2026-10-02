@@ -171,6 +171,11 @@ export const zhCN = {
   'healthConnect.grantPermission': '授权',
   'healthConnect.permissionGranted': '已授权',
   'healthConnect.export': '导出',
+  'healthConnect.syncNow': '立即同步',
+  'healthConnect.syncing': '同步中…',
+  'healthConnect.lastSync': '最近同步：',
+  'healthConnect.neverSynced': '尚未同步',
+  'healthConnect.badge': 'Health Connect',
   'healthConnect.done': '完成',
 
   'water.title': '饮水',

@@ -45,6 +45,8 @@ export interface TodayState {
     typeId: string;
     durationMin: number;
     kcal: number;
+    /** External read-only mirror from Health Connect (RFC 0025). */
+    source?: 'leanon' | 'health_connect';
   }[];
   /** Calories still available (goal - food + exercise). */
   remainingKcal: number;

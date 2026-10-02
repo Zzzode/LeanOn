@@ -354,13 +354,15 @@ function createPreviewBridge(): LeanOnBridgeClient {
   });
   memory.handle('notification.requestPermission', () => ({ granted: true }));
 
-  // --- Health Connect export simulation (RFC 0021) ---
+  // --- Health Connect simulation (RFC 0021 export; RFC 0025 two-way sync) ---
   let hcEnabled = false;
   let hcGranted = false;
+  let hcLastSync = 0;
   memory.handle('healthConnect.getStatus', () => ({
     supported: true,
     enabled: hcEnabled,
     permissionsGranted: hcGranted,
+    lastSyncEpochMs: hcLastSync,
   }));
   memory.handle('healthConnect.requestPermission', () => {
     hcGranted = true;
@@ -373,6 +375,24 @@ function createPreviewBridge(): LeanOnBridgeClient {
       return { success: true };
     },
   );
+  memory.handle('healthConnect.sync', () => {
+    // Rebuild the external mirror set (RFC 0025): drop previous mirrors, then
+    // mirror an external cycling session logged today as a deterministic demo.
+    const owned = hostData.exercises.filter(
+      (session) => session.source !== 'health_connect',
+    );
+    const mirror = {
+      id: 'hc-preview-cycling',
+      date: hostData.today,
+      typeId: 'cycling',
+      durationMin: 30,
+      kcal: 300,
+      source: 'health_connect' as const,
+    };
+    hostData = { ...hostData, exercises: [...owned, mirror] };
+    hcLastSync = Date.now();
+    return { success: true as const, hostData: clone(hostData) };
+  });
 
   memory.handle('scale.getStatus', () => ({
     state: scaleState,

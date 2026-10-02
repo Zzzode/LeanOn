@@ -1,9 +1,12 @@
+import { useState } from '@lynx-js/react';
 import type { Translator } from '@zzzode/i18n';
 
 export interface HealthConnectStatus {
   supported: boolean;
   enabled: boolean;
   permissionsGranted: boolean;
+  /** Epoch ms of the last successful sync; 0 means never (RFC 0025). */
+  lastSyncEpochMs: number;
 }
 
 interface HealthConnectSheetProps {
@@ -12,13 +15,28 @@ interface HealthConnectSheetProps {
   onClose: () => void;
   onRequestPermission: () => void;
   onSetEnabled: (enabled: boolean) => void;
+  /** Run a two-way sync now; resolves true on success. */
+  onSync: () => Promise<boolean>;
+}
+
+function pad2(value: number): string {
+  return (value < 10 ? '0' : '') + value;
+}
+
+function formatSync(epochMs: number): string {
+  if (!epochMs) return '';
+  const date = new Date(epochMs);
+  return (
+    `${pad2(date.getMonth() + 1)}-${pad2(date.getDate())} ` +
+    `${pad2(date.getHours())}:${pad2(date.getMinutes())}`
+  );
 }
 
 /**
- * Bottom sheet for the Health Connect export (RFC 0021). On supported devices it
- * exposes the write-permission grant and an export On/Off switch. Enabling the
- * export triggers a history backfill on the host. When Health Connect is
- * unavailable it shows an explanatory message instead.
+ * Bottom sheet for Health Connect (RFC 0021 export; RFC 0025 two-way sync). On
+ * supported devices it exposes the permission grant, an On/Off switch, a manual
+ * "Sync now" and the last-sync time. When Health Connect is unavailable it
+ * shows an explanatory message.
  */
 export function HealthConnectSheet({
   t,
@@ -26,7 +44,20 @@ export function HealthConnectSheet({
   onClose,
   onRequestPermission,
   onSetEnabled,
+  onSync,
 }: HealthConnectSheetProps) {
+  const [syncing, setSyncing] = useState(false);
+
+  const handleSync = () => {
+    if (syncing) return;
+    setSyncing(true);
+    onSync()
+      .then(() => setSyncing(false))
+      .catch(() => setSyncing(false));
+  };
+
+  const canSync = status.permissionsGranted;
+
   return (
     <view className="Sheet-overlay" bindtap={onClose}>
       <view className="Sheet Reminder-sheet" catchtap={() => {}}>
@@ -99,6 +130,29 @@ export function HealthConnectSheet({
                   </text>
                 </view>
               </view>
+            </view>
+            <view className="HealthConnect-syncrow">
+              <view
+                className={
+                  syncing || !canSync
+                    ? 'Sheet-btn HealthConnect-sync disabled'
+                    : 'Sheet-btn HealthConnect-sync'
+                }
+                bindtap={!syncing && canSync ? handleSync : undefined}
+              >
+                <text className="Sheet-btn-label">
+                  {syncing
+                    ? t('healthConnect.syncing')
+                    : t('healthConnect.syncNow')}
+                </text>
+              </view>
+              <text className="HealthConnect-lastsync">
+                {canSync
+                  ? status.lastSyncEpochMs
+                    ? `${t('healthConnect.lastSync')} ${formatSync(status.lastSyncEpochMs)}`
+                    : t('healthConnect.neverSynced')
+                  : ''}
+              </text>
             </view>
           </view>
         )}

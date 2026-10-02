@@ -39,9 +39,13 @@ export interface Profile {
   bodyFatPercent?: number;
 }
 
+/** Where a sample originated (RFC 0025). Absence is treated as 'leanon'. */
+export type DataSource = 'leanon' | 'health_connect';
+
 export interface WeightSample {
   date: string;
   weightKg: number;
+  source?: DataSource;
 }
 
 /**
@@ -70,6 +74,8 @@ export interface ExerciseSample {
   durationMin: number;
   /** Kilocalories burned for this session. */
   kcal: number;
+  /** External read-only mirror from Health Connect (RFC 0025). */
+  source?: DataSource;
 }
 
 /** Total drinking-water consumed on a given day (RFC 0023); one per date. */

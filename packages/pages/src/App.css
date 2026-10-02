@@ -874,9 +874,25 @@
   padding: 16rpx 4rpx;
 }
 
+.Exercise-row-titleline {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12rpx;
+}
+
 .Exercise-row-name {
   font-size: 27rpx;
   color: #16261f;
+}
+
+.Exercise-row-badge {
+  font-size: 19rpx;
+  color: #1c7a5c;
+  background-color: #e4f0ea;
+  font-weight: 500;
+  border-radius: 10rpx;
+  padding: 3rpx 12rpx;
 }
 
 .Exercise-row-meta {
@@ -1038,6 +1054,34 @@
 .HealthConnect-grant {
   flex: 0 0 auto;
   padding: 10rpx 30rpx;
+}
+
+.HealthConnect-syncrow {
+  margin-top: 18rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.HealthConnect-sync {
+  align-items: center;
+  justify-content: center;
+  padding: 16rpx 30rpx;
+  border-radius: 22rpx;
+  background-color: #e4f0ea;
+}
+
+.HealthConnect-sync.disabled {
+  opacity: 0.5;
+}
+
+.HealthConnect-sync .Sheet-btn-label {
+  color: #1c7a5c;
+}
+
+.HealthConnect-lastsync {
+  font-size: 24rpx;
+  color: #7a8a83;
 }
 
 .Reminder-kind {

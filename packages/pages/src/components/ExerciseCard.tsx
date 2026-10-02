@@ -58,39 +58,49 @@ export function ExerciseCard({
         const type = getExerciseById(session.typeId);
         const name = type ? type.name[locale] : session.typeId;
         const confirming = confirmId === session.id;
+        const isMirror = session.source === 'health_connect';
         return (
           <view key={session.id} className="Exercise-row-item">
-            <text className="Exercise-row-name">{name}</text>
+            <view className="Exercise-row-titleline">
+              <text className="Exercise-row-name">{name}</text>
+              {isMirror ? (
+                <text className="Exercise-row-badge">
+                  {t('healthConnect.badge')}
+                </text>
+              ) : null}
+            </view>
             <text className="Exercise-row-meta">
               {Math.round(session.durationMin)} {t('exerciseCard.min')} ·{' '}
               {Math.round(session.kcal)} {t('exerciseCard.kcal')}
             </text>
-            <view className="Exercise-row-actions">
-              <text
-                className="Exercise-row-btn"
-                bindtap={() =>
-                  onEdit({
-                    id: session.id,
-                    typeId: session.typeId,
-                    durationMin: session.durationMin,
-                  })
-                }
-              >
-                {t('exerciseCard.edit')}
-              </text>
-              <text
-                className={`Exercise-row-btn danger${
-                  confirming ? ' confirm' : ''
-                }`}
-                bindtap={
-                  deleting ? undefined : () => handleDeleteTap(session.id)
-                }
-              >
-                {confirming
-                  ? t('exerciseCard.confirmDelete')
-                  : t('exerciseCard.delete')}
-              </text>
-            </view>
+            {isMirror ? null : (
+              <view className="Exercise-row-actions">
+                <text
+                  className="Exercise-row-btn"
+                  bindtap={() =>
+                    onEdit({
+                      id: session.id,
+                      typeId: session.typeId,
+                      durationMin: session.durationMin,
+                    })
+                  }
+                >
+                  {t('exerciseCard.edit')}
+                </text>
+                <text
+                  className={`Exercise-row-btn danger${
+                    confirming ? ' confirm' : ''
+                  }`}
+                  bindtap={
+                    deleting ? undefined : () => handleDeleteTap(session.id)
+                  }
+                >
+                  {confirming
+                    ? t('exerciseCard.confirmDelete')
+                    : t('exerciseCard.delete')}
+                </text>
+              </view>
+            )}
           </view>
         );
       })}

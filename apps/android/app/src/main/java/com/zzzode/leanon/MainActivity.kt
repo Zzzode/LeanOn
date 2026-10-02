@@ -36,6 +36,15 @@ class MainActivity : AppCompatActivity() {
     container.loadRoute("home")
   }
 
+  override fun onStart() {
+    super.onStart()
+    // Best-effort two-way sync whenever the app comes to the foreground (RFC 0025).
+    val app = application as LeanOnApplication
+    if (app.settings.getHealthConnectEnabled()) {
+      app.healthConnect.syncAsync { }
+    }
+  }
+
   override fun onRequestPermissionsResult(
     requestCode: Int,
     permissions: Array<out String>,

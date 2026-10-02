@@ -89,6 +89,7 @@ export function selectToday(data: HostData): TodayState {
       typeId: session.typeId,
       durationMin: session.durationMin,
       kcal: session.kcal,
+      source: session.source,
     }));
   const exerciseKcal = exerciseSessions.reduce(
     (sum, session) => sum + session.kcal,

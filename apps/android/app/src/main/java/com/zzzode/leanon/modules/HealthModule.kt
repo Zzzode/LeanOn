@@ -386,6 +386,9 @@ class HealthModule(context: Context) : LynxModule(context) {
       val application = app()
       val hostData = application.records.deleteExercise(id)
       application.events.dispatch("records.changed", changedPayload(hostData))
+      // Reconcile the exported session (RFC 0025); onRecordsChanged alone
+      // re-exports but never deletes the orphaned record.
+      application.healthConnect.deleteExerciseSessionAsync(id)
       application.healthConnect.onRecordsChanged()
       callback.invoke(successResult(hostData))
     } catch (error: Exception) {

@@ -53,6 +53,7 @@ export function App() {
     supported: false,
     enabled: false,
     permissionsGranted: false,
+    lastSyncEpochMs: 0,
   });
   const [hcOpen, setHcOpen] = useState<boolean>(false);
 
@@ -94,6 +95,7 @@ export function App() {
             supported: response.supported,
             enabled: response.enabled,
             permissionsGranted: response.permissionsGranted,
+            lastSyncEpochMs: response.lastSyncEpochMs,
           });
         }
       })
@@ -322,9 +324,24 @@ export function App() {
           supported: response.supported,
           enabled: response.enabled,
           permissionsGranted: response.permissionsGranted,
+          lastSyncEpochMs: response.lastSyncEpochMs,
         });
       })
       .catch(() => {});
+  };
+
+  const handleSyncHealthConnect = async (): Promise<boolean> => {
+    try {
+      const response = await bridge.invoke('healthConnect.sync');
+      setHostData(response.hostData as Parameters<typeof setHostData>[0]);
+      setHcStatus((previous) => ({
+        ...previous,
+        lastSyncEpochMs: Date.now(),
+      }));
+      return true;
+    } catch {
+      return false;
+    }
   };
 
   const handleRequestHealthConnectPermission = async () => {
@@ -511,6 +528,7 @@ export function App() {
           onClose={() => setHcOpen(false)}
           onRequestPermission={handleRequestHealthConnectPermission}
           onSetEnabled={handleSetHealthConnectEnabled}
+          onSync={handleSyncHealthConnect}
         />
       )}
     </page>

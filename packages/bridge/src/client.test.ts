@@ -503,11 +503,13 @@ test('healthConnect.getStatus returns availability and flags', async () => {
     supported: true,
     enabled: false,
     permissionsGranted: false,
+    lastSyncEpochMs: 0,
   }));
   const client = createLeanOnBridgeClient(bridge.transport);
   const result = await client.invoke('healthConnect.getStatus');
   expect(result.supported).toBe(true);
   expect(result.enabled).toBe(false);
+  expect(result.lastSyncEpochMs).toBe(0);
 });
 
 test('healthConnect.requestPermission returns the granted state', async () => {
@@ -526,4 +528,16 @@ test('healthConnect.setEnabled returns success', async () => {
     enabled: true,
   });
   expect(result.success).toBe(true);
+});
+
+test('healthConnect.sync returns success and refreshed host data', async () => {
+  const bridge = createMemoryBridge();
+  bridge.handle('healthConnect.sync', () => ({
+    success: true,
+    hostData: { today: '2026-10-03' },
+  }));
+  const client = createLeanOnBridgeClient(bridge.transport);
+  const result = await client.invoke('healthConnect.sync');
+  expect(result.success).toBe(true);
+  expect((result.hostData as { today: string }).today).toBe('2026-10-03');
 });

@@ -82,3 +82,4 @@ Not needed for:
 | [0022](0022-adaptive-launcher-icon.md) | Adaptive launcher icon | Accepted |
 | [0023](0023-water-tracking.md) | Water tracking | Accepted |
 | [0024](0024-micronutrients.md) | Micronutrients | Accepted |
+| [0025](0025-health-connect-two-way-sync.md) | Health Connect two-way sync (read weight & exercise, mirror & delete) | Accepted |

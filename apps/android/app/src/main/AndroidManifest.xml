@@ -7,8 +7,10 @@
   <!-- Daily local reminders on Android 13+ (RFC 0020). -->
   <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
   <!-- One-way export to Health Connect (RFC 0021). -->
+  <uses-permission android:name="android.permission.health.READ_WEIGHT" />
   <uses-permission android:name="android.permission.health.WRITE_WEIGHT" />
   <uses-permission android:name="android.permission.health.WRITE_NUTRITION" />
+  <uses-permission android:name="android.permission.health.READ_EXERCISE" />
   <uses-permission android:name="android.permission.health.WRITE_EXERCISE" />
 
   <!-- Legacy Bluetooth (API 30 and below). -->

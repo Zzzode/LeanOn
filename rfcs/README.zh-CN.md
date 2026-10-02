@@ -71,3 +71,4 @@
 | [0022](0022-adaptive-launcher-icon.zh-CN.md) | 自适应启动图标 | Accepted |
 | [0023](0023-water-tracking.zh-CN.md) | 水合追踪 | Accepted |
 | [0024](0024-micronutrients.zh-CN.md) | 微量营养素 | Accepted |
+| [0025](0025-health-connect-two-way-sync.zh-CN.md) | Health Connect 双向同步（读取体重与运动、镜像与删除） | Accepted |

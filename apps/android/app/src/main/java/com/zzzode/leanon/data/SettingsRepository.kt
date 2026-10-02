@@ -45,9 +45,17 @@ class SettingsRepository(context: Context) {
     prefs.edit().putBoolean(KEY_HEALTH_CONNECT_ENABLED, enabled).apply()
   }
 
+  /** Epoch ms of the last successful two-way sync; 0 means never (RFC 0025). */
+  fun getLastSyncEpochMs(): Long = prefs.getLong(KEY_HEALTH_CONNECT_LAST_SYNC, 0L)
+
+  fun setLastSyncEpochMs(epochMs: Long) {
+    prefs.edit().putLong(KEY_HEALTH_CONNECT_LAST_SYNC, epochMs).apply()
+  }
+
   private companion object {
     const val PREFS_NAME = "leanon_settings"
     const val KEY_HEALTH_CONNECT_ENABLED = "health_connect_enabled"
+    const val KEY_HEALTH_CONNECT_LAST_SYNC = "health_connect_last_sync"
     const val KEY_WEIGHT_ENABLED = "weight_enabled"
     const val KEY_WEIGHT_HOUR = "weight_hour"
     const val KEY_WEIGHT_MINUTE = "weight_minute"

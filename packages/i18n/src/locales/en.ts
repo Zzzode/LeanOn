@@ -177,6 +177,11 @@ export const en = {
   'healthConnect.grantPermission': 'Grant',
   'healthConnect.permissionGranted': 'Granted',
   'healthConnect.export': 'Export',
+  'healthConnect.syncNow': 'Sync now',
+  'healthConnect.syncing': 'Syncing…',
+  'healthConnect.lastSync': 'Last sync:',
+  'healthConnect.neverSynced': 'Not synced yet',
+  'healthConnect.badge': 'Health Connect',
   'healthConnect.done': 'Done',
 
   'water.title': 'Hydration',

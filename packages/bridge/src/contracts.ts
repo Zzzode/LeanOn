@@ -295,7 +295,12 @@ export type LeanOnRpcContract = {
       supported: boolean;
       enabled: boolean;
       permissionsGranted: boolean;
+      lastSyncEpochMs: number;
     };
+  };
+  'healthConnect.sync': {
+    request: void;
+    response: { success: true; hostData: HostDataDto };
   };
   'healthConnect.requestPermission': {
     request: void;
@@ -358,6 +363,7 @@ export const RpcMethods = {
   healthConnectGetStatus: 'healthConnect.getStatus',
   healthConnectRequestPermission: 'healthConnect.requestPermission',
   healthConnectSetEnabled: 'healthConnect.setEnabled',
+  healthConnectSync: 'healthConnect.sync',
 } as const satisfies Record<string, keyof LeanOnRpcContract>;
 
 export const BridgeEvents = {

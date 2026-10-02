@@ -14,6 +14,19 @@ import java.util.UUID
  * This slice stores plain JSON. Encryption and the envelope/migration model are
  * tracked under RFC 0008 and deliberately not applied here.
  */
+/**
+ * An exercise session mirrored from Health Connect (RFC 0025). It lives in the
+ * data package so the healthconnect layer can build it without a reverse
+ * dependency; `source` is implied to be 'health_connect'.
+ */
+data class ExternalExercise(
+  val id: String,
+  val date: String,
+  val typeId: String,
+  val durationMin: Double,
+  val kcal: Double,
+)
+
 class RecordsRepository(context: Context) {
 
   private val appContext: Context = context.applicationContext
@@ -288,6 +301,70 @@ class RecordsRepository(context: Context) {
   }
 
   /**
+   * Rebuild the Health Connect weight mirrors (RFC 0025): keep every LeanOn-
+   * owned sample, drop previous mirrors, then add one mirror per external date
+   * LeanOn did not log. Weights are sorted by date and persisted.
+   */
+  fun replaceExternalWeights(weightsByDate: Map<String, Double>): JSONObject {
+    val data = loadHostData()
+    val weights = data.getJSONArray(WEIGHTS)
+    val ownedDates = HashSet<String>()
+    val samples = ArrayList<JSONObject>()
+    for (index in 0 until weights.length()) {
+      val sample = weights.getJSONObject(index)
+      if (sample.optString(SOURCE) == HEALTH_CONNECT) continue
+      samples.add(sample)
+      ownedDates.add(sample.getString(DATE))
+    }
+    for ((date, kg) in weightsByDate) {
+      if (ownedDates.contains(date)) continue
+      samples.add(
+        JSONObject()
+          .put(DATE, date)
+          .put(WEIGHT_KG, kg)
+          .put(SOURCE, HEALTH_CONNECT),
+      )
+    }
+    samples.sortBy { it.getString(DATE) }
+    val rebuilt = JSONArray()
+    samples.forEach { rebuilt.put(it) }
+    data.put(WEIGHTS, rebuilt)
+
+    recordFile.writeText(data.toString(), Charsets.UTF_8)
+    return data
+  }
+
+  /**
+   * Rebuild the Health Connect exercise mirrors (RFC 0025), keeping LeanOn-owned
+   * sessions and replacing the mirror set with [items]. Persisted.
+   */
+  fun replaceExternalExercises(items: List<ExternalExercise>): JSONObject {
+    val data = loadHostData()
+    val existing = data.getJSONArray(EXERCISES)
+    val rebuilt = JSONArray()
+    for (index in 0 until existing.length()) {
+      val session = existing.getJSONObject(index)
+      if (session.optString(SOURCE) == HEALTH_CONNECT) continue
+      rebuilt.put(session)
+    }
+    for (item in items) {
+      rebuilt.put(
+        JSONObject()
+          .put(ID, item.id)
+          .put(DATE, item.date)
+          .put(TYPE_ID, item.typeId)
+          .put(DURATION_MIN, item.durationMin)
+          .put(KCAL, item.kcal)
+          .put(SOURCE, HEALTH_CONNECT),
+      )
+    }
+    data.put(EXERCISES, rebuilt)
+
+    recordFile.writeText(data.toString(), Charsets.UTF_8)
+    return data
+  }
+
+  /**
    * Append a user-created food (RFC 0013) to `customFoods`, persist, and return
    * the full HostData. Records written before this slice lack the field, so it is
    * created on demand. The typed name is mirrored across both locales.
@@ -538,6 +615,7 @@ class RecordsRepository(context: Context) {
     const val ZH_CN = "zh-CN"
     const val DEFAULT_GRAMS = "defaultGrams"
     const val SOURCE = "source"
+    const val HEALTH_CONNECT = "health_connect"
     const val CUSTOM = "custom"
     const val OPEN_FOOD_FACTS = "open-food-facts"
     const val BARCODE = "barcode"

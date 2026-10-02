@@ -15,8 +15,10 @@ import androidx.health.connect.client.records.WeightRecord
 object HealthConnectPermission {
 
   val PERMISSIONS: Set<String> = setOf(
+    HealthPermission.getReadPermission(WeightRecord::class),
     HealthPermission.getWritePermission(WeightRecord::class),
     HealthPermission.getWritePermission(NutritionRecord::class),
+    HealthPermission.getReadPermission(ExerciseSessionRecord::class),
     HealthPermission.getWritePermission(ExerciseSessionRecord::class),
   )
 
