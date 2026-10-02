@@ -68,3 +68,4 @@
 | [0019](0019-progress-insights.zh-CN.md) | 进度洞察与周回顾 | Accepted |
 | [0020](0020-smart-reminders.zh-CN.md) | 智能提醒 | Accepted |
 | [0021](0021-health-connect-export.zh-CN.md) | Health Connect 导出 | Accepted |
+| [0022](0022-adaptive-launcher-icon.zh-CN.md) | 自适应启动图标 | Accepted |
