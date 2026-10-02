@@ -13,10 +13,14 @@
     "build": "pnpm -r run build",
     "typecheck": "pnpm -r run typecheck",
     "test": "pnpm -r run test",
-    "clean": "pnpm -r exec rm -rf dist node_modules/.cache"
+    "clean": "pnpm -r exec rm -rf dist node_modules/.cache",
+    "icons:generate": "node scripts/generate-icons.mjs",
+    "icons:check": "node scripts/generate-icons.mjs --check",
+    "icons:preview": "node scripts/preview-icons.mjs"
   },
   "devDependencies": {
     "@rslib/core": "^1.0.3",
+    "sharp": "0.35.4",
     "typescript": "^7.0.2"
   },
   "packageManager": "pnpm@11.7.0"

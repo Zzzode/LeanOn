@@ -72,3 +72,4 @@
 | [0023](0023-water-tracking.zh-CN.md) | 水合追踪 | Accepted |
 | [0024](0024-micronutrients.zh-CN.md) | 微量营养素 | Accepted |
 | [0025](0025-health-connect-two-way-sync.zh-CN.md) | Health Connect 双向同步（读取体重与运动、镜像与删除） | Accepted |
+| [0026](0026-icon-visual-proportions.zh-CN.md) | 图标视觉占比 | Proposed |
