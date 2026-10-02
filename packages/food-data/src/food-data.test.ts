@@ -1,5 +1,5 @@
 import { describe, expect, it } from '@rstest/core';
-import { foods, portion, searchFoods } from './index.js';
+import { createCustomFood, foods, portion, searchFoods } from './index.js';
 
 describe('searchFoods', () => {
   it('returns common staples for an empty query', () => {
@@ -60,5 +60,63 @@ describe('portion', () => {
   it('rejects non-positive grams', () => {
     expect(() => portion(foods[0]!, 0)).toThrow();
     expect(() => portion(foods[0]!, -10)).toThrow();
+  });
+});
+
+describe('createCustomFood', () => {
+  it('builds a minimal food with a mirrored name and zero macros', () => {
+    const item = createCustomFood({
+      id: 'custom-1',
+      name: 'My Granola',
+      kcal: 420,
+    });
+    expect(item.source).toBe('custom');
+    expect(item.name.en).toBe('My Granola');
+    expect(item.name['zh-CN']).toBe('My Granola');
+    expect(item.macros.proteinG).toBe(0);
+    expect(item.macros.fatG).toBe(0);
+  });
+
+  it('keeps full nutrition and default grams', () => {
+    const item = createCustomFood({
+      id: 'custom-2',
+      name: '能量棒',
+      kcal: 400,
+      proteinG: 10,
+      carbsG: 50,
+      fatG: 15,
+      defaultGrams: 30,
+    });
+    expect(item.macros.carbsG).toBe(50);
+    expect(item.defaultGrams).toBe(30);
+  });
+
+  it('trims the name', () => {
+    const item = createCustomFood({
+      id: 'custom-3',
+      name: '  latte  ',
+      kcal: 50,
+    });
+    expect(item.name.en).toBe('latte');
+  });
+
+  it('rejects an empty name', () => {
+    expect(() =>
+      createCustomFood({ id: 'x', name: '   ', kcal: 10 }),
+    ).toThrow();
+  });
+
+  it('rejects zero or negative kcal', () => {
+    expect(() => createCustomFood({ id: 'x', name: 'a', kcal: 0 })).toThrow();
+    expect(() => createCustomFood({ id: 'x', name: 'a', kcal: -5 })).toThrow();
+  });
+
+  it('rejects negative macros and bad default grams', () => {
+    expect(() =>
+      createCustomFood({ id: 'x', name: 'a', kcal: 10, proteinG: -1 }),
+    ).toThrow();
+    expect(() =>
+      createCustomFood({ id: 'x', name: 'a', kcal: 10, defaultGrams: 0 }),
+    ).toThrow();
   });
 });

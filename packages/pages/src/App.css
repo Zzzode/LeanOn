@@ -577,3 +577,31 @@
   color: #3f544a;
   margin: 0 18rpx;
 }
+
+.Food-form .Sheet-field {
+  margin-bottom: 20rpx;
+}
+
+.Food-form-row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20rpx;
+}
+
+.Food-form-cell {
+  flex: 1;
+  margin-right: 12rpx;
+}
+
+.Food-form-cell:last-child {
+  margin-right: 0;
+}
+
+.Food-create-row {
+  justify-content: flex-start;
+}
+
+.Food-create-label {
+  font-size: 28rpx;
+  color: #218967;
+}

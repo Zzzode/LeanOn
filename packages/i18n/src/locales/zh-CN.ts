@@ -62,6 +62,23 @@ export const zhCN = {
   'foodSheet.invalid': '请输入正数克数。',
   'foodSheet.error': '保存失败，请重试。',
 
+  // Custom food creation
+  'customFood.title': '创建自定义食物',
+  'customFood.create': '创建自定义食物',
+  'customFood.name': '名称',
+  'customFood.kcal': '每 100 克热量',
+  'customFood.protein': '蛋白',
+  'customFood.carbs': '碳水',
+  'customFood.fat': '脂肪',
+  'customFood.defaultGrams': '默认份量（克）',
+  'customFood.cancel': '取消',
+  'customFood.save': '创建食物',
+  'customFood.nameRequired': '请输入名称。',
+  'customFood.kcalRequired': '每 100 克热量须大于零。',
+  'customFood.invalidMacros': '宏量须为非负数字。',
+  'customFood.invalidDefault': '默认份量须大于零。',
+  'customFood.error': '保存失败，请重试。',
+
   // Notice & footer
   'notice.safeFloor': '目标已调整到安全下限。',
   'footer.disclaimer': 'LeanOn · 非医疗建议',

@@ -1,6 +1,7 @@
 package com.zzzode.leanon.data
 
 import android.content.Context
+import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
 
@@ -100,6 +101,47 @@ class RecordsRepository(context: Context) {
     return data
   }
 
+  /**
+   * Append a user-created food (RFC 0013) to `customFoods`, persist, and return
+   * the full HostData. Records written before this slice lack the field, so it is
+   * created on demand. The typed name is mirrored across both locales.
+   */
+  fun addCustomFood(
+    id: String,
+    name: String,
+    kcal: Double,
+    proteinG: Double,
+    carbsG: Double,
+    fatG: Double,
+    defaultGrams: Double?,
+  ): JSONObject {
+    val data = loadHostData()
+    val customFoods =
+      data.optJSONArray(CUSTOM_FOODS)
+        ?: JSONArray().also { data.put(CUSTOM_FOODS, it) }
+
+    val foodName = JSONObject()
+      .put(EN, name)
+      .put(ZH_CN, name)
+    val macros = JSONObject()
+      .put(PROTEIN_G, proteinG)
+      .put(CARBS_G, carbsG)
+      .put(FAT_G, fatG)
+    val item = JSONObject()
+      .put(ID, id)
+      .put(NAME, foodName)
+      .put(KCAL, kcal)
+      .put(MACROS, macros)
+      .put(SOURCE, CUSTOM)
+    if (defaultGrams !== null) {
+      item.put(DEFAULT_GRAMS, defaultGrams)
+    }
+    customFoods.put(item)
+
+    recordFile.writeText(data.toString(), Charsets.UTF_8)
+    return data
+  }
+
   private fun ensureSeeded() {
     if (recordFile.exists()) return
     val seed = appContext.assets
@@ -121,5 +163,13 @@ class RecordsRepository(context: Context) {
     const val PROTEIN_G = "proteinG"
     const val CARBS_G = "carbsG"
     const val FAT_G = "fatG"
+    const val CUSTOM_FOODS = "customFoods"
+    const val ID = "id"
+    const val NAME = "name"
+    const val EN = "en"
+    const val ZH_CN = "zh-CN"
+    const val DEFAULT_GRAMS = "defaultGrams"
+    const val SOURCE = "source"
+    const val CUSTOM = "custom"
   }
 }

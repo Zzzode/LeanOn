@@ -5,6 +5,7 @@ import {
   hasLynxHost,
   type LeanOnBridgeClient,
 } from '@zzzode/bridge';
+import { createCustomFood } from '@zzzode/food-data';
 import { sampleHostData } from './sample.js';
 import type { HostData } from './types.js';
 
@@ -35,6 +36,7 @@ function createPreviewBridge(): LeanOnBridgeClient {
   const memory = createMemoryBridge();
   let hostData: HostData = clone(sampleHostData);
   let scaleState: 'idle' | 'scanning' | 'connected' = 'idle';
+  let customFoodSeq = 0;
 
   memory.handle<
     { date: string; weightKg: number },
@@ -77,6 +79,35 @@ function createPreviewBridge(): LeanOnBridgeClient {
           },
         ];
     hostData = { ...hostData, intake };
+    return { success: true, hostData: clone(hostData) };
+  });
+
+  memory.handle<
+    {
+      name: string;
+      kcal: number;
+      proteinG?: number;
+      carbsG?: number;
+      fatG?: number;
+      defaultGrams?: number;
+    },
+    { success: true; hostData: HostData }
+  >('health.writeCustomFood', (request) => {
+    customFoodSeq += 1;
+    const item = createCustomFood({
+      id: `custom-preview-${customFoodSeq}`,
+      name: request.name,
+      kcal: request.kcal,
+      proteinG: request.proteinG,
+      carbsG: request.carbsG, fatG: request.fatG,
+      ...(request.defaultGrams === undefined
+        ? {}
+        : { defaultGrams: request.defaultGrams }),
+    });
+    hostData = {
+      ...hostData,
+      customFoods: [...hostData.customFoods, item],
+    };
     return { success: true, hostData: clone(hostData) };
   });
 

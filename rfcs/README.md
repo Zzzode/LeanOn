@@ -70,3 +70,4 @@ Not needed for:
 | [0010](0010-interactive-logging-write-path.md) | Interactive logging write path | Accepted |
 | [0011](0011-ble-scale-and-records-changed.md) | BLE weight scale and `records.changed` | Accepted |
 | [0012](0012-offline-food-logging.md) | Offline food logging | Accepted |
+| [0013](0013-custom-foods.md) | Custom foods | Accepted |

@@ -131,6 +131,27 @@ test('health.writeIntake forwards the meal and returns hostData', async () => {
   expect(response.hostData.today).toBe('2026-10-01');
 });
 
+test('health.writeCustomFood stores the food and returns hostData', async () => {
+  const bridge = createMemoryBridge();
+  bridge.handle<
+    { name: string; kcal: number },
+    { success: true; hostData: { today: string; customFoods: unknown[] } }
+  >('health.writeCustomFood', (request) => ({
+    success: true,
+    hostData: {
+      today: '2026-10-01',
+      customFoods: [{ id: 'custom-1', name: { en: request.name } }],
+    },
+  }));
+  const client = createLeanOnBridgeClient(bridge.transport);
+  const response = await client.invoke('health.writeCustomFood', {
+    name: 'My Bar',
+    kcal: 400,
+  });
+  expect(response.success).toBe(true);
+  expect(response.hostData.customFoods).toHaveLength(1);
+});
+
 test('records.changed delivers the refreshed hostData snapshot', () => {
   const bridge = createMemoryBridge();
   const client = createLeanOnBridgeClient(bridge.transport);

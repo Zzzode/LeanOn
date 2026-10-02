@@ -68,6 +68,24 @@ export function App() {
     setActiveSheet('none');
   };
 
+  const handleCreateCustomFood = async (request: {
+    name: string;
+    kcal: number;
+    proteinG: number;
+    carbsG: number;
+    fatG: number;
+    defaultGrams?: number;
+  }) => {
+    const response = await bridge.invoke(
+      'health.writeCustomFood',
+      request,
+    );
+    setHostData(response.hostData);
+    return response.hostData.customFoods[
+      response.hostData.customFoods.length - 1
+    ]!;
+  };
+
   return (
     <page className="Page">
       <scroll-view scroll-y className="Scroll">
@@ -114,8 +132,10 @@ export function App() {
         <FoodSheet
           t={t}
           locale={locale}
+          customFoods={hostData.customFoods}
           onClose={() => setActiveSheet('none')}
           onSave={handleSaveIntake}
+          onCreateCustomFood={handleCreateCustomFood}
         />
       )}
     </page>

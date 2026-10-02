@@ -48,7 +48,8 @@
     "test:watch": "rstest"
   },
   "dependencies": {
-    "@zzzode/core": "workspace:*"
+    "@zzzode/core": "workspace:*",
+    "@zzzode/food-data": "workspace:*"
   },
   "devDependencies": {
     "@rstest/core": "^0.12.2"

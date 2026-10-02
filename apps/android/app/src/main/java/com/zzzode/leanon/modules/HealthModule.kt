@@ -9,6 +9,7 @@ import com.lynx.react.bridge.ReadableMap
 import com.lynx.tasm.behavior.LynxContext
 import com.zzzode.leanon.LeanOnApplication
 import com.zzzode.leanon.data.toJavaOnlyMap
+import java.util.UUID
 
 /** Native module backing the `health.*` methods; delegates to the record store. */
 class HealthModule(context: Context) : LynxModule(context) {
@@ -115,6 +116,69 @@ class HealthModule(context: Context) : LynxModule(context) {
         errorResult("unavailable", error.message ?: "Could not save meal"),
       )
     }
+  }
+
+  /**
+   * Create and persist a user-owned custom food (RFC 0013), then return the
+   * updated HostData. The host generates the id, mirrors the name across locales,
+   * and emits `records.changed` like every other write.
+   */
+  @LynxMethod
+  fun writeCustomFood(params: ReadableMap, callback: Callback) {
+    try {
+      if (!params.hasKey("name") || !params.hasKey("kcal")) {
+        callback.invoke(errorResult("invalid-request", "Missing name or kcal"))
+        return
+      }
+      val name = params.getString("name")?.trim()
+      val kcal = params.getDouble("kcal")
+      if (name == null || name.isEmpty() || !kcal.isFinite() || kcal <= 0) {
+        callback.invoke(
+          errorResult("invalid-request", "Name is required and kcal > 0"),
+        )
+        return
+      }
+      val proteinG = optionalMacro(params, "proteinG")
+      val carbsG = optionalMacro(params, "carbsG")
+      val fatG = optionalMacro(params, "fatG")
+      if (proteinG == null || carbsG == null || fatG == null) {
+        callback.invoke(
+          errorResult("invalid-request", "Macros must be finite and non-negative"),
+        )
+        return
+      }
+      var defaultGrams: Double? = null
+      if (params.hasKey("defaultGrams")) {
+        val value = params.getDouble("defaultGrams")
+        if (!value.isFinite() || value <= 0) {
+          callback.invoke(
+            errorResult("invalid-request", "defaultGrams must be greater than 0"),
+          )
+          return
+        }
+        defaultGrams = value
+      }
+
+      val id = "custom-" + UUID.randomUUID().toString().take(8)
+      val application = app()
+      val hostData =
+        application.records.addCustomFood(
+          id, name, kcal, proteinG, carbsG, fatG, defaultGrams,
+        )
+      application.events.dispatch("records.changed", changedPayload(hostData))
+      callback.invoke(successResult(hostData))
+    } catch (error: Exception) {
+      callback.invoke(
+        errorResult("unavailable", error.message ?: "Could not save food"),
+      )
+    }
+  }
+
+  /** Read an optional per-100 g macro; missing = 0, invalid = null. */
+  private fun optionalMacro(params: ReadableMap, key: String): Double? {
+    if (!params.hasKey(key)) return 0.0
+    val value = params.getDouble(key)
+    return if (value.isFinite() && value >= 0) value else null
   }
 
   private fun app(): LeanOnApplication {

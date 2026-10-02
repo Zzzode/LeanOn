@@ -1,4 +1,5 @@
 import type { IntakeSample, Macros, Profile, WeightSample } from '@zzzode/core';
+import type { FoodItem } from '@zzzode/food-data';
 import type { JsonValue } from './types';
 
 /**
@@ -27,6 +28,8 @@ export interface HostDataDto {
   todayExerciseKcal?: number;
   /** Number of consecutive logging days. */
   streak: number;
+  /** User-created foods persisted by the host (RFC 0013); empty by default. */
+  customFoods: FoodItem[];
 }
 
 export type HealthDataType =
@@ -113,6 +116,18 @@ export type LeanOnRpcContract = {
     request: { date: string; kcal: number; macros: Macros };
     response: { success: true; hostData: HostDataDto };
   };
+  'health.writeCustomFood': {
+    request: {
+      name: string;
+      /** Per 100 g. */
+      kcal: number;
+      proteinG?: number;
+      carbsG?: number;
+      fatG?: number;
+      defaultGrams?: number;
+    };
+    response: { success: true; hostData: HostDataDto };
+  };
   'scale.scan': {
     request: void;
     response: { scanning: boolean };
@@ -182,6 +197,7 @@ export const RpcMethods = {
   healthReadSamples: 'health.readSamples',
   healthWriteWeight: 'health.writeWeight',
   healthWriteIntake: 'health.writeIntake',
+  healthWriteCustomFood: 'health.writeCustomFood',
   scaleScan: 'scale.scan',
   scaleConnect: 'scale.connect',
   scaleDisconnect: 'scale.disconnect',

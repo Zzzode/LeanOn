@@ -29,7 +29,19 @@ export interface FoodItem {
   macros: Macros;
   /** A sensible default serving in grams. */
   defaultGrams?: number;
-  source: 'usda-fdc' | 'curated';
+  source: 'usda-fdc' | 'curated' | 'custom';
+}
+
+/** Input for creating a user-owned custom food (values per 100 g). */
+export interface CreateCustomFoodInput {
+  id: string;
+  name: string;
+  /** Energy per 100 g (kcal), must be finite and greater than zero. */
+  kcal: number;
+  proteinG?: number;
+  carbsG?: number;
+  fatG?: number;
+  defaultGrams?: number;
 }
 
 /** Read-only catalogue. */

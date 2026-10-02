@@ -63,6 +63,25 @@ export const en = {
   'foodSheet.invalid': 'Enter a positive amount in grams.',
   'foodSheet.error': 'Could not save. Please try again.',
 
+  // Custom food creation
+  'customFood.title': 'Create custom food',
+  'customFood.create': 'Create custom food',
+  'customFood.name': 'Name',
+  'customFood.kcal': 'Calories per 100 g',
+  'customFood.protein': 'Protein',
+  'customFood.carbs': 'Carbs',
+  'customFood.fat': 'Fat',
+  'customFood.defaultGrams': 'Default serving (g)',
+  'customFood.cancel': 'Cancel',
+  'customFood.save': 'Create food',
+  'customFood.nameRequired': 'Please enter a name.',
+  'customFood.kcalRequired':
+    'Calories per 100 g must be greater than zero.',
+  'customFood.invalidMacros': 'Macros must be non-negative numbers.',
+  'customFood.invalidDefault':
+    'Default serving must be greater than zero.',
+  'customFood.error': 'Could not save. Please try again.',
+
   // Notice & footer
   'notice.safeFloor': 'Your target was raised to the safe minimum.',
   'footer.disclaimer': 'LeanOn · not medical advice',

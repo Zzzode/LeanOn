@@ -20,6 +20,9 @@ importers:
       '@zzzode/core':
         specifier: workspace:*
         version: link:../core
+      '@zzzode/food-data':
+        specifier: workspace:*
+        version: link:../food-data
     devDependencies:
       '@rstest/core':
         specifier: ^0.12.2
