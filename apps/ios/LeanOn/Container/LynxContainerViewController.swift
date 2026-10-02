@@ -75,19 +75,20 @@ final class LynxContainerViewController: UIViewController {
     ])
     self.lynxView = lynxView
 
-    let initData = bootstrapData().flatMap { LynxTemplateData(dictionary: $0) }
+    // Native -> JS events flow through this LynxView.
+    ServiceRegistry.shared.events.bind(lynxView)
+
+    let initData = LynxTemplateData(dictionary: bootstrapData())
     lynxView.loadTemplate(fromURL: route, initData: initData)
   }
 
-  /// Bootstrap shape consumed by `useInitData()` in pages: { hostData, locale }.
-  private func bootstrapData() -> [String: Any]? {
-    guard
-      let url = Bundle.main.url(forResource: "hostData", withExtension: "json"),
-      let data = try? Data(contentsOf: url),
-      let hostData = try? JSONSerialization.jsonObject(with: data)
-    else {
-      return nil
-    }
-    return ["hostData": hostData, "locale": "en"]
+  /// Bootstrap shape consumed by useInitData() in pages: { hostData, locale }.
+  /// The HostData comes from the persistent record store, not a static bundle.
+  private func bootstrapData() -> [String: Any] {
+    let hostData = ServiceRegistry.shared.recordsStore.loadHostData()
+    return [
+      "hostData": hostData,
+      "locale": "en",
+    ]
   }
 }

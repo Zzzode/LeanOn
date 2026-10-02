@@ -7,6 +7,11 @@ use_modular_headers!
 target 'LeanOn' do
   pod 'Lynx', '3.9.0', :subspecs => ['Framework']
   pod 'PrimJS', '3.8.0-alpha.6', :subspecs => ['quickjs', 'napi']
+
+  # Unit tests run inside the host app and reuse its Pod search paths.
+  target 'LeanOnTests' do
+    inherit! :search_paths
+  end
 end
 
 # Xcode 26 may otherwise treat warnings in the Lynx pod as errors.

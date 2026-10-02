@@ -30,6 +30,23 @@ targets:
       # LeanOn source path) and is kept in sync with the Android seed.
     info:
       path: LeanOn/Info.plist
+      properties:
+        # Enables native full-screen resolution; without it the app launches in
+        # a 320x480 compatibility mode with black top/bottom bars.
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+          UISceneConfigurations:
+            UIWindowSceneSessionRoleApplication:
+              - UISceneConfigurationName: Default
+                UISceneDelegateClassName: $(PRODUCT_MODULE_NAME).SceneDelegate
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.zzzode.leanon
@@ -39,6 +56,17 @@ targets:
         # Command-line/CI launches (simctl) do not benefit from the debug dylib
         # and it can interfere with UIKit scene setup; link a normal binary.
         ENABLE_DEBUG_DYLIB: "NO"
+
+  LeanOnTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: LeanOnTests
+    dependencies:
+      - target: LeanOn
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.zzzode.leanon.tests
 
 schemes:
   LeanOn:
@@ -50,4 +78,4 @@ schemes:
     test:
       config: Debug
       targets:
-        - LeanOn
+        - LeanOnTests

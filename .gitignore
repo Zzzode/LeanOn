@@ -41,3 +41,4 @@ apps/ios/Pods/
 apps/ios/DerivedData/
 *.xcuserstate
 xcuserdata/
+apps/ios/LeanOn/Info.plist
