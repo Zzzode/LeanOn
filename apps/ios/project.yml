@@ -1,6 +1,7 @@
 # XcodeGen project definition. Generate the Xcode project with:
 #   brew install xcodegen && xcodegen generate
-# The generated .xcodeproj is intentionally not committed.
+# Then run `pod install` and open LeanOn.xcworkspace.
+# The generated .xcodeproj, Pods and .xcworkspace are intentionally not committed.
 name: LeanOn
 
 options:
@@ -22,6 +23,11 @@ targets:
     platform: iOS
     sources:
       - path: LeanOn
+      # Shared Lynx bundle; build it first with
+      # `pnpm --filter @zzzode/pages build` (mirrors prepareLynxAssets on Android).
+      - path: ../../packages/pages/dist/main.lynx.bundle
+      # Bootstrap data lives at LeanOn/Resources/hostData.json (covered by the
+      # LeanOn source path) and is kept in sync with the Android seed.
     info:
       path: LeanOn/Info.plist
     settings:
@@ -29,8 +35,10 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.zzzode.leanon
         SWIFT_OBJC_BRIDGING_HEADER: LeanOn/LeanOn-Bridging-Header.h
         TARGETED_DEVICE_FAMILY: "1,2"
-    # Lynx is integrated via CocoaPods (pod 'Lynx') or the Swift package once the
-    # pinned 3.9.x distribution is confirmed; add the dependency here accordingly.
+        ENABLE_USER_SCRIPT_SANDBOXING: "NO"
+        # Command-line/CI launches (simctl) do not benefit from the debug dylib
+        # and it can interfere with UIKit scene setup; link a normal binary.
+        ENABLE_DEBUG_DYLIB: "NO"
 
 schemes:
   LeanOn:

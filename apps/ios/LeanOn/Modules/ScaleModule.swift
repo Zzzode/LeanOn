@@ -4,9 +4,17 @@ import Lynx
 @objc(LeanOnScaleModule)
 final class ScaleModule: NSObject, LynxModule {
 
-  @objc static func name() -> String { "scale" }
+  @objc override init() {
+    super.init()
+  }
 
-  @objc static func methodLookup() -> [String: String] {
+  @objc init(param: Any) {
+    super.init()
+  }
+
+  @objc static var name: String { "scale" }
+
+  @objc static var methodLookup: [String: String] {
     [
       "scan": NSStringFromSelector(#selector(scan(callback:))),
       "connect": NSStringFromSelector(#selector(connect(_:callback:))),

@@ -5,9 +5,17 @@ import Lynx
 @objc(LeanOnAppModule)
 final class AppModule: NSObject, LynxModule {
 
-  @objc static func name() -> String { "app" }
+  @objc override init() {
+    super.init()
+  }
 
-  @objc static func methodLookup() -> [String: String] {
+  @objc init(param: Any) {
+    super.init()
+  }
+
+  @objc static var name: String { "app" }
+
+  @objc static var methodLookup: [String: String] {
     [
       "getInfo": NSStringFromSelector(#selector(getInfo(callback:))),
       "getCapabilities": NSStringFromSelector(#selector(getCapabilities(callback:))),

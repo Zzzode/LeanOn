@@ -4,9 +4,17 @@ import Lynx
 @objc(LeanOnHealthModule)
 final class HealthModule: NSObject, LynxModule {
 
-  @objc static func name() -> String { "health" }
+  @objc override init() {
+    super.init()
+  }
 
-  @objc static func methodLookup() -> [String: String] {
+  @objc init(param: Any) {
+    super.init()
+  }
+
+  @objc static var name: String { "health" }
+
+  @objc static var methodLookup: [String: String] {
     [
       "authorize": NSStringFromSelector(#selector(authorize(_:callback:))),
       "readSamples": NSStringFromSelector(#selector(readSamples(_:callback:))),

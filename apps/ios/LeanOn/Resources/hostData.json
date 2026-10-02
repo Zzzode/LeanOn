@@ -1,0 +1,385 @@
+{
+  "today": "2026-10-01",
+  "todayHour": 19,
+  "profile": {
+    "sex": "male",
+    "birthDate": "1993-05-12",
+    "heightCm": 178,
+    "activityLevel": "lightly_active"
+  },
+  "goalWeightKg": 72,
+  "weeklyLossKg": 0.6,
+  "weights": [
+    {
+      "date": "2026-08-28",
+      "weightKg": 84
+    },
+    {
+      "date": "2026-08-29",
+      "weightKg": 84.2
+    },
+    {
+      "date": "2026-08-30",
+      "weightKg": 84
+    },
+    {
+      "date": "2026-08-31",
+      "weightKg": 83.7
+    },
+    {
+      "date": "2026-09-01",
+      "weightKg": 83.5
+    },
+    {
+      "date": "2026-09-02",
+      "weightKg": 83.6
+    },
+    {
+      "date": "2026-09-03",
+      "weightKg": 83.6
+    },
+    {
+      "date": "2026-09-04",
+      "weightKg": 83.3
+    },
+    {
+      "date": "2026-09-05",
+      "weightKg": 82.9
+    },
+    {
+      "date": "2026-09-06",
+      "weightKg": 82.8
+    },
+    {
+      "date": "2026-09-07",
+      "weightKg": 82.9
+    },
+    {
+      "date": "2026-09-08",
+      "weightKg": 83
+    },
+    {
+      "date": "2026-09-09",
+      "weightKg": 82.8
+    },
+    {
+      "date": "2026-09-10",
+      "weightKg": 82.5
+    },
+    {
+      "date": "2026-09-11",
+      "weightKg": 82.5
+    },
+    {
+      "date": "2026-09-12",
+      "weightKg": 82.7
+    },
+    {
+      "date": "2026-09-13",
+      "weightKg": 82.7
+    },
+    {
+      "date": "2026-09-14",
+      "weightKg": 82.3
+    },
+    {
+      "date": "2026-09-15",
+      "weightKg": 82
+    },
+    {
+      "date": "2026-09-16",
+      "weightKg": 81.9
+    },
+    {
+      "date": "2026-09-17",
+      "weightKg": 82
+    },
+    {
+      "date": "2026-09-18",
+      "weightKg": 81.9
+    },
+    {
+      "date": "2026-09-19",
+      "weightKg": 81.5
+    },
+    {
+      "date": "2026-09-20",
+      "weightKg": 81.3
+    },
+    {
+      "date": "2026-09-21",
+      "weightKg": 81.4
+    },
+    {
+      "date": "2026-09-22",
+      "weightKg": 81.6
+    },
+    {
+      "date": "2026-09-23",
+      "weightKg": 81.5
+    },
+    {
+      "date": "2026-09-24",
+      "weightKg": 81.2
+    },
+    {
+      "date": "2026-09-25",
+      "weightKg": 81
+    },
+    {
+      "date": "2026-09-26",
+      "weightKg": 81.1
+    },
+    {
+      "date": "2026-09-27",
+      "weightKg": 81.2
+    },
+    {
+      "date": "2026-09-28",
+      "weightKg": 80.9
+    },
+    {
+      "date": "2026-09-29",
+      "weightKg": 80.5
+    },
+    {
+      "date": "2026-09-30",
+      "weightKg": 80.3
+    },
+    {
+      "date": "2026-10-01",
+      "weightKg": 80.4
+    }
+  ],
+  "intake": [
+    {
+      "date": "2026-09-18",
+      "kcal": 1679,
+      "macros": {
+        "proteinG": 132,
+        "carbsG": 178,
+        "fatG": 54
+      },
+      "micros": {
+        "fiberG": 24,
+        "sugarG": 45,
+        "saturatedFatG": 18,
+        "sodiumMg": 2100
+      }
+    },
+    {
+      "date": "2026-09-19",
+      "kcal": 1688,
+      "macros": {
+        "proteinG": 132,
+        "carbsG": 178,
+        "fatG": 54
+      },
+      "micros": {
+        "fiberG": 24,
+        "sugarG": 45,
+        "saturatedFatG": 18,
+        "sodiumMg": 2100
+      }
+    },
+    {
+      "date": "2026-09-20",
+      "kcal": 1775,
+      "macros": {
+        "proteinG": 132,
+        "carbsG": 178,
+        "fatG": 54
+      },
+      "micros": {
+        "fiberG": 24,
+        "sugarG": 45,
+        "saturatedFatG": 18,
+        "sodiumMg": 2100
+      }
+    },
+    {
+      "date": "2026-09-21",
+      "kcal": 1846,
+      "macros": {
+        "proteinG": 132,
+        "carbsG": 178,
+        "fatG": 54
+      },
+      "micros": {
+        "fiberG": 24,
+        "sugarG": 45,
+        "saturatedFatG": 18,
+        "sodiumMg": 2100
+      }
+    },
+    {
+      "date": "2026-09-22",
+      "kcal": 1823,
+      "macros": {
+        "proteinG": 132,
+        "carbsG": 178,
+        "fatG": 54
+      },
+      "micros": {
+        "fiberG": 24,
+        "sugarG": 45,
+        "saturatedFatG": 18,
+        "sodiumMg": 2100
+      }
+    },
+    {
+      "date": "2026-09-23",
+      "kcal": 1731,
+      "macros": {
+        "proteinG": 132,
+        "carbsG": 178,
+        "fatG": 54
+      },
+      "micros": {
+        "fiberG": 24,
+        "sugarG": 45,
+        "saturatedFatG": 18,
+        "sodiumMg": 2100
+      }
+    },
+    {
+      "date": "2026-09-24",
+      "kcal": 1671,
+      "macros": {
+        "proteinG": 132,
+        "carbsG": 178,
+        "fatG": 54
+      },
+      "micros": {
+        "fiberG": 24,
+        "sugarG": 45,
+        "saturatedFatG": 18,
+        "sodiumMg": 2100
+      }
+    },
+    {
+      "date": "2026-09-25",
+      "kcal": 1708,
+      "macros": {
+        "proteinG": 132,
+        "carbsG": 178,
+        "fatG": 54
+      },
+      "micros": {
+        "fiberG": 24,
+        "sugarG": 45,
+        "saturatedFatG": 18,
+        "sodiumMg": 2100
+      }
+    },
+    {
+      "date": "2026-09-26",
+      "kcal": 1802,
+      "macros": {
+        "proteinG": 132,
+        "carbsG": 178,
+        "fatG": 54
+      },
+      "micros": {
+        "fiberG": 24,
+        "sugarG": 45,
+        "saturatedFatG": 18,
+        "sodiumMg": 2100
+      }
+    },
+    {
+      "date": "2026-09-27",
+      "kcal": 1850,
+      "macros": {
+        "proteinG": 132,
+        "carbsG": 178,
+        "fatG": 54
+      },
+      "micros": {
+        "fiberG": 24,
+        "sugarG": 45,
+        "saturatedFatG": 18,
+        "sodiumMg": 2100
+      }
+    },
+    {
+      "date": "2026-09-28",
+      "kcal": 1800,
+      "macros": {
+        "proteinG": 132,
+        "carbsG": 178,
+        "fatG": 54
+      },
+      "micros": {
+        "fiberG": 24,
+        "sugarG": 45,
+        "saturatedFatG": 18,
+        "sodiumMg": 2100
+      }
+    },
+    {
+      "date": "2026-09-29",
+      "kcal": 1706,
+      "macros": {
+        "proteinG": 132,
+        "carbsG": 178,
+        "fatG": 54
+      },
+      "micros": {
+        "fiberG": 24,
+        "sugarG": 45,
+        "saturatedFatG": 18,
+        "sodiumMg": 2100
+      }
+    },
+    {
+      "date": "2026-09-30",
+      "kcal": 1671,
+      "macros": {
+        "proteinG": 132,
+        "carbsG": 178,
+        "fatG": 54
+      },
+      "micros": {
+        "fiberG": 24,
+        "sugarG": 45,
+        "saturatedFatG": 18,
+        "sodiumMg": 2100
+      }
+    },
+    {
+      "date": "2026-10-01",
+      "kcal": 1180,
+      "macros": {
+        "proteinG": 78,
+        "carbsG": 128,
+        "fatG": 36
+      },
+      "micros": {
+        "fiberG": 15,
+        "sugarG": 30,
+        "saturatedFatG": 12,
+        "sodiumMg": 1400
+      }
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex-seed-strength",
+      "date": "2026-10-01",
+      "typeId": "strength",
+      "durationMin": 36,
+      "kcal": 240
+    }
+  ],
+  "water": [
+    {
+      "date": "2026-10-01",
+      "amountMl": 1500
+    }
+  ],
+  "streak": 13,
+  "customFoods": [],
+  "favoriteFoodIds": [],
+  "recentFoodIds": []
+}

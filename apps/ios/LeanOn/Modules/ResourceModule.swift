@@ -4,9 +4,17 @@ import Lynx
 @objc(LeanOnResourceModule)
 final class ResourceModule: NSObject, LynxModule {
 
-  @objc static func name() -> String { "resource" }
+  @objc override init() {
+    super.init()
+  }
 
-  @objc static func methodLookup() -> [String: String] {
+  @objc init(param: Any) {
+    super.init()
+  }
+
+  @objc static var name: String { "resource" }
+
+  @objc static var methodLookup: [String: String] {
     [
       "fetch": NSStringFromSelector(#selector(fetch(_:callback:))),
     ]

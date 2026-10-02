@@ -1,15 +1,15 @@
 import UIKit
 import Lynx
 
-/// Hosts the LynxView and loads the requested route. The shell keeps a single
-/// reusable container and drives navigation by route.
+/// Hosts the single LynxView and loads the shared bundle with bootstrap data,
+/// driving navigation by route. The LynxView is laid out within the safe area
+/// and kept in sync when the container is laid out again. The area outside the
+/// safe area is filled with the same botanical background, matching Android.
 final class LynxContainerViewController: UIViewController {
 
   private let route: String
+  private let lifecycleLogger = LifecycleLogger()
   private var lynxView: LynxView?
-  private let events = GlobalEventDispatcher()
-  private let capabilities = CapabilityRegistry()
-  private let resources: BundleResourceProvider = DefaultBundleResourceProvider()
 
   init(route: String) {
     self.route = route
@@ -22,13 +22,72 @@ final class LynxContainerViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = .systemBackground
+    // Botanical background, matching the shared visual baseline (#edf2ef).
+    view.backgroundColor = UIColor(red: 0.929, green: 0.949, blue: 0.937, alpha: 1.0)
+  }
 
-    _ = resources
-    // Build the LynxView with the engine config for the pinned Lynx version:
-    //  - register a method-auth block gated by capabilities
-    //  - install the bundle loader backed by resources
-    // Then add it as a subview, events.bind(lynxView), and call
-    // lynxView.loadTemplate(fromURL: "\(route).lynx", initData: nil).
+  /// Size available to the LynxView after applying the safe-area insets.
+  private func contentSize(for view: UIView) -> CGSize {
+    let bounds = view.bounds.size
+    let inset = view.safeAreaInsets
+    return CGSize(
+      width: bounds.width,
+      height: max(0, bounds.height - inset.top - inset.bottom),
+    )
+  }
+
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    let size = contentSize(for: view)
+    #if DEBUG
+    NSLog("[LeanOnLayout] didLayout contentSize=\(size) existing=\(lynxView != nil)")
+    #endif
+
+    if let lynxView = lynxView {
+      // Follow container/safe-area changes (rotation, keyboard, etc.).
+      if lynxView.preferredLayoutWidth != size.width
+        || lynxView.preferredLayoutHeight != size.height {
+        lynxView.preferredLayoutWidth = size.width
+        lynxView.preferredLayoutHeight = size.height
+      }
+      return
+    }
+
+    let lynxView = LynxView { builder in
+      builder.config = LynxConfig(provider: BundleTemplateProvider())
+      builder.screenSize = size
+      builder.fontScale = 1.0
+    }
+    lynxView.translatesAutoresizingMaskIntoConstraints = false
+    lynxView.preferredLayoutWidth = size.width
+    lynxView.preferredLayoutHeight = size.height
+    lynxView.layoutWidthMode = .exact
+    lynxView.layoutHeightMode = .exact
+    lynxView.addLifecycleClient(lifecycleLogger)
+
+    view.addSubview(lynxView)
+    let guide = view.safeAreaLayoutGuide
+    NSLayoutConstraint.activate([
+      lynxView.topAnchor.constraint(equalTo: guide.topAnchor),
+      lynxView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      lynxView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      lynxView.bottomAnchor.constraint(equalTo: guide.bottomAnchor),
+    ])
+    self.lynxView = lynxView
+
+    let initData = bootstrapData().flatMap { LynxTemplateData(dictionary: $0) }
+    lynxView.loadTemplate(fromURL: route, initData: initData)
+  }
+
+  /// Bootstrap shape consumed by `useInitData()` in pages: { hostData, locale }.
+  private func bootstrapData() -> [String: Any]? {
+    guard
+      let url = Bundle.main.url(forResource: "hostData", withExtension: "json"),
+      let data = try? Data(contentsOf: url),
+      let hostData = try? JSONSerialization.jsonObject(with: data)
+    else {
+      return nil
+    }
+    return ["hostData": hostData, "locale": "en"]
   }
 }

@@ -1,0 +1,30 @@
+# Lynx dependencies for the iOS host. Generate the Xcode project first with
+# `xcodegen generate`, then run `pod install` and open LeanOn.xcworkspace.
+source 'https://cdn.cocoapods.org/'
+platform :ios, '15.0'
+use_modular_headers!
+
+target 'LeanOn' do
+  pod 'Lynx', '3.9.0', :subspecs => ['Framework']
+  pod 'PrimJS', '3.8.0-alpha.6', :subspecs => ['quickjs', 'napi']
+end
+
+# Xcode 26 may otherwise treat warnings in the Lynx pod as errors.
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['GCC_TREAT_WARNINGS_AS_ERRORS'] = 'NO'
+      disable = [
+        '-Wno-error',
+        '-Wno-c99-designator',
+        '-Wno-deprecated-declarations',
+        '-Wno-deprecated-implementations',
+      ]
+      ['OTHER_CPLUSPLUSFLAGS', 'OTHER_CFLAGS'].each do |key|
+        flags = config.build_settings[key] || ['$(inherited)']
+        flags = [flags] unless flags.is_a?(Array)
+        config.build_settings[key] = flags + disable
+      end
+    end
+  end
+end

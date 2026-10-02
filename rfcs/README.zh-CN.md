@@ -73,3 +73,4 @@
 | [0024](0024-micronutrients.zh-CN.md) | 微量营养素 | Accepted |
 | [0025](0025-health-connect-two-way-sync.zh-CN.md) | Health Connect 双向同步（读取体重与运动、镜像与删除） | Accepted |
 | [0026](0026-icon-visual-proportions.zh-CN.md) | 图标视觉占比 | Proposed |
+| [0027](0027-ios-host-landing.zh-CN.md) | iOS 宿主落地（CocoaPods 接入 Lynx、容器、数据层、HealthKit） | Accepted |

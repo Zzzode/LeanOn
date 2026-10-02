@@ -12,6 +12,6 @@ final class GlobalEventDispatcher {
 
   func dispatch(_ event: String, payload: Any?) {
     // Global events deliver a parameter list; wrap a single payload.
-    view?.sendGlobalEvent(event, params: [payload as Any])
+    view?.sendGlobalEvent(event, withParams: [payload as Any])
   }
 }

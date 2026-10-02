@@ -4,9 +4,17 @@ import Lynx
 @objc(LeanOnStorageModule)
 final class StorageModule: NSObject, LynxModule {
 
-  @objc static func name() -> String { "storage" }
+  @objc override init() {
+    super.init()
+  }
 
-  @objc static func methodLookup() -> [String: String] {
+  @objc init(param: Any) {
+    super.init()
+  }
+
+  @objc static var name: String { "storage" }
+
+  @objc static var methodLookup: [String: String] {
     [
       "get": NSStringFromSelector(#selector(get(_:callback:))),
       "set": NSStringFromSelector(#selector(set(_:callback:))),

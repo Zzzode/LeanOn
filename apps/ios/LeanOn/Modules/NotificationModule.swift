@@ -4,9 +4,17 @@ import Lynx
 @objc(LeanOnNotificationModule)
 final class NotificationModule: NSObject, LynxModule {
 
-  @objc static func name() -> String { "notification" }
+  @objc override init() {
+    super.init()
+  }
 
-  @objc static func methodLookup() -> [String: String] {
+  @objc init(param: Any) {
+    super.init()
+  }
+
+  @objc static var name: String { "notification" }
+
+  @objc static var methodLookup: [String: String] {
     [
       "schedule": NSStringFromSelector(#selector(schedule(_:callback:))),
     ]
