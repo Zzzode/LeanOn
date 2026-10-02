@@ -109,6 +109,17 @@ class HealthModule(context: Context) : LynxModule(context) {
         return
       }
 
+      val microsMap =
+        if (params.hasKey("micros") && !params.isNull("micros")) {
+          params.getMap("micros")
+        } else {
+          null
+        }
+      val fiberG = microsMap.microValue("fiberG")
+      val sugarG = microsMap.microValue("sugarG")
+      val saturatedFatG = microsMap.microValue("saturatedFatG")
+      val sodiumMg = microsMap.microValue("sodiumMg")
+
       val foodId =
         if (params.hasKey("foodId") && !params.isNull("foodId")) {
           params.getString("foodId")
@@ -119,7 +130,16 @@ class HealthModule(context: Context) : LynxModule(context) {
       val application = app()
       val hostData =
         application.records.addIntake(
-          date, kcal, proteinG, carbsG, fatG, foodId,
+          date,
+          kcal,
+          proteinG,
+          carbsG,
+          fatG,
+          fiberG,
+          sugarG,
+          saturatedFatG,
+          sodiumMg,
+          foodId,
         )
       application.events.dispatch("records.changed", changedPayload(hostData))
       application.healthConnect.onRecordsChanged()
@@ -192,6 +212,10 @@ class HealthModule(context: Context) : LynxModule(context) {
           fields.carbsG,
           fields.fatG,
           fields.defaultGrams,
+          fields.fiberG,
+          fields.sugarG,
+          fields.saturatedFatG,
+          fields.sodiumMg,
         )
       application.events.dispatch("records.changed", changedPayload(hostData))
       callback.invoke(successResult(hostData))
@@ -216,6 +240,10 @@ class HealthModule(context: Context) : LynxModule(context) {
           fields.carbsG,
           fields.fatG,
           fields.defaultGrams,
+          fields.fiberG,
+          fields.sugarG,
+          fields.saturatedFatG,
+          fields.sodiumMg,
         )
       application.events.dispatch("records.changed", changedPayload(hostData))
       callback.invoke(successResult(hostData))
@@ -254,11 +282,17 @@ class HealthModule(context: Context) : LynxModule(context) {
         .put("proteinG", fields.proteinG)
         .put("carbsG", fields.carbsG)
         .put("fatG", fields.fatG)
+      val micros = JSONObject()
+        .put("fiberG", fields.fiberG)
+        .put("sugarG", fields.sugarG)
+        .put("saturatedFatG", fields.saturatedFatG)
+        .put("sodiumMg", fields.sodiumMg)
       val item = JSONObject()
         .put("id", "off-$barcode")
         .put("name", foodName)
         .put("kcal", fields.kcal)
         .put("macros", macros)
+        .put("micros", micros)
         .put("source", "open-food-facts")
         .put("barcode", barcode)
       if (fields.defaultGrams !== null) {
@@ -366,6 +400,14 @@ class HealthModule(context: Context) : LynxModule(context) {
     return if (value.isFinite() && value >= 0) value else null
   }
 
+  /** Read a nested optional micronutrient; missing map/key = 0, invalid = throw. */
+  private fun ReadableMap?.microValue(key: String): Double {
+    if (this == null) return 0.0
+    val value = optionalMacro(this, key)
+    if (value == null) throw InvalidRequest("Invalid $key")
+    return value
+  }
+
   /** Read a mandatory non-empty string parameter. */
   private fun requiredString(params: ReadableMap, key: String): String {
     val value = if (params.hasKey(key)) params.getString(key) else null
@@ -386,8 +428,15 @@ class HealthModule(context: Context) : LynxModule(context) {
     val proteinG = optionalMacro(params, "proteinG")
     val carbsG = optionalMacro(params, "carbsG")
     val fatG = optionalMacro(params, "fatG")
-    if (proteinG == null || carbsG == null || fatG == null) {
-      throw InvalidRequest("Macros must be finite and non-negative")
+    val fiberG = optionalMacro(params, "fiberG")
+    val sugarG = optionalMacro(params, "sugarG")
+    val saturatedFatG = optionalMacro(params, "saturatedFatG")
+    val sodiumMg = optionalMacro(params, "sodiumMg")
+    if (
+      proteinG == null || carbsG == null || fatG == null ||
+      fiberG == null || sugarG == null || saturatedFatG == null || sodiumMg == null
+    ) {
+      throw InvalidRequest("Nutrition values must be finite and non-negative")
     }
     var defaultGrams: Double? = null
     if (params.hasKey("defaultGrams") && !params.isNull("defaultGrams")) {
@@ -397,7 +446,18 @@ class HealthModule(context: Context) : LynxModule(context) {
       }
       defaultGrams = value
     }
-    return CustomFoodFields(name, kcal, proteinG, carbsG, fatG, defaultGrams)
+    return CustomFoodFields(
+      name,
+      kcal,
+      proteinG,
+      carbsG,
+      fatG,
+      fiberG,
+      sugarG,
+      saturatedFatG,
+      sodiumMg,
+      defaultGrams,
+    )
   }
 
   /** Map a thrown error to the native error result the bridge expects. */
@@ -418,6 +478,10 @@ class HealthModule(context: Context) : LynxModule(context) {
     val proteinG: Double,
     val carbsG: Double,
     val fatG: Double,
+    val fiberG: Double,
+    val sugarG: Double,
+    val saturatedFatG: Double,
+    val sodiumMg: Double,
     val defaultGrams: Double?,
   )
 

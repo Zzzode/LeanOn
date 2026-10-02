@@ -55,6 +55,7 @@ function createPreviewBridge(): LeanOnBridgeClient {
       date: string;
       kcal: number;
       macros: HostData['intake'][number]['macros'];
+      micros?: HostData['intake'][number]['micros'];
       foodId?: string;
     },
     { success: true; hostData: HostData }
@@ -72,6 +73,13 @@ function createPreviewBridge(): LeanOnBridgeClient {
                   carbsG: s.macros.carbsG + request.macros.carbsG,
                   fatG: s.macros.fatG + request.macros.fatG,
                 },
+                micros: {
+                  fiberG: s.micros.fiberG + (request.micros?.fiberG ?? 0),
+                  sugarG: s.micros.sugarG + (request.micros?.sugarG ?? 0),
+                  saturatedFatG:
+                    s.micros.saturatedFatG + (request.micros?.saturatedFatG ?? 0),
+                  sodiumMg: s.micros.sodiumMg + (request.micros?.sodiumMg ?? 0),
+                },
               }
             : s,
         )
@@ -81,6 +89,12 @@ function createPreviewBridge(): LeanOnBridgeClient {
             date: request.date,
             kcal: request.kcal,
             macros: request.macros,
+            micros: request.micros ?? {
+              fiberG: 0,
+              sugarG: 0,
+              saturatedFatG: 0,
+              sodiumMg: 0,
+            },
           },
         ];
     let next: HostData = { ...hostData, intake };
@@ -211,6 +225,10 @@ function createPreviewBridge(): LeanOnBridgeClient {
       'proteins_100g': 12,
       'carbohydrates_100g': 55,
       'fat_100g': 16,
+      'fiber_100g': 7,
+      'sugars_100g': 18,
+      'saturated-fat_100g': 4,
+      'sodium_100g': 0.18,
     },
     serving_quantity: 35,
   };
@@ -231,6 +249,10 @@ function createPreviewBridge(): LeanOnBridgeClient {
       proteinG?: number;
       carbsG?: number;
       fatG?: number;
+      fiberG?: number;
+      sugarG?: number;
+      saturatedFatG?: number;
+      sodiumMg?: number;
       defaultGrams?: number;
     },
     { success: true; hostData: HostData }
@@ -243,6 +265,12 @@ function createPreviewBridge(): LeanOnBridgeClient {
         proteinG: request.proteinG ?? 0,
         carbsG: request.carbsG ?? 0,
         fatG: request.fatG ?? 0,
+      },
+      micros: {
+        fiberG: request.fiberG ?? 0,
+        sugarG: request.sugarG ?? 0,
+        saturatedFatG: request.saturatedFatG ?? 0,
+        sodiumMg: request.sodiumMg ?? 0,
       },
       source: 'open-food-facts' as const,
       barcode: request.barcode,

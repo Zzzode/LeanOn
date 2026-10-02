@@ -48,7 +48,12 @@ object HealthConnectMappers {
       metadata(weightClientId(date)),
     )
 
-  fun nutritionRecord(date: String, kcal: Double, macros: JSONObject): NutritionRecord =
+  fun nutritionRecord(
+    date: String,
+    kcal: Double,
+    macros: JSONObject,
+    micros: JSONObject,
+  ): NutritionRecord =
     NutritionRecord(
       startTime = instantAt(date, 20),
       startZoneOffset = null,
@@ -59,7 +64,24 @@ object HealthConnectMappers {
       protein = Mass.grams(macros.optDouble("proteinG", 0.0)),
       totalCarbohydrate = Mass.grams(macros.optDouble("carbsG", 0.0)),
       totalFat = Mass.grams(macros.optDouble("fatG", 0.0)),
+      // Micronutrients (RFC 0024): null omits the field; sodium mg -> grams.
+      dietaryFiber = optionalGrams(micros, "fiberG"),
+      sugar = optionalGrams(micros, "sugarG"),
+      saturatedFat = optionalGrams(micros, "saturatedFatG"),
+      sodium = optionalSodium(micros),
     )
+
+  /** A positive value in grams as Mass, or null to omit the field. */
+  private fun optionalGrams(json: JSONObject, key: String): Mass? {
+    val value = json.optDouble(key, 0.0)
+    return if (value > 0.0) Mass.grams(value) else null
+  }
+
+  /** Sodium is stored in mg; Health Connect uses grams. Non-zero only. */
+  private fun optionalSodium(json: JSONObject): Mass? {
+    val mg = json.optDouble("sodiumMg", 0.0)
+    return if (mg > 0.0) Mass.grams(mg / 1000.0) else null
+  }
 
   fun exerciseRecord(sample: JSONObject): ExerciseSessionRecord {
     val sampleId = sample.getString("id")
@@ -99,6 +121,7 @@ object HealthConnectMappers {
           n.getString("date"),
           n.getDouble("kcal"),
           n.optJSONObject("macros") ?: JSONObject(),
+          n.optJSONObject("micros") ?: JSONObject(),
         )
       }
     }

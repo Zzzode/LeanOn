@@ -9,6 +9,13 @@ export interface OffNutriments {
   proteins_100g?: number;
   carbohydrates_100g?: number;
   fat_100g?: number;
+  fiber_100g?: number;
+  sugars_100g?: number;
+  'saturated-fat_100g'?: number;
+  /** Sodium in grams per 100 g (OFF reports sodium in grams). */
+  sodium_100g?: number;
+  /** Salt in grams per 100 g, used to derive sodium when absent. */
+  salt_100g?: number;
 }
 
 /** Subset of the Open Food Facts v2 product object that the parser reads. */
@@ -21,23 +28,42 @@ export interface OffProduct {
 }
 
 const KJ_PER_KCAL = 4.184;
+/** Sodium makes up roughly this fraction of table salt by mass. */
+const SODIUM_FRACTION_OF_SALT = 1 / 2.5;
 
 function finiteNumber(value: unknown): number | undefined {
   return typeof value === 'number' && Number.isFinite(value) ? value : undefined;
 }
 
-/** A non-negative, finite macro in grams, defaulting to 0. */
-function macro(value: unknown): number {
+/** A finite, non-negative number, or undefined when missing/invalid. */
+function nonNegative(value: unknown): number | undefined {
   const n = finiteNumber(value);
-  return n !== undefined && n >= 0 ? n : 0;
+  return n !== undefined && n >= 0 ? n : undefined;
+}
+
+/** A non-negative, finite value in grams, defaulting to 0. */
+function grams(value: unknown): number {
+  return nonNegative(value) ?? 0;
+}
+
+/** Sodium in mg per 100 g: prefer OFF sodium (g), else derive from salt. */
+function sodiumMilligrams(nutriments: OffNutriments): number {
+  const sodiumG = nonNegative(nutriments.sodium_100g);
+  if (sodiumG !== undefined) return Math.round(sodiumG * 1000);
+  const saltG = nonNegative(nutriments.salt_100g);
+  if (saltG !== undefined) {
+    return Math.round(saltG * SODIUM_FRACTION_OF_SALT * 1000);
+  }
+  return 0;
 }
 
 /**
  * Convert an Open Food Facts product (RFC 0016) into a FoodItem. Energy uses
  * kcal/100 g and falls back to kJ/100 g; the name falls back from product_name
- * to generic_name to the barcode; and serving_quantity becomes the default
- * portion. Throws RangeError when no usable energy is available, since a food
- * with unknown calories cannot drive the energy budget.
+ * to generic_name to the barcode; micronutrients (RFC 0024) are read in the
+ * same pass; and serving_quantity becomes the default portion. Throws
+ * RangeError when no usable energy is available, since a food with unknown
+ * calories cannot drive the energy budget.
  */
 export function createFoodFromBarcode(
   barcode: string,
@@ -68,9 +94,15 @@ export function createFoodFromBarcode(
     name: { en: name, 'zh-CN': name },
     kcal,
     macros: {
-      proteinG: macro(nutriments.proteins_100g),
-      carbsG: macro(nutriments.carbohydrates_100g),
-      fatG: macro(nutriments.fat_100g),
+      proteinG: grams(nutriments.proteins_100g),
+      carbsG: grams(nutriments.carbohydrates_100g),
+      fatG: grams(nutriments.fat_100g),
+    },
+    micros: {
+      fiberG: grams(nutriments.fiber_100g),
+      sugarG: grams(nutriments.sugars_100g),
+      saturatedFatG: grams(nutriments['saturated-fat_100g']),
+      sodiumMg: sodiumMilligrams(nutriments),
     },
     source: 'open-food-facts',
     barcode,

@@ -2,6 +2,7 @@ import type {
   ExerciseSample,
   IntakeSample,
   Macros,
+  Micros,
   Profile,
   ReminderSettings,
   WaterSample,
@@ -131,6 +132,8 @@ export type LeanOnRpcContract = {
       date: string;
       kcal: number;
       macros: Macros;
+      /** Optional; the host fills zeros when omitted (RFC 0024). */
+      micros?: Micros;
       /** When present, the host moves this food to the front of recent (RFC 0015). */
       foodId?: string;
     };
@@ -175,6 +178,10 @@ export type LeanOnRpcContract = {
       proteinG?: number;
       carbsG?: number;
       fatG?: number;
+      fiberG?: number;
+      sugarG?: number;
+      saturatedFatG?: number;
+      sodiumMg?: number;
       defaultGrams?: number;
     };
     response: { success: true; hostData: HostDataDto };
@@ -188,6 +195,10 @@ export type LeanOnRpcContract = {
       proteinG?: number;
       carbsG?: number;
       fatG?: number;
+      fiberG?: number;
+      sugarG?: number;
+      saturatedFatG?: number;
+      sodiumMg?: number;
       /** A number sets it; null clears the stored default. */
       defaultGrams?: number | null;
     };
@@ -206,6 +217,10 @@ export type LeanOnRpcContract = {
       proteinG?: number;
       carbsG?: number;
       fatG?: number;
+      fiberG?: number;
+      sugarG?: number;
+      saturatedFatG?: number;
+      sodiumMg?: number;
       defaultGrams?: number;
     };
     response: { success: true; hostData: HostDataDto };

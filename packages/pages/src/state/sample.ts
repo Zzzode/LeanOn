@@ -31,6 +31,7 @@ export const sampleHostData: HostData = (() => {
       date: isoDaysAgo(WEIGHT_DAYS - 1 - i),
       kcal,
       macros: { proteinG: 132, carbsG: 178, fatG: 54 },
+      micros: { fiberG: 24, sugarG: 45, saturatedFatG: 18, sodiumMg: 2100 },
     };
   });
 
@@ -39,6 +40,7 @@ export const sampleHostData: HostData = (() => {
     date: isoDaysAgo(0),
     kcal: 1180,
     macros: { proteinG: 78, carbsG: 128, fatG: 36 },
+    micros: { fiberG: 15, sugarG: 30, saturatedFatG: 12, sodiumMg: 1400 },
   };
 
   // Today: one strength session (RFC 0017), matching the previous 240 kcal.

@@ -243,6 +243,19 @@
   color: #1c2b25;
 }
 
+/* Micronutrients (RFC 0024): neutral value, good = green, bad = over limit. */
+.Micros-val {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #1c2b25;
+}
+.Micros-val.good {
+  color: #218967;
+}
+.Micros-val.bad {
+  color: #e0594b;
+}
+
 .Macro-label {
   margin-top: 2rpx;
   font-size: 24rpx;

@@ -10,6 +10,7 @@ const END = '2026-10-01';
 const BUDGET = 1880;
 
 const macros = { proteinG: 100, carbsG: 200, fatG: 50 };
+const micros = { fiberG: 0, sugarG: 0, saturatedFatG: 0, sodiumMg: 0 };
 
 const weights: WeightSample[] = [
   { date: '2026-09-20', weightKg: 83 }, // outside the 7-day window
@@ -20,12 +21,12 @@ const weights: WeightSample[] = [
 ];
 
 const intake: IntakeSample[] = [
-  { date: '2026-09-20', kcal: 1900, macros }, // outside
-  { date: '2026-09-25', kcal: 1700, macros },
-  { date: '2026-09-26', kcal: 2000, macros },
-  { date: '2026-09-28', kcal: 1600, macros },
-  { date: '2026-10-01', kcal: 900, macros },
-  { date: '2026-10-01', kcal: 900, macros }, // accumulates to 1800
+  { date: '2026-09-20', kcal: 1900, macros, micros }, // outside
+  { date: '2026-09-25', kcal: 1700, macros, micros },
+  { date: '2026-09-26', kcal: 2000, macros, micros },
+  { date: '2026-09-28', kcal: 1600, macros, micros },
+  { date: '2026-10-01', kcal: 900, macros, micros },
+  { date: '2026-10-01', kcal: 900, macros, micros }, // accumulates to 1800
 ];
 
 const exercises: ExerciseSample[] = [

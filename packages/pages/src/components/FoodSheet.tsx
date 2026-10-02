@@ -50,6 +50,7 @@ interface FoodSheetProps {
     foodId: string;
     kcal: number;
     macros: FoodItem['macros'];
+    micros: FoodItem['micros'];
   }) => Promise<void>;
   /** Persist a new custom food and return the created entry. */
   onCreateCustomFood: (request: CreateFoodRequest) => Promise<FoodItem>;
@@ -313,6 +314,13 @@ export function FoodSheet({
     }
   };
 
+  /** RFC 0024: show the micronutrient block only when at least one value is set. */
+  const hasAnyMicros = (micros: FoodItem['micros']): boolean =>
+    micros.fiberG > 0 ||
+    micros.sugarG > 0 ||
+    micros.saturatedFatG > 0 ||
+    micros.sodiumMg > 0;
+
   const handleSave = async () => {
     if (meal === null) {
       setError(t('foodSheet.invalid'));
@@ -324,6 +332,7 @@ export function FoodSheet({
         foodId: selected!.id,
         kcal: meal.kcal,
         macros: meal.macros,
+        micros: meal.micros,
       });
     } catch {
       setError(t('foodSheet.error'));
@@ -604,6 +613,22 @@ export function FoodSheet({
                     {t('macros.fat')} {meal.macros.fatG}g
                   </text>
                 </view>
+                {hasAnyMicros(meal.micros) && (
+                  <view className="Food-macros">
+                    <text className="Food-macro">
+                      {t('micros.fiber')} {meal.micros.fiberG}g
+                    </text>
+                    <text className="Food-macro">
+                      {t('micros.sugar')} {meal.micros.sugarG}g
+                    </text>
+                    <text className="Food-macro">
+                      {t('micros.saturatedFat')} {meal.micros.saturatedFatG}g
+                    </text>
+                    <text className="Food-macro">
+                      {t('micros.sodium')} {meal.micros.sodiumMg}mg
+                    </text>
+                  </view>
+                )}
               </view>
             ) : (
               <text className="Sheet-error">{t('foodSheet.invalid')}</text>

@@ -1,12 +1,13 @@
-import type { FoodItem, Macros, Portion } from './types.js';
+import type { FoodItem, Macros, Micros, Portion } from './types.js';
 
 function round1(value: number): number {
   return Math.round(value * 10) / 10;
 }
 
 /**
- * Scale a food's per-100 g values to [grams]. Calories round to whole units and
- * macros to one decimal. A non-positive or non-finite amount is invalid.
+ * Scale a food's per-100 g values to [grams]. Calories round to whole units,
+ * macro and other gram values to one decimal, and sodium to whole milligrams.
+ * A non-positive or non-finite amount is invalid.
  */
 export function portion(item: FoodItem, grams: number): Portion {
   if (!Number.isFinite(grams) || grams <= 0) {
@@ -18,8 +19,15 @@ export function portion(item: FoodItem, grams: number): Portion {
     carbsG: round1(item.macros.carbsG * factor),
     fatG: round1(item.macros.fatG * factor),
   };
+  const micros: Micros = {
+    fiberG: round1(item.micros.fiberG * factor),
+    sugarG: round1(item.micros.sugarG * factor),
+    saturatedFatG: round1(item.micros.saturatedFatG * factor),
+    sodiumMg: Math.round(item.micros.sodiumMg * factor),
+  };
   return {
     kcal: Math.round(item.kcal * factor),
     macros,
+    micros,
   };
 }

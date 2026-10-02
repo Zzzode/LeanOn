@@ -187,6 +187,15 @@ export const en = {
   'water.add': '+250 ml',
   'water.remove': '−250 ml',
 
+  'micros.title': 'Diet quality',
+  'micros.fiber': 'Fiber',
+  'micros.sugar': 'Sugar',
+  'micros.saturatedFat': 'Sat. fat',
+  'micros.sodium': 'Sodium',
+  'micros.ofGrams': 'of {n} g',
+  'micros.ofMg': 'of {n} mg',
+  'micros.fiberReached': 'Fiber goal met',
+
   'date.format': '{weekday}, {month} {day}',
 } as const;
 

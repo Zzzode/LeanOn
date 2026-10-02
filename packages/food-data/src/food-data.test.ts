@@ -63,6 +63,16 @@ describe('portion', () => {
     expect(result.macros.carbsG).toBe(14);
   });
 
+  it('scales micronutrients with the portion', () => {
+    const item = foods.find((f) => f.id === 'usda-whole-wheat-bread')!;
+    expect(portion(item, 50).micros).toEqual({
+      fiberG: 3.5,
+      sugarG: 3,
+      saturatedFatG: 0.5,
+      sodiumMg: 200,
+    });
+  });
+
   it('rejects non-positive grams', () => {
     expect(() => portion(foods[0]!, 0)).toThrow();
     expect(() => portion(foods[0]!, -10)).toThrow();
@@ -115,6 +125,41 @@ describe('createCustomFood', () => {
   it('rejects zero or negative kcal', () => {
     expect(() => createCustomFood({ id: 'x', name: 'a', kcal: 0 })).toThrow();
     expect(() => createCustomFood({ id: 'x', name: 'a', kcal: -5 })).toThrow();
+  });
+
+  it('keeps micronutrients and defaults them to zero', () => {
+    const item = createCustomFood({
+      id: 'custom-m',
+      name: 'Fiber Bar',
+      kcal: 400,
+      fiberG: 12,
+      sugarG: 8,
+      saturatedFatG: 4,
+      sodiumMg: 300,
+    });
+    expect(item.micros).toEqual({
+      fiberG: 12,
+      sugarG: 8,
+      saturatedFatG: 4,
+      sodiumMg: 300,
+    });
+
+    const minimal = createCustomFood({ id: 'custom-z', name: 'Plain', kcal: 100 });
+    expect(minimal.micros).toEqual({
+      fiberG: 0,
+      sugarG: 0,
+      saturatedFatG: 0,
+      sodiumMg: 0,
+    });
+  });
+
+  it('rejects negative micros', () => {
+    expect(() =>
+      createCustomFood({ id: 'x', name: 'a', kcal: 10, fiberG: -1 }),
+    ).toThrow();
+    expect(() =>
+      createCustomFood({ id: 'x', name: 'a', kcal: 10, sodiumMg: -5 }),
+    ).toThrow();
   });
 
   it('rejects negative macros and bad default grams', () => {

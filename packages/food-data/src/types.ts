@@ -5,10 +5,19 @@ export interface Macros {
   fatG: number;
 }
 
-/** A food's energy and macros for a chosen amount. */
+/** Diet-quality micronutrients; structurally compatible with core's Micros. */
+export interface Micros {
+  fiberG: number;
+  sugarG: number;
+  saturatedFatG: number;
+  sodiumMg: number;
+}
+
+/** A food's energy, macros and micros for a chosen amount. */
 export interface Portion {
   kcal: number;
   macros: Macros;
+  micros: Micros;
 }
 
 /**
@@ -27,6 +36,8 @@ export interface FoodItem {
   kcal: number;
   /** Macros per 100 g. */
   macros: Macros;
+  /** Micronutrients per 100 g (RFC 0024). */
+  micros: Micros;
   /** A sensible default serving in grams. */
   defaultGrams?: number;
   source: 'usda-fdc' | 'curated' | 'custom' | 'open-food-facts';
@@ -43,6 +54,10 @@ export interface CreateCustomFoodInput {
   proteinG?: number;
   carbsG?: number;
   fatG?: number;
+  fiberG?: number;
+  sugarG?: number;
+  saturatedFatG?: number;
+  sodiumMg?: number;
   defaultGrams?: number;
 }
 
@@ -57,6 +72,10 @@ export interface EditCustomFoodInput {
   proteinG?: number;
   carbsG?: number;
   fatG?: number;
+  fiberG?: number;
+  sugarG?: number;
+  saturatedFatG?: number;
+  sodiumMg?: number;
   defaultGrams?: number | null;
 }
 

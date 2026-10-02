@@ -115,20 +115,67 @@ test('scale.disconnect resolves with connected false', async () => {
 test('health.writeIntake forwards the meal and returns hostData', async () => {
   const bridge = createMemoryBridge();
   bridge.handle<
-    { date: string; kcal: number; macros: unknown },
-    { success: true; hostData: { today: string } }
+    {
+      date: string;
+      kcal: number;
+      macros: { proteinG: number; carbsG: number; fatG: number };
+      micros?: {
+        fiberG: number;
+        sugarG: number;
+        saturatedFatG: number;
+        sodiumMg: number;
+      };
+    },
+    {
+      success: true;
+      hostData: {
+        intake: {
+          date: string;
+          kcal: number;
+          macros: { proteinG: number; carbsG: number; fatG: number };
+          micros: {
+            fiberG: number;
+            sugarG: number;
+            saturatedFatG: number;
+            sodiumMg: number;
+          };
+        }[];
+      };
+    }
   >('health.writeIntake', (request) => ({
     success: true,
-    hostData: { today: request.date },
+    hostData: {
+      intake: [
+        {
+          date: request.date,
+          kcal: request.kcal,
+          macros: request.macros,
+          // Host fills zeros when micros is omitted (RFC 0024).
+          micros:
+            request.micros ?? {
+              fiberG: 0,
+              sugarG: 0,
+              saturatedFatG: 0,
+              sodiumMg: 0,
+            },
+        },
+      ],
+    },
   }));
   const client = createLeanOnBridgeClient(bridge.transport);
   const response = await client.invoke('health.writeIntake', {
     date: '2026-10-01',
     kcal: 500,
     macros: { proteinG: 30, carbsG: 50, fatG: 15 },
+    micros: { fiberG: 8, sugarG: 22, saturatedFatG: 6, sodiumMg: 500 },
   });
   expect(response.success).toBe(true);
-  expect(response.hostData.today).toBe('2026-10-01');
+  expect(response.hostData.intake[0]!.micros).toEqual({
+    fiberG: 8,
+    sugarG: 22,
+    saturatedFatG: 6,
+    sodiumMg: 500,
+  });
 });
 
 test('health.writeWater upserts the day total and returns hostData', async () => {
@@ -222,22 +269,41 @@ test('health.deleteExercise removes the session and returns hostData', async () 
 test('health.writeCustomFood stores the food and returns hostData', async () => {
   const bridge = createMemoryBridge();
   bridge.handle<
-    { name: string; kcal: number },
+    {
+      name: string;
+      kcal: number;
+      fiberG?: number;
+      sodiumMg?: number;
+    },
     { success: true; hostData: { today: string; customFoods: unknown[] } }
   >('health.writeCustomFood', (request) => ({
     success: true,
     hostData: {
       today: '2026-10-01',
-      customFoods: [{ id: 'custom-1', name: { en: request.name } }],
+      customFoods: [
+        {
+          id: 'custom-1',
+          name: { en: request.name },
+          micros: {
+            fiberG: request.fiberG ?? 0,
+            sodiumMg: request.sodiumMg ?? 0,
+          },
+        },
+      ],
     },
   }));
   const client = createLeanOnBridgeClient(bridge.transport);
   const response = await client.invoke('health.writeCustomFood', {
     name: 'My Bar',
     kcal: 400,
+    fiberG: 12,
+    sodiumMg: 300,
   });
   expect(response.success).toBe(true);
   expect(response.hostData.customFoods).toHaveLength(1);
+  expect(response.hostData.customFoods[0]).toMatchObject({
+    micros: { fiberG: 12, sodiumMg: 300 },
+  });
 });
 
 test('health.updateCustomFood replaces the food and returns hostData', async () => {
@@ -332,19 +398,51 @@ test('food.lookupProduct reports found with the raw product', async () => {
 test('health.writeScannedFood persists and returns hostData', async () => {
   const bridge = createMemoryBridge();
   bridge.handle<
-    { barcode: string; name: string; kcal: number },
-    { success: true; hostData: { customFoods: { id: string }[] } }
+    {
+      barcode: string;
+      name: string;
+      kcal: number;
+      fiberG?: number;
+      sugarG?: number;
+      saturatedFatG?: number;
+      sodiumMg?: number;
+    },
+    {
+      success: true;
+      hostData: { customFoods: { id: string; micros?: unknown }[] };
+    }
   >('health.writeScannedFood', (request) => ({
     success: true,
-    hostData: { customFoods: [{ id: `off-${request.barcode}` }] },
+    hostData: {
+      customFoods: [
+        {
+          id: `off-${request.barcode}`,
+          micros: {
+            fiberG: request.fiberG ?? 0,
+            sugarG: request.sugarG ?? 0,
+            saturatedFatG: request.saturatedFatG ?? 0,
+            sodiumMg: request.sodiumMg ?? 0,
+          },
+        },
+      ],
+    },
   }));
   const client = createLeanOnBridgeClient(bridge.transport);
   const result = await client.invoke('health.writeScannedFood', {
     barcode: '123',
     name: 'Bar',
     kcal: 400,
+    fiberG: 8,
+    sugarG: 22,
+    saturatedFatG: 6,
+    sodiumMg: 500,
   });
-  expect(result.hostData.customFoods).toEqual([{ id: 'off-123' }]);
+  expect(result.hostData.customFoods).toEqual([
+    {
+      id: 'off-123',
+      micros: { fiberG: 8, sugarG: 22, saturatedFatG: 6, sodiumMg: 500 },
+    },
+  ]);
 });
 
 test('records.changed delivers the refreshed hostData snapshot', () => {

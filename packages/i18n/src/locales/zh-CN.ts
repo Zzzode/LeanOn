@@ -181,5 +181,14 @@ export const zhCN = {
   'water.add': '+250 毫升',
   'water.remove': '−250 毫升',
 
+  'micros.title': '饮食质量',
+  'micros.fiber': '膳食纤维',
+  'micros.sugar': '糖',
+  'micros.saturatedFat': '饱和脂肪',
+  'micros.sodium': '钠',
+  'micros.ofGrams': '目标 {n} 克',
+  'micros.ofMg': '目标 {n} 毫克',
+  'micros.fiberReached': '纤维已达标',
+
   'date.format': '{month}月{day}日 {weekday}',
 } satisfies Record<MessageKey, string>;

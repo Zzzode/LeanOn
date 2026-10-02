@@ -15,6 +15,7 @@ import { HealthConnectSheet, type HealthConnectStatus } from './components/Healt
 import { Header } from './components/Header.js';
 import { InsightsScreen } from './components/InsightsScreen.js';
 import { MacroCard } from './components/MacroCard.js';
+import { MicrosCard } from './components/MicrosCard.js';
 import { QuickActions } from './components/QuickActions.js';
 import { ReminderSheet } from './components/ReminderSheet.js';
 import { ScaleSheet } from './components/ScaleSheet.js';
@@ -115,11 +116,13 @@ export function App() {
     foodId: string;
     kcal: number;
     macros: HostData['intake'][number]['macros'];
+    micros: HostData['intake'][number]['micros'];
   }) => {
     const response = await bridge.invoke('health.writeIntake', {
       date: hostData.today,
       kcal: meal.kcal,
       macros: meal.macros,
+      micros: meal.micros,
       foodId: meal.foodId,
     });
     setHostData(response.hostData);
@@ -265,6 +268,10 @@ export function App() {
         proteinG: item.macros.proteinG,
         carbsG: item.macros.carbsG,
         fatG: item.macros.fatG,
+        fiberG: item.micros.fiberG,
+        sugarG: item.micros.sugarG,
+        saturatedFatG: item.micros.saturatedFatG,
+        sodiumMg: item.micros.sodiumMg,
         ...(item.defaultGrams === undefined
           ? {}
           : { defaultGrams: item.defaultGrams }),
@@ -394,6 +401,12 @@ export function App() {
               )}
               <WeightCard state={state} t={t} />
               <MacroCard state={state} t={t} />
+              <MicrosCard
+                today={hostData.today}
+                intake={hostData.intake}
+                energyGoalKcal={state.energyGoalKcal}
+                t={t}
+              />
               <WaterCard
                 today={hostData.today}
                 water={hostData.water}

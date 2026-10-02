@@ -10,6 +10,7 @@ export type {
   FoodItem,
   FoodLocale,
   Macros,
+  Micros,
   Portion,
 } from './types.js';
 export type { OffNutriments, OffProduct } from './barcode.js';

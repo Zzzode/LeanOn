@@ -21,6 +21,14 @@ export interface Macros {
   fatG: number;
 }
 
+/** Diet-quality micronutrients for an amount of food or a day of intake (RFC 0024). */
+export interface Micros {
+  fiberG: number;
+  sugarG: number;
+  saturatedFatG: number;
+  sodiumMg: number;
+}
+
 export interface Profile {
   sex: Sex;
   /** ISO calendar date `YYYY-MM-DD`; age is derived from this, never stored. */
@@ -49,6 +57,7 @@ export interface IntakeSample {
   date: string;
   kcal: number;
   macros: Macros;
+  micros: Micros;
 }
 
 /** A logged intentional-exercise session (RFC 0017; id added in RFC 0018). */

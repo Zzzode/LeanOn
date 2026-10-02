@@ -15,6 +15,7 @@ const intake28: IntakeSample[] = Array.from({ length: 28 }, (_, i) => ({
   date: date(i),
   kcal: 1800,
   macros: { proteinG: 120, carbsG: 180, fatG: 60 },
+  micros: { fiberG: 0, sugarG: 0, saturatedFatG: 0, sodiumMg: 0 },
 }));
 
 test('staticTdee multiplies BMR by the activity factor', () => {

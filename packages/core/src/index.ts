@@ -21,6 +21,7 @@ export type {
   ExerciseSample,
   IntakeSample,
   Macros,
+  Micros,
   PeriodRecord,
   Profile,
   Sex,
@@ -68,6 +69,14 @@ export {
   PROTEIN_G_PER_KG,
 } from './nutrition/macros';
 export type { MacroTargetInput, MacroTargets } from './nutrition/macros';
+
+export {
+  addMicros,
+  microsForDate,
+  recommendMicroGoals,
+  ZERO_MICROS,
+} from './nutrition/micros';
+export type { MicroGoals } from './nutrition/micros';
 
 export { buildProgressInsights } from './insights';
 export type {

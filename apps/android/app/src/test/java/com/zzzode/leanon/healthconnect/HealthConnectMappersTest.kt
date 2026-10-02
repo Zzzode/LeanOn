@@ -3,6 +3,7 @@ package com.zzzode.leanon.healthconnect
 import org.json.JSONArray
 import org.json.JSONObject
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 import org.junit.Test
 
 class HealthConnectMappersTest {
@@ -27,11 +28,35 @@ class HealthConnectMappersTest {
       .put("proteinG", 78.0)
       .put("carbsG", 128.0)
       .put("fatG", 36.0)
-    val record = HealthConnectMappers.nutritionRecord("2026-10-01", 1180.0, macros)
+    val micros = JSONObject()
+      .put("fiberG", 24.0)
+      .put("sugarG", 40.0)
+      .put("saturatedFatG", 18.0)
+      .put("sodiumMg", 2000.0)
+    val record = HealthConnectMappers.nutritionRecord("2026-10-01", 1180.0, macros, micros)
     assertEquals(1180.0, record.energy?.inKilocalories ?: 0.0, 0.0001)
     assertEquals(78.0, record.protein?.inGrams ?: 0.0, 0.0001)
     assertEquals(128.0, record.totalCarbohydrate?.inGrams ?: 0.0, 0.0001)
     assertEquals(36.0, record.totalFat?.inGrams ?: 0.0, 0.0001)
+    assertEquals(24.0, record.dietaryFiber?.inGrams ?: 0.0, 0.0001)
+    assertEquals(40.0, record.sugar?.inGrams ?: 0.0, 0.0001)
+    assertEquals(18.0, record.saturatedFat?.inGrams ?: 0.0, 0.0001)
+    // Sodium is stored in milligrams; Health Connect uses grams (2000 mg = 2 g).
+    assertEquals(2.0, record.sodium?.inGrams ?: 0.0, 0.0001)
+  }
+
+  @Test
+  fun omitsZeroMicronutrients() {
+    val record = HealthConnectMappers.nutritionRecord(
+      "2026-10-01",
+      1000.0,
+      JSONObject(),
+      JSONObject(),
+    )
+    assertNull(record.dietaryFiber)
+    assertNull(record.sugar)
+    assertNull(record.saturatedFat)
+    assertNull(record.sodium)
   }
 
   @Test

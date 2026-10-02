@@ -23,10 +23,39 @@ class RecordsRepository(context: Context) {
   fun loadHostData(): JSONObject {
     ensureSeeded()
     val data = JSONObject(recordFile.readText(Charsets.UTF_8))
-    if (ensureExerciseIds(data)) {
+    var modified = ensureExerciseIds(data)
+    if (ensureMicros(data)) modified = true
+    if (modified) {
       recordFile.writeText(data.toString(), Charsets.UTF_8)
     }
     return data
+  }
+
+  /** A zeroed micronutrients object (RFC 0024). */
+  private fun zeroMicros(): JSONObject =
+    JSONObject()
+      .put(FIBER_G, 0.0)
+      .put(SUGAR_G, 0.0)
+      .put(SATURATED_FAT_G, 0.0)
+      .put(SODIUM_MG, 0.0)
+
+  /**
+   * Backfill missing micronutrients on intake samples and user foods (RFC 0024),
+   * mirroring the exercise-id migration. Returns true when the data changed.
+   */
+  private fun ensureMicros(data: JSONObject): Boolean {
+    var changed = false
+    for (key in listOf(INTAKE, CUSTOM_FOODS)) {
+      val array = data.optJSONArray(key) ?: continue
+      for (index in 0 until array.length()) {
+        val record = array.optJSONObject(index) ?: continue
+        if (!record.has(MICROS)) {
+          record.put(MICROS, zeroMicros())
+          changed = true
+        }
+      }
+    }
+    return changed
   }
 
   /**
@@ -94,6 +123,10 @@ class RecordsRepository(context: Context) {
     proteinG: Double,
     carbsG: Double,
     fatG: Double,
+    fiberG: Double = 0.0,
+    sugarG: Double = 0.0,
+    saturatedFatG: Double = 0.0,
+    sodiumMg: Double = 0.0,
     foodId: String? = null,
   ): JSONObject {
     val data = loadHostData()
@@ -114,15 +147,26 @@ class RecordsRepository(context: Context) {
       macros.put(PROTEIN_G, macros.getDouble(PROTEIN_G) + proteinG)
       macros.put(CARBS_G, macros.getDouble(CARBS_G) + carbsG)
       macros.put(FAT_G, macros.getDouble(FAT_G) + fatG)
+      val micros = sample.getJSONObject(MICROS)
+      micros.put(FIBER_G, micros.getDouble(FIBER_G) + fiberG)
+      micros.put(SUGAR_G, micros.getDouble(SUGAR_G) + sugarG)
+      micros.put(SATURATED_FAT_G, micros.getDouble(SATURATED_FAT_G) + saturatedFatG)
+      micros.put(SODIUM_MG, micros.getDouble(SODIUM_MG) + sodiumMg)
     } else {
       val macros = JSONObject()
         .put(PROTEIN_G, proteinG)
         .put(CARBS_G, carbsG)
         .put(FAT_G, fatG)
+      val micros = JSONObject()
+        .put(FIBER_G, fiberG)
+        .put(SUGAR_G, sugarG)
+        .put(SATURATED_FAT_G, saturatedFatG)
+        .put(SODIUM_MG, sodiumMg)
       val sample = JSONObject()
         .put(DATE, date)
         .put(KCAL, kcal)
         .put(MACROS, macros)
+        .put(MICROS, micros)
       intake.put(sample)
     }
 
@@ -256,6 +300,10 @@ class RecordsRepository(context: Context) {
     carbsG: Double,
     fatG: Double,
     defaultGrams: Double?,
+    fiberG: Double = 0.0,
+    sugarG: Double = 0.0,
+    saturatedFatG: Double = 0.0,
+    sodiumMg: Double = 0.0,
   ): JSONObject {
     val data = loadHostData()
     val customFoods =
@@ -269,11 +317,17 @@ class RecordsRepository(context: Context) {
       .put(PROTEIN_G, proteinG)
       .put(CARBS_G, carbsG)
       .put(FAT_G, fatG)
+    val micros = JSONObject()
+      .put(FIBER_G, fiberG)
+      .put(SUGAR_G, sugarG)
+      .put(SATURATED_FAT_G, saturatedFatG)
+      .put(SODIUM_MG, sodiumMg)
     val item = JSONObject()
       .put(ID, id)
       .put(NAME, foodName)
       .put(KCAL, kcal)
       .put(MACROS, macros)
+      .put(MICROS, micros)
       .put(SOURCE, CUSTOM)
     if (defaultGrams !== null) {
       item.put(DEFAULT_GRAMS, defaultGrams)
@@ -322,6 +376,10 @@ class RecordsRepository(context: Context) {
     carbsG: Double,
     fatG: Double,
     defaultGrams: Double?,
+    fiberG: Double = 0.0,
+    sugarG: Double = 0.0,
+    saturatedFatG: Double = 0.0,
+    sodiumMg: Double = 0.0,
   ): JSONObject {
     val data = loadHostData()
     val customFoods =
@@ -343,11 +401,17 @@ class RecordsRepository(context: Context) {
       .put(PROTEIN_G, proteinG)
       .put(CARBS_G, carbsG)
       .put(FAT_G, fatG)
+    val micros = JSONObject()
+      .put(FIBER_G, fiberG)
+      .put(SUGAR_G, sugarG)
+      .put(SATURATED_FAT_G, saturatedFatG)
+      .put(SODIUM_MG, sodiumMg)
     val item = JSONObject()
       .put(ID, id)
       .put(NAME, foodName)
       .put(KCAL, kcal)
       .put(MACROS, macros)
+      .put(MICROS, micros)
       .put(SOURCE, source)
     if (defaultGrams !== null) item.put(DEFAULT_GRAMS, defaultGrams)
     customFoods.put(index, item)
@@ -459,9 +523,14 @@ class RecordsRepository(context: Context) {
     const val WEIGHT_KG = "weightKg"
     const val KCAL = "kcal"
     const val MACROS = "macros"
+    const val MICROS = "micros"
     const val PROTEIN_G = "proteinG"
     const val CARBS_G = "carbsG"
     const val FAT_G = "fatG"
+    const val FIBER_G = "fiberG"
+    const val SUGAR_G = "sugarG"
+    const val SATURATED_FAT_G = "saturatedFatG"
+    const val SODIUM_MG = "sodiumMg"
     const val CUSTOM_FOODS = "customFoods"
     const val ID = "id"
     const val NAME = "name"
