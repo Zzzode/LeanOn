@@ -61,3 +61,4 @@
 | [0012](0012-offline-food-logging.md) | 离线记录饮食 | Accepted |
 | [0013](0013-custom-foods.md) | 自定义食物 | Accepted |
 | [0014](0014-manage-custom-foods.md) | 管理自定义食物（编辑/删除） | Accepted |
+| [0015](0015-favorites-and-recent-foods.zh-CN.md) | 收藏与最近常吃食物 | Accepted |

@@ -107,15 +107,40 @@ class HealthModule(context: Context) : LynxModule(context) {
         return
       }
 
+      val foodId =
+        if (params.hasKey("foodId") && !params.isNull("foodId")) {
+          params.getString("foodId")
+        } else {
+          null
+        }
+
       val application = app()
       val hostData =
-        application.records.addIntake(date, kcal, proteinG, carbsG, fatG)
+        application.records.addIntake(
+          date, kcal, proteinG, carbsG, fatG, foodId,
+        )
       application.events.dispatch("records.changed", changedPayload(hostData))
       callback.invoke(successResult(hostData))
     } catch (error: Exception) {
       callback.invoke(
         errorResult("unavailable", error.message ?: "Could not save meal"),
       )
+    }
+  }
+
+  /** Pin or unpin a food id (RFC 0015) and return the updated HostData. */
+  @LynxMethod
+  fun setFoodFavorite(params: ReadableMap, callback: Callback) {
+    try {
+      val id = requiredString(params, "id")
+      if (!params.hasKey("favorite")) throw InvalidRequest("Missing favorite")
+      val favorite = params.getBoolean("favorite")
+      val application = app()
+      val hostData = application.records.setFoodFavorite(id, favorite)
+      application.events.dispatch("records.changed", changedPayload(hostData))
+      callback.invoke(successResult(hostData))
+    } catch (error: Exception) {
+      callback.invoke(failure(error))
     }
   }
 

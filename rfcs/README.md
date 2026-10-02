@@ -72,3 +72,4 @@ Not needed for:
 | [0012](0012-offline-food-logging.md) | Offline food logging | Accepted |
 | [0013](0013-custom-foods.md) | Custom foods | Accepted |
 | [0014](0014-manage-custom-foods.md) | Manage custom foods (edit/delete) | Accepted |
+| [0015](0015-favorites-and-recent-foods.md) | Favorites and recently eaten foods | Accepted |

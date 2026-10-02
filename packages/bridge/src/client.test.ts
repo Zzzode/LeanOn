@@ -190,6 +190,28 @@ test('health.deleteCustomFood removes the food and returns hostData', async () =
   expect(response.hostData.customFoods).toHaveLength(0);
 });
 
+test('health.setFoodFavorite toggles the pinned id and returns hostData', async () => {
+  const bridge = createMemoryBridge();
+  bridge.handle<
+    { id: string; favorite: boolean },
+    { success: true; hostData: { favoriteFoodIds: string[] } }
+  >('health.setFoodFavorite', (request) => ({
+    success: true,
+    hostData: { favoriteFoodIds: request.favorite ? [request.id] : [] },
+  }));
+  const client = createLeanOnBridgeClient(bridge.transport);
+  const pinned = await client.invoke('health.setFoodFavorite', {
+    id: 'food-42',
+    favorite: true,
+  });
+  expect(pinned.hostData.favoriteFoodIds).toEqual(['food-42']);
+  const unpinned = await client.invoke('health.setFoodFavorite', {
+    id: 'food-42',
+    favorite: false,
+  });
+  expect(unpinned.hostData.favoriteFoodIds).toEqual([]);
+});
+
 test('records.changed delivers the refreshed hostData snapshot', () => {
   const bridge = createMemoryBridge();
   const client = createLeanOnBridgeClient(bridge.transport);

@@ -57,6 +57,9 @@ export const en = {
   // Food logging sheet
   'foodSheet.title': 'Log food',
   'foodSheet.searchPlaceholder': 'Search foods',
+  'foodSheet.favorites': 'Favorites',
+  'foodSheet.recent': 'Recent',
+  'foodSheet.suggested': 'Suggested',
   'foodSheet.back': 'Back to results',
   'foodSheet.cancel': 'Cancel',
   'foodSheet.save': 'Add meal',

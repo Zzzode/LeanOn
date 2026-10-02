@@ -41,8 +41,13 @@ interface FoodSheetProps {
   locale: FoodLocale;
   /** User-created foods the host persisted (RFC 0013). */
   customFoods: readonly FoodItem[];
+  /** Pinned food ids (RFC 0015). */
+  favoriteFoodIds: readonly string[];
+  /** Most recently logged food ids first (RFC 0015). */
+  recentFoodIds: readonly string[];
   onClose: () => void;
   onSave: (meal: {
+    foodId: string;
     kcal: number;
     macros: FoodItem['macros'];
   }) => Promise<void>;
@@ -52,6 +57,8 @@ interface FoodSheetProps {
   onUpdateCustomFood: (request: UpdateFoodRequest) => Promise<FoodItem>;
   /** Remove a custom food. */
   onDeleteCustomFood: (id: string) => Promise<void>;
+  /** Pin (favorite true) or unpin a food id. */
+  onSetFavorite: (id: string, favorite: boolean) => Promise<void>;
 }
 
 /**
@@ -64,11 +71,14 @@ export function FoodSheet({
   t,
   locale,
   customFoods,
+  favoriteFoodIds,
+  recentFoodIds,
   onClose,
   onSave,
   onCreateCustomFood,
   onUpdateCustomFood,
   onDeleteCustomFood,
+  onSetFavorite,
 }: FoodSheetProps) {
   const [query, setQuery] = useState<string>('');
   const [selected, setSelected] = useState<FoodItem | null>(null);
@@ -96,6 +106,31 @@ export function FoodSheet({
     () => searchFoods(database, query, locale),
     [database, query, locale],
   );
+
+  // Resolve the favorite/recent id indexes to foods for the empty-query shortcuts.
+  const foodById = useMemo(() => {
+    const map = new Map<string, FoodItem>();
+    for (const item of database) map.set(item.id, item);
+    return map;
+  }, [database]);
+  const resolveIds = (ids: readonly string[]): FoodItem[] =>
+    ids
+      .map((id) => foodById.get(id))
+      .filter((item): item is FoodItem => item !== undefined);
+  const favoriteItems = useMemo(
+    () => resolveIds(favoriteFoodIds),
+    [foodById, favoriteFoodIds],
+  );
+  const recentItems = useMemo(
+    () => resolveIds(recentFoodIds),
+    [foodById, recentFoodIds],
+  );
+  // Empty-query fallback: common staples not already shown as favorite/recent.
+  const suggestedItems = useMemo(() => {
+    if (query.trim() !== '') return [];
+    const shown = new Set([...favoriteFoodIds, ...recentFoodIds]);
+    return results.filter((item) => !shown.has(item.id));
+  }, [query, results, favoriteFoodIds, recentFoodIds]);
 
   const meal = useMemo(() => {
     if (selected === null) return null;
@@ -234,6 +269,17 @@ export function FoodSheet({
     setSaving(false);
   };
 
+  const isFavorite =
+    selected !== null && favoriteFoodIds.includes(selected.id);
+  const toggleFavorite = async () => {
+    if (selected === null) return;
+    try {
+      await onSetFavorite(selected.id, !isFavorite);
+    } catch {
+      setError(t('customFood.error'));
+    }
+  };
+
   const handleDelete = async () => {
     if (selected === null) return;
     setSaving(true);
@@ -253,7 +299,11 @@ export function FoodSheet({
     }
     setSaving(true);
     try {
-      await onSave(meal);
+      await onSave({
+        foodId: selected!.id,
+        kcal: meal.kcal,
+        macros: meal.macros,
+      });
     } catch {
       setError(t('foodSheet.error'));
       setSaving(false);
@@ -380,23 +430,92 @@ export function FoodSheet({
               />
             </view>
             <view className="Food-results">
-              {results.map((item) => (
-                <view
-                  key={item.id}
-                  className="Food-row"
-                  bindtap={() => choose(item)}
-                >
-                  <text className="Food-row-name">{item.name[locale]}</text>
-                  <text className="Food-row-meta">
-                    {item.kcal} kcal / 100g
+              {trimmedQuery === '' && favoriteItems.length > 0 && (
+                <view className="Food-quick-section">
+                  <text className="Food-quick-title">
+                    {t('foodSheet.favorites')}
                   </text>
+                  {favoriteItems.map((item) => (
+                    <view
+                      key={`fav-${item.id}`}
+                      className="Food-row"
+                      bindtap={() => choose(item)}
+                    >
+                      <text className="Food-row-name">
+                        ★ {item.name[locale]}
+                      </text>
+                      <text className="Food-row-meta">
+                        {item.kcal} kcal / 100g
+                      </text>
+                    </view>
+                  ))}
                 </view>
-              ))}
-              {showCreateRow && (
-                <view className="Food-row Food-create-row" bindtap={openCreate}>
+              )}
+              {trimmedQuery === '' && recentItems.length > 0 && (
+                <view className="Food-quick-section">
+                  <text className="Food-quick-title">
+                    {t('foodSheet.recent')}
+                  </text>
+                  {recentItems.map((item) => (
+                    <view
+                      key={`recent-${item.id}`}
+                      className="Food-row"
+                      bindtap={() => choose(item)}
+                    >
+                      <text className="Food-row-name">
+                        {item.name[locale]}
+                      </text>
+                      <text className="Food-row-meta">
+                        {item.kcal} kcal / 100g
+                      </text>
+                    </view>
+                  ))}
+                </view>
+              )}
+              {trimmedQuery !== '' &&
+                results.map((item) => (
+                  <view
+                    key={item.id}
+                    className="Food-row"
+                    bindtap={() => choose(item)}
+                  >
+                    <text className="Food-row-name">
+                      {item.name[locale]}
+                    </text>
+                    <text className="Food-row-meta">
+                      {item.kcal} kcal / 100g
+                    </text>
+                  </view>
+                ))}
+              {trimmedQuery !== '' && showCreateRow && (
+                <view
+                  className="Food-row Food-create-row"
+                  bindtap={openCreate}
+                >
                   <text className="Food-create-label">
                     {t('customFood.create')} “{trimmedQuery}”
                   </text>
+                </view>
+              )}
+              {trimmedQuery === '' && suggestedItems.length > 0 && (
+                <view className="Food-quick-section">
+                  <text className="Food-quick-title">
+                    {t('foodSheet.suggested')}
+                  </text>
+                  {suggestedItems.map((item) => (
+                    <view
+                      key={`sug-${item.id}`}
+                      className="Food-row"
+                      bindtap={() => choose(item)}
+                    >
+                      <text className="Food-row-name">
+                        {item.name[locale]}
+                      </text>
+                      <text className="Food-row-meta">
+                        {item.kcal} kcal / 100g
+                      </text>
+                    </view>
+                  ))}
                 </view>
               )}
             </view>
@@ -413,9 +532,18 @@ export function FoodSheet({
             <view className="Food-back" bindtap={() => setSelected(null)}>
               <text className="Food-back-label">{t('foodSheet.back')}</text>
             </view>
-            <text className="Food-selected-name">
-              {selected.name[locale]}
-            </text>
+            <view className="Food-detail-head">
+              <text className="Food-selected-name">
+                {selected.name[locale]}
+              </text>
+              <view className="Food-star" bindtap={toggleFavorite}>
+                <text
+                  className={`Food-star-label${isFavorite ? ' on' : ''}`}
+                >
+                  {isFavorite ? '★' : '☆'}
+                </text>
+              </view>
+            </view>
             <view className="Sheet-field">
               <input
                 id="food-grams"

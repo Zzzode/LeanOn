@@ -281,5 +281,7 @@
   ],
   "todayExerciseKcal": 240,
   "streak": 13,
-  "customFoods": []
+  "customFoods": [],
+  "favoriteFoodIds": [],
+  "recentFoodIds": []
 }

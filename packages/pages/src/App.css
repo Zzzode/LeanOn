@@ -637,3 +637,38 @@
 .Food-manage-label.danger {
   color: #e0594b;
 }
+
+.Food-quick-section {
+  margin: 4rpx 0 12rpx;
+}
+
+.Food-quick-title {
+  font-size: 23rpx;
+  color: #7c8d86;
+  letter-spacing: 1rpx;
+  margin: 8rpx 4rpx 2rpx;
+}
+
+.Food-detail-head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Food-detail-head .Food-selected-name {
+  flex: 1;
+}
+
+.Food-star {
+  padding: 8rpx 10rpx;
+}
+
+.Food-star-label {
+  font-size: 46rpx;
+  color: #a9b6b0;
+}
+
+.Food-star-label.on {
+  color: #218967;
+}

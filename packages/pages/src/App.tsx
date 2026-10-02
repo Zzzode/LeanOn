@@ -56,6 +56,7 @@ export function App() {
   };
 
   const handleSaveIntake = async (meal: {
+    foodId: string;
     kcal: number;
     macros: HostData['intake'][number]['macros'];
   }) => {
@@ -63,6 +64,7 @@ export function App() {
       date: hostData.today,
       kcal: meal.kcal,
       macros: meal.macros,
+      foodId: meal.foodId,
     });
     setHostData(response.hostData);
     setActiveSheet('none');
@@ -109,6 +111,14 @@ export function App() {
     const response = await bridge.invoke('health.deleteCustomFood', { id });
     setHostData(response.hostData);
     setActiveSheet('none');
+  };
+
+  const handleSetFavorite = async (id: string, favorite: boolean) => {
+    const response = await bridge.invoke('health.setFoodFavorite', {
+      id,
+      favorite,
+    });
+    setHostData(response.hostData);
   };
 
   return (
@@ -158,11 +168,14 @@ export function App() {
           t={t}
           locale={locale}
           customFoods={hostData.customFoods}
+          favoriteFoodIds={hostData.favoriteFoodIds}
+          recentFoodIds={hostData.recentFoodIds}
           onClose={() => setActiveSheet('none')}
           onSave={handleSaveIntake}
           onCreateCustomFood={handleCreateCustomFood}
           onUpdateCustomFood={handleUpdateCustomFood}
           onDeleteCustomFood={handleDeleteCustomFood}
+          onSetFavorite={handleSetFavorite}
         />
       )}
     </page>

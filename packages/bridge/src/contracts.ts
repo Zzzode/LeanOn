@@ -30,6 +30,10 @@ export interface HostDataDto {
   streak: number;
   /** User-created foods persisted by the host (RFC 0013); empty by default. */
   customFoods: FoodItem[];
+  /** Food ids the user pinned (RFC 0015); empty by default. */
+  favoriteFoodIds: string[];
+  /** Most recently logged food ids first, capped (RFC 0015); empty by default. */
+  recentFoodIds: string[];
 }
 
 export type HealthDataType =
@@ -113,7 +117,17 @@ export type LeanOnRpcContract = {
     response: { success: true; hostData: HostDataDto };
   };
   'health.writeIntake': {
-    request: { date: string; kcal: number; macros: Macros };
+    request: {
+      date: string;
+      kcal: number;
+      macros: Macros;
+      /** When present, the host moves this food to the front of recent (RFC 0015). */
+      foodId?: string;
+    };
+    response: { success: true; hostData: HostDataDto };
+  };
+  'health.setFoodFavorite': {
+    request: { id: string; favorite: boolean };
     response: { success: true; hostData: HostDataDto };
   };
   'health.writeCustomFood': {
@@ -215,6 +229,7 @@ export const RpcMethods = {
   healthReadSamples: 'health.readSamples',
   healthWriteWeight: 'health.writeWeight',
   healthWriteIntake: 'health.writeIntake',
+  healthSetFoodFavorite: 'health.setFoodFavorite',
   healthWriteCustomFood: 'health.writeCustomFood',
   healthUpdateCustomFood: 'health.updateCustomFood',
   healthDeleteCustomFood: 'health.deleteCustomFood',

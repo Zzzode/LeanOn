@@ -56,6 +56,9 @@ export const zhCN = {
   // Food logging sheet
   'foodSheet.title': '记录饮食',
   'foodSheet.searchPlaceholder': '搜索食物',
+  'foodSheet.favorites': '收藏',
+  'foodSheet.recent': '最近常吃',
+  'foodSheet.suggested': '推荐',
   'foodSheet.back': '返回结果',
   'foodSheet.cancel': '取消',
   'foodSheet.save': '添加',

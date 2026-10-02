@@ -66,6 +66,7 @@ class RecordsRepository(context: Context) {
     proteinG: Double,
     carbsG: Double,
     fatG: Double,
+    foodId: String? = null,
   ): JSONObject {
     val data = loadHostData()
     val intake = data.getJSONArray(INTAKE)
@@ -96,6 +97,8 @@ class RecordsRepository(context: Context) {
         .put(MACROS, macros)
       intake.put(sample)
     }
+
+    if (foodId !== null) touchRecent(data, foodId)
 
     recordFile.writeText(data.toString(), Charsets.UTF_8)
     return data
@@ -208,9 +211,65 @@ class RecordsRepository(context: Context) {
     }
     if (!found) throw NoSuchElementException("Custom food $id not found")
     data.put(CUSTOM_FOODS, remaining)
+    // Do not leave dangling favorite/recent references to the deleted food.
+    removeIdFromList(data, FAVORITE_FOOD_IDS, id)
+    removeIdFromList(data, RECENT_FOOD_IDS, id)
 
     recordFile.writeText(data.toString(), Charsets.UTF_8)
     return data
+  }
+
+  /**
+   * Pin ([favorite] true) or unpin (false) a food id (RFC 0015), persist, and
+   * return the full HostData. Works for both bundled and user-owned foods and
+   * tolerates ids that do not currently resolve to a food.
+   */
+  fun setFoodFavorite(id: String, favorite: Boolean): JSONObject {
+    val data = loadHostData()
+    val current = data.optJSONArray(FAVORITE_FOOD_IDS) ?: JSONArray()
+    val result = JSONArray()
+    if (favorite) {
+      var seen = false
+      for (index in 0 until current.length()) {
+        val existing = current.getString(index)
+        if (existing == id) seen = true
+        result.put(existing)
+      }
+      if (!seen) result.put(id)
+    } else {
+      for (index in 0 until current.length()) {
+        val existing = current.getString(index)
+        if (existing != id) result.put(existing)
+      }
+    }
+    data.put(FAVORITE_FOOD_IDS, result)
+
+    recordFile.writeText(data.toString(), Charsets.UTF_8)
+    return data
+  }
+
+  /** Move [foodId] to the front of recent, removing duplicates and capping it. */
+  private fun touchRecent(data: JSONObject, foodId: String) {
+    val current = data.optJSONArray(RECENT_FOOD_IDS) ?: JSONArray()
+    val updated = JSONArray().put(foodId)
+    for (index in 0 until current.length()) {
+      val existing = current.getString(index)
+      if (existing == foodId) continue
+      if (updated.length() >= RECENT_LIMIT) break
+      updated.put(existing)
+    }
+    data.put(RECENT_FOOD_IDS, updated)
+  }
+
+  /** Remove every occurrence of [id] from the id list stored at [key]. */
+  private fun removeIdFromList(data: JSONObject, key: String, id: String) {
+    val current = data.optJSONArray(key) ?: return
+    val result = JSONArray()
+    for (index in 0 until current.length()) {
+      val existing = current.getString(index)
+      if (existing != id) result.put(existing)
+    }
+    data.put(key, result)
   }
 
   private fun ensureSeeded() {
@@ -242,5 +301,8 @@ class RecordsRepository(context: Context) {
     const val DEFAULT_GRAMS = "defaultGrams"
     const val SOURCE = "source"
     const val CUSTOM = "custom"
+    const val FAVORITE_FOOD_IDS = "favoriteFoodIds"
+    const val RECENT_FOOD_IDS = "recentFoodIds"
+    const val RECENT_LIMIT = 12
   }
 }

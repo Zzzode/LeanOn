@@ -51,6 +51,7 @@ function createPreviewBridge(): LeanOnBridgeClient {
       date: string;
       kcal: number;
       macros: HostData['intake'][number]['macros'];
+      foodId?: string;
     },
     { success: true; hostData: HostData }
   >('health.writeIntake', (request) => {
@@ -78,7 +79,17 @@ function createPreviewBridge(): LeanOnBridgeClient {
             macros: request.macros,
           },
         ];
-    hostData = { ...hostData, intake };
+    let next: HostData = { ...hostData, intake };
+    if (request.foodId !== undefined) {
+      const without = next.recentFoodIds.filter(
+        (id) => id !== request.foodId,
+      );
+      next = {
+        ...next,
+        recentFoodIds: [request.foodId, ...without].slice(0, 12),
+      };
+    }
+    hostData = next;
     return { success: true, hostData: clone(hostData) };
   });
 
@@ -154,7 +165,24 @@ function createPreviewBridge(): LeanOnBridgeClient {
       customFoods: hostData.customFoods.filter(
         (f) => f.id !== request.id,
       ),
+      favoriteFoodIds: hostData.favoriteFoodIds.filter(
+        (id) => id !== request.id,
+      ),
+      recentFoodIds: hostData.recentFoodIds.filter(
+        (id) => id !== request.id,
+      ),
     };
+    return { success: true, hostData: clone(hostData) };
+  });
+
+  memory.handle<
+    { id: string; favorite: boolean },
+    { success: true; hostData: HostData }
+  >('health.setFoodFavorite', (request) => {
+    const favoriteFoodIds = request.favorite
+      ? [...new Set([...hostData.favoriteFoodIds, request.id])]
+      : hostData.favoriteFoodIds.filter((id) => id !== request.id);
+    hostData = { ...hostData, favoriteFoodIds };
     return { success: true, hostData: clone(hostData) };
   });
 

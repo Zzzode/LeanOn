@@ -57,5 +57,7 @@ export const sampleHostData: HostData = (() => {
     todayExerciseKcal: 240,
     streak: 13,
     customFoods: [],
+    favoriteFoodIds: [],
+    recentFoodIds: [],
   };
 })();
