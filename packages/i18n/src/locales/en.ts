@@ -179,6 +179,14 @@ export const en = {
   'healthConnect.export': 'Export',
   'healthConnect.done': 'Done',
 
+  'water.title': 'Hydration',
+  'water.goal': 'Goal',
+  'water.ml': 'ml',
+  'water.left': '{amount} ml left',
+  'water.reached': 'Goal reached',
+  'water.add': '+250 ml',
+  'water.remove': '−250 ml',
+
   'date.format': '{weekday}, {month} {day}',
 } as const;
 

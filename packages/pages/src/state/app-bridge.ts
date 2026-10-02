@@ -97,6 +97,18 @@ function createPreviewBridge(): LeanOnBridgeClient {
     return { success: true, hostData: clone(hostData) };
   });
 
+  // Upsert the day's absolute water total (RFC 0023).
+  memory.handle<
+    { date: string; amountMl: number },
+    { success: true; hostData: HostData }
+  >('health.writeWater', (request) => {
+    const water = hostData.water.filter((s) => s.date !== request.date);
+    water.push({ date: request.date, amountMl: request.amountMl });
+    water.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+    hostData = { ...hostData, water };
+    return { success: true, hostData: clone(hostData) };
+  });
+
   memory.handle<
     {
       name: string;

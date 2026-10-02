@@ -63,6 +63,13 @@ export interface ExerciseSample {
   kcal: number;
 }
 
+/** Total drinking-water consumed on a given day (RFC 0023); one per date. */
+export interface WaterSample {
+  date: string;
+  /** Total millilitres consumed that day (never negative). */
+  amountMl: number;
+}
+
 export type Confidence = 'low' | 'medium' | 'high';
 
 /** A value paired with an explicit confidence level instead of false precision. */

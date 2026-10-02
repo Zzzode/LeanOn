@@ -80,3 +80,4 @@ Not needed for:
 | [0020](0020-smart-reminders.md) | Smart reminders | Accepted |
 | [0021](0021-health-connect-export.md) | Health Connect export | Accepted |
 | [0022](0022-adaptive-launcher-icon.md) | Adaptive launcher icon | Accepted |
+| [0023](0023-water-tracking.md) | Water tracking | Accepted |

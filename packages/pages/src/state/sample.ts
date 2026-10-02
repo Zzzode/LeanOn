@@ -66,6 +66,7 @@ export const sampleHostData: HostData = (() => {
     weights,
     intake: [...historicalIntake, todayIntake],
     exercises: todayExercises,
+    water: [{ date: isoDaysAgo(0), amountMl: 1500 }],
     streak: 13,
     customFoods: [],
     favoriteFoodIds: [],

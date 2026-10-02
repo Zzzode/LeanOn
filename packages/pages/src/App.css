@@ -259,6 +259,89 @@
   margin-top: 14rpx;
 }
 
+/* Water tracking (RFC 0023) */
+.Water-head {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+
+.Water-amountWrap {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.Water-amount {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #1c2b25;
+}
+
+.Water-unit {
+  margin-left: 6rpx;
+  font-size: 22rpx;
+  color: #6c7c75;
+}
+
+.Water-meta {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14rpx;
+}
+
+.Water-status {
+  font-size: 24rpx;
+  color: #218967;
+}
+
+.Water-goal {
+  font-size: 22rpx;
+  color: #82918a;
+}
+
+.Water-controls {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20rpx;
+}
+
+.Water-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 18rpx 0;
+  border-radius: 20rpx;
+  background: #eef3f0;
+}
+
+.Water-btn + .Water-btn {
+  margin-left: 20rpx;
+}
+
+.Water-btn.primary {
+  background: #218967;
+}
+
+.Water-btn.disabled {
+  opacity: 0.4;
+}
+
+.Water-btn-label {
+  font-size: 26rpx;
+  color: #218967;
+}
+
+.Water-btn-label.primary {
+  color: #ffffff;
+}
+
 /* Quick actions */
 .Actions {
   display: flex;

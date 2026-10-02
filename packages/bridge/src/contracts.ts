@@ -4,6 +4,7 @@ import type {
   Macros,
   Profile,
   ReminderSettings,
+  WaterSample,
   WeightSample,
 } from '@zzzode/core';
 import type { FoodItem, OffProduct } from '@zzzode/food-data';
@@ -33,6 +34,8 @@ export interface HostDataDto {
   intake: IntakeSample[];
   /** Logged intentional-exercise sessions (RFC 0017). */
   exercises: ExerciseSample[];
+  /** Daily drinking-water totals in ml (RFC 0023); one entry per day. */
+  water: WaterSample[];
   /** Number of consecutive logging days. */
   streak: number;
   /** User-created foods persisted by the host (RFC 0013); empty by default. */
@@ -131,6 +134,10 @@ export type LeanOnRpcContract = {
       /** When present, the host moves this food to the front of recent (RFC 0015). */
       foodId?: string;
     };
+    response: { success: true; hostData: HostDataDto };
+  };
+  'health.writeWater': {
+    request: { date: string; amountMl: number };
     response: { success: true; hostData: HostDataDto };
   };
   'health.writeExercise': {
@@ -308,6 +315,7 @@ export const RpcMethods = {
   healthReadSamples: 'health.readSamples',
   healthWriteWeight: 'health.writeWeight',
   healthWriteIntake: 'health.writeIntake',
+  healthWriteWater: 'health.writeWater',
   healthWriteExercise: 'health.writeExercise',
   healthUpdateExercise: 'health.updateExercise',
   healthDeleteExercise: 'health.deleteExercise',

@@ -288,6 +288,12 @@
       "kcal": 240
     }
   ],
+  "water": [
+    {
+      "date": "2026-10-01",
+      "amountMl": 1500
+    }
+  ],
   "streak": 13,
   "customFoods": [],
   "favoriteFoodIds": [],

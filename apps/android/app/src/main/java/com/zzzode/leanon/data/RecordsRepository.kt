@@ -133,6 +133,39 @@ class RecordsRepository(context: Context) {
   }
 
   /**
+   * Insert or replace the total water for [date] (RFC 0023), persist, and return
+   * the full HostData. Only today's total is logged (the latest date), so a new
+   * day is appended and date ordering is preserved.
+   */
+  fun upsertWater(date: String, amountMl: Double): JSONObject {
+    val data = loadHostData()
+    val water =
+      data.optJSONArray(WATER)
+        ?: JSONArray().also { data.put(WATER, it) }
+
+    var existing = -1
+    for (index in 0 until water.length()) {
+      if (water.getJSONObject(index).getString(DATE) == date) {
+        existing = index
+        break
+      }
+    }
+
+    val sample = JSONObject()
+      .put(DATE, date)
+      .put(AMOUNT_ML, amountMl)
+
+    if (existing >= 0) {
+      water.put(existing, sample)
+    } else {
+      water.put(sample)
+    }
+
+    recordFile.writeText(data.toString(), Charsets.UTF_8)
+    return data
+  }
+
+  /**
    * Append an exercise session (RFC 0017) to `exercises`, persist, and return the
    * full HostData. Sessions are kept individually rather than merged per day.
    */
@@ -418,6 +451,8 @@ class RecordsRepository(context: Context) {
     const val WEIGHTS = "weights"
     const val INTAKE = "intake"
     const val EXERCISES = "exercises"
+    const val WATER = "water"
+    const val AMOUNT_ML = "amountMl"
     const val TYPE_ID = "typeId"
     const val DURATION_MIN = "durationMin"
     const val DATE = "date"

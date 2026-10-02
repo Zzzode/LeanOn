@@ -173,5 +173,13 @@ export const zhCN = {
   'healthConnect.export': '导出',
   'healthConnect.done': '完成',
 
+  'water.title': '饮水',
+  'water.goal': '目标',
+  'water.ml': '毫升',
+  'water.left': '还差 {amount} 毫升',
+  'water.reached': '已达标',
+  'water.add': '+250 毫升',
+  'water.remove': '−250 毫升',
+
   'date.format': '{month}月{day}日 {weekday}',
 } satisfies Record<MessageKey, string>;

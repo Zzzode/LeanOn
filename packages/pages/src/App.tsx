@@ -18,6 +18,7 @@ import { MacroCard } from './components/MacroCard.js';
 import { QuickActions } from './components/QuickActions.js';
 import { ReminderSheet } from './components/ReminderSheet.js';
 import { ScaleSheet } from './components/ScaleSheet.js';
+import { WaterCard } from './components/WaterCard.js';
 import { WeightCard } from './components/WeightCard.js';
 import { WeightSheet } from './components/WeightSheet.js';
 import { createAppBridge } from './state/app-bridge.js';
@@ -123,6 +124,15 @@ export function App() {
     });
     setHostData(response.hostData);
     setActiveSheet('none');
+  };
+
+  /** Persist the day's absolute water total (RFC 0023). */
+  const handleSetWaterTotal = async (amountMl: number) => {
+    const response = await bridge.invoke('health.writeWater', {
+      date: hostData.today,
+      amountMl,
+    });
+    setHostData(response.hostData);
   };
 
   const [editingExercise, setEditingExercise] = useState<{
@@ -384,6 +394,13 @@ export function App() {
               )}
               <WeightCard state={state} t={t} />
               <MacroCard state={state} t={t} />
+              <WaterCard
+                today={hostData.today}
+                water={hostData.water}
+                currentWeightKg={state.currentWeightKg}
+                t={t}
+                onSetTotal={handleSetWaterTotal}
+              />
               <ExerciseCard
                 state={state}
                 locale={locale}

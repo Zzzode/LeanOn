@@ -24,6 +24,7 @@ export type {
   PeriodRecord,
   Profile,
   Sex,
+  WaterSample,
   WeightSample,
 } from './types';
 
@@ -87,3 +88,12 @@ export type {
   ReminderSettings,
   ReminderSlot,
 } from './reminders';
+
+export {
+  recommendWaterGoalMl,
+  waterForDate,
+  WATER_GOAL_MAX_ML,
+  WATER_GOAL_MIN_ML,
+  WATER_GOAL_STEP_ML,
+  WATER_ML_PER_KG,
+} from './hydration';

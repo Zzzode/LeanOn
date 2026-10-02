@@ -131,6 +131,32 @@ class HealthModule(context: Context) : LynxModule(context) {
     }
   }
 
+  /**
+   * Upsert the day's total water in millilitres (RFC 0023) and return the
+   * updated HostData. The page sends the absolute total after a +/− cup tap;
+   * removing a cup simply writes a lower total. Emits `records.changed`.
+   */
+  @LynxMethod
+  fun writeWater(params: ReadableMap, callback: Callback) {
+    try {
+      val date = requiredString(params, "date")
+      if (!params.hasKey("amountMl")) {
+        throw InvalidRequest("Missing amountMl")
+      }
+      val amountMl = params.getDouble("amountMl")
+      if (!amountMl.isFinite() || amountMl < 0) {
+        throw InvalidRequest("amountMl must be a finite non-negative number")
+      }
+
+      val application = app()
+      val hostData = application.records.upsertWater(date, amountMl)
+      application.events.dispatch("records.changed", changedPayload(hostData))
+      callback.invoke(successResult(hostData))
+    } catch (error: Exception) {
+      callback.invoke(failure(error))
+    }
+  }
+
   /** Pin or unpin a food id (RFC 0015) and return the updated HostData. */
   @LynxMethod
   fun setFoodFavorite(params: ReadableMap, callback: Callback) {
