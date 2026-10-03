@@ -99,7 +99,7 @@ export function ExerciseSheet({
             : t('exerciseSheet.title')}
         </text>
 
-        <scroll-view scroll-y className="Exercise-type-list">
+        <scroll-view scroll-orientation="vertical" className="Exercise-type-list">
           {exercises.map((type) => (
             <view
               key={type.id}

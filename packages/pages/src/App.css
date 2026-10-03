@@ -1,13 +1,19 @@
-.PageRoot {
+.Page {
   display: flex;
-  flex: 1;
   flex-direction: column;
   height: 100vh;
   background-color: #edf2ef;
 }
+.PageRoot {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
 
 .Scroll {
   flex: 1;
+  min-height: 0;
 }
 
 .Content {
@@ -1324,7 +1330,7 @@
 .MeSignin-btn { background-color: #14352a; border-radius: 18rpx; padding: 18rpx 28rpx; }
 .MeSignin-btn-text { font-size: 25rpx; font-weight: 600; color: #ffffff; }
 .MeList { padding-top: 10rpx; padding-bottom: 10rpx; }
-.MeRow { flex-direction: row; align-items: center; padding: 22rpx 6rpx; }
+.MeRow { flex-direction: row; align-items: center; min-height: 104rpx; padding: 20rpx 6rpx; }
 .MeRow-icon { font-size: 30rpx; width: 48rpx; }
 .MeRow-label { flex: 1; font-size: 27rpx; color: #14352a; }
 .MeRow-val { font-size: 24rpx; color: #8a988f; margin-right: 12rpx; }

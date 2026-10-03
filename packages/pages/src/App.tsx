@@ -408,6 +408,7 @@ export function App() {
     openReminders: handleOpenReminders,
     openHealthConnections: handleOpenHealthConnect,
     openRoute: handleOpenRoute,
+    openSettings: () => handleOpenRoute('settings'),
     setWaterTotal: handleSetWaterTotal,
     editExercise: handleEditExercise,
     deleteExercise: handleDeleteExercise,
@@ -453,9 +454,9 @@ export function App() {
   };
 
   return (
-    <page>
+    <page className="Page">
       <view className="PageRoot">
-      <scroll-view scroll-y className="Scroll">
+      <scroll-view scroll-orientation="vertical" className="Scroll">
         <view className="Content">
           {!isNativeShell && devStack.length > 0 && (
             <view className="DevBack" bindtap={handleDevBack}>

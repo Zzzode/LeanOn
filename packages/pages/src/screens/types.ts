@@ -13,6 +13,7 @@ export interface ScreenActions {
   openReminders: () => void;
   openHealthConnections: () => void;
   openRoute: (route: PushedRoute) => void;
+  openSettings: () => void;
   setWaterTotal: (totalMl: number) => void;
   editExercise: (session: {
     id: string;

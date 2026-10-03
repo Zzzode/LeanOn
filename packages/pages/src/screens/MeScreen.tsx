@@ -9,7 +9,7 @@ interface MeRowProps {
 
 function MeRow({ icon, label, val, onTap }: MeRowProps) {
   return (
-    <view className="MeRow" bindtap={onTap}>
+    <view className="MeRow" flatten={onTap === undefined ? undefined : false} bindtap={onTap}>
       <text className="MeRow-icon">{icon}</text>
       <text className="MeRow-label">{label}</text>
       {val !== undefined ? <text className="MeRow-val">{val}</text> : null}
@@ -46,30 +46,18 @@ export function MeScreen({ state, locale, t, actions }: ScreenProps) {
 
       <view className="Card MeList">
         <MeRow icon="👤" label={t('me.profile')} />
-        <MeRow
-          icon="🎯"
-          label={t('me.goals')}
-          val={`${state.goalWeightKg} kg`}
-        />
+        <MeRow icon="🎯" label={t('me.goals')} val={`${state.goalWeightKg} kg`} />
         <MeRow icon="🍽" label={t('me.dietPrefs')} />
         <view className="MeList-line"></view>
-        <MeRow
-          icon="❤"
-          label={t('me.healthApp')}
-          onTap={actions.openHealthConnections}
-        />
+        <MeRow icon="❤" label={t('me.healthApp')} onTap={actions.openHealthConnections} />
         <MeRow icon="⚖" label={t('me.connectedScale')} />
-        <MeRow
-          icon="🔔"
-          label={t('me.reminders')}
-          onTap={actions.openReminders}
-        />
+        <MeRow icon="🔔" label={t('me.reminders')} onTap={actions.openReminders} />
         <view className="MeList-line"></view>
         <MeRow
           icon="⚙"
           label={t('me.settings')}
           val={locale === 'zh-CN' ? '中文' : 'English'}
-          onTap={() => actions.openRoute('settings')}
+          onTap={actions.openSettings}
         />
         <MeRow icon="📤" label={t('me.dataExport')} />
         <MeRow icon="ℹ" label={t('me.about')} />
