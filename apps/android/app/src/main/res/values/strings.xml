@@ -7,4 +7,9 @@
     <string name="notif_meals_title">Log today\'s meals</string>
     <string name="notif_meals_body">A few taps keep your day on track.</string>
     <string name="health_connect_rationale">LeanOn writes your weight, meals and workouts to Health Connect so they appear with your other health apps and wearables. It only writes the data you log here, and never reads your other data.</string>
+    <string name="tab_today">Today</string>
+    <string name="tab_diary">Diary</string>
+    <string name="tab_progress">Progress</string>
+    <string name="tab_partner">Partner</string>
+    <string name="tab_me">Me</string>
 </resources>

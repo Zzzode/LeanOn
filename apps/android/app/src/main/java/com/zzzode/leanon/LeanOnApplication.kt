@@ -13,6 +13,7 @@ import com.zzzode.leanon.data.SettingsRepository
 import com.zzzode.leanon.reminders.Notifier
 import com.zzzode.leanon.reminders.ReminderScheduler
 import com.zzzode.leanon.healthconnect.HealthConnectManager
+import com.zzzode.leanon.navigation.NativeRouter
 
 /** Process-wide entry point: initializes Lynx and wires host singletons. */
 class LeanOnApplication : Application() {
@@ -35,6 +36,8 @@ class LeanOnApplication : Application() {
     private set
   lateinit var healthConnect: HealthConnectManager
     private set
+  lateinit var router: NativeRouter
+    private set
 
   override fun onCreate() {
     super.onCreate()
@@ -51,6 +54,7 @@ class LeanOnApplication : Application() {
     notifier = Notifier(this)
     reminderScheduler = ReminderScheduler(this)
     healthConnect = HealthConnectManager(this)
+    router = NativeRouter()
     // Re-arm the persisted daily reminders on process start (RFC 0020).
     reminderScheduler.applySettings(settings.getReminderSettings())
     LynxModuleBootstrap.initialize(this)

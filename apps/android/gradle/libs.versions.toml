@@ -8,6 +8,9 @@ workManager = "2.10.0"
 healthConnect = "1.1.0"
 camera = "1.4.2"
 mlkitBarcode = "17.3.0"
+material = "1.12.0"
+fragment = "1.8.5"
+navigation = "2.8.5"
 lynx = "3.9.0"
 # PrimJS is versioned independently of the Lynx engine (per Lynx integration docs).
 primjs = "3.8.0-alpha.6"
@@ -23,6 +26,10 @@ androidx-camera-camera2 = { module = "androidx.camera:camera-camera2", version.r
 androidx-camera-lifecycle = { module = "androidx.camera:camera-lifecycle", version.ref = "camera" }
 androidx-camera-view = { module = "androidx.camera:camera-view", version.ref = "camera" }
 mlkit-barcode-scanning = { module = "com.google.mlkit:barcode-scanning", version.ref = "mlkitBarcode" }
+material = { module = "com.google.android.material:material", version.ref = "material" }
+androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragment" }
+androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
+androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
 lynx = { module = "org.lynxsdk.lynx:lynx", version.ref = "lynx" }
 lynx-jssdk = { module = "org.lynxsdk.lynx:lynx-jssdk", version.ref = "lynx" }
 lynx-trace = { module = "org.lynxsdk.lynx:lynx-trace", version.ref = "lynx" }

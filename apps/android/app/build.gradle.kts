@@ -58,6 +58,10 @@ tasks.matching {
 dependencies {
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.appcompat)
+  implementation(libs.material)
+  implementation(libs.androidx.fragment.ktx)
+  implementation(libs.androidx.navigation.fragment.ktx)
+  implementation(libs.androidx.navigation.ui.ktx)
   implementation(libs.androidx.activity.ktx)
   implementation(libs.androidx.work.runtime)
   implementation(libs.androidx.health.connect)

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="nav_host_container" type="id" />
+    <item name="nav_tab_today" type="id" />
+    <item name="nav_tab_diary" type="id" />
+    <item name="nav_tab_progress" type="id" />
+    <item name="nav_tab_partner" type="id" />
+    <item name="nav_tab_me" type="id" />
+</resources>
