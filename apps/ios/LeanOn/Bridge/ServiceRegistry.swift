@@ -10,6 +10,7 @@ final class ServiceRegistry {
 
   let recordsStore: RecordsStore
   let events = GlobalEventDispatcher()
+  let router = NativeRouter()
 
   private init() {
     recordsStore = RecordsStore()

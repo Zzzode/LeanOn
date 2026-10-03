@@ -1,29 +1,50 @@
 import UIKit
 import Lynx
 
-/// Hosts the single LynxView and loads the shared bundle with bootstrap data,
-/// driving navigation by route. The LynxView is laid out within the safe area
-/// and kept in sync when the container is laid out again. The area outside the
-/// safe area is filled with the same botanical background, matching Android.
+/// Hosts one LynxView rendering a single screen of the shared bundle. The
+/// bundle URL is fixed (main.lynx); the screen to render is passed through
+/// initData.route. Root tab screens hide the navigation bar and let pages
+/// draw their own header; pushed secondary screens show the navigation bar
+/// with the system back control.
 final class LynxContainerViewController: UIViewController {
 
-  private let route: String
+  private let screenRoute: String
+  private let bundle: String
+  private let isRootTab: Bool
   private let lifecycleLogger = LifecycleLogger()
   private var lynxView: LynxView?
 
-  init(route: String) {
-    self.route = route
+  init(
+    screenRoute: String,
+    bundle: String = "main.lynx",
+    isRootTab: Bool = true
+  ) {
+    self.screenRoute = screenRoute
+    self.bundle = bundle
+    self.isRootTab = isRootTab
     super.init(nibName: nil, bundle: nil)
+    if !isRootTab {
+      title = Self.pushedTitles[screenRoute] ?? screenRoute
+    }
   }
 
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
 
+  private static let pushedTitles: [String: String] = [
+    "settings": "Settings",
+  ]
+
   override func viewDidLoad() {
     super.viewDidLoad()
     // Botanical background, matching the shared visual baseline (#edf2ef).
     view.backgroundColor = UIColor(red: 0.929, green: 0.949, blue: 0.937, alpha: 1.0)
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    navigationController?.setNavigationBarHidden(isRootTab, animated: animated)
   }
 
   /// Size available to the LynxView after applying the safe-area insets.
@@ -40,11 +61,10 @@ final class LynxContainerViewController: UIViewController {
     super.viewDidLayoutSubviews()
     let size = contentSize(for: view)
     #if DEBUG
-    NSLog("[LeanOnLayout] didLayout contentSize=\(size) existing=\(lynxView != nil)")
+    NSLog("[LeanOnLayout] route=\(screenRoute) size=\(size) existing=\(lynxView != nil)")
     #endif
 
     if let lynxView = lynxView {
-      // Follow container/safe-area changes (rotation, keyboard, etc.).
       if lynxView.preferredLayoutWidth != size.width
         || lynxView.preferredLayoutHeight != size.height {
         lynxView.preferredLayoutWidth = size.width
@@ -75,29 +95,22 @@ final class LynxContainerViewController: UIViewController {
     ])
     self.lynxView = lynxView
 
-    // Native -> JS events flow through this LynxView.
+    // Native -> JS events fan out to every mounted LynxView.
     ServiceRegistry.shared.events.bind(lynxView)
 
     let initData = LynxTemplateData(dictionary: bootstrapData())
-    lynxView.loadTemplate(fromURL: route, initData: initData)
+    lynxView.loadTemplate(fromURL: bundle, initData: initData)
   }
 
-  /// Bootstrap shape consumed by useInitData() in pages: { hostData, locale }.
-  /// The HostData comes from the persistent record store, not a static bundle.
+  /// Bootstrap shape consumed by useInitData() in pages: { hostData, route, locale }.
   private func bootstrapData() -> [String: Any] {
-    let hostData = ServiceRegistry.shared.recordsStore.loadHostData()
-    var data: [String: Any] = [
-      "hostData": hostData,
+    [
+      "hostData": ServiceRegistry.shared.recordsStore.loadHostData(),
+      "route": screenRoute,
       // UI-test hook, e.g. SIMCTL_CHILD_LEANON_LOCALE=zh-CN.
       "locale":
         ProcessInfo.processInfo.environment["LEANON_LOCALE"] == "zh-CN"
         ? "zh-CN" : "en",
     ]
-    // UI-test/deep-link hook, e.g. SIMCTL_CHILD_LEANON_INITIAL_ROUTE=settings.
-    if let route = ProcessInfo.processInfo.environment["LEANON_INITIAL_ROUTE"],
-       ["today", "insights", "settings"].contains(route) {
-      data["initialRoute"] = route
-    }
-    return data
   }
 }

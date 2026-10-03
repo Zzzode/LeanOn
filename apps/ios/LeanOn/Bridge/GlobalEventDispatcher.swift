@@ -1,17 +1,20 @@
 import Lynx
 
-/// Pushes native -> JS global events through the bound LynxView. The JS
-/// transport reads the first parameter as the event payload.
+/// Fans native -> JS global events out to every mounted LynxView. Each tab and
+/// pushed screen owns a LynxView; all of them must receive record changes.
+/// Views are held weakly in a hash table.
 final class GlobalEventDispatcher {
 
-  private weak var view: LynxView?
+  private let views = NSHashTable<LynxView>.weakObjects()
 
   func bind(_ view: LynxView) {
-    self.view = view
+    views.add(view)
   }
 
   func dispatch(_ event: String, payload: Any?) {
     // Global events deliver a parameter list; wrap a single payload.
-    view?.sendGlobalEvent(event, withParams: [payload as Any])
+    for view in views.allObjects {
+      view.sendGlobalEvent(event, withParams: [payload as Any])
+    }
   }
 }

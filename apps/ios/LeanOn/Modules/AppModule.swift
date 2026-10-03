@@ -19,6 +19,7 @@ final class AppModule: NSObject, LynxModule {
     [
       "getInfo": NSStringFromSelector(#selector(getInfo(callback:))),
       "getCapabilities": NSStringFromSelector(#selector(getCapabilities(callback:))),
+      "openRoute": NSStringFromSelector(#selector(openRoute(_:callback:))),
     ]
   }
 
@@ -38,5 +39,14 @@ final class AppModule: NSObject, LynxModule {
       "supportedMethods": caps.supportedMethods,
       "supportedEvents": caps.supportedEvents,
     ])
+  }
+
+  @objc func openRoute(_ params: NSDictionary, callback: (NSDictionary) -> Void) {
+    guard let route = params["route"] as? String else {
+      callback(["success": false])
+      return
+    }
+    let opened = ServiceRegistry.shared.router.open(route)
+    callback(["success": opened])
   }
 }
