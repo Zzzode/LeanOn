@@ -25,19 +25,6 @@ final class RootTabBarController: UITabBarController {
     // Brand the selected tab with the botanical primary color (#218967).
     tabBar.tintColor = UIColor(red: 0.129, green: 0.537, blue: 0.404, alpha: 1.0)
 
-    // Fully clear the default edge-to-edge tab bar background so only the
-    // floating capsule is visible.
-    let appearance = UITabBarAppearance()
-    appearance.configureWithTransparentBackground()
-    appearance.backgroundColor = .clear
-    appearance.backgroundEffect = nil
-    tabBar.standardAppearance = appearance
-    tabBar.scrollEdgeAppearance = appearance
-    tabBar.backgroundImage = UIImage()
-    tabBar.shadowImage = UIImage()
-    tabBar.backgroundColor = .clear
-    tabBar.isTranslucent = true
-
     let controllers = tabSpecs.map { spec -> UINavigationController in
       let screen = LynxContainerViewController(screenRoute: spec.route)
       screen.title = spec.title
@@ -52,39 +39,17 @@ final class RootTabBarController: UITabBarController {
     }
     setViewControllers(controllers, animated: false)
     ServiceRegistry.shared.router.tabBarController = self
-
-    setupFloatingCapsule()
   }
 
-  /// Adds a floating liquid-glass blur capsule behind the tab bar items.
-  private func setupFloatingCapsule() {
-    // Shadow container — a clipped blur view cannot draw its own shadow.
-    let shadow = UIView()
-    shadow.layer.shadowColor = UIColor.black.cgColor
-    shadow.layer.shadowOpacity = 0.10
-    shadow.layer.shadowOffset = CGSize(width: 0, height: 4)
-    shadow.layer.shadowRadius = 12
-    shadow.translatesAutoresizingMaskIntoConstraints = false
-    tabBar.insertSubview(shadow, at: 0)
-
-    let capsule = UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterial))
-    capsule.layer.cornerRadius = 30
-    capsule.clipsToBounds = true
-    capsule.isUserInteractionEnabled = false
-    capsule.translatesAutoresizingMaskIntoConstraints = false
-    shadow.addSubview(capsule)
-
-    NSLayoutConstraint.activate([
-      capsule.topAnchor.constraint(equalTo: shadow.topAnchor),
-      capsule.leadingAnchor.constraint(equalTo: shadow.leadingAnchor),
-      capsule.trailingAnchor.constraint(equalTo: shadow.trailingAnchor),
-      capsule.bottomAnchor.constraint(equalTo: shadow.bottomAnchor),
-
-      shadow.leadingAnchor.constraint(equalTo: tabBar.leadingAnchor, constant: 12),
-      shadow.trailingAnchor.constraint(equalTo: tabBar.trailingAnchor, constant: -12),
-      shadow.topAnchor.constraint(equalTo: tabBar.topAnchor, constant: 2),
-      shadow.bottomAnchor.constraint(
-        equalTo: tabBar.safeAreaLayoutGuide.bottomAnchor, constant: -8),
-    ])
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    // iOS 26 draws a native floating tab bar (_UITabBarPlatterView).
+    // Give it a liquid-glass blur instead of the default opaque material.
+    let appearance = UITabBarAppearance()
+    appearance.configureWithTransparentBackground()
+    appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)
+    appearance.shadowColor = .clear
+    tabBar.standardAppearance = appearance
+    tabBar.scrollEdgeAppearance = appearance
   }
 }
