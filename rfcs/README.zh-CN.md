@@ -74,3 +74,4 @@
 | [0025](0025-health-connect-two-way-sync.zh-CN.md) | Health Connect 双向同步（读取体重与运动、镜像与删除） | Accepted |
 | [0026](0026-icon-visual-proportions.zh-CN.md) | 图标视觉占比 | Proposed |
 | [0027](0027-ios-host-landing.zh-CN.md) | iOS 宿主落地（CocoaPods 接入 Lynx、容器、数据层、HealthKit） | Accepted |
+| [0028](0028-bottom-tab-native-shell.zh-CN.md) | 底部 Tab 导航与原生壳（Today/Diary/Progress/Partner/Me） | Proposed |
