@@ -48,12 +48,15 @@ final class LynxContainerViewController: UIViewController {
   }
 
   /// Size available to the LynxView after applying the safe-area insets.
+  /// The bottom inset is intentionally NOT subtracted: the LynxView extends
+  /// to the screen bottom so the floating tab bar can sit on top of the page
+  /// content. Pages add their own bottom padding to clear the tab bar.
   private func contentSize(for view: UIView) -> CGSize {
     let bounds = view.bounds.size
     let inset = view.safeAreaInsets
     return CGSize(
       width: bounds.width,
-      height: max(0, bounds.height - inset.top - inset.bottom),
+      height: max(0, bounds.height - inset.top),
     )
   }
 
@@ -91,7 +94,10 @@ final class LynxContainerViewController: UIViewController {
       lynxView.topAnchor.constraint(equalTo: guide.topAnchor),
       lynxView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       lynxView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      lynxView.bottomAnchor.constraint(equalTo: guide.bottomAnchor),
+      // Extend to the screen bottom (not safe-area) so the floating tab bar
+      // sits on top of the page content, like Apple's Dock, instead of
+      // showing a separate background strip behind it.
+      lynxView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
     ])
     self.lynxView = lynxView
 
