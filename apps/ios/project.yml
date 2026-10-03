@@ -56,6 +56,7 @@ targets:
         # Command-line/CI launches (simctl) do not benefit from the debug dylib
         # and it can interfere with UIKit scene setup; link a normal binary.
         ENABLE_DEBUG_DYLIB: "NO"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
 
   LeanOnTests:
     type: bundle.unit-test

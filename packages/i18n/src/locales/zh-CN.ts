@@ -136,6 +136,15 @@ export const zhCN = {
   // Tabs 与进度洞察（RFC 0019）。
   'tab.today': '今日',
   'tab.insights': '洞察',
+
+  // 设置页（语言与集成）。
+  'settings.title': '设置',
+  'settings.sectionGeneral': '通用',
+  'settings.sectionHealth': '健康与数据',
+  'settings.language': '语言',
+  'settings.reminders': '提醒',
+  'settings.healthConnect': 'Health Connect',
+  'settings.done': '完成',
   'insights.range7': '7 天',
   'insights.range30': '30 天',
   'insights.weight': '体重',

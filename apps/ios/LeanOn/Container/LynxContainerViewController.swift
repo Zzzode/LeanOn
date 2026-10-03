@@ -86,9 +86,18 @@ final class LynxContainerViewController: UIViewController {
   /// The HostData comes from the persistent record store, not a static bundle.
   private func bootstrapData() -> [String: Any] {
     let hostData = ServiceRegistry.shared.recordsStore.loadHostData()
-    return [
+    var data: [String: Any] = [
       "hostData": hostData,
-      "locale": "en",
+      // UI-test hook, e.g. SIMCTL_CHILD_LEANON_LOCALE=zh-CN.
+      "locale":
+        ProcessInfo.processInfo.environment["LEANON_LOCALE"] == "zh-CN"
+        ? "zh-CN" : "en",
     ]
+    // UI-test/deep-link hook, e.g. SIMCTL_CHILD_LEANON_INITIAL_ROUTE=settings.
+    if let route = ProcessInfo.processInfo.environment["LEANON_INITIAL_ROUTE"],
+       ["today", "insights", "settings"].contains(route) {
+      data["initialRoute"] = route
+    }
+    return data
   }
 }

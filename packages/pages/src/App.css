@@ -18,9 +18,9 @@
 .Header {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  margin: 30rpx 8rpx 26rpx;
+  margin: 46rpx 8rpx 26rpx;
 }
 
 .Header-text {
@@ -40,8 +40,9 @@
 }
 
 .Header-side {
-  flex-direction: column;
-  align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 /* Language switcher */
@@ -73,7 +74,7 @@
 }
 
 .Header-streak {
-  margin-top: 18rpx;
+  margin-right: 22rpx;
   align-items: flex-end;
 }
 
@@ -1160,4 +1161,66 @@
 .Reminder-time-label.active {
   font-weight: 600;
   color: #218967;
+}
+
+/* Header settings gear */
+.Header-gear {
+  min-width: 68rpx;
+  height: 68rpx;
+  padding: 0 22rpx;
+  border-radius: 999rpx;
+  background-color: #e2eae5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Header-gear-glyph {
+  font-size: 34rpx;
+}
+.Header-gear-done {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #218967;
+}
+
+/* Settings screen (RFC: language + integrations) */
+.Settings {
+  flex-direction: column;
+}
+.Settings-section {
+  font-size: 22rpx;
+  letter-spacing: 2rpx;
+  color: #8a978f;
+  margin: 26rpx 20rpx 12rpx;
+}
+.Settings-card {
+  padding: 6rpx 32rpx;
+}
+.Settings-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100rpx;
+}
+.Settings-label {
+  font-size: 30rpx;
+  color: #16261f;
+}
+.Settings-chevron {
+  font-size: 40rpx;
+  color: #b3bfb8;
+}
+.Settings-divider {
+  height: 1rpx;
+  background-color: #eef1ef;
+}
+.Settings-footerWrap {
+  align-items: center;
+  margin-top: 48rpx;
+}
+.Settings-footer {
+  font-size: 22rpx;
+  color: #93a098;
+  text-align: center;
 }

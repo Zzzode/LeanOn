@@ -19,6 +19,7 @@ import { MicrosCard } from './components/MicrosCard.js';
 import { QuickActions } from './components/QuickActions.js';
 import { ReminderSheet } from './components/ReminderSheet.js';
 import { ScaleSheet } from './components/ScaleSheet.js';
+import { SettingsScreen } from './components/SettingsScreen.js';
 import { WaterCard } from './components/WaterCard.js';
 import { WeightCard } from './components/WeightCard.js';
 import { WeightSheet } from './components/WeightSheet.js';
@@ -32,6 +33,7 @@ type ActiveSheet = 'none' | 'weight' | 'scale' | 'food' | 'exercise';
 interface BootstrapData {
   hostData?: HostData;
   locale?: string;
+  initialRoute?: 'today' | 'insights' | 'settings';
 }
 
 export function App() {
@@ -41,7 +43,9 @@ export function App() {
   );
   const [locale, setLocale] = useState<Locale>(resolveLocale(initData?.locale));
   const [activeSheet, setActiveSheet] = useState<ActiveSheet>('none');
-  const [tab, setTab] = useState<'today' | 'insights'>('today');
+  const [tab, setTab] = useState<'today' | 'insights' | 'settings'>(
+    initData?.initialRoute ?? 'today',
+  );
   const [initialFoodId, setInitialFoodId] = useState<string | undefined>(
     undefined,
   );
@@ -371,12 +375,11 @@ export function App() {
         <view className="Content">
           <Header
             state={state}
-            locale={locale}
             t={t}
-            onLocaleChange={setLocale}
-            onOpenReminders={handleOpenReminders}
-            onOpenHealthConnect={handleOpenHealthConnect}
+            settingsOpen={tab === 'settings'}
+            onGear={() => setTab(tab === 'settings' ? 'today' : 'settings')}
           />
+          {tab !== 'settings' && (
           <view className="LangSwitch TabSwitch">
             {(
               [
@@ -406,7 +409,16 @@ export function App() {
               );
             })}
           </view>
-          {tab === 'today' ? (
+          )}
+          {tab === 'settings' ? (
+            <SettingsScreen
+              t={t}
+              locale={locale}
+              onLocaleChange={setLocale}
+              onOpenReminders={handleOpenReminders}
+              onOpenHealthConnect={handleOpenHealthConnect}
+            />
+          ) : tab === 'today' ? (
             <view className="Tab-pane">
               <EnergyCard state={state} t={t} />
               {!state.safe && (

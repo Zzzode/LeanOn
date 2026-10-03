@@ -141,6 +141,15 @@ export const en = {
   // Tabs and Progress insights (RFC 0019).
   'tab.today': 'Today',
   'tab.insights': 'Insights',
+
+  // Settings screen (language + integrations).
+  'settings.title': 'Settings',
+  'settings.sectionGeneral': 'General',
+  'settings.sectionHealth': 'Health & data',
+  'settings.language': 'Language',
+  'settings.reminders': 'Reminders',
+  'settings.healthConnect': 'Health Connect',
+  'settings.done': 'Done',
   'insights.range7': '7 days',
   'insights.range30': '30 days',
   'insights.weight': 'Weight',
