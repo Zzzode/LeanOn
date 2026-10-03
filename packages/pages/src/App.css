@@ -1259,7 +1259,7 @@
 /* ===== Greeting header (Today) ===== */
 .GreetingHeader {
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   padding: 18rpx 4rpx 26rpx;
 }
