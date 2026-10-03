@@ -1,11 +1,14 @@
 package com.zzzode.leanon
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
 import android.view.ViewGroup
 import android.view.ViewOutlineProvider
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
@@ -79,6 +82,13 @@ class MainActivity : AppCompatActivity() {
       labelVisibilityMode = BottomNavigationView.LABEL_VISIBILITY_LABELED
       // Transparent: the BlurView provides the frosted-glass background.
       background = null
+      // Match iOS: active = botanical green, inactive = gray.
+      val tabColors = ContextCompat.getColorStateList(this@MainActivity, R.color.tab_item_color)
+      itemIconTintList = tabColors
+      itemTextColor = tabColors
+      // Subtle glass highlight behind the selected tab, matching iOS 26.
+      itemActiveIndicatorColor = ColorStateList.valueOf(Color.parseColor("#33FFFFFF"))
+      itemRippleColor = ColorStateList.valueOf(Color.parseColor("#22FFFFFF"))
     }
     addTabItems(bottomBar)
 
@@ -100,6 +110,7 @@ class MainActivity : AppCompatActivity() {
       clipToOutline = true
       elevation = resources.getDimension(R.dimen.floating_tab_elevation)
       setupWith(blurTarget)
+        .setFrameClearDrawable(window.decorView.background)
         .setBlurRadius(20f)
     }
     blurView.addView(bottomBar)

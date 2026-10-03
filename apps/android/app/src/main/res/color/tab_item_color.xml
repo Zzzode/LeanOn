@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tab item icon + label color: active = botanical green, inactive = gray. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/botanical" android:state_checked="true" />
+    <item android:color="#5B6B63" />
+</selector>
