@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Horizontal and bottom margin for the floating tab bar capsule. -->
+    <dimen name="floating_tab_margin">12dp</dimen>
+    <!-- Shadow elevation for the floating tab bar. -->
+    <dimen name="floating_tab_elevation">8dp</dimen>
+</resources>

@@ -1,8 +1,9 @@
 package com.zzzode.leanon
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.ViewGroup
-import android.widget.LinearLayout
+import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -39,8 +40,7 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     val app = application as LeanOnApplication
 
-    val root = LinearLayout(this).apply {
-      orientation = LinearLayout.VERTICAL
+    val root = FrameLayout(this).apply {
       layoutParams = ViewGroup.LayoutParams(
         ViewGroup.LayoutParams.MATCH_PARENT,
         ViewGroup.LayoutParams.MATCH_PARENT,
@@ -49,35 +49,40 @@ class MainActivity : AppCompatActivity() {
 
     val navHostContainer = FragmentContainerView(this).apply {
       id = R.id.nav_host_container
-      layoutParams = LinearLayout.LayoutParams(
-        LinearLayout.LayoutParams.MATCH_PARENT,
-        0,
-        1f,
+      layoutParams = FrameLayout.LayoutParams(
+        FrameLayout.LayoutParams.MATCH_PARENT,
+        FrameLayout.LayoutParams.MATCH_PARENT,
       )
     }
     root.addView(navHostContainer)
 
     bottomBar = BottomNavigationView(this).apply {
-      layoutParams = LinearLayout.LayoutParams(
-        LinearLayout.LayoutParams.MATCH_PARENT,
-        LinearLayout.LayoutParams.WRAP_CONTENT,
-      )
+      val margin = resources.getDimensionPixelSize(R.dimen.floating_tab_margin)
+      layoutParams = FrameLayout.LayoutParams(
+        FrameLayout.LayoutParams.MATCH_PARENT,
+        FrameLayout.LayoutParams.WRAP_CONTENT,
+        Gravity.BOTTOM,
+      ).apply {
+        leftMargin = margin
+        rightMargin = margin
+        bottomMargin = margin
+      }
       // With five items the default AUTO mode shows only the selected label;
       // keep every destination labeled to match the iOS tab bar.
       labelVisibilityMode = BottomNavigationView.LABEL_VISIBILITY_LABELED
-      // Material 3 defaults the bar to a lavender surface-container tint; pin it
-      // to white so it matches the app's botanical palette.
-      setBackgroundColor(android.graphics.Color.WHITE)
+      // Floating liquid-glass capsule: rounded corners + translucent white.
+      setBackgroundResource(R.drawable.bg_floating_tab_bar)
+      elevation = resources.getDimension(R.dimen.floating_tab_elevation)
     }
     addTabItems(bottomBar)
     root.addView(bottomBar)
     setContentView(root)
 
     // Keep Lynx content below the status bar (edge-to-edge is enforced on
-    // targetSdk 35). The bottom bar consumes the navigation-bar inset itself.
+    // targetSdk 35). The bottom bar floats on top of the content.
     ViewCompat.setOnApplyWindowInsetsListener(navHostContainer) { view, insets ->
-      val top = insets.getInsets(WindowInsetsCompat.Type.systemBars()).top
-      view.updatePadding(top = top)
+      val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+      view.updatePadding(top = bars.top, bottom = bars.bottom)
       insets
     }
 
