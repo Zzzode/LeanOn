@@ -3,6 +3,7 @@ package com.zzzode.leanon
 import android.os.Bundle
 import android.view.Gravity
 import android.view.ViewGroup
+import android.view.ViewOutlineProvider
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -18,6 +19,8 @@ import com.zzzode.leanon.ble.PermissionRequests
 import com.zzzode.leanon.healthconnect.HealthConnectPermission
 import com.zzzode.leanon.navigation.LynxContainerFragment
 import com.zzzode.leanon.reminders.NotificationPermission
+import eightbitlab.com.blurview.BlurTarget
+import eightbitlab.com.blurview.BlurView
 
 /**
  * Single-activity shell: a Jetpack Navigation host renders one Lynx screen per
@@ -47,6 +50,15 @@ class MainActivity : AppCompatActivity() {
       )
     }
 
+    // BlurTarget wraps the Lynx content so the BlurView can capture and
+    // blur it behind the floating tab bar (RenderEffect on API 31+).
+    val blurTarget = BlurTarget(this).apply {
+      layoutParams = FrameLayout.LayoutParams(
+        FrameLayout.LayoutParams.MATCH_PARENT,
+        FrameLayout.LayoutParams.MATCH_PARENT,
+      )
+    }
+
     val navHostContainer = FragmentContainerView(this).apply {
       id = R.id.nav_host_container
       layoutParams = FrameLayout.LayoutParams(
@@ -54,9 +66,25 @@ class MainActivity : AppCompatActivity() {
         FrameLayout.LayoutParams.MATCH_PARENT,
       )
     }
-    root.addView(navHostContainer)
+    blurTarget.addView(navHostContainer)
+    root.addView(blurTarget)
 
     bottomBar = BottomNavigationView(this).apply {
+      layoutParams = FrameLayout.LayoutParams(
+        FrameLayout.LayoutParams.MATCH_PARENT,
+        FrameLayout.LayoutParams.WRAP_CONTENT,
+      )
+      // With five items the default AUTO mode shows only the selected label;
+      // keep every destination labeled to match the iOS tab bar.
+      labelVisibilityMode = BottomNavigationView.LABEL_VISIBILITY_LABELED
+      // Transparent: the BlurView provides the frosted-glass background.
+      background = null
+    }
+    addTabItems(bottomBar)
+
+    // Floating liquid-glass capsule: BlurView blurs the Lynx content behind
+    // the tab bar, with rounded corners and a subtle white tint.
+    val blurView = BlurView(this).apply {
       val margin = resources.getDimensionPixelSize(R.dimen.floating_tab_margin)
       layoutParams = FrameLayout.LayoutParams(
         FrameLayout.LayoutParams.MATCH_PARENT,
@@ -67,15 +95,15 @@ class MainActivity : AppCompatActivity() {
         rightMargin = margin
         bottomMargin = margin
       }
-      // With five items the default AUTO mode shows only the selected label;
-      // keep every destination labeled to match the iOS tab bar.
-      labelVisibilityMode = BottomNavigationView.LABEL_VISIBILITY_LABELED
-      // Floating liquid-glass capsule: rounded corners + translucent white.
       setBackgroundResource(R.drawable.bg_floating_tab_bar)
+      outlineProvider = ViewOutlineProvider.BACKGROUND
+      clipToOutline = true
       elevation = resources.getDimension(R.dimen.floating_tab_elevation)
+      setupWith(blurTarget)
+        .setBlurRadius(20f)
     }
-    addTabItems(bottomBar)
-    root.addView(bottomBar)
+    blurView.addView(bottomBar)
+    root.addView(blurView)
     setContentView(root)
 
     // Keep Lynx content below the status bar (edge-to-edge is enforced on
