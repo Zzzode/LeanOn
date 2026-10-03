@@ -47,6 +47,9 @@ targets:
           - UIInterfaceOrientationPortraitUpsideDown
           - UIInterfaceOrientationLandscapeLeft
           - UIInterfaceOrientationLandscapeRight
+        CFBundleLocalizations:
+          - en
+          - zh-Hans
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.zzzode.leanon

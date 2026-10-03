@@ -1,7 +1,19 @@
+import type { ReactNode } from '@lynx-js/react';
+import {
+  IconBell,
+  IconDiet,
+  IconExport,
+  IconGoal,
+  IconHealth,
+  IconInfo,
+  IconProfile,
+  IconScale,
+  IconSettings,
+} from '../components/MeIcons.js';
 import type { ScreenProps } from './types.js';
 
 interface MeRowProps {
-  icon: string;
+  icon: ReactNode;
   label: string;
   val?: string;
   onTap?: () => void;
@@ -9,8 +21,13 @@ interface MeRowProps {
 
 function MeRow({ icon, label, val, onTap }: MeRowProps) {
   return (
-    <view className="MeRow" flatten={onTap === undefined ? undefined : false} bindtap={onTap}>
-      <text className="MeRow-icon">{icon}</text>
+    <view
+      className="MeRow"
+      flatten={onTap === undefined ? undefined : false}
+      hover-class={onTap === undefined ? undefined : 'tap-feedback-hover'}
+      bindtap={onTap}
+    >
+      {icon}
       <text className="MeRow-label">{label}</text>
       {val !== undefined ? <text className="MeRow-val">{val}</text> : null}
       <text className="MeRow-chev">›</text>
@@ -45,22 +62,34 @@ export function MeScreen({ state, locale, t, actions }: ScreenProps) {
       </view>
 
       <view className="Card MeList">
-        <MeRow icon="👤" label={t('me.profile')} />
-        <MeRow icon="🎯" label={t('me.goals')} val={`${state.goalWeightKg} kg`} />
-        <MeRow icon="🍽" label={t('me.dietPrefs')} />
-        <view className="MeList-line"></view>
-        <MeRow icon="❤" label={t('me.healthApp')} onTap={actions.openHealthConnections} />
-        <MeRow icon="⚖" label={t('me.connectedScale')} />
-        <MeRow icon="🔔" label={t('me.reminders')} onTap={actions.openReminders} />
+        <MeRow icon={<IconProfile />} label={t('me.profile')} />
+        <MeRow
+          icon={<IconGoal />}
+          label={t('me.goals')}
+          val={`${state.goalWeightKg} kg`}
+        />
+        <MeRow icon={<IconDiet />} label={t('me.dietPrefs')} />
         <view className="MeList-line"></view>
         <MeRow
-          icon="⚙"
+          icon={<IconHealth />}
+          label={t('me.healthApp')}
+          onTap={actions.openHealthConnections}
+        />
+        <MeRow icon={<IconScale />} label={t('me.connectedScale')} />
+        <MeRow
+          icon={<IconBell />}
+          label={t('me.reminders')}
+          onTap={actions.openReminders}
+        />
+        <view className="MeList-line"></view>
+        <MeRow
+          icon={<IconSettings />}
           label={t('me.settings')}
           val={locale === 'zh-CN' ? '中文' : 'English'}
           onTap={actions.openSettings}
         />
-        <MeRow icon="📤" label={t('me.dataExport')} />
-        <MeRow icon="ℹ" label={t('me.about')} />
+        <MeRow icon={<IconExport />} label={t('me.dataExport')} />
+        <MeRow icon={<IconInfo />} label={t('me.about')} />
       </view>
       <text className="MeVersion">LeanOn v0.1.0 · Apache-2.0</text>
     </view>

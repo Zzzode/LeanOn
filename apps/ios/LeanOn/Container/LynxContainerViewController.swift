@@ -33,7 +33,7 @@ final class LynxContainerViewController: UIViewController {
   }
 
   private static let pushedTitles: [String: String] = [
-    "settings": "Settings",
+    "settings": String(localized: "settings.title"),
   ]
 
   override func viewDidLoad() {
@@ -107,10 +107,12 @@ final class LynxContainerViewController: UIViewController {
     [
       "hostData": ServiceRegistry.shared.recordsStore.loadHostData(),
       "route": screenRoute,
-      // UI-test hook, e.g. SIMCTL_CHILD_LEANON_LOCALE=zh-CN.
+      // Pages resolve this tag through resolveLocale(); pass the raw system
+      // language so zh-Hans-* lands on zh-CN. The env var is a UI-test hook,
+      // e.g. SIMCTL_CHILD_LEANON_LOCALE=zh-CN.
       "locale":
-        ProcessInfo.processInfo.environment["LEANON_LOCALE"] == "zh-CN"
-        ? "zh-CN" : "en",
+        ProcessInfo.processInfo.environment["LEANON_LOCALE"]
+        ?? Locale.preferredLanguages.first ?? "en",
     ]
   }
 }

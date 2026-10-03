@@ -18,8 +18,19 @@
 
 .Content {
   flex-direction: column;
-  padding: 0 32rpx 56rpx;
+  padding: 0 32rpx 180rpx;
 }
+
+/* Press feedback utilities */
+.tap-feedback { transition: opacity 150ms ease; }
+.tap-feedback-hover { opacity: 0.55; }
+
+/* Animations */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes sheetSlideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+@keyframes cheerPop { 0% { transform: scale(1); } 40% { transform: scale(1.18); } 100% { transform: scale(1); } }
+
+.cheer-pop { animation: cheerPop 450ms ease; }
 
 /* Header */
 .Header {
@@ -107,7 +118,7 @@
 
 .Card-title {
   font-size: 24rpx;
-  letter-spacing: 2rpx;
+  letter-spacing: 0;
   color: #82918a;
   margin-bottom: 22rpx;
 }
@@ -172,6 +183,7 @@
 .ProgressBar-fill {
   height: 16rpx;
   border-radius: 8rpx;
+  transition: width 600ms ease-out;
 }
 
 /* Weight */
@@ -366,12 +378,11 @@
 /* Quick actions */
 .Actions {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin-top: 4rpx;
 }
 
 .Action-btn {
-  flex: 1;
   height: 92rpx;
   border-radius: 22rpx;
   align-items: center;
@@ -380,11 +391,26 @@
 }
 
 .Action-btn + .Action-btn {
-  margin-left: 24rpx;
+  margin-top: 16rpx;
+  margin-left: 0;
 }
 
 .Action-btn.primary {
   background-color: #218967;
+}
+
+.Action-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.Action-row .Action-btn {
+  flex: 1;
+}
+
+.Action-row .Action-btn + .Action-btn {
+  margin-left: 24rpx;
+  margin-top: 0;
 }
 
 .Action-label {
@@ -414,7 +440,7 @@
   margin-top: 14rpx;
   text-align: center;
   font-size: 22rpx;
-  color: #93a09a;
+  color: #6b7c74;
 }
 
 /* Weight logging sheet */
@@ -428,6 +454,7 @@
   flex-direction: column;
   justify-content: flex-end;
   background-color: rgba(0, 0, 0, 0.35);
+  animation: fadeIn 200ms ease-out;
 }
 
 .Sheet {
@@ -435,6 +462,7 @@
   border-top-left-radius: 36rpx;
   border-top-right-radius: 36rpx;
   padding: 40rpx 36rpx 48rpx;
+  animation: sheetSlideUp 300ms cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 .Sheet-title {
@@ -516,6 +544,7 @@
   border-top-left-radius: 36rpx;
   border-top-right-radius: 36rpx;
   padding: 40rpx 36rpx 48rpx;
+  animation: sheetSlideUp 300ms cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 .Scale-reading {
@@ -596,6 +625,7 @@
   border-radius: 36rpx;
   margin: 120rpx 24rpx 40rpx;
   padding: 40rpx 32rpx;
+  animation: sheetSlideUp 300ms cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 .Food-search-row {
@@ -992,21 +1022,15 @@
   margin-top: 10rpx;
 }
 
-.Trend-hbars {
-  margin-top: 22rpx;
-}
-
-.Trend-hrow {
-  flex-direction: row;
-  align-items: center;
-  margin: 3rpx 0;
-}
-
-.Trend-hbar {
-  background: linear-gradient(90deg, #218967, #58ab8d);
-  border-radius: 4rpx;
-  min-width: 12rpx;
-}
+/* SVG line chart */
+.TrendChart { width: 100%; height: 220rpx; margin-top: 24rpx; }
+.TrendChart-svg { width: 100%; height: 100%; }
+.TrendChart-area { fill: #218967; opacity: 0.08; }
+.TrendChart-line { fill: none; stroke: #218967; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.TrendChart-dot { fill: #218967; }
+.TrendChart-dot-current { fill: #218967; stroke: #ffffff; stroke-width: 3; }
+.TrendChart-goal { stroke: #b6c0ba; stroke-width: 2; stroke-dasharray: 8 6; }
+.TrendChart-label { font-size: 20rpx; fill: #8a988f; }
 
 .Insights-row {
   flex-direction: row;
@@ -1274,6 +1298,12 @@
 .Meal-add { background-color: #e8efeb; border-radius: 16rpx; padding: 10rpx 22rpx; }
 .Meal-add-text { font-size: 24rpx; color: #218967; }
 .Meal-empty { font-size: 23rpx; color: #9aa8a0; margin-top: 16rpx; }
+.Meal-empty-body { align-items: center; padding: 28rpx 0 8rpx; }
+.Meal-empty-icon { font-size: 52rpx; color: #c5d0ca; margin-bottom: 10rpx; }
+.Meal-empty-text { font-size: 24rpx; color: #8a988f; }
+.Meal-recents { flex-direction: row; flex-wrap: wrap; margin-top: 18rpx; }
+.Meal-recent-chip { background-color: #e8efeb; border-radius: 999rpx; padding: 12rpx 22rpx; margin: 8rpx 10rpx 0 0; }
+.Meal-recent-label { font-size: 22rpx; color: #218967; }
 .DiaryTotals-row { flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 14rpx; }
 .DiaryTotals-label { font-size: 26rpx; color: #5b6b63; }
 .DiaryTotals-value { font-size: 28rpx; font-weight: 600; color: #14352a; }
@@ -1307,9 +1337,9 @@
 .Person-goallabel { font-size: 25rpx; color: #5b6b63; }
 .Person-goalval { font-size: 28rpx; font-weight: 700; color: #14352a; }
 .GoalBar { height: 18rpx; border-radius: 9rpx; background-color: #e8efeb; overflow: hidden; }
-.GoalBar-fill { height: 18rpx; border-radius: 9rpx; background-color: #218967; }
+.GoalBar-fill { height: 18rpx; border-radius: 9rpx; background-color: #218967; transition: width 600ms ease-out; }
 .Support-row { flex-direction: row; }
-.Support-btn { flex-grow: 1; background-color: #e8efeb; border-radius: 18rpx; padding: 20rpx 0; align-items: center; margin: 0 8rpx; }
+.Support-btn { flex-grow: 1; background-color: #e8efeb; border-radius: 18rpx; padding: 20rpx 0; align-items: center; margin: 0 8rpx; transition: opacity 150ms ease; }
 .Support-btn-text { font-size: 24rpx; color: #218967; font-weight: 600; }
 
 /* ===== Me ===== */
@@ -1327,16 +1357,16 @@
 .MeSignin-text { flex: 1; flex-direction: column; padding-right: 20rpx; }
 .MeSignin-title { font-size: 28rpx; font-weight: 700; color: #14352a; }
 .MeSignin-body { font-size: 22rpx; color: #6b7c74; margin-top: 6rpx; }
-.MeSignin-btn { background-color: #14352a; border-radius: 18rpx; padding: 18rpx 28rpx; }
+.MeSignin-btn { background-color: #218967; border-radius: 18rpx; padding: 18rpx 28rpx; }
 .MeSignin-btn-text { font-size: 25rpx; font-weight: 600; color: #ffffff; }
 .MeList { padding-top: 10rpx; padding-bottom: 10rpx; }
 .MeRow { flex-direction: row; align-items: center; min-height: 104rpx; padding: 20rpx 6rpx; }
-.MeRow-icon { font-size: 30rpx; width: 48rpx; }
+.MeRow-icon { width: 44rpx; height: 44rpx; margin-right: 16rpx; }
 .MeRow-label { flex: 1; font-size: 27rpx; color: #14352a; }
 .MeRow-val { font-size: 24rpx; color: #8a988f; margin-right: 12rpx; }
 .MeRow-chev { font-size: 34rpx; color: #b6c0ba; }
 .MeList-line { height: 2rpx; background-color: #eef2f0; margin: 6rpx 0; }
-.MeVersion { text-align: center; font-size: 21rpx; color: #9aa8a0; margin-top: 10rpx; }
+.MeVersion { text-align: center; font-size: 21rpx; color: #6b7c74; margin-top: 10rpx; }
 
 /* ===== Bottom tab bar (developer shell) ===== */
 .BottomTabBar {

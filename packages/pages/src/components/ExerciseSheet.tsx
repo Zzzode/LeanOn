@@ -91,7 +91,11 @@ export function ExerciseSheet({
   };
 
   return (
-    <view className="Sheet-overlay" bindtap={onClose}>
+    <view
+      className="Sheet-overlay"
+      hover-class="tap-feedback-hover"
+      bindtap={onClose}
+    >
       <view className="Sheet" catchtap={() => {}}>
         <text className="Sheet-title">
           {isEdit
@@ -106,6 +110,7 @@ export function ExerciseSheet({
               className={`Exercise-type${
                 type.id === selectedId ? ' selected' : ''
               }`}
+              hover-class="tap-feedback-hover"
               bindtap={() => setSelectedId(type.id)}
             >
               <text className="Exercise-type-label">
@@ -137,13 +142,18 @@ export function ExerciseSheet({
         {error !== null && <text className="Sheet-error">{error}</text>}
 
         <view className="Sheet-actions">
-          <view className="Sheet-btn" bindtap={onClose}>
+          <view
+            className="Sheet-btn"
+            hover-class="tap-feedback-hover"
+            bindtap={onClose}
+          >
             <text className="Sheet-btn-label">
               {t('exerciseSheet.cancel')}
             </text>
           </view>
           <view
             className={`Sheet-btn primary${saving ? ' disabled' : ''}`}
+            hover-class="tap-feedback-hover"
             bindtap={saving ? undefined : handleSave}
           >
             <text className="Sheet-btn-label primary">

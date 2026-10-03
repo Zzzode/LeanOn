@@ -71,7 +71,11 @@ export function ScaleSheet({ bridge, t, onClose }: ScaleSheetProps) {
   };
 
   return (
-    <view className="Sheet-overlay" bindtap={onClose}>
+    <view
+      className="Sheet-overlay"
+      hover-class="tap-feedback-hover"
+      bindtap={onClose}
+    >
       <view className="ScaleSheet" catchtap={() => {}}>
         <text className="Sheet-title">{t('scaleSheet.title')}</text>
 
@@ -97,6 +101,7 @@ export function ScaleSheet({ bridge, t, onClose }: ScaleSheetProps) {
               className={`Scale-device${
                 activeDevice === device.deviceId ? ' active' : ''
               }`}
+              hover-class="tap-feedback-hover"
               bindtap={() => handleConnect(device)}
             >
               <text className="Scale-device-name">{device.name}</text>
@@ -108,10 +113,18 @@ export function ScaleSheet({ bridge, t, onClose }: ScaleSheetProps) {
         </view>
 
         <view className="Sheet-actions">
-          <view className="Sheet-btn" bindtap={onClose}>
+          <view
+            className="Sheet-btn"
+            hover-class="tap-feedback-hover"
+            bindtap={onClose}
+          >
             <text className="Sheet-btn-label">{t('scaleSheet.close')}</text>
           </view>
-          <view className="Sheet-btn primary" bindtap={handleScan}>
+          <view
+            className="Sheet-btn primary"
+            hover-class="tap-feedback-hover"
+            bindtap={handleScan}
+          >
             <text className="Sheet-btn-label primary">
               {t('scaleSheet.scan')}
             </text>

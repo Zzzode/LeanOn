@@ -395,8 +395,8 @@ export function App() {
   };
 
   const screenActions: ScreenActions = {
-    logFood: () => {
-      setInitialFoodId(undefined);
+    logFood: (foodId?: string) => {
+      setInitialFoodId(foodId);
       setScanError(null);
       setActiveSheet('food');
     },
@@ -459,7 +459,11 @@ export function App() {
       <scroll-view scroll-orientation="vertical" className="Scroll">
         <view className="Content">
           {!isNativeShell && devStack.length > 0 && (
-            <view className="DevBack" bindtap={handleDevBack}>
+            <view
+              className="DevBack"
+              hover-class="tap-feedback-hover"
+              bindtap={handleDevBack}
+            >
               <text className="DevBack-text">‹ {t('settings.done')}</text>
             </view>
           )}

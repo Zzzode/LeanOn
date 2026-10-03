@@ -1,0 +1,7 @@
+/* Canonical source: packages/i18n/src/locales/en.ts — keep in sync. */
+"tab.today" = "Today";
+"tab.diary" = "Diary";
+"tab.progress" = "Progress";
+"tab.partner" = "Partner";
+"tab.me" = "Me";
+"settings.title" = "Settings";

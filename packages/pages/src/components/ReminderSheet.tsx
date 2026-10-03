@@ -79,6 +79,7 @@ export function ReminderSheet({
               className={
                 slot.enabled ? 'Reminder-seg active' : 'Reminder-seg'
               }
+              hover-class="tap-feedback-hover"
               bindtap={slot.enabled ? undefined : () => toggle(kind)}
             >
               <text
@@ -95,6 +96,7 @@ export function ReminderSheet({
               className={
                 slot.enabled ? 'Reminder-seg' : 'Reminder-seg active'
               }
+              hover-class="tap-feedback-hover"
               bindtap={slot.enabled ? () => toggle(kind) : undefined}
             >
               <text
@@ -117,6 +119,7 @@ export function ReminderSheet({
               <view
                 key={formatTime(time.hour, time.minute)}
                 className={active ? 'Reminder-time active' : 'Reminder-time'}
+                hover-class="tap-feedback-hover"
                 bindtap={() => pickTime(kind, time.hour, time.minute)}
               >
                 <text
@@ -137,16 +140,28 @@ export function ReminderSheet({
   };
 
   return (
-    <view className="Sheet-overlay" bindtap={onClose}>
+    <view
+      className="Sheet-overlay"
+      hover-class="tap-feedback-hover"
+      bindtap={onClose}
+    >
       <view className="Sheet Reminder-sheet" catchtap={() => {}}>
         <text className="Sheet-title">{t('reminder.title')}</text>
         {renderKind('weight', t('reminder.weight'), WEIGHT_TIMES)}
         {renderKind('meals', t('reminder.meals'), MEALS_TIMES)}
         <view className="Sheet-actions">
-          <view className="Sheet-btn" bindtap={onClose}>
+          <view
+            className="Sheet-btn"
+            hover-class="tap-feedback-hover"
+            bindtap={onClose}
+          >
             <text className="Sheet-btn-label">{t('reminder.cancel')}</text>
           </view>
-          <view className="Sheet-btn primary" bindtap={() => onSave(draft)}>
+          <view
+            className="Sheet-btn primary"
+            hover-class="tap-feedback-hover"
+            bindtap={() => onSave(draft)}
+          >
             <text className="Sheet-btn-label primary">{t('reminder.save')}</text>
           </view>
         </view>

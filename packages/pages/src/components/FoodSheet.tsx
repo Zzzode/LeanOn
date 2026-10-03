@@ -345,7 +345,11 @@ export function FoodSheet({
   const showForm = creating || editing;
 
   return (
-    <view className="Sheet-overlay Food-overlay" bindtap={onClose}>
+    <view
+      className="Sheet-overlay Food-overlay"
+      hover-class="tap-feedback-hover"
+      bindtap={onClose}
+    >
       <view className="FoodSheet" catchtap={() => {}}>
         <text className="Sheet-title">
           {showForm
@@ -432,13 +436,18 @@ export function FoodSheet({
               <text className="Sheet-error">{formError}</text>
             )}
             <view className="Sheet-actions">
-              <view className="Sheet-btn" bindtap={closeForm}>
+              <view
+                className="Sheet-btn"
+                hover-class="tap-feedback-hover"
+                bindtap={closeForm}
+              >
                 <text className="Sheet-btn-label">
                   {t('customFood.cancel')}
                 </text>
               </view>
               <view
                 className={`Sheet-btn primary${saving ? ' disabled' : ''}`}
+                hover-class="tap-feedback-hover"
                 bindtap={saving ? undefined : submitForm}
               >
                 <text className="Sheet-btn-label primary">
@@ -460,7 +469,11 @@ export function FoodSheet({
                   placeholder={t('foodSheet.searchPlaceholder')}
                 />
               </view>
-              <view className="Food-scan-btn" bindtap={onScanBarcode}>
+              <view
+                className="Food-scan-btn"
+                hover-class="tap-feedback-hover"
+                bindtap={onScanBarcode}
+              >
                 <text className="Food-scan-label">
                   {t('foodSheet.scan')}
                 </text>
@@ -479,6 +492,7 @@ export function FoodSheet({
                     <view
                       key={`fav-${item.id}`}
                       className="Food-row"
+                      hover-class="tap-feedback-hover"
                       bindtap={() => choose(item)}
                     >
                       <text className="Food-row-name">
@@ -500,6 +514,7 @@ export function FoodSheet({
                     <view
                       key={`recent-${item.id}`}
                       className="Food-row"
+                      hover-class="tap-feedback-hover"
                       bindtap={() => choose(item)}
                     >
                       <text className="Food-row-name">
@@ -517,6 +532,7 @@ export function FoodSheet({
                   <view
                     key={item.id}
                     className="Food-row"
+                    hover-class="tap-feedback-hover"
                     bindtap={() => choose(item)}
                   >
                     <text className="Food-row-name">
@@ -530,6 +546,7 @@ export function FoodSheet({
               {trimmedQuery !== '' && showCreateRow && (
                 <view
                   className="Food-row Food-create-row"
+                  hover-class="tap-feedback-hover"
                   bindtap={openCreate}
                 >
                   <text className="Food-create-label">
@@ -546,6 +563,7 @@ export function FoodSheet({
                     <view
                       key={`sug-${item.id}`}
                       className="Food-row"
+                      hover-class="tap-feedback-hover"
                       bindtap={() => choose(item)}
                     >
                       <text className="Food-row-name">
@@ -560,7 +578,11 @@ export function FoodSheet({
               )}
             </view>
             <view className="Sheet-actions">
-              <view className="Sheet-btn" bindtap={onClose}>
+              <view
+                className="Sheet-btn"
+                hover-class="tap-feedback-hover"
+                bindtap={onClose}
+              >
                 <text className="Sheet-btn-label">
                   {t('foodSheet.cancel')}
                 </text>
@@ -569,14 +591,22 @@ export function FoodSheet({
           </view>
         ) : (
           <view className="Food-detail">
-            <view className="Food-back" bindtap={() => setSelected(null)}>
+            <view
+              className="Food-back"
+              hover-class="tap-feedback-hover"
+              bindtap={() => setSelected(null)}
+            >
               <text className="Food-back-label">{t('foodSheet.back')}</text>
             </view>
             <view className="Food-detail-head">
               <text className="Food-selected-name">
                 {selected.name[locale]}
               </text>
-              <view className="Food-star" bindtap={toggleFavorite}>
+              <view
+                className="Food-star"
+                hover-class="tap-feedback-hover"
+                bindtap={toggleFavorite}
+              >
                 <text
                   className={`Food-star-label${isFavorite ? ' on' : ''}`}
                 >
@@ -637,7 +667,11 @@ export function FoodSheet({
 
             {isUserOwned(selected) && (
               <view className="Food-manage">
-                <view className="Food-manage-btn" bindtap={openEdit}>
+                <view
+                  className="Food-manage-btn"
+                  hover-class="tap-feedback-hover"
+                  bindtap={openEdit}
+                >
                   <text className="Food-manage-label">
                     {t('customFood.edit')}
                   </text>
@@ -646,6 +680,7 @@ export function FoodSheet({
                   <view className="Food-manage-row">
                     <view
                       className="Food-manage-btn"
+                      hover-class="tap-feedback-hover"
                       bindtap={() => setConfirmDelete(false)}
                     >
                       <text className="Food-manage-label">
@@ -654,6 +689,7 @@ export function FoodSheet({
                     </view>
                     <view
                       className="Food-manage-btn danger"
+                      hover-class="tap-feedback-hover"
                       bindtap={saving ? undefined : handleDelete}
                     >
                       <text className="Food-manage-label danger">
@@ -664,6 +700,7 @@ export function FoodSheet({
                 ) : (
                   <view
                     className="Food-manage-btn danger"
+                    hover-class="tap-feedback-hover"
                     bindtap={() => setConfirmDelete(true)}
                   >
                     <text className="Food-manage-label danger">
@@ -675,13 +712,18 @@ export function FoodSheet({
             )}
 
             <view className="Sheet-actions">
-              <view className="Sheet-btn" bindtap={onClose}>
+              <view
+                className="Sheet-btn"
+                hover-class="tap-feedback-hover"
+                bindtap={onClose}
+              >
                 <text className="Sheet-btn-label">
                   {t('foodSheet.cancel')}
                 </text>
               </view>
               <view
                 className={`Sheet-btn primary${saving ? ' disabled' : ''}`}
+                hover-class="tap-feedback-hover"
                 bindtap={saving ? undefined : handleSave}
               >
                 <text className="Sheet-btn-label primary">

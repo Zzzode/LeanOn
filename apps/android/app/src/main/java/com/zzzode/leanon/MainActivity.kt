@@ -62,6 +62,12 @@ class MainActivity : AppCompatActivity() {
         LinearLayout.LayoutParams.MATCH_PARENT,
         LinearLayout.LayoutParams.WRAP_CONTENT,
       )
+      // With five items the default AUTO mode shows only the selected label;
+      // keep every destination labeled to match the iOS tab bar.
+      labelVisibilityMode = BottomNavigationView.LABEL_VISIBILITY_LABELED
+      // Material 3 defaults the bar to a lavender surface-container tint; pin it
+      // to white so it matches the app's botanical palette.
+      setBackgroundColor(android.graphics.Color.WHITE)
     }
     addTabItems(bottomBar)
     root.addView(bottomBar)

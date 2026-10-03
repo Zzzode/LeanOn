@@ -59,7 +59,11 @@ export function HealthConnectSheet({
   const canSync = status.permissionsGranted;
 
   return (
-    <view className="Sheet-overlay" bindtap={onClose}>
+    <view
+      className="Sheet-overlay"
+      hover-class="tap-feedback-hover"
+      bindtap={onClose}
+    >
       <view className="Sheet Reminder-sheet" catchtap={() => {}}>
         <text className="Sheet-title">{t('healthConnect.title')}</text>
         <text className="HealthConnect-desc">
@@ -77,6 +81,7 @@ export function HealthConnectSheet({
               </text>
               <view
                 className="Sheet-btn primary HealthConnect-grant"
+                hover-class="tap-feedback-hover"
                 bindtap={
                   status.permissionsGranted ? undefined : onRequestPermission
                 }
@@ -97,6 +102,7 @@ export function HealthConnectSheet({
                   className={
                     status.enabled ? 'Reminder-seg active' : 'Reminder-seg'
                   }
+                  hover-class="tap-feedback-hover"
                   bindtap={
                     status.enabled ? undefined : () => onSetEnabled(true)
                   }
@@ -115,6 +121,7 @@ export function HealthConnectSheet({
                   className={
                     status.enabled ? 'Reminder-seg' : 'Reminder-seg active'
                   }
+                  hover-class="tap-feedback-hover"
                   bindtap={
                     status.enabled ? () => onSetEnabled(false) : undefined
                   }
@@ -138,6 +145,7 @@ export function HealthConnectSheet({
                     ? 'Sheet-btn HealthConnect-sync disabled'
                     : 'Sheet-btn HealthConnect-sync'
                 }
+                hover-class="tap-feedback-hover"
                 bindtap={!syncing && canSync ? handleSync : undefined}
               >
                 <text className="Sheet-btn-label">
@@ -157,7 +165,11 @@ export function HealthConnectSheet({
           </view>
         )}
         <view className="Sheet-actions">
-          <view className="Sheet-btn primary" bindtap={onClose}>
+          <view
+            className="Sheet-btn primary"
+            hover-class="tap-feedback-hover"
+            bindtap={onClose}
+          >
             <text className="Sheet-btn-label primary">
               {t('healthConnect.done')}
             </text>

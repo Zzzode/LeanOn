@@ -10,12 +10,14 @@ final class RootTabBarController: UITabBarController {
     let symbol: String
   }
 
+  // Native shell chrome; labels mirror the canonical catalog in packages/i18n
+  // (Localizable.strings, en + zh-Hans) and follow the system language.
   private let tabSpecs: [TabSpec] = [
-    TabSpec(route: "today", title: "Today", symbol: "sun.max"),
-    TabSpec(route: "diary", title: "Diary", symbol: "book"),
-    TabSpec(route: "progress", title: "Progress", symbol: "chart.bar"),
-    TabSpec(route: "partner", title: "Partner", symbol: "heart"),
-    TabSpec(route: "me", title: "Me", symbol: "person"),
+    TabSpec(route: "today", title: String(localized: "tab.today"), symbol: "sun.max"),
+    TabSpec(route: "diary", title: String(localized: "tab.diary"), symbol: "book"),
+    TabSpec(route: "progress", title: String(localized: "tab.progress"), symbol: "chart.bar"),
+    TabSpec(route: "partner", title: String(localized: "tab.partner"), symbol: "heart"),
+    TabSpec(route: "me", title: String(localized: "tab.me"), symbol: "person"),
   ]
 
   override func viewDidLoad() {

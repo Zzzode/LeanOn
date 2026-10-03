@@ -29,7 +29,8 @@ export function PartnerScreen({ state, t }: ScreenProps) {
             <view>
               <text className="Person-name">{t('partner.you')}</text>
               <text className="Person-sub">
-                {state.remainingKcal} kcal left · streak {state.streak}
+                {state.remainingKcal} {t('energy.kcalLeft')} · {state.streak}{' '}
+                {t('home.dayStreak')}
               </text>
             </view>
           </view>
@@ -40,7 +41,7 @@ export function PartnerScreen({ state, t }: ScreenProps) {
         <view className="Person-line"></view>
         <view className="Person-foot">
           <text className="Person-foot-label">
-            Weight {state.currentWeightKg} kg
+            {t('weight.title')} {state.currentWeightKg} kg
           </text>
           <text className="Person-foot-meta">{t('weight.kgPerWeek')}</text>
         </view>
@@ -58,7 +59,10 @@ export function PartnerScreen({ state, t }: ScreenProps) {
         </view>
         <view className="Person-line"></view>
         <text className="Person-linkbody">{t('partner.linkBody')}</text>
-        <view className="Person-linkbtn">
+        <view
+          className="Person-linkbtn tap-feedback"
+          hover-class="tap-feedback-hover"
+        >
           <text className="Person-linkbtn-text">
             {t('partner.linkPartner')}
           </text>
@@ -85,15 +89,29 @@ export function PartnerScreen({ state, t }: ScreenProps) {
 
       <view className="Card">
         <view className="Support-row">
-          <view className="Support-btn" bindtap={() => setCheered(true)}>
+          <view
+            className={
+              cheered
+                ? 'Support-btn tap-feedback cheer-pop'
+                : 'Support-btn tap-feedback'
+            }
+            hover-class="tap-feedback-hover"
+            bindtap={() => setCheered(true)}
+          >
             <text className="Support-btn-text">
               {cheered ? `✓ ${t('partner.cheerSent')}` : `❤ ${t('partner.cheer')}`}
             </text>
           </view>
-          <view className="Support-btn">
+          <view
+            className="Support-btn tap-feedback"
+            hover-class="tap-feedback-hover"
+          >
             <text className="Support-btn-text">🤗 {t('partner.hug')}</text>
           </view>
-          <view className="Support-btn">
+          <view
+            className="Support-btn tap-feedback"
+            hover-class="tap-feedback-hover"
+          >
             <text className="Support-btn-text">✎ {t('partner.note')}</text>
           </view>
         </view>

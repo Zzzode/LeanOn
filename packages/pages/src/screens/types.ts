@@ -7,7 +7,8 @@ export type ExerciseSessionView = TodayState['exerciseSessions'][number];
 
 /** Callbacks the host/screens provide; the UI never owns a clock or storage. */
 export interface ScreenActions {
-  logFood: () => void;
+  /** Open the food logger; a food id preselects that food (recent quick-add). */
+  logFood: (foodId?: string) => void;
   logWeight: () => void;
   logExercise: () => void;
   openReminders: () => void;

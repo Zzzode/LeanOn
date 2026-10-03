@@ -225,6 +225,7 @@ export const en = {
   'diary.snacks': 'Snacks',
   'diary.addFood': 'Add',
   'diary.emptyMeal': 'Nothing logged',
+  'diary.tapToAdd': 'Tap to add',
   'diary.food': 'Food',
   'diary.exercise': 'Exercise',
   'diary.net': 'Net',
@@ -234,7 +235,7 @@ export const en = {
   'progress.title': 'Progress',
 
   // Partner screen.
-  'partner.title': 'Together',
+  'partner.title': 'Partner',
   'partner.you': 'You',
   'partner.partner': 'Partner',
   'partner.partnerDays': 'Partners {n} days',

@@ -62,7 +62,11 @@ export function WeightSheet({
   };
 
   return (
-    <view className="Sheet-overlay" bindtap={onClose}>
+    <view
+      className="Sheet-overlay"
+      hover-class="tap-feedback-hover"
+      bindtap={onClose}
+    >
       <view className="Sheet" catchtap={() => {}}>
         <text className="Sheet-title">{t('weightSheet.title')}</text>
         <view className="Sheet-field">
@@ -77,11 +81,16 @@ export function WeightSheet({
         </view>
         {error !== null && <text className="Sheet-error">{error}</text>}
         <view className="Sheet-actions">
-          <view className="Sheet-btn" bindtap={onClose}>
+          <view
+            className="Sheet-btn"
+            hover-class="tap-feedback-hover"
+            bindtap={onClose}
+          >
             <text className="Sheet-btn-label">{t('weightSheet.cancel')}</text>
           </view>
           <view
             className={`Sheet-btn primary${saving ? ' disabled' : ''}`}
+            hover-class="tap-feedback-hover"
             bindtap={saving ? undefined : handleSave}
           >
             <text className="Sheet-btn-label primary">
@@ -89,7 +98,11 @@ export function WeightSheet({
             </text>
           </view>
         </view>
-        <view className="Sheet-link" bindtap={onPairScale}>
+        <view
+          className="Sheet-link"
+          hover-class="tap-feedback-hover"
+          bindtap={onPairScale}
+        >
           <text className="Sheet-link-label">
             {t('weightSheet.pairScale')}
           </text>

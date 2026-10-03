@@ -58,12 +58,17 @@ export function WaterCard({
       </view>
       <view className="Water-controls">
         <view
-          className={canRemove ? 'Water-btn' : 'Water-btn disabled'}
+          className={canRemove ? 'Water-btn tap-feedback' : 'Water-btn disabled tap-feedback'}
+          hover-class="tap-feedback-hover"
           bindtap={canRemove ? remove : undefined}
         >
           <text className="Water-btn-label">{t('water.remove')}</text>
         </view>
-        <view className="Water-btn primary" bindtap={add}>
+        <view
+          className="Water-btn primary tap-feedback"
+          hover-class="tap-feedback-hover"
+          bindtap={add}
+        >
           <text className="Water-btn-label primary">{t('water.add')}</text>
         </view>
       </view>

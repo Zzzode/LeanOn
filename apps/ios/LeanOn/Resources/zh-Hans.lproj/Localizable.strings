@@ -1,0 +1,7 @@
+/* Canonical source: packages/i18n/src/locales/zh-CN.ts — keep in sync. */
+"tab.today" = "今日";
+"tab.diary" = "饮食";
+"tab.progress" = "进展";
+"tab.partner" = "伴侣";
+"tab.me" = "我的";
+"settings.title" = "设置";
