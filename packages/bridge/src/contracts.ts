@@ -273,6 +273,10 @@ export type LeanOnRpcContract = {
     request: void;
     response: HostCapabilities;
   };
+  'app.openRoute': {
+    request: { route: string };
+    response: { success: true };
+  };
   'notification.schedule': {
     request: ScheduleNotificationRequest;
     response: { id: string };
@@ -356,6 +360,7 @@ export const RpcMethods = {
   resourceFetch: 'resource.fetch',
   appGetInfo: 'app.getInfo',
   appGetCapabilities: 'app.getCapabilities',
+  appOpenRoute: 'app.openRoute',
   notificationSchedule: 'notification.schedule',
   notificationGetSettings: 'notification.getSettings',
   notificationUpdateSettings: 'notification.updateSettings',

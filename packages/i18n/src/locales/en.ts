@@ -211,6 +211,58 @@ export const en = {
   'micros.fiberReached': 'Fiber goal met',
 
   'date.format': '{weekday}, {month} {day}',
+  // Bottom navigation tabs (RFC 0028).
+  'tab.diary': 'Diary',
+  'tab.progress': 'Progress',
+  'tab.partner': 'Partner',
+  'tab.me': 'Me',
+
+  // Diary screen.
+  'diary.title': 'Diary',
+  'diary.breakfast': 'Breakfast',
+  'diary.lunch': 'Lunch',
+  'diary.dinner': 'Dinner',
+  'diary.snacks': 'Snacks',
+  'diary.addFood': 'Add',
+  'diary.emptyMeal': 'Nothing logged',
+  'diary.food': 'Food',
+  'diary.exercise': 'Exercise',
+  'diary.net': 'Net',
+  'diary.remaining': 'Remaining',
+
+  // Progress screen.
+  'progress.title': 'Progress',
+
+  // Partner screen.
+  'partner.title': 'Together',
+  'partner.you': 'You',
+  'partner.partner': 'Partner',
+  'partner.partnerDays': 'Partners {n} days',
+  'partner.sharedGoal': 'Shared goal',
+  'partner.togetherLost': 'Together lost',
+  'partner.cheer': 'Cheer',
+  'partner.hug': 'Hug',
+  'partner.note': 'Note',
+  'partner.notLinked': 'Your partner is not linked yet',
+  'partner.linkPartner': 'Link your partner',
+  'partner.linkBody': 'Partner linking arrives together with account sign-in.',
+  'partner.cheerSent': 'Cheer sent',
+
+  // Me screen.
+  'me.title': 'Me',
+  'me.signIn': 'Sign in',
+  'me.signInBody': 'Back up, sync across devices and link your partner.',
+  'me.profile': 'Profile',
+  'me.goals': 'Goals',
+  'me.dietPrefs': 'Dietary preferences',
+  'me.healthApp': 'Health app',
+  'me.connectedScale': 'Connected scale',
+  'me.reminders': 'Reminders',
+  'me.settings': 'Settings',
+  'me.dataExport': 'Data & export',
+  'me.about': 'About',
+  'me.connected': 'Connected',
+  'me.guest': 'Guest',
 } as const;
 
 export type MessageKey = keyof typeof en;

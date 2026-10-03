@@ -433,6 +433,10 @@ function createPreviewBridge(): LeanOnBridgeClient {
     return { connected: false };
   });
 
+  memory.handle<{ route: string }, { success: true }>(
+    'app.openRoute',
+    () => ({ success: true }),
+  );
   return createLeanOnBridgeClient(memory.transport);
 }
 

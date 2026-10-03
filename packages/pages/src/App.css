@@ -1,5 +1,6 @@
-.Page {
+.PageRoot {
   display: flex;
+  flex: 1;
   flex-direction: column;
   height: 100vh;
   background-color: #edf2ef;
@@ -1224,3 +1225,128 @@
   color: #93a098;
   text-align: center;
 }
+
+/* ===== Greeting header (Today) ===== */
+.GreetingHeader {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18rpx 4rpx 26rpx;
+}
+.GreetingHeader-text { flex-direction: column; }
+.GreetingHeader-greeting { font-size: 46rpx; font-weight: 700; color: #14352a; }
+.GreetingHeader-date { font-size: 24rpx; color: #6b7c74; margin-top: 6rpx; }
+.GreetingHeader-streak {
+  flex-direction: column;
+  align-items: center;
+  background-color: #e2eae5;
+  border-radius: 20rpx;
+  padding: 12rpx 22rpx;
+}
+.GreetingHeader-streak-num { font-size: 32rpx; font-weight: 700; color: #218967; }
+.GreetingHeader-streak-label { font-size: 18rpx; color: #5b6b63; margin-top: 2rpx; }
+
+/* ===== Screen titles ===== */
+.ScreenTitle { padding: 18rpx 4rpx 22rpx; }
+.ScreenTitleRow {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18rpx 4rpx 22rpx;
+}
+.ScreenTitle-text { font-size: 44rpx; font-weight: 700; color: #14352a; }
+
+/* ===== Diary ===== */
+.DiarySummary-head { flex-direction: row; align-items: baseline; justify-content: space-between; }
+.DiarySummary-label { font-size: 26rpx; color: #5b6b63; }
+.DiarySummary-kcal { font-size: 48rpx; font-weight: 700; color: #14352a; }
+.DiaryMacros { flex-direction: row; justify-content: space-between; margin-top: 18rpx; }
+.DiaryMacros-item { font-size: 22rpx; color: #5b6b63; }
+.MealCard { padding-top: 28rpx; padding-bottom: 28rpx; }
+.Meal-head { flex-direction: row; align-items: center; justify-content: space-between; }
+.Meal-name { font-size: 30rpx; font-weight: 600; color: #14352a; }
+.Meal-add { background-color: #e8efeb; border-radius: 16rpx; padding: 10rpx 22rpx; }
+.Meal-add-text { font-size: 24rpx; color: #218967; }
+.Meal-empty { font-size: 23rpx; color: #9aa8a0; margin-top: 16rpx; }
+.DiaryTotals-row { flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 14rpx; }
+.DiaryTotals-label { font-size: 26rpx; color: #5b6b63; }
+.DiaryTotals-value { font-size: 28rpx; font-weight: 600; color: #14352a; }
+.DiaryTotals-line { height: 2rpx; background-color: #eef2f0; margin: 10rpx 0 18rpx; }
+.DiaryTotals-strong { color: #218967; font-weight: 700; font-size: 28rpx; }
+
+/* ===== Partner ===== */
+.PartnerDays { background-color: #e2eae5; border-radius: 16rpx; padding: 10rpx 20rpx; }
+.PartnerDays-text { font-size: 22rpx; color: #218967; }
+.Person-head { flex-direction: row; align-items: center; justify-content: space-between; }
+.Person-id { flex-direction: row; align-items: center; }
+.Person-avatar {
+  width: 76rpx; height: 76rpx; border-radius: 38rpx;
+  text-align: center; line-height: 76rpx;
+  font-size: 32rpx; font-weight: 700; margin-right: 20rpx;
+}
+.Person-avatar-you { background-color: #218967; color: #ffffff; }
+.Person-avatar-empty { background-color: #e8efeb; color: #8a988f; }
+.Person-name { font-size: 30rpx; font-weight: 700; color: #14352a; }
+.Person-sub { font-size: 22rpx; color: #6b7c74; margin-top: 4rpx; }
+.Person-trend { font-size: 24rpx; font-weight: 600; }
+.Person-trend-good { color: #218967; }
+.Person-line { height: 2rpx; background-color: #eef2f0; margin: 22rpx 0; }
+.Person-foot { flex-direction: row; align-items: center; justify-content: space-between; }
+.Person-foot-label { font-size: 24rpx; color: #5b6b63; }
+.Person-foot-meta { font-size: 22rpx; color: #9aa8a0; }
+.Person-linkbody { font-size: 23rpx; color: #6b7c74; margin-bottom: 18rpx; }
+.Person-linkbtn { background-color: #218967; border-radius: 18rpx; padding: 20rpx; align-items: center; }
+.Person-linkbtn-text { font-size: 26rpx; font-weight: 600; color: #ffffff; }
+.Person-goalrow { flex-direction: row; align-items: center; justify-content: space-between; margin: 14rpx 0 16rpx; }
+.Person-goallabel { font-size: 25rpx; color: #5b6b63; }
+.Person-goalval { font-size: 28rpx; font-weight: 700; color: #14352a; }
+.GoalBar { height: 18rpx; border-radius: 9rpx; background-color: #e8efeb; overflow: hidden; }
+.GoalBar-fill { height: 18rpx; border-radius: 9rpx; background-color: #218967; }
+.Support-row { flex-direction: row; }
+.Support-btn { flex-grow: 1; background-color: #e8efeb; border-radius: 18rpx; padding: 20rpx 0; align-items: center; margin: 0 8rpx; }
+.Support-btn-text { font-size: 24rpx; color: #218967; font-weight: 600; }
+
+/* ===== Me ===== */
+.MeProfile-head { flex-direction: row; align-items: center; }
+.MeProfile-avatar {
+  width: 96rpx; height: 96rpx; border-radius: 48rpx;
+  text-align: center; line-height: 96rpx;
+  font-size: 40rpx; font-weight: 700; color: #ffffff;
+  background-color: #218967; margin-right: 22rpx;
+}
+.MeProfile-id { flex-direction: column; }
+.MeProfile-name { font-size: 34rpx; font-weight: 700; color: #14352a; }
+.MeProfile-sub { font-size: 24rpx; color: #6b7c74; margin-top: 6rpx; }
+.MeSignin { flex-direction: row; align-items: center; justify-content: space-between; }
+.MeSignin-text { flex: 1; flex-direction: column; padding-right: 20rpx; }
+.MeSignin-title { font-size: 28rpx; font-weight: 700; color: #14352a; }
+.MeSignin-body { font-size: 22rpx; color: #6b7c74; margin-top: 6rpx; }
+.MeSignin-btn { background-color: #14352a; border-radius: 18rpx; padding: 18rpx 28rpx; }
+.MeSignin-btn-text { font-size: 25rpx; font-weight: 600; color: #ffffff; }
+.MeList { padding-top: 10rpx; padding-bottom: 10rpx; }
+.MeRow { flex-direction: row; align-items: center; padding: 22rpx 6rpx; }
+.MeRow-icon { font-size: 30rpx; width: 48rpx; }
+.MeRow-label { flex: 1; font-size: 27rpx; color: #14352a; }
+.MeRow-val { font-size: 24rpx; color: #8a988f; margin-right: 12rpx; }
+.MeRow-chev { font-size: 34rpx; color: #b6c0ba; }
+.MeList-line { height: 2rpx; background-color: #eef2f0; margin: 6rpx 0; }
+.MeVersion { text-align: center; font-size: 21rpx; color: #9aa8a0; margin-top: 10rpx; }
+
+/* ===== Bottom tab bar (developer shell) ===== */
+.BottomTabBar {
+  display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
+  border-top-width: 1rpx;
+  border-top-color: #e6ece9;
+  padding: 10rpx 0 22rpx;
+}
+.BottomTab { flex-grow: 1; align-items: center; }
+.BottomTab-icon { width: 48rpx; height: 48rpx; }
+.BottomTab-svg { width: 48rpx; height: 48rpx; }
+.BottomTab-label { font-size: 20rpx; color: #93a09a; margin-top: 6rpx; }
+.BottomTab-label-active { color: #218967; font-weight: 600; }
+
+/* ===== Dev back row ===== */
+.DevBack { padding: 8rpx 4rpx 14rpx; }
+.DevBack-text { font-size: 28rpx; color: #218967; font-weight: 600; }

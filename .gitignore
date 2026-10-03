@@ -42,3 +42,6 @@ apps/ios/DerivedData/
 *.xcuserstate
 xcuserdata/
 apps/ios/LeanOn/Info.plist
+
+# Navigation redesign working screenshots
+docs/navigation-redesign/_shots/

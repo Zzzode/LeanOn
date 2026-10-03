@@ -7,33 +7,41 @@ import {
 } from '@zzzode/i18n';
 import { createFoodFromBarcode } from '@zzzode/food-data';
 import type { ReminderSettings } from '@zzzode/core';
-import { EnergyCard } from './components/EnergyCard.js';
-import { ExerciseCard } from './components/ExerciseCard.js';
+import { BottomTabBar } from './components/BottomTabBar.js';
 import { ExerciseSheet } from './components/ExerciseSheet.js';
 import { FoodSheet } from './components/FoodSheet.js';
-import { HealthConnectSheet, type HealthConnectStatus } from './components/HealthConnectSheet.js';
-import { Header } from './components/Header.js';
-import { InsightsScreen } from './components/InsightsScreen.js';
-import { MacroCard } from './components/MacroCard.js';
-import { MicrosCard } from './components/MicrosCard.js';
-import { QuickActions } from './components/QuickActions.js';
+import {
+  HealthConnectSheet,
+  type HealthConnectStatus,
+} from './components/HealthConnectSheet.js';
 import { ReminderSheet } from './components/ReminderSheet.js';
 import { ScaleSheet } from './components/ScaleSheet.js';
 import { SettingsScreen } from './components/SettingsScreen.js';
-import { WaterCard } from './components/WaterCard.js';
-import { WeightCard } from './components/WeightCard.js';
 import { WeightSheet } from './components/WeightSheet.js';
 import { createAppBridge } from './state/app-bridge.js';
 import { sampleHostData } from './state/sample.js';
 import { selectToday } from './state/select.js';
 import type { HostData } from './state/types.js';
+import {
+  isAppRoute,
+  type AppRoute,
+  type PrimaryRoute,
+  type PushedRoute,
+} from './state/routes.js';
+import { DiaryScreen } from './screens/DiaryScreen.js';
+import { MeScreen } from './screens/MeScreen.js';
+import { PartnerScreen } from './screens/PartnerScreen.js';
+import { ProgressScreen } from './screens/ProgressScreen.js';
+import { TodayScreen } from './screens/TodayScreen.js';
+import type { ScreenActions, ScreenProps } from './screens/types.js';
 
 type ActiveSheet = 'none' | 'weight' | 'scale' | 'food' | 'exercise';
 
 interface BootstrapData {
   hostData?: HostData;
   locale?: string;
-  initialRoute?: 'today' | 'insights' | 'settings';
+  /** Route requested by the native shell (RFC 0028). Absent => dev shell. */
+  route?: string;
 }
 
 export function App() {
@@ -43,9 +51,14 @@ export function App() {
   );
   const [locale, setLocale] = useState<Locale>(resolveLocale(initData?.locale));
   const [activeSheet, setActiveSheet] = useState<ActiveSheet>('none');
-  const [tab, setTab] = useState<'today' | 'insights' | 'settings'>(
-    initData?.initialRoute ?? 'today',
-  );
+  // A native shell passes a route and renders its own tab bar. Without one the
+  // bundle runs the in-Lynx developer shell (tab bar + pushed-page stack).
+  const nativeRoute: AppRoute | undefined = isAppRoute(initData?.route ?? '')
+    ? (initData?.route as AppRoute)
+    : undefined;
+  const isNativeShell = nativeRoute !== undefined;
+  const [devTab, setDevTab] = useState<PrimaryRoute>('today');
+  const [devStack, setDevStack] = useState<PushedRoute[]>([]);
   const [initialFoodId, setInitialFoodId] = useState<string | undefined>(
     undefined,
   );
@@ -369,111 +382,92 @@ export function App() {
     }
   };
 
+  const handleOpenRoute = (route: PushedRoute) => {
+    if (isNativeShell) {
+      void bridge.invoke('app.openRoute', { route });
+      return;
+    }
+    setDevStack((stack) => [...stack, route]);
+  };
+
+  const handleDevBack = () => {
+    setDevStack((stack) => stack.slice(0, -1));
+  };
+
+  const screenActions: ScreenActions = {
+    logFood: () => {
+      setInitialFoodId(undefined);
+      setScanError(null);
+      setActiveSheet('food');
+    },
+    logWeight: () => setActiveSheet('weight'),
+    logExercise: () => {
+      setEditingExercise(null);
+      setActiveSheet('exercise');
+    },
+    openReminders: handleOpenReminders,
+    openHealthConnections: handleOpenHealthConnect,
+    openRoute: handleOpenRoute,
+    setWaterTotal: handleSetWaterTotal,
+    editExercise: handleEditExercise,
+    deleteExercise: handleDeleteExercise,
+  };
+
+  const currentRoute: AppRoute = isNativeShell
+    ? (nativeRoute as AppRoute)
+    : (devStack[devStack.length - 1] ?? devTab);
+
+  const screenProps: ScreenProps = {
+    hostData,
+    state,
+    locale,
+    t,
+    actions: screenActions,
+  };
+
+  const renderRoute = (route: AppRoute) => {
+    switch (route) {
+      case 'today':
+        return <TodayScreen {...screenProps} />;
+      case 'diary':
+        return <DiaryScreen {...screenProps} />;
+      case 'progress':
+        return <ProgressScreen {...screenProps} />;
+      case 'partner':
+        return <PartnerScreen {...screenProps} />;
+      case 'me':
+        return <MeScreen {...screenProps} />;
+      case 'settings':
+        return (
+          <SettingsScreen
+            t={t}
+            locale={locale}
+            onLocaleChange={setLocale}
+            onOpenReminders={handleOpenReminders}
+            onOpenHealthConnect={handleOpenHealthConnect}
+          />
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
-    <page className="Page">
+    <page>
+      <view className="PageRoot">
       <scroll-view scroll-y className="Scroll">
         <view className="Content">
-          <Header
-            state={state}
-            t={t}
-            settingsOpen={tab === 'settings'}
-            onGear={() => setTab(tab === 'settings' ? 'today' : 'settings')}
-          />
-          {tab !== 'settings' && (
-          <view className="LangSwitch TabSwitch">
-            {(
-              [
-                { value: 'today', label: t('tab.today') },
-                { value: 'insights', label: t('tab.insights') },
-              ] as const
-            ).map((option) => {
-              const active = tab === option.value;
-              return (
-                <view
-                  key={option.value}
-                  className={
-                    active ? 'LangSwitch-item active' : 'LangSwitch-item'
-                  }
-                  bindtap={() => setTab(option.value)}
-                >
-                  <text
-                    className={
-                      active
-                        ? 'LangSwitch-label active'
-                        : 'LangSwitch-label'
-                    }
-                  >
-                    {option.label}
-                  </text>
-                </view>
-              );
-            })}
-          </view>
-          )}
-          {tab === 'settings' ? (
-            <SettingsScreen
-              t={t}
-              locale={locale}
-              onLocaleChange={setLocale}
-              onOpenReminders={handleOpenReminders}
-              onOpenHealthConnect={handleOpenHealthConnect}
-            />
-          ) : tab === 'today' ? (
-            <view className="Tab-pane">
-              <EnergyCard state={state} t={t} />
-              {!state.safe && (
-                <view className="Notice">
-                  <text className="Notice-text">
-                    {t('notice.safeFloor')}
-                  </text>
-                </view>
-              )}
-              <WeightCard state={state} t={t} />
-              <MacroCard state={state} t={t} />
-              <MicrosCard
-                today={hostData.today}
-                intake={hostData.intake}
-                energyGoalKcal={state.energyGoalKcal}
-                t={t}
-              />
-              <WaterCard
-                today={hostData.today}
-                water={hostData.water}
-                currentWeightKg={state.currentWeightKg}
-                t={t}
-                onSetTotal={handleSetWaterTotal}
-              />
-              <ExerciseCard
-                state={state}
-                locale={locale}
-                t={t}
-                onEdit={handleEditExercise}
-                onDelete={handleDeleteExercise}
-              />
-              <QuickActions
-                t={t}
-                onLogFood={() => {
-                  setInitialFoodId(undefined);
-                  setScanError(null);
-                  setActiveSheet('food');
-                }}
-                onLogWeight={() => setActiveSheet('weight')}
-                onLogExercise={() => {
-                  setEditingExercise(null);
-                  setActiveSheet('exercise');
-                }}
-              />
-              <text className="Footer">{t('footer.disclaimer')}</text>
+          {!isNativeShell && devStack.length > 0 && (
+            <view className="DevBack" bindtap={handleDevBack}>
+              <text className="DevBack-text">‹ {t('settings.done')}</text>
             </view>
-          ) : (
-            <InsightsScreen
-              hostData={hostData}
-              budgetKcal={state.energyGoalKcal}
-              t={t}
-            />
           )}
+          {renderRoute(currentRoute)}
         </view>
       </scroll-view>
+      {!isNativeShell && devStack.length === 0 && (
+        <BottomTabBar current={devTab} t={t} onSelect={setDevTab} />
+      )}
       {activeSheet === 'weight' && (
         <WeightSheet
           currentWeightKg={state.currentWeightKg}
@@ -543,6 +537,7 @@ export function App() {
           onSync={handleSyncHealthConnect}
         />
       )}
+      </view>
     </page>
   );
 }
