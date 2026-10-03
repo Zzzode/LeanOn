@@ -45,16 +45,18 @@ LeanOn 帮助两位伴侣一起变得更健康——既能变“**瘦（lean）*
 - **Android** 使用 108dp 自适应图层，中央 72dp 是可见区域，保守安全区为直径 66dp 的圆。
 - 两个平台及静态图标导出中，心形均占**可见底版宽度的 80%**；不要用 Android 完整 108dp 图层计算这个比例。
 - 彩色前景与主题化单色层共用同一变换，没有额外 inset 或预置遮罩。
+- 为使填充面积与颜色视觉重量居中，心形统一向下偏移可见高度的 3.82%（Android 中为 2.75dp）；宽度仍为 80%。
 - 实际轮廓测量及 RFC 0022 的校正见 [RFC 0026](../rfcs/0026-icon-visual-proportions.zh-CN.md)。
 
 ### 重新生成与预览
 
 执行 `pnpm install` 后，运行 `pnpm icons:generate`，从未修改的源标志生成 Android 矢量、带底版 SVG 和 PNG。
 渲染器固定为 Sharp 0.35.4。
-运行 `pnpm icons:check`，检查导出资源及采样轮廓是否位于安全圆内；CI 会执行此检查。
-运行 `pnpm icons:preview 416d142 /tmp/leanon-icons-comparison.svg`，将基线提交与本地资源对比，输出 SVG 和 PNG，包含代表性遮罩、主题图标和实际小尺寸。
+运行 `pnpm icons:check`，检查导出资源、安全圆及填充面积/亮度差加权重心；CI 会执行此检查。
+运行 `pnpm icons:preview 7bcaaa0 /tmp/leanon-optical-centering-comparison.svg`，将基线提交与本地资源对比，输出 SVG 和 PNG，包含代表性遮罩、主题图标和实际小尺寸。
 这些预览模拟几何；启动器特有的归一化与动画仍需真机检查。
-当前 iOS 宿主尚未将导出接入 AppIcon 资源目录。
+若本地存在 `AppIcon.appiconset/Contents.json`，生成器会同步其默认 iOS 1024px PNG，并保留目录元数据及其他外观；不会创建或重建资源目录。
+当前本地生成的 Xcode 项目尚未收录该资源目录；宿主集成仍由 iOS 项目生成流程负责。
 宣传 PNG 保留满版方形白底；`logo.svg` 保留圆角底版。
 
 ## 使用规范

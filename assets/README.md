@@ -45,16 +45,18 @@ The mark is a single, clear silhouette with no small symbols or fine details, so
 - **Android** uses 108dp adaptive layers with a central 72dp visible viewport and a conservative 66dp-diameter safe circle.
 - The heart fills **80% of the visible tile width** on both platforms and in static icon exports; do not calculate this percentage against Android’s full 108dp layer.
 - The foreground and themed-icon layer share one transform, with no extra inset or baked-in mask.
+- Move the heart down by 3.82% of visible tile height (2.75dp on Android) to center filled area and color weight; width remains 80%.
 - See [RFC 0026](../rfcs/0026-icon-visual-proportions.md) for contour measurements and the correction to RFC 0022.
 
 ### Regeneration and previews
 
 After `pnpm install`, run `pnpm icons:generate` to derive the Android vectors, tiled SVGs and PNGs from the unchanged source mark.
 The renderer is pinned to Sharp 0.35.4.
-Run `pnpm icons:check` to verify generated outputs and the sampled safe-circle fit; CI runs this check.
-Run `pnpm icons:preview 416d142 /tmp/leanon-icons-comparison.svg` to compare the baseline commit with local assets as SVG and PNG, including representative masks, themed icons and actual small sizes.
+Run `pnpm icons:check` to verify generated outputs, the sampled safe-circle fit and filled-area/luminance-contrast centroids; CI runs this check.
+Run `pnpm icons:preview 7bcaaa0 /tmp/leanon-optical-centering-comparison.svg` to compare the baseline commit with local assets as SVG and PNG, including representative masks, themed icons and actual small sizes.
 These previews model geometry; launcher-specific normalization and animation still need device checks.
-The iOS host currently has no AppIcon asset catalog wired to the export.
+If a local `AppIcon.appiconset/Contents.json` exists, the generator synchronizes its default iOS 1024px PNG and preserves catalog metadata and other appearances; it never creates or rebuilds the catalog.
+The current locally generated Xcode project does not yet include this catalog; host integration belongs to the iOS project-generation workflow.
 Marketing PNGs retain their full square white tile; `logo.svg` retains its rounded tile.
 
 ## Usage

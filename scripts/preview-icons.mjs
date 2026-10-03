@@ -9,90 +9,84 @@ const args = process.argv.slice(2);
 assert(args.length === 2, 'Usage: node scripts/preview-icons.mjs <before-git-ref> <output.svg>');
 const [before, output] = args;
 assert(output.endsWith('.svg'), 'The preview output must have an .svg extension');
-const resource = 'apps/android/app/src/main/res/drawable/ic_launcher_';
-const load = (name, previous) => previous
-  ? execFileSync('git', ['show', `${before}:${resource}${name}.xml`], { cwd: fileURLToPath(root), encoding: 'utf8' })
-  : readFile(new URL(`${resource}${name}.xml`, root), 'utf8');
+const load = (path, previous) => previous
+  ? execFileSync('git', ['show', `${before}:${path}`], { cwd: fileURLToPath(root) })
+  : readFile(new URL(path, root));
 const layers = {};
 for (const name of ['foreground', 'monochrome']) {
-  layers[name] = [await load(name, true), await load(name, false)];
+  const path = `apps/android/app/src/main/res/drawable/ic_launcher_${name}.xml`;
+  layers[name] = [(await load(path, true)).toString(), (await load(path, false)).toString()];
 }
+const attr = (xml, name) => Number(xml.match(new RegExp(`android:${name}="([^"]+)"`))[1]);
+const width = (xml) => attr(xml, 'scaleX') * 1068 / 72 * 100;
+const anchor = (xml) => attr(xml, 'translateY') + 627 * attr(xml, 'scaleY');
+const shift = anchor(layers.foreground[1]) - anchor(layers.foreground[0]);
 const escape = (text) => text.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('"', '&quot;');
+const label = (x, y, text, size = 16) => `<text x="${x}" y="${y}" font-family="sans-serif" font-size="${size}" fill="#263447">${escape(text)}</text>`;
 const vector = (xml, tint) => {
-  const attr = (name) => xml.match(new RegExp(`android:${name}="([^"]+)"`))[1];
-  const shapes = [...xml.matchAll(/<path\s+android:fillColor="([^"]+)"\s+android:pathData="([^"]+)"/g)];
-  return `<g transform="translate(${attr('translateX')} ${attr('translateY')}) scale(${attr('scaleX')} ${attr('scaleY')})">${shapes.map(([, color, path]) => `<path fill="${tint ?? color.slice(0, 7)}" d="${path}"/>`).join('')}</g>`;
+  const paths = [...xml.matchAll(/<path\s+android:fillColor="([^"]+)"\s+android:pathData="([^"]+)"/g)];
+  return `<g transform="translate(${attr(xml, 'translateX')} ${attr(xml, 'translateY')}) scale(${attr(xml, 'scaleX')} ${attr(xml, 'scaleY')})">${paths.map(([, color, path]) => `<path fill="${tint ?? color.slice(0, 7)}" d="${path}"/>`).join('')}</g>`;
 };
 let id = 0;
 const tile = (xml, shape, x, y, size, themed = false, debug = false) => {
   const key = `mask${id++}`;
-  const mask = shape === 'circle'
-    ? '<circle cx="54" cy="54" r="36"/>'
-    : shape === 'squircle'
-      ? '<path d="M54 18 C84 18 90 24 90 54 C90 84 84 90 54 90 C24 90 18 84 18 54 C18 24 24 18 54 18 Z"/>'
+  const mask = shape === 'circle' ? '<circle cx="54" cy="54" r="36"/>'
+    : shape === 'squircle' ? '<path d="M54 18 C84 18 90 24 90 54 C90 84 84 90 54 90 C24 90 18 84 18 54 C18 24 24 18 54 18 Z"/>'
       : '<rect x="18" y="18" width="72" height="72" rx="16"/>';
-  const guides = debug ? '<rect x="18" y="18" width="72" height="72" fill="none" stroke="#64748b" stroke-width=".4"/><circle cx="54" cy="54" r="33" fill="none" stroke="#ef4444" stroke-width=".4" stroke-dasharray="1 1"/>' : '';
-  const field = themed ? '#dcebe1' : '#fff';
-  return `<svg x="${x}" y="${y}" width="${size}" height="${size}" viewBox="${debug ? '0 0 108 108' : '18 18 72 72'}"><defs><clipPath id="${key}">${mask}</clipPath></defs><rect width="108" height="108" fill="${debug ? '#dbe3ed' : 'none'}"/><g ${debug ? '' : `clip-path="url(#${key})"`}><rect width="108" height="108" fill="${field}"/>${vector(xml, themed ? '#365e48' : undefined)}</g>${guides}</svg>`;
+  const guides = debug ? '<rect x="18" y="18" width="72" height="72" fill="none" stroke="#64748b" stroke-width=".35"/><circle cx="54" cy="54" r="33" fill="none" stroke="#ef4444" stroke-width=".35" stroke-dasharray="1 1"/><path d="M18 54 H90" stroke="#64748b" stroke-width=".35" stroke-dasharray="1 1"/>' : '';
+  return `<svg x="${x}" y="${y}" width="${size}" height="${size}" viewBox="${debug ? '0 0 108 108' : '18 18 72 72'}"><defs><clipPath id="${key}">${mask}</clipPath></defs><g ${debug ? '' : `clip-path="url(#${key})"`}><rect width="108" height="108" fill="${themed ? '#dcebe1' : '#fff'}"/>${vector(xml, themed ? '#365e48' : undefined)}</g>${guides}</svg>`;
 };
-const label = (x, y, text, size = 16) => `<text x="${x}" y="${y}" font-family="sans-serif" font-size="${size}" fill="#263447">${escape(text)}</text>`;
-const parts = ['<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="1230" viewBox="0 0 1120 1230"><rect width="1120" height="1230" fill="#edf1f6"/>'];
-parts.push(label(30, 36, 'LeanOn — Android icon proportion correction', 24));
-parts.push(label(30, 64, `Before: ${before} (~91.7%)     After: 80% visible width, measured safe-circle fit`, 16));
-parts.push(label(30, 88, '108dp layer -> central 72dp viewport. Original heart paths and colors retained.', 14));
-const columns = [['circle', 240], ['rounded square', 470], ['squircle', 700], ['themed circle', 930]];
-for (const [name, x] of columns) parts.push(label(x, 120, name, 14));
-for (let version = 0; version < 2; version++) {
-  const y = 145 + version * 210;
-  parts.push(label(30, y + 75, version ? 'After' : 'Before', 20));
-  for (const [name, x] of columns) {
+const parts = ['<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="1210" viewBox="0 0 1320 1210"><rect width="1320" height="1210" fill="#edf1f6"/>'];
+parts.push(label(30, 36, 'LeanOn — optical centering / before and after', 26));
+parts.push(label(30, 66, `Baseline: ${before} | Width: ${width(layers.foreground[0]).toFixed(2)}% → ${width(layers.foreground[1]).toFixed(2)}% | Vertical anchor: +${shift.toFixed(2)}dp`, 17));
+parts.push(label(30, 93, `Same heart paths and colors. ${shift.toFixed(2)}dp = ${(shift / 72 * 100).toFixed(2)}% of visible height = ${(shift / 72 * 1024).toFixed(2)}px in a 1024px export.`, 16));
+const columns = [['circle', 30], ['rounded square', 355], ['squircle', 680], ['themed circle', 1005]];
+for (const [name, x] of columns) {
+  parts.push(label(x, 127, name, 18));
+  parts.push(label(x + 34, 154, 'Before', 15), label(x + 192, 154, 'After', 15));
+  for (let version = 0; version < 2; version++) {
     const themed = name === 'themed circle';
-    parts.push(tile(layers[themed ? 'monochrome' : 'foreground'][version], themed ? 'circle' : name, x, y, 160, themed));
+    parts.push(tile(layers[themed ? 'monochrome' : 'foreground'][version], themed ? 'circle' : name, x + version * 158, 172, 136, themed));
   }
 }
-parts.push(label(30, 594, 'Actual pixels — no enlargement: 24 / 32 / 48 / 64px', 18));
-for (let version = 0; version < 2; version++) {
-  const y = 618 + version * 80;
-  parts.push(label(30, y + 36, version ? 'After' : 'Before'));
-  for (const [name, x] of columns) {
-    let offset = 0;
-    for (const size of [24, 32, 48, 64]) {
-      const themed = name === 'themed circle';
-      parts.push(tile(layers[themed ? 'monochrome' : 'foreground'][version], themed ? 'circle' : name, x + offset, y + 64 - size, size, themed));
-      offset += size + 6;
+parts.push(label(30, 351, 'Actual pixels — 24 / 32 / 48 / 64px; before and after remain side by side', 18));
+for (const [name, x] of columns) {
+  const themed = name === 'themed circle';
+  for (const [size, y] of [[24, 380], [32, 426], [48, 480], [64, 550]]) {
+    parts.push(label(x + 125, y + size / 2 + 5, `${size}px`, 13));
+    for (let version = 0; version < 2; version++) {
+      parts.push(tile(layers[themed ? 'monochrome' : 'foreground'][version], themed ? 'circle' : name, x + version * 158 + (136 - size) / 2, y, size, themed));
     }
   }
 }
-parts.push(label(30, 804, 'Layer geometry: square = 72dp viewport; dashed circle = 66dp safe zone', 17));
-for (let version = 0; version < 2; version++) {
-  parts.push(tile(layers.foreground[version], 'circle', 250 + version * 190, 830, 140, false, true));
-  parts.push(label(250 + version * 190, 991, version ? 'After' : 'Before', 14));
-}
-for (let version = 0; version < 2; version++) {
-  const bytes = version ? await readFile(new URL('assets/app-icon-ios-1024.png', root))
-    : execFileSync('git', ['show', `${before}:assets/app-icon-ios-1024.png`], { cwd: fileURLToPath(root) });
-  const x = 700 + version * 190;
-  parts.push(`<image x="${x}" y="830" width="140" height="140" href="data:image/png;base64,${bytes.toString('base64')}"/>`);
-  parts.push(label(x, 991, version ? 'iOS after: 80%' : 'iOS before: 85.17%', 14));
-}
-parts.push(label(30, 1040, 'Static exports: marketing tile / favicon — 96px and actual 16 / 24 / 32px', 17));
-for (let version = 0; version < 2; version++) {
-  const x = 250 + version * 400;
-  parts.push(label(x, 1070, version ? 'After' : 'Before', 16));
-  for (const [name, offset] of [['app-icon.png', 0], ['favicon.svg', 150]]) {
-    const bytes = version ? await readFile(new URL(`assets/${name}`, root))
-      : execFileSync('git', ['show', `${before}:assets/${name}`], { cwd: fileURLToPath(root) });
+parts.push(label(30, 677, 'Native iOS export / marketing tile / favicon — same normalized vertical offset', 18));
+for (const [name, title, x] of [['app-icon-ios-1024.png', 'iOS (rounded mask)', 30], ['app-icon.png', 'Marketing PNG', 465], ['favicon.svg', 'Favicon', 900]]) {
+  parts.push(label(x, 713, title, 18));
+  for (let version = 0; version < 2; version++) {
+    const bytes = await load(`assets/${name}`, version === 0);
     const mime = name.endsWith('.svg') ? 'image/svg+xml' : 'image/png';
     const href = `data:${mime};base64,${bytes.toString('base64')}`;
-    parts.push(`<image x="${x + offset}" y="1085" width="96" height="96" href="${href}"/>`);
-    let smallX = x + offset;
-    for (const size of [16, 24, 32]) {
-      parts.push(`<image x="${smallX}" y="1190" width="${size}" height="${size}" href="${href}"/>`);
-      smallX += size + 6;
+    const px = x + version * 174;
+    parts.push(label(px + 34, 743, version ? 'After' : 'Before', 15));
+    const key = `static${id++}`;
+    parts.push(`<svg x="${px}" y="760" width="136" height="136" viewBox="0 0 136 136"><defs><clipPath id="${key}"><rect width="136" height="136" rx="30"/></clipPath></defs><image width="136" height="136" href="${href}" ${name.includes('ios') ? `clip-path="url(#${key})"` : ''}/></svg>`);
+    let smallX = px;
+    for (const size of [16, 24, 32, 48]) {
+      parts.push(`<image x="${smallX}" y="923" width="${size}" height="${size}" href="${href}"/>`);
+      smallX += size + 5;
     }
   }
 }
+parts.push(label(30, 1019, 'Layer guides only: 72dp viewport / 66dp safe circle / horizontal icon center', 17));
+for (let version = 0; version < 2; version++) {
+  parts.push(tile(layers.foreground[version], 'circle', 35 + version * 150, 1040, 120, false, true));
+  parts.push(label(35 + version * 150, 1182, version ? 'After' : 'Before', 14));
+}
+parts.push(label(395, 1082, 'Filled-area and luminance-contrast centroids guide the offset.', 17));
+parts.push(label(395, 1114, 'The lower tip does not carry as much visual weight as the upper lobes.', 17));
+parts.push(label(395, 1146, 'These are resource-based previews; launcher normalization varies by device.', 15));
 parts.push('</svg>');
-await writeFile(output, parts.join('\n'));
-await sharp(Buffer.from(parts.join('\n'))).png().toFile(output.replace(/\.svg$/, '.png'));
-console.log(`Comparison written to ${output} and PNG; representative masks, not a device screenshot.`);
+const svg = parts.join('\n');
+await writeFile(output, svg);
+await sharp(Buffer.from(svg)).png().toFile(output.replace(/\.svg$/, '.png'));
+console.log(`Side-by-side comparison written to ${output} and PNG.`);

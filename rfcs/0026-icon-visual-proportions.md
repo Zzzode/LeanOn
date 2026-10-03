@@ -64,4 +64,37 @@ cd apps/android
 
 Inspect both SVG and PNG previews; verify that no heart pixels are removed by the representative masks, that both theme layers share placement and that iOS has no alpha channel.
 An installed APK check on real launchers and an iOS asset-catalog build remain separate validation steps.
-The current iOS skeleton does not yet wire the export to an AppIcon asset catalog; this correction does not change native integration.
+At the original sizing change, the iOS skeleton did not yet wire the export to an AppIcon asset catalog; native integration was outside that change.
+
+
+## Optical-centering follow-up — 2026-10-03
+
+The initial 80% composition above remains the sizing baseline; this follow-up changes vertical translation only.
+Viewed through circular, rounded-square and themed masks, the upper lobes feel heavier than the lower tip even though the bounding box extends below center.
+At the existing transform, the monochrome filled-area centroid is y ≈ 51.20dp and the Android color luminance-contrast centroid is y ≈ 51.26dp, compared with the tile center at 54dp.
+The gradient iOS export gives y ≈ 51.33dp in the same normalized coordinate system.
+These are reference measures of visual weight, not a claim that perceived centering is exactly a mathematical centroid.
+
+Candidate previews at 0, +2, +2.75 and +3.5dp retain identical scale and palette.
+Choose **+2.75dp down**: Android color y ≈ 54.006dp, monochrome y ≈ 53.950dp and iOS gradient y ≈ 54.080dp.
+This is 3.8194% of the 72dp visible height, or 39.111px in a 1024px export (47.895833 source-grid units).
+
+- Android scale and x translation stay unchanged; `ty = 20.184269663 + 2.75 = 22.934269663`.
+- Static SVG/PNG scale and x translation stay unchanged; `ty = 38.042696629 + 47.895833333 = 85.938529962`.
+- The translated contour has sampled radius **30.988dp < 33dp**, about 2.012dp of safe-circle clearance; no resizing or clipping tradeoff is required.
+- Both Android layers, the static tiles and the default native iOS AppIcon PNG use the same normalized vertical shift.
+- An existing local iOS catalog is synchronized through its default 1024px entry only; `Contents.json` and alternate appearances are preserved.
+
+The generator checks rendered monochrome filled area and color/gradient luminance contrast with a 0.2dp vertical tolerance around 54dp, alongside the existing silhouette and output-drift checks.
+The color weight is alpha coverage × (1 − relative luminance against white), using linearized sRGB and coefficients 0.2126/0.7152/0.0722.
+The preview script derives baseline percentages from actual resource transforms instead of fixed historical labels, and compares pairs side by side at enlarged and actual pixel sizes.
+
+```bash
+pnpm icons:generate
+pnpm icons:check
+pnpm icons:preview 7bcaaa0 /tmp/leanon-optical-centering-comparison.svg
+```
+
+Compile the existing native catalog with `actool` and keep platform build checks separate from simulated masks.
+The inspected local Xcode project has `ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon` but does not yet list the local catalog as a resource; regeneration/integration remains in the iOS host workflow.
+Do not overwrite local project settings as part of this positioning correction.
