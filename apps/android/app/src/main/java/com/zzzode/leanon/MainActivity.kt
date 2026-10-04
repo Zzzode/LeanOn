@@ -102,16 +102,19 @@ class MainActivity : AppCompatActivity() {
     // Floating liquid-glass capsule: BlurView blurs the Lynx content behind
     // the tab bar, with rounded corners and a subtle white tint.
     val blurView = BlurView(this).apply {
-      val margin = resources.getDimensionPixelSize(R.dimen.floating_tab_margin)
+      val hMargin = resources.getDimensionPixelSize(R.dimen.floating_tab_margin)
+      val bMargin = resources.getDimensionPixelSize(R.dimen.floating_tab_bottom_margin)
+      val vPadding = resources.getDimensionPixelSize(R.dimen.floating_tab_vertical_padding)
       layoutParams = FrameLayout.LayoutParams(
         FrameLayout.LayoutParams.MATCH_PARENT,
         FrameLayout.LayoutParams.WRAP_CONTENT,
         Gravity.BOTTOM,
       ).apply {
-        leftMargin = margin
-        rightMargin = margin
-        bottomMargin = margin
+        leftMargin = hMargin
+        rightMargin = hMargin
+        bottomMargin = bMargin
       }
+      setPadding(0, vPadding, 0, vPadding)
       setBackgroundResource(R.drawable.bg_floating_tab_bar)
       outlineProvider = ViewOutlineProvider.BACKGROUND
       clipToOutline = true

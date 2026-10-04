@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Horizontal and bottom margin for the floating tab bar capsule. -->
-    <dimen name="floating_tab_margin">12dp</dimen>
-    <!-- Shadow elevation for the floating tab bar. -->
+    <!--
+        Floating tab bar capsule, measured from iOS 26 screenshot (1206x2622 @3x):
+        capsule height ~70pt (56pt content + 7pt padding each side),
+        corner radius = half height, margins ~16pt horizontal, ~14pt bottom.
+    -->
+    <dimen name="floating_tab_margin">16dp</dimen>
+    <dimen name="floating_tab_bottom_margin">14dp</dimen>
+    <dimen name="floating_tab_corner_radius">35dp</dimen>
+    <dimen name="floating_tab_vertical_padding">7dp</dimen>
     <dimen name="floating_tab_elevation">8dp</dimen>
     <!-- Tab bar icon size, matching iOS 26 proportions. -->
     <dimen name="tab_icon_size">22dp</dimen>
