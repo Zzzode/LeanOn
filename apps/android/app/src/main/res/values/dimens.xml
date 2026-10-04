@@ -17,8 +17,8 @@
     <!-- Tab bar icon size, matching iOS 26 proportions. -->
     <dimen name="tab_icon_size">20dp</dimen>
     <!-- Sliding pill behind the selected tab's icon. -->
-    <dimen name="tab_pill_width">44dp</dimen>
-    <dimen name="tab_pill_height">28dp</dimen>
+    <dimen name="tab_pill_width">62dp</dimen>
+    <dimen name="tab_pill_height">40dp</dimen>
     <!-- Vertical padding inside each tab item (above icon, below label). -->
     <dimen name="tab_item_padding_vertical">8dp</dimen>
 </resources>

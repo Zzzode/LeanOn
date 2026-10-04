@@ -1,5 +1,6 @@
 package com.zzzode.leanon
 
+import android.animation.ValueAnimator
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
@@ -8,6 +9,7 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewTreeObserver
+import android.view.animation.OvershootInterpolator
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -17,8 +19,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
-import androidx.dynamicanimation.animation.SpringAnimation
-import androidx.dynamicanimation.animation.SpringForce
 import androidx.fragment.app.FragmentContainerView
 import androidx.navigation.NavController
 import androidx.navigation.createGraph
@@ -29,6 +29,7 @@ import com.zzzode.leanon.ble.PermissionRequests
 import com.zzzode.leanon.healthconnect.HealthConnectPermission
 import com.zzzode.leanon.navigation.LynxContainerFragment
 import com.zzzode.leanon.reminders.NotificationPermission
+import kotlin.math.abs
 
 /**
  * Single-activity shell: a Jetpack Navigation host renders one Lynx screen per
@@ -48,7 +49,7 @@ class MainActivity : AppCompatActivity() {
   private lateinit var pill: View
   private val tabItems = mutableListOf<LinearLayout>()
   private var selectedTabIndex = 0
-  private var pillSpring: SpringAnimation? = null
+  private var pillAnimator: ValueAnimator? = null
 
   // Prismal captures the backdrop on demand; poll periodically so the glass
   // stays fresh while the user scrolls the Lynx content behind it.
@@ -228,13 +229,24 @@ class MainActivity : AppCompatActivity() {
       isSelected = index == selectedTabIndex
 
       val icon = ImageView(this@MainActivity).apply {
-        layoutParams = LinearLayout.LayoutParams(iconSize, iconSize)
+        layoutParams = LinearLayout.LayoutParams(iconSize, iconSize).apply {
+          gravity = Gravity.CENTER_HORIZONTAL
+        }
         setImageResource(spec.iconRes)
         imageTintList = ContextCompat.getColorStateList(this@MainActivity, R.color.tab_item_color)
       }
       val label = TextView(this@MainActivity).apply {
+        layoutParams = LinearLayout.LayoutParams(
+          ViewGroup.LayoutParams.WRAP_CONTENT,
+          ViewGroup.LayoutParams.WRAP_CONTENT,
+        ).apply {
+          gravity = Gravity.CENTER_HORIZONTAL
+          topMargin = (2 * resources.displayMetrics.density).toInt()
+        }
         text = getString(spec.labelRes)
         textSize = TAB_LABEL_SIZE_SP
+        gravity = Gravity.CENTER
+        includeFontPadding = false
         setTextColor(ContextCompat.getColorStateList(this@MainActivity, R.color.tab_item_color))
       }
       addView(icon)
@@ -266,24 +278,58 @@ class MainActivity : AppCompatActivity() {
     }, TAB_SWITCH_SETTLE_MS)
   }
 
-  /** Spring the pill to the tab's icon centre. */
+  /**
+   * Animate the pill to the tab's icon centre. While the pill is in flight it
+   * stretches horizontally (and compresses vertically) in proportion to its
+   * distance from the target, producing the liquid-glass "flow" effect: the
+   * blob elongates as it slides and contracts with a wobble on arrival.
+   *
+   * We animate layoutParams.width/height rather than scaleX/scaleY because the
+   * PrismalFrameLayout's GL surface swallows view property transforms.
+   */
   private fun positionPill(index: Int, animate: Boolean) {
     if (tabContainer.width == 0) return
     val tabWidth = tabContainer.width / TAB_SPECS.size
-    val targetX = index * tabWidth + tabWidth / 2f - pill.width / 2f
+    val targetCenterX = index * tabWidth + tabWidth / 2f
+    val baseWidth = resources.getDimensionPixelSize(R.dimen.tab_pill_width)
+    val baseHeight = resources.getDimensionPixelSize(R.dimen.tab_pill_height)
 
     if (!animate) {
-      pill.translationX = targetX
+      pill.layoutParams.width = baseWidth
+      pill.layoutParams.height = baseHeight
+      pill.requestLayout()
+      pill.translationX = targetCenterX - baseWidth / 2f
       return
     }
-    pillSpring?.cancel()
-    pillSpring = SpringAnimation(pill, SpringAnimation.TRANSLATION_X).apply {
-      spring = SpringForce(targetX).apply {
-        dampingRatio = SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY
-        stiffness = SpringForce.STIFFNESS_LOW
+
+    val startCenterX = pill.translationX + pill.width / 2f
+    val maxDistance = abs(targetCenterX - startCenterX)
+
+    pillAnimator?.cancel()
+    pillAnimator = ValueAnimator.ofFloat(0f, 1f).apply {
+      duration = PILL_ANIM_DURATION_MS
+      interpolator = OvershootInterpolator(PILL_OVERSHOOT_TENSION)
+      addUpdateListener { anim ->
+        val fraction = anim.animatedValue as Float
+        val currentCenterX = startCenterX + (targetCenterX - startCenterX) * fraction
+        val distance = abs(targetCenterX - currentCenterX)
+        val stretch = if (maxDistance > 0f) {
+          (distance / maxDistance).coerceIn(0f, 1f)
+        } else {
+          0f
+        }
+        val newWidth = (baseWidth * (1f + stretch * PILL_STRETCH_FACTOR)).toInt()
+        val newHeight = (baseHeight * (1f - stretch * PILL_COMPRESS_FACTOR)).toInt()
+        val lp = pill.layoutParams
+        if (lp.width != newWidth || lp.height != newHeight) {
+          lp.width = newWidth
+          lp.height = newHeight
+          pill.layoutParams = lp
+        }
+        pill.translationX = currentCenterX - newWidth / 2f
       }
     }
-    pillSpring?.start()
+    pillAnimator?.start()
   }
 
   private fun wireTabs() {
@@ -338,6 +384,13 @@ class MainActivity : AppCompatActivity() {
     const val TAB_LABEL_SIZE_SP = 10f
     const val BACKDROP_REFRESH_MS = 200L
     const val TAB_SWITCH_SETTLE_MS = 350L
+
+    // Liquid-glass pill: how far it stretches horizontally and compresses
+    // vertically while sliding between tabs.
+    const val PILL_STRETCH_FACTOR = 0.8f
+    const val PILL_COMPRESS_FACTOR = 0.15f
+    const val PILL_ANIM_DURATION_MS = 500L
+    const val PILL_OVERSHOOT_TENSION = 1.5f
 
     val PRIMARY_ROUTES = listOf(ROUTE_TODAY, ROUTE_DIARY, ROUTE_PROGRESS, ROUTE_PARTNER, ROUTE_ME)
 
