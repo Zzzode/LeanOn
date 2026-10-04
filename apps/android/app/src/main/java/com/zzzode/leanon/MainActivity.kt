@@ -24,7 +24,6 @@ import androidx.navigation.NavController
 import androidx.navigation.createGraph
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.fragment
-import com.matrix.prismal.PrismalFrameLayout
 import com.matrix.prismal.PrismalLiquidGlass
 import com.zzzode.leanon.ble.PermissionRequests
 import com.zzzode.leanon.healthconnect.HealthConnectPermission
@@ -35,7 +34,7 @@ import com.zzzode.leanon.reminders.NotificationPermission
  * Single-activity shell: a Jetpack Navigation host renders one Lynx screen per
  * destination, with a liquid-glass tab bar switching the five primary tabs.
  *
- * The tab bar is a [PrismalFrameLayout] capsule that renders real-time
+ * The tab bar is a [LeanOnGlassCapsule] capsule that renders real-time
  * refraction, Fresnel rim highlights and specular lighting over the Lynx
  * content behind it. A sliding pill springs between tabs on selection.
  * Secondary screens (e.g. Settings) are pushed over the current tab and hide
@@ -44,7 +43,7 @@ import com.zzzode.leanon.reminders.NotificationPermission
 class MainActivity : AppCompatActivity() {
 
   private lateinit var navController: NavController
-  private lateinit var glassCapsule: PrismalFrameLayout
+  private lateinit var glassCapsule: LeanOnGlassCapsule
   private lateinit var tabContainer: LinearLayout
   private lateinit var pill: View
   private val tabItems = mutableListOf<LinearLayout>()
@@ -154,7 +153,7 @@ class MainActivity : AppCompatActivity() {
     val thicknessPx = resources.getDimension(R.dimen.floating_tab_thickness)
     val heightBlurPx = resources.getDimension(R.dimen.floating_tab_height_blur)
 
-    glassCapsule = PrismalFrameLayout(this).apply {
+    glassCapsule = LeanOnGlassCapsule(this).apply {
       layoutParams = FrameLayout.LayoutParams(
         FrameLayout.LayoutParams.MATCH_PARENT,
         capsuleHeight,
@@ -167,8 +166,8 @@ class MainActivity : AppCompatActivity() {
       // Apply the calibrated iOS optical recipe, then override for a small capsule.
       PrismalLiquidGlass.applyBase(this)
       setCornerRadius(cornerRadius)
-      setBlurRadius(15f)
-      setGlassColor(Color.parseColor("#20FFFFFF"))
+      setBlurRadius(20f)
+      setGlassColor(Color.parseColor("#30FFFFFF"))
       // applyBase is calibrated for ≥120dp views; scale down for a 64dp capsule.
       setThickness(thicknessPx)
       setHeightBlurFactor(heightBlurPx)
