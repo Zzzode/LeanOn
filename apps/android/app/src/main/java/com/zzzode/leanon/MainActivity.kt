@@ -3,6 +3,7 @@ package com.zzzode.leanon
 import android.animation.ValueAnimator
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
+import android.graphics.drawable.LayerDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -203,11 +204,13 @@ class MainActivity : AppCompatActivity() {
     root.addView(glassCapsule)
 
     // Sliding pill (behind tab items, above the glass surface).
+    // Layered drawable simulating the iOS liquid-glass lens:
+    // bright white gradient body, inner shadow for depth, crisp rim light.
     // Centered vertically so it sits inside the capsule at rest and bubbles
     // above and below when expanded. clipChildren=false lets it draw outside.
     pill = View(this).apply {
       layoutParams = FrameLayout.LayoutParams(pillW, pillH, Gravity.CENTER_VERTICAL)
-      background = ContextCompat.getDrawable(this@MainActivity, R.drawable.bg_tab_pill)
+      background = createPillDrawable(pillH / 2f)
     }
     glassCapsule.clipChildren = false
     glassCapsule.addView(pill)
@@ -397,6 +400,32 @@ class MainActivity : AppCompatActivity() {
     pillAnimator?.start()
   }
 
+  /**
+   * Build the pill's glass-lens drawable: a bright white gradient body with
+   * an inner shadow for depth and a crisp white rim light, simulating the
+   * iOS 26 liquid-glass material.
+   */
+  private fun createPillDrawable(cornerRadius: Float): LayerDrawable {
+    val body = GradientDrawable().apply {
+      shape = GradientDrawable.RECTANGLE
+      orientation = GradientDrawable.Orientation.TOP_BOTTOM
+      colors = intArrayOf(
+        Color.parseColor("#FFFFFFFF"),
+        Color.parseColor("#F5FFFFFF"),
+        Color.parseColor("#E6FFFFFF"),
+      )
+      this.cornerRadius = cornerRadius
+      setStroke(1, Color.parseColor("#FFFFFFFF"))
+    }
+    val innerShadow = GradientDrawable().apply {
+      shape = GradientDrawable.RECTANGLE
+      setColor(Color.TRANSPARENT)
+      this.cornerRadius = cornerRadius
+      setStroke(2, Color.parseColor("#25000000"))
+    }
+    return LayerDrawable(arrayOf(body, innerShadow))
+  }
+
   /** Set the pill's layout size and keep the corner radius proportional (always a capsule). */
   private fun setPillSize(width: Int, height: Int) {
     val lp = pill.layoutParams
@@ -405,7 +434,12 @@ class MainActivity : AppCompatActivity() {
       lp.height = height
       pill.layoutParams = lp
     }
-    (pill.background as? GradientDrawable)?.cornerRadius = height / 2f
+    val radius = height / 2f
+    (pill.background as? LayerDrawable)?.let { layers ->
+      for (i in 0 until layers.numberOfLayers) {
+        (layers.getDrawable(i) as? GradientDrawable)?.cornerRadius = radius
+      }
+    }
   }
 
   // endregion
