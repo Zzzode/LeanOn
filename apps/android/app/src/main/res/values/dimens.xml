@@ -18,11 +18,12 @@
     <dimen name="tab_icon_size">20dp</dimen>
     <!-- Sliding pill behind the selected tab's icon.
          Rest size covers the icon + label inside the capsule;
-         expanded size bubbles beyond it during the jelly animation. -->
-    <dimen name="tab_pill_width">62dp</dimen>
-    <dimen name="tab_pill_height">54dp</dimen>
+         expanded size bubbles beyond it during the jelly animation.
+         Both keep a ~1.23 width:height ratio matching iOS 26. -->
+    <dimen name="tab_pill_width">64dp</dimen>
+    <dimen name="tab_pill_height">52dp</dimen>
     <dimen name="tab_pill_expanded_width">84dp</dimen>
-    <dimen name="tab_pill_expanded_height">84dp</dimen>
+    <dimen name="tab_pill_expanded_height">68dp</dimen>
     <!-- Vertical padding inside each tab item (above icon, below label). -->
     <dimen name="tab_item_padding_vertical">8dp</dimen>
 </resources>
