@@ -16,10 +16,12 @@
     <dimen name="floating_tab_height_blur">15dp</dimen>
     <!-- Tab bar icon size, matching iOS 26 proportions. -->
     <dimen name="tab_icon_size">20dp</dimen>
-    <!-- Sliding pill behind the selected tab's icon. Taller than the capsule
-         so it bubbles above the tab bar like iOS 26. -->
-    <dimen name="tab_pill_width">72dp</dimen>
-    <dimen name="tab_pill_height">84dp</dimen>
+    <!-- Sliding pill behind the selected tab's icon.
+         Rest size fits inside the capsule; expanded size bubbles beyond it. -->
+    <dimen name="tab_pill_width">52dp</dimen>
+    <dimen name="tab_pill_height">36dp</dimen>
+    <dimen name="tab_pill_expanded_width">80dp</dimen>
+    <dimen name="tab_pill_expanded_height">84dp</dimen>
     <!-- Vertical padding inside each tab item (above icon, below label). -->
     <dimen name="tab_item_padding_vertical">8dp</dimen>
 </resources>
