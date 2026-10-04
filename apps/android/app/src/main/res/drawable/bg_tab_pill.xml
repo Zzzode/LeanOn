@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Liquid-glass pill behind the selected tab.
-     At rest: compact, translucent white with a hairline border.
-     During jelly expand/shrink the corner radius is animated in code
+     Bright opaque white with a subtle vertical gradient for depth,
+     matching iOS 26. Corner radius is animated in code
      (GradientDrawable.setCornerRadius) to stay proportional to the height. -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <gradient
-        android:startColor="#B3FFFFFF"
-        android:endColor="#66FFFFFF"
+        android:startColor="#FFFFFFFF"
+        android:endColor="#F0FFFFFF"
         android:angle="270" />
     <corners android:radius="27dp" />
     <stroke
         android:width="1dp"
-        android:color="#80FFFFFF" />
+        android:color="#FFFFFFFF" />
 </shape>

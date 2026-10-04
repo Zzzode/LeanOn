@@ -584,7 +584,7 @@ class MainActivity : AppCompatActivity() {
     const val TAB_SWITCH_SETTLE_MS = 350L
 
     // Dark glass tint so the bright white pill stands out (iOS 26 style).
-    const val GLASS_COLOR_DARK = "#991A1A1A"
+    const val GLASS_COLOR_DARK = "#B3000000"
 
     // Three-phase jelly animation durations.
     const val PILL_EXPAND_DURATION_MS = 150L
