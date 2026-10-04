@@ -9,6 +9,7 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewTreeObserver
+import android.view.animation.Interpolator
 import android.view.animation.OvershootInterpolator
 import android.widget.FrameLayout
 import android.widget.ImageView
@@ -30,6 +31,7 @@ import com.zzzode.leanon.healthconnect.HealthConnectPermission
 import com.zzzode.leanon.navigation.LynxContainerFragment
 import com.zzzode.leanon.reminders.NotificationPermission
 import kotlin.math.abs
+import kotlin.math.sin
 
 /**
  * Single-activity shell: a Jetpack Navigation host renders one Lynx screen per
@@ -185,10 +187,13 @@ class MainActivity : AppCompatActivity() {
     root.addView(glassCapsule)
 
     // Sliding pill (behind tab items, above the glass surface).
+    // Bottom-aligned and taller than the capsule so it bubbles above the tab
+    // bar like iOS 26. clipChildren=false lets it draw outside the capsule.
     pill = View(this).apply {
-      layoutParams = FrameLayout.LayoutParams(pillW, pillH, Gravity.CENTER_VERTICAL)
+      layoutParams = FrameLayout.LayoutParams(pillW, pillH, Gravity.BOTTOM)
       background = ContextCompat.getDrawable(this@MainActivity, R.drawable.bg_tab_pill)
     }
+    glassCapsule.clipChildren = false
     glassCapsule.addView(pill)
 
     // Tab items.
@@ -308,7 +313,7 @@ class MainActivity : AppCompatActivity() {
     pillAnimator?.cancel()
     pillAnimator = ValueAnimator.ofFloat(0f, 1f).apply {
       duration = PILL_ANIM_DURATION_MS
-      interpolator = OvershootInterpolator(PILL_OVERSHOOT_TENSION)
+      interpolator = JellyInterpolator(PILL_OVERSHOOT_TENSION)
       addUpdateListener { anim ->
         val fraction = anim.animatedValue as Float
         val currentCenterX = startCenterX + (targetCenterX - startCenterX) * fraction
@@ -387,10 +392,10 @@ class MainActivity : AppCompatActivity() {
 
     // Liquid-glass pill: how far it stretches horizontally and compresses
     // vertically while sliding between tabs.
-    const val PILL_STRETCH_FACTOR = 0.8f
-    const val PILL_COMPRESS_FACTOR = 0.15f
-    const val PILL_ANIM_DURATION_MS = 500L
-    const val PILL_OVERSHOOT_TENSION = 1.5f
+    const val PILL_STRETCH_FACTOR = 1.0f
+    const val PILL_COMPRESS_FACTOR = 0.2f
+    const val PILL_ANIM_DURATION_MS = 600L
+    const val PILL_OVERSHOOT_TENSION = 2.5f
 
     val PRIMARY_ROUTES = listOf(ROUTE_TODAY, ROUTE_DIARY, ROUTE_PROGRESS, ROUTE_PARTNER, ROUTE_ME)
 
@@ -401,5 +406,27 @@ class MainActivity : AppCompatActivity() {
       TabSpec(ROUTE_PARTNER, R.drawable.ic_tab_partner, R.string.tab_partner),
       TabSpec(ROUTE_ME, R.drawable.ic_tab_me, R.string.tab_me),
     )
+  }
+}
+
+/**
+ * Interpolator that combines an overshoot with a decaying sine-wave wobble,
+ * producing the jelly-like "flow and settle" feel of iOS 26 liquid glass.
+ */
+private class JellyInterpolator(
+  private val tension: Float = 2.5f,
+  private val wobbleCount: Int = 3,
+) : Interpolator {
+  private val overshoot = OvershootInterpolator(tension)
+
+  override fun getInterpolation(input: Float): Float {
+    val base = overshoot.getInterpolation(input)
+    val decay = 1f - input
+    val wobble = (sin(input * Math.PI * wobbleCount) * decay * WOBBLE_AMPLITUDE).toFloat()
+    return base + wobble
+  }
+
+  private companion object {
+    const val WOBBLE_AMPLITUDE = 0.06f
   }
 }
