@@ -124,7 +124,7 @@ class MainActivity : AppCompatActivity() {
       elevation = resources.getDimension(R.dimen.floating_tab_elevation)
       setupWith(blurTarget)
         .setFrameClearDrawable(window.decorView.background)
-        .setBlurRadius(20f)
+        .setBlurRadius(35f)
     }
     blurView.addView(bottomBar)
     root.addView(blurView)

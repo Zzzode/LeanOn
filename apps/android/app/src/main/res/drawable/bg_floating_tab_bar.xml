@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Floating liquid-glass capsule background for the bottom tab bar.
      The BlurView blurs the content behind it; this drawable provides the
-     rounded-corner clip shape and a subtle white tint on top of the blur. -->
+     rounded-corner clip shape and a vertical gradient that mimics iOS 26
+     liquid glass: a bright specular edge at the top, an almost fully
+     transparent middle (so the blur dominates), and a slightly darker
+     bottom for a sense of thickness. -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <solid android:color="#40FFFFFF" />
+    <gradient
+        android:angle="270"
+        android:startColor="#66FFFFFF"
+        android:centerColor="#08FFFFFF"
+        android:endColor="#2AFFFFFF" />
     <corners android:radius="@dimen/floating_tab_corner_radius" />
     <stroke
-        android:width="0.5dp"
-        android:color="#33FFFFFF" />
+        android:width="1dp"
+        android:color="#70FFFFFF" />
 </shape>

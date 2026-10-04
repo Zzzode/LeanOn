@@ -11,9 +11,10 @@
     </style>
 
     <!-- BottomNavigationView: override Material 3's 80dp minHeight so the
-         capsule matches iOS 26 proportions (~8% of screen height). -->
+         capsule matches iOS 26 proportions (~8% of screen height). 66dp gives
+         the icon + label enough room to avoid overlap. -->
     <style name="Widget.LeanOn.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
-        <item name="android:minHeight">56dp</item>
+        <item name="android:minHeight">66dp</item>
     </style>
 
     <!-- Active indicator: compact pill, matching iOS glass highlight. -->
