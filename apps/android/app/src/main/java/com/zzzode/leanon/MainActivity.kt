@@ -53,9 +53,14 @@ class MainActivity : AppCompatActivity() {
   // Prismal captures the backdrop on demand; poll periodically so the glass
   // stays fresh while the user scrolls the Lynx content behind it.
   private val backdropHandler = Handler(Looper.getMainLooper())
+  private var lastTabSwitchTime = 0L
   private val backdropRunnable = object : Runnable {
     override fun run() {
-      glassCapsule.updateBackground()
+      // Skip refresh while a tab switch is settling — the fragment transition
+      // can produce a black capture if we draw mid-transition.
+      if (System.currentTimeMillis() - lastTabSwitchTime > TAB_SWITCH_SETTLE_MS) {
+        glassCapsule.updateBackground()
+      }
       backdropHandler.postDelayed(this, BACKDROP_REFRESH_MS)
     }
   }
@@ -251,7 +256,14 @@ class MainActivity : AppCompatActivity() {
       launchSingleTop = true
       restoreState = true
     }
-    glassCapsule.updateBackground()
+
+    // Don't capture the backdrop synchronously — the fragment transition is
+    // still in flight and draw() would produce a black texture. Defer until
+    // the new content has had time to render.
+    lastTabSwitchTime = System.currentTimeMillis()
+    backdropHandler.postDelayed({
+      glassCapsule.updateBackground()
+    }, TAB_SWITCH_SETTLE_MS)
   }
 
   /** Spring the pill to the tab's icon centre. */
@@ -325,6 +337,7 @@ class MainActivity : AppCompatActivity() {
 
     const val TAB_LABEL_SIZE_SP = 10f
     const val BACKDROP_REFRESH_MS = 200L
+    const val TAB_SWITCH_SETTLE_MS = 350L
 
     val PRIMARY_ROUTES = listOf(ROUTE_TODAY, ROUTE_DIARY, ROUTE_PROGRESS, ROUTE_PARTNER, ROUTE_ME)
 
