@@ -80,8 +80,8 @@ dependencies {
   implementation(libs.primjs)
   kapt(libs.lynx.processor)
 
-  // Floating tab bar blur (RenderEffect on API 31+, CPU fallback below).
-  implementation(libs.blurview)
+  // Liquid glass tab bar (OpenGL ES refraction + blur).
+  implementation(libs.prismal)
 
   testImplementation("junit:junit:4.13.2")
   // Real org.json for JVM unit tests (the Android jar ships an empty stub).

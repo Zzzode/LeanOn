@@ -14,7 +14,7 @@ navigation = "2.8.5"
 lynx = "3.9.0"
 # PrimJS is versioned independently of the Lynx engine (per Lynx integration docs).
 primjs = "3.8.0-alpha.6"
-blurview = "version-3.2.0"
+prismal = "v1.0.1"
 
 [libraries]
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
@@ -36,7 +36,7 @@ lynx-jssdk = { module = "org.lynxsdk.lynx:lynx-jssdk", version.ref = "lynx" }
 lynx-trace = { module = "org.lynxsdk.lynx:lynx-trace", version.ref = "lynx" }
 primjs = { module = "org.lynxsdk.lynx:primjs", version.ref = "primjs" }
 lynx-processor = { module = "org.lynxsdk.lynx:lynx-processor", version.ref = "lynx" }
-blurview = { module = "com.github.Dimezis:BlurView", version.ref = "blurview" }
+prismal = { module = "com.github.styropyr0:Prismal", version.ref = "prismal" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Rounded pill behind the selected tab's icon, matching iOS 26 glass highlight. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#59FFFFFF" />
+    <corners android:radius="14dp" />
+</shape>

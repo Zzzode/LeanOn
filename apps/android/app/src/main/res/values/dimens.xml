@@ -8,9 +8,17 @@
     -->
     <dimen name="floating_tab_margin">16dp</dimen>
     <dimen name="floating_tab_bottom_margin">14dp</dimen>
-    <dimen name="floating_tab_corner_radius">38dp</dimen>
+    <dimen name="floating_tab_height">64dp</dimen>
+    <dimen name="floating_tab_corner_radius">32dp</dimen>
     <dimen name="floating_tab_vertical_padding">5dp</dimen>
-    <dimen name="floating_tab_elevation">8dp</dimen>
+    <!-- Prismal optical parameters, scaled for a 64dp capsule (applyBase is calibrated for ≥120dp). -->
+    <dimen name="floating_tab_thickness">12dp</dimen>
+    <dimen name="floating_tab_height_blur">15dp</dimen>
     <!-- Tab bar icon size, matching iOS 26 proportions. -->
     <dimen name="tab_icon_size">20dp</dimen>
+    <!-- Sliding pill behind the selected tab's icon. -->
+    <dimen name="tab_pill_width">44dp</dimen>
+    <dimen name="tab_pill_height">28dp</dimen>
+    <!-- Vertical padding inside each tab item (above icon, below label). -->
+    <dimen name="tab_item_padding_vertical">8dp</dimen>
 </resources>

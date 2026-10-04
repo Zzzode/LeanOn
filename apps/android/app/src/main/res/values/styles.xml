@@ -1,32 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Tab bar text appearances: compact, matching iOS 26 proportions. -->
-    <style name="TextAppearance.LeanOn.TabLabel.Active" parent="TextAppearance.Material3.LabelMedium">
-        <item name="android:textSize">10sp</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="TextAppearance.LeanOn.TabLabel.Inactive" parent="TextAppearance.Material3.LabelMedium">
-        <item name="android:textSize">10sp</item>
-    </style>
-
-    <!-- BottomNavigationView: override Material 3's 80dp minHeight so the
-         capsule matches iOS 26 proportions (~8% of screen height). 66dp gives
-         the icon + label enough room to avoid overlap. -->
-    <style name="Widget.LeanOn.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
-        <item name="android:minHeight">66dp</item>
-    </style>
-
-    <!-- Active indicator: compact pill, matching iOS glass highlight. -->
-    <style name="Widget.LeanOn.TabIndicator.Active" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
-        <item name="android:width">44dp</item>
-        <item name="android:height">28dp</item>
-        <item name="marginHorizontal">4dp</item>
-        <item name="shapeAppearance">@style/ShapeAppearance.LeanOn.TabIndicator</item>
-    </style>
-
-    <style name="ShapeAppearance.LeanOn.TabIndicator" parent="">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">14dp</item>
-    </style>
 </resources>
