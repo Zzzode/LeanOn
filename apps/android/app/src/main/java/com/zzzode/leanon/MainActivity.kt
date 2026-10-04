@@ -96,6 +96,9 @@ class MainActivity : AppCompatActivity() {
       // Subtle glass highlight behind the selected tab, matching iOS 26.
       itemActiveIndicatorColor = ColorStateList.valueOf(Color.parseColor("#33FFFFFF"))
       itemRippleColor = ColorStateList.valueOf(Color.parseColor("#22FFFFFF"))
+      // Don't consume the navigation-bar inset: the capsule floats above the
+      // system bars, so adding the inset as padding would make it too tall.
+      ViewCompat.setOnApplyWindowInsetsListener(this) { _, insets -> insets }
     }
     addTabItems(bottomBar)
 

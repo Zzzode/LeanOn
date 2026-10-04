@@ -2,12 +2,18 @@
 <resources>
     <!-- Tab bar text appearances: compact, matching iOS 26 proportions. -->
     <style name="TextAppearance.LeanOn.TabLabel.Active" parent="TextAppearance.Material3.LabelMedium">
-        <item name="android:textSize">11sp</item>
+        <item name="android:textSize">10sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TextAppearance.LeanOn.TabLabel.Inactive" parent="TextAppearance.Material3.LabelMedium">
-        <item name="android:textSize">11sp</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <!-- BottomNavigationView: override Material 3's 80dp minHeight so the
+         capsule matches iOS 26 proportions (~8% of screen height). -->
+    <style name="Widget.LeanOn.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:minHeight">56dp</item>
     </style>
 
     <!-- Active indicator: compact pill, matching iOS glass highlight. -->

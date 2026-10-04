@@ -9,8 +9,10 @@
     </style>
 
     <!-- Theme overlay for the floating tab bar: sets the XML-only
-         itemActiveIndicatorStyle so the active pill matches iOS proportions. -->
+         itemActiveIndicatorStyle so the active pill matches iOS proportions,
+         and overrides the BottomNavigationView minHeight. -->
     <style name="Theme.LeanOn.TabBar" parent="Theme.LeanOn">
         <item name="itemActiveIndicatorStyle">@style/Widget.LeanOn.TabIndicator.Active</item>
+        <item name="bottomNavigationStyle">@style/Widget.LeanOn.BottomNavigationView</item>
     </style>
 </resources>
