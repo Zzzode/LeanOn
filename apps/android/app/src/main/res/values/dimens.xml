@@ -2,28 +2,27 @@
 <resources>
     <!--
         Floating tab bar capsule, proportioned to match iOS 26:
-        capsule height ~76dp (66dp content + 5dp padding each side) = 8.3% of
-        screen height, corner radius = half height (50%), margins ~16dp
-        horizontal (4% of width) and ~14dp bottom.
+        64dp height with a semicircular 32dp radius, and 20dp horizontal
+        margins give a ~5.8:1 width:height ratio on a typical phone.
+        The selected pill is inset by 5dp vertically and at the bar ends.
     -->
-    <dimen name="floating_tab_margin">16dp</dimen>
+    <dimen name="floating_tab_margin">20dp</dimen>
     <dimen name="floating_tab_bottom_margin">14dp</dimen>
     <dimen name="floating_tab_height">64dp</dimen>
     <dimen name="floating_tab_corner_radius">32dp</dimen>
+    <dimen name="floating_tab_horizontal_padding">8dp</dimen>
     <dimen name="floating_tab_vertical_padding">5dp</dimen>
     <!-- Prismal optical parameters, scaled for a 64dp capsule (applyBase is calibrated for ≥120dp). -->
     <dimen name="floating_tab_thickness">12dp</dimen>
     <dimen name="floating_tab_height_blur">15dp</dimen>
     <!-- Tab bar icon size, matching iOS 26 proportions. -->
     <dimen name="tab_icon_size">20dp</dimen>
-    <!-- Sliding pill behind the selected tab's icon.
-         Rest size covers the icon + label inside the capsule;
-         expanded size bubbles beyond it during the jelly animation.
-         Both keep a ~1.23 width:height ratio matching iOS 26. -->
-    <dimen name="tab_pill_width">64dp</dimen>
-    <dimen name="tab_pill_height">52dp</dimen>
-    <dimen name="tab_pill_expanded_width">84dp</dimen>
-    <dimen name="tab_pill_expanded_height">68dp</dimen>
+    <!-- The resting pill keeps the iOS ~1.44 width:height ratio.
+         Pressing reveals a taller glass lens that protrudes above and below the bar. -->
+    <dimen name="tab_pill_width">78dp</dimen>
+    <dimen name="tab_pill_height">54dp</dimen>
+    <dimen name="tab_pill_expanded_width">82dp</dimen>
+    <dimen name="tab_pill_expanded_height">74dp</dimen>
     <!-- Vertical padding inside each tab item (above icon, below label). -->
     <dimen name="tab_item_padding_vertical">8dp</dimen>
 </resources>
