@@ -4,4 +4,6 @@
     <dimen name="floating_tab_margin">12dp</dimen>
     <!-- Shadow elevation for the floating tab bar. -->
     <dimen name="floating_tab_elevation">8dp</dimen>
+    <!-- Tab bar icon size, matching iOS 26 proportions. -->
+    <dimen name="tab_icon_size">22dp</dimen>
 </resources>

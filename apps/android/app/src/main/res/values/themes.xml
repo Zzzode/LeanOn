@@ -7,4 +7,10 @@
         <item name="android:windowLightStatusBar">true</item>
         <item name="colorSurfaceContainer">@color/white</item>
     </style>
+
+    <!-- Theme overlay for the floating tab bar: sets the XML-only
+         itemActiveIndicatorStyle so the active pill matches iOS proportions. -->
+    <style name="Theme.LeanOn.TabBar" parent="Theme.LeanOn">
+        <item name="itemActiveIndicatorStyle">@style/Widget.LeanOn.TabIndicator.Active</item>
+    </style>
 </resources>

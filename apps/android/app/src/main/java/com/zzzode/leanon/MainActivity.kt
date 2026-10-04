@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.ViewOutlineProvider
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -72,7 +73,9 @@ class MainActivity : AppCompatActivity() {
     blurTarget.addView(navHostContainer)
     root.addView(blurTarget)
 
-    bottomBar = BottomNavigationView(this).apply {
+    // ContextThemeWrapper applies the active-indicator style (XML-only attr).
+    val tabContext = ContextThemeWrapper(this, R.style.Theme_LeanOn_TabBar)
+    bottomBar = BottomNavigationView(tabContext).apply {
       layoutParams = FrameLayout.LayoutParams(
         FrameLayout.LayoutParams.MATCH_PARENT,
         FrameLayout.LayoutParams.WRAP_CONTENT,
@@ -86,6 +89,10 @@ class MainActivity : AppCompatActivity() {
       val tabColors = ContextCompat.getColorStateList(this@MainActivity, R.color.tab_item_color)
       itemIconTintList = tabColors
       itemTextColor = tabColors
+      // Compact proportions to match iOS 26 (smaller icons, labels, indicator).
+      itemIconSize = resources.getDimensionPixelSize(R.dimen.tab_icon_size)
+      itemTextAppearanceActive = R.style.TextAppearance_LeanOn_TabLabel_Active
+      itemTextAppearanceInactive = R.style.TextAppearance_LeanOn_TabLabel_Inactive
       // Subtle glass highlight behind the selected tab, matching iOS 26.
       itemActiveIndicatorColor = ColorStateList.valueOf(Color.parseColor("#33FFFFFF"))
       itemRippleColor = ColorStateList.valueOf(Color.parseColor("#22FFFFFF"))
