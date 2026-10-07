@@ -52,6 +52,6 @@
     "@zzzode/food-data": "workspace:*"
   },
   "devDependencies": {
-    "@rstest/core": "^0.12.2"
+    "@rstest/core": "^0.12.3"
   }
 }
