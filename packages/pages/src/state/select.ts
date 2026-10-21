@@ -4,6 +4,7 @@ import {
   fitWeightTrend,
   macroTargets,
   staticTdee,
+  weightLossEligibility,
 } from '@zzzode/core';
 import type {
   DateParts,
@@ -29,7 +30,7 @@ function dayPartFor(hour: number | undefined): DayPart {
   return 'evening';
 }
 
-function datePartsFor(iso: string): DateParts {
+export function datePartsFor(iso: string): DateParts {
   const d = new Date(`${iso}T00:00:00Z`);
   return {
     weekday: d.getUTCDay(),
@@ -41,13 +42,16 @@ function datePartsFor(iso: string): DateParts {
 const round0 = (value: number): number => Math.round(value);
 
 /** Resolve raw host records into the language-neutral model for Home. */
-export function selectToday(data: HostData): TodayState {
-  const first = data.weights[0];
-  const last = data.weights[data.weights.length - 1];
-  if (first === undefined || last === undefined) {
-    throw new RangeError('selectToday() requires at least one weight sample');
+export function selectToday(data: HostData): TodayState | null {
+  const weights = data.weights.filter(record => record.date <= data.today).slice().sort((a,b) => a.date.localeCompare(b.date));
+  const first = weights[0];
+  const last = weights[weights.length - 1];
+  if (!data.setupCompleted || data.guidanceMode !== 'weight-loss' || data.profile === null || data.goalWeightKg === null || data.weeklyLossKg === null || first === undefined || last === undefined) {
+    return null;
   }
 
+  if (!weightLossEligibility({profile:data.profile,safetyFlags:data.safetyFlags,today:data.today,
+    goalWeightKg:data.goalWeightKg,currentWeightKg:last.weightKg}).eligible) return null;
   const currentWeightKg = last.weightKg;
   const startWeightKg = first.weightKg;
 
@@ -57,15 +61,15 @@ export function selectToday(data: HostData): TodayState {
     weightKg: currentWeightKg,
     onDate: data.today,
   });
-  const adaptive = adaptiveTdee({ weights: data.weights, intake: data.intake });
+  const adaptive = adaptiveTdee({ weights, intake: data.intake });
   const tdee = adaptive?.tdee ?? staticTdee(bmr, data.profile.activityLevel);
 
   // Planned daily deficit from the desired weekly loss rate.
   const dailyDeficit = (data.weeklyLossKg / 7) * 7700;
-  const floor = MIN_CALORIES[data.profile.sex];
+  const floor = Math.max(MIN_CALORIES[data.profile.sex], bmr);
   const requestedGoal = tdee - dailyDeficit;
   const safe = requestedGoal >= floor;
-  const energyGoalKcal = round0(Math.max(requestedGoal, floor));
+  const energyGoalKcal = Math.ceil(Math.max(requestedGoal, floor));
 
   // Today's food and macros (there may be several logged meals).
   let foodKcal = 0;
@@ -118,7 +122,7 @@ export function selectToday(data: HostData): TodayState {
   });
 
   // Weight trend over the recent window, expressed per week.
-  const trend = fitWeightTrend(data.weights);
+  const trend = fitWeightTrend(weights);
   const trendKgPerWeek = (trend?.slopePerDay ?? 0) * 7;
 
   return {

@@ -1,0 +1,52 @@
+{
+  "revision": 3,
+  "date": "2026-10-06",
+  "head": "89b5e157844d62933a5ebfa773e7aa7b8d076cb9",
+  "branch": "main",
+  "isImplemented": false,
+  "applicationSourceChanged": false,
+  "nativeEvidenceDate": "2026-10-05",
+  "nativeDevice": "iPhone 17 Pro / iOS 26.5",
+  "designViewportPt": [
+    402,
+    874
+  ],
+  "contrastPairsPassingAA": 32,
+  "contrastPairsChecked": 32,
+  "contrastMinimum": {
+    "light": 5.01,
+    "dark": 5.53
+  },
+  "artifacts": [
+    {
+      "file": "00-before-after.png",
+      "bytes": 298664,
+      "sha256": "72634313ea9514a1c7caf91d88546684c5660f6a3d0f4cabf288565ea886d311"
+    },
+    {
+      "file": "01-brand-components.png",
+      "bytes": 269841,
+      "sha256": "ce274a22d792e969f848e469385b178e6120221a78872bc330709b2b28047ff8"
+    },
+    {
+      "file": "02-first-checkpoint.png",
+      "bytes": 310234,
+      "sha256": "68d0edf2b6a9ae6a70c1a42df39725f2f0fa396cf53103b56df938964ab973d5"
+    },
+    {
+      "file": "03-six-screens.png",
+      "bytes": 544372,
+      "sha256": "a4949178b3f274bcd3854750a4d690231235cc949ea09d2d857ec9c441f1e62f"
+    },
+    {
+      "file": "04-forms.png",
+      "bytes": 235924,
+      "sha256": "3ac95a894308c249686faa3fb1ac6c6b47e752e848a04981946f25e2a2dd62a8"
+    },
+    {
+      "file": "05-states-dark.png",
+      "bytes": 265432,
+      "sha256": "bb3848fcd4534b40b41c95f7cfb05a792918be499e7a41eff91872ab62a3dd90"
+    }
+  ]
+}

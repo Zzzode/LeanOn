@@ -1,6 +1,7 @@
 package com.zzzode.leanon.reminders
 
 import android.content.Context
+import android.util.Log
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.zzzode.leanon.LeanOnApplication
@@ -20,17 +21,23 @@ class ReminderWorker(
       ?: return Result.success()
     val app = applicationContext as LeanOnApplication
 
-    val hostData = app.records.loadHostData()
+    val settings = runCatching { app.settings.getReminderSettings() }.getOrElse {
+      Log.w("LeanOn", "Reminder settings unavailable; notification deferred", it)
+      return Result.retry()
+    }
+    val slot = if (kind == ReminderDecision.KIND_WEIGHT) settings.weight else settings.meals
+    if (!slot.enabled) return Result.success()
+    val hostData = runCatching { app.records.currentSnapshot() }.getOrElse { return Result.retry() }
     val today = hostData.getString("today")
     if (ReminderDecision.shouldNotify(kind, today, hostData)) {
       app.notifier.post(kind)
     }
 
     // Re-arm from current settings; the scheduler resolves the next occurrence.
-    val settings = app.settings.getReminderSettings()
-    val slot =
-      if (kind == ReminderDecision.KIND_WEIGHT) settings.weight else settings.meals
-    app.reminderScheduler.scheduleKind(kind, slot)
+    runCatching { app.reminderScheduler.scheduleKindAndAwait(kind, slot) }.getOrElse {
+      Log.w("LeanOn", "Reminder re-arm failed", it)
+      return Result.retry()
+    }
 
     return Result.success()
   }

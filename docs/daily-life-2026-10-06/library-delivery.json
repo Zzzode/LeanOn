@@ -1,0 +1,128 @@
+{
+  "checkpoint": "2026-10-06T19:17:56.561360+00:00",
+  "status": "P1 reports, actual native failure overview and verified archive all delivered as version 1 of the original Library files",
+  "progressZhCn": {
+    "library_file_id": "libfile_c9679b9668508191a238b95caa65752b",
+    "file_id": "file_000000008ef48211969aa3641efc5d39",
+    "current_version_number": 1,
+    "path": "/progress.zh-CN.md",
+    "local_path": "docs/daily-life-2026-10-06/progress.zh-CN.md"
+  },
+  "setupCheckpointOverview": {
+    "library_file_id": "libfile_1d0b1f2fb44c8191a26aaa021d9158eb",
+    "file_id": "file_00000000196082119a925792d3edd6e0",
+    "path": "/leanon-daily-setup-checkpoint.png",
+    "local_path": "/tmp/leanon-daily-setup-checkpoint.png",
+    "sharedBundleSha256": "366dc77526603038448f2b0b5f1c0de50661e9898f9196f931b435e194601ea7",
+    "status": "intermediate actual native setup evidence; not final UI acceptance"
+  },
+  "historyCheckpointOverview": {
+    "library_file_id": "libfile_ccd09424db488191bf162f163dff9857",
+    "file_id": "file_00000000edc88211bee24ef679a83284",
+    "path": "/leanon-daily-history-checkpoint.png",
+    "local_path": "/tmp/leanon-daily-history-checkpoint.png",
+    "sharedBundleSha256": "366dc77526603038448f2b0b5f1c0de50661e9898f9196f931b435e194601ea7",
+    "status": "intermediate actualnativehistory/Undo/processrestartrestore; final827UIpending"
+  },
+  "finalOverview": {
+    "library_file_id": "libfile_8afdcad7744c819198fcc09596aad501",
+    "file_id": "file_0000000089f882078be2a632b79ae42c",
+    "path": "/leanon-daily-final-overview.png",
+    "local_path": "/tmp/leanon-daily-final-overview.png",
+    "sharedBundleSha256": "23593dc3f5eecd295b451d9068aa33d5a3f550d62dceb1961e2b7dc071b636e1",
+    "status": "actualfinal235 native setup/history/restartrestore checkpoints; originals unmodified"
+  },
+  "finalReportZhCn": {
+    "library_file_id": "libfile_936c7efb9d388191af99c029c1a3b50c",
+    "file_id": "file_00000000ddb48207bff0dc2d0f436c93",
+    "path": "/final-report.zh-CN.md",
+    "local_path": "docs/daily-life-2026-10-06/final-report.zh-CN.md",
+    "status": "P1 bounded native verification update delivered",
+    "previousVersions": [
+      {
+        "file_id": "file_0000000049f48207942e55c0fbeb9559",
+        "current_version_number": 0,
+        "scope": "235 baseline before P1"
+      }
+    ],
+    "current_version_number": 1,
+    "sharedBundleSha256": "ae747dd3bbe6ddac6cf56a5ac4172522784ab2bbc61bfa9ea363c41954443497"
+  },
+  "finalReportEn": {
+    "library_file_id": "libfile_f3791b45fbb88191993e22d023c392e2",
+    "file_id": "file_00000000f2488207977ddb2d7a20805e",
+    "path": "/final-report.md",
+    "local_path": "docs/daily-life-2026-10-06/final-report.md",
+    "status": "P1 bounded native verification update delivered",
+    "previousVersions": [
+      {
+        "file_id": "file_00000000da9c82079a9722d31a837045",
+        "current_version_number": 0,
+        "scope": "235 baseline before P1"
+      }
+    ],
+    "current_version_number": 1,
+    "sharedBundleSha256": "ae747dd3bbe6ddac6cf56a5ac4172522784ab2bbc61bfa9ea363c41954443497"
+  },
+  "finalRecoveryOverview": {
+    "library_file_id": "libfile_4642d1e562688191a512d3998c98e9e4",
+    "file_id": "file_00000000f88c8207901a8d4cc09dd53e",
+    "path": "/leanon-daily-final-recovery.png",
+    "local_path": "/tmp/leanon-daily-final-recovery.png",
+    "status": "P1 bounded native verification update delivered",
+    "previousVersions": [
+      {
+        "file_id": "file_00000000890482079568a3abef8cf8f8",
+        "current_version_number": 0,
+        "scope": "235 baseline before P1"
+      }
+    ],
+    "current_version_number": 1,
+    "sharedBundleSha256": "ae747dd3bbe6ddac6cf56a5ac4172522784ab2bbc61bfa9ea363c41954443497"
+  },
+  "primaryDeliveryKeys": [
+    "finalReportZhCn",
+    "finalReportEn",
+    "finalOverview",
+    "finalRecoveryOverview",
+    "finalEvidenceArchive"
+  ],
+  "finalEvidenceArchive": {
+    "library_file_id": "libfile_ad5efa93ac948191a8538abca3f879a7",
+    "file_id": "file_0000000021f482079d2c878cb69bbcd7",
+    "path": "/leanon-daily-life-evidence-20261006.zip",
+    "local_path": "/tmp/leanon-daily-life-evidence-20261006.zip",
+    "bytes": 44844097,
+    "sha256": "cd02bf38f04b5052e1d12ec8761e27616e1e24f5d2846e0ee5c6863b1b559bd2",
+    "archiveEntries": 695,
+    "indexedFilesVerified": 693,
+    "pngs": 304,
+    "finalSelectedOriginalPngs": {
+      "ios": 59,
+      "android": 69
+    },
+    "qualification": "304 PNGs include baseline, 14 official iOS P1, 53 Android P1 (only four authoritative matrix states), diagnostic/intermediate frames and annotated boards; not 304 accepted states.",
+    "indexNote": "Archive includes pre-upload delivery index. This current repository index records the replacement file ID returned after successful upload. Original native Library identity retained.",
+    "previousVersions": [
+      {
+        "file_id": "file_0000000010e482079e1f3dfdbdd6c20d",
+        "current_version_number": 0,
+        "bytes": 35200214,
+        "sha256": "2c6ab03f04fc687c8a4b8a7b8167250a9f6f55b2e7405b664e79dc8e9d151a29",
+        "scope": "235 core baseline evidence"
+      }
+    ],
+    "baselineOriginalPngs": {
+      "ios": 59,
+      "android": 69
+    },
+    "p1": {
+      "iosOfficialOriginalPngs": 14,
+      "androidAuthoritativeMatrixPngs": 4,
+      "androidTotalCapturedPngsIncludingDiagnostics": 53
+    },
+    "integrity": "ZIP CRC, all file SHA/bytes and PNG magic pass; archived conformance replay pass",
+    "current_version_number": 1,
+    "status": "P1 version delivered and metadata applied"
+  }
+}

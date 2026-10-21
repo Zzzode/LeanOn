@@ -1,0 +1,65 @@
+{
+  "report": {
+    "operation": "replace_library_file",
+    "status": "succeeded",
+    "path": "/report.zh-CN(1).md",
+    "file_id": "file_00000000bc24820789ce48a06923fb90",
+    "library_file_id": "libfile_8ccb1354c21c8191b7ea096a80e90d0b",
+    "file_name": "report.zh-CN(1).md",
+    "current_version_number": 2,
+    "restored_from_version_number": null,
+    "xattrs": [
+      {
+        "name": "user.library-file-version",
+        "value": "2"
+      }
+    ],
+    "directory_id": "libdir_bd0591b91fb88191bd01900a376bc9a8",
+    "mime_type": "text/markdown",
+    "library_artifact_type": "report",
+    "file_size_bytes": 20120,
+    "external_connectors_accessed": false
+  },
+  "overview": {
+    "operation": "create_library_file",
+    "status": "succeeded",
+    "path": "/migration-entry-overview.png",
+    "file_id": "file_00000000e9788207903ff7e1c15debe6",
+    "library_file_id": "libfile_5e1641c9848881918d380e9b19af4d48",
+    "file_name": "migration-entry-overview.png",
+    "current_version_number": 0,
+    "restored_from_version_number": null,
+    "xattrs": [
+      {
+        "name": "user.library-file-version",
+        "value": "0"
+      }
+    ],
+    "directory_id": "libdir_bd0591b91fb88191bd01900a376bc9a8",
+    "mime_type": "image/png",
+    "library_artifact_type": "image",
+    "file_size_bytes": 758517,
+    "external_connectors_accessed": false
+  },
+  "evidence": {
+    "operation": "create_library_file",
+    "status": "succeeded",
+    "path": "/migration-entry-evidence-2026-10-07.zip",
+    "file_id": "file_00000000e0748207ae2be4e51801f8fd",
+    "library_file_id": "libfile_13bf9a7e399c8191b53914056431d58b",
+    "file_name": "migration-entry-evidence-2026-10-07.zip",
+    "current_version_number": 0,
+    "restored_from_version_number": null,
+    "xattrs": [
+      {
+        "name": "user.library-file-version",
+        "value": "0"
+      }
+    ],
+    "directory_id": "libdir_bd0591b91fb88191bd01900a376bc9a8",
+    "mime_type": "application/zip",
+    "library_artifact_type": "report",
+    "file_size_bytes": 5091238,
+    "external_connectors_accessed": false
+  }
+}

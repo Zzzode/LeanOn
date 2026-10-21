@@ -1,14 +1,13 @@
 import type {
-  ExerciseSample,
-  IntakeSample,
   Macros,
   Micros,
-  Profile,
   ReminderSettings,
-  WaterSample,
-  WeightSample,
+  RecordsMutationRequest,
+  RecordsState,
 } from '@zzzode/core';
 import type { FoodItem, OffProduct } from '@zzzode/food-data';
+import type { BackupPreviewDto, CompanionResponseDto, PersonalMutationRequestDto, PersonalMutationResultDto, PersonalStateDto, ProgressPhotoDto, ShareCategory } from '@zzzode/data';
+export type { CompanionResponseDto, CompanionRuntimeDto, CompanionAccountDeletionDto } from '@zzzode/data';
 import type { JsonValue } from './types';
 
 /**
@@ -21,22 +20,25 @@ import type { JsonValue } from './types';
  * composed of core's JSON-friendly domain types and is structurally identical
  * to the page's HostData. The UI never owns a clock or persistence layer.
  */
-export interface HostDataDto {
+export interface CompanionMigrationState {
+  phase: 'idle' | 'review' | 'preparing' | 'prepared' | 'restoring' | 'publishing' | 'pausing' | 'paused' | 'activating' | 'active' | 'rolled-back';
+  sourceEndpoint: string | null;
+  targetEndpoint: string | null;
+  targetServiceId: string | null;
+  accountId: string | null;
+  accountName: string | null;
+  operationId: string | null;
+  previewToken: string | null;
+  counts: { weights: number; water: number; exercises: number; meals: number; measurements: number; photos: number };
+  errorCode: string | null;
+}
+export interface CompanionMigrationResponse { migration: CompanionMigrationState }
+
+export interface HostDataDto extends RecordsState {
   /** ISO date `YYYY-MM-DD` the host considers "today". */
   today: string;
   /** Local hour 0-23, used only for the greeting. */
   todayHour?: number;
-  profile: Profile;
-  /** Goal/target weight in kilograms. */
-  goalWeightKg: number;
-  /** Desired loss rate in kilograms per week (0.5-1 is the safe range). */
-  weeklyLossKg: number;
-  weights: WeightSample[];
-  intake: IntakeSample[];
-  /** Logged intentional-exercise sessions (RFC 0017). */
-  exercises: ExerciseSample[];
-  /** Daily drinking-water totals in ml (RFC 0023); one entry per day. */
-  water: WaterSample[];
   /** Number of consecutive logging days. */
   streak: number;
   /** User-created foods persisted by the host (RFC 0013); empty by default. */
@@ -45,6 +47,19 @@ export interface HostDataDto {
   favoriteFoodIds: string[];
   /** Most recently logged food ids first, capped (RFC 0015); empty by default. */
   recentFoodIds: string[];
+}
+
+/** Read-only camera state; this method never opens a camera or permission prompt. */
+export interface ScannerStatus {
+  cameraAvailable: boolean;
+  hostAvailable: boolean;
+  permission: 'not-determined' | 'authorized' | 'denied' | 'restricted';
+}
+export function isScannerStatus(value: unknown): value is ScannerStatus {
+  if (typeof value !== 'object' || value === null || Array.isArray(value)) return false;
+  const status = value as Record<string, unknown>;
+  return typeof status.cameraAvailable === 'boolean' && typeof status.hostAvailable === 'boolean'
+    && typeof status.permission === 'string' && ['not-determined', 'authorized', 'denied', 'restricted'].includes(status.permission);
 }
 
 export type HealthDataType =
@@ -96,6 +111,28 @@ export interface AppInfo {
   osVersion: string;
 }
 
+/** The host persists this choice independently of the effective system theme. */
+export type AppearancePreference = 'system' | 'light' | 'dark';
+export type ResolvedAppearance = 'light' | 'dark';
+
+/** Synchronous bootstrap, RPC response and event share one appearance shape. */
+export interface AppearanceState {
+  preference: AppearancePreference;
+  resolved: ResolvedAppearance;
+}
+
+/** Native events are untrusted at runtime despite their compile-time contract. */
+export function isAppearanceState(value: unknown): value is AppearanceState {
+  if (typeof value !== 'object' || value === null) return false;
+  const candidate = value as Record<string, unknown>;
+  const { preference, resolved } = candidate;
+  return (
+    (preference === 'system' || preference === 'light' || preference === 'dark') &&
+    (resolved === 'light' || resolved === 'dark') &&
+    (preference === 'system' || preference === resolved)
+  );
+}
+
 export interface HostCapabilities {
   platform: 'ios' | 'android';
   hostVersion: string;
@@ -115,6 +152,62 @@ export interface ScheduleNotificationRequest {
 
 /** A request of type `void` means the method takes no arguments. */
 export type LeanOnRpcContract = {
+  'personal.getState': { request: void; response: { personal: PersonalStateDto } };
+  'personal.mutate': { request: PersonalMutationRequestDto; response: PersonalMutationResultDto & { success: true } };
+  'personal.pickPhoto': {
+    request: { date: string; view: ProgressPhotoDto['view']; note?: string; operationId: string; expectedRevision: number };
+    response: { cancelled: true } | { cancelled: false; personal: PersonalStateDto; photoId: string };
+  };
+  'personal.getPhoto': { request: { id: string; scope?: 'own' | 'partner' }; response: { uri: string; width: number; height: number } };
+  'backup.export': { request: { password: string }; response: { cancelled: boolean; fileName?: string } };
+  'backup.inspectImport': {
+    request: { password: string };
+    response: { cancelled: true } | {
+      cancelled: false; token: string; expiresAt: string;
+      summary: BackupPreviewDto & { hasProfile: boolean; includesPhotos: boolean };
+      expectedRecordsRevision: number; expectedPersonalRevision: number;
+    };
+  };
+  'backup.restore': {
+    request: { token: string; expectedRecordsRevision: number; expectedPersonalRevision: number };
+    response: { success: true; hostData: HostDataDto; personal: PersonalStateDto };
+  };
+  'companion.getMigrationState': { request: void; response: CompanionMigrationResponse };
+  'companion.previewMigration': { request: { targetEndpoint: string; password: string }; response: CompanionMigrationResponse };
+  'companion.startMigration': { request: { previewToken: string; password: string; backupPassword: string; consent: true }; response: CompanionMigrationResponse };
+  'companion.resumeMigration': { request: { password: string; backupPassword: string; consent: true }; response: CompanionMigrationResponse };
+  'companion.pauseMigration': { request: void; response: CompanionMigrationResponse };
+  'companion.rollbackMigration': { request: { consent: true }; response: CompanionMigrationResponse };
+  'companion.getState': { request: void; response: CompanionResponseDto };
+  'companion.configure': { request: { endpoint: string }; response: CompanionResponseDto };
+  'companion.register': { request: { login: string; password: string; admissionToken?: string }; response: CompanionResponseDto };
+  'companion.login': { request: { login: string; password: string }; response: CompanionResponseDto };
+  'companion.logout': { request: void; response: CompanionResponseDto };
+  'companion.deleteAccount': { request: { password: string; deleteLocalData: boolean }; response: CompanionResponseDto };
+  'companion.confirmAccountDeletionLocalData': { request: { deleteLocalData: boolean; expectedRecordsRevision: number; expectedPersonalRevision: number }; response: CompanionResponseDto };
+  'companion.createInvitation': { request: { kind: 'family' | 'device' }; response: CompanionResponseDto & { invitationCode: string } };
+  'companion.acceptInvitation': { request: { code: string }; response: CompanionResponseDto };
+  'companion.confirmInvitation': { request: { id: string }; response: CompanionResponseDto };
+  'companion.cancelInvitation': { request: { id: string }; response: CompanionResponseDto };
+  'companion.setSharing': { request: { categories: ShareCategory[] }; response: CompanionResponseDto };
+  'companion.attachLocalData': { request: { expectedRecordsRevision: number; expectedPersonalRevision: number }; response: CompanionResponseDto };
+  'companion.sync': { request: void; response: CompanionResponseDto & { hostData: HostDataDto; personal: PersonalStateDto } };
+  'companion.sendEncouragement': { request: { text: string }; response: CompanionResponseDto };
+  'companion.unlink': { request: { deletePeerCache: true }; response: CompanionResponseDto };
+  'records.getSnapshot': {
+    request: void;
+    response: { hostData: HostDataDto };
+  };
+  'records.mutate': {
+    request: RecordsMutationRequest;
+    response: {
+      success: true;
+      hostData: HostDataDto;
+      appliedRevision: number;
+      replayed: boolean;
+      undoToken?: string;
+    };
+  };
   'health.authorize': {
     request: { types: HealthDataType[] };
     response: { granted: HealthDataType[]; denied: HealthDataType[] };
@@ -241,6 +334,7 @@ export type LeanOnRpcContract = {
     request: void;
     response: { state: ScaleConnectionState; pairedDeviceId: string | null };
   };
+  'scanner.getStatus': { request: void; response: ScannerStatus };
   'scanner.scanBarcode': {
     request: void;
     response: { barcode: string } | { cancelled: true };
@@ -275,7 +369,23 @@ export type LeanOnRpcContract = {
   };
   'app.openRoute': {
     request: { route: string };
+    response: { success: boolean };
+  };
+  'app.setModalActive': {
+    request: { active: boolean };
     response: { success: true };
+  };
+  'app.setLocale': {
+    request: { locale: 'en' | 'zh-CN' };
+    response: { success: true; locale: 'en' | 'zh-CN' };
+  };
+  'app.getAppearance': {
+    request: void;
+    response: AppearanceState;
+  };
+  'app.setAppearance': {
+    request: { preference: AppearancePreference };
+    response: AppearanceState & { success: true };
   };
   'notification.schedule': {
     request: ScheduleNotificationRequest;
@@ -314,9 +424,43 @@ export type LeanOnRpcContract = {
     request: { enabled: boolean };
     response: { success: boolean };
   };
+  'healthKit.getStatus': {
+    request: void;
+    response: {
+      supported: boolean;
+      enabled: boolean;
+      writeAuthorized: boolean;
+      /** True when every supported nutrient write type is authorized. */
+      nutritionWriteAuthorized?: boolean;
+      /** HealthKit deliberately does not disclose read authorization. */
+      readAccess: 'unknown';
+      authorizationRequested: boolean;
+      lastSyncEpochMs: number;
+    };
+  };
+  'healthKit.requestPermission': {
+    request: void;
+    response: {
+      completed: boolean;
+      writeAuthorized: boolean;
+      nutritionWriteAuthorized?: boolean;
+      readAccess: 'unknown';
+    };
+  };
+  'healthKit.setEnabled': {
+    request: { enabled: boolean };
+    response: { success: true };
+  };
+  'healthKit.sync': {
+    request: void;
+    response: { success: true; hostData: HostDataDto };
+  };
 };
 
 export type LeanOnEventContract = {
+  'personal.changed': { payload: { personal: PersonalStateDto } };
+  'companion.migrationChanged': { payload: CompanionMigrationResponse };
+  'companion.changed': { payload: CompanionResponseDto };
   'health.authorizationChanged': {
     payload: { granted: HealthDataType[]; denied: HealthDataType[] };
   };
@@ -332,9 +476,52 @@ export type LeanOnEventContract = {
   'app.lifecycle': {
     payload: { state: 'background' | 'foreground' };
   };
+  'app.photoPreviewsInvalidated': {
+    payload: { scope: 'own' | 'partner' | 'all' };
+  };
+  'app.dismissModal': {
+    payload: { reason: 'back' };
+  };
+  'app.localeChanged': {
+    payload: { locale: 'en' | 'zh-CN' };
+  };
+  'app.appearanceChanged': {
+    payload: AppearanceState;
+  };
 };
 
 export const RpcMethods = {
+  personalGetState: 'personal.getState',
+  personalMutate: 'personal.mutate',
+  personalPickPhoto: 'personal.pickPhoto',
+  personalGetPhoto: 'personal.getPhoto',
+  backupExport: 'backup.export',
+  backupInspectImport: 'backup.inspectImport',
+  backupRestore: 'backup.restore',
+  companionGetMigrationState: 'companion.getMigrationState',
+  companionPreviewMigration: 'companion.previewMigration',
+  companionStartMigration: 'companion.startMigration',
+  companionResumeMigration: 'companion.resumeMigration',
+  companionPauseMigration: 'companion.pauseMigration',
+  companionRollbackMigration: 'companion.rollbackMigration',
+  companionGetState: 'companion.getState',
+  companionConfigure: 'companion.configure',
+  companionRegister: 'companion.register',
+  companionLogin: 'companion.login',
+  companionLogout: 'companion.logout',
+  companionDeleteAccount: 'companion.deleteAccount',
+  companionConfirmAccountDeletionLocalData: 'companion.confirmAccountDeletionLocalData',
+  companionCreateInvitation: 'companion.createInvitation',
+  companionAcceptInvitation: 'companion.acceptInvitation',
+  companionConfirmInvitation: 'companion.confirmInvitation',
+  companionCancelInvitation: 'companion.cancelInvitation',
+  companionSetSharing: 'companion.setSharing',
+  companionAttachLocalData: 'companion.attachLocalData',
+  companionSync: 'companion.sync',
+  companionSendEncouragement: 'companion.sendEncouragement',
+  companionUnlink: 'companion.unlink',
+  recordsGetSnapshot: 'records.getSnapshot',
+  recordsMutate: 'records.mutate',
   healthAuthorize: 'health.authorize',
   healthReadSamples: 'health.readSamples',
   healthWriteWeight: 'health.writeWeight',
@@ -348,6 +535,7 @@ export const RpcMethods = {
   healthUpdateCustomFood: 'health.updateCustomFood',
   healthDeleteCustomFood: 'health.deleteCustomFood',
   healthWriteScannedFood: 'health.writeScannedFood',
+  scannerGetStatus: 'scanner.getStatus',
   scannerScanBarcode: 'scanner.scanBarcode',
   foodLookupProduct: 'food.lookupProduct',
   scaleScan: 'scale.scan',
@@ -361,6 +549,10 @@ export const RpcMethods = {
   appGetInfo: 'app.getInfo',
   appGetCapabilities: 'app.getCapabilities',
   appOpenRoute: 'app.openRoute',
+  appSetModalActive: 'app.setModalActive',
+  appSetLocale: 'app.setLocale',
+  appGetAppearance: 'app.getAppearance',
+  appSetAppearance: 'app.setAppearance',
   notificationSchedule: 'notification.schedule',
   notificationGetSettings: 'notification.getSettings',
   notificationUpdateSettings: 'notification.updateSettings',
@@ -369,12 +561,22 @@ export const RpcMethods = {
   healthConnectRequestPermission: 'healthConnect.requestPermission',
   healthConnectSetEnabled: 'healthConnect.setEnabled',
   healthConnectSync: 'healthConnect.sync',
+  healthKitGetStatus: 'healthKit.getStatus',
+  healthKitRequestPermission: 'healthKit.requestPermission',
+  healthKitSetEnabled: 'healthKit.setEnabled',
+  healthKitSync: 'healthKit.sync',
 } as const satisfies Record<string, keyof LeanOnRpcContract>;
 
 export const BridgeEvents = {
+  personalChanged: 'personal.changed',
+  companionChanged: 'companion.changed',
   healthAuthorizationChanged: 'health.authorizationChanged',
   scaleDiscovered: 'scale.discovered',
   scaleReading: 'scale.reading',
   recordsChanged: 'records.changed',
   appLifecycle: 'app.lifecycle',
+  appPhotoPreviewsInvalidated: 'app.photoPreviewsInvalidated',
+  appDismissModal: 'app.dismissModal',
+  appLocaleChanged: 'app.localeChanged',
+  appAppearanceChanged: 'app.appearanceChanged',
 } as const satisfies Record<string, keyof LeanOnEventContract>;

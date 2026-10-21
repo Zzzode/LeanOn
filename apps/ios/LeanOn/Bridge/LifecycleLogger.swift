@@ -32,7 +32,7 @@ final class LifecycleLogger: NSObject, LynxViewLifecycle {
 
   func lynxView(_ view: LynxView, didRecieveError error: Error) {
     #if DEBUG
-    NSLog("[LeanOnLifecycle] error=\(error.localizedDescription)")
+    NSLog("[LeanOnLifecycle] error=\(error.localizedDescription) details=\((error as NSError).userInfo)")
     #endif
   }
 }

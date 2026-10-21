@@ -1,4 +1,6 @@
-import { useEffect, useState } from '@lynx-js/react';
+import { SheetFeedback } from './SheetFeedback.js';
+import { isRecordConflict } from '../state/record-mutation.js';
+import { useEffect, useRef, useState } from '@lynx-js/react';
 import {
   calculateExerciseKcal,
   exercises,
@@ -13,12 +15,15 @@ interface InputEvent {
 type SheetLocale = 'en' | 'zh-CN';
 
 interface ExerciseSheetProps {
-  currentWeightKg: number;
+  currentWeightKg?: number;
   locale: SheetLocale;
   t: Translator;
+  date?: string;
+  canSave?: boolean;
   /** When provided the sheet edits this session instead of logging a new one. */
   initialSession?: { typeId: string; durationMin: number };
   onClose: () => void;
+  onLogWeight?: () => void;
   onSave: (session: {
     typeId: string;
     durationMin: number;
@@ -35,8 +40,11 @@ export function ExerciseSheet({
   currentWeightKg,
   locale,
   t,
+  date,
+  canSave = true,
   initialSession,
   onClose,
+  onLogWeight,
   onSave,
 }: ExerciseSheetProps) {
   const isEdit = initialSession !== undefined;
@@ -47,8 +55,12 @@ export function ExerciseSheet({
     initialSession?.typeId ?? null,
   );
   const [duration, setDuration] = useState<string>(initialDuration);
+  const pending = useRef(false);
+  const handleClose = () => { if (!pending.current) onClose(); };
   const [saving, setSaving] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const [focused, setFocused] = useState(false);
+  const [choosingType, setChoosingType] = useState(initialSession === undefined);
 
   // `default-value` needs Android 4.0; prefill imperatively on 3.9.
   useEffect(() => {
@@ -64,28 +76,36 @@ export function ExerciseSheet({
 
   let kcal: number | null = null;
   const minutes = Number(duration);
+  const invalidDuration = error !== null &&
+    (!Number.isFinite(minutes) || minutes < 1 || minutes > 1440);
   if (selectedType !== null && Number.isFinite(minutes) && minutes > 0) {
     try {
-      kcal = calculateExerciseKcal(selectedType, minutes, currentWeightKg);
+      kcal = currentWeightKg === undefined ? null : calculateExerciseKcal(selectedType, minutes, currentWeightKg);
     } catch {
       kcal = null;
     }
   }
 
   const handleSave = async () => {
-    if (selectedType === null || kcal === null) {
+    if (pending.current || !canSave) return;
+    if (currentWeightKg === undefined) {setError(t('review.weightFirstBody'));return;}
+    if (selectedType === null || kcal === null || minutes < 1 || minutes > 1440) {
       setError(t('exerciseSheet.invalid'));
       return;
     }
+    pending.current = true;
+    setError(null);
     setSaving(true);
     try {
       await onSave({
         typeId: selectedType.id,
-        durationMin: Math.round(minutes),
+        durationMin: minutes,
         kcal,
       });
-    } catch {
-      setError(t('exerciseSheet.error'));
+    } catch (error) {
+      setError(t(isRecordConflict(error) ? 'closure.conflict' : 'exerciseSheet.error'));
+    } finally {
+      pending.current = false;
       setSaving(false);
     }
   };
@@ -94,70 +114,101 @@ export function ExerciseSheet({
     <view
       className="Sheet-overlay"
       hover-class="tap-feedback-hover"
-      bindtap={onClose}
+      bindtap={saving ? undefined : handleClose}
     >
-      <view className="Sheet" catchtap={() => {}}>
+      <view className="Sheet Theme-exercise" catchtap={() => {}}>
         <text className="Sheet-title">
           {isEdit
             ? t('exerciseSheet.editTitle')
             : t('exerciseSheet.title')}
         </text>
 
-        <scroll-view scroll-orientation="vertical" className="Exercise-type-list">
+        {date !== undefined && <text className="Section-note">{t('daily.date')} · {date}</text>}
+        <scroll-view scroll-orientation="vertical" className="Sheet-body-scroll">
+        <view
+          className="Exercise-current"
+          accessibility-element={true}
+          accessibility-traits={saving ? 'disabled' : 'button'}
+          accessibility-label={selectedType === null ? t('exerciseSheet.chooseActivity') : `${t('exerciseSheet.changeActivity')}: ${selectedType.name[locale]}`}
+          hover-class="tap-feedback-hover"
+          bindtap={saving ? undefined : () => setChoosingType((previous) => !previous)}
+        >
+          <text className="Exercise-current-label">{selectedType?.name[locale] ?? t('exerciseSheet.chooseActivity')}</text>
+          <text className="Exercise-current-action">{selectedType === null ? t('exerciseSheet.chooseActivity') : t('exerciseSheet.changeActivity')}</text>
+        </view>
+        {choosingType && <view className={`Exercise-type-list${error !== null && selectedType === null ? ' invalid' : ''}`}>
           {exercises.map((type) => (
             <view
               key={type.id}
-              className={`Exercise-type${
-                type.id === selectedId ? ' selected' : ''
-              }`}
+              className={`Exercise-type${type.id === selectedId ? ' selected' : ''}`}
+              accessibility-element={true}
+              accessibility-traits={saving ? 'disabled' : type.id === selectedId ? 'selected' : 'button'}
+              accessibility-label={type.name[locale]}
               hover-class="tap-feedback-hover"
-              bindtap={() => setSelectedId(type.id)}
+              bindtap={saving ? undefined : () => { setSelectedId(type.id); setChoosingType(false); setError(null); }}
             >
-              <text className="Exercise-type-label">
-                {type.name[locale]}
-              </text>
+              <text className="Exercise-type-label">{type.id === selectedId ? '✓ ' : ''}{type.name[locale]}</text>
             </view>
           ))}
-        </scroll-view>
-
-        <view className="Sheet-field">
+        </view>}
+        <text className="Form-label">{t('review.duration')}</text>
+        <view className={`Sheet-field${focused ? ' focused' : ''}${invalidDuration ? ' invalid' : ''}`}>
           <input
+            accessibility-element={true}
+            accessibility-label={t('review.duration')}
             id="exercise-duration"
             className="Sheet-input Exercise-duration-input"
             type="number"
-            bindinput={(event: InputEvent) => setDuration(event.detail.value)}
+            disabled={saving}
+            confirm-type="done"
+            bindconfirm={() => lynx.createSelectorQuery().select('#exercise-duration').invoke({ method: 'blur' }).exec()}
+            bindinput={(event: InputEvent) => { setDuration(event.detail.value); setError(null); }}
+            bindfocus={() => setFocused(true)}
+            bindblur={() => setFocused(false)}
             placeholder={t('exerciseSheet.durationHint')}
           />
           <text className="Sheet-unit">{t('exerciseSheet.minutes')}</text>
         </view>
 
-        {kcal !== null && (
-          <view className="Exercise-kcal-row">
-            <text className="Exercise-kcal">{kcal}</text>
-            <text className="Exercise-kcal-unit">
-              {t('exerciseSheet.kcal')}
-            </text>
+        {kcal !== null && currentWeightKg !== undefined && (
+          <view className="Estimate-block">
+            <text className="Estimate-label">{t('review.estimatedEnergy')}</text>
+            <view className="Estimate-row">
+              <text className="Estimate-value">{kcal}</text>
+              <text className="Estimate-unit">
+                {t('exerciseSheet.kcal')}
+              </text>
+            </view>
           </view>
         )}
-        {error !== null && <text className="Sheet-error">{error}</text>}
 
+        {!canSave && <text className="Section-note">{t('review.unavailableBody')}</text>}
+        </scroll-view>
+        <SheetFeedback message={error} />
+        {currentWeightKg === undefined && <view><text className="Section-note">{t('closure.exerciseNoEstimate')}</text>{onLogWeight!==undefined&&<view className="Action-btn" accessibility-element={true} accessibility-traits="button" accessibility-label={t('action.logWeight')} bindtap={onLogWeight}><text className="Action-label">{t('action.logWeight')}</text></view>}</view>}
         <view className="Sheet-actions">
           <view
             className="Sheet-btn"
+            accessibility-element={true}
+            accessibility-traits={saving ? 'disabled' : 'button'}
+            accessibility-label={t('exerciseSheet.cancel')}
             hover-class="tap-feedback-hover"
-            bindtap={onClose}
+            bindtap={saving ? undefined : handleClose}
           >
             <text className="Sheet-btn-label">
               {t('exerciseSheet.cancel')}
             </text>
           </view>
           <view
-            className={`Sheet-btn primary${saving ? ' disabled' : ''}`}
+            className={`Sheet-btn primary${saving || !canSave || currentWeightKg === undefined ? ' disabled' : ''}`}
+            accessibility-element={true}
+            accessibility-traits={saving || !canSave || currentWeightKg === undefined ? 'disabled' : 'button'}
+            accessibility-label={saving ? t('review.saving') : t('exerciseSheet.save')}
             hover-class="tap-feedback-hover"
-            bindtap={saving ? undefined : handleSave}
+            bindtap={saving || !canSave || currentWeightKg === undefined ? undefined : handleSave}
           >
             <text className="Sheet-btn-label primary">
-              {t('exerciseSheet.save')}
+              {saving ? t('review.saving') : t('exerciseSheet.save')}
             </text>
           </view>
         </view>

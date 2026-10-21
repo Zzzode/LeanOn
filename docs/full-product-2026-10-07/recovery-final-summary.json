@@ -1,0 +1,270 @@
+{
+  "checkedAtUtc": "2026-10-07T10:05:42.143814+00:00",
+  "scope": "Final12c catalog-only build, separately identified086 native visible/runtime acceptance, unchanged native242+1 Android baseline, actual84 iOS run, approvedD and earlier actual deletion/process layers. No combined aggregate count.",
+  "currentSharedBundleSHA256": "12c19b25fbd6e82aac7f736b8957b9cfd368dfe43868a948ab20ee7003d66e90",
+  "earlierFullWorkspace": {
+    "passed": 437,
+    "failed": 0,
+    "sharedBundleSHA256": "f69d802611453a749d400c85214c1263c68468e81ceb62735e8122b17827bad4",
+    "sourceLogSHA256": "8e0b5df8d0760fdbed5777643c657dd57428f25ea3328ed6af96247e14ebfc1a"
+  },
+  "finalChecks": {
+    "build": "passed",
+    "typecheck": "passed",
+    "pagesFull": 138,
+    "relayRealTCP": 32,
+    "AndroidJVM": {
+      "executed": 243,
+      "passed": 242,
+      "skipped": 1
+    },
+    "AndroidDeletionPure": 12,
+    "iOSTargetedNative": 49,
+    "iOSGalleryVisibleUI": 1
+  },
+  "logs": {
+    "leanon-recovery-final-workspace-build.log": {
+      "sha256": "dca0a827083eec323dc1e1affd37f7c86619292eee385f7e91eba8f59cb2641c",
+      "scope": "Framework result layer only; raw logs are excluded from Library"
+    },
+    "leanon-recovery-final-workspace-typecheck.log": {
+      "sha256": "929b4bd3ecdc69b6606c3623559b1035ab83ab34ba527d42155c293adf85654d",
+      "scope": "Framework result layer only; raw logs are excluded from Library"
+    },
+    "leanon-recovery-final-pages-tests.log": {
+      "sha256": "0c38d1502f40a8013b5f082f740044b936193e9368536fd6bf6f6da52c5e0556",
+      "scope": "Framework result layer only; raw logs are excluded from Library"
+    },
+    "leanon-companion-deletion-server-tests.log": {
+      "sha256": "0119637d64339baa8aaf5c1d6f95eb02c69e76ed860a8ee4aedf4c8b49c9f9ee",
+      "scope": "Framework result layer only; raw logs are excluded from Library"
+    },
+    "leanon-ios-final-targeted-49.log": {
+      "sha256": "21c26a0282a21b57558220a9a729e7a95ab29eecc43a779f646fa0db4356ce20",
+      "scope": "Framework result layer only; raw logs are excluded from Library"
+    },
+    "leanon-ios-final-gallery-visible.log": {
+      "sha256": "82c7e02c97a74ca9e644ed8a5577042ef05cdc8b2289ee3b677fe3f2e58c8938",
+      "scope": "Framework result layer only; raw logs are excluded from Library"
+    },
+    "leanon-android-companion-deletion-recovery-unit-tests.log": {
+      "sha256": "fb6ef420b6eacee6c604d9b26937f69ffeadb22f2f66d8e7c3c99b547366daee",
+      "scope": "Framework result layer only; raw logs are excluded from Library"
+    }
+  },
+  "approval": {
+    "approvedAtUtc": "2026-10-07T08:57:19Z",
+    "scope": [
+      "fictional D import/cleanup",
+      "fresh localhost deletion tests",
+      "temporary emulator TalkBack and exact restore"
+    ]
+  },
+  "nativeLiveDeletion": {
+    "passed": 2,
+    "completedAtUtc": "2026-10-07T09:01:40Z",
+    "actualHTTP": true,
+    "actualQAKeychain": true,
+    "processBoundary": "one OS process, fresh service objects"
+  },
+  "nativeProcessDeletion": {
+    "preparePassed": 1,
+    "recoverPassed": 1,
+    "preparePid": 23784,
+    "recoverPid": 58867,
+    "completedAtUtc": "2026-10-07T09:20:47Z",
+    "oldPidAbsentBeforeRecovery": true,
+    "forcedLiveKill": false,
+    "scope": "actual independent XCTest hosts; test-only fixture remap preserved original namespace after simulator QA reinstall; not production app-update/container-migration acceptance"
+  },
+  "TalkBack": {
+    "boundAndTouchExploration": true,
+    "buttonAndAxActivation": "passed",
+    "cancelFocusReturn": "P1: Me heading instead of invoker",
+    "speech": "unverified: no audio capture tool",
+    "physicalTraversal": "not passed",
+    "exactOriginalSettingsRestoredAtUtc": "2026-10-07T09:15:01Z"
+  },
+  "latestPages": {
+    "passed": 142,
+    "failed": 0,
+    "logSHA256": "b0f79e88cb222a21e710d9fa1b11245fd0006ae010e6eb51dc3e0dec9954e0d2",
+    "scope": "Final12c source"
+  },
+  "DImport": {
+    "scope": "Approved fictional D ONLY on original01b0 / shared3bbe / older8787 protocol; not current prepared receipt protocol",
+    "approvedAtUtc": "2026-10-07T08:57:19Z",
+    "consentUtc": "2026-10-07T09:23:25.039593Z",
+    "submittedUtc": "2026-10-07T09:24:03.926230Z",
+    "syncedUtc": "2026-10-07T09:25:41.321Z",
+    "localCounts": {
+      "measurements": 1,
+      "photos": 2,
+      "weights": 0,
+      "water": 0,
+      "exercises": 0,
+      "intake": 0
+    },
+    "DrelayAccountCount": 1,
+    "DrelayVaultSequence": 2,
+    "DrelayEncryptedCategories": [
+      "vault",
+      "vault-keyring"
+    ],
+    "healthPlaintextUploaded": false,
+    "peerSharingConfigured": false,
+    "cleanup": "complete: original D account, localrecords/photos, exact four scoped Keystore aliases, cache/personal-ui and private local handoff removed",
+    "deletedStableUtc": "2026-10-07T09:29:52.417549Z",
+    "DrelayAccountCountAfter": 0,
+    "localCountsAfter": {
+      "measurements": 0,
+      "photos": 0,
+      "weights": 0,
+      "water": 0,
+      "exercises": 0,
+      "intake": 0
+    },
+    "previewFilesAfter": 0,
+    "runnerSuccess": true,
+    "officialUiActions": 20,
+    "originalRecordsSHA256Before": "bf2eb866a8d4011f4329d5f50eee9b587c8821c969606172cae4dd8b208c088b",
+    "originalRecordsSHA256After": "bf2eb866a8d4011f4329d5f50eee9b587c8821c969606172cae4dd8b208c088b",
+    "originalPersonalAndCompanionMissingBeforeAfter": true,
+    "nativeCleanup": {
+      "scope": "Explicitly approved fictional personal-ui D cache and exactly four namespaced aliases only",
+      "utc": "2026-10-07T09:37:18.298616Z",
+      "aliasesBefore": {
+        "personal-ui.com.zzzode.leanon.uiqa.leanon.records.wrap.v1": false,
+        "personal-ui.com.zzzode.leanon.uiqa.leanon.personal.wrap.v1": false,
+        "personal-ui.com.zzzode.leanon.uiqa.leanon.private-transactions.wrap.v1": true,
+        "personal-ui.com.zzzode.leanon.uiqa.leanon.companion.wrap.v1": true
+      },
+      "aliasesAfter": {
+        "personal-ui.com.zzzode.leanon.uiqa.leanon.records.wrap.v1": false,
+        "personal-ui.com.zzzode.leanon.uiqa.leanon.personal.wrap.v1": false,
+        "personal-ui.com.zzzode.leanon.uiqa.leanon.private-transactions.wrap.v1": false,
+        "personal-ui.com.zzzode.leanon.uiqa.leanon.companion.wrap.v1": false
+      },
+      "cacheAbsent": true,
+      "originalRecordsBeforeSha256": "bf2eb866a8d4011f4329d5f50eee9b587c8821c969606172cae4dd8b208c088b",
+      "originalRecordsAfterSha256": "bf2eb866a8d4011f4329d5f50eee9b587c8821c969606172cae4dd8b208c088b",
+      "repositoryInstantiated": false,
+      "keyMaterialRead": false
+    }
+  },
+  "latestWorkspace": {
+    "build": "passed",
+    "typecheck": "passed",
+    "buildLogSHA256": "fcf8f325c9d29762c3c46abe67b75200d0c0da006c712e3f0846331840b55616",
+    "typecheckLogSHA256": "eb0f9e54d7e76dd8a69a037ceb90ff8dd90e492fc1c0a59913f97b4cec9b299d"
+  },
+  "iOSKeyMigration79": {
+    "passed": 79,
+    "failed": 0,
+    "scope": "Actual79-case migration checkpoint before final readonly local-complete verifier; no runtime credentials/raw log included",
+    "logSHA256": "66e5ebf2a1a8deed01f0a2f2166b4823901132ed3a5049eb95112b74aad7ca02"
+  },
+  "iOSKeyMigrationFinal": {
+    "executed": 84,
+    "passed": 84,
+    "failed": 0,
+    "actualQAKeychain": true,
+    "scope": "15provider+11consumer+49existing+9Backup, actualonebatch; consumer transportscripted notlive",
+    "logSHA256": "d94e2b755299b4eed756eb33346e31e363a239bcb1ba34f91c5757c7dda95d9a"
+  },
+  "iOSAffectedUI": {
+    "passed": 3,
+    "failed": 0,
+    "bundleSHA256": "086e4ac318be1a47f6f39b9eeea4b864b3227d6d81966bbc9f200e59e85917ed",
+    "logSHA256": "dfca59c0197f6a6ad37bf6a575861e5426dae13bc43d8ef9d7fb6ec3e236e89e"
+  },
+  "TalkBackFinal": {
+    "cases": [
+      {
+        "id": "cancel-focus-and-reveal",
+        "passed": true,
+        "evidence": [
+          "reveal-cancel-return",
+          "reveal-cancel-stable"
+        ],
+        "bounds": "[63,1248][1017,1395]",
+        "nativeBarTopPx": 2210,
+        "personalRevisionBefore": 2,
+        "personalRevisionAfter": 2
+      },
+      {
+        "id": "save-focus-and-reveal",
+        "passed": true,
+        "evidence": [
+          "reveal-save-choice",
+          "reveal-save-focused",
+          "reveal-save-stable"
+        ],
+        "bounds": "[63,1248][1017,1395]",
+        "nativeBarTopPx": 2210,
+        "personalRevisionBefore": 2,
+        "personalRevisionAfter": 3,
+        "savedSyntheticPattern": "none"
+      }
+    ],
+    "actionsExecuted": 11,
+    "restoration": {
+      "utc": "2026-10-07T09:55:52.621702+00:00",
+      "secure": {
+        "enabled_accessibility_services": {
+          "exists": false,
+          "value": null
+        },
+        "accessibility_enabled": {
+          "exists": true,
+          "value": "0"
+        },
+        "touch_exploration_enabled": {
+          "exists": true,
+          "value": "0"
+        }
+      },
+      "exactMatch": true,
+      "talkBackBound": false,
+      "touchExplorationEnabled": false,
+      "uiAutomationPresent": false
+    },
+    "cleanup": {
+      "a11y": "a11y-cleanup-result.json",
+      "D": "d-cleanup-result.json"
+    },
+    "scope": "Actual bound service AXCancel/Save visiblefocus, no speech or physicalgesturepass"
+  },
+  "finaliOSBuildIdentity": {
+    "native": "2a2f92039655e718185310a18630818c73db8e7270b59f43d99fe282de65528b",
+    "bundle": "12c19b25fbd6e82aac7f736b8957b9cfd368dfe43868a948ab20ee7003d66e90",
+    "unitPlugin": "344571a9a8ecdd2f577342f688f6aca56fbbc9768dc0848f39b9acf683573077",
+    "uiPlugin": "f036e846ac4f643adcfa262e564229239671705e47e954e00f739ab43c5d6459",
+    "uiRunner": "6b150402cfb28b95ae8893624dc1ca21639b75b989b7d5da863470e0c1cdd86a",
+    "releaseUnsigned": "7ef89463424e5213f3dd35db2b811063b4cd6a4cf352968b8ec3695603bb250a",
+    "releaseBundle": "12c19b25fbd6e82aac7f736b8957b9cfd368dfe43868a948ab20ee7003d66e90"
+  },
+  "finalAndroidBuildOnly": {
+    "app": {
+      "file": "app-debug.apk",
+      "sha256": "d0d8111a3aefdffc2b48b9116bbe519891233f682bcb170479145069d745f0bc",
+      "bundleSha256": "12c19b25fbd6e82aac7f736b8957b9cfd368dfe43868a948ab20ee7003d66e90",
+      "installed": false
+    },
+    "release": {
+      "file": "app-release-unsigned.apk",
+      "sha256": "057fc01d21f6396964942520227961fb54742a60a0b3bdea9515c745a54c1fc2",
+      "bundleSha256": "12c19b25fbd6e82aac7f736b8957b9cfd368dfe43868a948ab20ee7003d66e90",
+      "installed": false,
+      "qualification": "unsigned formal release build-only, not installed/signed/distributed"
+    },
+    "cleanupRunner": {
+      "file": "app-debug-androidTest.apk",
+      "sha256": "d1102f0f8f2b9eae5354cef6603a976bb41c80ece9dab84fa3186b0e8bdecc4f",
+      "installed": true,
+      "qualification": "test-only fixed a11y-ui cleanup addition after successful reader evidence; does not replace actual reader8a45 identity"
+    },
+    "productSourceChangedFromActual086": false,
+    "sharedDelta": "Only companion.deletionLocalComplete EN/ZH status copy changed; focus/layout source identical"
+  }
+}

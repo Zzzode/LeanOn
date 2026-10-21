@@ -86,3 +86,10 @@ Not needed for:
 | [0026](0026-icon-visual-proportions.md) | Icon visual proportions | Proposed |
 | [0027](0027-ios-host-landing.md) | iOS host landing (Lynx via CocoaPods, container, data layer, HealthKit) | Accepted |
 | [0028](0028-bottom-tab-native-shell.md) | Bottom-tab navigation and native shell (Today/Diary/Progress/Partner/Me) | Proposed |
+| [0029](0029-native-form-and-content-reliability.md) | Native form and content reliability | Proposed |
+| [0030](0030-persisted-appearance.md) | Persisted appearance across Lynx and native hosts | Proposed |
+| [0031](0031-platform-capability-parity.md) | Platform capability parity | Proposed |
+| [0032](0032-personal-daily-records.md) | Personal setup and recoverable daily records | Proposed |
+| [0033](0033-barcode-recovery-and-product-units.md) | Barcode recovery and product units | Proposed |
+| [0034](0034-private-personal-data-and-companion-sync.md) | Private personal data and companion sync | Proposed |
+| [0035](0035-private-cloudflare-companion.md) | Private Cloudflare companion relay | Proposed |

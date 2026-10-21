@@ -1,0 +1,592 @@
+[
+  {
+    "path": "accepted-checks.json",
+    "bytes": 1941,
+    "sha256": "d139d5577d481543748cedfe289c404bbd607d4e6f93e8e2a9da69c585c1e338"
+  },
+  {
+    "path": "android-active-after-relaunch-native-state.json",
+    "bytes": 516,
+    "sha256": "0f90fdfee0247bbe1558348f76df22d36cb57dfb58199a760b995e3e9be2afed"
+  },
+  {
+    "path": "android-active-after-relaunch.json",
+    "bytes": 5536,
+    "sha256": "5da18464aeccf59dfd6bbe752a11e4352b0617b39b463b520d700276bd5872b2"
+  },
+  {
+    "path": "android-active-after-relaunch.png",
+    "bytes": 202691,
+    "sha256": "5e389e09b7f8815c0317a613591fcd1ac38ca3a43dea59c9f4f90beb28253b33"
+  },
+  {
+    "path": "android-active-native-state.json",
+    "bytes": 516,
+    "sha256": "0f90fdfee0247bbe1558348f76df22d36cb57dfb58199a760b995e3e9be2afed"
+  },
+  {
+    "path": "android-active-verification-native-state.json",
+    "bytes": 516,
+    "sha256": "0f90fdfee0247bbe1558348f76df22d36cb57dfb58199a760b995e3e9be2afed"
+  },
+  {
+    "path": "android-active-verification.json",
+    "bytes": 143,
+    "sha256": "058a70c5cc141b4f7dfcfc422c02ee36d75c5ea9991ec478e9208a685a8cc889"
+  },
+  {
+    "path": "android-active-verification.png",
+    "bytes": 210468,
+    "sha256": "38a4ddf7660e689ccfc6ea629febe2fb8d7520e1c4731fafa2a583f922d10d14"
+  },
+  {
+    "path": "android-active.json",
+    "bytes": 5564,
+    "sha256": "ef9ddf4cb560fec44105841f11bdee2ff4bc299b6e35faf3791605a1831427d6"
+  },
+  {
+    "path": "android-active.png",
+    "bytes": 210468,
+    "sha256": "38a4ddf7660e689ccfc6ea629febe2fb8d7520e1c4731fafa2a583f922d10d14"
+  },
+  {
+    "path": "android-consent-free-tap-native-state.json",
+    "bytes": 546,
+    "sha256": "4d2830af89c43c3cb714aa8ee20df1013d90166cfa0e6e74179da0d0ca8ea5b0"
+  },
+  {
+    "path": "android-consent-free-tap.json",
+    "bytes": 6759,
+    "sha256": "40ea4e2aae9efc7661c4866e2c62a23f1a91044c23deb56fc5b343780f264ac7"
+  },
+  {
+    "path": "android-consent-free-tap.png",
+    "bytes": 199868,
+    "sha256": "93418eeaf1d63f059051a0f17d648cafbd2edc34512e32cb31659d1343e9f416"
+  },
+  {
+    "path": "android-driver-focused.log",
+    "bytes": 2113,
+    "sha256": "4ceb62aec316bf5fed049374c1575dff496adea12139984982da1f684ef9e752"
+  },
+  {
+    "path": "android-final-check.log",
+    "bytes": 4908,
+    "sha256": "2f00ecaca6c0a151b22fb3c639b4b0ff8a9560d8a2a69eb09daff66f5d0000c1"
+  },
+  {
+    "path": "android-harness-final-build.log",
+    "bytes": 3318,
+    "sha256": "e243c9a0439769d5c3296632fa6e6b168d2575bb419fb8f44fbbe12d15127cdc"
+  },
+  {
+    "path": "android-old-relay-retention.json",
+    "bytes": 192,
+    "sha256": "6b455adf218714d6a89c961653b18e41f763a3cffa7e4aa466d54204b60fabd9"
+  },
+  {
+    "path": "android-paused-after-process-restart-native-state.json",
+    "bytes": 516,
+    "sha256": "cb4e9d757addbff886f02bd78b97d303665dece60c4bf245c19577ddacecfce6"
+  },
+  {
+    "path": "android-paused-after-process-restart.json",
+    "bytes": 6730,
+    "sha256": "80acde13ff5bbd61b7bf810e18420ffde3e577b1b85b4eb624ea7bfdedfe90cb"
+  },
+  {
+    "path": "android-paused-after-process-restart.png",
+    "bytes": 202294,
+    "sha256": "b9a5db730b0399b583fed4b3fc7468327a64e6a4d3aee41c41c6dce7229a4ffc"
+  },
+  {
+    "path": "android-paused-source-verification-native-state.json",
+    "bytes": 516,
+    "sha256": "cb4e9d757addbff886f02bd78b97d303665dece60c4bf245c19577ddacecfce6"
+  },
+  {
+    "path": "android-paused-source-verification.json",
+    "bytes": 6730,
+    "sha256": "80acde13ff5bbd61b7bf810e18420ffde3e577b1b85b4eb624ea7bfdedfe90cb"
+  },
+  {
+    "path": "android-paused-source-verification.png",
+    "bytes": 202294,
+    "sha256": "b9a5db730b0399b583fed4b3fc7468327a64e6a4d3aee41c41c6dce7229a4ffc"
+  },
+  {
+    "path": "android-pausing-native-state.json",
+    "bytes": 517,
+    "sha256": "cf408bf659e4150075c818047a1c68a0ac8021a3961abb8fc9b5dbad36bb99fb"
+  },
+  {
+    "path": "android-pausing.json",
+    "bytes": 5201,
+    "sha256": "2490d2218f2b317307c8bb52c9da27ea7f313403ed28ee4b4b0f5f57e497b974"
+  },
+  {
+    "path": "android-pausing.png",
+    "bytes": 200088,
+    "sha256": "5b04ed09c2ea6ad9abfc1624809d715b38ec95a4ddc2dd6a153fa0c19fef48d3"
+  },
+  {
+    "path": "android-preview-native-state.json",
+    "bytes": 546,
+    "sha256": "4d2830af89c43c3cb714aa8ee20df1013d90166cfa0e6e74179da0d0ca8ea5b0"
+  },
+  {
+    "path": "android-preview.json",
+    "bytes": 6759,
+    "sha256": "40ea4e2aae9efc7661c4866e2c62a23f1a91044c23deb56fc5b343780f264ac7"
+  },
+  {
+    "path": "android-preview.png",
+    "bytes": 199671,
+    "sha256": "211a1199da19e700501f29faacc397105d0dc21ccce6f7b5cd33c8f9923fc857"
+  },
+  {
+    "path": "android-publishing-native-state.json",
+    "bytes": 520,
+    "sha256": "4d8cf2edf8edb8c7fabed6a883e73e4edd52b5ed327701d08c1d8ab31e1408bf"
+  },
+  {
+    "path": "android-publishing.json",
+    "bytes": 5229,
+    "sha256": "2e02a7c80c784c4df0f63221f70960c421c84109c76bcee7498b6ec511f30fe8"
+  },
+  {
+    "path": "android-publishing.png",
+    "bytes": 202376,
+    "sha256": "495f7a1611940a4dec6fff6b286a0e3d52bd3fa76ee5a7624c1af211fd2a8783"
+  },
+  {
+    "path": "android-rollback-consent-native-state.json",
+    "bytes": 516,
+    "sha256": "0f90fdfee0247bbe1558348f76df22d36cb57dfb58199a760b995e3e9be2afed"
+  },
+  {
+    "path": "android-rollback-consent.json",
+    "bytes": 5560,
+    "sha256": "992b58a1a8fc10ac1f34739c115f347dccb7d7d9a9e619dc952109ffe5784911"
+  },
+  {
+    "path": "android-rollback-consent.png",
+    "bytes": 206842,
+    "sha256": "e4b5633b26129bd96206d895309e51715c3dd680f3528cd414f131e9ed95171c"
+  },
+  {
+    "path": "android-rolled-back-after-relaunch-native-state.json",
+    "bytes": 521,
+    "sha256": "d0f4be07323e41649993a0b235e39be9b717d5d392e2a4ed2f99411272706fd0"
+  },
+  {
+    "path": "android-rolled-back-after-relaunch.json",
+    "bytes": 6145,
+    "sha256": "04890c8013f452ce7e38a30524dac61b6b92828d90f8ad9353c77de21e2f63f5"
+  },
+  {
+    "path": "android-rolled-back-after-relaunch.png",
+    "bytes": 153229,
+    "sha256": "29f3c17090b6023a9f10effbc0d60b640142138ae0b3d6eeb58ea3a828ac0c27"
+  },
+  {
+    "path": "android-rolled-back-native-state.json",
+    "bytes": 521,
+    "sha256": "d0f4be07323e41649993a0b235e39be9b717d5d392e2a4ed2f99411272706fd0"
+  },
+  {
+    "path": "android-rolled-back-verification-native-state.json",
+    "bytes": 521,
+    "sha256": "d0f4be07323e41649993a0b235e39be9b717d5d392e2a4ed2f99411272706fd0"
+  },
+  {
+    "path": "android-rolled-back-verification.json",
+    "bytes": 148,
+    "sha256": "f7f6d72cf5b92978ee15e053517dccf51bae4cd79c5036143e94239d4387f17c"
+  },
+  {
+    "path": "android-rolled-back-verification.png",
+    "bytes": 154320,
+    "sha256": "4057b3c5d7209decb89a0035a07264b50c6891d6f38f17849eeaf8f9b9bb1650"
+  },
+  {
+    "path": "android-rolled-back.json",
+    "bytes": 6143,
+    "sha256": "0abd1b1e842228b84280ede3b13f0463f7e2e130a54727846f08e757667d7545"
+  },
+  {
+    "path": "android-rolled-back.png",
+    "bytes": 154320,
+    "sha256": "4057b3c5d7209decb89a0035a07264b50c6891d6f38f17849eeaf8f9b9bb1650"
+  },
+  {
+    "path": "android-settings-after-interruption-native-state.json",
+    "bytes": 516,
+    "sha256": "cb4e9d757addbff886f02bd78b97d303665dece60c4bf245c19577ddacecfce6"
+  },
+  {
+    "path": "android-settings-after-interruption.json",
+    "bytes": 2415,
+    "sha256": "16a5ffc938b6be69d42d4ab3c5984a575023435e559e4be11504f1fc3b6d15e6"
+  },
+  {
+    "path": "android-settings-after-interruption.png",
+    "bytes": 83872,
+    "sha256": "5929d267510fcf4ecd08c14e34178bcfaa00c2640159b7a55528b08cce9aec28"
+  },
+  {
+    "path": "android-settings-entry-native-state.json",
+    "bytes": 407,
+    "sha256": "00dfb334914a5c01ccbcf5b77c090c75b873517e9283f202d7150902f90ddb11"
+  },
+  {
+    "path": "android-settings-entry.json",
+    "bytes": 2415,
+    "sha256": "16a5ffc938b6be69d42d4ab3c5984a575023435e559e4be11504f1fc3b6d15e6"
+  },
+  {
+    "path": "android-settings-entry.png",
+    "bytes": 83671,
+    "sha256": "4d3edf25477e47e11b16804efbc9ebf4d7f224618dd81b95fe3ba32be0a43200"
+  },
+  {
+    "path": "android-ui-actions.json",
+    "bytes": 4793,
+    "sha256": "d869df2beb8b4d8097c5bb378453b5cf1053bc7b23cdc89af9f8a46f424573ca"
+  },
+  {
+    "path": "android-ui-restarted.log",
+    "bytes": 75,
+    "sha256": "d5e41374b8c57add17b72b1ff566138f93027eb411bb4e6be53981078db80a02"
+  },
+  {
+    "path": "android-unprepared-native-state.json",
+    "bytes": 407,
+    "sha256": "00dfb334914a5c01ccbcf5b77c090c75b873517e9283f202d7150902f90ddb11"
+  },
+  {
+    "path": "android-unprepared.json",
+    "bytes": 6088,
+    "sha256": "856690be71b8ce8b76ba0fed734d2c819cbea0f49714c3b38a74191cdb22acb1"
+  },
+  {
+    "path": "android-unprepared.png",
+    "bytes": 143709,
+    "sha256": "d36c40b928274d9e94afbcdbd21853ac60703c5ada62a88927e85ef1384916b8"
+  },
+  {
+    "path": "build.log",
+    "bytes": 5573,
+    "sha256": "6dceca02b886256a3ae4073fa4e13c239257585bfefba2f2546aa37553d69515"
+  },
+  {
+    "path": "code-evidence.json",
+    "bytes": 12158,
+    "sha256": "8a3baddfd686030289dc8508371c18cb1f5042183219353b47aca64e34c41f90"
+  },
+  {
+    "path": "code-evidence.md",
+    "bytes": 9194,
+    "sha256": "b9b2b24ee39ba6db5ca959ccbb23d7d78bdd929605c877558bc48aac69002179"
+  },
+  {
+    "path": "code-evidence.zh-CN.md",
+    "bytes": 9194,
+    "sha256": "f07d95094476e0a487ed903cc5f401628bf64afaecec134a472ef33dd12fc243"
+  },
+  {
+    "path": "ios-active-native-verification.log",
+    "bytes": 4718,
+    "sha256": "fdd9ecdaaff80d644a0abbbbef868496f874bbc27bdab919419e7bb4be0bf8d7"
+  },
+  {
+    "path": "ios-health-seed.log",
+    "bytes": 3753,
+    "sha256": "54b8ceda7c469e91c54d0e703ccc5d09cb314918edde9465901fdd7452f43112"
+  },
+  {
+    "path": "ios-old-relay-retention.json",
+    "bytes": 120,
+    "sha256": "e9aca91e2bfdf33bca8330bc1777aee02b3668d8d4647f6765c50cecda3fa051"
+  },
+  {
+    "path": "ios-preview-authenticated.log",
+    "bytes": 4041,
+    "sha256": "14a1755159f7fd4620d9dae63cf931f9a6e6a38080fa46c820ad32721f74e471"
+  },
+  {
+    "path": "ios-rollback-native-verification.log",
+    "bytes": 4363,
+    "sha256": "1299e6d2c178d4442eef18ac5c8a99357cfeb68f67486c118c00d1f32a71ec84"
+  },
+  {
+    "path": "ios-seed-standard.log",
+    "bytes": 3720,
+    "sha256": "7940b9ca70ddfb8bbf3b6cc4c23813fdc3ef527979194f98e8b077bd649535e3"
+  },
+  {
+    "path": "ios-signed-build-final.log",
+    "bytes": 88028,
+    "sha256": "372e880fa4af9c316583bea1b02c7fe1eff370968a50ce0ff2e64d46fc6dd097"
+  },
+  {
+    "path": "ios-ui-consent.log",
+    "bytes": 68938,
+    "sha256": "d0b9f1924c7f6796150a088ae131e6cee437ea63b3d726b598b2206978f567e0"
+  },
+  {
+    "path": "ios-ui-rollback.log",
+    "bytes": 23195,
+    "sha256": "2f3dbaa112328bdb4d0464b690b51c725f256e5513065836f4d6ded6792dc4ab"
+  },
+  {
+    "path": "migration-ios-active-after-restart-tree.txt",
+    "bytes": 6191,
+    "sha256": "1b6963e4dffb33580c2f8ea978a4d22f3796b7a9056aa221c64f6176cb1f8336"
+  },
+  {
+    "path": "migration-ios-active-after-restart.png",
+    "bytes": 150429,
+    "sha256": "d20d9a2bf98cd4728a610ae4814bc25a25701fc54614bcefe649da7c60f3d2a8"
+  },
+  {
+    "path": "migration-ios-active-tree.txt",
+    "bytes": 6362,
+    "sha256": "13e698c47c330a55e1af8c32c8b2611304519f823e0d9ff9ca1083140c23f3ce"
+  },
+  {
+    "path": "migration-ios-active.png",
+    "bytes": 161846,
+    "sha256": "3aaac29e2db40b097460f485844655a7e5db6ae1d09e70574c20698ce09103e7"
+  },
+  {
+    "path": "migration-ios-pause-requested-tree.txt",
+    "bytes": 6139,
+    "sha256": "7fd55ec726c7f6ffbf65e4288910de89608ace060f70bbb90729656669261372"
+  },
+  {
+    "path": "migration-ios-pause-requested.png",
+    "bytes": 156555,
+    "sha256": "19581b24ceac60dc665ac37512aff2146dc7523d637726d6035dba985e940bf8"
+  },
+  {
+    "path": "migration-ios-paused-after-restart-tree.txt",
+    "bytes": 7316,
+    "sha256": "1306849a9edecae990c313ee0a18ba0c2379f0fea4b0733ca79e8a9ea818c4a9"
+  },
+  {
+    "path": "migration-ios-paused-after-restart.png",
+    "bytes": 142160,
+    "sha256": "68ed4aa4af4016d5c77c80693e4220567e100fb8a237325c948058215062368a"
+  },
+  {
+    "path": "migration-ios-paused-tree.txt",
+    "bytes": 7480,
+    "sha256": "b704b69f64e17259af7c9f00203f7ea696c5f29f44cd2d757273b8b1c36d6451"
+  },
+  {
+    "path": "migration-ios-paused.png",
+    "bytes": 117531,
+    "sha256": "767d78c5eee722d6c0aba38b3ae88e71ae8d6591d357112160e8089ac1e0a7dc"
+  },
+  {
+    "path": "migration-ios-preview-identity-counts-tree.txt",
+    "bytes": 7474,
+    "sha256": "bdc0ed193890e0835b60a97e7aa1e7e3d33c314b7c9352d1709fe5dc9817eaf3"
+  },
+  {
+    "path": "migration-ios-preview-identity-counts.png",
+    "bytes": 146600,
+    "sha256": "d9a4df070f004b43014656223dffe699343115b04ad0dce390dca44eee2a8520"
+  },
+  {
+    "path": "migration-ios-publishing-tree.txt",
+    "bytes": 6142,
+    "sha256": "cf21a2b73ccdb03dd3da7b30a24cfdaa21b9f8204161e7e33edad7aafde789d3"
+  },
+  {
+    "path": "migration-ios-publishing.png",
+    "bytes": 161943,
+    "sha256": "e11cffead0e99c05d2268fcae566d6001faf96ca1cddb0d153bdb9a2b2aafba0"
+  },
+  {
+    "path": "migration-ios-rollback-confirmation-tree.txt",
+    "bytes": 6167,
+    "sha256": "9e5358149599b65a847306d51964e22ed710003f60ab5dc28567d7b34e7045bc"
+  },
+  {
+    "path": "migration-ios-rollback-confirmation.png",
+    "bytes": 164777,
+    "sha256": "6c70e23c94827459fff7f1a3329bdfd2ec4154f8565a0167b8692cf994161994"
+  },
+  {
+    "path": "migration-ios-rolled-back-after-restart-tree.txt",
+    "bytes": 4565,
+    "sha256": "8bc1a2d4fa9725bc07b4a7f2c6f78f8e0748ece92728011580866c67196d772d"
+  },
+  {
+    "path": "migration-ios-rolled-back-after-restart.png",
+    "bytes": 140823,
+    "sha256": "49850aebb1d8ad9e4e674fb19face483a076cc6c1a11067904e3bc810c43d3dc"
+  },
+  {
+    "path": "migration-ios-rolled-back-tree.txt",
+    "bytes": 4564,
+    "sha256": "81c298898c24e41ff5b71761cc994661b1a6478170e5532b4f447cb00a3af139"
+  },
+  {
+    "path": "migration-ios-rolled-back.png",
+    "bytes": 120933,
+    "sha256": "45b944ec0a9b612eefdfbf6985c74127cc9095ce6ebaf836bd9f975befa10532"
+  },
+  {
+    "path": "migration-ios-settings-entry-tree.txt",
+    "bytes": 7804,
+    "sha256": "3916c67736fb431806b7059b714a09e344b64e34eb0bf431d8ea1baf8970da65"
+  },
+  {
+    "path": "migration-ios-settings-entry.png",
+    "bytes": 131466,
+    "sha256": "8cf6d5d3f3126f21f335a3f0cb7a02dc9b32fb102e166c9f53815e6f159938e1"
+  },
+  {
+    "path": "migration-ios-unprepared-tree.txt",
+    "bytes": 4550,
+    "sha256": "d032385ee06859f9b01201d156546f4541ed0964c5e434d61536fcc204854bdc"
+  },
+  {
+    "path": "migration-ios-unprepared.png",
+    "bytes": 116274,
+    "sha256": "3f791e76a3d4693c4d7edcc9d42940449c40f26480ec6e24458a682443ea8d01"
+  },
+  {
+    "path": "migration-plan.json",
+    "bytes": 764,
+    "sha256": "6ead61b9293b02eefc6eb40dd92a0d72d1f80036f0d70099fb10e70545c04cec"
+  },
+  {
+    "path": "operator-build.log",
+    "bytes": 439,
+    "sha256": "198845eb22a3f0788d7ac6b9ff5233b1f683e57200db13619622e9181ae3ece3"
+  },
+  {
+    "path": "operator-cli-execution-refused.json",
+    "bytes": 249,
+    "sha256": "da0c1708dc084126d76ee710389a3bee9c0ca923de90b473c461f109d9b63254"
+  },
+  {
+    "path": "operator-test.log",
+    "bytes": 727,
+    "sha256": "8feaeb756d985179c516949bd1e97750b162fb6fc73ff785e64c85aee8a99dd9"
+  },
+  {
+    "path": "scoped-source/apps/android/app/src/androidTest/java/com/zzzode/leanon/companion/MigrationEntryFixture.kt",
+    "bytes": 4874,
+    "sha256": "f86f620d2a49a22e626a7bb48bbdea7ea9252f4fb43c6bd484a540490cdf583a"
+  },
+  {
+    "path": "scoped-source/apps/android/app/src/androidTest/java/com/zzzode/leanon/qa/MigrationEntryUiSession.kt",
+    "bytes": 5663,
+    "sha256": "7491babd7075da69225aadafe220e44f27dd8c59513340b2f89b7355ecf9357d"
+  },
+  {
+    "path": "scoped-source/apps/android/app/src/androidTest/java/com/zzzode/leanon/qa/ParityInstrumentation.kt",
+    "bytes": 17995,
+    "sha256": "e9c9396f5e31bfe9695ed32c851bef7e67454a8987be29fc47042d3fa05f2a95"
+  },
+  {
+    "path": "scoped-source/apps/android/app/src/main/java/com/zzzode/leanon/companion/CompanionMigrationController.kt",
+    "bytes": 12366,
+    "sha256": "a9b4ac37556637ea1968c99cfd5f767e5789cf964898e1855a3ff9ac714ea956"
+  },
+  {
+    "path": "scoped-source/apps/ios/LeanOn/Companion/companion-migration-controller.swift",
+    "bytes": 13623,
+    "sha256": "645fda23d240d9d4c9bba6dc861d5ec4ed48c23d2a3a867889582ec6fce80d61"
+  },
+  {
+    "path": "scoped-source/apps/ios/LeanOnTests/companion-migration-entry-tests.swift",
+    "bytes": 12030,
+    "sha256": "03882e8504ccdd94cd25d68cae7bdab500cfda1797514de32ca455e45dbb7f69"
+  },
+  {
+    "path": "scoped-source/apps/ios/LeanOnUITests/migration-entry-ui-tests.swift",
+    "bytes": 6255,
+    "sha256": "c86f0b88a95bbd9472e6a08198212b7c46966fd0b17758d1955ffa6352686026"
+  },
+  {
+    "path": "scoped-source/packages/bridge/src/contracts.ts",
+    "bytes": 20741,
+    "sha256": "2490bfba90063e825a2690f56ddbf8506ed2eb0a619f3628a72f697833b85008"
+  },
+  {
+    "path": "scoped-source/packages/pages/src/App.tsx",
+    "bytes": 62723,
+    "sha256": "7a0428289302f79efafd0f8dcd6a93cac26db69a5893b717f19bdac1219588ae"
+  },
+  {
+    "path": "scoped-source/packages/pages/src/components/MigrationSheet.tsx",
+    "bytes": 7762,
+    "sha256": "978c87c2899f8ccacb29e2f213b1a095aef5825fd85f4924c769d7ab7ed9fba7"
+  },
+  {
+    "path": "scoped-source/packages/pages/src/components/SettingsScreen.tsx",
+    "bytes": 5930,
+    "sha256": "eef206eb99a1c1655518960a34fa58dd0b7e653d1ef8b9c4412ebf65009b4675"
+  },
+  {
+    "path": "scoped-source/packages/pages/src/state/migration-ui.test.ts",
+    "bytes": 2097,
+    "sha256": "c117398a2dcc254e468fd84c048ef81b7705d97317a6794b256daf6f2d65f1c7"
+  },
+  {
+    "path": "scoped-source/packages/pages/src/state/migration-ui.ts",
+    "bytes": 2190,
+    "sha256": "73ddfe6df477a35bbcf0ba1d8a616efc4a74edac83d52ae4decd85effb1d9fde"
+  },
+  {
+    "path": "scoped-source/server/companion-worker/README.md",
+    "bytes": 9496,
+    "sha256": "e0ef398b5e5485922b8eef701e95c368f8b2ea2b7710334ed1f47d4211dcc227"
+  },
+  {
+    "path": "scoped-source/server/companion-worker/README.zh-CN.md",
+    "bytes": 7655,
+    "sha256": "d79be2ab679955c1390cfc62b7196468dba3f96c3e92d00acf8b8e9959e9ee49"
+  },
+  {
+    "path": "scoped-source/server/companion-worker/scripts/local-migration-entry-fixture.mjs",
+    "bytes": 4365,
+    "sha256": "96c8d41ebb4230481c1522fc995d0e8c089f2982050413228b81f218da368d00"
+  },
+  {
+    "path": "scoped-source/server/companion-worker/scripts/migration-plan.mjs",
+    "bytes": 1209,
+    "sha256": "c2d0442952a630e1dfea3d2561d7ef38bb80a3a1e230de12f49a6dbf6d4fbd43"
+  },
+  {
+    "path": "scoped-source/server/companion-worker/src/admin.test.ts",
+    "bytes": 15109,
+    "sha256": "78c9858926aa1407142134f91130162146cb07cb5ebad7307f41effc0213767f"
+  },
+  {
+    "path": "scoped-source/server/companion-worker/src/admin.ts",
+    "bytes": 21511,
+    "sha256": "48ba9126026e33aee6b80689890d35cf32652c2f501bd41a2c9bded3ee03b069"
+  },
+  {
+    "path": "scoped-source-audit.json",
+    "bytes": 3311,
+    "sha256": "554dcd42f80c086b46ac3f0748c12f947fc5f82310001ba36306bacac28f8859"
+  },
+  {
+    "path": "test.log",
+    "bytes": 16888,
+    "sha256": "0ff684c4353b4ce348e50e5909b06ec955587c7f2e9c12f7428faaa83c4e4b68"
+  },
+  {
+    "path": "typecheck-final.log",
+    "bytes": 917,
+    "sha256": "3585e38479236b1376ee8a58ab94f1862dab0f615317d8bff7f7581bdb2e9b1d"
+  }
+]

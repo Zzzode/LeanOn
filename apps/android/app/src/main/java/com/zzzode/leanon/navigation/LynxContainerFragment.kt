@@ -1,14 +1,22 @@
 package com.zzzode.leanon.navigation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.zzzode.leanon.bridge.nativeEventArguments
 import com.lynx.tasm.LynxView
 import com.lynx.tasm.LynxViewBuilder
+import com.lynx.tasm.LynxViewClient
+import com.lynx.tasm.LynxError
+import com.lynx.xelement.XElementBehaviors
 import com.zzzode.leanon.LeanOnApplication
+import com.zzzode.leanon.MainActivity
+import com.zzzode.leanon.BuildConfig
 import com.zzzode.leanon.container.AssetsTemplateProvider
+import com.zzzode.leanon.modules.AppModule
 import org.json.JSONObject
 
 /**
@@ -29,12 +37,27 @@ class LynxContainerFragment : Fragment() {
   ): View {
     val app = requireActivity().application as LeanOnApplication
     val view = LynxViewBuilder()
+      .setFontScale(resources.configuration.fontScale)
+      .addBehaviors(XElementBehaviors().create())
       .setTemplateProvider(AssetsTemplateProvider(requireActivity()))
       .build(requireActivity())
     view.layoutParams = ViewGroup.LayoutParams(
       ViewGroup.LayoutParams.MATCH_PARENT,
       ViewGroup.LayoutParams.MATCH_PARENT,
     )
+    view.addLynxViewClient(object : LynxViewClient() {
+      override fun onFirstScreen() {
+        if (BuildConfig.DEBUG) Log.d("LeanOnLynx", "First screen: ${arguments?.getString(ARG_ROUTE)}")
+        refreshBackdropAfterRender()
+      }
+      override fun onPageUpdate() { refreshBackdropAfterRender() }
+      override fun onReceivedError(error: LynxError) {
+        Log.e("LeanOnLynx", "Render error ${error.errorCode}: ${error.summaryMessage}")
+      }
+      override fun onLoadFailed(message: String) {
+        Log.e("LeanOnLynx", "Template load failed: $message")
+      }
+    })
     app.events.bind(view)
     lynxView = view
     // Render only once the view is actually attached to its window. Fragment
@@ -53,12 +76,37 @@ class LynxContainerFragment : Fragment() {
     return view
   }
 
+  override fun onResume() {
+    super.onResume()
+    lynxView?.updateFontScale(resources.configuration.fontScale)
+  }
+
+  override fun onConfigurationChanged(newConfig: android.content.res.Configuration) {
+    super.onConfigurationChanged(newConfig)
+    lynxView?.updateFontScale(newConfig.fontScale)
+  }
+
   override fun onDestroyView() {
     val app = requireActivity().application as LeanOnApplication
+    (activity as? MainActivity)?.clearModalFor(this)
     lynxView?.let { app.events.unbind(it) }
     lynxView = null
     rendered = false
     super.onDestroyView()
+  }
+
+  private fun refreshBackdropAfterRender() {
+    // Palette events commit asynchronously in Lynx. Capture after its render,
+    // not just before dispatch when the previous palette is still visible.
+    lynxView?.postOnAnimation { (activity as? MainActivity)?.refreshBackdropAfterRender() }
+  }
+
+  fun requestModalDismiss(): Boolean {
+    val view = lynxView?.takeIf { it.isAttachedToWindow } ?: return false
+    // Dismiss only this destination's sheet; record events still fan out to
+    // every mounted view through the shared dispatcher.
+    view.sendGlobalEvent("app.dismissModal", nativeEventArguments(mapOf("reason" to "back")))
+    return true
   }
 
   private fun renderIfNeeded() {
@@ -67,10 +115,15 @@ class LynxContainerFragment : Fragment() {
     val app = requireActivity().application as LeanOnApplication
     val route = arguments?.getString(ARG_ROUTE) ?: return
     val initData = JSONObject()
-      .put("hostData", app.records.loadHostData())
+      .put("hostData", runCatching { app.records.currentSnapshot() }.getOrElse { JSONObject() })
       .put("route", route)
-      .put("locale", systemLocale())
+      .put("platform", "android")
+      .put("supportedMethods", org.json.JSONArray(app.capabilities.supportedMethods))
+      .put("locale", AppModule.preferredLocale(app) ?: systemLocale())
+      .put("appearancePreference", app.appearance.preference().value)
+      .put("appearance", app.appearance.resolved())
     rendered = true
+    if (BuildConfig.DEBUG) Log.d("LeanOnLynx", "Render route=$route appearance=${app.appearance.resolved()}")
     view.renderTemplateUrl("main.lynx.bundle", initData.toString())
   }
 

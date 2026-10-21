@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.app.PendingIntent
 import android.os.Build
+import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.zzzode.leanon.MainActivity
@@ -35,6 +36,7 @@ class Notifier(context: Context) {
 
   /** Post the reminder for [kind]; tap opens LeanOn. */
   fun post(kind: String) {
+    if (!NotificationPermission.areGranted(appContext)) return
     val titleRes: Int
     val bodyRes: Int
     when (kind) {
@@ -67,8 +69,13 @@ class Notifier(context: Context) {
       .setContentIntent(pendingIntent)
       .build()
 
-    NotificationManagerCompat.from(appContext)
-      .notify(notificationId(kind), notification)
+    try {
+      NotificationManagerCompat.from(appContext)
+        .notify(notificationId(kind), notification)
+    } catch (error: SecurityException) {
+      // A background worker can lose its grant between the check and notify.
+      Log.w("Notifier", "Notification permission was revoked before posting", error)
+    }
   }
 
   companion object {

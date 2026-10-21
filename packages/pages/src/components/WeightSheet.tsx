@@ -1,4 +1,6 @@
-import { useEffect, useState } from '@lynx-js/react';
+import { SheetFeedback } from './SheetFeedback.js';
+import { isRecordConflict } from '../state/record-mutation.js';
+import { useEffect, useRef, useState } from '@lynx-js/react';
 import type { Translator } from '@zzzode/i18n';
 
 interface InputEvent {
@@ -6,8 +8,11 @@ interface InputEvent {
 }
 
 interface WeightSheetProps {
-  currentWeightKg: number;
+  currentWeightKg?: number;
   t: Translator;
+  date?: string;
+  canSave?: boolean;
+  canPairScale?: boolean;
   onClose: () => void;
   onPairScale: () => void;
   onSave: (weightKg: number) => Promise<void>;
@@ -23,14 +28,23 @@ interface WeightSheetProps {
 export function WeightSheet({
   currentWeightKg,
   t,
+  date,
+  canSave = true,
+  canPairScale = true,
   onClose,
   onPairScale,
   onSave,
 }: WeightSheetProps) {
-  const initial = String(currentWeightKg);
+  const initial = currentWeightKg === undefined ? '' : String(currentWeightKg);
   const [value, setValue] = useState<string>(initial);
+  const pending = useRef(false);
+  const handleClose = () => { if (!pending.current) onClose(); };
   const [saving, setSaving] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const [focused, setFocused] = useState(false);
+  const numericValue = Number(value);
+  const invalid = error !== null &&
+    (!Number.isFinite(numericValue) || numericValue < 20 || numericValue > 300);
 
   useEffect(() => {
     lynx
@@ -47,16 +61,21 @@ export function WeightSheet({
   };
 
   const handleSave = async () => {
+    if (pending.current || !canSave) return;
     const kg = Number(value);
     if (!Number.isFinite(kg) || kg < 20 || kg > 300) {
       setError(t('weightSheet.invalid'));
       return;
     }
+    pending.current = true;
+    setError(null);
     setSaving(true);
     try {
       await onSave(Math.round(kg * 10) / 10);
-    } catch {
-      setError(t('weightSheet.error'));
+    } catch (error) {
+      setError(t(isRecordConflict(error) ? 'closure.conflict' : 'weightSheet.error'));
+    } finally {
+      pending.current = false;
       setSaving(false);
     }
   };
@@ -65,48 +84,69 @@ export function WeightSheet({
     <view
       className="Sheet-overlay"
       hover-class="tap-feedback-hover"
-      bindtap={onClose}
+      bindtap={saving ? undefined : handleClose}
     >
-      <view className="Sheet" catchtap={() => {}}>
+      <view className="Sheet Theme-weight" catchtap={() => {}}>
         <text className="Sheet-title">{t('weightSheet.title')}</text>
-        <view className="Sheet-field">
+        {date !== undefined && <text className="Section-note">{t('daily.date')} · {date}</text>}
+        <scroll-view scroll-orientation="vertical" className="Sheet-body-scroll">
+        <text className="Form-label">{t('review.weightLabel')}</text>
+        <view className={`Sheet-field${focused ? ' focused' : ''}${invalid ? ' invalid' : ''}`}>
           <input
+            accessibility-element={true}
+            accessibility-label={t('review.weightLabel')}
             id="weight-input"
             className="Sheet-input"
             type="digit"
+            disabled={saving}
+            confirm-type="done"
+            bindconfirm={() => lynx.createSelectorQuery().select('#weight-input').invoke({ method: 'blur' }).exec()}
             bindinput={handleInput}
+            bindfocus={() => setFocused(true)}
+            bindblur={() => setFocused(false)}
             placeholder={t('weightSheet.hint')}
           />
           <text className="Sheet-unit">kg</text>
         </view>
-        {error !== null && <text className="Sheet-error">{error}</text>}
+        {!canSave && <text className="Section-note">{t('review.unavailableBody')}</text>}
+        </scroll-view>
+        <SheetFeedback message={error} />
         <view className="Sheet-actions">
           <view
             className="Sheet-btn"
+            accessibility-element={true}
+            accessibility-traits={saving ? 'disabled' : 'button'}
+            accessibility-label={t('weightSheet.cancel')}
             hover-class="tap-feedback-hover"
-            bindtap={onClose}
+            bindtap={saving ? undefined : handleClose}
           >
             <text className="Sheet-btn-label">{t('weightSheet.cancel')}</text>
           </view>
           <view
-            className={`Sheet-btn primary${saving ? ' disabled' : ''}`}
+            className={`Sheet-btn primary${saving || !canSave ? ' disabled' : ''}`}
+            accessibility-element={true}
+            accessibility-traits={saving || !canSave ? 'disabled' : 'button'}
+            accessibility-label={saving ? t('review.saving') : t('weightSheet.save')}
             hover-class="tap-feedback-hover"
-            bindtap={saving ? undefined : handleSave}
+            bindtap={saving || !canSave ? undefined : handleSave}
           >
             <text className="Sheet-btn-label primary">
-              {t('weightSheet.save')}
+              {saving ? t('review.saving') : t('weightSheet.save')}
             </text>
           </view>
         </view>
-        <view
+        {canPairScale && <view
           className="Sheet-link"
+          accessibility-element={true}
+          accessibility-traits={saving ? 'disabled' : 'button'}
+          accessibility-label={t('weightSheet.pairScale')}
           hover-class="tap-feedback-hover"
-          bindtap={onPairScale}
+          bindtap={saving ? undefined : () => { if (!pending.current) onPairScale(); }}
         >
           <text className="Sheet-link-label">
             {t('weightSheet.pairScale')}
           </text>
-        </view>
+        </view>}
       </view>
     </view>
   );

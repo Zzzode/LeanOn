@@ -1,0 +1,42 @@
+{
+  "checks": [
+    {
+      "id": "registration-never-attaches-health-data",
+      "passed": true
+    },
+    {
+      "id": "lost-photo-response-retains-durable-encrypted-outbox",
+      "passed": true
+    },
+    {
+      "id": "retry-reuses-identical-photo-ciphertext",
+      "passed": true
+    },
+    {
+      "id": "actual-private-r2-jpeg-decryption-and-bitmap-validation",
+      "passed": true
+    },
+    {
+      "id": "durable-receive-before-encouragement-ack",
+      "passed": true
+    },
+    {
+      "id": "new-device-key-pairing-and-explicit-photo-recovery",
+      "passed": true
+    },
+    {
+      "id": "photo-consent-revocation-clears-native-cache",
+      "passed": true
+    },
+    {
+      "id": "remote-object-cleanup-receipt-ack-preserves-chosen-local-data",
+      "passed": true
+    },
+    {
+      "id": "isolated-fixture-files-and-keystore-keys-removed",
+      "passed": true
+    }
+  ],
+  "capturedUtc": "2026-10-07T20:14:11.047809Z",
+  "passed": true
+}

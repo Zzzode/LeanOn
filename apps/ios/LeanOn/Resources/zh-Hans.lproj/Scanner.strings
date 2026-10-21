@@ -1,0 +1,4 @@
+/* Canonical source: packages/i18n/src/locales/zh-CN.ts — keep in sync. */
+"scanner.title" = "扫描条码";
+"scanner.cancel" = "取消";
+"scanner.hint" = "将镜头对准食品包装上的条码。";

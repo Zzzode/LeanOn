@@ -2,10 +2,14 @@ package com.zzzode.leanon.bridge
 
 import android.content.Context
 import com.lynx.tasm.LynxEnv
+import com.zzzode.leanon.modules.CompanionModule
+import com.zzzode.leanon.modules.BackupModule
+import com.zzzode.leanon.modules.PersonalModule
 import com.zzzode.leanon.modules.AppModule
 import com.zzzode.leanon.modules.FoodModule
 import com.zzzode.leanon.modules.HealthConnectModule
 import com.zzzode.leanon.modules.HealthModule
+import com.zzzode.leanon.modules.RecordsModule
 import com.zzzode.leanon.modules.NotificationModule
 import com.zzzode.leanon.modules.ResourceModule
 import com.zzzode.leanon.modules.ScaleModule
@@ -21,6 +25,10 @@ object LynxModuleBootstrap {
     val env = LynxEnv.inst()
     // Exported module names match the capability domains; methods match actions.
     env.registerModule("health", HealthModule::class.java)
+    env.registerModule("records", RecordsModule::class.java)
+    env.registerModule("personal", PersonalModule::class.java)
+    env.registerModule("backup", BackupModule::class.java)
+    env.registerModule("companion", CompanionModule::class.java)
     env.registerModule("food", FoodModule::class.java)
     env.registerModule("scanner", ScannerModule::class.java)
     env.registerModule("scale", ScaleModule::class.java)

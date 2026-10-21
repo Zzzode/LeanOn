@@ -1,0 +1,277 @@
+[
+  {
+    "path": "packages/pages/src/screens/DiaryScreen.tsx",
+    "anchors": [
+      {
+        "text": "ScreenTitle",
+        "lines": [
+          60
+        ]
+      },
+      {
+        "text": "Form-label",
+        "lines": [
+          62
+        ]
+      },
+      {
+        "text": "Diary-primary",
+        "lines": [
+          76
+        ]
+      },
+      {
+        "text": "controls =",
+        "lines": [
+          54
+        ]
+      }
+    ]
+  },
+  {
+    "path": "packages/pages/src/components/InsightsScreen.tsx",
+    "anchors": [
+      {
+        "text": "weight.changeKg",
+        "lines": [
+          117,
+          123
+        ]
+      },
+      {
+        "text": "Insights-big",
+        "lines": [
+          122,
+          125
+        ]
+      },
+      {
+        "text": "insights.notEnough",
+        "lines": [
+          118,
+          129,
+          145
+        ]
+      }
+    ]
+  },
+  {
+    "path": "packages/pages/src/screens/TrackingTodayScreen.tsx",
+    "anchors": [
+      {
+        "text": "BrandHeader/",
+        "lines": [
+          21
+        ]
+      },
+      {
+        "text": "QuickActions",
+        "lines": [
+          4,
+          22
+        ]
+      },
+      {
+        "text": "Energy-figure",
+        "lines": [
+          24
+        ]
+      }
+    ]
+  },
+  {
+    "path": "packages/pages/src/screens/PartnerScreen.tsx",
+    "anchors": [
+      {
+        "text": "Partner-motif",
+        "lines": [
+          28
+        ]
+      },
+      {
+        "text": "Partner-heading",
+        "lines": [
+          29
+        ]
+      },
+      {
+        "text": "companion.local",
+        "lines": [
+          41,
+          80
+        ]
+      },
+      {
+        "text": "companion.signIn",
+        "lines": [
+          44
+        ]
+      }
+    ]
+  },
+  {
+    "path": "packages/pages/src/screens/MeScreen.tsx",
+    "anchors": [
+      {
+        "text": "MeRowProps",
+        "lines": [
+          8,
+          9
+        ]
+      },
+      {
+        "text": "accessibility-traits",
+        "lines": [
+          13,
+          27
+        ]
+      },
+      {
+        "text": "Summary-heading",
+        "lines": [
+          25
+        ]
+      },
+      {
+        "text": "design.connectionsSection",
+        "lines": [
+          34
+        ]
+      }
+    ]
+  },
+  {
+    "path": "packages/pages/src/components/SettingsScreen.tsx",
+    "anchors": [
+      {
+        "text": "Settings-section",
+        "lines": [
+          42,
+          61,
+          80,
+          92
+        ]
+      },
+      {
+        "text": "accessibility-traits",
+        "lines": [
+          50,
+          69,
+          93
+        ]
+      },
+      {
+        "text": "Settings-connections",
+        "lines": [
+          81
+        ]
+      }
+    ]
+  },
+  {
+    "path": "packages/pages/src/components/FoodSheet.tsx",
+    "anchors": [
+      {
+        "text": "Food-search-row",
+        "lines": [
+          629
+        ]
+      },
+      {
+        "text": "Food-scan-btn",
+        "lines": [
+          646
+        ]
+      },
+      {
+        "text": "Food-selected-name",
+        "lines": [
+          785
+        ]
+      },
+      {
+        "text": "food-grams-field",
+        "lines": [
+          148,
+          804
+        ]
+      },
+      {
+        "text": "Meal",
+        "lines": [
+          128,
+          824
+        ]
+      }
+    ]
+  },
+  {
+    "path": "packages/pages/src/components/ExerciseSheet.tsx",
+    "anchors": [
+      {
+        "text": "choosingType &&",
+        "lines": [
+          139
+        ]
+      },
+      {
+        "text": "review.duration",
+        "lines": [
+          154,
+          158
+        ]
+      },
+      {
+        "text": "Sheet-actions",
+        "lines": [
+          189
+        ]
+      }
+    ]
+  },
+  {
+    "path": "packages/pages/src/App.tsx",
+    "anchors": [
+      {
+        "text": "const renderRoute",
+        "lines": [
+          753
+        ]
+      },
+      {
+        "text": "if (state === null)",
+        "lines": [
+          767
+        ]
+      },
+      {
+        "text": "hostData === null",
+        "lines": [
+          181,
+          468,
+          526,
+          754,
+          764
+        ]
+      }
+    ]
+  },
+  {
+    "path": "packages/core/src/insights.ts",
+    "anchors": [
+      {
+        "text": "const changeKg",
+        "lines": [
+          103
+        ]
+      },
+      {
+        "text": "distinctDays.size",
+        "lines": [
+          108,
+          156
+        ]
+      }
+    ]
+  }
+]

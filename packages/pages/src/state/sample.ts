@@ -11,13 +11,14 @@ const WEIGHT_DAYS = 35;
 /**
  * Deterministic sample dataset (no randomness): a male user trending down from
  * 84.0 kg toward a 72 kg goal, currently around 80.4 kg, logging consistently.
- * This stands in for host data until the bridge delivers real records.
+ * This dataset is used only by the explicitly isolated off-device preview.
  */
 export const sampleHostData: HostData = (() => {
   const weights = Array.from({ length: WEIGHT_DAYS }, (_, i) => {
     const trend = 84.0 - i * 0.103;
     const noise = Math.sin(i * 1.3) * 0.22 + Math.sin(i * 0.5) * 0.12;
     return {
+      id: `weight-${isoDaysAgo(WEIGHT_DAYS - 1 - i)}`,
       date: isoDaysAgo(WEIGHT_DAYS - 1 - i),
       weightKg: Math.round((trend + noise) * 10) / 10,
     };
@@ -55,6 +56,9 @@ export const sampleHostData: HostData = (() => {
   ];
 
   return {
+    schemaVersion: 2, revision: 0, setupCompleted: true, guidanceMode: 'weight-loss',
+    safetyFlags: { pregnant: false, breastfeeding: false, eatingDisorderRisk: false },
+    intakeEntries: [], legacyIntake: [...historicalIntake, todayIntake].map((item,index)=>({...item,id:`legacy-preview-${index}`})), deletedRecords: [], processedOperations: [],
     today: isoDaysAgo(0),
     todayHour: 19,
     profile: {
@@ -68,7 +72,7 @@ export const sampleHostData: HostData = (() => {
     weights,
     intake: [...historicalIntake, todayIntake],
     exercises: todayExercises,
-    water: [{ date: isoDaysAgo(0), amountMl: 1500 }],
+    water: [{ id: `water-${isoDaysAgo(0)}`, date: isoDaysAgo(0), amountMl: 1500 }],
     streak: 13,
     customFoods: [],
     favoriteFoodIds: [],

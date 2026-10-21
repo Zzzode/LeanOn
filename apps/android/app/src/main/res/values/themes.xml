@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.LeanOn" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/botanical</item>
+    <bool name="leanon_light_system_bars">true</bool>
+    <style name="Theme.LeanOn.Base" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/brand</item>
+        <item name="colorOnPrimary">@color/on_brand</item>
+        <item name="colorSurface">@color/paper</item>
+        <item name="colorOnSurface">@color/ink</item>
+        <item name="colorOnSurfaceVariant">@color/muted</item>
+        <item name="colorControlNormal">@color/ink</item>
+        <item name="android:colorBackground">@color/surface</item>
+        <item name="android:textColorPrimary">@color/ink</item>
+        <item name="android:textColorSecondary">@color/muted</item>
         <item name="android:windowBackground">@color/surface</item>
         <item name="android:statusBarColor">@color/surface</item>
-        <item name="android:windowLightStatusBar">true</item>
-        <item name="colorSurfaceContainer">@color/white</item>
+        <item name="android:windowLightStatusBar">@bool/leanon_light_system_bars</item>
+        <item name="android:navigationBarColor">@color/surface</item>
+        <item name="android:windowLightNavigationBar">@bool/leanon_light_system_bars</item>
+        <item name="colorSurfaceContainer">@color/paper</item>
+        <item name="android:forceDarkAllowed">false</item>
     </style>
+    <style name="Theme.LeanOn" parent="Theme.LeanOn.Base" />
 </resources>

@@ -1,0 +1,337 @@
+{
+  "status": "native-runtime-captures-not-static-designs",
+  "platform": "android",
+  "osVersion": "15",
+  "deviceModel": "sdk_gphone64_arm64",
+  "deviceSerial": "emulator-5554",
+  "pixelDimensions": [
+    1080,
+    2400
+  ],
+  "applicationId": "com.zzzode.leanon.uiqa",
+  "branch": "main",
+  "head": "89b5e157844d62933a5ebfa773e7aa7b8d076cb9",
+  "workspace": "uncommitted implementation; not a clean HEAD build",
+  "apkSha256": "f5b59a17bf73fab6ccf3386fef1509d9cbf9abf5209eb60cab4d999681585346",
+  "bundleSha256": "c7a5280cf5230e83f2c8c07be0fd46f539e944967183cba8ff5652e983e43ab1",
+  "recordsSha256Before": "bf2eb866a8d4011f4329d5f50eee9b587c8821c969606172cae4dd8b208c088b",
+  "recordsSha256After": "bf2eb866a8d4011f4329d5f50eee9b587c8821c969606172cae4dd8b208c088b",
+  "screens": [
+    {
+      "path": "/tmp/leanon-android-theme-qa/final-today-light.png",
+      "capturedUtc": "2026-10-06T10:47:07.622937+00:00",
+      "sha256": "7c732ad69186c1f09b7f2c4580cb0b97adf0fcac1601345382588ac915dcd659",
+      "stableWaitSeconds": 3,
+      "secondFrame": {
+        "path": "/tmp/leanon-android-theme-qa/stable-second-today-light.png",
+        "capturedUtc": "2026-10-06T10:47:08.123499+00:00",
+        "sha256": "367e0fceabee5161feaaaa2c4f82c87bc12a16c889c6268981a1c5b57afc5240"
+      },
+      "route": "today",
+      "appearancePreference": "light",
+      "launchOutput": "Starting: Intent { flg=0x20000000 cmp=com.zzzode.leanon.uiqa/com.zzzode.leanon.MainActivity (has extras) }\nStatus: ok\nLaunchState: COLD\nActivity: com.zzzode.leanon.uiqa/com.zzzode.leanon.MainActivity\nTotalTime: 894\nWaitTime: 897\nComplete\n",
+      "bundleSha256": "c7a5280cf5230e83f2c8c07be0fd46f539e944967183cba8ff5652e983e43ab1",
+      "actualNativeCapture": true,
+      "canvasSample": "#F8F7F4",
+      "canvasMatches": true,
+      "stableBodyPixelsIdentical": true
+    },
+    {
+      "path": "/tmp/leanon-android-theme-qa/final-diary-light.png",
+      "capturedUtc": "2026-10-06T10:47:11.305116+00:00",
+      "sha256": "76a4d2a106a22104a683013e2c274e3ae8ab663e8144a9b6fce9f2b066f16c0b",
+      "stableWaitSeconds": 3,
+      "secondFrame": {
+        "path": "/tmp/leanon-android-theme-qa/stable-second-diary-light.png",
+        "capturedUtc": "2026-10-06T10:47:11.798650+00:00",
+        "sha256": "76a4d2a106a22104a683013e2c274e3ae8ab663e8144a9b6fce9f2b066f16c0b"
+      },
+      "route": "diary",
+      "appearancePreference": "light",
+      "launchOutput": "Starting: Intent { flg=0x20000000 cmp=com.zzzode.leanon.uiqa/com.zzzode.leanon.MainActivity (has extras) }\nWarning: Activity not started, intent has been delivered to currently running top-most instance.\nStatus: ok\nLaunchState: UNKNOWN (0)\nActivity: com.zzzode.leanon.uiqa/com.zzzode.leanon.MainActivity\nTotalTime: 0\nWaitTime: 3\nComplete\n",
+      "bundleSha256": "c7a5280cf5230e83f2c8c07be0fd46f539e944967183cba8ff5652e983e43ab1",
+      "actualNativeCapture": true,
+      "canvasSample": "#F8F7F4",
+      "canvasMatches": true,
+      "stableBodyPixelsIdentical": true
+    },
+    {
+      "path": "/tmp/leanon-android-theme-qa/final-progress-light.png",
+      "capturedUtc": "2026-10-06T10:47:14.983606+00:00",
+      "sha256": "915709ae47f89475cb1d47b666f13f193b6810f93008e0ff51f567b285c50946",
+      "stableWaitSeconds": 3,
+      "secondFrame": {
+        "path": "/tmp/leanon-android-theme-qa/stable-second-progress-light.png",
+        "capturedUtc": "2026-10-06T10:47:15.475883+00:00",
+        "sha256": "915709ae47f89475cb1d47b666f13f193b6810f93008e0ff51f567b285c50946"
+      },
+      "route": "progress",
+      "appearancePreference": "light",
+      "launchOutput": "Starting: Intent { flg=0x20000000 cmp=com.zzzode.leanon.uiqa/com.zzzode.leanon.MainActivity (has extras) }\nWarning: Activity not started, intent has been delivered to currently running top-most instance.\nStatus: ok\nLaunchState: UNKNOWN (0)\nActivity: com.zzzode.leanon.uiqa/com.zzzode.leanon.MainActivity\nTotalTime: 0\nWaitTime: 2\nComplete\n",
+      "bundleSha256": "c7a5280cf5230e83f2c8c07be0fd46f539e944967183cba8ff5652e983e43ab1",
+      "actualNativeCapture": true,
+      "canvasSample": "#F8F7F4",
+      "canvasMatches": true,
+      "stableBodyPixelsIdentical": true
+    },
+    {
+      "path": "/tmp/leanon-android-theme-qa/final-partner-light.png",
+      "capturedUtc": "2026-10-06T10:47:18.660108+00:00",
+      "sha256": "67758d823a1dcfc0c1ef78a9271772ffb197535501ff2ec08ee024a9f015b9ee",
+      "stableWaitSeconds": 3,
+      "secondFrame": {
+        "path": "/tmp/leanon-android-theme-qa/stable-second-partner-light.png",
+        "capturedUtc": "2026-10-06T10:47:19.147108+00:00",
+        "sha256": "67758d823a1dcfc0c1ef78a9271772ffb197535501ff2ec08ee024a9f015b9ee"
+      },
+      "route": "partner",
+      "appearancePreference": "light",
+      "launchOutput": "Starting: Intent { flg=0x20000000 cmp=com.zzzode.leanon.uiqa/com.zzzode.leanon.MainActivity (has extras) }\nWarning: Activity not started, intent has been delivered to currently running top-most instance.\nStatus: ok\nLaunchState: UNKNOWN (0)\nActivity: com.zzzode.leanon.uiqa/com.zzzode.leanon.MainActivity\nTotalTime: 0\nWaitTime: 3\nComplete\n",
+      "bundleSha256": "c7a5280cf5230e83f2c8c07be0fd46f539e944967183cba8ff5652e983e43ab1",
+      "actualNativeCapture": true,
+      "canvasSample": "#F8F7F4",
+      "canvasMatches": true,
+      "stableBodyPixelsIdentical": true
+    },
+    {
+      "path": "/tmp/leanon-android-theme-qa/final-me-light.png",
+      "capturedUtc": "2026-10-06T10:47:22.320015+00:00",
+      "sha256": "65ea462d48c3d2aff700d440e6cef77c9762ca97ec054df16d010fb6e5d1afec",
+      "stableWaitSeconds": 3,
+      "secondFrame": {
+        "path": "/tmp/leanon-android-theme-qa/stable-second-me-light.png",
+        "capturedUtc": "2026-10-06T10:47:22.817595+00:00",
+        "sha256": "65ea462d48c3d2aff700d440e6cef77c9762ca97ec054df16d010fb6e5d1afec"
+      },
+      "route": "me",
+      "appearancePreference": "light",
+      "launchOutput": "Starting: Intent { flg=0x20000000 cmp=com.zzzode.leanon.uiqa/com.zzzode.leanon.MainActivity (has extras) }\nWarning: Activity not started, intent has been delivered to currently running top-most instance.\nStatus: ok\nLaunchState: UNKNOWN (0)\nActivity: com.zzzode.leanon.uiqa/com.zzzode.leanon.MainActivity\nTotalTime: 0\nWaitTime: 2\nComplete\n",
+      "bundleSha256": "c7a5280cf5230e83f2c8c07be0fd46f539e944967183cba8ff5652e983e43ab1",
+      "actualNativeCapture": true,
+      "canvasSample": "#F8F7F4",
+      "canvasMatches": true,
+      "stableBodyPixelsIdentical": true
+    },
+    {
+      "path": "/tmp/leanon-android-theme-qa/final-settings-light.png",
+      "capturedUtc": "2026-10-06T10:47:25.996370+00:00",
+      "sha256": "89bbb7f37b18cf5f54ee0743cbca1131fd71ea22bd96189ae1d5ea1ecd46bba4",
+      "stableWaitSeconds": 3,
+      "secondFrame": {
+        "path": "/tmp/leanon-android-theme-qa/stable-second-settings-light.png",
+        "capturedUtc": "2026-10-06T10:47:26.489671+00:00",
+        "sha256": "89bbb7f37b18cf5f54ee0743cbca1131fd71ea22bd96189ae1d5ea1ecd46bba4"
+      },
+      "route": "settings",
+      "appearancePreference": "light",
+      "launchOutput": "Starting: Intent { flg=0x20000000 cmp=com.zzzode.leanon.uiqa/com.zzzode.leanon.MainActivity (has extras) }\nWarning: Activity not started, intent has been delivered to currently running top-most instance.\nStatus: ok\nLaunchState: UNKNOWN (0)\nActivity: com.zzzode.leanon.uiqa/com.zzzode.leanon.MainActivity\nTotalTime: 0\nWaitTime: 3\nComplete\n",
+      "bundleSha256": "c7a5280cf5230e83f2c8c07be0fd46f539e944967183cba8ff5652e983e43ab1",
+      "actualNativeCapture": true,
+      "canvasSample": "#F8F7F4",
+      "canvasMatches": true,
+      "stableBodyPixelsIdentical": true
+    },
+    {
+      "path": "/tmp/leanon-android-theme-qa/final-today-dark.png",
+      "capturedUtc": "2026-10-06T10:47:29.675214+00:00",
+      "sha256": "4ad07be807a102721cfe4c4ad7b610210d95e67452e8e8e2ced6ad8cc13c6d38",
+      "stableWaitSeconds": 3,
+      "secondFrame": {
+        "path": "/tmp/leanon-android-theme-qa/stable-second-today-dark.png",
+        "capturedUtc": "2026-10-06T10:47:30.168991+00:00",
+        "sha256": "4ad07be807a102721cfe4c4ad7b610210d95e67452e8e8e2ced6ad8cc13c6d38"
+      },
+      "route": "today",
+      "appearancePreference": "dark",
+      "launchOutput": "Starting: Intent { flg=0x20000000 cmp=com.zzzode.leanon.uiqa/com.zzzode.leanon.MainActivity (has extras) }\nWarning: Activity not started, intent has been delivered to currently running top-most instance.\nStatus: ok\nLaunchState: UNKNOWN (0)\nActivity: com.zzzode.leanon.uiqa/com.zzzode.leanon.MainActivity\nTotalTime: 0\nWaitTime: 2\nComplete\n",
+      "bundleSha256": "c7a5280cf5230e83f2c8c07be0fd46f539e944967183cba8ff5652e983e43ab1",
+      "actualNativeCapture": true,
+      "canvasSample": "#201D26",
+      "canvasMatches": true,
+      "stableBodyPixelsIdentical": true
+    },
+    {
+      "path": "/tmp/leanon-android-theme-qa/final-diary-dark.png",
+      "capturedUtc": "2026-10-06T10:47:33.345762+00:00",
+      "sha256": "9f586f3e5ab11aaddd58e7ef116972f7defc5e267e0052e16d96da34ce9d78c5",
+      "stableWaitSeconds": 3,
+      "secondFrame": {
+        "path": "/tmp/leanon-android-theme-qa/stable-second-diary-dark.png",
+        "capturedUtc": "2026-10-06T10:47:33.839898+00:00",
+        "sha256": "9f586f3e5ab11aaddd58e7ef116972f7defc5e267e0052e16d96da34ce9d78c5"
+      },
+      "route": "diary",
+      "appearancePreference": "dark",
+      "launchOutput": "Starting: Intent { flg=0x20000000 cmp=com.zzzode.leanon.uiqa/com.zzzode.leanon.MainActivity (has extras) }\nWarning: Activity not started, intent has been delivered to currently running top-most instance.\nStatus: ok\nLaunchState: UNKNOWN (0)\nActivity: com.zzzode.leanon.uiqa/com.zzzode.leanon.MainActivity\nTotalTime: 0\nWaitTime: 2\nComplete\n",
+      "bundleSha256": "c7a5280cf5230e83f2c8c07be0fd46f539e944967183cba8ff5652e983e43ab1",
+      "actualNativeCapture": true,
+      "canvasSample": "#201D26",
+      "canvasMatches": true,
+      "stableBodyPixelsIdentical": true
+    },
+    {
+      "path": "/tmp/leanon-android-theme-qa/final-progress-dark.png",
+      "capturedUtc": "2026-10-06T10:47:37.025616+00:00",
+      "sha256": "54b96c5ca61e1e9a4cbe654c5af8f4052cbe827799c62f4ee4cd4474bd65e3d0",
+      "stableWaitSeconds": 3,
+      "secondFrame": {
+        "path": "/tmp/leanon-android-theme-qa/stable-second-progress-dark.png",
+        "capturedUtc": "2026-10-06T10:47:37.529904+00:00",
+        "sha256": "54b96c5ca61e1e9a4cbe654c5af8f4052cbe827799c62f4ee4cd4474bd65e3d0"
+      },
+      "route": "progress",
+      "appearancePreference": "dark",
+      "launchOutput": "Starting: Intent { flg=0x20000000 cmp=com.zzzode.leanon.uiqa/com.zzzode.leanon.MainActivity (has extras) }\nWarning: Activity not started, intent has been delivered to currently running top-most instance.\nStatus: ok\nLaunchState: UNKNOWN (0)\nActivity: com.zzzode.leanon.uiqa/com.zzzode.leanon.MainActivity\nTotalTime: 0\nWaitTime: 3\nComplete\n",
+      "bundleSha256": "c7a5280cf5230e83f2c8c07be0fd46f539e944967183cba8ff5652e983e43ab1",
+      "actualNativeCapture": true,
+      "canvasSample": "#201D26",
+      "canvasMatches": true,
+      "stableBodyPixelsIdentical": true
+    },
+    {
+      "path": "/tmp/leanon-android-theme-qa/final-partner-dark.png",
+      "capturedUtc": "2026-10-06T10:47:40.825670+00:00",
+      "sha256": "8e989da1c2d6a734664b6b5117edd48806e78715f130c9ad66f1ebbca58e11aa",
+      "stableWaitSeconds": 3,
+      "secondFrame": {
+        "path": "/tmp/leanon-android-theme-qa/stable-second-partner-dark.png",
+        "capturedUtc": "2026-10-06T10:47:41.490683+00:00",
+        "sha256": "8e989da1c2d6a734664b6b5117edd48806e78715f130c9ad66f1ebbca58e11aa"
+      },
+      "route": "partner",
+      "appearancePreference": "dark",
+      "launchOutput": "Starting: Intent { flg=0x20000000 cmp=com.zzzode.leanon.uiqa/com.zzzode.leanon.MainActivity (has extras) }\nWarning: Activity not started, intent has been delivered to currently running top-most instance.\nStatus: ok\nLaunchState: UNKNOWN (0)\nActivity: com.zzzode.leanon.uiqa/com.zzzode.leanon.MainActivity\nTotalTime: 0\nWaitTime: 2\nComplete\n",
+      "bundleSha256": "c7a5280cf5230e83f2c8c07be0fd46f539e944967183cba8ff5652e983e43ab1",
+      "actualNativeCapture": true,
+      "canvasSample": "#201D26",
+      "canvasMatches": true,
+      "stableBodyPixelsIdentical": true
+    },
+    {
+      "path": "/tmp/leanon-android-theme-qa/final-me-dark.png",
+      "capturedUtc": "2026-10-06T10:47:44.845918+00:00",
+      "sha256": "8fc70da6fbcbd879ec187f989bbd909ead0264d0d386892b686653e1a1e78094",
+      "stableWaitSeconds": 3,
+      "secondFrame": {
+        "path": "/tmp/leanon-android-theme-qa/stable-second-me-dark.png",
+        "capturedUtc": "2026-10-06T10:47:45.348640+00:00",
+        "sha256": "8fc70da6fbcbd879ec187f989bbd909ead0264d0d386892b686653e1a1e78094"
+      },
+      "route": "me",
+      "appearancePreference": "dark",
+      "launchOutput": "Starting: Intent { flg=0x20000000 cmp=com.zzzode.leanon.uiqa/com.zzzode.leanon.MainActivity (has extras) }\nWarning: Activity not started, intent has been delivered to currently running top-most instance.\nStatus: ok\nLaunchState: UNKNOWN (0)\nActivity: com.zzzode.leanon.uiqa/com.zzzode.leanon.MainActivity\nTotalTime: 0\nWaitTime: 31\nComplete\n",
+      "bundleSha256": "c7a5280cf5230e83f2c8c07be0fd46f539e944967183cba8ff5652e983e43ab1",
+      "actualNativeCapture": true,
+      "canvasSample": "#201D26",
+      "canvasMatches": true,
+      "stableBodyPixelsIdentical": true
+    },
+    {
+      "path": "/tmp/leanon-android-theme-qa/final-settings-dark.png",
+      "capturedUtc": "2026-10-06T10:47:48.666159+00:00",
+      "sha256": "701d9cc83df1ee4e90d2fe4ce692361fe4970aabaa44fe0ede61d3076b3099ed",
+      "stableWaitSeconds": 3,
+      "secondFrame": {
+        "path": "/tmp/leanon-android-theme-qa/stable-second-settings-dark.png",
+        "capturedUtc": "2026-10-06T10:47:49.203413+00:00",
+        "sha256": "701d9cc83df1ee4e90d2fe4ce692361fe4970aabaa44fe0ede61d3076b3099ed"
+      },
+      "route": "settings",
+      "appearancePreference": "dark",
+      "launchOutput": "Starting: Intent { flg=0x20000000 cmp=com.zzzode.leanon.uiqa/com.zzzode.leanon.MainActivity (has extras) }\nWarning: Activity not started, intent has been delivered to currently running top-most instance.\nStatus: ok\nLaunchState: UNKNOWN (0)\nActivity: com.zzzode.leanon.uiqa/com.zzzode.leanon.MainActivity\nTotalTime: 0\nWaitTime: 3\nComplete\n",
+      "bundleSha256": "c7a5280cf5230e83f2c8c07be0fd46f539e944967183cba8ff5652e983e43ab1",
+      "actualNativeCapture": true,
+      "canvasSample": "#201D26",
+      "canvasMatches": true,
+      "stableBodyPixelsIdentical": true
+    }
+  ],
+  "manualInteractionCoverage": {
+    "keyboard": false,
+    "cancelSave": false,
+    "Back": false,
+    "appSettingsThemePicker": false
+  },
+  "diagnosticHistory": "Earlier host-dark-old-bundle/dark-relaunch/dark-render-diagnostic/today-dark-first/today-dark-fixed/system-dark-check screenshots are NOT final; partial/dev bundle, CSS-vars or unsupported replaceAll diagnosed and corrected.",
+  "appearanceChecks": [
+    {
+      "name": "guard-warm-same-today-dark",
+      "preference": "dark",
+      "path": "/tmp/leanon-android-theme-qa/guard-warm-same-today-dark.png",
+      "capturedUtc": "2026-10-06T10:48:08.140265+00:00",
+      "pid": "21785",
+      "sha256": "5095094c361c69078815888b7f2eda5549b53bd730b8652f561628265abbffac",
+      "savedPreferenceXml": "<?xml version='1.0' encoding='utf-8' standalone='yes' ?>\n<map>\n    <string name=\"preference\">dark</string>\n</map>\n",
+      "canvasSample": "#201D26",
+      "canvasMatches": true
+    },
+    {
+      "name": "guard-warm-same-today-light",
+      "preference": "light",
+      "path": "/tmp/leanon-android-theme-qa/guard-warm-same-today-light.png",
+      "capturedUtc": "2026-10-06T10:48:11.372548+00:00",
+      "pid": "21785",
+      "sha256": "837f4f8e55afe4e53a58a54d16ccb0d82eeae187362346cf9b48e55c667365cf",
+      "savedPreferenceXml": "<?xml version='1.0' encoding='utf-8' standalone='yes' ?>\n<map>\n    <string name=\"preference\">light</string>\n</map>\n",
+      "canvasSample": "#F8F7F4",
+      "canvasMatches": true
+    },
+    {
+      "name": "guard-system-light",
+      "preference": "system",
+      "path": "/tmp/leanon-android-theme-qa/guard-system-light.png",
+      "capturedUtc": "2026-10-06T10:48:14.601160+00:00",
+      "pid": "21785",
+      "sha256": "5df480b11154559bc2842670b12d285c292bbbf2b3dcc6c94a36d0600d9ca6ea",
+      "savedPreferenceXml": "<?xml version='1.0' encoding='utf-8' standalone='yes' ?>\n<map>\n    <string name=\"preference\">system</string>\n</map>\n",
+      "canvasSample": "#F8F7F4",
+      "canvasMatches": true
+    },
+    {
+      "name": "guard-system-dark",
+      "preference": "system",
+      "path": "/tmp/leanon-android-theme-qa/guard-system-dark.png",
+      "capturedUtc": "2026-10-06T10:48:17.825029+00:00",
+      "pid": "21785",
+      "sha256": "efc4aaf81ac1c86fbe42af615ceaed9a8d35fded2d95d0459d46dd2ec799fb34",
+      "savedPreferenceXml": "<?xml version='1.0' encoding='utf-8' standalone='yes' ?>\n<map>\n    <string name=\"preference\">system</string>\n</map>\n",
+      "canvasSample": "#201D26",
+      "canvasMatches": true
+    },
+    {
+      "name": "guard-final-system-light",
+      "preference": "system",
+      "path": "/tmp/leanon-android-theme-qa/guard-final-system-light.png",
+      "capturedUtc": "2026-10-06T10:48:21.042490+00:00",
+      "pid": "21785",
+      "sha256": "5df480b11154559bc2842670b12d285c292bbbf2b3dcc6c94a36d0600d9ca6ea",
+      "savedPreferenceXml": "<?xml version='1.0' encoding='utf-8' standalone='yes' ?>\n<map>\n    <string name=\"preference\">system</string>\n</map>\n",
+      "canvasSample": "#F8F7F4",
+      "canvasMatches": true
+    }
+  ],
+  "nativeTests": {
+    "command": "JAVA_HOME=temurin17 ./gradlew :app:assembleDebug :app:testDebugUnitTest -PleanonUiQa=true -x :app:prepareLynxAssets",
+    "tests": 60,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "log": "/tmp/leanon-android-theme-build.log",
+    "reuseReason": "Native source unchanged from tested d0 package; only final malformed-native-data guard Lynx bundle repackaged.",
+    "repackageLog": "/tmp/leanon-android-theme-guard-build.log",
+    "staging": "exact c7a5280c guard bundle pinned into generated assets; no concurrent dist reliance"
+  },
+  "priorAppearanceChecks": {
+    "bundleSha256": "d0abe889da97d686b9094945e301bbb3982c0516e9d87382847163ec2e0a7d86",
+    "manifest": "/tmp/leanon-android-theme-qa/previous-d0-evidence/evidence-manifest.json",
+    "passedCases": 11,
+    "reuseReason": "Android source unchanged; latest package repeats warm event and system light/dark cases."
+  },
+  "remaining": [
+    "Android supported manual CUA window unavailable; form keyboard/draft/cancel/save/Back and tapping Settings theme picker unverified.",
+    "Capture-based stable rendering is checked; instantaneous native tab-switch latency/first-launch no-flash guarantee needs live QA.",
+    "SDK image-prefetch-helper code321 logged on render (nonfatal; actual image-loading pipeline outside theme coverage).",
+    "Scheduled/battery-saver system mode policy unit tested; actual device scheduled changes not exercised.",
+    "Final malformed-data guard integration renders valid isolated demo data; corrupt-snapshot path runtime is separately exercised by iOS owner, not Android data corruption."
+  ]
+}

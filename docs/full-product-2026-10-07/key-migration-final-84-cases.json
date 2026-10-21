@@ -1,0 +1,510 @@
+{
+  "scope": "Final84 native migration checkpoint including readonly local-complete verification; actual scoped QA Keychain/store, scripted consumer transport, no new relay or real records",
+  "logSHA256": "d94e2b755299b4eed756eb33346e31e363a239bcb1ba34f91c5757c7dda95d9a",
+  "cases": [
+    {
+      "class": "LeanOnTests.BackupCoordinatorTests",
+      "method": "testActualCommonCryptoAndCryptoKitDecryptIndependentNodeEnvelopeExactly",
+      "status": "passed",
+      "seconds": 0.154
+    },
+    {
+      "class": "LeanOnTests.BackupCoordinatorTests",
+      "method": "testActualPublicSwiftBackupExportAndPeerNativeImport",
+      "status": "passed",
+      "seconds": 0.13
+    },
+    {
+      "class": "LeanOnTests.BackupCoordinatorTests",
+      "method": "testDamagedRecoveryJournalBlocksRecordsAndPersonalUntilRepaired",
+      "status": "passed",
+      "seconds": 0.014
+    },
+    {
+      "class": "LeanOnTests.BackupCoordinatorTests",
+      "method": "testExpiryAndStaleCASNeverChangeCurrentBytes",
+      "status": "passed",
+      "seconds": 0.205
+    },
+    {
+      "class": "LeanOnTests.BackupCoordinatorTests",
+      "method": "testExplicitDeleteClearsEncryptedOwnFilesAndInvalidatesRestorePreview",
+      "status": "passed",
+      "seconds": 0.141
+    },
+    {
+      "class": "LeanOnTests.BackupCoordinatorTests",
+      "method": "testInspectIsReadOnlyRestoreAdvancesBothRevisionsAndPreservesPhotoBytes",
+      "status": "passed",
+      "seconds": 0.08
+    },
+    {
+      "class": "LeanOnTests.BackupCoordinatorTests",
+      "method": "testPreparedCrashJournalRestoresPreimagesAndCommittedJournalKeepsNewState",
+      "status": "passed",
+      "seconds": 0.016
+    },
+    {
+      "class": "LeanOnTests.BackupCoordinatorTests",
+      "method": "testSecondWriteFailureRollsBackBothEncryptedStores",
+      "status": "passed",
+      "seconds": 0.094
+    },
+    {
+      "class": "LeanOnTests.BackupCoordinatorTests",
+      "method": "testThreeStoreCASCommitAndAttachConsentUsesCurrentSnapshot",
+      "status": "passed",
+      "seconds": 0.013
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "method": "testAdditiveLegacyStateMigrationAndPrivateIntentNeverReachProjection",
+      "status": "passed",
+      "seconds": 0.017
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "method": "testCleanupOrLocalCompleteWriteFailureRetriesWithoutRewritingNilData",
+      "status": "passed",
+      "seconds": 0.048
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "method": "testCommittedDeleteResponseLostRecoversFromProofAfterRestart",
+      "status": "passed",
+      "seconds": 0.026
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "method": "testCommittedLocalMarkerSurvivesCallbackFailureAndNeverRepeatsWipe",
+      "status": "passed",
+      "seconds": 0.03
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "method": "testConcurrentLocalMutationNeedsExplicitCurrentCASOrKeepChoice",
+      "status": "passed",
+      "seconds": 0.074
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "method": "testConfirmedBarrierFailureKeepsPreparedProofAndDoesNotWipe",
+      "status": "passed",
+      "seconds": 0.027
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "method": "testExpiredSessionRetriesWithExplicitPasswordAndRejectsRecreatedAccount",
+      "status": "passed",
+      "seconds": 0.04
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "method": "testJournalFailureRollsBackAllStoresAndRetriesSameIntent",
+      "status": "passed",
+      "seconds": 0.035
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "method": "testLostAckLeavesLocalCompleteAndMissingAckIsAcceptedOnlyThere",
+      "status": "passed",
+      "seconds": 0.026
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "method": "testNewPreparationRejectsNumericBooleanAndPendingLoginStaysPrivateAndComplete",
+      "status": "passed",
+      "seconds": 0.015
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "method": "testPreparedWriteFailureSendsNoHTTPAndKeepsLocalData",
+      "status": "passed",
+      "seconds": 0.01
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "method": "testReceiptOfflineOrUnauthorizedCannotTriggerLocalDeletion",
+      "status": "passed",
+      "seconds": 0.022
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "method": "testRecreatedRecordsOrPersonalAfterCommittedMarkerPreserveAllBytesAndKeys",
+      "status": "passed",
+      "seconds": 0.062
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "method": "testUnauthorizedNewDeviceCannotPrepareDeletionAndCanStillSignOut",
+      "status": "passed",
+      "seconds": 0.011
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "method": "testUnmatchedAccountOrMalformedReceiptCannotWipe",
+      "status": "passed",
+      "seconds": 0.041
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "method": "testWrongPasswordAndMissingReceiptNeverProveDeletionOrAutomaticallyRetry",
+      "status": "passed",
+      "seconds": 0.012
+    },
+    {
+      "class": "LeanOnTests.CompanionHTTPBoundaryTests",
+      "method": "testActual307And308NeverForwardPostBodyOrBearer",
+      "status": "passed",
+      "seconds": 0.021
+    },
+    {
+      "class": "LeanOnTests.CompanionHTTPBoundaryTests",
+      "method": "testActualChunkedStreamAboveDefault96MiBRejectedWhileReceiving",
+      "status": "passed",
+      "seconds": 0.054
+    },
+    {
+      "class": "LeanOnTests.CompanionHTTPBoundaryTests",
+      "method": "testActualDeclaredContentLengthAboveDefault96MiBRejectedBeforeAllocatingBody",
+      "status": "passed",
+      "seconds": 0.002
+    },
+    {
+      "class": "LeanOnTests.CompanionHTTPBoundaryTests",
+      "method": "testActualSmallLimitAcceptsExactJSONAndRejectsUnknownLengthOverflow",
+      "status": "passed",
+      "seconds": 0.003
+    },
+    {
+      "class": "LeanOnTests.CompanionStoreMigrationTests",
+      "method": "testCommittedJournalAuthenticatesBothGenerationsBeforeCleanupAndKeepsCurrentBytes",
+      "status": "passed",
+      "seconds": 0.046
+    },
+    {
+      "class": "LeanOnTests.CompanionStoreMigrationTests",
+      "method": "testCopyFailureCannotRollbackOrDeleteJournalAndFreshConsumerCanRetry",
+      "status": "passed",
+      "seconds": 0.103
+    },
+    {
+      "class": "LeanOnTests.CompanionStoreMigrationTests",
+      "method": "testCorruptLastBeforeImageFailsBeforeAnyAliasCopyOrFileMutation",
+      "status": "passed",
+      "seconds": 0.033
+    },
+    {
+      "class": "LeanOnTests.CompanionStoreMigrationTests",
+      "method": "testDifferentAuthenticatedKeysAcrossGenerationsFailClosed",
+      "status": "passed",
+      "seconds": 0.039
+    },
+    {
+      "class": "LeanOnTests.CompanionStoreMigrationTests",
+      "method": "testDirectDeletionRequiresStableAnchorsBeforeJournalWriteOrLastCiphertextRemoval",
+      "status": "passed",
+      "seconds": 0.058
+    },
+    {
+      "class": "LeanOnTests.CompanionStoreMigrationTests",
+      "method": "testLegacyLocalCompleteOrphanAliasesKeepProofWithoutAcknowledgmentOrKeyDeletion",
+      "status": "passed",
+      "seconds": 0.031
+    },
+    {
+      "class": "LeanOnTests.CompanionStoreMigrationTests",
+      "method": "testLocalCompletePreservesRecreatedWeightPhotoCiphertextAndKeysWhileAcknowledging",
+      "status": "passed",
+      "seconds": 0.043
+    },
+    {
+      "class": "LeanOnTests.CompanionStoreMigrationTests",
+      "method": "testPreparedDeletedCurrentRowsUseAuthenticatedBeforeImagesWithoutReplacementKeys",
+      "status": "passed",
+      "seconds": 0.038
+    },
+    {
+      "class": "LeanOnTests.CompanionStoreMigrationTests",
+      "method": "testPreparedJournalMigrationPreflightIsReadOnlyAndRestoresExactPendingProof",
+      "status": "passed",
+      "seconds": 0.046
+    },
+    {
+      "class": "LeanOnTests.CompanionStoreMigrationTests",
+      "method": "testUnavailableCompanionParticipantFailsBeforeAnyFilesystemOrKeyMutation",
+      "status": "passed",
+      "seconds": 0.03
+    },
+    {
+      "class": "LeanOnTests.CompanionStoreMigrationTests",
+      "method": "testUnknownParticipantCannotTriggerPartialRollbackOrPromotion",
+      "status": "passed",
+      "seconds": 0.027
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testActualQAKeychainRecreatedLedgerAfterDeletionReceiptIsPreservedOnCleanupRetry",
+      "status": "passed",
+      "seconds": 0.018
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testAllModuleExportsAcceptRequestAndCallback",
+      "status": "passed",
+      "seconds": 0.002
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testCancelledQueuedLedgerCleanupCannotDeleteAfterTheCallerChangesChoice",
+      "status": "passed",
+      "seconds": 0.004
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testCompletedPermissionFlowDoesNotMeanWritesWereGranted",
+      "status": "passed",
+      "seconds": 0.006
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testDailyNutritionExportsMatchEightAndroidFieldsAndSDKUnits",
+      "status": "passed",
+      "seconds": 0.002
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testDeniedNutritionDeletionRetainsLedgerUntilThatScopeIsRestored",
+      "status": "passed",
+      "seconds": 0.014
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testDisablingPreservesSystemRecordsAndExportLedger",
+      "status": "passed",
+      "seconds": 0.012
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testExplicitPermissionRequestRequiredBeforeEnable",
+      "status": "passed",
+      "seconds": 0.002
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testExternalSamplesAreNeverReexportedAndCorruptLocalDataFailsBeforeIO",
+      "status": "passed",
+      "seconds": 0.005
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testFailedDeletionIsRetriedRatherThanForgettingExportIdentity",
+      "status": "passed",
+      "seconds": 0.024
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testFailedExportRetriesWithNewVersionWithoutFalseTimestamp",
+      "status": "passed",
+      "seconds": 0.013
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testFreshExternalWeightSupportsWorkoutMathWhenLocalHistoryIsEmpty",
+      "status": "passed",
+      "seconds": 0.001
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testIdempotentExportUpdateAndDeletionSurviveRelaunch",
+      "status": "passed",
+      "seconds": 0.02
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testLegacyLedgerReadPreservesBytesAndNextExplicitWriteEncrypts",
+      "status": "passed",
+      "seconds": 0.004
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testLocalDeletionCancelsInFlightMirrorsBeforeTheyCanRepopulateRecords",
+      "status": "passed",
+      "seconds": 0.005
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testMirrorsUseLatestLocalDayMETAndSuppressOwnSourceAndMetadataEcho",
+      "status": "passed",
+      "seconds": 0.001
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testNutritionDenialDoesNotBlockWeightAndWorkoutExports",
+      "status": "passed",
+      "seconds": 0.013
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testNutritionUpdateZeroRemovalDeletionRestoreAndRetryKeepStableIdentity",
+      "status": "passed",
+      "seconds": 0.076
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testOptionalZeroMicrosAreOmittedAndInvalidNutritionFailsBeforeIO",
+      "status": "passed",
+      "seconds": 0.014
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testPartialNutritionPermissionExportsOnlyAllowedQuantitiesWithoutOtherWriteAccess",
+      "status": "passed",
+      "seconds": 0.011
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testPermissionFlowStateCommitFailureReturnsFailureWithoutSyncing",
+      "status": "passed",
+      "seconds": 0.002
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testPreferenceSurvivesRelaunchWithoutClaimingReadAuthorization",
+      "status": "passed",
+      "seconds": 0.004
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testReadAndMirrorPersistenceFailuresDoNotStampSuccess",
+      "status": "passed",
+      "seconds": 0.01
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testReadOnlyMirrorsAndPendingDeletionReconcileWhenWriteAccessReturns",
+      "status": "passed",
+      "seconds": 0.014
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testStateWriteFailureDoesNotClaimEnableAndWrongTypeCannotMutate",
+      "status": "passed",
+      "seconds": 0.003
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testStationaryCyclingExportsIndoorMetadataAndImportsConservativeMET",
+      "status": "passed",
+      "seconds": 0.001
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testSyncUsesChangedTimeZoneWhileExplicitTestTimeZoneStaysFixed",
+      "status": "passed",
+      "seconds": 0.018
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "method": "testUnsupportedAndDisabledNeverReadOrWrite",
+      "status": "passed",
+      "seconds": 0.001
+    },
+    {
+      "class": "LeanOnTests.PersonalStoreTests",
+      "method": "testAccountDeletionCapabilitiesCannotEnterPersonalOrBackupJSON",
+      "status": "passed",
+      "seconds": 0.001
+    },
+    {
+      "class": "LeanOnTests.StoreKeyMigrationTests",
+      "method": "testActualAliasCopyRacePreservesCipherAndBothExistingKeys",
+      "status": "passed",
+      "seconds": 0.01
+    },
+    {
+      "class": "LeanOnTests.StoreKeyMigrationTests",
+      "method": "testActualAmbiguousAuthenticatedAliasesFailClosedWithoutChoosingOrProvisioning",
+      "status": "passed",
+      "seconds": 0.009
+    },
+    {
+      "class": "LeanOnTests.StoreKeyMigrationTests",
+      "method": "testActualCleanupAfterObjectReopenRemovesMatchedAliasesOnlyAndKeepsNewDataOnConflict",
+      "status": "passed",
+      "seconds": 0.01
+    },
+    {
+      "class": "LeanOnTests.StoreKeyMigrationTests",
+      "method": "testActualDifferentCurrentAndBeforeImageKeysFailBeforePromotion",
+      "status": "passed",
+      "seconds": 0.01
+    },
+    {
+      "class": "LeanOnTests.StoreKeyMigrationTests",
+      "method": "testActualMissingOrCorruptEstablishedKeyNeverCreatesReplacementAndPreservesBytes",
+      "status": "passed",
+      "seconds": 0.009
+    },
+    {
+      "class": "LeanOnTests.StoreKeyMigrationTests",
+      "method": "testActualOldDeletionMarkerWithoutCiphertextRetainsUnverifiedLegacyKeysAndFailsCleanup",
+      "status": "passed",
+      "seconds": 0.003
+    },
+    {
+      "class": "LeanOnTests.StoreKeyMigrationTests",
+      "method": "testActualQAKeychainAllRolesRelocateAndAdoptIdenticalKeysWithoutChangingCiphertext",
+      "status": "passed",
+      "seconds": 0.037
+    },
+    {
+      "class": "LeanOnTests.StoreKeyMigrationTests",
+      "method": "testActualReadMissingOrHistoricalPlaintextIsLazyAndExplicitWriteCreatesStableKey",
+      "status": "passed",
+      "seconds": 0.008
+    },
+    {
+      "class": "LeanOnTests.StoreKeyMigrationTests",
+      "method": "testActualReadonlyCompletionPreservesNewGenerationWithoutDecryptOrKeyAccess",
+      "status": "passed",
+      "seconds": 0.005
+    },
+    {
+      "class": "LeanOnTests.StoreKeyMigrationTests",
+      "method": "testActualReadonlyCompletionRejectsOrphanStableAndLegacyWithoutRemovingOrProvisioning",
+      "status": "passed",
+      "seconds": 0.005
+    },
+    {
+      "class": "LeanOnTests.StoreKeyMigrationTests",
+      "method": "testActualRoleAndServiceBoundariesNeverUseAnOtherwiseMatchingKey",
+      "status": "passed",
+      "seconds": 0.006
+    },
+    {
+      "class": "LeanOnTests.StoreKeyMigrationTests",
+      "method": "testActualSameProviderCanCreateAndReadNewStoreAfterSuccessfulExplicitDeletion",
+      "status": "passed",
+      "seconds": 0.01
+    },
+    {
+      "class": "LeanOnTests.StoreKeyMigrationTests",
+      "method": "testActualStableCollisionNeverFallsBackOrOverwritesExistingAlias",
+      "status": "passed",
+      "seconds": 0.007
+    },
+    {
+      "class": "LeanOnTests.StoreKeyMigrationTests",
+      "method": "testActualTooManyRoleCandidatesFailClosedWithoutProvisioning",
+      "status": "passed",
+      "seconds": 0.024
+    },
+    {
+      "class": "LeanOnTests.StoreKeyMigrationTests",
+      "method": "testInjectedLockedKeychainAndFailedCopyPreserveBytesAndLegacyKey",
+      "status": "passed",
+      "seconds": 0.006
+    }
+  ]
+}

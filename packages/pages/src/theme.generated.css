@@ -1,0 +1,1395 @@
+/* Generated from App.css and state/theme-palette.json; run the package build to update. */
+.Page.Theme-light { display: flex; flex-direction: column; height: 100%; background-color: #F8F7F4; }
+.PageRoot.Theme-light { display: flex; flex: 1; flex-direction: column; min-height: 0; }
+.Theme-light .Scroll { flex: 1; min-height: 0; }
+.Theme-light .Content { display: flex; flex-direction: column; padding: 0 32rpx 180rpx; }
+.Theme-light .tap-feedback { transition: opacity 150ms ease; }
+.Theme-light .tap-feedback-hover { background-color: #EEEBE6; }
+.Theme-light .cheer-pop { animation: cheerPop 450ms ease; }
+.Theme-light .Header { display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin: 46rpx 8rpx 26rpx; }
+.Theme-light .Header-text { display: flex; flex-direction: column; }
+.Theme-light .Header-greeting { font-size: 19.3px; font-weight: 700; color: #28242C; }
+.Theme-light .Header-date { margin-top: 6rpx; font-size: 13.9px; color: #69616B; }
+.Theme-light .Header-side { display: flex; flex-direction: row; align-items: center; }
+.Theme-light .LangSwitch { display: flex; flex-direction: row; padding: 4rpx; border-radius: 999rpx; background-color: #EEEBE6; }
+.Theme-light .LangSwitch-item { padding: 8rpx 22rpx; border-radius: 999rpx; }
+.Theme-light .LangSwitch-item.active { background-color: #FFFFFF; }
+.Theme-light .LangSwitch-label { font-size: 12.9px; color: #69616B; }
+.Theme-light .LangSwitch-label.active { font-weight: 600; color: #28242C; }
+.Theme-light .Header-streak { margin-right: 22rpx; align-items: flex-end; }
+.Theme-light .Header-streak-num { font-size: 19.3px; font-weight: 700; color: #573C58; }
+.Theme-light .Header-streak-label { margin-top: 2rpx; font-size: 11.8px; color: #69616B; }
+.Theme-light .Card { background-color: #FFFFFF; border-radius: 28rpx; padding: 36rpx; margin-bottom: 28rpx; }
+.Theme-light .Card-title { font-size: 12.9px; letter-spacing: 0; color: #69616B; margin-bottom: 22rpx; }
+.Theme-light .Energy-main { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.Theme-light .Energy-headline { display: flex; flex-direction: column; }
+.Theme-light .Energy-num { font-size: 49.3px; font-weight: 700; line-height: 104rpx; color: #28242C; }
+.Theme-light .Energy-unit { margin-top: 4rpx; font-size: 12.9px; color: #69616B; }
+.Theme-light .Energy-rows { align-items: flex-end; }
+.Theme-light .Energy-row { display: flex; flex-direction: row; align-items: center; margin-bottom: 10rpx; }
+.Theme-light .Energy-row-label { font-size: 13.9px; color: #69616B; margin-right: 20rpx; }
+.Theme-light .Energy-row-value { font-size: 15px; font-weight: 600; color: #28242C; }
+.Theme-light .ProgressBar { height: 16rpx; border-radius: 8rpx; background-color: #EEEBE6; margin-top: 26rpx; overflow: hidden; }
+.Theme-light .ProgressBar-fill { height: 16rpx; border-radius: 8rpx; transition: width 600ms ease-out; }
+.Theme-light .Weight-main { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.Theme-light .Weight-current-wrap { display: flex; flex-direction: row; align-items: flex-end; }
+.Theme-light .Weight-current { font-size: 40.7px; font-weight: 700; color: #28242C; }
+.Theme-light .Weight-unit { margin-left: 8rpx; margin-bottom: 12rpx; font-size: 15px; color: #69616B; }
+.Theme-light .Weight-trend { font-size: 13.9px; font-weight: 600; color: #573C58; }
+.Theme-light .Weight-rows { display: flex; flex-direction: row; justify-content: space-between; margin-top: 28rpx; }
+.Theme-light .Weight-stat { align-items: center; }
+.Theme-light .Weight-stat-value { font-size: 17.2px; font-weight: 600; color: #28242C; }
+.Theme-light .Weight-stat-label { margin-top: 4rpx; font-size: 11.8px; color: #69616B; }
+.Theme-light .Macro-grid { display: flex; flex-direction: row; }
+.Theme-light .Macro-col { display: flex; flex: 1; flex-direction: column; }
+.Theme-light .Macro-col + .Macro-col { margin-left: 24rpx; }
+.Theme-light .Macro-grams { font-size: 19.3px; font-weight: 700; color: #28242C; }
+.Theme-light .Micros-val { font-size: 19.3px; font-weight: 700; color: #28242C; }
+.Theme-light .Micros-val.good { color: #573C58; }
+.Theme-light .Micros-val.bad { color: #B63D46; }
+.Theme-light .Macro-label { margin-top: 2rpx; font-size: 12.9px; color: #69616B; }
+.Theme-light .Macro-target { margin-top: 8rpx; font-size: 10.7px; color: #69616B; }
+.Theme-light .Macro-col .ProgressBar { margin-top: 14rpx; }
+.Theme-light .Water-head { display: flex; flex-direction: row; align-items: baseline; justify-content: space-between; margin-bottom: 16rpx; }
+.Theme-light .Water-amountWrap { display: flex; flex-direction: row; align-items: baseline; }
+.Theme-light .Water-amount { font-size: 21.4px; font-weight: 700; color: #28242C; }
+.Theme-light .Water-unit { margin-left: 6rpx; font-size: 11.8px; color: #69616B; }
+.Theme-light .Water-meta { display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin-top: 14rpx; }
+.Theme-light .Water-status { font-size: 12.9px; color: #573C58; }
+.Theme-light .Water-goal { font-size: 11.8px; color: #69616B; }
+.Theme-light .Water-controls { display: flex; flex-direction: row; margin-top: 20rpx; }
+.Theme-light .Water-btn { flex: 1; display: flex; flex-direction: row; align-items: center; justify-content: center; padding: 18rpx 0; border-radius: 20rpx; background: #EEEBE6; }
+.Theme-light .Water-btn + .Water-btn { margin-left: 20rpx; }
+.Theme-light .Water-btn.primary { background: #573C58; }
+.Theme-light .Water-btn.disabled { opacity: 0.4; }
+.Theme-light .Water-btn-label { font-size: 13.9px; color: #573C58; }
+.Theme-light .Water-btn-label.primary { color: #FFFFFF; }
+.Theme-light .Actions { display: flex; flex-direction: column; margin-top: 4rpx; }
+.Theme-light .Action-btn { height: 92rpx; border-radius: 22rpx; align-items: center; justify-content: center; background-color: #FFFFFF; }
+.Theme-light .Action-btn + .Action-btn { margin-top: 16rpx; margin-left: 0; }
+.Theme-light .Action-btn.primary { background-color: #573C58; }
+.Theme-light .Action-row { display: flex; flex-direction: row; }
+.Theme-light .Action-row .Action-btn { flex: 1; }
+.Theme-light .Action-row .Action-btn + .Action-btn { margin-left: 24rpx; margin-top: 0; }
+.Theme-light .Action-label { font-size: 13.9px; font-weight: 600; color: #573C58; }
+.Theme-light .Action-label.primary { color: #FFFFFF; }
+.Theme-light .Notice { background-color: #EEEBE6; border-radius: 20rpx; padding: 24rpx 30rpx; margin-bottom: 28rpx; }
+.Theme-light .Notice-text { font-size: 12.9px; color: #28242C; }
+.Theme-light .Footer { margin-top: 14rpx; text-align: center; font-size: 11.8px; color: #69616B; }
+.Theme-light .Sheet-overlay { display: flex; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 100; flex-direction: column; justify-content: flex-end; background-color: rgba(24,20,29,0.38); animation: fadeIn 200ms ease-out; }
+.Theme-light .Sheet { background-color: #FFFFFF; border-top-left-radius: 36rpx; border-top-right-radius: 36rpx; padding: 40rpx 36rpx 48rpx; animation: sheetSlideUp 300ms cubic-bezier(0.32, 0.72, 0, 1); }
+.Theme-light .Sheet-title { font-size: 17.2px; font-weight: 700; color: #28242C; margin-bottom: 30rpx; }
+.Theme-light .Sheet-field { display: flex; flex-direction: row; align-items: center; border-bottom-width: 2rpx; border-bottom-style: solid; border-bottom-color: #8B808E; padding-bottom: 12rpx; }
+.Theme-light .Sheet-input { flex: 1; font-size: 30px; font-weight: 700; color: #28242C; }
+.Theme-light .Sheet-unit { margin-left: 12rpx; font-size: 16.1px; color: #69616B; }
+.Theme-light .Sheet-error { margin-top: 18rpx; font-size: 12.9px; color: #B63D46; }
+.Theme-light .Sheet-actions { display: flex; flex-direction: row; margin-top: 40rpx; }
+.Theme-light .Sheet-btn { flex: 1; height: 92rpx; border-radius: 22rpx; align-items: center; justify-content: center; background-color: #EEEBE6; }
+.Theme-light .Sheet-btn + .Sheet-btn { margin-left: 24rpx; }
+.Theme-light .Sheet-btn.primary { background-color: #573C58; }
+.Theme-light .Sheet-btn.disabled { opacity: 0.5; }
+.Theme-light .Sheet-btn-label { font-size: 15px; font-weight: 600; color: #573C58; }
+.Theme-light .Sheet-btn-label.primary { color: #FFFFFF; }
+.Theme-light .ScaleSheet { background-color: #FFFFFF; border-top-left-radius: 36rpx; border-top-right-radius: 36rpx; padding: 40rpx 36rpx 48rpx; animation: sheetSlideUp 300ms cubic-bezier(0.32, 0.72, 0, 1); }
+.Theme-light .Scale-reading { display: flex; flex-direction: row; align-items: center; justify-content: center; margin: 24rpx 0 8rpx; }
+.Theme-light .Scale-reading-value { font-size: 51.5px; font-weight: 700; color: #28242C; }
+.Theme-light .Scale-reading-unit { margin-left: 14rpx; font-size: 17.2px; color: #69616B; }
+.Theme-light .Scale-hint { margin: 20rpx 4rpx 8rpx; font-size: 13.9px; color: #69616B; text-align: center; }
+.Theme-light .Scale-devices { margin-top: 24rpx; }
+.Theme-light .Scale-device { display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 28rpx; border-radius: 20rpx; background-color: #F8F7F4; margin-bottom: 18rpx; }
+.Theme-light .Scale-device.active { background-color: #EEEBE6; }
+.Theme-light .Scale-device-name { font-size: 15px; font-weight: 600; color: #28242C; }
+.Theme-light .Scale-device-meta { font-size: 12.9px; color: #573C58; }
+.Theme-light .Sheet-link { align-items: center; margin-top: 28rpx; }
+.Theme-light .Sheet-link-label { font-size: 13.9px; color: #573C58; }
+.Theme-light .Food-overlay { justify-content: flex-start; }
+.Theme-light .FoodSheet { flex: 1; background-color: #FFFFFF; border-radius: 36rpx; margin: 120rpx 24rpx 40rpx; padding: 40rpx 32rpx; animation: sheetSlideUp 300ms cubic-bezier(0.32, 0.72, 0, 1); }
+.Theme-light .Food-search-row { display: flex; flex-direction: row; align-items: center; margin-bottom: 18rpx; }
+.Theme-light .Food-search-field { flex: 1; background-color: #F8F7F4; border-radius: 20rpx; padding: 22rpx 24rpx; }
+.Theme-light .Food-scan-btn { margin-left: 14rpx; background-color: #573C58; border-radius: 20rpx; padding: 22rpx 26rpx; }
+.Theme-light .Food-scan-label { font-size: 14.5px; color: #FFFFFF; }
+.Theme-light .Food-scan-error { font-size: 12.9px; color: #B63D46; margin: 0 4rpx 14rpx; }
+.Theme-light .Food-search-input { font-size: 15px; color: #28242C; }
+.Theme-light .Food-row { display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 26rpx 12rpx; border-bottom-width: 1rpx; border-bottom-style: solid; border-bottom-color: #F8F7F4; }
+.Theme-light .Food-row-name { font-size: 15px; color: #28242C; }
+.Theme-light .Food-row-meta { font-size: 12.9px; color: #69616B; }
+.Theme-light .Food-back { margin-bottom: 12rpx; }
+.Theme-light .Food-back-label { font-size: 13.9px; color: #573C58; }
+.Theme-light .Food-selected-name { font-size: 18.2px; font-weight: 700; color: #28242C; margin-bottom: 24rpx; }
+.Theme-light .Food-result { margin-top: 30rpx; align-items: center; }
+.Theme-light .Food-result-kcal { display: flex; flex-direction: row; align-items: center; }
+.Theme-light .Food-result-value { font-size: 42.9px; font-weight: 700; color: #28242C; }
+.Theme-light .Food-result-unit { margin-left: 12rpx; font-size: 16.1px; color: #69616B; }
+.Theme-light .Food-macros { display: flex; flex-direction: row; margin-top: 26rpx; }
+.Theme-light .Food-macro { font-size: 13.9px; color: #69616B; margin: 0 18rpx; }
+.Theme-light .Food-form .Sheet-field { margin-bottom: 20rpx; }
+.Theme-light .Food-form-row { display: flex; flex-direction: row; margin-bottom: 20rpx; }
+.Theme-light .Food-form-cell { flex: 1; margin-right: 12rpx; }
+.Theme-light .Food-form-cell:last-child { margin-right: 0; }
+.Theme-light .Food-create-row { justify-content: flex-start; }
+.Theme-light .Food-create-label { font-size: 15px; color: #573C58; }
+.Theme-light .Food-manage { display: flex; flex-direction: column; margin: 10rpx 0 4rpx; padding: 14rpx 0 4rpx; border-top: 1rpx solid #EEEBE6; }
+.Theme-light .Food-manage-row { display: flex; flex-direction: row; }
+.Theme-light .Food-manage-btn { padding: 14rpx 20rpx; margin: 4rpx 0; }
+.Theme-light .Food-manage-row .Food-manage-btn { flex: 1; margin-right: 16rpx; }
+.Theme-light .Food-manage-label { font-size: 14.5px; color: #573C58; }
+.Theme-light .Food-manage-label.danger { color: #B63D46; }
+.Theme-light .Food-quick-section { margin: 4rpx 0 12rpx; }
+.Theme-light .Food-quick-title { font-size: 12.3px; color: #69616B; letter-spacing: 1rpx; margin: 8rpx 4rpx 2rpx; }
+.Theme-light .Food-detail-head { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.Theme-light .Food-detail-head .Food-selected-name { flex: 1; }
+.Theme-light .Food-star { padding: 8rpx 10rpx; }
+.Theme-light .Food-star-label { font-size: 24.7px; color: #69616B; }
+.Theme-light .Food-star-label.on { color: #573C58; }
+.Theme-light .Exercise-type-list { height: 420rpx; margin-bottom: 20rpx; }
+.Theme-light .Exercise-type { padding: 24rpx; border-radius: 18rpx; margin-bottom: 10rpx; background-color: #F8F7F4; }
+.Theme-light .Exercise-type.selected { background-color: #573C58; }
+.Theme-light .Exercise-type-label { font-size: 15px; color: #28242C; }
+.Theme-light .Exercise-type.selected .Exercise-type-label { color: #FFFFFF; }
+.Theme-light .Exercise-duration-input { flex: 0 0 220rpx; }
+.Theme-light .Exercise-kcal-row { display: flex; flex-direction: row; align-items: baseline; justify-content: center; margin: 8rpx 0 18rpx; }
+.Theme-light .Exercise-kcal { font-size: 34.3px; font-weight: 700; color: #28242C; }
+.Theme-light .Exercise-kcal-unit { font-size: 13.9px; color: #69616B; margin-left: 10rpx; }
+.Theme-light .Exercise-card { margin-top: 20rpx; }
+.Theme-light .Exercise-head { display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 12rpx; }
+.Theme-light .Exercise-head-title { font-size: 16.1px; font-weight: 700; color: #28242C; }
+.Theme-light .Exercise-head-total { font-size: 13.9px; font-weight: 600; color: #573C58; }
+.Theme-light .Exercise-row-item { display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 16rpx 4rpx; }
+.Theme-light .Exercise-row-titleline { display: flex; flex-direction: row; align-items: center; gap: 12rpx; }
+.Theme-light .Exercise-row-name { font-size: 14.5px; color: #28242C; }
+.Theme-light .Exercise-row-badge { font-size: 10.2px; color: #573C58; background-color: #EEEBE6; font-weight: 500; border-radius: 10rpx; padding: 3rpx 12rpx; }
+.Theme-light .Exercise-row-meta { font-size: 13.4px; color: #69616B; margin-left: 12rpx; }
+.Theme-light .Exercise-row-actions { display: flex; flex-direction: row; align-items: center; margin-left: 12rpx; flex-shrink: 0; }
+.Theme-light .Exercise-row-btn { font-size: 12.9px; color: #573C58; padding: 8rpx 10rpx; }
+.Theme-light .Exercise-row-btn.danger { color: #B63D46; }
+.Theme-light .Exercise-row-btn.confirm { font-weight: 700; }
+.Theme-light .Exercise-row-btn + .Exercise-row-btn { margin-left: 6rpx; }
+.Theme-light .TabSwitch { margin: 6rpx 0 20rpx; }
+.Theme-light .Insights-range { margin: 2rpx 0 20rpx; }
+.Theme-light .Insights-card { margin-bottom: 22rpx; padding: 28rpx 30rpx; }
+.Theme-light .Insights-card-title { font-size: 15px; font-weight: 600; color: #28242C; margin-bottom: 14rpx; }
+.Theme-light .Insights-empty { font-size: 13.9px; color: #69616B; padding: 6rpx 0; }
+.Theme-light .Insights-weight-main { display: flex; flex-direction: row; align-items: baseline; }
+.Theme-light .Insights-big { font-size: 30px; font-weight: 700; color: #28242C; }
+.Theme-light .Insights-big.loss { color: #573C58; }
+.Theme-light .Insights-big.gain { color: #B63D46; }
+.Theme-light .Insights-big-unit { font-size: 13.9px; color: #69616B; margin-left: 10rpx; }
+.Theme-light .Insights-slope { font-size: 13.9px; color: #69616B; margin-top: 10rpx; }
+.Theme-light .TrendChart { width: 100%; height: 220rpx; margin-top: 24rpx; }
+.Theme-light .TrendChart-svg { width: 100%; height: 100%; }
+.Theme-light .Insights-row { display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 12rpx 0; }
+.Theme-light .Insights-row-label { font-size: 13.9px; color: #69616B; }
+.Theme-light .Insights-row-value { font-size: 13.9px; color: #28242C; font-weight: 600; }
+.Theme-light .Header-bell { width: 60rpx; height: 60rpx; border-radius: 999rpx; align-items: center; justify-content: center; background-color: #FFFFFF; margin-right: 16rpx; }
+.Theme-light .Header-bell-glyph { font-size: 16.1px; }
+.Theme-light .HealthConnect-desc { margin-top: 14rpx; font-size: 13.9px; line-height: 38rpx; color: #69616B; }
+.Theme-light .HealthConnect-unsupported { margin-top: 18rpx; padding: 24rpx; border-radius: 20rpx; background-color: #EEEBE6; font-size: 13.9px; line-height: 38rpx; color: #69616B; }
+.Theme-light .HealthConnect-grant { flex: 0 0 auto; padding: 10rpx 30rpx; }
+.Theme-light .HealthConnect-syncrow { margin-top: 18rpx; display: flex; flex-direction: column; gap: 12rpx; }
+.Theme-light .HealthConnect-sync { align-items: center; justify-content: center; padding: 16rpx 30rpx; border-radius: 22rpx; background-color: #EEEBE6; }
+.Theme-light .HealthConnect-sync.disabled { opacity: 0.5; }
+.Theme-light .HealthConnect-sync .Sheet-btn-label { color: #573C58; }
+.Theme-light .HealthConnect-lastsync { font-size: 12.9px; color: #69616B; }
+.Theme-light .Reminder-kind { margin-top: 16rpx; padding: 22rpx 24rpx; border-radius: 24rpx; background-color: #F8F7F4; }
+.Theme-light .Reminder-row { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.Theme-light .Reminder-label { font-size: 15px; font-weight: 600; color: #28242C; }
+.Theme-light .Reminder-toggle { display: flex; flex-direction: row; }
+.Theme-light .Reminder-seg { padding: 8rpx 26rpx; border-radius: 999rpx; background-color: #EEEBE6; }
+.Theme-light .Reminder-seg + .Reminder-seg { margin-left: 10rpx; }
+.Theme-light .Reminder-seg.active { background-color: #573C58; }
+.Theme-light .Reminder-seg-label { font-size: 12.9px; color: #69616B; }
+.Theme-light .Reminder-seg-label.active { font-weight: 600; color: #FFFFFF; }
+.Theme-light .Reminder-times { display: flex; flex-direction: row; margin-top: 18rpx; justify-content: space-between; }
+.Theme-light .Reminder-time { padding: 12rpx 20rpx; border-radius: 16rpx; align-items: center; justify-content: center; background-color: #EEEBE6; }
+.Theme-light .Reminder-time.active { background-color: #F0E7F1; }
+.Theme-light .Reminder-time-label { font-size: 12.9px; color: #69616B; }
+.Theme-light .Reminder-time-label.active { font-weight: 600; color: #573C58; }
+.Theme-light .Header-gear { min-width: 68rpx; height: 68rpx; padding: 0 22rpx; border-radius: 999rpx; background-color: #EEEBE6; display: flex; align-items: center; justify-content: center; }
+.Theme-light .Header-gear-glyph { font-size: 18.2px; }
+.Theme-light .Header-gear-done { font-size: 13.9px; font-weight: 600; color: #573C58; }
+.Theme-light .Settings { display: flex; flex-direction: column; }
+.Theme-light .Settings-section { font-size: 11.8px; letter-spacing: 2rpx; color: #69616B; margin: 26rpx 20rpx 12rpx; }
+.Theme-light .Settings-card { padding: 6rpx 32rpx; }
+.Theme-light .Settings-row { display: flex; flex-direction: row; align-items: center; justify-content: space-between; min-height: 100rpx; }
+.Theme-light .Settings-label { font-size: 16.1px; color: #28242C; }
+.Theme-light .Settings-chevron { font-size: 21.4px; color: #69616B; }
+.Theme-light .Settings-divider { height: 1rpx; background-color: #E5DED8; }
+.Theme-light .Settings-footerWrap { align-items: center; margin-top: 48rpx; }
+.Theme-light .Settings-footer { font-size: 11.8px; color: #69616B; text-align: center; }
+.Theme-light .GreetingHeader { display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between; padding: 18rpx 4rpx 26rpx; }
+.Theme-light .GreetingHeader-text { display: flex; flex-direction: column; }
+.Theme-light .GreetingHeader-greeting { font-size: 24.7px; font-weight: 700; color: #28242C; }
+.Theme-light .GreetingHeader-date { font-size: 12.9px; color: #69616B; margin-top: 6rpx; }
+.Theme-light .GreetingHeader-streak { display: flex; flex-direction: column; align-items: center; background-color: #EEEBE6; border-radius: 20rpx; padding: 12rpx 22rpx; }
+.Theme-light .GreetingHeader-streak-num { font-size: 17.2px; font-weight: 700; color: #573C58; }
+.Theme-light .GreetingHeader-streak-label { font-size: 9.6px; color: #69616B; margin-top: 2rpx; }
+.Theme-light .ScreenTitle { padding: 18rpx 4rpx 22rpx; }
+.Theme-light .ScreenTitleRow { display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 18rpx 4rpx 22rpx; }
+.Theme-light .ScreenTitle-text { font-size: 23.6px; font-weight: 700; color: #28242C; }
+.Theme-light .DiarySummary-head { display: flex; flex-direction: row; align-items: baseline; justify-content: space-between; }
+.Theme-light .DiarySummary-label { font-size: 13.9px; color: #69616B; }
+.Theme-light .DiarySummary-kcal { font-size: 25.7px; font-weight: 700; color: #28242C; }
+.Theme-light .DiaryMacros { display: flex; flex-direction: row; justify-content: space-between; margin-top: 18rpx; }
+.Theme-light .DiaryMacros-item { font-size: 11.8px; color: #69616B; }
+.Theme-light .MealCard { padding-top: 28rpx; padding-bottom: 28rpx; }
+.Theme-light .Meal-head { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.Theme-light .Meal-name { font-size: 16.1px; font-weight: 600; color: #28242C; }
+.Theme-light .Meal-add { background-color: #EEEBE6; border-radius: 16rpx; padding: 10rpx 22rpx; }
+.Theme-light .Meal-add-text { font-size: 12.9px; color: #573C58; }
+.Theme-light .Meal-empty { font-size: 12.3px; color: #69616B; margin-top: 16rpx; }
+.Theme-light .Meal-empty-body { align-items: center; padding: 28rpx 0 8rpx; }
+.Theme-light .Meal-empty-icon { font-size: 27.9px; color: #69616B; margin-bottom: 10rpx; }
+.Theme-light .Meal-empty-text { font-size: 12.9px; color: #69616B; }
+.Theme-light .Meal-recents { display: flex; flex-direction: row; flex-wrap: wrap; margin-top: 18rpx; }
+.Theme-light .Meal-recent-chip { background-color: #EEEBE6; border-radius: 999rpx; padding: 12rpx 22rpx; margin: 8rpx 10rpx 0 0; }
+.Theme-light .Meal-recent-label { font-size: 11.8px; color: #573C58; }
+.Theme-light .DiaryTotals-row { display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 14rpx; }
+.Theme-light .DiaryTotals-label { font-size: 13.9px; color: #69616B; }
+.Theme-light .DiaryTotals-value { font-size: 15px; font-weight: 600; color: #28242C; }
+.Theme-light .DiaryTotals-line { height: 2rpx; background-color: #E5DED8; margin: 10rpx 0 18rpx; }
+.Theme-light .DiaryTotals-strong { color: #573C58; font-weight: 700; font-size: 15px; }
+.Theme-light .PartnerDays { background-color: #EEEBE6; border-radius: 16rpx; padding: 10rpx 20rpx; }
+.Theme-light .PartnerDays-text { font-size: 11.8px; color: #573C58; }
+.Theme-light .Person-head { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.Theme-light .Person-id { display: flex; flex-direction: row; align-items: center; }
+.Theme-light .Person-avatar { width: 76rpx; height: 76rpx; border-radius: 38rpx; text-align: center; line-height: 76rpx; font-size: 17.2px; font-weight: 700; margin-right: 20rpx; }
+.Theme-light .Person-avatar-you { background-color: #573C58; color: #FFFFFF; }
+.Theme-light .Person-avatar-empty { background-color: #EEEBE6; color: #69616B; }
+.Theme-light .Person-name { font-size: 16.1px; font-weight: 700; color: #28242C; }
+.Theme-light .Person-sub { font-size: 11.8px; color: #69616B; margin-top: 4rpx; }
+.Theme-light .Person-trend { font-size: 12.9px; font-weight: 600; }
+.Theme-light .Person-trend-good { color: #573C58; }
+.Theme-light .Person-line { height: 2rpx; background-color: #E5DED8; margin: 22rpx 0; }
+.Theme-light .Person-foot { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.Theme-light .Person-foot-label { font-size: 12.9px; color: #69616B; }
+.Theme-light .Person-foot-meta { font-size: 11.8px; color: #69616B; }
+.Theme-light .Person-linkbody { font-size: 12.3px; color: #69616B; margin-bottom: 18rpx; }
+.Theme-light .Person-linkbtn { background-color: #573C58; border-radius: 18rpx; padding: 20rpx; align-items: center; }
+.Theme-light .Person-linkbtn-text { font-size: 13.9px; font-weight: 600; color: #FFFFFF; }
+.Theme-light .Person-goalrow { display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin: 14rpx 0 16rpx; }
+.Theme-light .Person-goallabel { font-size: 13.4px; color: #69616B; }
+.Theme-light .Person-goalval { font-size: 15px; font-weight: 700; color: #28242C; }
+.Theme-light .GoalBar { height: 18rpx; border-radius: 9rpx; background-color: #EEEBE6; overflow: hidden; }
+.Theme-light .GoalBar-fill { height: 18rpx; border-radius: 9rpx; background-color: #573C58; transition: width 600ms ease-out; }
+.Theme-light .Support-row { display: flex; flex-direction: row; }
+.Theme-light .Support-btn { flex-grow: 1; background-color: #EEEBE6; border-radius: 18rpx; padding: 20rpx 0; align-items: center; margin: 0 8rpx; transition: opacity 150ms ease; }
+.Theme-light .Support-btn-text { font-size: 12.9px; color: #573C58; font-weight: 600; }
+.Theme-light .MeProfile-head { display: flex; flex-direction: row; align-items: center; }
+.Theme-light .MeProfile-avatar { width: 96rpx; height: 96rpx; border-radius: 48rpx; text-align: center; line-height: 96rpx; font-size: 21.4px; font-weight: 700; color: #FFFFFF; background-color: #573C58; margin-right: 22rpx; }
+.Theme-light .MeProfile-id { display: flex; flex-direction: column; }
+.Theme-light .MeProfile-name { font-size: 18.2px; font-weight: 700; color: #28242C; }
+.Theme-light .MeProfile-sub { font-size: 12.9px; color: #69616B; margin-top: 6rpx; }
+.Theme-light .MeSignin { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.Theme-light .MeSignin-text { display: flex; flex: 1; flex-direction: column; padding-right: 20rpx; }
+.Theme-light .MeSignin-title { font-size: 15px; font-weight: 700; color: #28242C; }
+.Theme-light .MeSignin-body { font-size: 11.8px; color: #69616B; margin-top: 6rpx; }
+.Theme-light .MeSignin-btn { background-color: #573C58; border-radius: 18rpx; padding: 18rpx 28rpx; }
+.Theme-light .MeSignin-btn-text { font-size: 13.4px; font-weight: 600; color: #FFFFFF; }
+.Theme-light .MeList { padding-top: 10rpx; padding-bottom: 10rpx; }
+.Theme-light .MeRow { display: flex; flex-direction: row; align-items: center; min-height: 104rpx; padding: 20rpx 6rpx; }
+.Theme-light .MeRow-icon { width: 44rpx; height: 44rpx; margin-right: 16rpx; }
+.Theme-light .MeRow-label { flex: 1; font-size: 14.5px; color: #28242C; }
+.Theme-light .MeRow-val { font-size: 12.9px; color: #69616B; margin-right: 12rpx; }
+.Theme-light .MeRow-chev { font-size: 18.2px; color: #69616B; }
+.Theme-light .MeList-line { height: 2rpx; background-color: #E5DED8; margin: 6rpx 0; }
+.Theme-light .MeVersion { text-align: center; font-size: 11.3px; color: #69616B; margin-top: 10rpx; }
+.Theme-light .BottomTabBar { display: flex; flex-direction: row; background-color: #FFFFFF; border-top-width: 1rpx; border-top-color: #E5DED8; padding: 10rpx 0 22rpx; }
+.Theme-light .BottomTab { flex-grow: 1; align-items: center; }
+.Theme-light .BottomTab-icon { width: 48rpx; height: 48rpx; }
+.Theme-light .BottomTab-svg { width: 48rpx; height: 48rpx; }
+.Theme-light .BottomTab-label { font-size: 10.7px; color: #69616B; margin-top: 6rpx; }
+.Theme-light .BottomTab-label-active { color: #176B50; font-weight: 600; }
+.Theme-light .DevBack { padding: 8rpx 4rpx 14rpx; }
+.Theme-light .DevBack-text { font-size: 15px; color: #176B50; font-weight: 600; }
+.Theme-light .Content { padding: 16rpx 36rpx 200rpx; }
+.Theme-light .Card { border-radius: 24rpx; padding: 30rpx; margin-bottom: 22rpx; }
+.Theme-light .Card-title { font-size: 13.9px; font-weight: 600; color: #69616B; margin-bottom: 20rpx; }
+.Theme-light .GreetingHeader { padding: 16rpx 0 28rpx; align-items: center; }
+.Theme-light .GreetingHeader-greeting, .Theme-light .ScreenTitle-text { font-size: 25.7px; font-weight: 600; }
+.Theme-light .GreetingHeader-date { font-size: 14.5px; }
+.Theme-light .GreetingHeader-streak { background-color: transparent; padding: 4rpx 0 4rpx 16rpx; }
+.Theme-light .GreetingHeader-streak-label { font-size: 11.8px; }
+.Theme-light .Actions { margin-bottom: 26rpx; }
+.Theme-light .Action-btn { min-height: 96rpx; border-radius: 18rpx; }
+.Theme-light .Action-label { font-size: 15px; }
+.Theme-light .Energy-num { font-size: 41.8px; line-height: 90rpx; font-weight: 600; }
+.Theme-light .Energy-row-label, .Theme-light .Energy-row-value { font-size: 13.4px; }
+.Theme-light .Macro-val, .Theme-light .Weight-value, .Theme-light .Insights-big { font-weight: 600; }
+.Theme-light .Insights-big.loss, .Theme-light .Insights-big.gain { color: #28242C; }
+.Theme-light .Insights-row { min-height: 88rpx; }
+.Theme-light .MeRow { min-height: 108rpx; padding: 18rpx 0; }
+.Theme-light .MeRow-label, .Theme-light .Settings-label { font-size: 15.5px; }
+.Theme-light .MeRow-val { color: #69616B; }
+.Theme-light .Sheet-overlay { display: flex; }
+.Theme-light .Sheet, .Theme-light .ScaleSheet, .Theme-light .FoodSheet { border-top-left-radius: 28rpx; border-top-right-radius: 28rpx; padding: 32rpx 36rpx 64rpx; max-height: 100%; }
+.Theme-light .Sheet-input { min-height: 100rpx; height: 100rpx; }
+.Theme-light .FoodSheet-search { min-height: 90rpx; }
+.Theme-light .Sheet-title { font-size: 19.3px; font-weight: 600; }
+.Theme-light .Sheet-btn, .Theme-light .FoodSheet-cancel, .Theme-light .FoodSheet-save { min-height: 96rpx; }
+.Theme-light .Sheet-error { color: #B63D46; font-size: 14.5px; line-height: 38rpx; }
+.Theme-light .Section-note { color: #69616B; font-size: 14.5px; line-height: 40rpx; margin-top: 12rpx; }
+.Theme-light .Section-kicker { color: #69616B; font-size: 13.4px; margin: 10rpx 0 16rpx; }
+.Theme-light .Unavailable-label { color: #69616B; font-size: 12.9px; margin-left: 16rpx; }
+.Theme-light .Empty-title { font-size: 20.4px; color: #28242C; font-weight: 600; margin-bottom: 18rpx; }
+.Theme-light .Empty-body { font-size: 15.5px; line-height: 44rpx; color: #69616B; margin-bottom: 28rpx; }
+.Theme-light .PartnerWelcome { padding: 42rpx 34rpx; }
+.Theme-light .Pair-mark { display: flex; flex-direction: row; margin-bottom: 40rpx; padding-top: 8rpx; }
+.Theme-light .Pair-circle { width: 90rpx; height: 90rpx; border-radius: 45rpx; border: 3rpx solid #573C58; background-color: #EEEBE6; }
+.Theme-light .Pair-second { margin-left: -24rpx; margin-top: 20rpx; background-color: #F8F7F4; }
+.Theme-light .Micro-list { display: flex; flex-direction: column; }
+.Theme-light .Micro-row { display: flex; flex-direction: row; justify-content: space-between; align-items: center; min-height: 76rpx; }
+.Theme-light .Micro-label { font-size: 14.5px; color: #69616B; flex: 1; }
+.Theme-light .Micro-number { font-size: 15.5px; color: #28242C; font-weight: 600; }
+.Theme-light .Micro-target { font-size: 13.4px; color: #69616B; margin-left: 16rpx; }
+.Theme-light .Form-label { font-size: 13.9px; color: #69616B; margin: 18rpx 0 8rpx; }
+.Theme-light .Sheet-scroll { max-height: 100%; }
+.Theme-light .Action-row { margin-top: 14rpx; }
+.Theme-light .Food-search-input { height: 60rpx; min-height: 60rpx; }
+.Theme-light .Food-form-scroll, .Theme-light .Sheet-body-scroll { flex: 1; min-height: 0; }
+.Theme-light .Food-form .Sheet-input { font-size: 17.2px; height: 84rpx; min-height: 84rpx; }
+.Theme-light .Food-form .Sheet-field { display: flex; flex-direction: column; align-items: stretch; }
+.Theme-light .Food-form-row { flex-wrap: wrap; }
+.Theme-light .Food-form-cell { min-width: 160rpx; }
+.Theme-light .TrendChart { height: 340rpx; }
+.Theme-light .Footer, .Theme-light .MeVersion, .Theme-light .Settings-footer { font-size: 13.4px; color: #69616B; line-height: 36rpx; }
+.Theme-light .Exercise-row-btn { min-height: 88rpx; padding: 18rpx 8rpx; }
+.Theme-light .Sheet-header { display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 20rpx; }
+.Theme-light .Sheet-header .Sheet-title { flex: 1; margin-bottom: 0; }
+.Theme-light .Sheet-close-button { display: flex; align-items: center; justify-content: center; min-width: 88rpx; min-height: 88rpx; border-radius: 44rpx; background-color: #EEEBE6; }
+.Theme-light .Sheet-close-label { font-size: 15px; color: #573C58; }
+.Theme-light .Sheet-input-pair { display: flex; flex-direction: row; align-items: center; }
+.Theme-light .Food-results { flex: 1; min-height: 0; }
+.Theme-light .Food-detail-scroll { flex: 1; min-height: 0; }
+.Theme-light .Sheet-body-scroll { max-height: 60vh; flex-shrink: 1; }
+.Theme-light .Exercise-type-list { height: auto; max-height: none; }
+.Theme-light .Scale-devices { max-height: 40vh; }
+.Theme-light .Sheet { display: flex; flex-direction: column; }
+.Theme-light .FoodSheet { display: flex; flex-direction: column; }
+.Theme-light .MeProfile-avatar { display: flex; align-items: center; justify-content: center; background-color: #EEEBE6; }
+.Theme-light .Settings-value { font-size: 13.4px; color: #69616B; }
+.Theme-light .LangSwitch-item { display: flex; min-height: 88rpx; min-width: 88rpx; align-items: center; justify-content: center; }
+.Page.Theme-light { background-color: #F8F7F4; }
+.Theme-light .Content { padding: 20px 24px 108px; }
+.Theme-light .Card { padding: 20px; border-radius: 22px; margin-bottom: 24px; background-color: #FFFFFF; }
+.Theme-light .Card-title, .Theme-light .Section-heading { color: #28242C; font-size: 18px; line-height: 26px; font-weight: 500; margin-bottom: 14px; }
+.Theme-light .Open-section { display: flex; flex-direction: column; background-color: transparent; border-radius: 0; padding: 24px 0; margin-bottom: 0; border-bottom: 1px solid #E5DED8; }
+.Theme-light .Section-note, .Theme-light .Empty-body, .Theme-light .Partner-body { font-size: 16px; line-height: 25px; color: #69616B; }
+.Theme-light .Section-note { margin-top: 10px; }
+.Theme-light .Section-kicker, .Theme-light .ScreenTitle-note { font-size: 14px; line-height: 21px; color: #69616B; }
+.Theme-light .ScreenTitle { padding: 12px 0 24px; }
+.Theme-light .ScreenTitle-text, .Theme-light .GreetingHeader-greeting { font-size: 27px; font-weight: 600; line-height: 36px; color: #28242C; }
+.Theme-light .ScreenTitle-note { margin-top: 6px; }
+.Theme-light .GreetingHeader { padding: 12px 0 24px; }
+.Theme-light .GreetingHeader-date { font-size: 14px; line-height: 21px; margin-top: 6px; color: #69616B; }
+.Theme-light .BrandHeader { display: flex; flex-direction: row; align-items: center; margin-bottom: 6px; }
+.Theme-light .BrandHeader-mark { width: 18px; height: 18px; margin-right: 6px; }
+.Theme-light .BrandHeader-name { font-size: 16px; font-weight: 500; color: #573C58; }
+.Theme-light .Actions { display: flex; flex-direction: row; align-items: stretch; gap: 8px; margin: 0 0 24px; }
+.Theme-light .Action-btn { flex: 1; min-height: 48px; height: auto; padding: 10px 6px; border-radius: 12px; background-color: transparent; }
+.Theme-light .Action-btn + .Action-btn { margin: 0; }
+.Theme-light .Action-btn.primary { background-color: #573C58; }
+.Theme-light .Action-label { font-size: 14px; line-height: 20px; font-weight: 500; text-align: center; color: #573C58; }
+.Theme-light .Action-label.primary { color: #FFFFFF; }
+.Theme-light .Action-btn.weight .Action-label { color: #5E4C96; }
+.Theme-light .Action-btn.exercise .Action-label { color: #11606B; }
+.Theme-light .Category-label { font-size: 14px; line-height: 21px; font-weight: 500; color: #28242C; }
+.Theme-light .food { color: #93392F; }
+.Theme-light .exercise { color: #11606B; }
+.Theme-light .weight { color: #5E4C96; }
+.Theme-light .Summary-heading { display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 12px; }
+.Theme-light .Summary-status { font-size: 14px; line-height: 21px; color: #69616B; }
+.Theme-light .Energy-card { padding: 20px; }
+.Theme-light .Energy-figure { display: flex; flex-direction: row; align-items: baseline; margin: 6px 0 12px; }
+.Theme-light .Energy-num { font-size: 52px; line-height: 62px; font-weight: 500; color: #28242C; }
+.Theme-light .Energy-unit { font-size: 14px; line-height: 21px; color: #69616B; margin: 0 0 0 12px; }
+.Theme-light .Energy-reference-row { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-top: 16px; }
+.Theme-light .Energy-reference { font-size: 14px; line-height: 21px; color: #69616B; }
+.Theme-light .Energy-reference.exercise { color: #11606B; }
+.Theme-light .Energy-remaining { font-size: 14px; line-height: 21px; color: #28242C; font-weight: 500; margin-top: 6px; }
+.Theme-light .ProgressBar, .Theme-light .ProgressBar-fill { height: 5px; border-radius: 3px; }
+.Theme-light .ProgressBar { margin-top: 0; background-color: #E5DED8; }
+.Theme-light .Today-metrics { display: flex; flex-direction: row; padding: 12px 0 24px; border-bottom: 1px solid #E5DED8; }
+.Theme-light .Metric-weight, .Theme-light .Metric-activity { flex: 1; min-width: 0; background-color: transparent; padding: 0; border-radius: 0; margin: 0; }
+.Theme-light .Metric-weight { padding-right: 16px; border-right: 1px solid #E5DED8; }
+.Theme-light .Metric-activity { display: flex; flex-direction: column; padding-left: 16px; }
+.Theme-light .Metric-weight .Card-title { font-size: 14px; line-height: 21px; font-weight: 400; color: #5E4C96; margin-bottom: 16px; }
+.Theme-light .Metric-activity .Category-label { margin-bottom: 16px; }
+.Theme-light .Weight-main { display: flex; flex-direction: column; align-items: flex-start; }
+.Theme-light .Weight-current-wrap, .Theme-light .Metric-figure { display: flex; flex-direction: row; align-items: baseline; }
+.Theme-light .Weight-current, .Theme-light .Metric-number { font-size: 32px; line-height: 40px; color: #28242C; font-weight: 500; }
+.Theme-light .Weight-unit, .Theme-light .Metric-unit { font-size: 14px; line-height: 21px; color: #69616B; margin: 0 0 0 8px; }
+.Theme-light .Weight-trend, .Theme-light .Metric-note { font-size: 14px; line-height: 21px; margin-top: 8px; color: #69616B; }
+.Theme-light .Weight-trend { color: #5E4C96; }
+.Theme-light .Metric-note.exercise { color: #11606B; }
+.Theme-light .Weight-detail .Weight-current { font-size: 24px; line-height: 32px; }
+.Theme-light .Weight-rows { margin-top: 16px; margin-bottom: 16px; }
+.Theme-light .Weight-stat-value { font-size: 20px; line-height: 28px; color: #28242C; font-weight: 500; }
+.Theme-light .Weight-stat-label { font-size: 14px; line-height: 21px; color: #69616B; }
+.Theme-light .Macro-grid { gap: 16px; }
+.Theme-light .Macro-col + .Macro-col { margin-left: 0; }
+.Theme-light .Macro-grams { font-size: 26px; line-height: 34px; font-weight: 500; color: #28242C; }
+.Theme-light .Macro-label, .Theme-light .Macro-target { font-size: 14px; line-height: 21px; color: #69616B; }
+.Theme-light .Macro-target { margin-top: 8px; }
+.Theme-light .Micro-row { min-height: 48px; gap: 8px; }
+.Theme-light .Micro-label { font-size: 16px; color: #28242C; }
+.Theme-light .Micro-number, .Theme-light .Micro-target { font-size: 14px; line-height: 21px; color: #69616B; font-weight: 400; margin-left: 0; }
+.Theme-light .Water-head { margin-bottom: 12px; }
+.Theme-light .Water-amount { font-size: 26px; line-height: 34px; font-weight: 500; }
+.Theme-light .Water-unit, .Theme-light .Water-status, .Theme-light .Water-goal { font-size: 14px; line-height: 21px; color: #69616B; }
+.Theme-light .Water-status, .Theme-light .Water-btn-label { color: #805619; }
+.Theme-light .Water-btn { min-height: 48px; padding: 10px 12px; border-radius: 12px; background-color: #EEEBE6; }
+.Theme-light .Water-btn.primary { background-color: #573C58; }
+.Theme-light .Water-btn-label.primary { color: #FFFFFF; }
+.Theme-light .Water-btn.disabled { opacity: 1; background-color: #EEEBE6; }
+.Theme-light .Water-summary { padding-top: 18px; padding-bottom: 18px; }
+.Theme-light .Water-row { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.Theme-light .Water-heading { display: flex; flex-direction: column; }
+.Theme-light .Category-label.water { color: #805619; }
+.Theme-light .Water-summary .Water-controls { margin-top: 0; margin-left: 12px; }
+.Theme-light .Water-summary .Water-btn { flex: none; min-width: 60px; min-height: 48px; padding: 8px; }
+.Theme-light .Water-summary .Water-btn + .Water-btn { margin-left: 8px; }
+.Theme-light .Water-summary .Water-btn.disabled .Water-btn-label { color: #69616B; }
+.Theme-light .Water-summary .Water-meta { margin-top: 10px; }
+.Theme-light .Water-progress { margin-top: 8px; }
+.Theme-light .Exercise-card { margin-top: 0; }
+.Theme-light .Exercise-head { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.Theme-light .Exercise-head-title { font-size: 18px; line-height: 26px; font-weight: 500; }
+.Theme-light .Exercise-head-total { font-size: 14px; color: #11606B; font-weight: 400; }
+.Theme-light .Exercise-row-item { display: flex; flex-direction: column; align-items: stretch; padding: 16px 0; border-bottom: 1px solid #E5DED8; }
+.Theme-light .Exercise-row-name { font-size: 16px; line-height: 24px; }
+.Theme-light .Exercise-row-meta { font-size: 14px; margin: 6px 0 0; }
+.Theme-light .Exercise-row-actions { margin: 4px 0 0; }
+.Theme-light .Exercise-row-btn { display: flex; align-items: center; justify-content: center; min-width: 48px; min-height: 48px; padding: 10px 12px; font-size: 14px; color: #11606B; }
+.Theme-light .Exercise-row-btn.danger { color: #B63D46; }
+.Theme-light .Exercise-row-badge { color: #69616B; background-color: #EEEBE6; font-size: 12px; }
+.Theme-light .Diary-primary .Action-btn { margin-top: 12px; }
+.Theme-light .Diary-macro-row { display: flex; flex-direction: row; align-items: center; justify-content: space-between; min-height: 64px; border-bottom: 1px solid #E5DED8; }
+.Theme-light .List-label { font-size: 16px; line-height: 24px; color: #28242C; }
+.Theme-light .List-number { font-size: 24px; line-height: 32px; color: #28242C; font-weight: 500; }
+.Theme-light .List-value { font-size: 16px; line-height: 24px; color: #28242C; font-weight: 500; }
+.Theme-light .Meal-recents { display: flex; flex-direction: row; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.Theme-light .Meal-recent-chip { min-height: 48px; display: flex; align-items: center; justify-content: center; padding: 10px 16px; margin: 0; background-color: #FBEAE4; border-radius: 12px; }
+.Theme-light .Meal-recent-label { font-size: 14px; color: #93392F; }
+.Theme-light .DiaryTotals-row { min-height: 48px; margin-bottom: 0; }
+.Theme-light .Insights-secondary { background-color: transparent; border-radius: 0; padding: 24px 0; border-bottom: 1px solid #E5DED8; margin-bottom: 0; }
+.Theme-light .Insights-range { margin: 0 0 24px; }
+.Theme-light .Insights-card-title { font-size: 18px; line-height: 26px; font-weight: 500; }
+.Theme-light .Insights-weight-card .Insights-card-title { color: #5E4C96; }
+.Theme-light .Insights-big { font-size: 48px; line-height: 58px; font-weight: 500; color: #28242C; }
+.Theme-light .Insights-big-unit, .Theme-light .Insights-slope, .Theme-light .Insights-empty { font-size: 14px; line-height: 21px; color: #69616B; }
+.Theme-light .Insights-slope { margin-top: 6px; }
+.Theme-light .Insights-row { min-height: 48px; gap: 12px; padding: 8px 0; }
+.Theme-light .Insights-row-label, .Theme-light .Insights-row-value { font-size: 16px; line-height: 24px; color: #28242C; }
+.Theme-light .Insights-row-value { font-weight: 500; }
+.Theme-light .TrendChart { height: 190px; margin-top: 20px; }
+.Theme-light .Chart-legend { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-top: 8px; }
+.Theme-light .Chart-legend-text { font-size: 14px; line-height: 21px; color: #69616B; }
+.Theme-light .Partner-motif { align-items: center; margin: 16px 0 28px; }
+.Theme-light .Partner-motif-svg { width: 160px; height: 140px; }
+.Theme-light .Partner-heading { font-size: 25px; line-height: 35px; font-weight: 500; color: #28242C; }
+.Theme-light .Partner-body { margin-top: 16px; }
+.Theme-light .Partner-status { margin-top: 24px; border-top: 1px solid #E5DED8; border-bottom: 0; }
+.Theme-light .Partner-local { font-size: 16px; line-height: 24px; color: #28242C; }
+.Theme-light .Partner-settings { display: flex; justify-content: center; min-height: 48px; align-self: flex-start; padding: 8px 12px; border-radius: 12px; margin-left: -12px; }
+.Theme-light .Partner-settings-label { font-size: 16px; line-height: 24px; color: #573C58; font-weight: 500; }
+.Theme-light .Partner-ideas { margin-top: 24px; }
+.Theme-light .MeProfile-stats { display: flex; flex-direction: row; justify-content: space-between; border-top: 1px solid #E5DED8; padding-top: 16px; }
+.Theme-light .Metric-label { font-size: 14px; line-height: 21px; color: #69616B; }
+.Theme-light .MeProfile-value { font-size: 16px; line-height: 24px; font-weight: 500; color: #28242C; margin-top: 6px; }
+.Theme-light .MeList { padding: 20px 0; }
+.Theme-light .MeRow { min-height: 56px; padding: 12px 0; border-bottom: 1px solid #E5DED8; gap: 8px; }
+.Theme-light .MeRow-icon { flex-shrink: 0; width: 24px; height: 24px; margin-right: 4px; }
+.Theme-light .MeRow-label { font-size: 16px; line-height: 24px; font-weight: 400; }
+.Theme-light .MeRow-val { font-size: 14px; line-height: 21px; margin-right: 0; }
+.Theme-light .MeRow-chev { font-size: 24px; color: #69616B; }
+.Theme-light .Settings-section { font-size: 16px; line-height: 24px; font-weight: 500; letter-spacing: 0; margin: 12px 0 14px; color: #28242C; }
+.Theme-light .Settings-card { padding: 8px 16px; }
+.Theme-light .Settings-row { min-height: 56px; padding: 10px 0; gap: 12px; }
+.Theme-light .Settings-label { font-size: 16px; line-height: 24px; font-weight: 400; }
+.Theme-light .Settings-value, .Theme-light .Settings-status { font-size: 14px; line-height: 21px; color: #69616B; }
+.Theme-light .Settings-status { padding: 12px 0 8px; }
+.Theme-light .Appearance-row { border-bottom: 1px solid #E5DED8; }
+.Theme-light .Appearance-check { font-size: 20px; color: #573C58; min-width: 24px; }
+.Theme-light .LangSwitch { border-radius: 12px; background-color: #EEEBE6; padding: 4px; }
+.Theme-light .LangSwitch-item { flex: 1; min-width: 48px; min-height: 48px; padding: 8px 12px; border-radius: 10px; }
+.Theme-light .LangSwitch-label { font-size: 14px; line-height: 21px; color: #69616B; }
+.Theme-light .LangSwitch-item.active { background-color: #FFFFFF; }
+.Theme-light .LangSwitch-label.active { color: #28242C; font-weight: 500; }
+.Theme-light .Settings-language { background-color: transparent; }
+.Theme-light .Settings-language .LangSwitch-item.active { background-color: #EEEBE6; }
+.Theme-light .Settings-connections { margin-bottom: 16px; }
+.Theme-light .Footer, .Theme-light .MeVersion, .Theme-light .Settings-footer { font-size: 14px; line-height: 21px; color: #69616B; }
+.Theme-light .Empty-title { font-size: 22px; line-height: 31px; font-weight: 500; }
+.Theme-light .Notice { background-color: #EEEBE6; border: 1px solid #8B808E; border-radius: 12px; padding: 16px; }
+.Theme-light .Notice-text { color: #28242C; font-size: 14px; line-height: 21px; }
+.Theme-light .Sheet-overlay { background-color: rgba(24,20,29,0.38); }
+.Theme-light .Sheet-overlay.tap-feedback-hover { background-color: rgba(24,20,29,0.38); }
+.Theme-light .Sheet, .Theme-light .ScaleSheet, .Theme-light .FoodSheet { background-color: #FFFFFF; padding: 24px 24px 32px; border-top-left-radius: 22px; border-top-right-radius: 22px; }
+.Theme-light .Sheet-title { font-size: 24px; line-height: 33px; font-weight: 600; }
+.Theme-light .Form-label { font-size: 14px; line-height: 21px; color: #69616B; margin: 16px 0 8px; }
+.Theme-light .Sheet-field { border: 1px solid #8B808E; border-radius: 11px; padding: 10px 14px; }
+.Theme-light .Sheet-field.focused, .Theme-light .Food-search-field.focused, .Theme-light .Food-form-cell.focused { border: 2px solid #573C58; }
+.Theme-light .Sheet-field.invalid, .Theme-light .Food-form-cell.invalid, .Theme-light .Exercise-type-list.invalid { border: 2px solid #B63D46; }
+.Theme-light .Sheet-input { min-height: 56px; height: 56px; font-size: 48px; line-height: 58px; font-weight: 500; color: #28242C; background-color: transparent; caret-color: #573C58; -x-placeholder-color: #69616B; }
+.Theme-light .Sheet-unit { font-size: 16px; line-height: 24px; color: #69616B; }
+.Theme-light .Sheet-error { font-size: 14px; line-height: 21px; color: #B63D46; margin-top: 12px; }
+.Theme-light .Sheet-actions { flex-shrink: 0; margin-top: 20px; gap: 12px; }
+.Theme-light .Sheet-btn { min-height: 48px; height: auto; padding: 12px 8px; border-radius: 12px; background-color: #EEEBE6; }
+.Theme-light .Sheet-btn + .Sheet-btn { margin-left: 0; }
+.Theme-light .Sheet-btn.primary { background-color: #573C58; }
+.Theme-light .Sheet-btn-label { font-size: 16px; line-height: 24px; font-weight: 500; color: #28242C; }
+.Theme-light .Sheet-btn-label.primary { color: #FFFFFF; }
+.Theme-light .Sheet-btn.disabled { opacity: 1; background-color: #EEEBE6; }
+.Theme-light .Sheet-btn.disabled .Sheet-btn-label { color: #69616B; }
+.Theme-light .Sheet-close-button { min-width: 48px; min-height: 48px; border-radius: 12px; background-color: #EEEBE6; }
+.Theme-light .Sheet-close-label { font-size: 14px; color: #28242C; }
+.Theme-light .Sheet-link { min-height: 48px; justify-content: center; margin-top: 12px; }
+.Theme-light .Sheet-link-label { font-size: 14px; line-height: 21px; color: #5E4C96; }
+.Theme-light .FoodSheet { border-radius: 22px; margin: 24px 16px 16px; padding: 24px 20px; }
+.Theme-light .Food-search-field { min-height: 48px; padding: 10px 12px; border-radius: 11px; background-color: #EEEBE6; border: 1px solid #8B808E; }
+.Theme-light .Food-search-input { min-height: 32px; height: 32px; font-size: 16px; color: #28242C; caret-color: #93392F; -x-placeholder-color: #69616B; }
+.Theme-light .Food-detail-scroll, .Theme-light .Food-form-scroll { flex: 1; min-height: 0; }
+.Theme-light .Food-form .Sheet-input { min-height: 48px; height: 48px; font-size: 16px; line-height: 24px; }
+.Theme-light .Food-form-cell { border: 1px solid #8B808E; border-radius: 11px; padding: 8px; margin-right: 8px; }
+.Theme-light .Food-form-row { gap: 8px; }
+.Theme-light .Food-row { min-height: 56px; padding: 12px 0; border-bottom-color: #E5DED8; }
+.Theme-light .Food-row-name { flex: 1; font-size: 16px; line-height: 24px; }
+.Theme-light .Food-row-meta { font-size: 14px; line-height: 21px; }
+.Theme-light .Food-selected-name { font-size: 22px; line-height: 31px; font-weight: 500; }
+.Theme-light .Food-result-value, .Theme-light .Estimate-value { font-size: 28px; line-height: 36px; color: #28242C; font-weight: 500; }
+.Theme-light .Food-result-unit, .Theme-light .Estimate-unit { font-size: 14px; line-height: 21px; color: #69616B; margin-left: 8px; }
+.Theme-light .Food-result { margin-top: 20px; }
+.Theme-light .Food-macros { flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.Theme-light .Food-macro { font-size: 14px; line-height: 21px; color: #69616B; margin: 0; }
+.Theme-light .Food-back, .Theme-light .Food-manage-btn, .Theme-light .Food-star { min-height: 48px; min-width: 48px; justify-content: center; }
+.Theme-light .Food-back-label, .Theme-light .Food-manage-label, .Theme-light .Food-create-label { color: #93392F; font-size: 14px; line-height: 21px; }
+.Theme-light .Food-manage-label.danger { color: #B63D46; }
+.Theme-light .Food-star-label { font-size: 28px; color: #69616B; }
+.Theme-light .Food-star-label.on { color: #93392F; }
+.Theme-light .Food-scan-btn { min-height: 48px; justify-content: center; background-color: #573C58; border-radius: 12px; padding: 10px 12px; }
+.Theme-light .Food-scan-label { font-size: 14px; color: #FFFFFF; }
+.Theme-light .Exercise-current { display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: 12px; min-height: 56px; padding: 12px 0; }
+.Theme-light .Exercise-current-label { flex: 1; color: #28242C; font-size: 16px; line-height: 24px; }
+.Theme-light .Exercise-current-action { min-height: 48px; justify-content: center; padding: 10px 8px; }
+.Theme-light .Exercise-current-action-label { color: #11606B; font-size: 14px; }
+.Theme-light .Exercise-type { min-height: 48px; padding: 12px; border: 1px solid #8B808E; border-radius: 11px; background-color: #FFFFFF; }
+.Theme-light .Exercise-type.selected { background-color: #E3F1F1; border-color: #11606B; }
+.Theme-light .Exercise-type-label { color: #28242C; font-size: 16px; line-height: 24px; }
+.Theme-light .Exercise-type.selected .Exercise-type-label { color: #11606B; }
+.Theme-light .Exercise-duration-input { flex: 1; }
+.Theme-light .Estimate-block { padding: 16px 0; }
+.Theme-light .Estimate-label { color: #69616B; font-size: 14px; line-height: 21px; }
+.Theme-light .Estimate-row { display: flex; flex-direction: row; align-items: baseline; margin-top: 6px; }
+.Theme-light .Reminder-seg, .Theme-light .Reminder-time, .Theme-light .HealthConnect-sync { min-height: 48px; border-radius: 12px; justify-content: center; padding: 10px 12px; }
+.Theme-light .Reminder-seg.active { background-color: #573C58; }
+.Theme-light .Reminder-seg-label.active { color: #FFFFFF; }
+.Theme-light .Reminder-time.active { background-color: #F0E7F1; }
+.Theme-light .HealthConnect-sync.disabled { opacity: 1; }
+.Theme-light .Scale-device { min-height: 56px; padding: 16px; border-radius: 12px; border: 1px solid #8B808E; }
+.Theme-light .Scale-reading-value { font-size: 48px; font-weight: 500; }
+.Theme-light .Scale-device-meta { color: #5E4C96; }
+.Theme-light .BottomTabBar { background-color: #FFFFFF; border-top-color: #E5DED8; }
+.Theme-light .BottomTab-label { color: #69616B; }
+.Theme-light .BottomTab-label-active { color: #176B50; }
+.Theme-light .Action-btn.primary.tap-feedback-hover, .Theme-light .Sheet-btn.primary.tap-feedback-hover, .Theme-light .Water-btn.primary.tap-feedback-hover, .Theme-light .Food-scan-btn.tap-feedback-hover { background-color: #573C58; transform: scale(0.98); }
+.Theme-light .Sheet-btn.disabled.tap-feedback-hover { background-color: #EEEBE6; transform: none; }
+.Theme-light .Exercise-current-action { color: #11606B; font-size: 14px; line-height: 21px; }
+.Theme-light .DiaryMacros-item { font-size: 14px; line-height: 20px; }
+.Theme-light .Workflow-sheet { flex: 1; max-height: 100%; margin: 24px 16px 16px; border-radius: 22px; }
+.Theme-light .Workflow-body { flex: 1; min-height: 0; }
+.Theme-light .Workflow-field { margin-bottom: 14px; }
+.Theme-light .Workflow-choice { min-height: 48px; padding: 12px 14px; border-radius: 12px; border: 1px solid #8B808E; margin-bottom: 10px; background-color: #EEEBE6; }
+.Theme-light .Workflow-choice.selected { background-color: #F0E7F1; border-color: #573C58; }
+.Theme-light .Workflow-choice.disabled { background-color: #EEEBE6; }
+.Theme-light .Workflow-list-item { padding: 14px 0; border-bottom: 1px solid #E5DED8; }
+.Theme-light .Workflow-actions { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+.Theme-light .Workflow-photo { width: 100%; height: 220px; border-radius: 12px; margin: 12px 0; }
+.Theme-light .Workflow-code { font-size: 16px; line-height: 24px; color: #28242C; }
+.Theme-light .Workflow-caption { font-size: 14px; line-height: 21px; color: #69616B; margin-top: 6px; }
+.Theme-light .Food-meal-options { flex-wrap: wrap; gap: 8px; }
+.Theme-light .Food-meal-options .LangSwitch-item { flex: none; width: 48%; padding: 8px 6px; }
+.Theme-light .Food-meal-options .LangSwitch-label { word-break: normal; }
+.Theme-light .Sheet-btn.danger { border: 1px solid #B63D46; }
+.Theme-light .Sheet-btn-label.danger { color: #B63D46; }
+.Theme-light .Workflow-field .Sheet-input { min-height: 48px; height: 48px; font-size: 16px; line-height: 24px; font-weight: 400; }
+.Theme-light .Workflow-code { word-break: break-all; }
+.Theme-light .Measurement-trend-options { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+.Theme-light .Measurement-trend-options .Workflow-choice { width: 48%; min-height: 48px; margin-bottom: 0; padding: 12px 8px; }
+.Theme-light .Measurement-trend-options .Action-label { word-break: normal; }
+.Theme-light .Workflow-viewport { flex: 1; min-height: 0; }
+.Theme-light .Workflow-content { display: flex; flex-direction: column; height: 100%; }
+.Theme-light .Workflow-heading-block, .Theme-light .Workflow-footer-block { flex-shrink: 0; }
+.Theme-light .Workflow-heading-block { display: flex; flex-direction: column; }
+.Theme-light .Workflow-heading-block > .Section-note { flex-shrink: 0; }
+.Theme-light .Workflow-sheet .Sheet-header { width: 100%; }
+.Theme-light .Workflow-sheet .Sheet-header > view { flex: 1; min-width: 0; }
+.Theme-light .Workflow-sheet .Sheet-title { word-break: normal; white-space: normal; }
+.Theme-light .Workflow-sheet .Sheet-btn-label { word-break: normal; white-space: normal; }
+.Theme-light .Workflow-sheet.whole-scroll .Workflow-content { height: auto; }
+.Theme-light .Workflow-field .Sheet-input { height: auto; min-height: 48px; }
+.Theme-light .Workflow-sheet.whole-scroll .Sheet-actions { flex-direction: column; }
+.Theme-light .Workflow-sheet.whole-scroll .Sheet-btn { flex: none; width: 100%; }
+.Theme-light .Workflow-sheet.whole-scroll .Sheet-title { word-break: break-word; }
+.Theme-light .Photo-actions { flex-direction: row; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+.Theme-light .Photo-actions .Sheet-btn { flex: 1; min-width: 112px; }
+.Theme-light .Workflow-sheet.whole-scroll .Photo-actions .Sheet-btn { width: auto; flex: 1; min-width: 112px; }
+.Theme-light .Insights-empty, .Theme-light .Partner-local-note { color: #28242C; }
+.Theme-light .Partner-tools { margin-top: 24px; padding-top: 16px; border-top: 1px solid #E5DED8; }
+.Theme-light .Insights-weight-card .Insights-card-title { color: #28242C; }
+.Theme-light .Theme-brand .Action-btn.primary, .Theme-light .Action-btn.primary.Theme-brand { background-color: #573C58; }
+.Theme-light .Theme-brand .Water-btn.primary, .Theme-light .Water-btn.primary.Theme-brand { background-color: #573C58; }
+.Theme-light .Theme-brand .Sheet-field.focused, .Theme-light .Sheet-field.focused.Theme-brand, .Theme-light .Theme-brand .Food-search-field.focused, .Theme-light .Food-search-field.focused.Theme-brand, .Theme-light .Theme-brand .Food-form-cell.focused, .Theme-light .Food-form-cell.focused.Theme-brand { border: 2px solid #573C58; }
+.Theme-light .Theme-brand .Sheet-input, .Theme-light .Sheet-input.Theme-brand { caret-color: #573C58; }
+.Theme-light .Theme-brand .Sheet-btn.primary, .Theme-light .Sheet-btn.primary.Theme-brand { background-color: #573C58; }
+.Theme-light .Theme-brand .Food-scan-btn, .Theme-light .Food-scan-btn.Theme-brand { background-color: #573C58; }
+.Theme-light .Theme-brand .Reminder-seg.active, .Theme-light .Reminder-seg.active.Theme-brand { background-color: #573C58; }
+.Theme-light .Theme-brand .Action-btn.primary.tap-feedback-hover, .Theme-light .Action-btn.primary.tap-feedback-hover.Theme-brand, .Theme-light .Theme-brand .Sheet-btn.primary.tap-feedback-hover, .Theme-light .Sheet-btn.primary.tap-feedback-hover.Theme-brand, .Theme-light .Theme-brand .Water-btn.primary.tap-feedback-hover, .Theme-light .Water-btn.primary.tap-feedback-hover.Theme-brand, .Theme-light .Theme-brand .Food-scan-btn.tap-feedback-hover, .Theme-light .Food-scan-btn.tap-feedback-hover.Theme-brand { background-color: #573C58; }
+.Theme-light .Theme-food .Action-btn.primary, .Theme-light .Action-btn.primary.Theme-food { background-color: #93392F; }
+.Theme-light .Theme-food .Water-btn.primary, .Theme-light .Water-btn.primary.Theme-food { background-color: #93392F; }
+.Theme-light .Theme-food .Sheet-field.focused, .Theme-light .Sheet-field.focused.Theme-food, .Theme-light .Theme-food .Food-search-field.focused, .Theme-light .Food-search-field.focused.Theme-food, .Theme-light .Theme-food .Food-form-cell.focused, .Theme-light .Food-form-cell.focused.Theme-food { border: 2px solid #93392F; }
+.Theme-light .Theme-food .Sheet-input, .Theme-light .Sheet-input.Theme-food { caret-color: #93392F; }
+.Theme-light .Theme-food .Sheet-btn.primary, .Theme-light .Sheet-btn.primary.Theme-food { background-color: #93392F; }
+.Theme-light .Theme-food .Food-scan-btn, .Theme-light .Food-scan-btn.Theme-food { background-color: #93392F; }
+.Theme-light .Theme-food .Reminder-seg.active, .Theme-light .Reminder-seg.active.Theme-food { background-color: #93392F; }
+.Theme-light .Theme-food .Action-btn.primary.tap-feedback-hover, .Theme-light .Action-btn.primary.tap-feedback-hover.Theme-food, .Theme-light .Theme-food .Sheet-btn.primary.tap-feedback-hover, .Theme-light .Sheet-btn.primary.tap-feedback-hover.Theme-food, .Theme-light .Theme-food .Water-btn.primary.tap-feedback-hover, .Theme-light .Water-btn.primary.tap-feedback-hover.Theme-food, .Theme-light .Theme-food .Food-scan-btn.tap-feedback-hover, .Theme-light .Food-scan-btn.tap-feedback-hover.Theme-food { background-color: #93392F; }
+.Theme-light .Theme-weight .Action-btn.primary, .Theme-light .Action-btn.primary.Theme-weight { background-color: #5E4C96; }
+.Theme-light .Theme-weight .Water-btn.primary, .Theme-light .Water-btn.primary.Theme-weight { background-color: #5E4C96; }
+.Theme-light .Theme-weight .Sheet-field.focused, .Theme-light .Sheet-field.focused.Theme-weight, .Theme-light .Theme-weight .Food-search-field.focused, .Theme-light .Food-search-field.focused.Theme-weight, .Theme-light .Theme-weight .Food-form-cell.focused, .Theme-light .Food-form-cell.focused.Theme-weight { border: 2px solid #5E4C96; }
+.Theme-light .Theme-weight .Sheet-input, .Theme-light .Sheet-input.Theme-weight { caret-color: #5E4C96; }
+.Theme-light .Theme-weight .Sheet-btn.primary, .Theme-light .Sheet-btn.primary.Theme-weight { background-color: #5E4C96; }
+.Theme-light .Theme-weight .Food-scan-btn, .Theme-light .Food-scan-btn.Theme-weight { background-color: #5E4C96; }
+.Theme-light .Theme-weight .Reminder-seg.active, .Theme-light .Reminder-seg.active.Theme-weight { background-color: #5E4C96; }
+.Theme-light .Theme-weight .Action-btn.primary.tap-feedback-hover, .Theme-light .Action-btn.primary.tap-feedback-hover.Theme-weight, .Theme-light .Theme-weight .Sheet-btn.primary.tap-feedback-hover, .Theme-light .Sheet-btn.primary.tap-feedback-hover.Theme-weight, .Theme-light .Theme-weight .Water-btn.primary.tap-feedback-hover, .Theme-light .Water-btn.primary.tap-feedback-hover.Theme-weight, .Theme-light .Theme-weight .Food-scan-btn.tap-feedback-hover, .Theme-light .Food-scan-btn.tap-feedback-hover.Theme-weight { background-color: #5E4C96; }
+.Theme-light .Theme-exercise .Action-btn.primary, .Theme-light .Action-btn.primary.Theme-exercise { background-color: #11606B; }
+.Theme-light .Theme-exercise .Water-btn.primary, .Theme-light .Water-btn.primary.Theme-exercise { background-color: #11606B; }
+.Theme-light .Theme-exercise .Sheet-field.focused, .Theme-light .Sheet-field.focused.Theme-exercise, .Theme-light .Theme-exercise .Food-search-field.focused, .Theme-light .Food-search-field.focused.Theme-exercise, .Theme-light .Theme-exercise .Food-form-cell.focused, .Theme-light .Food-form-cell.focused.Theme-exercise { border: 2px solid #11606B; }
+.Theme-light .Theme-exercise .Sheet-input, .Theme-light .Sheet-input.Theme-exercise { caret-color: #11606B; }
+.Theme-light .Theme-exercise .Sheet-btn.primary, .Theme-light .Sheet-btn.primary.Theme-exercise { background-color: #11606B; }
+.Theme-light .Theme-exercise .Food-scan-btn, .Theme-light .Food-scan-btn.Theme-exercise { background-color: #11606B; }
+.Theme-light .Theme-exercise .Reminder-seg.active, .Theme-light .Reminder-seg.active.Theme-exercise { background-color: #11606B; }
+.Theme-light .Theme-exercise .Action-btn.primary.tap-feedback-hover, .Theme-light .Action-btn.primary.tap-feedback-hover.Theme-exercise, .Theme-light .Theme-exercise .Sheet-btn.primary.tap-feedback-hover, .Theme-light .Sheet-btn.primary.tap-feedback-hover.Theme-exercise, .Theme-light .Theme-exercise .Water-btn.primary.tap-feedback-hover, .Theme-light .Water-btn.primary.tap-feedback-hover.Theme-exercise, .Theme-light .Theme-exercise .Food-scan-btn.tap-feedback-hover, .Theme-light .Food-scan-btn.tap-feedback-hover.Theme-exercise { background-color: #11606B; }
+.Theme-light .Theme-water .Action-btn.primary, .Theme-light .Action-btn.primary.Theme-water { background-color: #805619; }
+.Theme-light .Theme-water .Water-btn.primary, .Theme-light .Water-btn.primary.Theme-water { background-color: #805619; }
+.Theme-light .Theme-water .Sheet-field.focused, .Theme-light .Sheet-field.focused.Theme-water, .Theme-light .Theme-water .Food-search-field.focused, .Theme-light .Food-search-field.focused.Theme-water, .Theme-light .Theme-water .Food-form-cell.focused, .Theme-light .Food-form-cell.focused.Theme-water { border: 2px solid #805619; }
+.Theme-light .Theme-water .Sheet-input, .Theme-light .Sheet-input.Theme-water { caret-color: #805619; }
+.Theme-light .Theme-water .Sheet-btn.primary, .Theme-light .Sheet-btn.primary.Theme-water { background-color: #805619; }
+.Theme-light .Theme-water .Food-scan-btn, .Theme-light .Food-scan-btn.Theme-water { background-color: #805619; }
+.Theme-light .Theme-water .Reminder-seg.active, .Theme-light .Reminder-seg.active.Theme-water { background-color: #805619; }
+.Theme-light .Theme-water .Action-btn.primary.tap-feedback-hover, .Theme-light .Action-btn.primary.tap-feedback-hover.Theme-water, .Theme-light .Theme-water .Sheet-btn.primary.tap-feedback-hover, .Theme-light .Sheet-btn.primary.tap-feedback-hover.Theme-water, .Theme-light .Theme-water .Water-btn.primary.tap-feedback-hover, .Theme-light .Water-btn.primary.tap-feedback-hover.Theme-water, .Theme-light .Theme-water .Food-scan-btn.tap-feedback-hover, .Theme-light .Food-scan-btn.tap-feedback-hover.Theme-water { background-color: #805619; }
+.Theme-light .Theme-brand .Sheet-btn.disabled, .Theme-light .Theme-brand .Sheet-btn.primary.disabled { background-color: #EEEBE6; opacity: 1; }
+.Theme-light .Theme-brand .Sheet-btn.disabled .Sheet-btn-label { color: #69616B; }
+.Theme-light .Theme-brand .Sheet-btn.disabled.tap-feedback-hover { background-color: #EEEBE6; transform: none; }
+.Theme-light .Theme-brand .Sheet-field.invalid, .Theme-light .Theme-brand .Food-form-cell.invalid, .Theme-light .Theme-brand .Exercise-type-list.invalid { border: 2px solid #B63D46; }
+.Theme-light .Theme-food .Sheet-btn.disabled, .Theme-light .Theme-food .Sheet-btn.primary.disabled { background-color: #EEEBE6; opacity: 1; }
+.Theme-light .Theme-food .Sheet-btn.disabled .Sheet-btn-label { color: #69616B; }
+.Theme-light .Theme-food .Sheet-btn.disabled.tap-feedback-hover { background-color: #EEEBE6; transform: none; }
+.Theme-light .Theme-food .Sheet-field.invalid, .Theme-light .Theme-food .Food-form-cell.invalid, .Theme-light .Theme-food .Exercise-type-list.invalid { border: 2px solid #B63D46; }
+.Theme-light .Theme-weight .Sheet-btn.disabled, .Theme-light .Theme-weight .Sheet-btn.primary.disabled { background-color: #EEEBE6; opacity: 1; }
+.Theme-light .Theme-weight .Sheet-btn.disabled .Sheet-btn-label { color: #69616B; }
+.Theme-light .Theme-weight .Sheet-btn.disabled.tap-feedback-hover { background-color: #EEEBE6; transform: none; }
+.Theme-light .Theme-weight .Sheet-field.invalid, .Theme-light .Theme-weight .Food-form-cell.invalid, .Theme-light .Theme-weight .Exercise-type-list.invalid { border: 2px solid #B63D46; }
+.Theme-light .Theme-exercise .Sheet-btn.disabled, .Theme-light .Theme-exercise .Sheet-btn.primary.disabled { background-color: #EEEBE6; opacity: 1; }
+.Theme-light .Theme-exercise .Sheet-btn.disabled .Sheet-btn-label { color: #69616B; }
+.Theme-light .Theme-exercise .Sheet-btn.disabled.tap-feedback-hover { background-color: #EEEBE6; transform: none; }
+.Theme-light .Theme-exercise .Sheet-field.invalid, .Theme-light .Theme-exercise .Food-form-cell.invalid, .Theme-light .Theme-exercise .Exercise-type-list.invalid { border: 2px solid #B63D46; }
+.Theme-light .Theme-water .Sheet-btn.disabled, .Theme-light .Theme-water .Sheet-btn.primary.disabled { background-color: #EEEBE6; opacity: 1; }
+.Theme-light .Theme-water .Sheet-btn.disabled .Sheet-btn-label { color: #69616B; }
+.Theme-light .Theme-water .Sheet-btn.disabled.tap-feedback-hover { background-color: #EEEBE6; transform: none; }
+.Theme-light .Theme-water .Sheet-field.invalid, .Theme-light .Theme-water .Food-form-cell.invalid, .Theme-light .Theme-water .Exercise-type-list.invalid { border: 2px solid #B63D46; }
+.Page.Theme-dark { display: flex; flex-direction: column; height: 100%; background-color: #201D26; }
+.PageRoot.Theme-dark { display: flex; flex: 1; flex-direction: column; min-height: 0; }
+.Theme-dark .Scroll { flex: 1; min-height: 0; }
+.Theme-dark .Content { display: flex; flex-direction: column; padding: 0 32rpx 180rpx; }
+.Theme-dark .tap-feedback { transition: opacity 150ms ease; }
+.Theme-dark .tap-feedback-hover { background-color: #37323D; }
+.Theme-dark .cheer-pop { animation: cheerPop 450ms ease; }
+.Theme-dark .Header { display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin: 46rpx 8rpx 26rpx; }
+.Theme-dark .Header-text { display: flex; flex-direction: column; }
+.Theme-dark .Header-greeting { font-size: 19.3px; font-weight: 700; color: #FAF5F3; }
+.Theme-dark .Header-date { margin-top: 6rpx; font-size: 13.9px; color: #CEC3CE; }
+.Theme-dark .Header-side { display: flex; flex-direction: row; align-items: center; }
+.Theme-dark .LangSwitch { display: flex; flex-direction: row; padding: 4rpx; border-radius: 999rpx; background-color: #37323D; }
+.Theme-dark .LangSwitch-item { padding: 8rpx 22rpx; border-radius: 999rpx; }
+.Theme-dark .LangSwitch-item.active { background-color: #2B2731; }
+.Theme-dark .LangSwitch-label { font-size: 12.9px; color: #CEC3CE; }
+.Theme-dark .LangSwitch-label.active { font-weight: 600; color: #FAF5F3; }
+.Theme-dark .Header-streak { margin-right: 22rpx; align-items: flex-end; }
+.Theme-dark .Header-streak-num { font-size: 19.3px; font-weight: 700; color: #D3B2D8; }
+.Theme-dark .Header-streak-label { margin-top: 2rpx; font-size: 11.8px; color: #CEC3CE; }
+.Theme-dark .Card { background-color: #2B2731; border-radius: 28rpx; padding: 36rpx; margin-bottom: 28rpx; }
+.Theme-dark .Card-title { font-size: 12.9px; letter-spacing: 0; color: #CEC3CE; margin-bottom: 22rpx; }
+.Theme-dark .Energy-main { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.Theme-dark .Energy-headline { display: flex; flex-direction: column; }
+.Theme-dark .Energy-num { font-size: 49.3px; font-weight: 700; line-height: 104rpx; color: #FAF5F3; }
+.Theme-dark .Energy-unit { margin-top: 4rpx; font-size: 12.9px; color: #CEC3CE; }
+.Theme-dark .Energy-rows { align-items: flex-end; }
+.Theme-dark .Energy-row { display: flex; flex-direction: row; align-items: center; margin-bottom: 10rpx; }
+.Theme-dark .Energy-row-label { font-size: 13.9px; color: #CEC3CE; margin-right: 20rpx; }
+.Theme-dark .Energy-row-value { font-size: 15px; font-weight: 600; color: #FAF5F3; }
+.Theme-dark .ProgressBar { height: 16rpx; border-radius: 8rpx; background-color: #37323D; margin-top: 26rpx; overflow: hidden; }
+.Theme-dark .ProgressBar-fill { height: 16rpx; border-radius: 8rpx; transition: width 600ms ease-out; }
+.Theme-dark .Weight-main { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.Theme-dark .Weight-current-wrap { display: flex; flex-direction: row; align-items: flex-end; }
+.Theme-dark .Weight-current { font-size: 40.7px; font-weight: 700; color: #FAF5F3; }
+.Theme-dark .Weight-unit { margin-left: 8rpx; margin-bottom: 12rpx; font-size: 15px; color: #CEC3CE; }
+.Theme-dark .Weight-trend { font-size: 13.9px; font-weight: 600; color: #D3B2D8; }
+.Theme-dark .Weight-rows { display: flex; flex-direction: row; justify-content: space-between; margin-top: 28rpx; }
+.Theme-dark .Weight-stat { align-items: center; }
+.Theme-dark .Weight-stat-value { font-size: 17.2px; font-weight: 600; color: #FAF5F3; }
+.Theme-dark .Weight-stat-label { margin-top: 4rpx; font-size: 11.8px; color: #CEC3CE; }
+.Theme-dark .Macro-grid { display: flex; flex-direction: row; }
+.Theme-dark .Macro-col { display: flex; flex: 1; flex-direction: column; }
+.Theme-dark .Macro-col + .Macro-col { margin-left: 24rpx; }
+.Theme-dark .Macro-grams { font-size: 19.3px; font-weight: 700; color: #FAF5F3; }
+.Theme-dark .Micros-val { font-size: 19.3px; font-weight: 700; color: #FAF5F3; }
+.Theme-dark .Micros-val.good { color: #D3B2D8; }
+.Theme-dark .Micros-val.bad { color: #FF949C; }
+.Theme-dark .Macro-label { margin-top: 2rpx; font-size: 12.9px; color: #CEC3CE; }
+.Theme-dark .Macro-target { margin-top: 8rpx; font-size: 10.7px; color: #CEC3CE; }
+.Theme-dark .Macro-col .ProgressBar { margin-top: 14rpx; }
+.Theme-dark .Water-head { display: flex; flex-direction: row; align-items: baseline; justify-content: space-between; margin-bottom: 16rpx; }
+.Theme-dark .Water-amountWrap { display: flex; flex-direction: row; align-items: baseline; }
+.Theme-dark .Water-amount { font-size: 21.4px; font-weight: 700; color: #FAF5F3; }
+.Theme-dark .Water-unit { margin-left: 6rpx; font-size: 11.8px; color: #CEC3CE; }
+.Theme-dark .Water-meta { display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin-top: 14rpx; }
+.Theme-dark .Water-status { font-size: 12.9px; color: #D3B2D8; }
+.Theme-dark .Water-goal { font-size: 11.8px; color: #CEC3CE; }
+.Theme-dark .Water-controls { display: flex; flex-direction: row; margin-top: 20rpx; }
+.Theme-dark .Water-btn { flex: 1; display: flex; flex-direction: row; align-items: center; justify-content: center; padding: 18rpx 0; border-radius: 20rpx; background: #37323D; }
+.Theme-dark .Water-btn + .Water-btn { margin-left: 20rpx; }
+.Theme-dark .Water-btn.primary { background: #D3B2D8; }
+.Theme-dark .Water-btn.disabled { opacity: 0.4; }
+.Theme-dark .Water-btn-label { font-size: 13.9px; color: #D3B2D8; }
+.Theme-dark .Water-btn-label.primary { color: #2B2731; }
+.Theme-dark .Actions { display: flex; flex-direction: column; margin-top: 4rpx; }
+.Theme-dark .Action-btn { height: 92rpx; border-radius: 22rpx; align-items: center; justify-content: center; background-color: #2B2731; }
+.Theme-dark .Action-btn + .Action-btn { margin-top: 16rpx; margin-left: 0; }
+.Theme-dark .Action-btn.primary { background-color: #D3B2D8; }
+.Theme-dark .Action-row { display: flex; flex-direction: row; }
+.Theme-dark .Action-row .Action-btn { flex: 1; }
+.Theme-dark .Action-row .Action-btn + .Action-btn { margin-left: 24rpx; margin-top: 0; }
+.Theme-dark .Action-label { font-size: 13.9px; font-weight: 600; color: #D3B2D8; }
+.Theme-dark .Action-label.primary { color: #2B2731; }
+.Theme-dark .Notice { background-color: #37323D; border-radius: 20rpx; padding: 24rpx 30rpx; margin-bottom: 28rpx; }
+.Theme-dark .Notice-text { font-size: 12.9px; color: #FAF5F3; }
+.Theme-dark .Footer { margin-top: 14rpx; text-align: center; font-size: 11.8px; color: #CEC3CE; }
+.Theme-dark .Sheet-overlay { display: flex; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 100; flex-direction: column; justify-content: flex-end; background-color: rgba(8,6,12,0.66); animation: fadeIn 200ms ease-out; }
+.Theme-dark .Sheet { background-color: #2B2731; border-top-left-radius: 36rpx; border-top-right-radius: 36rpx; padding: 40rpx 36rpx 48rpx; animation: sheetSlideUp 300ms cubic-bezier(0.32, 0.72, 0, 1); }
+.Theme-dark .Sheet-title { font-size: 17.2px; font-weight: 700; color: #FAF5F3; margin-bottom: 30rpx; }
+.Theme-dark .Sheet-field { display: flex; flex-direction: row; align-items: center; border-bottom-width: 2rpx; border-bottom-style: solid; border-bottom-color: #8B7B91; padding-bottom: 12rpx; }
+.Theme-dark .Sheet-input { flex: 1; font-size: 30px; font-weight: 700; color: #FAF5F3; }
+.Theme-dark .Sheet-unit { margin-left: 12rpx; font-size: 16.1px; color: #CEC3CE; }
+.Theme-dark .Sheet-error { margin-top: 18rpx; font-size: 12.9px; color: #FF949C; }
+.Theme-dark .Sheet-actions { display: flex; flex-direction: row; margin-top: 40rpx; }
+.Theme-dark .Sheet-btn { flex: 1; height: 92rpx; border-radius: 22rpx; align-items: center; justify-content: center; background-color: #37323D; }
+.Theme-dark .Sheet-btn + .Sheet-btn { margin-left: 24rpx; }
+.Theme-dark .Sheet-btn.primary { background-color: #D3B2D8; }
+.Theme-dark .Sheet-btn.disabled { opacity: 0.5; }
+.Theme-dark .Sheet-btn-label { font-size: 15px; font-weight: 600; color: #D3B2D8; }
+.Theme-dark .Sheet-btn-label.primary { color: #2B2731; }
+.Theme-dark .ScaleSheet { background-color: #2B2731; border-top-left-radius: 36rpx; border-top-right-radius: 36rpx; padding: 40rpx 36rpx 48rpx; animation: sheetSlideUp 300ms cubic-bezier(0.32, 0.72, 0, 1); }
+.Theme-dark .Scale-reading { display: flex; flex-direction: row; align-items: center; justify-content: center; margin: 24rpx 0 8rpx; }
+.Theme-dark .Scale-reading-value { font-size: 51.5px; font-weight: 700; color: #FAF5F3; }
+.Theme-dark .Scale-reading-unit { margin-left: 14rpx; font-size: 17.2px; color: #CEC3CE; }
+.Theme-dark .Scale-hint { margin: 20rpx 4rpx 8rpx; font-size: 13.9px; color: #CEC3CE; text-align: center; }
+.Theme-dark .Scale-devices { margin-top: 24rpx; }
+.Theme-dark .Scale-device { display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 28rpx; border-radius: 20rpx; background-color: #201D26; margin-bottom: 18rpx; }
+.Theme-dark .Scale-device.active { background-color: #37323D; }
+.Theme-dark .Scale-device-name { font-size: 15px; font-weight: 600; color: #FAF5F3; }
+.Theme-dark .Scale-device-meta { font-size: 12.9px; color: #D3B2D8; }
+.Theme-dark .Sheet-link { align-items: center; margin-top: 28rpx; }
+.Theme-dark .Sheet-link-label { font-size: 13.9px; color: #D3B2D8; }
+.Theme-dark .Food-overlay { justify-content: flex-start; }
+.Theme-dark .FoodSheet { flex: 1; background-color: #2B2731; border-radius: 36rpx; margin: 120rpx 24rpx 40rpx; padding: 40rpx 32rpx; animation: sheetSlideUp 300ms cubic-bezier(0.32, 0.72, 0, 1); }
+.Theme-dark .Food-search-row { display: flex; flex-direction: row; align-items: center; margin-bottom: 18rpx; }
+.Theme-dark .Food-search-field { flex: 1; background-color: #201D26; border-radius: 20rpx; padding: 22rpx 24rpx; }
+.Theme-dark .Food-scan-btn { margin-left: 14rpx; background-color: #D3B2D8; border-radius: 20rpx; padding: 22rpx 26rpx; }
+.Theme-dark .Food-scan-label { font-size: 14.5px; color: #2B2731; }
+.Theme-dark .Food-scan-error { font-size: 12.9px; color: #FF949C; margin: 0 4rpx 14rpx; }
+.Theme-dark .Food-search-input { font-size: 15px; color: #FAF5F3; }
+.Theme-dark .Food-row { display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 26rpx 12rpx; border-bottom-width: 1rpx; border-bottom-style: solid; border-bottom-color: #201D26; }
+.Theme-dark .Food-row-name { font-size: 15px; color: #FAF5F3; }
+.Theme-dark .Food-row-meta { font-size: 12.9px; color: #CEC3CE; }
+.Theme-dark .Food-back { margin-bottom: 12rpx; }
+.Theme-dark .Food-back-label { font-size: 13.9px; color: #D3B2D8; }
+.Theme-dark .Food-selected-name { font-size: 18.2px; font-weight: 700; color: #FAF5F3; margin-bottom: 24rpx; }
+.Theme-dark .Food-result { margin-top: 30rpx; align-items: center; }
+.Theme-dark .Food-result-kcal { display: flex; flex-direction: row; align-items: center; }
+.Theme-dark .Food-result-value { font-size: 42.9px; font-weight: 700; color: #FAF5F3; }
+.Theme-dark .Food-result-unit { margin-left: 12rpx; font-size: 16.1px; color: #CEC3CE; }
+.Theme-dark .Food-macros { display: flex; flex-direction: row; margin-top: 26rpx; }
+.Theme-dark .Food-macro { font-size: 13.9px; color: #CEC3CE; margin: 0 18rpx; }
+.Theme-dark .Food-form .Sheet-field { margin-bottom: 20rpx; }
+.Theme-dark .Food-form-row { display: flex; flex-direction: row; margin-bottom: 20rpx; }
+.Theme-dark .Food-form-cell { flex: 1; margin-right: 12rpx; }
+.Theme-dark .Food-form-cell:last-child { margin-right: 0; }
+.Theme-dark .Food-create-row { justify-content: flex-start; }
+.Theme-dark .Food-create-label { font-size: 15px; color: #D3B2D8; }
+.Theme-dark .Food-manage { display: flex; flex-direction: column; margin: 10rpx 0 4rpx; padding: 14rpx 0 4rpx; border-top: 1rpx solid #37323D; }
+.Theme-dark .Food-manage-row { display: flex; flex-direction: row; }
+.Theme-dark .Food-manage-btn { padding: 14rpx 20rpx; margin: 4rpx 0; }
+.Theme-dark .Food-manage-row .Food-manage-btn { flex: 1; margin-right: 16rpx; }
+.Theme-dark .Food-manage-label { font-size: 14.5px; color: #D3B2D8; }
+.Theme-dark .Food-manage-label.danger { color: #FF949C; }
+.Theme-dark .Food-quick-section { margin: 4rpx 0 12rpx; }
+.Theme-dark .Food-quick-title { font-size: 12.3px; color: #CEC3CE; letter-spacing: 1rpx; margin: 8rpx 4rpx 2rpx; }
+.Theme-dark .Food-detail-head { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.Theme-dark .Food-detail-head .Food-selected-name { flex: 1; }
+.Theme-dark .Food-star { padding: 8rpx 10rpx; }
+.Theme-dark .Food-star-label { font-size: 24.7px; color: #CEC3CE; }
+.Theme-dark .Food-star-label.on { color: #D3B2D8; }
+.Theme-dark .Exercise-type-list { height: 420rpx; margin-bottom: 20rpx; }
+.Theme-dark .Exercise-type { padding: 24rpx; border-radius: 18rpx; margin-bottom: 10rpx; background-color: #201D26; }
+.Theme-dark .Exercise-type.selected { background-color: #D3B2D8; }
+.Theme-dark .Exercise-type-label { font-size: 15px; color: #FAF5F3; }
+.Theme-dark .Exercise-type.selected .Exercise-type-label { color: #2B2731; }
+.Theme-dark .Exercise-duration-input { flex: 0 0 220rpx; }
+.Theme-dark .Exercise-kcal-row { display: flex; flex-direction: row; align-items: baseline; justify-content: center; margin: 8rpx 0 18rpx; }
+.Theme-dark .Exercise-kcal { font-size: 34.3px; font-weight: 700; color: #FAF5F3; }
+.Theme-dark .Exercise-kcal-unit { font-size: 13.9px; color: #CEC3CE; margin-left: 10rpx; }
+.Theme-dark .Exercise-card { margin-top: 20rpx; }
+.Theme-dark .Exercise-head { display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 12rpx; }
+.Theme-dark .Exercise-head-title { font-size: 16.1px; font-weight: 700; color: #FAF5F3; }
+.Theme-dark .Exercise-head-total { font-size: 13.9px; font-weight: 600; color: #D3B2D8; }
+.Theme-dark .Exercise-row-item { display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 16rpx 4rpx; }
+.Theme-dark .Exercise-row-titleline { display: flex; flex-direction: row; align-items: center; gap: 12rpx; }
+.Theme-dark .Exercise-row-name { font-size: 14.5px; color: #FAF5F3; }
+.Theme-dark .Exercise-row-badge { font-size: 10.2px; color: #D3B2D8; background-color: #37323D; font-weight: 500; border-radius: 10rpx; padding: 3rpx 12rpx; }
+.Theme-dark .Exercise-row-meta { font-size: 13.4px; color: #CEC3CE; margin-left: 12rpx; }
+.Theme-dark .Exercise-row-actions { display: flex; flex-direction: row; align-items: center; margin-left: 12rpx; flex-shrink: 0; }
+.Theme-dark .Exercise-row-btn { font-size: 12.9px; color: #D3B2D8; padding: 8rpx 10rpx; }
+.Theme-dark .Exercise-row-btn.danger { color: #FF949C; }
+.Theme-dark .Exercise-row-btn.confirm { font-weight: 700; }
+.Theme-dark .Exercise-row-btn + .Exercise-row-btn { margin-left: 6rpx; }
+.Theme-dark .TabSwitch { margin: 6rpx 0 20rpx; }
+.Theme-dark .Insights-range { margin: 2rpx 0 20rpx; }
+.Theme-dark .Insights-card { margin-bottom: 22rpx; padding: 28rpx 30rpx; }
+.Theme-dark .Insights-card-title { font-size: 15px; font-weight: 600; color: #FAF5F3; margin-bottom: 14rpx; }
+.Theme-dark .Insights-empty { font-size: 13.9px; color: #CEC3CE; padding: 6rpx 0; }
+.Theme-dark .Insights-weight-main { display: flex; flex-direction: row; align-items: baseline; }
+.Theme-dark .Insights-big { font-size: 30px; font-weight: 700; color: #FAF5F3; }
+.Theme-dark .Insights-big.loss { color: #D3B2D8; }
+.Theme-dark .Insights-big.gain { color: #FF949C; }
+.Theme-dark .Insights-big-unit { font-size: 13.9px; color: #CEC3CE; margin-left: 10rpx; }
+.Theme-dark .Insights-slope { font-size: 13.9px; color: #CEC3CE; margin-top: 10rpx; }
+.Theme-dark .TrendChart { width: 100%; height: 220rpx; margin-top: 24rpx; }
+.Theme-dark .TrendChart-svg { width: 100%; height: 100%; }
+.Theme-dark .Insights-row { display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 12rpx 0; }
+.Theme-dark .Insights-row-label { font-size: 13.9px; color: #CEC3CE; }
+.Theme-dark .Insights-row-value { font-size: 13.9px; color: #FAF5F3; font-weight: 600; }
+.Theme-dark .Header-bell { width: 60rpx; height: 60rpx; border-radius: 999rpx; align-items: center; justify-content: center; background-color: #2B2731; margin-right: 16rpx; }
+.Theme-dark .Header-bell-glyph { font-size: 16.1px; }
+.Theme-dark .HealthConnect-desc { margin-top: 14rpx; font-size: 13.9px; line-height: 38rpx; color: #CEC3CE; }
+.Theme-dark .HealthConnect-unsupported { margin-top: 18rpx; padding: 24rpx; border-radius: 20rpx; background-color: #37323D; font-size: 13.9px; line-height: 38rpx; color: #CEC3CE; }
+.Theme-dark .HealthConnect-grant { flex: 0 0 auto; padding: 10rpx 30rpx; }
+.Theme-dark .HealthConnect-syncrow { margin-top: 18rpx; display: flex; flex-direction: column; gap: 12rpx; }
+.Theme-dark .HealthConnect-sync { align-items: center; justify-content: center; padding: 16rpx 30rpx; border-radius: 22rpx; background-color: #37323D; }
+.Theme-dark .HealthConnect-sync.disabled { opacity: 0.5; }
+.Theme-dark .HealthConnect-sync .Sheet-btn-label { color: #D3B2D8; }
+.Theme-dark .HealthConnect-lastsync { font-size: 12.9px; color: #CEC3CE; }
+.Theme-dark .Reminder-kind { margin-top: 16rpx; padding: 22rpx 24rpx; border-radius: 24rpx; background-color: #201D26; }
+.Theme-dark .Reminder-row { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.Theme-dark .Reminder-label { font-size: 15px; font-weight: 600; color: #FAF5F3; }
+.Theme-dark .Reminder-toggle { display: flex; flex-direction: row; }
+.Theme-dark .Reminder-seg { padding: 8rpx 26rpx; border-radius: 999rpx; background-color: #37323D; }
+.Theme-dark .Reminder-seg + .Reminder-seg { margin-left: 10rpx; }
+.Theme-dark .Reminder-seg.active { background-color: #D3B2D8; }
+.Theme-dark .Reminder-seg-label { font-size: 12.9px; color: #CEC3CE; }
+.Theme-dark .Reminder-seg-label.active { font-weight: 600; color: #2B2731; }
+.Theme-dark .Reminder-times { display: flex; flex-direction: row; margin-top: 18rpx; justify-content: space-between; }
+.Theme-dark .Reminder-time { padding: 12rpx 20rpx; border-radius: 16rpx; align-items: center; justify-content: center; background-color: #37323D; }
+.Theme-dark .Reminder-time.active { background-color: #403047; }
+.Theme-dark .Reminder-time-label { font-size: 12.9px; color: #CEC3CE; }
+.Theme-dark .Reminder-time-label.active { font-weight: 600; color: #D3B2D8; }
+.Theme-dark .Header-gear { min-width: 68rpx; height: 68rpx; padding: 0 22rpx; border-radius: 999rpx; background-color: #37323D; display: flex; align-items: center; justify-content: center; }
+.Theme-dark .Header-gear-glyph { font-size: 18.2px; }
+.Theme-dark .Header-gear-done { font-size: 13.9px; font-weight: 600; color: #D3B2D8; }
+.Theme-dark .Settings { display: flex; flex-direction: column; }
+.Theme-dark .Settings-section { font-size: 11.8px; letter-spacing: 2rpx; color: #CEC3CE; margin: 26rpx 20rpx 12rpx; }
+.Theme-dark .Settings-card { padding: 6rpx 32rpx; }
+.Theme-dark .Settings-row { display: flex; flex-direction: row; align-items: center; justify-content: space-between; min-height: 100rpx; }
+.Theme-dark .Settings-label { font-size: 16.1px; color: #FAF5F3; }
+.Theme-dark .Settings-chevron { font-size: 21.4px; color: #CEC3CE; }
+.Theme-dark .Settings-divider { height: 1rpx; background-color: #443D48; }
+.Theme-dark .Settings-footerWrap { align-items: center; margin-top: 48rpx; }
+.Theme-dark .Settings-footer { font-size: 11.8px; color: #CEC3CE; text-align: center; }
+.Theme-dark .GreetingHeader { display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between; padding: 18rpx 4rpx 26rpx; }
+.Theme-dark .GreetingHeader-text { display: flex; flex-direction: column; }
+.Theme-dark .GreetingHeader-greeting { font-size: 24.7px; font-weight: 700; color: #FAF5F3; }
+.Theme-dark .GreetingHeader-date { font-size: 12.9px; color: #CEC3CE; margin-top: 6rpx; }
+.Theme-dark .GreetingHeader-streak { display: flex; flex-direction: column; align-items: center; background-color: #37323D; border-radius: 20rpx; padding: 12rpx 22rpx; }
+.Theme-dark .GreetingHeader-streak-num { font-size: 17.2px; font-weight: 700; color: #D3B2D8; }
+.Theme-dark .GreetingHeader-streak-label { font-size: 9.6px; color: #CEC3CE; margin-top: 2rpx; }
+.Theme-dark .ScreenTitle { padding: 18rpx 4rpx 22rpx; }
+.Theme-dark .ScreenTitleRow { display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 18rpx 4rpx 22rpx; }
+.Theme-dark .ScreenTitle-text { font-size: 23.6px; font-weight: 700; color: #FAF5F3; }
+.Theme-dark .DiarySummary-head { display: flex; flex-direction: row; align-items: baseline; justify-content: space-between; }
+.Theme-dark .DiarySummary-label { font-size: 13.9px; color: #CEC3CE; }
+.Theme-dark .DiarySummary-kcal { font-size: 25.7px; font-weight: 700; color: #FAF5F3; }
+.Theme-dark .DiaryMacros { display: flex; flex-direction: row; justify-content: space-between; margin-top: 18rpx; }
+.Theme-dark .DiaryMacros-item { font-size: 11.8px; color: #CEC3CE; }
+.Theme-dark .MealCard { padding-top: 28rpx; padding-bottom: 28rpx; }
+.Theme-dark .Meal-head { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.Theme-dark .Meal-name { font-size: 16.1px; font-weight: 600; color: #FAF5F3; }
+.Theme-dark .Meal-add { background-color: #37323D; border-radius: 16rpx; padding: 10rpx 22rpx; }
+.Theme-dark .Meal-add-text { font-size: 12.9px; color: #D3B2D8; }
+.Theme-dark .Meal-empty { font-size: 12.3px; color: #CEC3CE; margin-top: 16rpx; }
+.Theme-dark .Meal-empty-body { align-items: center; padding: 28rpx 0 8rpx; }
+.Theme-dark .Meal-empty-icon { font-size: 27.9px; color: #CEC3CE; margin-bottom: 10rpx; }
+.Theme-dark .Meal-empty-text { font-size: 12.9px; color: #CEC3CE; }
+.Theme-dark .Meal-recents { display: flex; flex-direction: row; flex-wrap: wrap; margin-top: 18rpx; }
+.Theme-dark .Meal-recent-chip { background-color: #37323D; border-radius: 999rpx; padding: 12rpx 22rpx; margin: 8rpx 10rpx 0 0; }
+.Theme-dark .Meal-recent-label { font-size: 11.8px; color: #D3B2D8; }
+.Theme-dark .DiaryTotals-row { display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 14rpx; }
+.Theme-dark .DiaryTotals-label { font-size: 13.9px; color: #CEC3CE; }
+.Theme-dark .DiaryTotals-value { font-size: 15px; font-weight: 600; color: #FAF5F3; }
+.Theme-dark .DiaryTotals-line { height: 2rpx; background-color: #443D48; margin: 10rpx 0 18rpx; }
+.Theme-dark .DiaryTotals-strong { color: #D3B2D8; font-weight: 700; font-size: 15px; }
+.Theme-dark .PartnerDays { background-color: #37323D; border-radius: 16rpx; padding: 10rpx 20rpx; }
+.Theme-dark .PartnerDays-text { font-size: 11.8px; color: #D3B2D8; }
+.Theme-dark .Person-head { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.Theme-dark .Person-id { display: flex; flex-direction: row; align-items: center; }
+.Theme-dark .Person-avatar { width: 76rpx; height: 76rpx; border-radius: 38rpx; text-align: center; line-height: 76rpx; font-size: 17.2px; font-weight: 700; margin-right: 20rpx; }
+.Theme-dark .Person-avatar-you { background-color: #D3B2D8; color: #2B2731; }
+.Theme-dark .Person-avatar-empty { background-color: #37323D; color: #CEC3CE; }
+.Theme-dark .Person-name { font-size: 16.1px; font-weight: 700; color: #FAF5F3; }
+.Theme-dark .Person-sub { font-size: 11.8px; color: #CEC3CE; margin-top: 4rpx; }
+.Theme-dark .Person-trend { font-size: 12.9px; font-weight: 600; }
+.Theme-dark .Person-trend-good { color: #D3B2D8; }
+.Theme-dark .Person-line { height: 2rpx; background-color: #443D48; margin: 22rpx 0; }
+.Theme-dark .Person-foot { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.Theme-dark .Person-foot-label { font-size: 12.9px; color: #CEC3CE; }
+.Theme-dark .Person-foot-meta { font-size: 11.8px; color: #CEC3CE; }
+.Theme-dark .Person-linkbody { font-size: 12.3px; color: #CEC3CE; margin-bottom: 18rpx; }
+.Theme-dark .Person-linkbtn { background-color: #D3B2D8; border-radius: 18rpx; padding: 20rpx; align-items: center; }
+.Theme-dark .Person-linkbtn-text { font-size: 13.9px; font-weight: 600; color: #2B2731; }
+.Theme-dark .Person-goalrow { display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin: 14rpx 0 16rpx; }
+.Theme-dark .Person-goallabel { font-size: 13.4px; color: #CEC3CE; }
+.Theme-dark .Person-goalval { font-size: 15px; font-weight: 700; color: #FAF5F3; }
+.Theme-dark .GoalBar { height: 18rpx; border-radius: 9rpx; background-color: #37323D; overflow: hidden; }
+.Theme-dark .GoalBar-fill { height: 18rpx; border-radius: 9rpx; background-color: #D3B2D8; transition: width 600ms ease-out; }
+.Theme-dark .Support-row { display: flex; flex-direction: row; }
+.Theme-dark .Support-btn { flex-grow: 1; background-color: #37323D; border-radius: 18rpx; padding: 20rpx 0; align-items: center; margin: 0 8rpx; transition: opacity 150ms ease; }
+.Theme-dark .Support-btn-text { font-size: 12.9px; color: #D3B2D8; font-weight: 600; }
+.Theme-dark .MeProfile-head { display: flex; flex-direction: row; align-items: center; }
+.Theme-dark .MeProfile-avatar { width: 96rpx; height: 96rpx; border-radius: 48rpx; text-align: center; line-height: 96rpx; font-size: 21.4px; font-weight: 700; color: #2B2731; background-color: #D3B2D8; margin-right: 22rpx; }
+.Theme-dark .MeProfile-id { display: flex; flex-direction: column; }
+.Theme-dark .MeProfile-name { font-size: 18.2px; font-weight: 700; color: #FAF5F3; }
+.Theme-dark .MeProfile-sub { font-size: 12.9px; color: #CEC3CE; margin-top: 6rpx; }
+.Theme-dark .MeSignin { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.Theme-dark .MeSignin-text { display: flex; flex: 1; flex-direction: column; padding-right: 20rpx; }
+.Theme-dark .MeSignin-title { font-size: 15px; font-weight: 700; color: #FAF5F3; }
+.Theme-dark .MeSignin-body { font-size: 11.8px; color: #CEC3CE; margin-top: 6rpx; }
+.Theme-dark .MeSignin-btn { background-color: #D3B2D8; border-radius: 18rpx; padding: 18rpx 28rpx; }
+.Theme-dark .MeSignin-btn-text { font-size: 13.4px; font-weight: 600; color: #2B2731; }
+.Theme-dark .MeList { padding-top: 10rpx; padding-bottom: 10rpx; }
+.Theme-dark .MeRow { display: flex; flex-direction: row; align-items: center; min-height: 104rpx; padding: 20rpx 6rpx; }
+.Theme-dark .MeRow-icon { width: 44rpx; height: 44rpx; margin-right: 16rpx; }
+.Theme-dark .MeRow-label { flex: 1; font-size: 14.5px; color: #FAF5F3; }
+.Theme-dark .MeRow-val { font-size: 12.9px; color: #CEC3CE; margin-right: 12rpx; }
+.Theme-dark .MeRow-chev { font-size: 18.2px; color: #CEC3CE; }
+.Theme-dark .MeList-line { height: 2rpx; background-color: #443D48; margin: 6rpx 0; }
+.Theme-dark .MeVersion { text-align: center; font-size: 11.3px; color: #CEC3CE; margin-top: 10rpx; }
+.Theme-dark .BottomTabBar { display: flex; flex-direction: row; background-color: #2B2731; border-top-width: 1rpx; border-top-color: #443D48; padding: 10rpx 0 22rpx; }
+.Theme-dark .BottomTab { flex-grow: 1; align-items: center; }
+.Theme-dark .BottomTab-icon { width: 48rpx; height: 48rpx; }
+.Theme-dark .BottomTab-svg { width: 48rpx; height: 48rpx; }
+.Theme-dark .BottomTab-label { font-size: 10.7px; color: #CEC3CE; margin-top: 6rpx; }
+.Theme-dark .BottomTab-label-active { color: #84D2AF; font-weight: 600; }
+.Theme-dark .DevBack { padding: 8rpx 4rpx 14rpx; }
+.Theme-dark .DevBack-text { font-size: 15px; color: #84D2AF; font-weight: 600; }
+.Theme-dark .Content { padding: 16rpx 36rpx 200rpx; }
+.Theme-dark .Card { border-radius: 24rpx; padding: 30rpx; margin-bottom: 22rpx; }
+.Theme-dark .Card-title { font-size: 13.9px; font-weight: 600; color: #CEC3CE; margin-bottom: 20rpx; }
+.Theme-dark .GreetingHeader { padding: 16rpx 0 28rpx; align-items: center; }
+.Theme-dark .GreetingHeader-greeting, .Theme-dark .ScreenTitle-text { font-size: 25.7px; font-weight: 600; }
+.Theme-dark .GreetingHeader-date { font-size: 14.5px; }
+.Theme-dark .GreetingHeader-streak { background-color: transparent; padding: 4rpx 0 4rpx 16rpx; }
+.Theme-dark .GreetingHeader-streak-label { font-size: 11.8px; }
+.Theme-dark .Actions { margin-bottom: 26rpx; }
+.Theme-dark .Action-btn { min-height: 96rpx; border-radius: 18rpx; }
+.Theme-dark .Action-label { font-size: 15px; }
+.Theme-dark .Energy-num { font-size: 41.8px; line-height: 90rpx; font-weight: 600; }
+.Theme-dark .Energy-row-label, .Theme-dark .Energy-row-value { font-size: 13.4px; }
+.Theme-dark .Macro-val, .Theme-dark .Weight-value, .Theme-dark .Insights-big { font-weight: 600; }
+.Theme-dark .Insights-big.loss, .Theme-dark .Insights-big.gain { color: #FAF5F3; }
+.Theme-dark .Insights-row { min-height: 88rpx; }
+.Theme-dark .MeRow { min-height: 108rpx; padding: 18rpx 0; }
+.Theme-dark .MeRow-label, .Theme-dark .Settings-label { font-size: 15.5px; }
+.Theme-dark .MeRow-val { color: #CEC3CE; }
+.Theme-dark .Sheet-overlay { display: flex; }
+.Theme-dark .Sheet, .Theme-dark .ScaleSheet, .Theme-dark .FoodSheet { border-top-left-radius: 28rpx; border-top-right-radius: 28rpx; padding: 32rpx 36rpx 64rpx; max-height: 100%; }
+.Theme-dark .Sheet-input { min-height: 100rpx; height: 100rpx; }
+.Theme-dark .FoodSheet-search { min-height: 90rpx; }
+.Theme-dark .Sheet-title { font-size: 19.3px; font-weight: 600; }
+.Theme-dark .Sheet-btn, .Theme-dark .FoodSheet-cancel, .Theme-dark .FoodSheet-save { min-height: 96rpx; }
+.Theme-dark .Sheet-error { color: #FF949C; font-size: 14.5px; line-height: 38rpx; }
+.Theme-dark .Section-note { color: #CEC3CE; font-size: 14.5px; line-height: 40rpx; margin-top: 12rpx; }
+.Theme-dark .Section-kicker { color: #CEC3CE; font-size: 13.4px; margin: 10rpx 0 16rpx; }
+.Theme-dark .Unavailable-label { color: #CEC3CE; font-size: 12.9px; margin-left: 16rpx; }
+.Theme-dark .Empty-title { font-size: 20.4px; color: #FAF5F3; font-weight: 600; margin-bottom: 18rpx; }
+.Theme-dark .Empty-body { font-size: 15.5px; line-height: 44rpx; color: #CEC3CE; margin-bottom: 28rpx; }
+.Theme-dark .PartnerWelcome { padding: 42rpx 34rpx; }
+.Theme-dark .Pair-mark { display: flex; flex-direction: row; margin-bottom: 40rpx; padding-top: 8rpx; }
+.Theme-dark .Pair-circle { width: 90rpx; height: 90rpx; border-radius: 45rpx; border: 3rpx solid #D3B2D8; background-color: #37323D; }
+.Theme-dark .Pair-second { margin-left: -24rpx; margin-top: 20rpx; background-color: #201D26; }
+.Theme-dark .Micro-list { display: flex; flex-direction: column; }
+.Theme-dark .Micro-row { display: flex; flex-direction: row; justify-content: space-between; align-items: center; min-height: 76rpx; }
+.Theme-dark .Micro-label { font-size: 14.5px; color: #CEC3CE; flex: 1; }
+.Theme-dark .Micro-number { font-size: 15.5px; color: #FAF5F3; font-weight: 600; }
+.Theme-dark .Micro-target { font-size: 13.4px; color: #CEC3CE; margin-left: 16rpx; }
+.Theme-dark .Form-label { font-size: 13.9px; color: #CEC3CE; margin: 18rpx 0 8rpx; }
+.Theme-dark .Sheet-scroll { max-height: 100%; }
+.Theme-dark .Action-row { margin-top: 14rpx; }
+.Theme-dark .Food-search-input { height: 60rpx; min-height: 60rpx; }
+.Theme-dark .Food-form-scroll, .Theme-dark .Sheet-body-scroll { flex: 1; min-height: 0; }
+.Theme-dark .Food-form .Sheet-input { font-size: 17.2px; height: 84rpx; min-height: 84rpx; }
+.Theme-dark .Food-form .Sheet-field { display: flex; flex-direction: column; align-items: stretch; }
+.Theme-dark .Food-form-row { flex-wrap: wrap; }
+.Theme-dark .Food-form-cell { min-width: 160rpx; }
+.Theme-dark .TrendChart { height: 340rpx; }
+.Theme-dark .Footer, .Theme-dark .MeVersion, .Theme-dark .Settings-footer { font-size: 13.4px; color: #CEC3CE; line-height: 36rpx; }
+.Theme-dark .Exercise-row-btn { min-height: 88rpx; padding: 18rpx 8rpx; }
+.Theme-dark .Sheet-header { display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 20rpx; }
+.Theme-dark .Sheet-header .Sheet-title { flex: 1; margin-bottom: 0; }
+.Theme-dark .Sheet-close-button { display: flex; align-items: center; justify-content: center; min-width: 88rpx; min-height: 88rpx; border-radius: 44rpx; background-color: #37323D; }
+.Theme-dark .Sheet-close-label { font-size: 15px; color: #D3B2D8; }
+.Theme-dark .Sheet-input-pair { display: flex; flex-direction: row; align-items: center; }
+.Theme-dark .Food-results { flex: 1; min-height: 0; }
+.Theme-dark .Food-detail-scroll { flex: 1; min-height: 0; }
+.Theme-dark .Sheet-body-scroll { max-height: 60vh; flex-shrink: 1; }
+.Theme-dark .Exercise-type-list { height: auto; max-height: none; }
+.Theme-dark .Scale-devices { max-height: 40vh; }
+.Theme-dark .Sheet { display: flex; flex-direction: column; }
+.Theme-dark .FoodSheet { display: flex; flex-direction: column; }
+.Theme-dark .MeProfile-avatar { display: flex; align-items: center; justify-content: center; background-color: #37323D; }
+.Theme-dark .Settings-value { font-size: 13.4px; color: #CEC3CE; }
+.Theme-dark .LangSwitch-item { display: flex; min-height: 88rpx; min-width: 88rpx; align-items: center; justify-content: center; }
+.Page.Theme-dark { background-color: #201D26; }
+.Theme-dark .Content { padding: 20px 24px 108px; }
+.Theme-dark .Card { padding: 20px; border-radius: 22px; margin-bottom: 24px; background-color: #2B2731; }
+.Theme-dark .Card-title, .Theme-dark .Section-heading { color: #FAF5F3; font-size: 18px; line-height: 26px; font-weight: 500; margin-bottom: 14px; }
+.Theme-dark .Open-section { display: flex; flex-direction: column; background-color: transparent; border-radius: 0; padding: 24px 0; margin-bottom: 0; border-bottom: 1px solid #443D48; }
+.Theme-dark .Section-note, .Theme-dark .Empty-body, .Theme-dark .Partner-body { font-size: 16px; line-height: 25px; color: #CEC3CE; }
+.Theme-dark .Section-note { margin-top: 10px; }
+.Theme-dark .Section-kicker, .Theme-dark .ScreenTitle-note { font-size: 14px; line-height: 21px; color: #CEC3CE; }
+.Theme-dark .ScreenTitle { padding: 12px 0 24px; }
+.Theme-dark .ScreenTitle-text, .Theme-dark .GreetingHeader-greeting { font-size: 27px; font-weight: 600; line-height: 36px; color: #FAF5F3; }
+.Theme-dark .ScreenTitle-note { margin-top: 6px; }
+.Theme-dark .GreetingHeader { padding: 12px 0 24px; }
+.Theme-dark .GreetingHeader-date { font-size: 14px; line-height: 21px; margin-top: 6px; color: #CEC3CE; }
+.Theme-dark .BrandHeader { display: flex; flex-direction: row; align-items: center; margin-bottom: 6px; }
+.Theme-dark .BrandHeader-mark { width: 18px; height: 18px; margin-right: 6px; }
+.Theme-dark .BrandHeader-name { font-size: 16px; font-weight: 500; color: #D3B2D8; }
+.Theme-dark .Actions { display: flex; flex-direction: row; align-items: stretch; gap: 8px; margin: 0 0 24px; }
+.Theme-dark .Action-btn { flex: 1; min-height: 48px; height: auto; padding: 10px 6px; border-radius: 12px; background-color: transparent; }
+.Theme-dark .Action-btn + .Action-btn { margin: 0; }
+.Theme-dark .Action-btn.primary { background-color: #D3B2D8; }
+.Theme-dark .Action-label { font-size: 14px; line-height: 20px; font-weight: 500; text-align: center; color: #D3B2D8; }
+.Theme-dark .Action-label.primary { color: #201D26; }
+.Theme-dark .Action-btn.weight .Action-label { color: #BCAAF0; }
+.Theme-dark .Action-btn.exercise .Action-label { color: #70C7CC; }
+.Theme-dark .Category-label { font-size: 14px; line-height: 21px; font-weight: 500; color: #FAF5F3; }
+.Theme-dark .food { color: #F09B84; }
+.Theme-dark .exercise { color: #70C7CC; }
+.Theme-dark .weight { color: #BCAAF0; }
+.Theme-dark .Summary-heading { display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 12px; }
+.Theme-dark .Summary-status { font-size: 14px; line-height: 21px; color: #CEC3CE; }
+.Theme-dark .Energy-card { padding: 20px; }
+.Theme-dark .Energy-figure { display: flex; flex-direction: row; align-items: baseline; margin: 6px 0 12px; }
+.Theme-dark .Energy-num { font-size: 52px; line-height: 62px; font-weight: 500; color: #FAF5F3; }
+.Theme-dark .Energy-unit { font-size: 14px; line-height: 21px; color: #CEC3CE; margin: 0 0 0 12px; }
+.Theme-dark .Energy-reference-row { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-top: 16px; }
+.Theme-dark .Energy-reference { font-size: 14px; line-height: 21px; color: #CEC3CE; }
+.Theme-dark .Energy-reference.exercise { color: #70C7CC; }
+.Theme-dark .Energy-remaining { font-size: 14px; line-height: 21px; color: #FAF5F3; font-weight: 500; margin-top: 6px; }
+.Theme-dark .ProgressBar, .Theme-dark .ProgressBar-fill { height: 5px; border-radius: 3px; }
+.Theme-dark .ProgressBar { margin-top: 0; background-color: #443D48; }
+.Theme-dark .Today-metrics { display: flex; flex-direction: row; padding: 12px 0 24px; border-bottom: 1px solid #443D48; }
+.Theme-dark .Metric-weight, .Theme-dark .Metric-activity { flex: 1; min-width: 0; background-color: transparent; padding: 0; border-radius: 0; margin: 0; }
+.Theme-dark .Metric-weight { padding-right: 16px; border-right: 1px solid #443D48; }
+.Theme-dark .Metric-activity { display: flex; flex-direction: column; padding-left: 16px; }
+.Theme-dark .Metric-weight .Card-title { font-size: 14px; line-height: 21px; font-weight: 400; color: #BCAAF0; margin-bottom: 16px; }
+.Theme-dark .Metric-activity .Category-label { margin-bottom: 16px; }
+.Theme-dark .Weight-main { display: flex; flex-direction: column; align-items: flex-start; }
+.Theme-dark .Weight-current-wrap, .Theme-dark .Metric-figure { display: flex; flex-direction: row; align-items: baseline; }
+.Theme-dark .Weight-current, .Theme-dark .Metric-number { font-size: 32px; line-height: 40px; color: #FAF5F3; font-weight: 500; }
+.Theme-dark .Weight-unit, .Theme-dark .Metric-unit { font-size: 14px; line-height: 21px; color: #CEC3CE; margin: 0 0 0 8px; }
+.Theme-dark .Weight-trend, .Theme-dark .Metric-note { font-size: 14px; line-height: 21px; margin-top: 8px; color: #CEC3CE; }
+.Theme-dark .Weight-trend { color: #BCAAF0; }
+.Theme-dark .Metric-note.exercise { color: #70C7CC; }
+.Theme-dark .Weight-detail .Weight-current { font-size: 24px; line-height: 32px; }
+.Theme-dark .Weight-rows { margin-top: 16px; margin-bottom: 16px; }
+.Theme-dark .Weight-stat-value { font-size: 20px; line-height: 28px; color: #FAF5F3; font-weight: 500; }
+.Theme-dark .Weight-stat-label { font-size: 14px; line-height: 21px; color: #CEC3CE; }
+.Theme-dark .Macro-grid { gap: 16px; }
+.Theme-dark .Macro-col + .Macro-col { margin-left: 0; }
+.Theme-dark .Macro-grams { font-size: 26px; line-height: 34px; font-weight: 500; color: #FAF5F3; }
+.Theme-dark .Macro-label, .Theme-dark .Macro-target { font-size: 14px; line-height: 21px; color: #CEC3CE; }
+.Theme-dark .Macro-target { margin-top: 8px; }
+.Theme-dark .Micro-row { min-height: 48px; gap: 8px; }
+.Theme-dark .Micro-label { font-size: 16px; color: #FAF5F3; }
+.Theme-dark .Micro-number, .Theme-dark .Micro-target { font-size: 14px; line-height: 21px; color: #CEC3CE; font-weight: 400; margin-left: 0; }
+.Theme-dark .Water-head { margin-bottom: 12px; }
+.Theme-dark .Water-amount { font-size: 26px; line-height: 34px; font-weight: 500; }
+.Theme-dark .Water-unit, .Theme-dark .Water-status, .Theme-dark .Water-goal { font-size: 14px; line-height: 21px; color: #CEC3CE; }
+.Theme-dark .Water-status, .Theme-dark .Water-btn-label { color: #E7BE71; }
+.Theme-dark .Water-btn { min-height: 48px; padding: 10px 12px; border-radius: 12px; background-color: #37323D; }
+.Theme-dark .Water-btn.primary { background-color: #D3B2D8; }
+.Theme-dark .Water-btn-label.primary { color: #201D26; }
+.Theme-dark .Water-btn.disabled { opacity: 1; background-color: #37323D; }
+.Theme-dark .Water-summary { padding-top: 18px; padding-bottom: 18px; }
+.Theme-dark .Water-row { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.Theme-dark .Water-heading { display: flex; flex-direction: column; }
+.Theme-dark .Category-label.water { color: #E7BE71; }
+.Theme-dark .Water-summary .Water-controls { margin-top: 0; margin-left: 12px; }
+.Theme-dark .Water-summary .Water-btn { flex: none; min-width: 60px; min-height: 48px; padding: 8px; }
+.Theme-dark .Water-summary .Water-btn + .Water-btn { margin-left: 8px; }
+.Theme-dark .Water-summary .Water-btn.disabled .Water-btn-label { color: #CEC3CE; }
+.Theme-dark .Water-summary .Water-meta { margin-top: 10px; }
+.Theme-dark .Water-progress { margin-top: 8px; }
+.Theme-dark .Exercise-card { margin-top: 0; }
+.Theme-dark .Exercise-head { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.Theme-dark .Exercise-head-title { font-size: 18px; line-height: 26px; font-weight: 500; }
+.Theme-dark .Exercise-head-total { font-size: 14px; color: #70C7CC; font-weight: 400; }
+.Theme-dark .Exercise-row-item { display: flex; flex-direction: column; align-items: stretch; padding: 16px 0; border-bottom: 1px solid #443D48; }
+.Theme-dark .Exercise-row-name { font-size: 16px; line-height: 24px; }
+.Theme-dark .Exercise-row-meta { font-size: 14px; margin: 6px 0 0; }
+.Theme-dark .Exercise-row-actions { margin: 4px 0 0; }
+.Theme-dark .Exercise-row-btn { display: flex; align-items: center; justify-content: center; min-width: 48px; min-height: 48px; padding: 10px 12px; font-size: 14px; color: #70C7CC; }
+.Theme-dark .Exercise-row-btn.danger { color: #FF949C; }
+.Theme-dark .Exercise-row-badge { color: #CEC3CE; background-color: #37323D; font-size: 12px; }
+.Theme-dark .Diary-primary .Action-btn { margin-top: 12px; }
+.Theme-dark .Diary-macro-row { display: flex; flex-direction: row; align-items: center; justify-content: space-between; min-height: 64px; border-bottom: 1px solid #443D48; }
+.Theme-dark .List-label { font-size: 16px; line-height: 24px; color: #FAF5F3; }
+.Theme-dark .List-number { font-size: 24px; line-height: 32px; color: #FAF5F3; font-weight: 500; }
+.Theme-dark .List-value { font-size: 16px; line-height: 24px; color: #FAF5F3; font-weight: 500; }
+.Theme-dark .Meal-recents { display: flex; flex-direction: row; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.Theme-dark .Meal-recent-chip { min-height: 48px; display: flex; align-items: center; justify-content: center; padding: 10px 16px; margin: 0; background-color: #49312C; border-radius: 12px; }
+.Theme-dark .Meal-recent-label { font-size: 14px; color: #F09B84; }
+.Theme-dark .DiaryTotals-row { min-height: 48px; margin-bottom: 0; }
+.Theme-dark .Insights-secondary { background-color: transparent; border-radius: 0; padding: 24px 0; border-bottom: 1px solid #443D48; margin-bottom: 0; }
+.Theme-dark .Insights-range { margin: 0 0 24px; }
+.Theme-dark .Insights-card-title { font-size: 18px; line-height: 26px; font-weight: 500; }
+.Theme-dark .Insights-weight-card .Insights-card-title { color: #BCAAF0; }
+.Theme-dark .Insights-big { font-size: 48px; line-height: 58px; font-weight: 500; color: #FAF5F3; }
+.Theme-dark .Insights-big-unit, .Theme-dark .Insights-slope, .Theme-dark .Insights-empty { font-size: 14px; line-height: 21px; color: #CEC3CE; }
+.Theme-dark .Insights-slope { margin-top: 6px; }
+.Theme-dark .Insights-row { min-height: 48px; gap: 12px; padding: 8px 0; }
+.Theme-dark .Insights-row-label, .Theme-dark .Insights-row-value { font-size: 16px; line-height: 24px; color: #FAF5F3; }
+.Theme-dark .Insights-row-value { font-weight: 500; }
+.Theme-dark .TrendChart { height: 190px; margin-top: 20px; }
+.Theme-dark .Chart-legend { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-top: 8px; }
+.Theme-dark .Chart-legend-text { font-size: 14px; line-height: 21px; color: #CEC3CE; }
+.Theme-dark .Partner-motif { align-items: center; margin: 16px 0 28px; }
+.Theme-dark .Partner-motif-svg { width: 160px; height: 140px; }
+.Theme-dark .Partner-heading { font-size: 25px; line-height: 35px; font-weight: 500; color: #FAF5F3; }
+.Theme-dark .Partner-body { margin-top: 16px; }
+.Theme-dark .Partner-status { margin-top: 24px; border-top: 1px solid #443D48; border-bottom: 0; }
+.Theme-dark .Partner-local { font-size: 16px; line-height: 24px; color: #FAF5F3; }
+.Theme-dark .Partner-settings { display: flex; justify-content: center; min-height: 48px; align-self: flex-start; padding: 8px 12px; border-radius: 12px; margin-left: -12px; }
+.Theme-dark .Partner-settings-label { font-size: 16px; line-height: 24px; color: #D3B2D8; font-weight: 500; }
+.Theme-dark .Partner-ideas { margin-top: 24px; }
+.Theme-dark .MeProfile-stats { display: flex; flex-direction: row; justify-content: space-between; border-top: 1px solid #443D48; padding-top: 16px; }
+.Theme-dark .Metric-label { font-size: 14px; line-height: 21px; color: #CEC3CE; }
+.Theme-dark .MeProfile-value { font-size: 16px; line-height: 24px; font-weight: 500; color: #FAF5F3; margin-top: 6px; }
+.Theme-dark .MeList { padding: 20px 0; }
+.Theme-dark .MeRow { min-height: 56px; padding: 12px 0; border-bottom: 1px solid #443D48; gap: 8px; }
+.Theme-dark .MeRow-icon { flex-shrink: 0; width: 24px; height: 24px; margin-right: 4px; }
+.Theme-dark .MeRow-label { font-size: 16px; line-height: 24px; font-weight: 400; }
+.Theme-dark .MeRow-val { font-size: 14px; line-height: 21px; margin-right: 0; }
+.Theme-dark .MeRow-chev { font-size: 24px; color: #CEC3CE; }
+.Theme-dark .Settings-section { font-size: 16px; line-height: 24px; font-weight: 500; letter-spacing: 0; margin: 12px 0 14px; color: #FAF5F3; }
+.Theme-dark .Settings-card { padding: 8px 16px; }
+.Theme-dark .Settings-row { min-height: 56px; padding: 10px 0; gap: 12px; }
+.Theme-dark .Settings-label { font-size: 16px; line-height: 24px; font-weight: 400; }
+.Theme-dark .Settings-value, .Theme-dark .Settings-status { font-size: 14px; line-height: 21px; color: #CEC3CE; }
+.Theme-dark .Settings-status { padding: 12px 0 8px; }
+.Theme-dark .Appearance-row { border-bottom: 1px solid #443D48; }
+.Theme-dark .Appearance-check { font-size: 20px; color: #D3B2D8; min-width: 24px; }
+.Theme-dark .LangSwitch { border-radius: 12px; background-color: #37323D; padding: 4px; }
+.Theme-dark .LangSwitch-item { flex: 1; min-width: 48px; min-height: 48px; padding: 8px 12px; border-radius: 10px; }
+.Theme-dark .LangSwitch-label { font-size: 14px; line-height: 21px; color: #CEC3CE; }
+.Theme-dark .LangSwitch-item.active { background-color: #2B2731; }
+.Theme-dark .LangSwitch-label.active { color: #FAF5F3; font-weight: 500; }
+.Theme-dark .Settings-language { background-color: transparent; }
+.Theme-dark .Settings-language .LangSwitch-item.active { background-color: #37323D; }
+.Theme-dark .Settings-connections { margin-bottom: 16px; }
+.Theme-dark .Footer, .Theme-dark .MeVersion, .Theme-dark .Settings-footer { font-size: 14px; line-height: 21px; color: #CEC3CE; }
+.Theme-dark .Empty-title { font-size: 22px; line-height: 31px; font-weight: 500; }
+.Theme-dark .Notice { background-color: #37323D; border: 1px solid #8B7B91; border-radius: 12px; padding: 16px; }
+.Theme-dark .Notice-text { color: #FAF5F3; font-size: 14px; line-height: 21px; }
+.Theme-dark .Sheet-overlay { background-color: rgba(8,6,12,0.66); }
+.Theme-dark .Sheet-overlay.tap-feedback-hover { background-color: rgba(8,6,12,0.66); }
+.Theme-dark .Sheet, .Theme-dark .ScaleSheet, .Theme-dark .FoodSheet { background-color: #2B2731; padding: 24px 24px 32px; border-top-left-radius: 22px; border-top-right-radius: 22px; }
+.Theme-dark .Sheet-title { font-size: 24px; line-height: 33px; font-weight: 600; }
+.Theme-dark .Form-label { font-size: 14px; line-height: 21px; color: #CEC3CE; margin: 16px 0 8px; }
+.Theme-dark .Sheet-field { border: 1px solid #8B7B91; border-radius: 11px; padding: 10px 14px; }
+.Theme-dark .Sheet-field.focused, .Theme-dark .Food-search-field.focused, .Theme-dark .Food-form-cell.focused { border: 2px solid #D3B2D8; }
+.Theme-dark .Sheet-field.invalid, .Theme-dark .Food-form-cell.invalid, .Theme-dark .Exercise-type-list.invalid { border: 2px solid #FF949C; }
+.Theme-dark .Sheet-input { min-height: 56px; height: 56px; font-size: 48px; line-height: 58px; font-weight: 500; color: #FAF5F3; background-color: transparent; caret-color: #D3B2D8; -x-placeholder-color: #CEC3CE; }
+.Theme-dark .Sheet-unit { font-size: 16px; line-height: 24px; color: #CEC3CE; }
+.Theme-dark .Sheet-error { font-size: 14px; line-height: 21px; color: #FF949C; margin-top: 12px; }
+.Theme-dark .Sheet-actions { flex-shrink: 0; margin-top: 20px; gap: 12px; }
+.Theme-dark .Sheet-btn { min-height: 48px; height: auto; padding: 12px 8px; border-radius: 12px; background-color: #37323D; }
+.Theme-dark .Sheet-btn + .Sheet-btn { margin-left: 0; }
+.Theme-dark .Sheet-btn.primary { background-color: #D3B2D8; }
+.Theme-dark .Sheet-btn-label { font-size: 16px; line-height: 24px; font-weight: 500; color: #FAF5F3; }
+.Theme-dark .Sheet-btn-label.primary { color: #201D26; }
+.Theme-dark .Sheet-btn.disabled { opacity: 1; background-color: #37323D; }
+.Theme-dark .Sheet-btn.disabled .Sheet-btn-label { color: #CEC3CE; }
+.Theme-dark .Sheet-close-button { min-width: 48px; min-height: 48px; border-radius: 12px; background-color: #37323D; }
+.Theme-dark .Sheet-close-label { font-size: 14px; color: #FAF5F3; }
+.Theme-dark .Sheet-link { min-height: 48px; justify-content: center; margin-top: 12px; }
+.Theme-dark .Sheet-link-label { font-size: 14px; line-height: 21px; color: #BCAAF0; }
+.Theme-dark .FoodSheet { border-radius: 22px; margin: 24px 16px 16px; padding: 24px 20px; }
+.Theme-dark .Food-search-field { min-height: 48px; padding: 10px 12px; border-radius: 11px; background-color: #37323D; border: 1px solid #8B7B91; }
+.Theme-dark .Food-search-input { min-height: 32px; height: 32px; font-size: 16px; color: #FAF5F3; caret-color: #F09B84; -x-placeholder-color: #CEC3CE; }
+.Theme-dark .Food-detail-scroll, .Theme-dark .Food-form-scroll { flex: 1; min-height: 0; }
+.Theme-dark .Food-form .Sheet-input { min-height: 48px; height: 48px; font-size: 16px; line-height: 24px; }
+.Theme-dark .Food-form-cell { border: 1px solid #8B7B91; border-radius: 11px; padding: 8px; margin-right: 8px; }
+.Theme-dark .Food-form-row { gap: 8px; }
+.Theme-dark .Food-row { min-height: 56px; padding: 12px 0; border-bottom-color: #443D48; }
+.Theme-dark .Food-row-name { flex: 1; font-size: 16px; line-height: 24px; }
+.Theme-dark .Food-row-meta { font-size: 14px; line-height: 21px; }
+.Theme-dark .Food-selected-name { font-size: 22px; line-height: 31px; font-weight: 500; }
+.Theme-dark .Food-result-value, .Theme-dark .Estimate-value { font-size: 28px; line-height: 36px; color: #FAF5F3; font-weight: 500; }
+.Theme-dark .Food-result-unit, .Theme-dark .Estimate-unit { font-size: 14px; line-height: 21px; color: #CEC3CE; margin-left: 8px; }
+.Theme-dark .Food-result { margin-top: 20px; }
+.Theme-dark .Food-macros { flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.Theme-dark .Food-macro { font-size: 14px; line-height: 21px; color: #CEC3CE; margin: 0; }
+.Theme-dark .Food-back, .Theme-dark .Food-manage-btn, .Theme-dark .Food-star { min-height: 48px; min-width: 48px; justify-content: center; }
+.Theme-dark .Food-back-label, .Theme-dark .Food-manage-label, .Theme-dark .Food-create-label { color: #F09B84; font-size: 14px; line-height: 21px; }
+.Theme-dark .Food-manage-label.danger { color: #FF949C; }
+.Theme-dark .Food-star-label { font-size: 28px; color: #CEC3CE; }
+.Theme-dark .Food-star-label.on { color: #F09B84; }
+.Theme-dark .Food-scan-btn { min-height: 48px; justify-content: center; background-color: #D3B2D8; border-radius: 12px; padding: 10px 12px; }
+.Theme-dark .Food-scan-label { font-size: 14px; color: #201D26; }
+.Theme-dark .Exercise-current { display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: 12px; min-height: 56px; padding: 12px 0; }
+.Theme-dark .Exercise-current-label { flex: 1; color: #FAF5F3; font-size: 16px; line-height: 24px; }
+.Theme-dark .Exercise-current-action { min-height: 48px; justify-content: center; padding: 10px 8px; }
+.Theme-dark .Exercise-current-action-label { color: #70C7CC; font-size: 14px; }
+.Theme-dark .Exercise-type { min-height: 48px; padding: 12px; border: 1px solid #8B7B91; border-radius: 11px; background-color: #2B2731; }
+.Theme-dark .Exercise-type.selected { background-color: #213B40; border-color: #70C7CC; }
+.Theme-dark .Exercise-type-label { color: #FAF5F3; font-size: 16px; line-height: 24px; }
+.Theme-dark .Exercise-type.selected .Exercise-type-label { color: #70C7CC; }
+.Theme-dark .Exercise-duration-input { flex: 1; }
+.Theme-dark .Estimate-block { padding: 16px 0; }
+.Theme-dark .Estimate-label { color: #CEC3CE; font-size: 14px; line-height: 21px; }
+.Theme-dark .Estimate-row { display: flex; flex-direction: row; align-items: baseline; margin-top: 6px; }
+.Theme-dark .Reminder-seg, .Theme-dark .Reminder-time, .Theme-dark .HealthConnect-sync { min-height: 48px; border-radius: 12px; justify-content: center; padding: 10px 12px; }
+.Theme-dark .Reminder-seg.active { background-color: #D3B2D8; }
+.Theme-dark .Reminder-seg-label.active { color: #201D26; }
+.Theme-dark .Reminder-time.active { background-color: #403047; }
+.Theme-dark .HealthConnect-sync.disabled { opacity: 1; }
+.Theme-dark .Scale-device { min-height: 56px; padding: 16px; border-radius: 12px; border: 1px solid #8B7B91; }
+.Theme-dark .Scale-reading-value { font-size: 48px; font-weight: 500; }
+.Theme-dark .Scale-device-meta { color: #BCAAF0; }
+.Theme-dark .BottomTabBar { background-color: #2B2731; border-top-color: #443D48; }
+.Theme-dark .BottomTab-label { color: #CEC3CE; }
+.Theme-dark .BottomTab-label-active { color: #84D2AF; }
+.Theme-dark .Action-btn.primary.tap-feedback-hover, .Theme-dark .Sheet-btn.primary.tap-feedback-hover, .Theme-dark .Water-btn.primary.tap-feedback-hover, .Theme-dark .Food-scan-btn.tap-feedback-hover { background-color: #D3B2D8; transform: scale(0.98); }
+.Theme-dark .Sheet-btn.disabled.tap-feedback-hover { background-color: #37323D; transform: none; }
+.Theme-dark .Exercise-current-action { color: #70C7CC; font-size: 14px; line-height: 21px; }
+.Theme-dark .DiaryMacros-item { font-size: 14px; line-height: 20px; }
+.Theme-dark .Workflow-sheet { flex: 1; max-height: 100%; margin: 24px 16px 16px; border-radius: 22px; }
+.Theme-dark .Workflow-body { flex: 1; min-height: 0; }
+.Theme-dark .Workflow-field { margin-bottom: 14px; }
+.Theme-dark .Workflow-choice { min-height: 48px; padding: 12px 14px; border-radius: 12px; border: 1px solid #8B7B91; margin-bottom: 10px; background-color: #37323D; }
+.Theme-dark .Workflow-choice.selected { background-color: #403047; border-color: #D3B2D8; }
+.Theme-dark .Workflow-choice.disabled { background-color: #37323D; }
+.Theme-dark .Workflow-list-item { padding: 14px 0; border-bottom: 1px solid #443D48; }
+.Theme-dark .Workflow-actions { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+.Theme-dark .Workflow-photo { width: 100%; height: 220px; border-radius: 12px; margin: 12px 0; }
+.Theme-dark .Workflow-code { font-size: 16px; line-height: 24px; color: #FAF5F3; }
+.Theme-dark .Workflow-caption { font-size: 14px; line-height: 21px; color: #CEC3CE; margin-top: 6px; }
+.Theme-dark .Food-meal-options { flex-wrap: wrap; gap: 8px; }
+.Theme-dark .Food-meal-options .LangSwitch-item { flex: none; width: 48%; padding: 8px 6px; }
+.Theme-dark .Food-meal-options .LangSwitch-label { word-break: normal; }
+.Theme-dark .Sheet-btn.danger { border: 1px solid #FF949C; }
+.Theme-dark .Sheet-btn-label.danger { color: #FF949C; }
+.Theme-dark .Workflow-field .Sheet-input { min-height: 48px; height: 48px; font-size: 16px; line-height: 24px; font-weight: 400; }
+.Theme-dark .Workflow-code { word-break: break-all; }
+.Theme-dark .Measurement-trend-options { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+.Theme-dark .Measurement-trend-options .Workflow-choice { width: 48%; min-height: 48px; margin-bottom: 0; padding: 12px 8px; }
+.Theme-dark .Measurement-trend-options .Action-label { word-break: normal; }
+.Theme-dark .Workflow-viewport { flex: 1; min-height: 0; }
+.Theme-dark .Workflow-content { display: flex; flex-direction: column; height: 100%; }
+.Theme-dark .Workflow-heading-block, .Theme-dark .Workflow-footer-block { flex-shrink: 0; }
+.Theme-dark .Workflow-heading-block { display: flex; flex-direction: column; }
+.Theme-dark .Workflow-heading-block > .Section-note { flex-shrink: 0; }
+.Theme-dark .Workflow-sheet .Sheet-header { width: 100%; }
+.Theme-dark .Workflow-sheet .Sheet-header > view { flex: 1; min-width: 0; }
+.Theme-dark .Workflow-sheet .Sheet-title { word-break: normal; white-space: normal; }
+.Theme-dark .Workflow-sheet .Sheet-btn-label { word-break: normal; white-space: normal; }
+.Theme-dark .Workflow-sheet.whole-scroll .Workflow-content { height: auto; }
+.Theme-dark .Workflow-field .Sheet-input { height: auto; min-height: 48px; }
+.Theme-dark .Workflow-sheet.whole-scroll .Sheet-actions { flex-direction: column; }
+.Theme-dark .Workflow-sheet.whole-scroll .Sheet-btn { flex: none; width: 100%; }
+.Theme-dark .Workflow-sheet.whole-scroll .Sheet-title { word-break: break-word; }
+.Theme-dark .Photo-actions { flex-direction: row; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+.Theme-dark .Photo-actions .Sheet-btn { flex: 1; min-width: 112px; }
+.Theme-dark .Workflow-sheet.whole-scroll .Photo-actions .Sheet-btn { width: auto; flex: 1; min-width: 112px; }
+.Theme-dark .Insights-empty, .Theme-dark .Partner-local-note { color: #FAF5F3; }
+.Theme-dark .Partner-tools { margin-top: 24px; padding-top: 16px; border-top: 1px solid #443D48; }
+.Theme-dark .Insights-weight-card .Insights-card-title { color: #FAF5F3; }
+.Theme-dark .Theme-brand .Action-btn.primary, .Theme-dark .Action-btn.primary.Theme-brand { background-color: #D3B2D8; }
+.Theme-dark .Theme-brand .Water-btn.primary, .Theme-dark .Water-btn.primary.Theme-brand { background-color: #D3B2D8; }
+.Theme-dark .Theme-brand .Sheet-field.focused, .Theme-dark .Sheet-field.focused.Theme-brand, .Theme-dark .Theme-brand .Food-search-field.focused, .Theme-dark .Food-search-field.focused.Theme-brand, .Theme-dark .Theme-brand .Food-form-cell.focused, .Theme-dark .Food-form-cell.focused.Theme-brand { border: 2px solid #D3B2D8; }
+.Theme-dark .Theme-brand .Sheet-input, .Theme-dark .Sheet-input.Theme-brand { caret-color: #D3B2D8; }
+.Theme-dark .Theme-brand .Sheet-btn.primary, .Theme-dark .Sheet-btn.primary.Theme-brand { background-color: #D3B2D8; }
+.Theme-dark .Theme-brand .Food-scan-btn, .Theme-dark .Food-scan-btn.Theme-brand { background-color: #D3B2D8; }
+.Theme-dark .Theme-brand .Reminder-seg.active, .Theme-dark .Reminder-seg.active.Theme-brand { background-color: #D3B2D8; }
+.Theme-dark .Theme-brand .Action-btn.primary.tap-feedback-hover, .Theme-dark .Action-btn.primary.tap-feedback-hover.Theme-brand, .Theme-dark .Theme-brand .Sheet-btn.primary.tap-feedback-hover, .Theme-dark .Sheet-btn.primary.tap-feedback-hover.Theme-brand, .Theme-dark .Theme-brand .Water-btn.primary.tap-feedback-hover, .Theme-dark .Water-btn.primary.tap-feedback-hover.Theme-brand, .Theme-dark .Theme-brand .Food-scan-btn.tap-feedback-hover, .Theme-dark .Food-scan-btn.tap-feedback-hover.Theme-brand { background-color: #D3B2D8; }
+.Theme-dark .Theme-food .Action-btn.primary, .Theme-dark .Action-btn.primary.Theme-food { background-color: #F09B84; }
+.Theme-dark .Theme-food .Water-btn.primary, .Theme-dark .Water-btn.primary.Theme-food { background-color: #F09B84; }
+.Theme-dark .Theme-food .Sheet-field.focused, .Theme-dark .Sheet-field.focused.Theme-food, .Theme-dark .Theme-food .Food-search-field.focused, .Theme-dark .Food-search-field.focused.Theme-food, .Theme-dark .Theme-food .Food-form-cell.focused, .Theme-dark .Food-form-cell.focused.Theme-food { border: 2px solid #F09B84; }
+.Theme-dark .Theme-food .Sheet-input, .Theme-dark .Sheet-input.Theme-food { caret-color: #F09B84; }
+.Theme-dark .Theme-food .Sheet-btn.primary, .Theme-dark .Sheet-btn.primary.Theme-food { background-color: #F09B84; }
+.Theme-dark .Theme-food .Food-scan-btn, .Theme-dark .Food-scan-btn.Theme-food { background-color: #F09B84; }
+.Theme-dark .Theme-food .Reminder-seg.active, .Theme-dark .Reminder-seg.active.Theme-food { background-color: #F09B84; }
+.Theme-dark .Theme-food .Action-btn.primary.tap-feedback-hover, .Theme-dark .Action-btn.primary.tap-feedback-hover.Theme-food, .Theme-dark .Theme-food .Sheet-btn.primary.tap-feedback-hover, .Theme-dark .Sheet-btn.primary.tap-feedback-hover.Theme-food, .Theme-dark .Theme-food .Water-btn.primary.tap-feedback-hover, .Theme-dark .Water-btn.primary.tap-feedback-hover.Theme-food, .Theme-dark .Theme-food .Food-scan-btn.tap-feedback-hover, .Theme-dark .Food-scan-btn.tap-feedback-hover.Theme-food { background-color: #F09B84; }
+.Theme-dark .Theme-weight .Action-btn.primary, .Theme-dark .Action-btn.primary.Theme-weight { background-color: #BCAAF0; }
+.Theme-dark .Theme-weight .Water-btn.primary, .Theme-dark .Water-btn.primary.Theme-weight { background-color: #BCAAF0; }
+.Theme-dark .Theme-weight .Sheet-field.focused, .Theme-dark .Sheet-field.focused.Theme-weight, .Theme-dark .Theme-weight .Food-search-field.focused, .Theme-dark .Food-search-field.focused.Theme-weight, .Theme-dark .Theme-weight .Food-form-cell.focused, .Theme-dark .Food-form-cell.focused.Theme-weight { border: 2px solid #BCAAF0; }
+.Theme-dark .Theme-weight .Sheet-input, .Theme-dark .Sheet-input.Theme-weight { caret-color: #BCAAF0; }
+.Theme-dark .Theme-weight .Sheet-btn.primary, .Theme-dark .Sheet-btn.primary.Theme-weight { background-color: #BCAAF0; }
+.Theme-dark .Theme-weight .Food-scan-btn, .Theme-dark .Food-scan-btn.Theme-weight { background-color: #BCAAF0; }
+.Theme-dark .Theme-weight .Reminder-seg.active, .Theme-dark .Reminder-seg.active.Theme-weight { background-color: #BCAAF0; }
+.Theme-dark .Theme-weight .Action-btn.primary.tap-feedback-hover, .Theme-dark .Action-btn.primary.tap-feedback-hover.Theme-weight, .Theme-dark .Theme-weight .Sheet-btn.primary.tap-feedback-hover, .Theme-dark .Sheet-btn.primary.tap-feedback-hover.Theme-weight, .Theme-dark .Theme-weight .Water-btn.primary.tap-feedback-hover, .Theme-dark .Water-btn.primary.tap-feedback-hover.Theme-weight, .Theme-dark .Theme-weight .Food-scan-btn.tap-feedback-hover, .Theme-dark .Food-scan-btn.tap-feedback-hover.Theme-weight { background-color: #BCAAF0; }
+.Theme-dark .Theme-exercise .Action-btn.primary, .Theme-dark .Action-btn.primary.Theme-exercise { background-color: #70C7CC; }
+.Theme-dark .Theme-exercise .Water-btn.primary, .Theme-dark .Water-btn.primary.Theme-exercise { background-color: #70C7CC; }
+.Theme-dark .Theme-exercise .Sheet-field.focused, .Theme-dark .Sheet-field.focused.Theme-exercise, .Theme-dark .Theme-exercise .Food-search-field.focused, .Theme-dark .Food-search-field.focused.Theme-exercise, .Theme-dark .Theme-exercise .Food-form-cell.focused, .Theme-dark .Food-form-cell.focused.Theme-exercise { border: 2px solid #70C7CC; }
+.Theme-dark .Theme-exercise .Sheet-input, .Theme-dark .Sheet-input.Theme-exercise { caret-color: #70C7CC; }
+.Theme-dark .Theme-exercise .Sheet-btn.primary, .Theme-dark .Sheet-btn.primary.Theme-exercise { background-color: #70C7CC; }
+.Theme-dark .Theme-exercise .Food-scan-btn, .Theme-dark .Food-scan-btn.Theme-exercise { background-color: #70C7CC; }
+.Theme-dark .Theme-exercise .Reminder-seg.active, .Theme-dark .Reminder-seg.active.Theme-exercise { background-color: #70C7CC; }
+.Theme-dark .Theme-exercise .Action-btn.primary.tap-feedback-hover, .Theme-dark .Action-btn.primary.tap-feedback-hover.Theme-exercise, .Theme-dark .Theme-exercise .Sheet-btn.primary.tap-feedback-hover, .Theme-dark .Sheet-btn.primary.tap-feedback-hover.Theme-exercise, .Theme-dark .Theme-exercise .Water-btn.primary.tap-feedback-hover, .Theme-dark .Water-btn.primary.tap-feedback-hover.Theme-exercise, .Theme-dark .Theme-exercise .Food-scan-btn.tap-feedback-hover, .Theme-dark .Food-scan-btn.tap-feedback-hover.Theme-exercise { background-color: #70C7CC; }
+.Theme-dark .Theme-water .Action-btn.primary, .Theme-dark .Action-btn.primary.Theme-water { background-color: #E7BE71; }
+.Theme-dark .Theme-water .Water-btn.primary, .Theme-dark .Water-btn.primary.Theme-water { background-color: #E7BE71; }
+.Theme-dark .Theme-water .Sheet-field.focused, .Theme-dark .Sheet-field.focused.Theme-water, .Theme-dark .Theme-water .Food-search-field.focused, .Theme-dark .Food-search-field.focused.Theme-water, .Theme-dark .Theme-water .Food-form-cell.focused, .Theme-dark .Food-form-cell.focused.Theme-water { border: 2px solid #E7BE71; }
+.Theme-dark .Theme-water .Sheet-input, .Theme-dark .Sheet-input.Theme-water { caret-color: #E7BE71; }
+.Theme-dark .Theme-water .Sheet-btn.primary, .Theme-dark .Sheet-btn.primary.Theme-water { background-color: #E7BE71; }
+.Theme-dark .Theme-water .Food-scan-btn, .Theme-dark .Food-scan-btn.Theme-water { background-color: #E7BE71; }
+.Theme-dark .Theme-water .Reminder-seg.active, .Theme-dark .Reminder-seg.active.Theme-water { background-color: #E7BE71; }
+.Theme-dark .Theme-water .Action-btn.primary.tap-feedback-hover, .Theme-dark .Action-btn.primary.tap-feedback-hover.Theme-water, .Theme-dark .Theme-water .Sheet-btn.primary.tap-feedback-hover, .Theme-dark .Sheet-btn.primary.tap-feedback-hover.Theme-water, .Theme-dark .Theme-water .Water-btn.primary.tap-feedback-hover, .Theme-dark .Water-btn.primary.tap-feedback-hover.Theme-water, .Theme-dark .Theme-water .Food-scan-btn.tap-feedback-hover, .Theme-dark .Food-scan-btn.tap-feedback-hover.Theme-water { background-color: #E7BE71; }
+.Theme-dark .Theme-brand .Sheet-btn.disabled, .Theme-dark .Theme-brand .Sheet-btn.primary.disabled { background-color: #37323D; opacity: 1; }
+.Theme-dark .Theme-brand .Sheet-btn.disabled .Sheet-btn-label { color: #CEC3CE; }
+.Theme-dark .Theme-brand .Sheet-btn.disabled.tap-feedback-hover { background-color: #37323D; transform: none; }
+.Theme-dark .Theme-brand .Sheet-field.invalid, .Theme-dark .Theme-brand .Food-form-cell.invalid, .Theme-dark .Theme-brand .Exercise-type-list.invalid { border: 2px solid #FF949C; }
+.Theme-dark .Theme-food .Sheet-btn.disabled, .Theme-dark .Theme-food .Sheet-btn.primary.disabled { background-color: #37323D; opacity: 1; }
+.Theme-dark .Theme-food .Sheet-btn.disabled .Sheet-btn-label { color: #CEC3CE; }
+.Theme-dark .Theme-food .Sheet-btn.disabled.tap-feedback-hover { background-color: #37323D; transform: none; }
+.Theme-dark .Theme-food .Sheet-field.invalid, .Theme-dark .Theme-food .Food-form-cell.invalid, .Theme-dark .Theme-food .Exercise-type-list.invalid { border: 2px solid #FF949C; }
+.Theme-dark .Theme-weight .Sheet-btn.disabled, .Theme-dark .Theme-weight .Sheet-btn.primary.disabled { background-color: #37323D; opacity: 1; }
+.Theme-dark .Theme-weight .Sheet-btn.disabled .Sheet-btn-label { color: #CEC3CE; }
+.Theme-dark .Theme-weight .Sheet-btn.disabled.tap-feedback-hover { background-color: #37323D; transform: none; }
+.Theme-dark .Theme-weight .Sheet-field.invalid, .Theme-dark .Theme-weight .Food-form-cell.invalid, .Theme-dark .Theme-weight .Exercise-type-list.invalid { border: 2px solid #FF949C; }
+.Theme-dark .Theme-exercise .Sheet-btn.disabled, .Theme-dark .Theme-exercise .Sheet-btn.primary.disabled { background-color: #37323D; opacity: 1; }
+.Theme-dark .Theme-exercise .Sheet-btn.disabled .Sheet-btn-label { color: #CEC3CE; }
+.Theme-dark .Theme-exercise .Sheet-btn.disabled.tap-feedback-hover { background-color: #37323D; transform: none; }
+.Theme-dark .Theme-exercise .Sheet-field.invalid, .Theme-dark .Theme-exercise .Food-form-cell.invalid, .Theme-dark .Theme-exercise .Exercise-type-list.invalid { border: 2px solid #FF949C; }
+.Theme-dark .Theme-water .Sheet-btn.disabled, .Theme-dark .Theme-water .Sheet-btn.primary.disabled { background-color: #37323D; opacity: 1; }
+.Theme-dark .Theme-water .Sheet-btn.disabled .Sheet-btn-label { color: #CEC3CE; }
+.Theme-dark .Theme-water .Sheet-btn.disabled.tap-feedback-hover { background-color: #37323D; transform: none; }
+.Theme-dark .Theme-water .Sheet-field.invalid, .Theme-dark .Theme-water .Food-form-cell.invalid, .Theme-dark .Theme-water .Exercise-type-list.invalid { border: 2px solid #FF949C; }

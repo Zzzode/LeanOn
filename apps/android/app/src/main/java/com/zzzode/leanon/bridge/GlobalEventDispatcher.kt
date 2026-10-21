@@ -1,9 +1,20 @@
 package com.zzzode.leanon.bridge
 
+import android.os.Handler
+import android.os.Looper
 import com.lynx.react.bridge.JavaOnlyArray
+import com.lynx.react.bridge.ReadableMap
 import com.lynx.tasm.LynxView
+import com.zzzode.leanon.data.toJavaOnlyMap
+import org.json.JSONObject
 import java.util.Collections
 import java.util.WeakHashMap
+
+/** SDK arrays recognize ReadableMap, not a plain Kotlin Map, as a JS object. */
+fun nativeEventArguments(payload: Any?): JavaOnlyArray {
+  val nativePayload = if (payload is Map<*, *> && payload !is ReadableMap) JSONObject(payload).toJavaOnlyMap() else payload
+  return JavaOnlyArray.of(nativePayload)
+}
 
 /**
  * Fans native -> JS global events out to every mounted [LynxView]. Each tab
@@ -12,6 +23,7 @@ import java.util.WeakHashMap
  */
 class GlobalEventDispatcher {
 
+  private val main = Handler(Looper.getMainLooper())
   private val views = Collections.newSetFromMap(WeakHashMap<LynxView, Boolean>())
 
   fun bind(view: LynxView) {
@@ -30,6 +42,8 @@ class GlobalEventDispatcher {
     // sendGlobalEvent takes a JavaOnlyArray parameter list; wrap one payload so
     // the JS transport reads it as args[0]. Snapshot first in case a view tears
     // down during dispatch.
-    views.toList().forEach { it.sendGlobalEvent(event, JavaOnlyArray.of(payload)) }
+    val arguments = nativeEventArguments(payload)
+    val send = { views.toList().forEach { it.sendGlobalEvent(event, arguments) } }
+    if (Looper.myLooper() == Looper.getMainLooper()) send() else main.post { send() }
   }
 }

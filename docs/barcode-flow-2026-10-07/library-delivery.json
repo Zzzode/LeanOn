@@ -1,0 +1,55 @@
+{
+  "scope": "Final3a598 barcode reports, original native captures, overview and evidence archive; synthetic QA only",
+  "bundleSha256": "3a598649f5f5ed6b02929cb351677a05579c0d6da894e191f0305b13a3f7a134",
+  "files": [
+    {
+      "localPath": "/Users/bytedance/Develop/LeanOn/docs/barcode-flow-2026-10-07/leanon-barcode-android-back-20261007.png",
+      "library_file_id": "libfile_13ee013f855c8191bc34e251322b9baf",
+      "file_id": "file_00000000055c8211807feb210f8db56b",
+      "version": 0,
+      "bytes": 71726,
+      "xattrsApplied": true
+    },
+    {
+      "localPath": "/Users/bytedance/Develop/LeanOn/docs/barcode-flow-2026-10-07/leanon-barcode-ios-keyboard-20261007.png",
+      "library_file_id": "libfile_abc237700bec819189d2f0edad37d92c",
+      "file_id": "file_00000000a3488211b7fdca5d37eafddd",
+      "version": 0,
+      "bytes": 174324,
+      "xattrsApplied": true
+    },
+    {
+      "localPath": "/Users/bytedance/Develop/LeanOn/docs/barcode-flow-2026-10-07/leanon-barcode-report-20261007.zh-CN.md",
+      "library_file_id": "libfile_1ec458528eec8191b4381705cdca0d85",
+      "file_id": "file_00000000e9fc8211abea953d93ee825e",
+      "version": 0,
+      "bytes": 9986,
+      "xattrsApplied": true
+    },
+    {
+      "localPath": "/Users/bytedance/Develop/LeanOn/docs/barcode-flow-2026-10-07/leanon-barcode-report-20261007.md",
+      "library_file_id": "libfile_0c42a70d19008191bccd141213f2ed1b",
+      "file_id": "file_0000000083648211aeabae935cb364f2",
+      "version": 0,
+      "bytes": 10416,
+      "xattrsApplied": true
+    },
+    {
+      "localPath": "/Users/bytedance/Develop/LeanOn/docs/barcode-flow-2026-10-07/leanon-barcode-overview-20261007.png",
+      "library_file_id": "libfile_bbefa4c8b0488191aa65292f31192d6a",
+      "file_id": "file_00000000f9b48211958f53089120771f",
+      "version": 0,
+      "bytes": 419061,
+      "xattrsApplied": true
+    },
+    {
+      "localPath": "/Users/bytedance/Develop/LeanOn/docs/barcode-flow-2026-10-07/leanon-barcode-evidence-20261007.zip",
+      "library_file_id": "libfile_2dcfffbfafac8191bf6535728d05f6ed",
+      "file_id": "file_0000000079cc82078bfd013e39a4cea4",
+      "version": 0,
+      "bytes": 13791768,
+      "xattrsApplied": true
+    }
+  ],
+  "qualification": "Archive retains early two-screen Library receipts; this final delivery index is authoritative for all six native Library identities. Every returned xattr was applied to its original path in the create invocation."
+}

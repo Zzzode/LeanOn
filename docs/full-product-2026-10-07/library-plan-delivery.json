@@ -1,0 +1,20 @@
+{
+  "kind": "execution-plan-only",
+  "finalAcceptance": false,
+  "files": [
+    {
+      "local_path": "plan.zh-CN.md",
+      "status": "succeeded",
+      "library_file_id": "libfile_d0dd261b3be48191b2a52dbeb5944733",
+      "file_id": "file_00000000f6ec8211b311e208c0d274e9",
+      "version": 0
+    },
+    {
+      "local_path": "plan.md",
+      "status": "succeeded",
+      "library_file_id": "libfile_eabf6465259c8191b18c4889e6d49d2a",
+      "file_id": "file_00000000a53c821186e4d89d6a0226e1",
+      "version": 0
+    }
+  ]
+}

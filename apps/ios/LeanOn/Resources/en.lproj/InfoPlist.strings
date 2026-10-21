@@ -1,0 +1,4 @@
+"NSCameraUsageDescription" = "Scan a packaged food barcode when you choose Scan.";
+"NSBluetoothAlwaysUsageDescription" = "Connect to your weight scale when you choose to scan or connect.";
+"NSHealthShareUsageDescription" = "Import weight and workouts that you choose to share with LeanOn.";
+"NSHealthUpdateUsageDescription" = "Export your LeanOn weight, workouts and daily nutrition to Apple Health when you enable sync.";

@@ -1,5 +1,5 @@
 import { describe, expect, it } from '@rstest/core';
-import { createFoodFromBarcode, type OffProduct } from './index.js';
+import { createFoodFromBarcode, OffNutritionError, portion, type OffProduct } from './index.js';
 
 const fullProduct: OffProduct = {
   product_name: 'Protein Bar',
@@ -11,10 +11,35 @@ const fullProduct: OffProduct = {
     fat_100g: 10,
   },
   serving_quantity: 60,
-  serving_size: '1 bar',
+  serving_size: '1 bar (60 g)',
 };
 
 describe('createFoodFromBarcode', () => {
+  it('uses normalized energy rather than package contributor units or serving totals', () => {
+    const product = {
+      serving_quantity: 60, serving_quantity_unit: 'g', serving_size: '1 bar (60 g)',
+      nutriments: { energy_100g: 1673.6, energy_unit: 'kcal', 'energy-kcal_serving': 240, proteins_100g: 30, sodium_100g: 0.5 },
+    };
+    const food = createFoodFromBarcode('3017620422003', product);
+    expect(food.kcal).toBeCloseTo(400, 6);
+    expect(food.defaultGrams).toBe(60);
+    expect(portion(food, 60)).toMatchObject({ kcal: 240, macros: { proteinG: 18 }, micros: { sodiumMg: 300 } });
+  });
+
+  it('does not convert already normalized serving grams a second time', () => {
+    expect(createFoodFromBarcode('3017620422003', { ...fullProduct, serving_quantity: 2500, serving_quantity_unit: 'g', serving_size: '2.5 kg' }).defaultGrams).toBe(2500);
+    expect(createFoodFromBarcode('3017620422003', { ...fullProduct, serving_quantity: 2500, serving_size: '2.5 kg' }).defaultGrams).toBe(2500);
+    expect(createFoodFromBarcode('3017620422003', { ...fullProduct, serving_quantity_unit: 'items' }).defaultGrams).toBeUndefined();
+    expect(createFoodFromBarcode('3017620422003', { ...fullProduct, serving_size: '1 bar' }).defaultGrams).toBeUndefined();
+    expect(createFoodFromBarcode('3017620422003', { ...fullProduct, serving_size: undefined }).defaultGrams).toBeUndefined();
+  });
+
+  it('refuses known volume nutrition instead of equating millilitres and grams', () => {
+    for (const units of [{ product_quantity_unit: 'ml' }, { serving_quantity_unit: 'ml' }, { serving_size: '1 bottle (250 ml)' }, { serving_size: '250毫升' }]) {
+      try { createFoodFromBarcode('3017620422003', { ...fullProduct, ...units }); throw new Error('Expected import rejection'); }
+      catch (error) { expect(error).toBeInstanceOf(OffNutritionError); expect((error as OffNutritionError).reason).toBe('volume-basis'); }
+    }
+  });
   it('maps a complete product to a FoodItem', () => {
     const item = createFoodFromBarcode('123456789', fullProduct);
     expect(item.id).toBe('off-123456789');
@@ -33,6 +58,7 @@ describe('createFoodFromBarcode', () => {
     };
     const item = createFoodFromBarcode('1', product);
     expect(item.kcal).toBeCloseTo(100, 6);
+    expect(createFoodFromBarcode('1', { nutriments: { 'energy-kj_100g': 418.4 } }).kcal).toBeCloseTo(100, 6);
   });
 
   it('prefers kcal over kilojoules when both are present', () => {

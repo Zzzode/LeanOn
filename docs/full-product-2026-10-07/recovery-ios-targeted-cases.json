@@ -1,0 +1,302 @@
+{
+  "scope": "Actual build32 native targeted source acceptance, not the two blocked actual relay/Keychain end-to-end cases or complete reader/OS health acceptance. Failed earlier malformed fixture setup retained separately.",
+  "checkedAtUtc": "2026-10-07T08:38:01.481716+00:00",
+  "sourceLogSHA256": "21c26a0282a21b57558220a9a729e7a95ab29eecc43a779f646fa0db4356ce20",
+  "passed": 49,
+  "cases": [
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "test": "testAdditiveLegacyStateMigrationAndPrivateIntentNeverReachProjection",
+      "status": "passed",
+      "seconds": "0.034"
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "test": "testCleanupOrLocalCompleteWriteFailureRetriesWithoutRewritingNilData",
+      "status": "passed",
+      "seconds": "0.053"
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "test": "testCommittedDeleteResponseLostRecoversFromProofAfterRestart",
+      "status": "passed",
+      "seconds": "0.029"
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "test": "testCommittedLocalMarkerSurvivesCallbackFailureAndNeverRepeatsWipe",
+      "status": "passed",
+      "seconds": "0.027"
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "test": "testConcurrentLocalMutationNeedsExplicitCurrentCASOrKeepChoice",
+      "status": "passed",
+      "seconds": "0.083"
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "test": "testConfirmedBarrierFailureKeepsPreparedProofAndDoesNotWipe",
+      "status": "passed",
+      "seconds": "0.034"
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "test": "testExpiredSessionRetriesWithExplicitPasswordAndRejectsRecreatedAccount",
+      "status": "passed",
+      "seconds": "0.052"
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "test": "testJournalFailureRollsBackAllStoresAndRetriesSameIntent",
+      "status": "passed",
+      "seconds": "0.041"
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "test": "testLostAckLeavesLocalCompleteAndMissingAckIsAcceptedOnlyThere",
+      "status": "passed",
+      "seconds": "0.032"
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "test": "testNewPreparationRejectsNumericBooleanAndPendingLoginStaysPrivateAndComplete",
+      "status": "passed",
+      "seconds": "0.019"
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "test": "testPreparedWriteFailureSendsNoHTTPAndKeepsLocalData",
+      "status": "passed",
+      "seconds": "0.012"
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "test": "testReceiptOfflineOrUnauthorizedCannotTriggerLocalDeletion",
+      "status": "passed",
+      "seconds": "0.029"
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "test": "testRecreatedRecordsOrPersonalAfterCommittedMarkerPreserveAllBytesAndKeys",
+      "status": "passed",
+      "seconds": "0.082"
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "test": "testUnauthorizedNewDeviceCannotPrepareDeletionAndCanStillSignOut",
+      "status": "passed",
+      "seconds": "0.014"
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "test": "testUnmatchedAccountOrMalformedReceiptCannotWipe",
+      "status": "passed",
+      "seconds": "0.050"
+    },
+    {
+      "class": "LeanOnTests.CompanionDeletionTests",
+      "test": "testWrongPasswordAndMissingReceiptNeverProveDeletionOrAutomaticallyRetry",
+      "status": "passed",
+      "seconds": "0.015"
+    },
+    {
+      "class": "LeanOnTests.CompanionHTTPBoundaryTests",
+      "test": "testActual307And308NeverForwardPostBodyOrBearer",
+      "status": "passed",
+      "seconds": "0.026"
+    },
+    {
+      "class": "LeanOnTests.CompanionHTTPBoundaryTests",
+      "test": "testActualChunkedStreamAboveDefault96MiBRejectedWhileReceiving",
+      "status": "passed",
+      "seconds": "0.064"
+    },
+    {
+      "class": "LeanOnTests.CompanionHTTPBoundaryTests",
+      "test": "testActualDeclaredContentLengthAboveDefault96MiBRejectedBeforeAllocatingBody",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "LeanOnTests.CompanionHTTPBoundaryTests",
+      "test": "testActualSmallLimitAcceptsExactJSONAndRejectsUnknownLengthOverflow",
+      "status": "passed",
+      "seconds": "0.003"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testActualQAKeychainRecreatedLedgerAfterDeletionReceiptIsPreservedOnCleanupRetry",
+      "status": "passed",
+      "seconds": "0.027"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testAllModuleExportsAcceptRequestAndCallback",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testCancelledQueuedLedgerCleanupCannotDeleteAfterTheCallerChangesChoice",
+      "status": "passed",
+      "seconds": "0.004"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testCompletedPermissionFlowDoesNotMeanWritesWereGranted",
+      "status": "passed",
+      "seconds": "0.007"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testDailyNutritionExportsMatchEightAndroidFieldsAndSDKUnits",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testDeniedNutritionDeletionRetainsLedgerUntilThatScopeIsRestored",
+      "status": "passed",
+      "seconds": "0.017"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testDisablingPreservesSystemRecordsAndExportLedger",
+      "status": "passed",
+      "seconds": "0.015"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testExplicitPermissionRequestRequiredBeforeEnable",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testExternalSamplesAreNeverReexportedAndCorruptLocalDataFailsBeforeIO",
+      "status": "passed",
+      "seconds": "0.006"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testFailedDeletionIsRetriedRatherThanForgettingExportIdentity",
+      "status": "passed",
+      "seconds": "0.029"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testFailedExportRetriesWithNewVersionWithoutFalseTimestamp",
+      "status": "passed",
+      "seconds": "0.014"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testFreshExternalWeightSupportsWorkoutMathWhenLocalHistoryIsEmpty",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testIdempotentExportUpdateAndDeletionSurviveRelaunch",
+      "status": "passed",
+      "seconds": "0.021"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testLegacyLedgerReadPreservesBytesAndNextExplicitWriteEncrypts",
+      "status": "passed",
+      "seconds": "0.005"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testLocalDeletionCancelsInFlightMirrorsBeforeTheyCanRepopulateRecords",
+      "status": "passed",
+      "seconds": "0.006"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testMirrorsUseLatestLocalDayMETAndSuppressOwnSourceAndMetadataEcho",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testNutritionDenialDoesNotBlockWeightAndWorkoutExports",
+      "status": "passed",
+      "seconds": "0.014"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testNutritionUpdateZeroRemovalDeletionRestoreAndRetryKeepStableIdentity",
+      "status": "passed",
+      "seconds": "0.094"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testOptionalZeroMicrosAreOmittedAndInvalidNutritionFailsBeforeIO",
+      "status": "passed",
+      "seconds": "0.019"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testPartialNutritionPermissionExportsOnlyAllowedQuantitiesWithoutOtherWriteAccess",
+      "status": "passed",
+      "seconds": "0.013"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testPermissionFlowStateCommitFailureReturnsFailureWithoutSyncing",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testPreferenceSurvivesRelaunchWithoutClaimingReadAuthorization",
+      "status": "passed",
+      "seconds": "0.006"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testReadAndMirrorPersistenceFailuresDoNotStampSuccess",
+      "status": "passed",
+      "seconds": "0.013"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testReadOnlyMirrorsAndPendingDeletionReconcileWhenWriteAccessReturns",
+      "status": "passed",
+      "seconds": "0.019"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testStateWriteFailureDoesNotClaimEnableAndWrongTypeCannotMutate",
+      "status": "passed",
+      "seconds": "0.004"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testStationaryCyclingExportsIndoorMetadataAndImportsConservativeMET",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testSyncUsesChangedTimeZoneWhileExplicitTestTimeZoneStaysFixed",
+      "status": "passed",
+      "seconds": "0.020"
+    },
+    {
+      "class": "LeanOnTests.HealthKitSyncTests",
+      "test": "testUnsupportedAndDisabledNeverReadOrWrite",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "LeanOnTests.PersonalStoreTests",
+      "test": "testAccountDeletionCapabilitiesCannotEnterPersonalOrBackupJSON",
+      "status": "passed",
+      "seconds": "0.001"
+    }
+  ]
+}

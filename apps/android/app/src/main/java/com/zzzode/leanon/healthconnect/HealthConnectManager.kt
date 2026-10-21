@@ -8,10 +8,16 @@ import androidx.health.connect.client.records.WeightRecord
 import androidx.health.connect.client.request.ReadRecordsRequest
 import androidx.health.connect.client.time.TimeRangeFilter
 import com.zzzode.leanon.LeanOnApplication
+import com.zzzode.leanon.data.toJavaOnlyMap
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.cancelChildren
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
+import java.io.File
+import java.io.IOException
 import org.json.JSONObject
 import java.time.Duration
 import java.time.Instant
@@ -30,6 +36,18 @@ import kotlin.reflect.KClass
 class HealthConnectManager(private val app: LeanOnApplication) {
 
   private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+  private val exportLock = Mutex()
+  private val syncLock = Mutex()
+  private val localCommits = HealthSyncCommitGate()
+  private val versions by lazy {
+    HealthConnectExportLedger(app)
+  }
+  /** Invalidate old provider work before clearing only this local namespace. */
+  fun withLocalDataDeletion(delete: () -> Unit) = performLocalHealthDataDeletion(
+    app.settings, localCommits, { scope.coroutineContext.cancelChildren() }, delete,
+  )
+  private fun currentGeneration() = localCommits.current()
+  private fun <T> commitIfCurrent(expected: Long, commit: () -> T): T = localCommits.commit(expected, commit)
 
   private val client: HealthConnectClient? by lazy {
     runCatching { HealthConnectClient.getOrCreate(app) }.getOrNull()
@@ -41,22 +59,29 @@ class HealthConnectManager(private val app: LeanOnApplication) {
     }.getOrDefault(false)
 
   suspend fun permissionsGranted(): Boolean {
-    val connectClient = client ?: return false
-    return runCatching {
-      connectClient.permissionController.getGrantedPermissions()
-        .containsAll(HealthConnectPermission.PERMISSIONS)
-    }.getOrDefault(false)
+    val connectClient = client ?: throw IOException("Health Connect client is unavailable")
+    return connectClient.permissionController.getGrantedPermissions()
+      .containsAll(HealthConnectPermission.PERMISSIONS)
   }
 
   /** Full idempotent export of all weight/nutrition/exercise records. */
-  suspend fun backfill() {
-    val connectClient = client ?: return
-    if (!permissionsGranted()) return
-    val records = HealthConnectMappers.buildAll(app.records.loadHostData())
-    if (records.isEmpty()) return
+  suspend fun backfill(): Boolean {
+    val expectedGeneration = currentGeneration()
+    return exportLock.withLock {
+    val connectClient = client ?: return@withLock false
     runCatching {
+      if (!app.settings.getHealthConnectEnabled()) return@runCatching false
+      if (!permissionsGranted()) return@runCatching false
+      val records = commitIfCurrent(expectedGeneration) {
+        val snapshot = app.records.loadHostData()
+        val reserved = versions.reserve(HealthConnectMappers.versionRequests(snapshot))
+        HealthConnectMappers.buildAll(snapshot, reserved)
+      }
+      if (records.isEmpty()) return@runCatching true
       connectClient.insertRecords(records)
-    }.onFailure { Log.w(TAG, "Health Connect export failed", it) }
+      true
+    }.getOrElse { Log.w(TAG, "Health Connect export failed", it); false }
+    }
   }
 
   fun syncAllAsync() {
@@ -65,7 +90,8 @@ class HealthConnectManager(private val app: LeanOnApplication) {
 
   /** Called after any native write; re-exports only while the feature is enabled. */
   fun onRecordsChanged() {
-    if (app.settings.getHealthConnectEnabled()) syncAllAsync()
+    runCatching { if (app.settings.getHealthConnectEnabled()) syncAllAsync() }
+      .onFailure { Log.w(TAG, "Unable to read Health Connect settings", it) }
   }
 
   /**
@@ -74,9 +100,12 @@ class HealthConnectManager(private val app: LeanOnApplication) {
    * platform is unavailable, permissions are missing, or any step fails.
    */
   suspend fun sync(): Boolean {
-    val connectClient = client ?: return false
-    if (!permissionsGranted()) return false
-    return runCatching {
+    val expectedGeneration = currentGeneration()
+    return syncLock.withLock {
+    val connectClient = client ?: return@withLock false
+    runCatching {
+      if (!app.settings.getHealthConnectEnabled()) return@runCatching false
+      if (!permissionsGranted()) return@runCatching false
       val host = app.records.loadHostData()
       val bodyWeightKg = latestWeightKg(host)
       val externalWeights =
@@ -87,14 +116,21 @@ class HealthConnectManager(private val app: LeanOnApplication) {
         HealthConnectReadMappers.latestWeightByDate(externalWeights)
       val mirrors =
         HealthConnectReadMappers.mirrorExercises(externalExercises, bodyWeightKg)
-      app.records.replaceExternalWeights(weightsByDate)
-      app.records.replaceExternalExercises(mirrors)
-      backfill()
-      app.settings.setLastSyncEpochMs(System.currentTimeMillis())
-      true
+      completeHealthConnectSync(
+        importMirrors = {
+          commitIfCurrent(expectedGeneration) {
+            app.records.replaceExternalWeights(weightsByDate)
+            val snapshot = app.records.replaceExternalExercises(mirrors)
+            app.events.dispatch("records.changed", JSONObject().put("hostData", snapshot).toJavaOnlyMap())
+          }
+        },
+        exportRecords = { if (currentGeneration() == expectedGeneration) backfill() else false },
+        stampSuccess = { commitIfCurrent(expectedGeneration) { app.settings.setLastSyncEpochMs(System.currentTimeMillis()) } },
+      )
     }.getOrElse {
       Log.w(TAG, "Health Connect two-way sync failed", it)
       false
+    }
     }
   }
 
@@ -113,15 +149,17 @@ class HealthConnectManager(private val app: LeanOnApplication) {
    */
   fun deleteExerciseSessionAsync(id: String) {
     scope.launch {
-      val connectClient = client ?: return@launch
-      if (!permissionsGranted()) return@launch
-      runCatching {
-        connectClient.deleteRecords(
-          ExerciseSessionRecord::class,
-          emptyList(),
-          listOf("$LEANON_EXERCISE_PREFIX$id"),
-        )
-      }.onFailure { Log.w(TAG, "Health Connect session delete failed", it) }
+      exportLock.withLock {
+        val connectClient = client ?: return@withLock
+        runCatching {
+          if (!permissionsGranted()) return@runCatching
+          connectClient.deleteRecords(
+            ExerciseSessionRecord::class,
+            emptyList(),
+            listOf("$LEANON_EXERCISE_PREFIX$id"),
+          )
+        }.onFailure { Log.w(TAG, "Health Connect session delete failed", it) }
+      }
     }
   }
 
@@ -132,11 +170,18 @@ class HealthConnectManager(private val app: LeanOnApplication) {
   ): List<T> {
     val now = Instant.now()
     val start = now.minus(Duration.ofDays(days))
-    val request = ReadRecordsRequest(
-      recordType = type,
-      timeRangeFilter = TimeRangeFilter(startTime = start, endTime = now),
-    )
-    return connectClient.readRecords(request).records
+    val records = mutableListOf<T>()
+    var pageToken: String? = null
+    do {
+      val response = connectClient.readRecords(ReadRecordsRequest(
+        recordType = type,
+        timeRangeFilter = TimeRangeFilter.between(start, now),
+        pageToken = pageToken,
+      ))
+      records.addAll(response.records)
+      pageToken = response.pageToken
+    } while (pageToken != null)
+    return records
   }
 
   private fun latestWeightKg(host: JSONObject): Double {

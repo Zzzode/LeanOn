@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Persisted application uiMode selects matching night splash resources. -->
+    <style name="Theme.LeanOn" parent="Theme.LeanOn.Base">
+        <item name="android:windowSplashScreenBackground">@color/surface</item>
+    </style>
+</resources>

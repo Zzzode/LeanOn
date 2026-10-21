@@ -1,0 +1,159 @@
+{
+  "createdUTC": "2026-10-06",
+  "items": [
+    {
+      "key": "parity_matrix_zh_library",
+      "operation": "replace_library_file",
+      "status": "succeeded",
+      "path": "/parity-matrix.zh-CN.html",
+      "file_id": "file_0000000091188207abfbb61c7e6e939b",
+      "library_file_id": "libfile_4dfa6028ab1c8191a97601c57689c0ec",
+      "file_name": "parity-matrix.zh-CN.html",
+      "current_version_number": 2,
+      "restored_from_version_number": null,
+      "xattrs": [
+        {
+          "name": "user.library-file-version",
+          "value": "2"
+        }
+      ],
+      "directory_id": "libdir_bd0591b91fb88191bd01900a376bc9a8",
+      "mime_type": "text/html",
+      "library_artifact_type": "report",
+      "file_size_bytes": 4542713,
+      "external_connectors_accessed": false
+    },
+    {
+      "key": "parity_matrix_en_library",
+      "operation": "replace_library_file",
+      "status": "succeeded",
+      "path": "/parity-matrix.html",
+      "file_id": "file_00000000eee08207b28345a0d3d41a53",
+      "library_file_id": "libfile_777c02ae163081918637445f9dc0dad6",
+      "file_name": "parity-matrix.html",
+      "current_version_number": 2,
+      "restored_from_version_number": null,
+      "xattrs": [
+        {
+          "name": "user.library-file-version",
+          "value": "2"
+        }
+      ],
+      "directory_id": "libdir_bd0591b91fb88191bd01900a376bc9a8",
+      "mime_type": "text/html",
+      "library_artifact_type": "report",
+      "file_size_bytes": 4543270,
+      "external_connectors_accessed": false
+    },
+    {
+      "key": "parity_platform_overview_library",
+      "operation": "replace_library_file",
+      "status": "succeeded",
+      "path": "/platform-status-and-errors.png",
+      "file_id": "file_000000002bf08211b99d41725741b8d0",
+      "library_file_id": "libfile_2e5ee3d347a08191ba17d81fcc85c867",
+      "file_name": "platform-status-and-errors.png",
+      "current_version_number": 1,
+      "restored_from_version_number": null,
+      "xattrs": [
+        {
+          "name": "user.library-file-version",
+          "value": "1"
+        }
+      ],
+      "directory_id": "libdir_bd0591b91fb88191bd01900a376bc9a8",
+      "mime_type": "image/png",
+      "library_artifact_type": "image",
+      "file_size_bytes": 1030959,
+      "external_connectors_accessed": false
+    },
+    {
+      "key": "parity_ios_food_dual_library",
+      "operation": "create_library_file",
+      "status": "succeeded",
+      "path": "/ios-food-dual.png",
+      "file_id": "file_0000000015388207b0a1d9bdb39e0698",
+      "library_file_id": "libfile_d5abaaeef2508191897bedcf273b6701",
+      "file_name": "ios-food-dual.png",
+      "current_version_number": 0,
+      "restored_from_version_number": null,
+      "xattrs": [
+        {
+          "name": "user.library-file-version",
+          "value": "0"
+        }
+      ],
+      "directory_id": "libdir_bd0591b91fb88191bd01900a376bc9a8",
+      "mime_type": "image/png",
+      "library_artifact_type": "image",
+      "file_size_bytes": 1108813,
+      "external_connectors_accessed": false
+    },
+    {
+      "key": "parity_ios_water_dual_library",
+      "operation": "create_library_file",
+      "status": "succeeded",
+      "path": "/ios-water-dual.png",
+      "file_id": "file_000000001e8c820781cb6c6a02eb2741",
+      "library_file_id": "libfile_01fc3eeda5d08191b5639d67145bd336",
+      "file_name": "ios-water-dual.png",
+      "current_version_number": 0,
+      "restored_from_version_number": null,
+      "xattrs": [
+        {
+          "name": "user.library-file-version",
+          "value": "0"
+        }
+      ],
+      "directory_id": "libdir_bd0591b91fb88191bd01900a376bc9a8",
+      "mime_type": "image/png",
+      "library_artifact_type": "image",
+      "file_size_bytes": 925631,
+      "external_connectors_accessed": false
+    },
+    {
+      "key": "parity_notification_incident_library",
+      "operation": "create_library_file",
+      "status": "succeeded",
+      "path": "/notification-qa-incident.png",
+      "file_id": "file_00000000924882079b4f8854cb009035",
+      "library_file_id": "libfile_04c00192cd888191b5dc8326cb8bc54a",
+      "file_name": "notification-qa-incident.png",
+      "current_version_number": 0,
+      "restored_from_version_number": null,
+      "xattrs": [
+        {
+          "name": "user.library-file-version",
+          "value": "0"
+        }
+      ],
+      "directory_id": "libdir_bd0591b91fb88191bd01900a376bc9a8",
+      "mime_type": "image/png",
+      "library_artifact_type": "image",
+      "file_size_bytes": 326825,
+      "external_connectors_accessed": false
+    },
+    {
+      "key": "parity_complete_evidence_library",
+      "operation": "create_library_file",
+      "status": "succeeded",
+      "path": "/leanon-functional-parity-2026-10-06.zip",
+      "file_id": "file_000000000e3882118b3b54aff8e91d45",
+      "library_file_id": "libfile_5ec447c8872081919289966d333f37ae",
+      "file_name": "leanon-functional-parity-2026-10-06.zip",
+      "current_version_number": 0,
+      "restored_from_version_number": null,
+      "xattrs": [
+        {
+          "name": "user.library-file-version",
+          "value": "0"
+        }
+      ],
+      "directory_id": "libdir_bd0591b91fb88191bd01900a376bc9a8",
+      "mime_type": "application/zip",
+      "library_artifact_type": "other",
+      "file_size_bytes": 43927267,
+      "external_connectors_accessed": false
+    }
+  ]
+}

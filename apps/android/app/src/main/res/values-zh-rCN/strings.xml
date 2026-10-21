@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="barcode_scan_cancel">取消扫码</string>
+    <string name="notif_channel_name">提醒</string>
+    <string name="notif_weight_title">记录体重</string>
+    <string name="notif_weight_body">晨起后称一下体重。</string>
+    <string name="notif_meals_title">记录今日饮食</string>
+    <string name="notif_meals_body">轻点几下，让今天的记录保持完整。</string>
+    <string name="health_connect_rationale">获得你的授权后，LeanOn 会将你在这里记录的体重、饮食和运动数据写入 Health Connect，方便与其他健康应用和可穿戴设备的数据一起查看。它也会从 Health Connect 读取体重和运动记录，并同步到 LeanOn。</string>
     <string name="tab_today">今日</string>
     <string name="tab_diary">饮食</string>
     <string name="tab_progress">进展</string>

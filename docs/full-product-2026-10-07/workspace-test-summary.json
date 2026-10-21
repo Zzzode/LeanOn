@@ -1,0 +1,49 @@
+{
+  "checkedAtUTC": "2026-10-07T06:52:28.168676+00:00",
+  "scope": "One final full workspace run; targeted/interim runs are not added.",
+  "sourceLog": "/tmp/leanon-full-product-final-tests.log",
+  "sourceLogSHA256": "f7d28f912878d94e03da8fc8ae50d8f0fce12763a9eb0891b75b55a0f948229d",
+  "passed": 420,
+  "failed": 0,
+  "packages": [
+    {
+      "package": "packages/exercise-data",
+      "passed": 7
+    },
+    {
+      "package": "packages/delivery",
+      "passed": 23
+    },
+    {
+      "package": "packages/food-data",
+      "passed": 42
+    },
+    {
+      "package": "packages/core",
+      "passed": 83
+    },
+    {
+      "package": "packages/i18n",
+      "passed": 18
+    },
+    {
+      "package": "server/companion",
+      "passed": 23
+    },
+    {
+      "package": "packages/data",
+      "passed": 47
+    },
+    {
+      "package": "packages/bridge",
+      "passed": 49
+    },
+    {
+      "package": "packages/pages",
+      "passed": 128
+    }
+  ],
+  "buildLog": "/tmp/leanon-full-product-final-build.log",
+  "typecheckLog": "/tmp/leanon-full-product-final-typecheck.log",
+  "sharedBundleSHA256": "3bbe6225013ec611f0cde9c69a614d5ab15250234448f1d8ecf99d190606387d"
+}

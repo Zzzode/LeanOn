@@ -1,0 +1,40 @@
+{
+  "generatedUTC": "2026-10-07T22:58:22.803281+00:00",
+  "syntheticDataOnly": true,
+  "workspaceTypecheckPassed": true,
+  "workspaceBuildPassed": true,
+  "workspacePassedTests": 467,
+  "workerFinalPassedTests": 18,
+  "androidJvm": {
+    "tests": 245,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1,
+    "note": "Existing opt-in live suite skips without its separate environment flag; actual migration instrumentation passed separately."
+  },
+  "actualIOSSettingsUITests": {
+    "passed": 2,
+    "failed": 0,
+    "scope": "preview, consent guard, publishing, pause, terminate/relaunch, resume, active/relaunch, confirmed rollback/relaunch"
+  },
+  "actualAndroidSettingsFlow": {
+    "passed": true,
+    "scope": "same workflow plus actual force-stop during publishing pause request and checkpoint recovery"
+  },
+  "preservationChecks": "Full canonical health backup excludes only createdAt/local revisions; original photo bytes exact; encrypted source journal retained; repeated active start/resume and rolled-back rollback are idempotent.",
+  "iosWriteFaultRecoveryPassed": true,
+  "lynxBundleSHA256": "991d46ce693e23794298f9658daa197f311e0bf389d79c5badb61c090fa75f92",
+  "androidApkSHA256": "f25c7bf18d847b1072aab89048fb0858a01373f188a4c142ba119910bca370f3",
+  "iosFinalExecutableSHA256": "5edf6d3a44d581434df87c0d4001ab1406d96cc7e26845b2902ef477acbf2dc3",
+  "buildTimelineBoundary": "iOS preview-to-active UI ran before the narrow exception-unlock fix; final rebuild verified that fix through injected save failure and active native checkpoint reads. Actual rollback/restart UI ran on the final signed binary. Lynx bundle bytes identical throughout.",
+  "notVerified": [
+    "Production HTTPS",
+    "Physical devices",
+    "Remote quota/capacity/billing",
+    "Chinese migration UI",
+    "Dark/large-font migration UI",
+    "VoiceOver/TalkBack",
+    "Concurrent multi-device UI cutover",
+    "New all-device-loss reset policy"
+  ]
+}

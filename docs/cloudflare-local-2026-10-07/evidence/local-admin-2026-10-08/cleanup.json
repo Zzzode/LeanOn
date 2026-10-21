@@ -1,0 +1,24 @@
+{
+  "utc": "2026-10-08T17:56:30.039120+00:00",
+  "compiledCLI": {
+    "ownedWorkspacesRemoved": 2,
+    "allOwnedDirectoriesGone": true,
+    "parameterDirectoryRemoved": true,
+    "runtimesDisposed": true,
+    "noNativeDeviceOrQASettingChanges": true,
+    "noProviderCredentialsCreated": true,
+    "noRemoteResources": true
+  },
+  "testSyntheticDirectoryScan": {
+    "remaining": [],
+    "allOwnedFixturesRemoved": true
+  },
+  "nativeDevicesLaunched": false,
+  "nativeQASettingsChanged": false,
+  "priorIOSQAAppKeychainErased": false,
+  "globalToolsChanged": false,
+  "temporaryPnpm": "official pnpm11.7.0 through command-scoped PATH",
+  "providerCredentialsCreatedOrRead": false,
+  "remoteOperations": false,
+  "evidenceRetained": true
+}

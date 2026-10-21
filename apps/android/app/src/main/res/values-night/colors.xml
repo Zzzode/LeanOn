@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="surface">#201D26</color>
+    <color name="paper">#2B2731</color>
+    <color name="ink">#FAF5F3</color>
+    <color name="muted">#CEC3CE</color>
+    <color name="brand">#D3B2D8</color>
+    <color name="on_brand">#201D26</color>
+    <color name="control">#37323D</color>
+    <!-- Preserve the approved bar's green identity; adjust contrast only. -->
+    <color name="botanical">#8CCFB4</color>
+    <color name="tab_unselected">#D0D8D3</color>
+    <color name="tab_capture_fill">#2B2731</color>
+    <color name="tab_platter">#E02B2731</color>
+    <color name="tab_rest_pill">#3C3A43</color>
+</resources>

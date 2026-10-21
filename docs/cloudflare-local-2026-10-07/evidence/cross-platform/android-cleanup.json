@@ -1,0 +1,11 @@
+{
+  "stage": "cleanup",
+  "checks": [
+    {
+      "id": "cross-platform-fixture-files-and-android-keystore-keys-removed",
+      "passed": true
+    }
+  ],
+  "capturedUtc": "2026-10-07T20:36:48.766229Z",
+  "passed": true
+}

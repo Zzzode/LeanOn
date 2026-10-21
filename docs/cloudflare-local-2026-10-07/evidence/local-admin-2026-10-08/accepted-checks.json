@@ -1,0 +1,19 @@
+{
+  "workspacePassedTests": 502,
+  "workerPassedTests": 53,
+  "newLocalAdminCases": 35,
+  "compiledCLIChecks": 45,
+  "workspaceTypecheckBuildPassed": true,
+  "finalWorkerTypecheckBuildPassed": true,
+  "dryRunBindingsAndWrites": 0,
+  "interruption": "Injected actual D1 batch failure and safe authenticated retry; retained-lock refusal separately tested, no OS-kill operator drill.",
+  "productionRemoteRunnerImplemented": false,
+  "userDecisionsOutstanding": [
+    "provider account/resource access",
+    "CPU/billing budget",
+    "data-location and independent backup/floor/key retention",
+    "total-device-loss policy"
+  ],
+  "finalLocalAdminBundleSHA256": "f9f1a5766a5e4040e8cf7fe781d5c2a7f45d482475c44346281fa1488bd3174e",
+  "coreAdminSourceSHA256": "48ba9126026e33aee6b80689890d35cf32652c2f501bd41a2c9bded3ee03b069"
+}

@@ -1,0 +1,67 @@
+Attributes: Application, 0x116aa5900, pid: 25933, label: 'LeanOn'
+Element subtree:
+ →Application, 0x116aa5900, pid: 25933, label: 'LeanOn'
+    Window (Main), 0x116aa5a40, {{0.0, 0.0}, {375.0, 667.0}}
+      Other, 0x116aa5b80, {{0.0, 0.0}, {375.0, 667.0}}
+        Other, 0x116aa6080, {{0.0, 0.0}, {375.0, 667.0}}
+          Other, 0x116aa61c0, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x116aa6300, {{0.0, 0.0}, {375.0, 667.0}}
+              Other, 0x116aa6440, {{0.0, 0.0}, {375.0, 667.0}}
+                Other, 0x116aa7340, {{0.0, 0.0}, {375.0, 667.0}}
+                  Other, 0x116aa7200, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x116aa70c0, {{0.0, 0.0}, {375.0, 667.0}}
+                      Other, 0x116aa6f80, {{0.0, 0.0}, {375.0, 667.0}}
+                        Other, 0x116aa6e40, {{0.0, 20.0}, {375.0, 647.0}}, label: 'lynxview'
+                          Other, 0x116aa6d00, {{0.0, 20.0}, {375.0, 647.0}}
+                          Other, 0x116aa6bc0, {{0.0, 20.0}, {375.0, 647.0}}
+                            Other, 0x116aa6a80, {{0.0, 72.0}, {375.0, 595.0}}
+                              StaticText, 0x116aa6940, {{24.0, 96.0}, {327.0, 33.0}}, label: 'Log exercise'
+                              StaticText, 0x116aa6800, {{24.0, 154.0}, {327.0, 25.0}}, label: 'Journal date · 2026-10-07'
+                              ScrollView, 0x116aa66c0, {{24.0, 179.0}, {327.0, 388.0}}
+                                Button, 0x116aa6580, {{24.0, 179.0}, {327.0, 72.0}}, label: 'Choose activity'
+                                Other, 0x116aa5cc0, {{24.0, 251.0}, {327.0, 1320.0}}
+                                  Button, 0x116aa5e00, {{24.0, 251.0}, {327.0, 50.0}}, label: 'Walking (slow)'
+                                  Button, 0x116aa5f40, {{24.0, 306.0}, {327.0, 50.0}}, label: 'Walking (brisk)'
+                                  Button, 0x116aa52c0, {{24.0, 361.0}, {327.0, 50.0}}, label: 'Hiking'
+                                  Button, 0x116aa5400, {{24.0, 416.0}, {327.0, 50.0}}, label: 'Jogging'
+                                  Button, 0x116aa5680, {{24.0, 471.0}, {327.0, 50.0}}, label: 'Running'
+                                  Button, 0x116aa57c0, {{24.0, 526.0}, {327.0, 50.0}}, label: 'Running (fast)'
+                                  Button, 0x116aa5540, {{24.0, 581.0}, {327.0, 50.0}}, label: 'Cycling'
+                                  Button, 0x116aa4f00, {{24.0, 636.0}, {327.0, 50.0}}, label: 'Stationary bike'
+                                  Button, 0x116aa5180, {{24.0, 691.0}, {327.0, 50.0}}, label: 'Swimming (freestyle)'
+                                  Button, 0x116aa5040, {{24.0, 746.0}, {327.0, 50.0}}, label: 'Swimming (slow)'
+                                  Button, 0x116aa4c80, {{24.0, 801.0}, {327.0, 50.0}}, label: 'Strength training'
+                                  Button, 0x116aa4dc0, {{24.0, 856.0}, {327.0, 50.0}}, label: 'Strength (heavy)'
+                                  Button, 0x116aa4b40, {{24.0, 911.0}, {327.0, 50.0}}, label: 'HIIT'
+                                  Button, 0x116aa4a00, {{24.0, 966.0}, {327.0, 50.0}}, label: 'Elliptical'
+                                  Button, 0x116aa48c0, {{24.0, 1021.0}, {327.0, 50.0}}, label: 'Rope skipping'
+                                  Button, 0x116aa4780, {{24.0, 1076.0}, {327.0, 50.0}}, label: 'Yoga'
+                                  Button, 0x116aa4640, {{24.0, 1131.0}, {327.0, 50.0}}, label: 'Pilates'
+                                  Button, 0x116aa4500, {{24.0, 1186.0}, {327.0, 50.0}}, label: 'Stair climbing'
+                                  Button, 0x116aa43c0, {{24.0, 1241.0}, {327.0, 50.0}}, label: 'Badminton'
+                                  Button, 0x116aa4280, {{24.0, 1296.0}, {327.0, 50.0}}, label: 'Basketball'
+                                  Button, 0x116aa4140, {{24.0, 1351.0}, {327.0, 50.0}}, label: 'Soccer'
+                                  Button, 0x116aa4000, {{24.0, 1406.0}, {327.0, 50.0}}, label: 'Tennis'
+                                  Button, 0x116aa75c0, {{24.0, 1461.0}, {327.0, 50.0}}, label: 'Table tennis'
+                                  Button, 0x116aa7700, {{24.0, 1516.0}, {327.0, 50.0}}, label: 'Dance / aerobics'
+                                StaticText, 0x116aa7840, {{24.0, 1597.0}, {327.0, 21.0}}, label: 'Duration'
+                                Other, 0x116aa7980, {{24.0, 1626.0}, {327.0, 78.0}}
+                                  TextField, 0x116aa7ac0, {{39.0, 1637.0}, {264.5, 56.0}}, label: 'Duration', placeholderValue: 'Duration', value: 30
+                                  StaticText, 0x116aa7c00, {{309.5, 1653.0}, {26.5, 24.0}}, label: 'min'
+                              Button, 0x116aa7d40, {{24.0, 587.0}, {157.5, 48.0}}, label: 'Cancel'
+                              Button, 0x116aa7e80, {{193.5, 587.0}, {157.5, 48.0}}, label: 'Save'
+                  Other, 0x10561f700, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x10561fd40, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x10561f480, {{0.0, 584.0}, {375.0, 83.0}}
+              Other, 0x10561fe80, {{0.0, 0.0}, {375.0, 667.0}}
+              Other, 0x10561fac0, {{0.0, 584.0}, {375.0, 83.0}}
+    Window, 0x10561fc00, {{0.0, 0.0}, {375.0, 667.0}}
+      Other, 0x10561f980, {{0.0, 0.0}, {375.0, 667.0}}
+        Other, 0x10561f5c0, {{0.0, 0.0}, {375.0, 667.0}}
+Path to element:
+ →Application, 0x116aa5900, pid: 25933, label: 'LeanOn'
+Query chain:
+ →Find: Target Application 'com.zzzode.leanon.uiqa'
+  Output: {
+    Application, 0x10561f840, pid: 25933, label: 'LeanOn'
+  }

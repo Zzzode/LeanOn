@@ -1,0 +1,73 @@
+{
+  "baselineUTC": "2026-10-07T22:03:09.833492+00:00",
+  "baselineDirtyEntries": 367,
+  "head": "89b5e157844d62933a5ebfa773e7aa7b8d076cb9",
+  "branch": "main",
+  "origin": "https://github.com/Zzzode/LeanOn.git",
+  "baselineSourceFiles": 724,
+  "unchangedBaselineSourceFiles": 718,
+  "changedBaselineFiles": [
+    {
+      "path": "apps/android/app/src/androidTest/java/com/zzzode/leanon/qa/ParityInstrumentation.kt",
+      "before": "2cf1f1b47b467b6739f5bfdec3d22ebf7325dfc313e9eda626ca5593141b97d7",
+      "after": "e9c9396f5e31bfe9695ed32c851bef7e67454a8987be29fc47042d3fa05f2a95"
+    },
+    {
+      "path": "apps/ios/LeanOn/Companion/companion-migration-controller.swift",
+      "before": "242383d22c7b5e902518f468a18e532c240c660b2b8036297c7d5e7e012cb28a",
+      "after": "645fda23d240d9d4c9bba6dc861d5ec4ed48c23d2a3a867889582ec6fce80d61"
+    },
+    {
+      "path": "server/companion-worker/README.md",
+      "before": "95f334b90165a65b5fb42c948d889c2a4abf459e9b97e01f90405e0550a984b3",
+      "after": "e0ef398b5e5485922b8eef701e95c368f8b2ea2b7710334ed1f47d4211dcc227"
+    },
+    {
+      "path": "server/companion-worker/README.zh-CN.md",
+      "before": "9916684ad9bc8e985adf26b65d018416587506cf255855ac7a53bb6ebfb4c892",
+      "after": "d79be2ab679955c1390cfc62b7196468dba3f96c3e92d00acf8b8e9959e9ee49"
+    },
+    {
+      "path": "server/companion-worker/src/admin.ts",
+      "before": "9dcd47badd0eca1c2d8b4aff63f14a59a46c96904e1324adebf088c431979bb2",
+      "after": "48ba9126026e33aee6b80689890d35cf32652c2f501bd41a2c9bded3ee03b069"
+    },
+    {
+      "path": "server/companion-worker/src/admin.test.ts",
+      "before": "eeb63162e65fa5aab6319834d1792fb1f66834c9b3fc383e0f3f5a55f370eac0",
+      "after": "78c9858926aa1407142134f91130162146cb07cb5ebad7307f41effc0213767f"
+    }
+  ],
+  "newScopedSourceFiles": [
+    {
+      "path": "apps/ios/LeanOnTests/companion-migration-entry-tests.swift",
+      "sha256": "03882e8504ccdd94cd25d68cae7bdab500cfda1797514de32ca455e45dbb7f69"
+    },
+    {
+      "path": "apps/ios/LeanOnUITests/migration-entry-ui-tests.swift",
+      "sha256": "c86f0b88a95bbd9472e6a08198212b7c46966fd0b17758d1955ffa6352686026"
+    },
+    {
+      "path": "apps/android/app/src/androidTest/java/com/zzzode/leanon/companion/MigrationEntryFixture.kt",
+      "sha256": "f86f620d2a49a22e626a7bb48bbdea7ea9252f4fb43c6bd484a540490cdf583a"
+    },
+    {
+      "path": "apps/android/app/src/androidTest/java/com/zzzode/leanon/qa/MigrationEntryUiSession.kt",
+      "sha256": "7491babd7075da69225aadafe220e44f27dd8c59513340b2f89b7355ecf9357d"
+    },
+    {
+      "path": "packages/pages/src/state/migration-ui.test.ts",
+      "sha256": "c117398a2dcc254e468fd84c048ef81b7705d97317a6794b256daf6f2d65f1c7"
+    },
+    {
+      "path": "server/companion-worker/scripts/migration-plan.mjs",
+      "sha256": "c2d0442952a630e1dfea3d2561d7ef38bb80a3a1e230de12f49a6dbf6d4fbd43"
+    },
+    {
+      "path": "server/companion-worker/scripts/local-migration-entry-fixture.mjs",
+      "sha256": "96c8d41ebb4230481c1522fc995d0e8c089f2982050413228b81f218da368d00"
+    }
+  ],
+  "excluded": "Generated native projects/Pods/build/dist, screenshots, report artifacts and private tool logs.",
+  "notes": "Existing Settings/MigrationSheet/bridge contracts and Android production controller were retained; no commit or push."
+}

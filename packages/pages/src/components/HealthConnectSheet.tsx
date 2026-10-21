@@ -1,181 +1,123 @@
-import { useState } from '@lynx-js/react';
+import { useEffect, useRef, useState } from '@lynx-js/react';
 import type { Translator } from '@zzzode/i18n';
-
-export interface HealthConnectStatus {
-  supported: boolean;
-  enabled: boolean;
-  permissionsGranted: boolean;
-  /** Epoch ms of the last successful sync; 0 means never (RFC 0025). */
-  lastSyncEpochMs: number;
-}
+import { canEnableHealth, canSyncHealth, type HealthConnection, type HealthProvider } from '../state/health-connection.js';
 
 interface HealthConnectSheetProps {
   t: Translator;
-  status: HealthConnectStatus;
+  provider: HealthProvider;
+  connection: HealthConnection | null;
+  loading: boolean;
+  loadError: boolean;
+  capabilities: { request: boolean; toggle: boolean; sync: boolean };
   onClose: () => void;
-  onRequestPermission: () => void;
-  onSetEnabled: (enabled: boolean) => void;
-  /** Run a two-way sync now; resolves true on success. */
+  onRetry: () => Promise<void>;
+  onRequestPermission: () => Promise<void>;
+  onSetEnabled: (enabled: boolean) => Promise<void>;
   onSync: () => Promise<boolean>;
 }
 
-function pad2(value: number): string {
-  return (value < 10 ? '0' : '') + value;
-}
-
 function formatSync(epochMs: number): string {
-  if (!epochMs) return '';
   const date = new Date(epochMs);
-  return (
-    `${pad2(date.getMonth() + 1)}-${pad2(date.getDate())} ` +
-    `${pad2(date.getHours())}:${pad2(date.getMinutes())}`
-  );
+  const pad = (value: number) => value < 10 ? `0${value}` : String(value);
+  return `${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}`;
 }
 
-/**
- * Bottom sheet for Health Connect (RFC 0021 export; RFC 0025 two-way sync). On
- * supported devices it exposes the permission grant, an On/Off switch, a manual
- * "Sync now" and the last-sync time. When Health Connect is unavailable it
- * shows an explanatory message.
- */
-export function HealthConnectSheet({
-  t,
-  status,
-  onClose,
-  onRequestPermission,
-  onSetEnabled,
-  onSync,
-}: HealthConnectSheetProps) {
-  const [syncing, setSyncing] = useState(false);
-
-  const handleSync = () => {
-    if (syncing) return;
-    setSyncing(true);
-    onSync()
-      .then(() => setSyncing(false))
-      .catch(() => setSyncing(false));
+/** Each platform exposes its own authorization facts through the same connection UI. */
+export function HealthConnectSheet({ t, provider, connection, loading, loadError,
+  capabilities, onClose, onRetry, onRequestPermission, onSetEnabled, onSync }: HealthConnectSheetProps) {
+  const pending = useRef(false);
+  const mounted = useRef(true);
+  const [busy, setBusy] = useState<'request' | 'toggle' | 'sync' | 'retry' | null>(null);
+  const [error, setError] = useState(false);
+  useEffect(() => { mounted.current = true; return () => { mounted.current = false; }; }, []);
+  const perform = async (kind: NonNullable<typeof busy>, action: () => Promise<void>) => {
+    if (pending.current) return;
+    pending.current = true;
+    setBusy(kind);
+    setError(false);
+    try { await action(); }
+    catch { if (mounted.current) setError(true); }
+    finally { pending.current = false; if (mounted.current) setBusy(null); }
   };
+  const healthKit = provider === 'health-kit';
+  const status = connection?.status;
+  const ready = connection !== null && !loading && !loadError;
+  const granted = connection?.provider === 'health-connect' && connection.status.permissionsGranted;
+  const canRequest = ready && status?.supported === true && capabilities.request && (healthKit || !granted);
+  const canEnable = connection !== null && canEnableHealth(connection);
+  const canSync = connection !== null && canSyncHealth(connection) && capabilities.sync;
+  const blocked = busy !== null || loading;
+  const permissionLabel = healthKit ? t('healthKit.manageAccess') : t(granted ? 'healthConnect.permissionGranted' : 'healthConnect.grantPermission');
 
-  const canSync = status.permissionsGranted;
-
-  return (
-    <view
-      className="Sheet-overlay"
-      hover-class="tap-feedback-hover"
-      bindtap={onClose}
-    >
-      <view className="Sheet Reminder-sheet" catchtap={() => {}}>
-        <text className="Sheet-title">{t('healthConnect.title')}</text>
-        <text className="HealthConnect-desc">
-          {t('healthConnect.description')}
-        </text>
-        {!status.supported ? (
-          <text className="HealthConnect-unsupported">
-            {t('healthConnect.unsupported')}
-          </text>
-        ) : (
-          <view className="Reminder-kind">
+  return <view className="Sheet-overlay" bindtap={onClose}>
+    <view className="Sheet Reminder-sheet Theme-brand" catchtap={() => {}}>
+      <text className="Sheet-title">{t(healthKit ? 'healthKit.title' : 'healthConnect.title')}</text>
+      <scroll-view scroll-orientation="vertical" className="Sheet-body-scroll">
+        <text className="HealthConnect-desc">{t(healthKit ? 'healthKit.description' : 'healthConnect.description')}</text>
+        {healthKit && <text className="Section-note">{t('healthKit.readPrivate')}</text>}
+        {loading && <text className="Settings-status" accessibility-element={true}>{t('health.loading')}</text>}
+        {loadError && <view>
+          <text className="Sheet-error" accessibility-element={true}>{t('review.retryError')}</text>
+          <view className="Sheet-btn" accessibility-element={true} accessibility-traits="button" accessibility-label={t('health.retry')}
+            bindtap={blocked ? undefined : () => void perform('retry', onRetry)}>
+            <text className="Sheet-btn-label">{t('health.retry')}</text>
+          </view>
+        </view>}
+        {ready && status !== undefined && (!status.supported
+          ? <text className="HealthConnect-unsupported">{t(healthKit ? 'healthKit.unsupported' : 'healthConnect.unsupported')}</text>
+          : <view className="Reminder-kind">
             <view className="Reminder-row">
-              <text className="Reminder-label">
-                {t('healthConnect.permission')}
-              </text>
-              <view
-                className="Sheet-btn primary HealthConnect-grant"
-                hover-class="tap-feedback-hover"
-                bindtap={
-                  status.permissionsGranted ? undefined : onRequestPermission
-                }
-              >
-                <text className="Sheet-btn-label primary">
-                  {status.permissionsGranted
-                    ? t('healthConnect.permissionGranted')
-                    : t('healthConnect.grantPermission')}
-                </text>
+              <text className="Reminder-label">{t('healthConnect.permission')}</text>
+              <view className={`Sheet-btn primary HealthConnect-grant${blocked || !canRequest ? ' disabled' : ''}`}
+                accessibility-element={true} accessibility-traits="button" accessibility-label={permissionLabel}
+                hover-class={blocked || !canRequest ? undefined : 'tap-feedback-hover'}
+                bindtap={blocked || !canRequest ? undefined : () => void perform('request', onRequestPermission)}>
+                <text className="Sheet-btn-label primary">{permissionLabel}</text>
               </view>
             </view>
-            <view className="Reminder-row">
-              <text className="Reminder-label">
-                {t('healthConnect.export')}
+            {connection?.provider === 'health-kit' && <view>
+              <text className="Section-note" accessibility-element={true}>
+                {t(connection.status.writeAuthorized ? 'healthKit.writeAllowed' : 'healthKit.writeNotEnabled')}
               </text>
+              <text className="Section-note" accessibility-element={true}>
+                {t(connection.status.nutritionWriteAuthorized === undefined ? 'healthKit.nutritionWriteUnknown'
+                  : connection.status.nutritionWriteAuthorized ? 'healthKit.nutritionWriteAllowed' : 'healthKit.nutritionWriteNotEnabled')}
+              </text>
+            </view>}
+            <view className="Reminder-row">
+              <text className="Reminder-label">{t(healthKit ? 'healthKit.syncPreference' : 'healthConnect.export')}</text>
               <view className="Reminder-toggle">
-                <view
-                  className={
-                    status.enabled ? 'Reminder-seg active' : 'Reminder-seg'
-                  }
-                  hover-class="tap-feedback-hover"
-                  bindtap={
-                    status.enabled ? undefined : () => onSetEnabled(true)
-                  }
-                >
-                  <text
-                    className={
-                      status.enabled
-                        ? 'Reminder-seg-label active'
-                        : 'Reminder-seg-label'
-                    }
-                  >
-                    {t('reminder.on')}
-                  </text>
-                </view>
-                <view
-                  className={
-                    status.enabled ? 'Reminder-seg' : 'Reminder-seg active'
-                  }
-                  hover-class="tap-feedback-hover"
-                  bindtap={
-                    status.enabled ? () => onSetEnabled(false) : undefined
-                  }
-                >
-                  <text
-                    className={
-                      status.enabled
-                        ? 'Reminder-seg-label'
-                        : 'Reminder-seg-label active'
-                    }
-                  >
-                    {t('reminder.off')}
-                  </text>
-                </view>
+                {[true, false].map(enabled => {
+                  const selected = status.enabled === enabled;
+                  const disabled = blocked || !capabilities.toggle || selected || (enabled && !canEnable);
+                  return <view key={String(enabled)} className={selected ? 'Reminder-seg active' : 'Reminder-seg'}
+                    accessibility-element={true} accessibility-traits="button" accessibility-value={selected ? '✓' : ''}
+                    accessibility-label={t(enabled ? 'reminder.on' : 'reminder.off')}
+                    hover-class={disabled ? undefined : 'tap-feedback-hover'}
+                    bindtap={disabled ? undefined : () => void perform('toggle', () => onSetEnabled(enabled))}>
+                    <text className={selected ? 'Reminder-seg-label active' : 'Reminder-seg-label'}>{t(enabled ? 'reminder.on' : 'reminder.off')}</text>
+                  </view>;
+                })}
               </view>
             </view>
             <view className="HealthConnect-syncrow">
-              <view
-                className={
-                  syncing || !canSync
-                    ? 'Sheet-btn HealthConnect-sync disabled'
-                    : 'Sheet-btn HealthConnect-sync'
-                }
-                hover-class="tap-feedback-hover"
-                bindtap={!syncing && canSync ? handleSync : undefined}
-              >
-                <text className="Sheet-btn-label">
-                  {syncing
-                    ? t('healthConnect.syncing')
-                    : t('healthConnect.syncNow')}
-                </text>
+              <view className={`Sheet-btn HealthConnect-sync${blocked || !canSync ? ' disabled' : ''}`}
+                accessibility-element={true} accessibility-traits="button" accessibility-label={t('healthConnect.syncNow')}
+                hover-class={blocked || !canSync ? undefined : 'tap-feedback-hover'}
+                bindtap={blocked || !canSync ? undefined : () => void perform('sync', async () => { if (!await onSync()) throw new Error('Sync failed'); })}>
+                <text className="Sheet-btn-label">{t(busy === 'sync' ? 'healthConnect.syncing' : 'healthConnect.syncNow')}</text>
               </view>
-              <text className="HealthConnect-lastsync">
-                {canSync
-                  ? status.lastSyncEpochMs
-                    ? `${t('healthConnect.lastSync')} ${formatSync(status.lastSyncEpochMs)}`
-                    : t('healthConnect.neverSynced')
-                  : ''}
-              </text>
+              <text className="HealthConnect-lastsync">{status.lastSyncEpochMs
+                ? `${t('healthConnect.lastSync')} ${formatSync(status.lastSyncEpochMs)}` : t('healthConnect.neverSynced')}</text>
             </view>
-          </view>
-        )}
-        <view className="Sheet-actions">
-          <view
-            className="Sheet-btn primary"
-            hover-class="tap-feedback-hover"
-            bindtap={onClose}
-          >
-            <text className="Sheet-btn-label primary">
-              {t('healthConnect.done')}
-            </text>
-          </view>
-        </view>
-      </view>
+          </view>)}
+        {busy !== null && busy !== 'sync' && <text className="Settings-status" accessibility-element={true}>{t('review.saving')}</text>}
+        {error && <text className="Sheet-error" accessibility-element={true}>{t('review.retryError')}</text>}
+      </scroll-view>
+      <view className="Sheet-actions"><view className="Sheet-btn primary" accessibility-element={true}
+        accessibility-traits="button" accessibility-label={t('healthConnect.done')} hover-class="tap-feedback-hover" bindtap={onClose}>
+        <text className="Sheet-btn-label primary">{t('healthConnect.done')}</text>
+      </view></view>
     </view>
-  );
+  </view>;
 }

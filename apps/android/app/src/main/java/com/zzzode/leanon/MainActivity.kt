@@ -1,5 +1,12 @@
 package com.zzzode.leanon
 
+import android.content.Context
+import android.content.BroadcastReceiver
+import android.content.IntentFilter
+import android.content.Intent
+import android.content.res.Configuration
+import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -7,8 +14,13 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import androidx.fragment.app.FragmentContainerView
@@ -18,8 +30,12 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.fragment
 import com.zzzode.leanon.ble.PermissionRequests
 import com.zzzode.leanon.healthconnect.HealthConnectPermission
+import com.zzzode.leanon.modules.AppModule
+import com.zzzode.leanon.appearance.AppearancePreference
 import com.zzzode.leanon.navigation.LynxContainerFragment
 import com.zzzode.leanon.reminders.NotificationPermission
+import com.zzzode.leanon.data.toJavaOnlyMap
+import org.json.JSONObject
 
 /**
  * Single-activity shell: a Jetpack Navigation host renders one Lynx screen per
@@ -37,11 +53,36 @@ class MainActivity : AppCompatActivity() {
 
   private lateinit var navController: NavController
   private lateinit var glassCapsule: LeanOnGlassCapsule
+  private lateinit var contentRoot: FrameLayout
   private var selectedTabIndex = 0
+  private var modalActive = false
+  private var modalOwner: Any? = null
+  private var modalFragment: LynxContainerFragment? = null
+  private var modalRoute: String? = null
+
+  private val modalBackCallback = object : OnBackPressedCallback(false) {
+    override fun handleOnBackPressed() {
+      // JS owns the sheet state. Keep navigation blocked until it acknowledges
+      // the dismissal, so repeated Back presses cannot pop the underlying page.
+      if (modalFragment?.requestModalDismiss() != true) {
+        clearModalState()
+        onBackPressedDispatcher.onBackPressed()
+      }
+    }
+  }
 
   // Prismal captures the backdrop on demand; poll periodically so the glass
   // stays fresh while the user scrolls the Lynx content behind it.
   private val backdropHandler = Handler(Looper.getMainLooper())
+  private val recordClockRunnable = object : Runnable {
+    override fun run() {
+      publishCurrentRecords()
+      backdropHandler.postDelayed(this, 60_000L - System.currentTimeMillis() % 60_000L)
+    }
+  }
+  private val recordClockReceiver = object : BroadcastReceiver() {
+    override fun onReceive(context: Context?, intent: Intent?) { publishCurrentRecords() }
+  }
   private var lastTabSwitchTime = 0L
   private val backdropRunnable = object : Runnable {
     override fun run() {
@@ -60,9 +101,32 @@ class MainActivity : AppCompatActivity() {
       HealthConnectPermission.handleResult(grantedPermissions)
     }
 
+  override fun attachBaseContext(newBase: Context) {
+    // Below Android 13 the app owns locale storage; restore it before
+    // AppCompat wraps the activity context and inflates any native labels.
+    if (Build.VERSION.SDK_INT < 33) {
+      AppModule.preferredLocale(newBase)?.let { locale ->
+        AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(locale))
+      }
+    }
+    super.attachBaseContext(newBase)
+  }
+
   override fun onCreate(savedInstanceState: Bundle?) {
+    applyQaAppearance(intent)
+    applyQaClock(intent)
     super.onCreate(savedInstanceState)
     val app = application as LeanOnApplication
+    // Android 13+ persists application locales in the framework. Migrate a
+    // preference from the previous bridge implementation after delegate creation.
+    if (Build.VERSION.SDK_INT >= 33) {
+      AppModule.preferredLocale(app)?.let { locale ->
+        val locales = LocaleListCompat.forLanguageTags(locale)
+        if (AppCompatDelegate.getApplicationLocales() != locales) {
+          AppCompatDelegate.setApplicationLocales(locales)
+        }
+      }
+    }
 
     val root = FrameLayout(this).apply {
       layoutParams = ViewGroup.LayoutParams(
@@ -70,6 +134,7 @@ class MainActivity : AppCompatActivity() {
         ViewGroup.LayoutParams.MATCH_PARENT,
       )
     }
+    contentRoot = root
 
     val navHostContainer = FragmentContainerView(this).apply {
       id = R.id.nav_host_container
@@ -82,12 +147,14 @@ class MainActivity : AppCompatActivity() {
 
     buildTabBar(root, navHostContainer)
     setContentView(root)
+    applyAppearance()
 
     // Keep Lynx content below the status bar (edge-to-edge is enforced on
     // targetSdk 35). The bottom bar floats on top of the content.
     ViewCompat.setOnApplyWindowInsetsListener(navHostContainer) { view, insets ->
       val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-      view.updatePadding(top = bars.top, bottom = bars.bottom)
+      val keyboard = insets.getInsets(WindowInsetsCompat.Type.ime())
+      view.updatePadding(top = bars.top, bottom = maxOf(bars.bottom, keyboard.bottom))
       insets
     }
 
@@ -96,16 +163,110 @@ class MainActivity : AppCompatActivity() {
     navController.graph = buildGraph(navController)
     app.router.attach(navController)
     wireTabs()
+    onBackPressedDispatcher.addCallback(this, modalBackCallback)
+    if (savedInstanceState == null) openQaRoute(intent)
+  }
+
+  override fun onNewIntent(intent: Intent) {
+    super.onNewIntent(intent)
+    setIntent(intent)
+    applyQaAppearance(intent)
+    applyQaClock(intent)
+    publishCurrentRecords()
+    applyAppearance()
+    (application as LeanOnApplication).events.dispatch(
+      "app.appearanceChanged", (application as LeanOnApplication).appearance.snapshot(),
+    )
+    openQaRoute(intent)
+  }
+
+  override fun onConfigurationChanged(newConfig: Configuration) {
+    super.onConfigurationChanged(newConfig)
+    applyAppearance()
+    val app = application as LeanOnApplication
+    app.events.dispatch("app.appearanceChanged", app.appearance.snapshot())
+  }
+
+  /** Theme changes preserve the destination, sheet ownership and Lynx drafts. */
+  fun applyAppearance() {
+    val appearance = (application as LeanOnApplication).appearance
+    val themed = appearance.themedContext(this)
+    val canvas = ContextCompat.getColor(themed, R.color.surface)
+    val dark = appearance.resolved() == "dark"
+    window.setBackgroundDrawable(ColorDrawable(canvas))
+    @Suppress("DEPRECATION")
+    window.statusBarColor = canvas
+    @Suppress("DEPRECATION")
+    window.navigationBarColor = canvas
+    WindowCompat.getInsetsController(window, window.decorView).apply {
+      isAppearanceLightStatusBars = !dark
+      isAppearanceLightNavigationBars = !dark
+    }
+    if (::contentRoot.isInitialized) contentRoot.setBackgroundColor(canvas)
+    if (::glassCapsule.isInitialized) glassCapsule.applyAppearance(themed)
+  }
+
+  fun refreshBackdropAfterRender() {
+    if (::glassCapsule.isInitialized) glassCapsule.refreshBackdropAfterRender()
+  }
+
+  private fun applyQaAppearance(intent: Intent) {
+    // The disposable QA app can launch exact native routes/themes without
+    // synthetic touches or modifying production preferences/health records.
+    if (!BuildConfig.DEBUG || !packageName.endsWith(".uiqa")) return
+    val preference = intent.getStringExtra("leanon_qa_appearance") ?: return
+    if (AppearancePreference.parse(preference) == null) return
+    val app = application as LeanOnApplication
+    if (app.appearance.save(preference)) app.appearance.applyPlatformPreference()
+  }
+
+  private fun applyQaClock(intent: Intent) {
+    intent.getStringExtra("leanon_qa_now")?.let {
+      (application as LeanOnApplication).setQaRecordClock(it)
+    }
+  }
+
+  private fun publishCurrentRecords() {
+    val app = application as LeanOnApplication
+    val snapshot = runCatching { app.records.currentSnapshot() }.getOrElse { JSONObject() }
+    app.events.dispatch("records.changed", JSONObject().put("hostData", snapshot).toJavaOnlyMap())
+  }
+
+  private fun openQaRoute(intent: Intent) {
+    if (!BuildConfig.DEBUG || !packageName.endsWith(".uiqa")) return
+    val route = intent.getStringExtra("leanon_qa_route") ?: return
+    if (route !in PRIMARY_ROUTES && route != ROUTE_SETTINGS) return
+    if (route != navController.currentDestination?.route) {
+      navController.navigate(route) { launchSingleTop = true }
+    }
   }
 
   override fun onResume() {
     super.onResume()
+    ContextCompat.registerReceiver(this, recordClockReceiver,
+      IntentFilter().apply { addAction(Intent.ACTION_TIME_CHANGED); addAction(Intent.ACTION_TIMEZONE_CHANGED); addAction(Intent.ACTION_DATE_CHANGED) },
+      ContextCompat.RECEIVER_NOT_EXPORTED)
+    backdropHandler.postDelayed(recordClockRunnable, 60_000L - System.currentTimeMillis() % 60_000L)
+    publishCurrentRecords()
     backdropHandler.post(backdropRunnable)
+    (application as LeanOnApplication).let { app ->
+      app.personalPreviews.setForeground(false)
+      runCatching { app.clearPersonalPreviews(); app.personalPreviews.setForeground(true) }
+        .onFailure { android.util.Log.w("LeanOn", "Photo preview cleanup unavailable; preview access remains blocked") }
+      app.events.dispatch("app.lifecycle", mapOf("state" to "foreground"))
+    }
   }
 
   override fun onPause() {
     super.onPause()
+    (application as LeanOnApplication).let { app ->
+      app.events.dispatch("app.lifecycle", mapOf("state" to "background"))
+      app.personalPreviews.setForeground(false)
+      runCatching { app.clearPersonalPreviews() }
+        .onFailure { android.util.Log.w("LeanOn", "Photo preview cleanup unavailable; access revoked") }
+    }
     backdropHandler.removeCallbacksAndMessages(null)
+    unregisterReceiver(recordClockReceiver)
     glassCapsule.finishInteraction()
   }
 
@@ -113,9 +274,8 @@ class MainActivity : AppCompatActivity() {
     super.onStart()
     // Best-effort two-way sync whenever the app comes to the foreground (RFC 0025).
     val app = application as LeanOnApplication
-    if (app.settings.getHealthConnectEnabled()) {
-      app.healthConnect.syncAsync { }
-    }
+    runCatching { if (app.settings.getHealthConnectEnabled()) app.healthConnect.syncAsync { } }
+      .onFailure { android.util.Log.w("LeanOn", "Health Connect settings unavailable; foreground sync skipped", it) }
   }
 
   override fun onRequestPermissionsResult(
@@ -129,8 +289,15 @@ class MainActivity : AppCompatActivity() {
   }
 
   override fun onDestroy() {
+    if (isFinishing) {
+      PermissionRequests.cancel()
+      NotificationPermission.cancel()
+      HealthConnectPermission.cancel()
+    }
     backdropHandler.removeCallbacksAndMessages(null)
     (application as LeanOnApplication).router.detach()
+    modalOwner = null
+    modalFragment = null
     super.onDestroy()
   }
 
@@ -155,6 +322,7 @@ class MainActivity : AppCompatActivity() {
   }
 
   private fun onTabSelected(index: Int) {
+    if (modalActive) return
     if (index == selectedTabIndex) return
     selectedTabIndex = index
     navController.navigate(TAB_SPECS[index].route) {
@@ -169,13 +337,63 @@ class MainActivity : AppCompatActivity() {
   private fun wireTabs() {
     navController.addOnDestinationChangedListener { _, destination, _ ->
       val route = destination.route
+      if (modalActive && route != modalRoute) clearModalState()
       if (route !in PRIMARY_ROUTES) glassCapsule.finishInteraction()
-      glassCapsule.visibility = if (route in PRIMARY_ROUTES) View.VISIBLE else View.GONE
+      updateTabBarVisibility()
       val index = TAB_SPECS.indexOfFirst { it.route == route }
       if (index >= 0) {
         selectedTabIndex = index
         glassCapsule.setSelectedTab(index)
       }
+    }
+  }
+
+  fun setModalActive(active: Boolean, owner: Any): Boolean {
+    if (active) {
+      val host = supportFragmentManager.findFragmentById(R.id.nav_host_container) as? NavHostFragment
+      val fragment = host?.childFragmentManager?.primaryNavigationFragment as? LynxContainerFragment
+        ?: return false
+      modalOwner = owner
+      modalFragment = fragment
+      modalRoute = navController.currentDestination?.route
+      modalActive = true
+      glassCapsule.finishInteraction()
+    } else {
+      // A disposed Lynx module may acknowledge its old sheet after the next
+      // destination has opened one. Its cleanup must not expose that tab bar.
+      if (modalOwner != null && modalOwner !== owner) return true
+      try { (application as LeanOnApplication).clearPersonalPreviews() }
+      finally { clearModalState() }
+    }
+    modalBackCallback.isEnabled = modalActive
+    updateTabBarVisibility()
+    return true
+  }
+
+  fun clearModalFor(fragment: LynxContainerFragment) {
+    if (modalFragment === fragment) clearModalState()
+  }
+
+  private fun clearModalState() {
+    modalActive = false
+    modalOwner = null
+    modalFragment = null
+    modalRoute = null
+    modalBackCallback.isEnabled = false
+    updateTabBarVisibility()
+  }
+
+  private fun updateTabBarVisibility() {
+    glassCapsule.isEnabled = !modalActive
+    glassCapsule.importantForAccessibility = if (modalActive) {
+      View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
+    } else {
+      View.IMPORTANT_FOR_ACCESSIBILITY_AUTO
+    }
+    glassCapsule.visibility = if (!modalActive && navController.currentDestination?.route in PRIMARY_ROUTES) {
+      View.VISIBLE
+    } else {
+      View.GONE
     }
   }
 

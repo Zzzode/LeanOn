@@ -1,0 +1,188 @@
+[
+  {
+    "label": "Local records",
+    "path": "apps/ios/LeanOn/Storage/RecordsStore.swift",
+    "line": 66,
+    "sha256": "d4c9d4ce99f366bf822d7d7787c98f06d99c461874393d48612be41c31b843b3"
+  },
+  {
+    "label": "Water and food persistence",
+    "path": "apps/ios/LeanOn/Storage/RecordsStore.swift",
+    "line": 181,
+    "sha256": "d4c9d4ce99f366bf822d7d7787c98f06d99c461874393d48612be41c31b843b3"
+  },
+  {
+    "label": "Native record contracts",
+    "path": "apps/ios/LeanOn/Modules/HealthModule.swift",
+    "line": 102,
+    "sha256": "1dda15bb48a5b0e7d556005c1002f903cdc2dd4c54b4399cc712790d8440b375"
+  },
+  {
+    "label": "Android record validation",
+    "path": "apps/android/app/src/main/java/com/zzzode/leanon/modules/RecordRequest.kt",
+    "line": 11,
+    "sha256": "1368349b2d78b117d45bfc56ae6b6522794df751f40502e352d99b258df546af"
+  },
+  {
+    "label": "Current date",
+    "path": "apps/android/app/src/main/java/com/zzzode/leanon/data/CurrentSnapshot.kt",
+    "line": 9,
+    "sha256": "3ef75bc3279ed166e4ce55b3e91881b27a863785a9d0deb99566ce3a3136926a"
+  },
+  {
+    "label": "Atomic records/settings",
+    "path": "apps/android/app/src/main/java/com/zzzode/leanon/data/AtomicRecordsFile.kt",
+    "line": 9,
+    "sha256": "bb2cc920a42590239cab009265b5dfe9cc2920a90cbdcb84feb41f18f4230f57"
+  },
+  {
+    "label": "Legacy settings migration",
+    "path": "apps/android/app/src/main/java/com/zzzode/leanon/data/SettingsRepository.kt",
+    "line": 14,
+    "sha256": "9c23cb67507dd82c81a5f04f34a2496ab77e1a1c4aca26b84e03e67a8af56a9b"
+  },
+  {
+    "label": "Export revisions",
+    "path": "apps/android/app/src/main/java/com/zzzode/leanon/healthconnect/HealthConnectExportLedger.kt",
+    "line": 18,
+    "sha256": "19bbb7e39b0cd38955bb09bc730a2e2cea6ef37e51645d5302ce5706b49a0385"
+  },
+  {
+    "label": "Export serialization",
+    "path": "apps/android/app/src/main/java/com/zzzode/leanon/healthconnect/HealthConnectManager.kt",
+    "line": 60,
+    "sha256": "a55ef7cf146d504ab28eecdf4ec70c95a400b71945fc03c00cc3e9a4fcaa8131"
+  },
+  {
+    "label": "Notification permission/durability",
+    "path": "apps/android/app/src/main/java/com/zzzode/leanon/modules/NotificationModule.kt",
+    "line": 49,
+    "sha256": "2624b651bab09edfeaa03080a11d952e6b284256d553aa2d578d69f211a84155"
+  },
+  {
+    "label": "Health enable rollback",
+    "path": "apps/android/app/src/main/java/com/zzzode/leanon/modules/HealthConnectModule.kt",
+    "line": 133,
+    "sha256": "489e9d2b2f2bf08fbf7c552dcb0b32299c90acccbf4d6fd463471bb7e2c6b47a"
+  },
+  {
+    "label": "HealthKit export ledger",
+    "path": "apps/ios/LeanOn/HealthKit/health-kit-manager.swift",
+    "line": 81,
+    "sha256": "f9c39dae10e7963275b32fa7f12db197c7a1b2e3f5bbb3576dbdc3b87cc5b34f"
+  },
+  {
+    "label": "HealthKit nutrition",
+    "path": "apps/ios/LeanOn/HealthKit/health-kit-models.swift",
+    "line": 135,
+    "sha256": "2074f4b1fe0d24d0984ea75e120ef5cfa662f6823a4eba5eab1cd5d92dd746ed"
+  },
+  {
+    "label": "HealthKit SDK write types",
+    "path": "apps/ios/LeanOn/HealthKit/system-health-kit-client.swift",
+    "line": 22,
+    "sha256": "e0e71907cbb73f37c36183d1e7a0a881ec0ffbe3c51b32ad095c8b9859f98e12"
+  },
+  {
+    "label": "Dynamic time zone",
+    "path": "apps/ios/LeanOn/Bridge/ServiceRegistry.swift",
+    "line": 39,
+    "sha256": "3a06ffa910fd94429d653dc2a0cae368f4ad4bb42d9f46f590802fe365914e44"
+  },
+  {
+    "label": "Camera permission/error",
+    "path": "apps/ios/LeanOn/Scanner/barcode-scan-coordinator.swift",
+    "line": 54,
+    "sha256": "17735d11a900567c30eea8a70e6b875fecf26db8af036fb43e1e70eb33ff22e3"
+  },
+  {
+    "label": "Actual void scanner request",
+    "path": "apps/ios/LeanOn/Modules/ScannerModule.swift",
+    "line": 16,
+    "sha256": "1919ee2d2842600e58ca6e30bcf4189756a6fe4bf1b852cdd1a30dafeb7361c7"
+  },
+  {
+    "label": "OFF lookup",
+    "path": "apps/ios/LeanOn/Net/open-food-facts-client.swift",
+    "line": 11,
+    "sha256": "a6c63054db96bfb1d09c655b3450d931a9cd4a3c91099a6f599e961243e826d1"
+  },
+  {
+    "label": "iOS notification transaction",
+    "path": "apps/ios/LeanOn/Reminders/reminder-manager.swift",
+    "line": 64,
+    "sha256": "9dca2334415dc92535805193583090c579f302f07f6caeee822a086c956efa00"
+  },
+  {
+    "label": "28-day reminder plan",
+    "path": "apps/ios/LeanOn/Reminders/reminder-settings.swift",
+    "line": 74,
+    "sha256": "67d569c8b716a34850a2679651f2312a7ec9de8da961a82018c847626557eeb7"
+  },
+  {
+    "label": "BLE readiness/persistence",
+    "path": "apps/ios/LeanOn/Bluetooth/scale-manager.swift",
+    "line": 125,
+    "sha256": "7a54c1f461073ce8fa8e11e4004885fbcdaec90db01574acb48ffe3f51793ce0"
+  },
+  {
+    "label": "Scanner stage errors",
+    "path": "packages/pages/src/state/scan-food.ts",
+    "line": 18,
+    "sha256": "78867dd441d303ff2a99b52745796a9ea13477993a765e368e536012e7d9c997"
+  },
+  {
+    "label": "Reminder read/error guard",
+    "path": "packages/pages/src/state/reminders.ts",
+    "line": 19,
+    "sha256": "661876ac5be15ef1655d6a8261f120133c76f878ef31b21a4e85ffe690fce952"
+  },
+  {
+    "label": "Shared capability gating",
+    "path": "packages/pages/src/state/capabilities.ts",
+    "line": 2,
+    "sha256": "fa778dd76fd6304ee5983ced449c81f931c4ea06e7147b4fed8f85926e77627a"
+  },
+  {
+    "label": "Basic actual UI cases",
+    "path": "apps/ios/LeanOnUITests/basic-records-ui-tests.swift",
+    "line": 101,
+    "sha256": "d245321e76797bce02ddd7b8f46953642a4164d35a5d9a93d15e84b27a7b0f22"
+  },
+  {
+    "label": "Health status actual UI",
+    "path": "apps/ios/LeanOnUITests/health-status-ui-tests.swift",
+    "line": 5,
+    "sha256": "c2e5617e52359f7d2cbd7af9c997580e6e714a8289545a2924ea4555b9e823ac"
+  },
+  {
+    "label": "Camera unavailable actual UI",
+    "path": "apps/ios/LeanOnUITests/scanner-ui-tests.swift",
+    "line": 4,
+    "sha256": "a4955403a01aaf4a0facc8c299f18297d53d7199354a5444fe80718ef05a6167"
+  },
+  {
+    "label": "Reminder read-failure actual UI",
+    "path": "apps/ios/LeanOnUITests/reminder-read-ui-tests.swift",
+    "line": 5,
+    "sha256": "bf54a3c301c663cade49ded64545ffa3335273b7089492a326ba8222abc201d1"
+  },
+  {
+    "label": "Notification permission QA guard",
+    "path": "apps/ios/LeanOnUITests/notification-ui-tests.swift",
+    "line": 8,
+    "sha256": "0d0d3fb818b2cdd485831d0b400e6200ae8f7689bed8fac4557f581cc3f432d0"
+  },
+  {
+    "label": "Fresh Lynx Pod repair",
+    "path": "apps/ios/Podfile",
+    "line": 20,
+    "sha256": "ab8eca15f695e2ac94ed76983d19024e77b8915cb8425ddcdd582233aa13d54e"
+  },
+  {
+    "label": "Platform decision",
+    "path": "rfcs/0031-platform-capability-parity.md",
+    "line": 9,
+    "sha256": "7af9908f56c5ff76accdd33b2ee6b972c0f9ba8201d369e3d56a3400f685a674"
+  }
+]

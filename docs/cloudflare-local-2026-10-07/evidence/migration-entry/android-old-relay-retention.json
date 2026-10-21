@@ -1,0 +1,8 @@
+{
+  "platform": "Android",
+  "accountCount": 2,
+  "legacyVaultCount": 2,
+  "sourceAccountRetained": true,
+  "sourceWasNotDeleted": true,
+  "scope": "PUBLIC fictional localhost fixture only"
+}

@@ -1,0 +1,37 @@
+// PUBLIC deterministic test material only. Never use these inputs for production encryption.
+import { createHash, createCipheriv, pbkdf2Sync } from 'node:crypto';
+import { writeFile } from 'node:fs/promises';
+import sharp from 'sharp';
+import { createEmptyRecordsState } from '@zzzode/core';
+import { createEmptyPersonalState, isBackupPayload, isBackupEnvelope } from '../dist/index.js';
+const sha256 = (bytes) => createHash('sha256').update(bytes).digest('hex');
+const password = 'PUBLIC LeanOn 伙伴 e\u0301 🔒';
+const passwordBytes = Buffer.from(password, 'utf8');
+const salt = Buffer.from('000102030405060708090a0b0c0d0e0f', 'hex');
+const nonce = Buffer.from('101112131415161718191a1b', 'hex');
+const aad = Buffer.from('LeanOn backup v1', 'utf8');
+const photoBytes = await sharp({create:{width:4,height:4,channels:3,background:{r:128,g:128,b:128}}})
+  .jpeg({quality:80,chromaSubsampling:'4:4:4'}).toBuffer();
+const photoMetadata = await sharp(photoBytes).metadata();
+if (photoMetadata.exif || photoMetadata.xmp || photoMetadata.icc) throw new Error('Unexpected image metadata');
+const personal = createEmptyPersonalState();
+personal.dietaryPreferences.notes = '公开测试：伙伴支持，长期健康';
+personal.dietaryPreferences.future = {caption:'中文 · 未来属性',nullable:null,flags:[true,false,null]};
+personal.photos = [{id:'public-photo-1',date:'2026-10-07',view:'other',note:'Generated neutral grey pixels; no person or source photo.',createdAt:'2026-10-07T00:00:00Z',mime:'image/jpeg',width:4,height:4}];
+const payload = {formatVersion:1,createdAt:'2026-10-07T00:00:00Z',records:createEmptyRecordsState(),customFoods:[],favoriteFoodIds:[],recentFoodIds:[],personal,photos:[{id:'public-photo-1',bytesBase64:photoBytes.toString('base64')}]};
+if (!isBackupPayload(payload)) throw new Error('Generated payload fails shared validation');
+const plaintext = Buffer.from(JSON.stringify(payload),'utf8');
+const key = pbkdf2Sync(passwordBytes,salt,600000,32,'sha256');
+const cipher = createCipheriv('aes-256-gcm',key,nonce);
+cipher.setAAD(aad);
+const ciphertext = Buffer.concat([cipher.update(plaintext),cipher.final(),cipher.getAuthTag()]);
+const envelope = {formatVersion:1,cipher:'AES-256-GCM',kdf:'PBKDF2-HMAC-SHA256',iterations:600000,salt:salt.toString('base64'),nonce:nonce.toString('base64'),ciphertext:ciphertext.toString('base64')};
+if (!isBackupEnvelope(envelope)) throw new Error('Generated envelope fails shared validation');
+const envelopeJson = JSON.stringify(envelope);
+const fixture = {classification:'PUBLIC TEST FIXTURE — fixed test inputs, no account or production secret; never reuse this salt/nonce/key in production.',generator:'Node crypto PBKDF2-HMAC-SHA256 + AES-256-GCM; sharp synthetic 4×4 neutral grey JPEG without input image or metadata',password,passwordUtf8Hex:passwordBytes.toString('hex'),saltHex:salt.toString('hex'),nonceHex:nonce.toString('hex'),aadUtf8:'LeanOn backup v1',iterations:600000,derivedKeyHex:key.toString('hex'),plaintextUtf8Base64:plaintext.toString('base64'),payload,envelope,expected:{passwordUtf8Bytes:passwordBytes.length,photoBytes:photoBytes.length,plaintextBytes:plaintext.length,ciphertextBytes:ciphertext.length,photoSha256:sha256(photoBytes),plaintextSha256:sha256(plaintext),ciphertextSha256:sha256(ciphertext),envelopeJsonSha256:sha256(envelopeJson)}};
+const directory = new URL('../src/fixtures/', import.meta.url);
+await writeFile(new URL('public-backup-v1.json',directory),JSON.stringify(fixture,null,2)+'\n');
+await writeFile(new URL('public-backup-v1.envelope.json',directory),envelopeJson);
+await writeFile(new URL('public-backup-v1.jpeg',directory),photoBytes);
+console.log(JSON.stringify(fixture.expected,null,2));
+console.log('fixtureSha256 '+sha256(JSON.stringify(fixture,null,2)+'\n'));

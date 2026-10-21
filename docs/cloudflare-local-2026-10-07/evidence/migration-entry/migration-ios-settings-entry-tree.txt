@@ -1,0 +1,95 @@
+Attributes: Application, 0x112c45040, pid: 48602, label: 'LeanOn'
+Element subtree:
+ →Application, 0x112c45040, pid: 48602, label: 'LeanOn'
+    Window (Main), 0x112c45180, {{0.0, 0.0}, {375.0, 667.0}}
+      Other, 0x112c452c0, {{0.0, 0.0}, {375.0, 667.0}}
+        Other, 0x112c45400, {{0.0, 0.0}, {375.0, 667.0}}
+          Other, 0x112c45540, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x112c45680, {{0.0, 0.0}, {375.0, 667.0}}
+              Other, 0x112c44280, {{0.0, 0.0}, {375.0, 667.0}}
+                Other, 0x112c443c0, {{0.0, 0.0}, {375.0, 667.0}}
+                  NavigationBar, 0x112c44500, {{0.0, 20.0}, {375.0, 54.0}}, identifier: 'Me'
+                    Button, 0x112c44640, {{16.0, 20.0}, {44.0, 44.0}}, identifier: 'BackButton', label: 'Me'
+                  Other, 0x112c44780, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x112c448c0, {{0.0, 0.0}, {375.0, 667.0}}
+                      Other, 0x112c44a00, {{0.0, 0.0}, {375.0, 667.0}}
+                        Other, 0x112c44b40, {{0.0, 74.0}, {375.0, 593.0}}, label: 'lynxview'
+                          Other, 0x112c46a80, {{0.0, 74.0}, {375.0, 593.0}}
+                            ScrollView, 0x112c46bc0, {{0.0, 74.0}, {375.0, 593.0}}
+                              Other, 0x112c45e00, {{0.0, 74.0}, {375.0, 593.0}}
+                                Other, 0x112c45f40, {{0.0, 519.2}, {375.0, 147.8}}
+                              Other, 0x112c46080, {{0.0, 74.0}, {375.0, 593.0}}
+                                Other, 0x112c461c0, {{0.0, 519.2}, {375.0, 147.8}}
+                                  Image, 0x112c46300, {{-120.0, 524.0}, {615.0, 286.0}}, identifier: 'AdditionalDimmingOverlay'
+                                  Other, 0x112c46440, {{0.0, 519.2}, {375.0, 147.8}}
+                                    Other, 0x112c46580, {{0.0, 519.2}, {375.0, 147.8}}
+                                  Other, 0x112c466c0, {{0.0, 519.2}, {375.0, 147.8}}
+                                    Other, 0x112c46800, {{0.0, 519.2}, {375.0, 147.8}}
+                                    Other, 0x112c46940, {{0.0, 519.2}, {375.0, 147.8}}
+                              Other, 0x112c44000, {{0.0, 74.0}, {375.0, 1034.5}}
+                                StaticText, 0x112c44140, {{24.0, 106.0}, {327.0, 36.0}}, label: 'Settings'
+                                StaticText, 0x112c457c0, {{24.0, 178.0}, {327.0, 24.0}}, label: 'Appearance'
+                                Other, 0x112c45900, {{24.0, 216.0}, {327.0, 225.0}}
+                                  Button, 0x112c45a40, {{40.0, 224.0}, {295.0, 56.0}}, label: 'Follow system', value: ✓
+                                  Button, 0x112c45b80, {{40.0, 280.0}, {295.0, 56.0}}, label: 'Light'
+                                  Button, 0x112c45cc0, {{40.0, 336.0}, {295.0, 56.0}}, label: 'Dark'
+                                  StaticText, 0x112c46d00, {{40.0, 392.0}, {295.0, 41.0}}, label: 'Current appearance: Light'
+                                StaticText, 0x112c46e40, {{24.0, 477.0}, {327.0, 24.0}}, label: 'Language'
+                                Other, 0x112c46f80, {{24.0, 515.0}, {327.0, 72.0}}
+                                  Other, 0x112c470c0, {{40.0, 523.0}, {295.0, 56.0}}
+                                    Button, 0x112c47200, {{44.0, 527.0}, {143.5, 48.0}}, label: '中文'
+                                    Button, 0x112c47340, {{187.5, 527.0}, {143.5, 48.0}}, label: 'English', value: ✓
+                                StaticText, 0x112c47480, {{24.0, 623.0}, {327.0, 24.0}}, label: 'Connections & tools'
+                                Other, 0x112c475c0, {{24.0, 661.0}, {327.0, 56.0}}
+                                  StaticText, 0x112c47700, {{24.0, 677.0}, {79.0, 24.0}}, label: 'Health app'
+                                  StaticText, 0x112c47840, {{342.0, 676.0}, {9.0, 26.0}}, label: '›'
+                                Other, 0x112c47980, {{24.0, 717.0}, {327.0, 0.5}}
+                                Other, 0x112c47ac0, {{24.0, 717.5}, {327.0, 56.0}}
+                                  StaticText, 0x112c47c00, {{24.0, 733.5}, {77.5, 24.0}}, label: 'Reminders'
+                                  StaticText, 0x112c47d40, {{342.0, 732.5}, {9.0, 26.0}}, label: '›'
+                                StaticText, 0x112c47e80, {{24.0, 801.5}, {327.0, 24.0}}, label: 'Move to private cloud'
+                                Button, 0x1031ded00, {{24.0, 839.5}, {327.0, 56.0}}, label: 'Move to private cloud'
+                                StaticText, 0x1031dee40, {{24.0, 905.5}, {327.0, 50.0}}, label: 'Private by default. Share only what you choose.'
+                                StaticText, 0x1031def80, {{95.0, 979.5}, {185.5, 21.0}}, label: 'LeanOn · not medical advice'
+                  Other, 0x1031df0c0, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x1031df200, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x1031df340, {{0.0, 584.0}, {375.0, 83.0}}
+              Other, 0x1031df480, {{0.0, 0.0}, {375.0, 667.0}}
+                TabBar, 0x1031df5c0, {{0.0, 584.0}, {375.0, 83.0}}, label: '标签页栏'
+                  Other, 0x1031df700, {{21.0, 584.0}, {333.0, 62.0}}
+                    Other, 0x1031df840, {{21.0, 584.0}, {74.0, 54.0}}
+                    Other, 0x1031df980, {{21.0, 584.0}, {333.0, 62.0}}
+                      Button, 0x1031dfac0, {{25.0, 588.0}, {74.0, 54.0}}, label: 'Today'
+                        Image, 0x1031dfc00, {{48.0, 593.0}, {29.0, 29.5}}, identifier: 'sun.max', label: '调高亮度'
+                      Button, 0x1031dfd40, {{87.2, 588.0}, {74.0, 54.0}}, label: 'Diary'
+                        Image, 0x1031dfe80, {{108.2, 595.0}, {31.5, 25.5}}, identifier: 'book', label: '书签'
+                      Button, 0x1134c0000, {{149.5, 588.0}, {76.0, 54.0}}, label: 'Progress'
+                        Image, 0x1134c0140, {{169.5, 595.5}, {35.5, 25.5}}, identifier: 'chart.bar', label: '图表柱形图'
+                      Button, 0x1134c0280, {{213.8, 588.0}, {74.0, 54.0}}, label: 'Partner'
+                        Image, 0x1134c03c0, {{236.8, 596.0}, {29.0, 25.0}}, identifier: 'heart', label: '喜欢'
+                      Button, 0x1134c0500, {{276.0, 588.0}, {74.0, 54.0}}, label: 'Me', Selected
+                        Image, 0x1134c0640, {{300.0, 595.5}, {26.0, 25.0}}, identifier: 'person', label: 'person'
+                    Other, 0x1134c0780, {{276.0, 588.0}, {74.0, 54.0}}
+                      Other, 0x1134c08c0, {{276.0, 588.0}, {74.0, 54.0}}
+                        Other, 0x1134c0a00, {{276.0, 588.0}, {74.0, 54.0}}
+                        Other, 0x1134c0b40, {{276.0, 588.0}, {74.0, 54.0}}
+                          Other, 0x1134c0c80, {{276.0, 588.0}, {74.0, 54.0}}
+                            Other, 0x1134c0dc0, {{276.0, 588.0}, {74.0, 54.0}}
+                              Other, 0x1134c0f00, {{276.0, 588.0}, {74.0, 54.0}}
+                            Other, 0x1134c1040, {{276.0, 588.0}, {74.0, 54.0}}
+                          Other, 0x1134c1180, {{276.0, 588.0}, {74.0, 54.0}}
+              Other, 0x1134c12c0, {{0.0, 584.0}, {375.0, 83.0}}
+                Other, 0x1134c1400, {{0.0, 584.0}, {375.0, 83.0}}
+                  Other, 0x1134c1540, {{0.0, 584.0}, {375.0, 83.0}}
+                    Other, 0x1134c1680, {{0.0, 584.0}, {375.0, 83.0}}
+                      Other, 0x1134c17c0, {{0.0, 584.0}, {375.0, 83.0}}
+                        Other, 0x1134c1900, {{0.0, 584.0}, {375.0, 83.0}}
+                    Other, 0x1134c1a40, {{0.0, 584.0}, {375.0, 83.0}}
+                      Other, 0x1134c1b80, {{0.0, 584.0}, {375.0, 83.0}}
+Path to element:
+ →Application, 0x112c45040, pid: 48602, label: 'LeanOn'
+Query chain:
+ →Find: Target Application 'com.zzzode.leanon.uiqa'
+  Output: {
+    Application, 0x1134c1cc0, pid: 48602, label: 'LeanOn'
+  }

@@ -6,6 +6,7 @@ import {
   type LeanOnBridgeClient,
 } from '@zzzode/bridge';
 import {
+  applyRecordMutation,
   DEFAULT_REMINDER_SETTINGS,
   type ReminderSettings,
 } from '@zzzode/core';
@@ -25,7 +26,7 @@ function upsertWeight(
   weightKg: number,
 ): HostData {
   const weights = data.weights.filter((w) => w.date !== date);
-  weights.push({ date, weightKg });
+  weights.push({ id:`weight-${date}`, date, weightKg });
   weights.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
   return { ...data, weights };
 }
@@ -41,6 +42,17 @@ function createPreviewBridge(): LeanOnBridgeClient {
   let hostData: HostData = clone(sampleHostData);
   let scaleState: 'idle' | 'scanning' | 'connected' = 'idle';
   let customFoodSeq = 0;
+  memory.handle('records.getSnapshot', () => ({hostData:clone(hostData)}));
+  memory.handle<import('@zzzode/bridge').RecordsMutationRequest, import('@zzzode/bridge').LeanOnRpcContract['records.mutate']['response']>('records.mutate',request=>{
+    const result=applyRecordMutation(hostData,request,{today:hostData.today,deletedAt:`${hostData.today}T19:00:00.000Z`});
+    hostData={...hostData,...result.state};
+    if(request.mutation.type==='save-intake' && request.mutation.entry.foodId !== undefined) {
+      const id=request.mutation.entry.foodId;
+      hostData={...hostData,recentFoodIds:[id,...hostData.recentFoodIds.filter(candidate=>candidate!==id)].slice(0,12)};
+    }
+    memory.emit('records.changed',{hostData:clone(hostData)});
+    return {success:true,hostData:clone(hostData),appliedRevision:result.appliedRevision,replayed:result.replayed,...(result.undoToken===undefined?{}:{undoToken:result.undoToken})};
+  });
 
   memory.handle<
     { date: string; weightKg: number },
@@ -117,7 +129,7 @@ function createPreviewBridge(): LeanOnBridgeClient {
     { success: true; hostData: HostData }
   >('health.writeWater', (request) => {
     const water = hostData.water.filter((s) => s.date !== request.date);
-    water.push({ date: request.date, amountMl: request.amountMl });
+    water.push({ id:`water-${request.date}`,date: request.date, amountMl: request.amountMl });
     water.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
     hostData = { ...hostData, water };
     return { success: true, hostData: clone(hostData) };
@@ -149,6 +161,7 @@ function createPreviewBridge(): LeanOnBridgeClient {
       ...hostData,
       customFoods: [...hostData.customFoods, item],
     };
+    hostData = {...hostData, revision:hostData.revision+1};
     return { success: true, hostData: clone(hostData) };
   });
 
@@ -160,6 +173,10 @@ function createPreviewBridge(): LeanOnBridgeClient {
       proteinG?: number;
       carbsG?: number;
       fatG?: number;
+      fiberG?: number;
+      sugarG?: number;
+      saturatedFatG?: number;
+      sodiumMg?: number;
       defaultGrams?: number | null;
     },
     { success: true; hostData: HostData }
@@ -172,6 +189,10 @@ function createPreviewBridge(): LeanOnBridgeClient {
       proteinG: request.proteinG,
       carbsG: request.carbsG,
       fatG: request.fatG,
+      fiberG: request.fiberG,
+      sugarG: request.sugarG,
+      saturatedFatG: request.saturatedFatG,
+      sodiumMg: request.sodiumMg,
       defaultGrams: request.defaultGrams,
     });
     hostData = {
@@ -180,6 +201,7 @@ function createPreviewBridge(): LeanOnBridgeClient {
         f.id === request.id ? updated : f,
       ),
     };
+    hostData = {...hostData, revision:hostData.revision+1};
     return { success: true, hostData: clone(hostData) };
   });
 
@@ -202,6 +224,7 @@ function createPreviewBridge(): LeanOnBridgeClient {
         (id) => id !== request.id,
       ),
     };
+    hostData = {...hostData, revision:hostData.revision+1};
     return { success: true, hostData: clone(hostData) };
   });
 
@@ -213,6 +236,7 @@ function createPreviewBridge(): LeanOnBridgeClient {
       ? [...new Set([...hostData.favoriteFoodIds, request.id])]
       : hostData.favoriteFoodIds.filter((id) => id !== request.id);
     hostData = { ...hostData, favoriteFoodIds };
+    hostData = {...hostData, revision:hostData.revision+1};
     return { success: true, hostData: clone(hostData) };
   });
 
@@ -232,6 +256,7 @@ function createPreviewBridge(): LeanOnBridgeClient {
     },
     serving_quantity: 35,
   };
+  memory.handle('scanner.getStatus', () => ({cameraAvailable:true,hostAvailable:true,permission:'authorized'}));
   memory.handle('scanner.scanBarcode', () => ({ barcode: scanBarcode }));
   memory.handle<
     { barcode: string },
@@ -283,6 +308,7 @@ function createPreviewBridge(): LeanOnBridgeClient {
     );
     customFoods.push(item);
     hostData = { ...hostData, customFoods };
+    hostData = {...hostData, revision:hostData.revision+1};
     return { success: true, hostData: clone(hostData) };
   });
   memory.handle<
@@ -437,12 +463,27 @@ function createPreviewBridge(): LeanOnBridgeClient {
     'app.openRoute',
     () => ({ success: true }),
   );
+  memory.handle('app.setModalActive', () => ({ success: true }));
+  let appearance: import('@zzzode/bridge').AppearanceState = { preference: 'system', resolved: 'light' };
+  memory.handle('app.getAppearance', () => ({ ...appearance }));
+  memory.handle<import('@zzzode/bridge').LeanOnRpcContract['app.setAppearance']['request'], import('@zzzode/bridge').LeanOnRpcContract['app.setAppearance']['response']>('app.setAppearance', ({ preference }) => {
+    // Preview preferences are in memory; native hosts own durable system resolution.
+    appearance = { preference, resolved: preference === 'dark' ? 'dark' : 'light' };
+    memory.emit('app.appearanceChanged', { ...appearance });
+    return { success: true, ...appearance };
+  });
+  memory.handle<{ locale: 'en' | 'zh-CN' }, { success: true; locale: 'en' | 'zh-CN' }>('app.setLocale', ({ locale }) => {
+    memory.emit('app.localeChanged', { locale });
+    return { success: true, locale };
+  });
   return createLeanOnBridgeClient(memory.transport);
 }
 
 /** Select the real host bridge when running on device; otherwise the preview. */
-export function createAppBridge(): LeanOnBridgeClient {
-  return hasLynxHost()
+export function createAppBridge(nativeShell = false): LeanOnBridgeClient {
+  // A native bootstrap must fail visibly if its bridge is unavailable rather
+  // than claiming a preview-only write succeeded.
+  return nativeShell || hasLynxHost()
     ? createLeanOnBridgeClient(createLynxTransport())
     : createPreviewBridge();
 }
