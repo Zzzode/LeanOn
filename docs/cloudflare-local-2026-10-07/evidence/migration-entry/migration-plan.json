@@ -1,0 +1,20 @@
+{
+  "mode": "dry-run",
+  "protocol": 2,
+  "targetEndpoint": "http://127.0.0.1:64043",
+  "targetServiceId": "734edc545a051ec9a9a0aefcc31152c6a3e475423875da2e837ce5a34feade8c",
+  "operationId": "PUBLIC-cloudflare-cutover-01",
+  "sourceDigest": "e4976818497f7e5c7f129eeee33d5c49f753fffb4af2435db450e44a73dd5c97",
+  "accounts": 2,
+  "approvedDevices": 2,
+  "groups": 2,
+  "oldRecordsCopied": 0,
+  "requiresNativeRepublication": true,
+  "steps": [
+    "Quiesce source and retain its authenticated backup",
+    "Stage identities and grants into a verified empty target",
+    "Review each account on its approved device in Settings",
+    "Republish through a separate encrypted native collection",
+    "Verify both accounts before retaining or retiring the source"
+  ]
+}

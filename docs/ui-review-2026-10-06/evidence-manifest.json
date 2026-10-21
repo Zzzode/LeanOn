@@ -1,0 +1,182 @@
+{
+  "date": "2026-10-06",
+  "branch": "main",
+  "head": "89b5e157844d62933a5ebfa773e7aa7b8d076cb9",
+  "remote": "https://github.com/Zzzode/LeanOn.git",
+  "remoteHeadVerifiedEqual": true,
+  "applicationSourceDiffSha256": "92ac712541214a6555410aedce7e51e542946774bbf62133a03610e92134f1c3",
+  "bundleSha256": "2ace1e5f1e0984d1053cd8e02572014234c481be7b45aed35484eb29504b43b5",
+  "iosNativeBinarySha256": "6cfa3aa5595e599b7b78a474e0ad7bdbb389630726a38280ccc829cffc8ca45e",
+  "iosQaRecordsBeforeAfter": "5904914dbdd6c8a9b13ea2b2c71823f7ebd3e83a3f7234cec40d64baa916b2a0",
+  "applicationSourceChanged": false,
+  "recordsWritten": false,
+  "browserUsed": false,
+  "newBuildPerformed": false,
+  "screenshotEvidence": [
+    {
+      "file": "screens/today.png",
+      "date": "2026-10-06",
+      "device": "iPhone 17 Pro / iOS 26.5",
+      "newThisReview": true,
+      "sha256": "3894101d1ae972a02c73ee55c11588eed7fb7ade342959b838533166c6f447db",
+      "bytes": 366794,
+      "fileModifiedUtc": "2026-10-06T09:33:30.541926+00:00"
+    },
+    {
+      "file": "screens/diary.png",
+      "date": "2026-10-06",
+      "device": "iPhone 17 Pro / iOS 26.5",
+      "newThisReview": true,
+      "sha256": "4b27785d1c09f7a1ffe6014315dc5ab8a13fb5d1f5ff614cfebe4f1776597719",
+      "bytes": 265447,
+      "fileModifiedUtc": "2026-10-06T09:34:04.475466+00:00"
+    },
+    {
+      "file": "screens/progress.png",
+      "date": "2026-10-06",
+      "device": "iPhone 17 Pro / iOS 26.5",
+      "newThisReview": true,
+      "sha256": "82a4fcf1eef302124048e222c8b98213845cf5743a3d9bc94392d58cf37ff23c",
+      "bytes": 359336,
+      "fileModifiedUtc": "2026-10-06T09:34:17.992659+00:00"
+    },
+    {
+      "file": "screens/partner.png",
+      "date": "2026-10-06",
+      "device": "iPhone 17 Pro / iOS 26.5",
+      "newThisReview": true,
+      "sha256": "e2b6254e2907d4d9bc4132f2b02823eaa09d68fdfa670bd7f96eea2450a80b80",
+      "bytes": 281772,
+      "fileModifiedUtc": "2026-10-06T09:34:37.743726+00:00"
+    },
+    {
+      "file": "screens/me.png",
+      "date": "2026-10-06",
+      "device": "iPhone 17 Pro / iOS 26.5",
+      "newThisReview": true,
+      "sha256": "2eb6c1d1dafee838ad9e588b776a1c73979c113753cb9dd6d74517b6a6ab29fe",
+      "bytes": 359999,
+      "fileModifiedUtc": "2026-10-06T09:34:48.935041+00:00"
+    },
+    {
+      "file": "screens/settings.png",
+      "date": "2026-10-05",
+      "device": "iPhone 17 Pro / iOS 26.5",
+      "newThisReview": false,
+      "sha256": "8ed19515ade9e872913eca202f9783bfd0e171f9ff9493a10f4323cc35fc2ddc",
+      "bytes": 205620,
+      "fileModifiedUtc": "2026-10-05T11:32:36.170516+00:00"
+    },
+    {
+      "file": "screens/empty-diary.png",
+      "date": "2026-10-05",
+      "device": "iPhone 17 Pro / iOS 26.5",
+      "newThisReview": false,
+      "sha256": "e9b3c93b4cfcde4fee04c91f83231bbd4df178d5917d3905ccf184efd0242658",
+      "bytes": 239298,
+      "fileModifiedUtc": "2026-10-05T11:22:11.382179+00:00"
+    },
+    {
+      "file": "screens/no-weight.png",
+      "date": "2026-10-05",
+      "device": "iPhone 17 Pro / iOS 26.5",
+      "newThisReview": false,
+      "sha256": "4a579818436dffbc23660ffa3730e9c48e64c24a4c1b45b9e178270d576ae6ee",
+      "bytes": 173446,
+      "fileModifiedUtc": "2026-10-05T11:16:02.839199+00:00"
+    },
+    {
+      "file": "screens/weight-invalid.png",
+      "date": "2026-10-05",
+      "device": "iPhone 17 Pro / iOS 26.5",
+      "newThisReview": false,
+      "sha256": "cc80d832c78791d9ae8a5272d375a1485f021eeed4ba1194747fd11a4f3b5ed9",
+      "bytes": 213376,
+      "fileModifiedUtc": "2026-10-05T10:31:29.225325+00:00"
+    },
+    {
+      "file": "screens/exercise-edit.png",
+      "date": "2026-10-05",
+      "device": "iPhone 17 Pro / iOS 26.5",
+      "newThisReview": false,
+      "sha256": "15775fed3bea2a5d6f9bb0c1f2405b1983b63f87a455d8354db76af42a552e9d",
+      "bytes": 195891,
+      "fileModifiedUtc": "2026-10-05T11:10:16.113267+00:00"
+    },
+    {
+      "file": "screens/android-today.png",
+      "date": "2026-10-06",
+      "device": "Android 15 / sdk_gphone64_arm64 / emulator-5554",
+      "newThisReview": true,
+      "sha256": "66172bb073ef741584db4edf05963709e5cd4ca9f20312c5a1a7727729b85dc6",
+      "bytes": 168314,
+      "fileModifiedUtc": "2026-10-06T09:32:43.406749+00:00"
+    }
+  ],
+  "limits": {
+    "en": "No new touch interaction was possible because no supported screen-control tool is currently exposed. Fresh evidence: iOS five tabs in Chinese/light; Android Today in Chinese/light. Dated evidence: iOS Settings, empty diary, missing weight, invalid weight and exercise edit. Food current layout/search/custom editor, other integration sheets, loading/error/permission denial, English, dark, large fonts, screen readers and Android navigation/forms are code-only or unobserved. No health advice or formula review is claimed. Existing v2/v3 mockups are proposals and are excluded from current-runtime evidence. The report makes no full accessibility or interaction-pass claim.",
+    "zh": "当前没有可用受支持屏幕控制工具，无法新做触控交互。新证据：iOS五tab中文浅色，Android Today中文浅色。注明日期的既有证据：iOS Settings、饮食空态、无体重、无效体重及运动编辑。当前食物布局/搜索/自定义编辑、其他连接弹层、加载/错误/权限拒绝、英文、深色、大字、读屏、Android导航与表单属于仅代码或未见范围。本次不审查健康指导或公式。既有v2/v3稿是提案，排除出当前运行证据；不宣称完整无障碍或交互通过。"
+  },
+  "sourceSnapshots": [
+    "apps/android/app/src/main/java/com/zzzode/leanon/MainActivity.kt",
+    "apps/ios/LeanOn/Bridge/NativeRouter.swift",
+    "packages/pages/src/App.css",
+    "packages/pages/src/App.tsx",
+    "packages/pages/src/components/EnergyCard.tsx",
+    "packages/pages/src/components/ExerciseSheet.tsx",
+    "packages/pages/src/components/FoodSheet.tsx",
+    "packages/pages/src/components/InsightsScreen.tsx",
+    "packages/pages/src/components/MeIcons.tsx",
+    "packages/pages/src/components/SettingsScreen.tsx",
+    "packages/pages/src/components/WaterCard.tsx",
+    "packages/pages/src/components/WeightSheet.tsx",
+    "packages/pages/src/screens/DiaryScreen.tsx",
+    "packages/pages/src/screens/MeScreen.tsx",
+    "packages/pages/src/screens/PartnerScreen.tsx",
+    "packages/pages/src/screens/TodayScreen.tsx",
+    "packages/pages/src/state/chart.ts",
+    "packages/pages/src/state/select.ts"
+  ],
+  "officialSources": [
+    [
+      "Android Developers: accessibility, 48dp targets and semantic descriptions",
+      "https://developer.android.com/guide/topics/ui/accessibility/apps"
+    ],
+    [
+      "W3C: normal text contrast 4.5:1",
+      "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html"
+    ],
+    [
+      "W3C: non-text contrast and necessary control boundaries",
+      "https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html"
+    ]
+  ],
+  "tokenChecksScope": "14 selected color pairs only, not complete accessibility; dark unrun",
+  "documents": [
+    {
+      "file": "review.html",
+      "sha256": "3018107a5cf522c0274342dae6909ec303d1b0c4138fa12a9e3201cf8e88e8b7",
+      "bytes": 9307403
+    },
+    {
+      "file": "review.zh-CN.html",
+      "sha256": "1bd786fdc7b7d2d65ed704a648f7f65945f3e5eb11be5a5b5ce7a1150d5bd426",
+      "bytes": 9304960
+    },
+    {
+      "file": "annotated-overview.png",
+      "sha256": "e8e6ef3a660dac214a15c7141c8265dd718d82e36e7eefba8d395b6e4a3f7764",
+      "bytes": 855408
+    },
+    {
+      "file": "review.zh-CN.md",
+      "sha256": "dde04eafb944424a064ea5309e178c9995ab6dd0c4eb85ed83f22c0f75ea7f20",
+      "bytes": 15075
+    },
+    {
+      "file": "review.md",
+      "sha256": "117d23071dfc6a89a37454986ea09fc54e8d8bda77a97f7992dddfe6d4de710d",
+      "bytes": 17502
+    }
+  ]
+}

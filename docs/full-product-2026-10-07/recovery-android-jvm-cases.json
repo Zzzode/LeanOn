@@ -1,0 +1,1666 @@
+{
+  "scope": "One final Android JVM run. Includes memory-transport deletion faults and isolated raw HTTP transport tests; new native live deletion relay/account tests were not run. JVM fixture keys are not real Keystore.",
+  "checkedAtUtc": "2026-10-07T08:54:12.828587+00:00",
+  "cases": [
+    {
+      "class": "com.zzzode.leanon.TabBarMotionTest",
+      "test": "frameRatesProduceTheSameSettledDestination",
+      "status": "passed",
+      "seconds": "0.01"
+    },
+    {
+      "class": "com.zzzode.leanon.TabBarMotionTest",
+      "test": "settledLongPressContractsImmediatelyOnRelease",
+      "status": "passed",
+      "seconds": "0.003"
+    },
+    {
+      "class": "com.zzzode.leanon.TabBarMotionTest",
+      "test": "verticalMovementCancelsWithoutCommitting",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.TabBarMotionTest",
+      "test": "newPressAfterCancellationHasItsOwnAnchor",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.TabBarMotionTest",
+      "test": "firstDragMovementIsPreservedAndReleaseUsesThePreview",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.TabBarMotionTest",
+      "test": "cancellationRestoresSelectionAndRemovesThePendingTap",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.TabBarMotionTest",
+      "test": "rapidRepressAndFinishCannotInheritAnEarlierRelease",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.TabBarMotionTest",
+      "test": "aFastReleaseCannotEscapeThePlatter",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.TabBarMotionTest",
+      "test": "delayedFrameCrossesTravelAndReleaseBoundariesAtTheirActualTimes",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.TabBarMotionTest",
+      "test": "cancellationDoesNotCommitTheHoveredTab",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.TabBarMotionTest",
+      "test": "pressingDuringTravelRetargetsWithoutBrakingOrFollowingTheOldDestination",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.TabBarMotionTest",
+      "test": "releaseCommitsTheFinalCoordinateWhenTheLastMoveWasInThePreviousTab",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.TabBarMotionTest",
+      "test": "springRetargetingPreservesTheCurrentPositionAndVelocity",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.TabBarMotionTest",
+      "test": "dragPauseHoldsTheFingerPositionAndReleasePreservesMomentum",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.TabBarMotionTest",
+      "test": "delayedFrameCannotExplodeTheAnimation",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.TabBarMotionTest",
+      "test": "elapsedTimeProducesTheSameCurveAcrossFrameRatesAndDelayedFrames",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.TabBarMotionTest",
+      "test": "capsuleExpansionAndContractionEachHaveOneVisibleElasticPeak",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.TabBarMotionTest",
+      "test": "quickRepressDuringContractionStillCompletesAnExpansionBeforeRelease",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.TabBarMotionTest",
+      "test": "quickTapExpandsAtTheSourceThenTravelsAndReboundsOnce",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.TabBarMotionTest",
+      "test": "quickTapReachesAnElasticExpansionBeforeReturningToRest",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.TabBarMotionTest",
+      "test": "tapCommitsOnlyThePressedTab",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.TabBarMotionTest",
+      "test": "peakTimeSkipsTheInitialValleyWhenExpansionStartsWithNegativeVelocity",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.TabBarMotionTest",
+      "test": "interruptedPressSettlesBackToRest",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.appearance.AppearancePreferenceTest",
+      "test": "failedDiskCommitRestoresAnAlreadyUpdatedMemoryValue",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "com.zzzode.leanon.appearance.AppearancePreferenceTest",
+      "test": "missingOrMalformedStorageFollowsSystem",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.appearance.AppearancePreferenceTest",
+      "test": "invalidRequestDoesNotWriteAndFailedCommitDoesNotChangePreference",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.appearance.AppearancePreferenceTest",
+      "test": "savedPreferenceSurvivesStoreRecreationAndCanReturnToSystem",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.appearance.AppearancePreferenceTest",
+      "test": "explicitPreferencesIgnoreSystemChanges",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.appearance.AppearanceRequestTest",
+      "test": "supportedStringsProduceTheTypedPreference",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "com.zzzode.leanon.appearance.AppearanceRequestTest",
+      "test": "wrongTypedOrMissingPreferenceIsInvalid",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.appearance.NativeEventArgumentsTest",
+      "test": "nestedMapsConvertAndExistingReadableObjectsRemainIntact",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "com.zzzode.leanon.appearance.NativeEventArgumentsTest",
+      "test": "appearanceAndDismissalMapsAreReadableSdkObjects",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.appearance.NativeRequestShapeTest",
+      "test": "voidRequestsAcceptTheTransportsRequestAndCallbackArguments",
+      "status": "passed",
+      "seconds": "0.004"
+    },
+    {
+      "class": "com.zzzode.leanon.appearance.SystemAppearanceTest",
+      "test": "explicitSystemModeWinsOverUndefinedOrStaleApplicationConfiguration",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.appearance.SystemAppearanceTest",
+      "test": "ScheduledAndAutomaticModesUseTheResolvedConfiguration",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.ble.BleSubscriptionTest",
+      "test": "failedAndStaleAcknowledgementsCannotPairANewConnection",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.ble.BleSubscriptionTest",
+      "test": "connectedReadinessRequiresTheCurrentConnectionsSuccessfulAcknowledgementOnce",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.ble.WeightMeasurementParserTest",
+      "test": "ignoresOptionalTrailingFields",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.ble.WeightMeasurementParserTest",
+      "test": "returnsNullForTooShortPayload",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.ble.WeightMeasurementParserTest",
+      "test": "parsesFractionalSiWeight",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.ble.WeightMeasurementParserTest",
+      "test": "parsesImperialWeightWithFraction",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.ble.WeightMeasurementParserTest",
+      "test": "parsesSiWeight",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.ble.WeightMeasurementParserTest",
+      "test": "parsesImperialWeightAndConvertsToKg",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.bridge.CapabilityRegistryTest",
+      "test": "unfinishedStubsAreNotAdvertisedWhileImplementedCapabilitiesRemain",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.bridge.PendingRequestTest",
+      "test": "callbackCanBeginANewRequestWithoutLosingIt",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.bridge.PendingRequestTest",
+      "test": "secondRequestCannotReplaceTheFirstAndCompletionIsOnce",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionCryptoTest",
+      "test": "exactNodePublicCipherAndInviteInteropFixture",
+      "status": "passed",
+      "seconds": "0.027"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionCryptoTest",
+      "test": "invitationSecretWrapIsIndependentFromAcceptProof",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionCryptoTest",
+      "test": "rfc5869Sha256WorkedVector",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionCryptoTest",
+      "test": "exactAadAndMetadataTamperAuthentication",
+      "status": "passed",
+      "seconds": "0.004"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionDeletionRecoveryTest",
+      "test": "changedRevisionRequiresFreshChoiceAndKeepLocalNeverWipes",
+      "status": "passed",
+      "seconds": "0.055"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionDeletionRecoveryTest",
+      "test": "mismatchedAccountReceiptCannotAuthorizeLocalCleanup",
+      "status": "passed",
+      "seconds": "0.024"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionDeletionRecoveryTest",
+      "test": "markerSurvivesKeyFaultAndReopenRetriesOnlyKeys",
+      "status": "passed",
+      "seconds": "0.052"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionDeletionRecoveryTest",
+      "test": "recreatedLedgerAfterMarkerReportsConflictAndKeepLocalPreservesIt",
+      "status": "passed",
+      "seconds": "0.048"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionDeletionRecoveryTest",
+      "test": "absentReceiptAndWrongPasswordNeverInferDeletionOrReleaseIntent",
+      "status": "passed",
+      "seconds": "0.02"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionDeletionRecoveryTest",
+      "test": "failedConfirmedIntentSavePreservesPreparedUntilReopen",
+      "status": "passed",
+      "seconds": "0.039"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionDeletionRecoveryTest",
+      "test": "committedDeleteLostResponseReopensAndProbesBeforeExpiredSession",
+      "status": "passed",
+      "seconds": "0.036"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionDeletionRecoveryTest",
+      "test": "lostAckResponseReopensLocalCompleteWithoutSecondWipe",
+      "status": "passed",
+      "seconds": "0.042"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionDeletionValidationTest",
+      "test": "onlyTheExactAccountOperationAndStrictReceiptCanConfirmDeletion",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionDeletionValidationTest",
+      "test": "acknowledgementIsBoundToTheOperationAndHasNoExtraCredentials",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionHttpNetworkTest",
+      "test": "chunkedJsonIsReadAndAResponseBeyondTheRealLimitIsRejected",
+      "status": "passed",
+      "seconds": "0.224"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionHttpNetworkTest",
+      "test": "methodPreservingRedirectsNeverForwardCredentialsOrBody",
+      "status": "passed",
+      "seconds": "0.005"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionHttpTest",
+      "test": "endpointPortsAndLocalPlainHttpBoundaries",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionRepositoryHttpTest",
+      "test": "realRelayCiphertextPairingExplicitAttachmentAndDurableReceipt",
+      "status": "skipped",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionRepositoryHttpTest",
+      "test": "failedPreparedIntentWriteStopsBeforeReceiptOrDeleteTransport",
+      "status": "passed",
+      "seconds": "0.023"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionRepositoryHttpTest",
+      "test": "previewCleanupFailureCannotRetainAuthenticatedPeerState",
+      "status": "passed",
+      "seconds": "0.032"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionRepositoryHttpTest",
+      "test": "transactionRecoveryBlocksIndependentMetadataWritesAndCorruptFileIsPreserved",
+      "status": "passed",
+      "seconds": "0.012"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionRepositoryHttpTest",
+      "test": "unauthorizedDeviceCannotPrepareDeletionAndCanStillSignOut",
+      "status": "passed",
+      "seconds": "0.034"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionVaultMergeTest",
+      "test": "unrelatedExportDoesNotAdvancePreferencesClockOrRetainPhotoBytesInMetadata",
+      "status": "passed",
+      "seconds": "0.008"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionVaultMergeTest",
+      "test": "deletedHigherClockDoesNotHideNewSameDateRecord",
+      "status": "passed",
+      "seconds": "0.003"
+    },
+    {
+      "class": "com.zzzode.leanon.companion.CompanionVaultMergeTest",
+      "test": "publicCrossPlatformCasesMatchExactReference",
+      "status": "passed",
+      "seconds": "0.011"
+    },
+    {
+      "class": "com.zzzode.leanon.data.CurrentSnapshotTest",
+      "test": "currentRepositorySnapshotsRollOverWithoutRewritingHealthRecords",
+      "status": "passed",
+      "seconds": "0.009"
+    },
+    {
+      "class": "com.zzzode.leanon.data.CurrentSnapshotTest",
+      "test": "streakCombinesOwnAndMirroredRecordsAndRetainsYesterdayBeforeTodaysCheckIn",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.data.CurrentSnapshotTest",
+      "test": "dateAndHourFollowTheLocalTimezoneWithoutChangingStoredMetadata",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.data.CurrentSnapshotTest",
+      "test": "malformedDatesAndZeroEntriesDoNotInventAStreak",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsConformanceTest",
+      "test": "sharedConformanceSnapshotsAndFailureCodes",
+      "status": "passed",
+      "seconds": "0.052"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "historicalWeightUpsertHasStableIdAndReopens",
+      "status": "passed",
+      "seconds": "0.012"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "reusedOperationWithDifferentContentRejectsWithoutWrite",
+      "status": "passed",
+      "seconds": "0.007"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "safeWeightLossSetupRequiresAdultScreensWeightAndHealthyBmi",
+      "status": "passed",
+      "seconds": "0.008"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "replayAfterRestartIgnoresStaleRevisionAndReturnsOriginalReceipt",
+      "status": "passed",
+      "seconds": "0.014"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "nonDeleteReceiptRejectsUndoTokenWithoutChangingBytes",
+      "status": "passed",
+      "seconds": "0.007"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "deleteReceiptAndUndoSurviveRestart",
+      "status": "passed",
+      "seconds": "0.017"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "legacyIntakeWriteAndOtherNativeMutationsAdvanceSharedRevision",
+      "status": "passed",
+      "seconds": "0.016"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "deletionReceiptRequiresUndoTokenAfterRestore",
+      "status": "passed",
+      "seconds": "0.017"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "firstSetupInitialWeightPreservesPreloggedMovedId",
+      "status": "passed",
+      "seconds": "0.014"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "externalRecordsCannotBeEditedOrDeleted",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "legacyDuplicateAggregatesRetainMetadataAndRestoreByIdentity",
+      "status": "passed",
+      "seconds": "0.013"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "weightLossSetupWithoutMeasuredWeightRejectsAndTrackingStillWorks",
+      "status": "passed",
+      "seconds": "0.008"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "allLegacyUserWritesRejectFutureDatesWithoutChangingTheFile",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "emptyFirstLaunchHasNoDemoAndNullableUnscreenedSetup",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "deletedEntryCannotBeSilentlyRecreatedInsteadOfRestored",
+      "status": "passed",
+      "seconds": "0.016"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "snapshotsFollowRuntimeTimezoneAndMidnightWithoutChangingDraftDateOrFile",
+      "status": "passed",
+      "seconds": "0.006"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "movedDailyIdDoesNotCollideWithLaterLegacyWritesAndImports",
+      "status": "passed",
+      "seconds": "0.02"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "intakeDetailsEditAndDeleteProjectRatherThanDoubleCount",
+      "status": "passed",
+      "seconds": "0.016"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "trackingSetupAndEditPersistWithoutInventingWeight",
+      "status": "passed",
+      "seconds": "0.007"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "restoreConflictNeverOverwritesNewRecordAndKeepsTrash",
+      "status": "passed",
+      "seconds": "0.014"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "failedDurableWriteDoesNotLeaveReceiptOrRecord",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "staleRevisionRejectsWithoutWriting",
+      "status": "passed",
+      "seconds": "0.006"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "invalidLegacyProfileAndGoalsFailClosedWithoutResettingHistory",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "legacyAggregateMigrationDoesNotInventMeals",
+      "status": "passed",
+      "seconds": "0.006"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "malformedMetadataAndExhaustedRevisionPreserveOriginalFile",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "legacyReadAndRejectedMutationNeverCommitMigration",
+      "status": "passed",
+      "seconds": "0.006"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "semanticStructuralErrorsPrecedeStaleRevisionAndNumericBooleansReject",
+      "status": "passed",
+      "seconds": "0.006"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "missingDeleteReceiptFailsClosedOnReopen",
+      "status": "passed",
+      "seconds": "0.01"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "corruptAndFutureSchemaFilesRemainUntouched",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "com.zzzode.leanon.data.DailyRecordsTest",
+      "test": "invalidFutureAndImpossibleDatesDoNotWrite",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "com.zzzode.leanon.data.RecordsRepositoryTest",
+      "test": "recentFoodsDeduplicateAndStayMostRecentFirstWithLimitTwelve",
+      "status": "passed",
+      "seconds": "0.076"
+    },
+    {
+      "class": "com.zzzode.leanon.data.RecordsRepositoryTest",
+      "test": "importedFoodEditsPreserveBarcodeAndSource",
+      "status": "passed",
+      "seconds": "0.01"
+    },
+    {
+      "class": "com.zzzode.leanon.data.RecordsRepositoryTest",
+      "test": "customFoodsRoundTripUpdateAndDeleteCleanReferences",
+      "status": "passed",
+      "seconds": "0.021"
+    },
+    {
+      "class": "com.zzzode.leanon.data.RecordsRepositoryTest",
+      "test": "waterReplacesTheTotalAndSurvivesAStoreRestart",
+      "status": "passed",
+      "seconds": "0.014"
+    },
+    {
+      "class": "com.zzzode.leanon.data.RecordsRepositoryTest",
+      "test": "parallelMealWritesDoNotLoseAggregatesOrCorruptTheFile",
+      "status": "passed",
+      "seconds": "0.261"
+    },
+    {
+      "class": "com.zzzode.leanon.data.RecordsRepositoryTest",
+      "test": "failedPersistenceKeepsTheLastGoodSnapshot",
+      "status": "passed",
+      "seconds": "0.007"
+    },
+    {
+      "class": "com.zzzode.leanon.data.RecordsRepositoryTest",
+      "test": "bundledFoodsCannotBeMutatedThroughTheUserFoodApi",
+      "status": "passed",
+      "seconds": "0.006"
+    },
+    {
+      "class": "com.zzzode.leanon.data.RecordsRepositoryTest",
+      "test": "favoritesAreIdempotentAndAllowUnknownIds",
+      "status": "passed",
+      "seconds": "0.014"
+    },
+    {
+      "class": "com.zzzode.leanon.data.SettingsRepositoryTest",
+      "test": "invalidSetterValuesDoNotCreateAFile",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.data.SettingsRepositoryTest",
+      "test": "failedFirstWriteKeepsLegacyAndCreatesNoSavedState",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.data.SettingsRepositoryTest",
+      "test": "concurrentKindsNeverLoseEachOthersFields",
+      "status": "passed",
+      "seconds": "0.379"
+    },
+    {
+      "class": "com.zzzode.leanon.data.SettingsRepositoryTest",
+      "test": "wrongTypesAndOutOfRangeStoredSettingsAreExplicitFailures",
+      "status": "passed",
+      "seconds": "0.003"
+    },
+    {
+      "class": "com.zzzode.leanon.data.SettingsRepositoryTest",
+      "test": "failedWritesPreserveAllThreeSettingsKindsAcrossRestart",
+      "status": "passed",
+      "seconds": "0.016"
+    },
+    {
+      "class": "com.zzzode.leanon.data.SettingsRepositoryTest",
+      "test": "firstSuccessfulWriteImportsLegacyWithoutMutatingIt",
+      "status": "passed",
+      "seconds": "0.007"
+    },
+    {
+      "class": "com.zzzode.leanon.data.SettingsRepositoryTest",
+      "test": "defaultsAreReadOnlyAndMatchExistingPreferences",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.data.SettingsRepositoryTest",
+      "test": "corruptEstablishedFileIsPreservedAndNeverReplacedByLegacy",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.ExerciseTypeMappingTest",
+      "test": "unknownTypeFallsBackToOtherWorkout",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.ExerciseTypeMappingTest",
+      "test": "providesEnglishTitles",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.ExerciseTypeMappingTest",
+      "test": "mapsKnownTypeIdsToHealthConnectConstants",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectExportLedgerTest",
+      "test": "failedInitialReservationAndEmptyExportDoNotCreateLedger",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectExportLedgerTest",
+      "test": "editsAndRevertingContentMonotonicallyAdvanceAcrossRestarts",
+      "status": "passed",
+      "seconds": "0.015"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectExportLedgerTest",
+      "test": "concurrentReservationsSerializeAndKeepEveryIssuedRevision",
+      "status": "passed",
+      "seconds": "0.083"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectExportLedgerTest",
+      "test": "conflictingDuplicateIdsAndRevisionOverflowDoNotRewriteLedger",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectExportLedgerTest",
+      "test": "corruptLedgerFailsClosedWithoutErasingVersions",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectExportLedgerTest",
+      "test": "migratesLegacyVersionOneAndUnchangedRetriesDoNotWriteAgain",
+      "status": "passed",
+      "seconds": "0.005"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectExportLedgerTest",
+      "test": "failedReservationNeverReturnsARevisionOrChangesLastDurableState",
+      "status": "passed",
+      "seconds": "0.009"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectExportLedgerTest",
+      "test": "partialRemoteInsertionRetriesTheSameVersionsAndOnlyChangedRecordAdvances",
+      "status": "passed",
+      "seconds": "0.009"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectLedgerEncryptionTest",
+      "test": "wrongKeyAndCorruptEnvelopePreserveFile",
+      "status": "passed",
+      "seconds": "0.007"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectLedgerEncryptionTest",
+      "test": "legacyReadAndUnchangedRetryPreserveBytesThenExplicitEditEncryptsAndReopens",
+      "status": "passed",
+      "seconds": "0.009"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectMappersTest",
+      "test": "mapsNutritionRecord",
+      "status": "passed",
+      "seconds": "0.005"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectMappersTest",
+      "test": "externalMirrorsAreNeverEchoedBackAsLeanOnOwnedRecords",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectMappersTest",
+      "test": "exportedWeightNutritionAndExerciseEditsChangeTheirFingerprintOnly",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectMappersTest",
+      "test": "mapsWeightRecord",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectMappersTest",
+      "test": "buildsAllRecordsFromHostData",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectMappersTest",
+      "test": "reservedVersionsReachEverySdkRecordAndMissingReservationsFailClosed",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectMappersTest",
+      "test": "omitsZeroMicronutrients",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectMappersTest",
+      "test": "mapsExerciseRecordWithDuration",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectMappersTest",
+      "test": "buildsDeterministicClientIds",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectMappersTest",
+      "test": "fingerprintsIgnoreObjectOrderingRuntimeMetadataAndEquivalentNumericEncoding",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectMappersTest",
+      "test": "omittedMicrosAndUnexportedExerciseCaloriesDoNotBumpRevisions",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectReadMappersTest",
+      "test": "mirrorExercisesSkipsUnmappedTypeAndZeroDuration",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectReadMappersTest",
+      "test": "latestWeightByDateKeepsLatestAndDropsEcho",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectReadMappersTest",
+      "test": "isExternalReflectsClientRecordId",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectReadMappersTest",
+      "test": "mirrorExercisesEmptyWithoutBodyWeight",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectReadMappersTest",
+      "test": "mirrorExercisesMapsKnownTypeWithMetKcal",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectSyncResultTest",
+      "test": "thrownExportFailureLeavesThePreviousTimestampUntouched",
+      "status": "passed",
+      "seconds": "0.012"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectSyncResultTest",
+      "test": "timestampPersistenceFailureDoesNotAcknowledgeSync",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectSyncResultTest",
+      "test": "exportFailureDoesNotClaimCompleteSyncOrChangeItsTimestamp",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthConnectSyncResultTest",
+      "test": "timestampIsWrittenOnlyAfterTheExportSucceeds",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthSyncCommitGateTest",
+      "test": "failedDeletionStillInvalidatesPreviouslyQueuedProviderWork",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthSyncCommitGateTest",
+      "test": "localCleanupDisablesAutoImportAndClearsLastSyncDurablyBeforeDeleting",
+      "status": "passed",
+      "seconds": "0.019"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthSyncCommitGateTest",
+      "test": "corruptSettingsPreserveDataAndInvalidateOldSyncUntilDeletionCanRetry",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "com.zzzode.leanon.healthconnect.HealthSyncCommitGateTest",
+      "test": "oldProviderResultCannotRecreateRecordsLedgerOrTimestampAfterDelete",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.modules.FoodRequestTest",
+      "test": "typedBarcodeIsValidatedAndUpcNormalizedBeforeNetwork",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.modules.FoodRequestTest",
+      "test": "missingNullWrongTypesAndInvalidCodesNeverUseTypedStringGetter",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.modules.HealthConnectEnableTest",
+      "test": "initialSyncFailureRestoresPreviousPreference",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "com.zzzode.leanon.modules.HealthConnectEnableTest",
+      "test": "deniedPermissionNeverPersistsOrSyncs",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.modules.HealthConnectEnableTest",
+      "test": "persistenceFailureNeverStartsSync",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.modules.HealthConnectEnableTest",
+      "test": "rollbackFailureStillReportsOriginalFailure",
+      "status": "passed",
+      "seconds": "0.002"
+    },
+    {
+      "class": "com.zzzode.leanon.modules.HealthConnectEnableTest",
+      "test": "successfulEnableWaitsForSync",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.modules.HealthConnectEnableTest",
+      "test": "disableDoesNotRequireProviderOrPermission",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.modules.PersonalModuleTest",
+      "test": "malformedMixedWrongTypeAndOversizedEnvelopesRejected",
+      "status": "passed",
+      "seconds": "0.003"
+    },
+    {
+      "class": "com.zzzode.leanon.modules.PersonalModuleTest",
+      "test": "wirePreservesExplicitNullFalseZero",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.modules.RecordRequestTest",
+      "test": "wrongTypesAndNullAreValidationErrorsBeforeTypedGetters",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.modules.RecordRequestTest",
+      "test": "optionalNutrientsDefaultOnlyWhenAbsent",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.modules.RecordRequestTest",
+      "test": "datesMustBeRealCalendarDates",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.modules.RecordRequestTest",
+      "test": "waterSupportsZeroAndUnboundedFinitePositiveTotals",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.modules.RecordRequestTest",
+      "test": "exerciseDurationMatchesTheSharedOneDayBoundsAndAllowsFractions",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.modules.RecordsModuleTest",
+      "test": "rejectsWrongTypedRevisionInsideWire",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.modules.RecordsModuleTest",
+      "test": "directMapDoesNotInventMissingNullableFields",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.modules.RecordsModuleTest",
+      "test": "rejectsMixedWireAndDirectRequestFields",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.modules.RecordsModuleTest",
+      "test": "privateJsonWirePreservesExplicitNullAndFalse",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.modules.ReminderRequestTest",
+      "test": "validDisabledAndEdgeTimesRemainAvailable",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.modules.ReminderRequestTest",
+      "test": "numericFractionsStringsNullAndWrongBooleansAreRejected",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.net.OpenFoodFactsClientTest",
+      "test": "malformedAndUnexpectedEnvelopesAreServiceFailuresNotNotFound",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.net.OpenFoodFactsClientTest",
+      "test": "invalidBarcodeDoesNotOpenAnyConnection",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.net.OpenFoodFactsClientTest",
+      "test": "onlyExplicitStatusZeroOr404MeanNotFound",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.net.OpenFoodFactsClientTest",
+      "test": "timeoutAndOfflineStayDistinctFromBadServiceResponse",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.net.OpenFoodFactsClientTest",
+      "test": "oversizeResponsesAreRejectedAndDisconnected",
+      "status": "passed",
+      "seconds": "0.003"
+    },
+    {
+      "class": "com.zzzode.leanon.net.OpenFoodFactsClientTest",
+      "test": "requestIsCanonicalBoundedAndRequestsUnitMetadata",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.net.OpenFoodFactsClientTest",
+      "test": "serverHttpFailureAndRedirectAreRetriableServiceResponses",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.net.OpenFoodFactsClientTest",
+      "test": "rawPer100NutritionAndMassVolumeUnitFieldsRemainUntouched",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.BackupCodecTest",
+      "test": "privateAccountDeletionCapabilityAliasesCannotEnterPortableBackup",
+      "status": "passed",
+      "seconds": "0.464"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.BackupCodecTest",
+      "test": "forgedUndoContextAndUnknownFieldsRejected",
+      "status": "passed",
+      "seconds": "0.429"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.BackupCodecTest",
+      "test": "wrongPasswordAndTamperNeverExposePayload",
+      "status": "passed",
+      "seconds": "0.837"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.BackupCodecTest",
+      "test": "legacyValidFoodsAndPreferenceNullRoundTrip",
+      "status": "passed",
+      "seconds": "1.243"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.BackupCodecTest",
+      "test": "nodeUnicodeFixtureDecryptsExactNonEmptyPayloadAndKey",
+      "status": "passed",
+      "seconds": "0.854"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.BackupCodecTest",
+      "test": "metadataInLaterScanIsRejectedAndPickerOutputCanStripIt",
+      "status": "passed",
+      "seconds": "0.418"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.BackupCoordinatorTest",
+      "test": "accountDeletionCasDoesNotClearNewerDataOrPublishMetadata",
+      "status": "passed",
+      "seconds": "0.011"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.BackupCoordinatorTest",
+      "test": "accountDeletionMarkerCommitsBeforeFallibleKeyCleanupAndRetryDoesNotRewipe",
+      "status": "passed",
+      "seconds": "0.036"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.BackupCoordinatorTest",
+      "test": "inspectIsReadOnlyRestoreRevisionsAdvanceAndTokenConsumed",
+      "status": "passed",
+      "seconds": "0.893"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.BackupCoordinatorTest",
+      "test": "staleExpiredAndRestartedPlanCannotChangeBytes",
+      "status": "passed",
+      "seconds": "0.893"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.BackupCoordinatorTest",
+      "test": "mergedRevisionsAdvanceExactlyOnceWithMetadataInSameCommit",
+      "status": "passed",
+      "seconds": "0.075"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.BackupCoordinatorTest",
+      "test": "attachChecksBothRevisionsAndDeleteIsDurable",
+      "status": "passed",
+      "seconds": "0.049"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.BackupCoordinatorTest",
+      "test": "accountDeletionKeyRetryPreservesRecreatedRecordsAndTheirKeys",
+      "status": "passed",
+      "seconds": "0.044"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.BackupCoordinatorTest",
+      "test": "syncCasRejectsConcurrentLocalWriteAndDoesNotPublishMetadata",
+      "status": "passed",
+      "seconds": "0.007"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.BoundedPhotoDecoderTest",
+      "test": "preservesSmallPixelsAndBoundsLargeCanonicalDimensions",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.EncryptedDocumentFileTest",
+      "test": "firstReadDoesNotCreateKeysOrFiles",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.EncryptedDocumentFileTest",
+      "test": "failingWriteLeavesLastEncryptedBytesAndReopensOldValue",
+      "status": "passed",
+      "seconds": "0.006"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.EncryptedDocumentFileTest",
+      "test": "corruptAndWrongKeyReadsDoNotReplaceFile",
+      "status": "passed",
+      "seconds": "0.007"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.EncryptedDocumentFileTest",
+      "test": "durableEncryptedRoundtripAndReopen",
+      "status": "passed",
+      "seconds": "0.006"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.PersonalCryptoTest",
+      "test": "emptyBytesAndCanonicalBase64RoundTrip",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.PersonalCryptoTest",
+      "test": "localBytesAuthenticatedAndBoundToCollection",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.PersonalCryptoTest",
+      "test": "passwordDerivationUsesRequiredIterationsAndExactUnicode",
+      "status": "passed",
+      "seconds": "1.717"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.PersonalCryptoTest",
+      "test": "nonceRandomAndCiphertextTamperFails",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.PersonalRepositoryTest",
+      "test": "staleChangedIdentityAndFailedPersistLeaveBytesUnchanged",
+      "status": "passed",
+      "seconds": "0.009"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.PersonalRepositoryTest",
+      "test": "emptyReadAndDurableMeasurementReopen",
+      "status": "passed",
+      "seconds": "0.008"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.PersonalRepositoryTest",
+      "test": "photoMetadataAndEncryptedBytesAddReadDeleteTogether",
+      "status": "passed",
+      "seconds": "0.016"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.PersonalRepositoryTest",
+      "test": "corruptSchemaAndUnsupportedVersionFailClosed",
+      "status": "passed",
+      "seconds": "0.006"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.PersonalRepositoryTest",
+      "test": "unknownPreferenceMetadataSurvivesButCredentialsRejected",
+      "status": "passed",
+      "seconds": "0.005"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.PersonalRepositoryTest",
+      "test": "replayBeforeCasReturnsCurrentSnapshotAndSemanticKeyOrder",
+      "status": "passed",
+      "seconds": "0.012"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.PrivateTransactionJournalTest",
+      "test": "processDeathBeforeCommitMarkerRecoversBeforeState",
+      "status": "passed",
+      "seconds": "0.047"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.PrivateTransactionJournalTest",
+      "test": "uncertainCommitMarkerRetainsPiecesAndBlocksUntilRecovery",
+      "status": "passed",
+      "seconds": "0.032"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.PrivateTransactionJournalTest",
+      "test": "commitThreeTargetsAndPublishOnlyAfterDurability",
+      "status": "passed",
+      "seconds": "0.055"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.PrivateTransactionJournalTest",
+      "test": "corruptRecoveryBlocksReadsAndPreservesTargets",
+      "status": "passed",
+      "seconds": "0.015"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.PrivateTransactionJournalTest",
+      "test": "processDeathAfterCommitMarkerRecoversCommittedDeletionAndNewFile",
+      "status": "passed",
+      "seconds": "0.04"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.PrivateTransactionJournalTest",
+      "test": "ordinaryFailureRollsBackAllBytesAndDoesNotPublish",
+      "status": "passed",
+      "seconds": "0.05"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.QaBackupOverridePolicyTest",
+      "test": "accessibilityFixtureIsSeparateAndNeverAcceptedByReleaseOrProduction",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.QaBackupOverridePolicyTest",
+      "test": "OnlyNamedCacheNamespacesAreAllowedAndTraversalCannotEscape",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.personal.QaBackupOverridePolicyTest",
+      "test": "releaseAndProductionPackageAlwaysRejectOverrides",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.reminders.ReminderClockTest",
+      "test": "localSlotIsRecomputedForNewZoneAtSameInstant",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.reminders.ReminderClockTest",
+      "test": "nextLocalDayAcrossDstHasTwentyThreeHours",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.reminders.ReminderDecisionTest",
+      "test": "mealsFiresWhenNotLoggedToday",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.reminders.ReminderDecisionTest",
+      "test": "missingArrayMeansNotify",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.reminders.ReminderDecisionTest",
+      "test": "weightSilentWhenLoggedToday",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.reminders.ReminderDecisionTest",
+      "test": "weightFiresWhenNotLoggedToday",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.reminders.ReminderDecisionTest",
+      "test": "mealsSilentWhenLoggedToday",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.reminders.ReminderSettingsUpdateTest",
+      "test": "rollbackFailuresNeverConvertFailureToSuccess",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.reminders.ReminderSettingsUpdateTest",
+      "test": "partialSchedulingFailureRestoresOldPreferencesAndWork",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.reminders.ReminderSettingsUpdateTest",
+      "test": "storageFailureNeverSchedules",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.reminders.ReminderSettingsUpdateTest",
+      "test": "successWaitsForBothDurablePersistenceAndScheduling",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.scanner.BarcodeCameraStatusTest",
+      "test": "statusSeparatesFirstRequestGrantDenialAndPolicyRestriction",
+      "status": "passed",
+      "seconds": "0.001"
+    },
+    {
+      "class": "com.zzzode.leanon.scanner.BarcodeResultGateTest",
+      "test": "cancellationAndFailureIgnoreLateFrameCallbacks",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.scanner.BarcodeResultGateTest",
+      "test": "unreadableFramesDoNotStopScanAndDuplicateResultsDeliverOnce",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.scanner.ProductBarcodeTest",
+      "test": "wrongChecksumAndNonProductPayloadsAreRejected",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.scanner.ProductBarcodeTest",
+      "test": "validGtinLengthsAndUpcAliasesAreCanonical",
+      "status": "passed",
+      "seconds": "0.0"
+    },
+    {
+      "class": "com.zzzode.leanon.scanner.ProductBarcodeTest",
+      "test": "upcEIsExpandedBeforeChecksumAndCannotBeTreatedAsEan8",
+      "status": "passed",
+      "seconds": "0.001"
+    }
+  ],
+  "sourceFiles": [
+    {
+      "fileName": "TEST-com.zzzode.leanon.TabBarMotionTest.xml",
+      "sha256": "cda980fb5d7a904b55b1d2eb2431ba2cda59038eee37fe5e649c58fcc5864a26"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.appearance.AppearancePreferenceTest.xml",
+      "sha256": "f7c3a3cc48bed818e40e3c4dc00e900d497144fb6c6e6c812e1015daf683c1b9"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.appearance.AppearanceRequestTest.xml",
+      "sha256": "1a3533a2b50e8e09dd492765857f98614895ff0f074765750e62c2cdc0c40153"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.appearance.NativeEventArgumentsTest.xml",
+      "sha256": "d6b7f7614a6f937838df93d1b53db8c300e677b78f435497424127d4371e645c"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.appearance.NativeRequestShapeTest.xml",
+      "sha256": "c9420a19f9a8c5cad89f17be0c8b1e398e53ef68f59e7e1c43334ea341676ee2"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.appearance.SystemAppearanceTest.xml",
+      "sha256": "cd50f032c63367fe8878f0a497a276b76c974c78eb902d361ba36638878bc0d8"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.ble.BleSubscriptionTest.xml",
+      "sha256": "603a709786aa32cb2ce4b621afdae7280434c77ad7efe61745c7f0c41f44c60b"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.ble.WeightMeasurementParserTest.xml",
+      "sha256": "3a8123008da94a8ed4c8dd8bf2efc991c0ccf7624c8ab506a562b4bc0d1888bd"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.bridge.CapabilityRegistryTest.xml",
+      "sha256": "afa7231a11f0d06c5a9e0e9836fff913c4ea5c22b5d3cd11abf980512bff7255"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.bridge.PendingRequestTest.xml",
+      "sha256": "5d3d0393d5dcea7b73f5129c453fa2e38d47cb06606c1bf7039cb22a61588425"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.companion.CompanionCryptoTest.xml",
+      "sha256": "a37985cba0e5dd4e2565e33be0a8bd37015f1f599dfeaa4b4e1cf40ee038d1f4"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.companion.CompanionDeletionRecoveryTest.xml",
+      "sha256": "ebee1621ea17ad72c6a6c2d29f1422baea508557cb11f48310eddabf6fac3e55"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.companion.CompanionDeletionValidationTest.xml",
+      "sha256": "7f3e545438764f94203d5d86f4b77cee671f2131880e25bba3bfe56daa6a9565"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.companion.CompanionHttpNetworkTest.xml",
+      "sha256": "9401012c54904074d5293d903f3d0ee7ce14f436725e62fed0e2a80af279eb95"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.companion.CompanionHttpTest.xml",
+      "sha256": "fbe0a35baf8f61e0eaa9ab70c0c514c4d4facea4393fb1d71289b5ba205e2fd9"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.companion.CompanionRepositoryHttpTest.xml",
+      "sha256": "67eece4fcf3a8602adbb2462b3bf9856941795e4230becfcb4f638d77e5b4caf"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.companion.CompanionVaultMergeTest.xml",
+      "sha256": "5d51ebea9a66c2521ab0564a7a807d1b55b141fdb0ce10473614d5a2f464bb44"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.data.CurrentSnapshotTest.xml",
+      "sha256": "f6d5bac767837ddd044a33a693c4b38de777b1b15e803386b7e69aad15c1991d"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.data.DailyRecordsConformanceTest.xml",
+      "sha256": "6b2b444b71757af9652b40ca507802595d13c7d275b4a389829c62a6aad5c138"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.data.DailyRecordsTest.xml",
+      "sha256": "8227a0e7906b2b7704e6a59f2e6c1a491a2a5efee53e02d1ac9a773076b7c713"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.data.RecordsRepositoryTest.xml",
+      "sha256": "c78a8c52f73dff3ff71c02c402db764e3467842664aebac3283ed16636df0125"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.data.SettingsRepositoryTest.xml",
+      "sha256": "325f660ebefdada1480d8b4fd20cdd24d2893832e122ee4d3799a85670028b06"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.healthconnect.ExerciseTypeMappingTest.xml",
+      "sha256": "c2042f60a5e80ef680950618575a1719958ebace46f7e170cc4d0c301c111f23"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.healthconnect.HealthConnectExportLedgerTest.xml",
+      "sha256": "76a1d7af5664dd0a90ee6ccdcaf5e2cfe4841969ae645d01ecf2efa5e33676a3"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.healthconnect.HealthConnectLedgerEncryptionTest.xml",
+      "sha256": "5c100f5e73f47f6f7891b7b37bef9523c00b894ebedfa08edd6364e1bd25dbf5"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.healthconnect.HealthConnectMappersTest.xml",
+      "sha256": "08c8dbeab043939eb39e3237c3f856fedd11f01ecd70c72d86e0d77a0ff778a2"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.healthconnect.HealthConnectReadMappersTest.xml",
+      "sha256": "11102084775e9133177b66728a95ecf688db4db093367098943b133e693458bc"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.healthconnect.HealthConnectSyncResultTest.xml",
+      "sha256": "b6293e95a14e9bfa02bfc89bbcd169b6c324a3131c062f6f77122a4edb0b4cb3"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.healthconnect.HealthSyncCommitGateTest.xml",
+      "sha256": "1488d6fa6e1fceb8e187e169b771e62c74a4bf622674672a5a1168344d136ea4"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.modules.FoodRequestTest.xml",
+      "sha256": "fd00822f8e8ad1b4c2ea22cc0913b36d680d82b5edb8a8f969aab6b3951216bb"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.modules.HealthConnectEnableTest.xml",
+      "sha256": "6e98a86ab78b8d09a7102d4f65bee6d5cd72082fd55e3ffaec0781d9646dcfb8"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.modules.PersonalModuleTest.xml",
+      "sha256": "d68dc249afbed00ffc0d195ff0aaa888f78a226263b812674221c3bba86f0bd9"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.modules.RecordRequestTest.xml",
+      "sha256": "9015def2cf9f1757790d1182be8364dda8273da1ec725898c364bd3fead8d786"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.modules.RecordsModuleTest.xml",
+      "sha256": "fcb7bbff35a8857589d68f68e1f3b7ea0bf05fca2ea9a3a3a7b131acd93cf9b2"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.modules.ReminderRequestTest.xml",
+      "sha256": "ede6959515d356b611d1b3c8d2c71c5c2debd48f316d4d8ab49a48b519911bd0"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.net.OpenFoodFactsClientTest.xml",
+      "sha256": "29b7f9e804c5b42f7b85f0b56d75e44882a3b7417cf285c3220202d8a25d3382"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.personal.BackupCodecTest.xml",
+      "sha256": "209777f6c9a71315739335d61f677bd22bebf3799179353bfb134db0c5566acc"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.personal.BackupCoordinatorTest.xml",
+      "sha256": "665dea26428132353f2cd994f3f121113d315297b44dfb4ea6f93a6771aea1f2"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.personal.BoundedPhotoDecoderTest.xml",
+      "sha256": "7f6c2a7694cce56480eb0a1a7926df73eea4f010f17ea5f10e9b47473f274d0a"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.personal.EncryptedDocumentFileTest.xml",
+      "sha256": "544cc4ebd5c49f50c9c77f1302bfce2d7974a6aa6dda40ca452f15bafc18a73c"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.personal.PersonalCryptoTest.xml",
+      "sha256": "5d66f0dedcdbe56b49d0443eb73924ab1ebf3363dea226e9be166a82f0ad2399"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.personal.PersonalRepositoryTest.xml",
+      "sha256": "2edca04991c700894beb0b69e0f1ae759bd89aa610036c4bc809c1deb24c8a90"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.personal.PrivateTransactionJournalTest.xml",
+      "sha256": "07feadd7048c63b36e183fc8c5938ca67d269fdc97a7301ce054c5c2c0752906"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.personal.QaBackupOverridePolicyTest.xml",
+      "sha256": "6dcadd5ae3dbdf77cd7763b04305ee1f65eae22d24e2104aed432c5db334d618"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.reminders.ReminderClockTest.xml",
+      "sha256": "d4b57b5555712ba6aa28f809fcab415a7790e13de01952ac4519602e432ea664"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.reminders.ReminderDecisionTest.xml",
+      "sha256": "788d3ace64d6f4b266e7615d415134c463ff3358c3dcb6b04ac6a8d531c4f641"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.reminders.ReminderSettingsUpdateTest.xml",
+      "sha256": "6b3812353d01efd9fe1d95a7b68ab36105851af8157751336250ffb548e5cf02"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.scanner.BarcodeCameraStatusTest.xml",
+      "sha256": "ea1897b1647cc03d64685574365790c296f6a6cbf29d6cc0bf285ee41bb5e61d"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.scanner.BarcodeResultGateTest.xml",
+      "sha256": "07d82670a96a799770cc98b5e069a72e278aadd7a818ee6172600f3e1a72601f"
+    },
+    {
+      "fileName": "TEST-com.zzzode.leanon.scanner.ProductBarcodeTest.xml",
+      "sha256": "9d11bf58a54ea60d63cb03d3c11dbc1af1d69c89ec4e163679dc1ddcb0a83557"
+    }
+  ]
+}

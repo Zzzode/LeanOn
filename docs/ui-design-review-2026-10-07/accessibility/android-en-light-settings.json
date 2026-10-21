@@ -1,0 +1,993 @@
+{
+  "accessibilityCacheCleared": true,
+  "largeImageNodeCount": 0,
+  "utc": "2026-10-07T21:37:26.242081Z",
+  "pid": 6089,
+  "hierarchy": [
+    {
+      "class": "android.widget.FrameLayout",
+      "bounds": "[0,0][1080,2280]",
+      "clickable": false,
+      "focused": false,
+      "focusable": false,
+      "accessibilityFocused": false,
+      "visibleToUser": true,
+      "heading": false,
+      "screenReaderFocusable": false,
+      "editable": false,
+      "inputType": 0,
+      "enabled": true,
+      "selected": false,
+      "checkable": false,
+      "checked": false,
+      "password": false,
+      "actions": [
+        4,
+        8,
+        64,
+        16908342
+      ],
+      "widthDp": 392.72726,
+      "heightDp": 829.0909
+    },
+    {
+      "class": "android.widget.LinearLayout",
+      "bounds": "[0,0][1080,2280]",
+      "clickable": false,
+      "focused": false,
+      "focusable": false,
+      "accessibilityFocused": false,
+      "visibleToUser": true,
+      "heading": false,
+      "screenReaderFocusable": false,
+      "editable": false,
+      "inputType": 0,
+      "enabled": true,
+      "selected": false,
+      "checkable": false,
+      "checked": false,
+      "password": false,
+      "actions": [
+        4,
+        8,
+        64,
+        16908342
+      ],
+      "widthDp": 392.72726,
+      "heightDp": 829.0909
+    },
+    {
+      "class": "android.widget.FrameLayout",
+      "bounds": "[0,0][1080,2280]",
+      "clickable": false,
+      "focused": false,
+      "focusable": false,
+      "accessibilityFocused": false,
+      "visibleToUser": true,
+      "heading": false,
+      "screenReaderFocusable": false,
+      "editable": false,
+      "inputType": 0,
+      "enabled": true,
+      "selected": false,
+      "checkable": false,
+      "checked": false,
+      "password": false,
+      "actions": [
+        4,
+        8,
+        64,
+        16908342
+      ],
+      "widthDp": 392.72726,
+      "heightDp": 829.0909
+    },
+    {
+      "class": "android.widget.LinearLayout",
+      "bounds": "[0,0][1080,2280]",
+      "clickable": false,
+      "focused": false,
+      "focusable": false,
+      "accessibilityFocused": false,
+      "visibleToUser": true,
+      "heading": false,
+      "screenReaderFocusable": false,
+      "editable": false,
+      "inputType": 0,
+      "enabled": true,
+      "selected": false,
+      "checkable": false,
+      "checked": false,
+      "password": false,
+      "actions": [
+        4,
+        8,
+        64,
+        16908342
+      ],
+      "widthDp": 392.72726,
+      "heightDp": 829.0909
+    },
+    {
+      "class": "android.widget.FrameLayout",
+      "bounds": "[0,0][1080,2280]",
+      "clickable": false,
+      "focused": false,
+      "focusable": false,
+      "accessibilityFocused": false,
+      "visibleToUser": true,
+      "heading": false,
+      "screenReaderFocusable": false,
+      "editable": false,
+      "inputType": 0,
+      "enabled": true,
+      "selected": false,
+      "checkable": false,
+      "checked": false,
+      "password": false,
+      "actions": [
+        4,
+        8,
+        64,
+        16908342
+      ],
+      "widthDp": 392.72726,
+      "heightDp": 829.0909
+    },
+    {
+      "class": "android.widget.FrameLayout",
+      "bounds": "[0,0][1080,2280]",
+      "clickable": false,
+      "focused": false,
+      "focusable": false,
+      "accessibilityFocused": false,
+      "visibleToUser": true,
+      "heading": false,
+      "screenReaderFocusable": false,
+      "editable": false,
+      "inputType": 0,
+      "enabled": true,
+      "selected": false,
+      "checkable": false,
+      "checked": false,
+      "password": false,
+      "actions": [
+        4,
+        8,
+        64,
+        16908342
+      ],
+      "widthDp": 392.72726,
+      "heightDp": 829.0909
+    },
+    {
+      "class": "android.widget.FrameLayout",
+      "bounds": "[0,0][1080,2280]",
+      "clickable": false,
+      "focused": false,
+      "focusable": false,
+      "accessibilityFocused": false,
+      "visibleToUser": true,
+      "heading": false,
+      "screenReaderFocusable": false,
+      "editable": false,
+      "inputType": 0,
+      "enabled": true,
+      "selected": false,
+      "checkable": false,
+      "checked": false,
+      "password": false,
+      "actions": [
+        4,
+        8,
+        64,
+        16908342
+      ],
+      "widthDp": 392.72726,
+      "heightDp": 829.0909
+    },
+    {
+      "class": "android.widget.FrameLayout",
+      "bounds": "[0,66][1080,2214]",
+      "clickable": false,
+      "focused": false,
+      "focusable": false,
+      "accessibilityFocused": false,
+      "visibleToUser": true,
+      "heading": false,
+      "screenReaderFocusable": false,
+      "editable": false,
+      "inputType": 0,
+      "enabled": true,
+      "selected": false,
+      "checkable": false,
+      "checked": false,
+      "password": false,
+      "actions": [
+        4,
+        8,
+        64,
+        16908342
+      ],
+      "widthDp": 392.72726,
+      "heightDp": 781.0909
+    },
+    {
+      "class": "android.widget.FrameLayout",
+      "bounds": "[0,66][1080,2214]",
+      "clickable": false,
+      "focused": false,
+      "focusable": true,
+      "accessibilityFocused": false,
+      "visibleToUser": true,
+      "heading": false,
+      "screenReaderFocusable": false,
+      "editable": false,
+      "inputType": 0,
+      "enabled": true,
+      "selected": false,
+      "checkable": false,
+      "checked": false,
+      "password": false,
+      "actions": [
+        4,
+        8,
+        1,
+        64,
+        16908342
+      ],
+      "widthDp": 392.72726,
+      "heightDp": 781.0909
+    },
+    {
+      "class": "android.widget.ScrollView",
+      "bounds": "[0,66][1080,2214]",
+      "clickable": false,
+      "focused": false,
+      "focusable": true,
+      "accessibilityFocused": false,
+      "visibleToUser": true,
+      "heading": false,
+      "screenReaderFocusable": false,
+      "editable": false,
+      "inputType": 0,
+      "enabled": true,
+      "selected": false,
+      "checkable": false,
+      "checked": false,
+      "password": false,
+      "actions": [
+        4,
+        8,
+        1,
+        64,
+        16908342,
+        4096,
+        16908346
+      ],
+      "widthDp": 392.72726,
+      "heightDp": 781.0909
+    },
+    {
+      "class": "android.widget.HorizontalScrollView",
+      "bounds": "[0,66][1080,2214]",
+      "clickable": false,
+      "focused": false,
+      "focusable": true,
+      "accessibilityFocused": false,
+      "visibleToUser": true,
+      "heading": false,
+      "screenReaderFocusable": false,
+      "editable": false,
+      "inputType": 0,
+      "enabled": true,
+      "selected": false,
+      "checkable": false,
+      "checked": false,
+      "password": false,
+      "actions": [
+        4,
+        8,
+        1,
+        64,
+        16908342
+      ],
+      "widthDp": 392.72726,
+      "heightDp": 781.0909
+    },
+    {
+      "class": "android.widget.LinearLayout",
+      "bounds": "[0,66][1080,2214]",
+      "clickable": false,
+      "focused": false,
+      "focusable": true,
+      "accessibilityFocused": false,
+      "visibleToUser": true,
+      "heading": false,
+      "screenReaderFocusable": false,
+      "editable": false,
+      "inputType": 0,
+      "enabled": true,
+      "selected": false,
+      "checkable": false,
+      "checked": false,
+      "password": false,
+      "actions": [
+        4,
+        8,
+        1,
+        64,
+        16908342
+      ],
+      "widthDp": 392.72726,
+      "heightDp": 781.0909
+    }
+  ],
+  "totalPssKiB": 160050,
+  "nativeHeapAllocatedBytes": 51193152,
+  "javaHeapUsedBytes": 8274432,
+  "procMemory": "[VmHWM:\t  287524 kB, VmRSS:\t  262996 kB]",
+  "snapshot": {
+    "today": "2026-10-07",
+    "todayHour": 12,
+    "profile": {
+      "sex": "male",
+      "birthDate": "1993-05-12",
+      "heightCm": 178,
+      "activityLevel": "lightly_active"
+    },
+    "goalWeightKg": 72,
+    "weeklyLossKg": 0.6,
+    "weights": [
+      {
+        "date": "2026-08-28",
+        "weightKg": 84,
+        "id": "weight-2026-08-28"
+      },
+      {
+        "date": "2026-08-29",
+        "weightKg": 84.2,
+        "id": "weight-2026-08-29"
+      },
+      {
+        "date": "2026-08-30",
+        "weightKg": 84,
+        "id": "weight-2026-08-30"
+      },
+      {
+        "date": "2026-08-31",
+        "weightKg": 83.7,
+        "id": "weight-2026-08-31"
+      },
+      {
+        "date": "2026-09-01",
+        "weightKg": 83.5,
+        "id": "weight-2026-09-01"
+      },
+      {
+        "date": "2026-09-02",
+        "weightKg": 83.6,
+        "id": "weight-2026-09-02"
+      },
+      {
+        "date": "2026-09-03",
+        "weightKg": 83.6,
+        "id": "weight-2026-09-03"
+      },
+      {
+        "date": "2026-09-04",
+        "weightKg": 83.3,
+        "id": "weight-2026-09-04"
+      },
+      {
+        "date": "2026-09-05",
+        "weightKg": 82.9,
+        "id": "weight-2026-09-05"
+      },
+      {
+        "date": "2026-09-06",
+        "weightKg": 82.8,
+        "id": "weight-2026-09-06"
+      },
+      {
+        "date": "2026-09-07",
+        "weightKg": 82.9,
+        "id": "weight-2026-09-07"
+      },
+      {
+        "date": "2026-09-08",
+        "weightKg": 83,
+        "id": "weight-2026-09-08"
+      },
+      {
+        "date": "2026-09-09",
+        "weightKg": 82.8,
+        "id": "weight-2026-09-09"
+      },
+      {
+        "date": "2026-09-10",
+        "weightKg": 82.5,
+        "id": "weight-2026-09-10"
+      },
+      {
+        "date": "2026-09-11",
+        "weightKg": 82.5,
+        "id": "weight-2026-09-11"
+      },
+      {
+        "date": "2026-09-12",
+        "weightKg": 82.7,
+        "id": "weight-2026-09-12"
+      },
+      {
+        "date": "2026-09-13",
+        "weightKg": 82.7,
+        "id": "weight-2026-09-13"
+      },
+      {
+        "date": "2026-09-14",
+        "weightKg": 82.3,
+        "id": "weight-2026-09-14"
+      },
+      {
+        "date": "2026-09-15",
+        "weightKg": 82,
+        "id": "weight-2026-09-15"
+      },
+      {
+        "date": "2026-09-16",
+        "weightKg": 81.9,
+        "id": "weight-2026-09-16"
+      },
+      {
+        "date": "2026-09-17",
+        "weightKg": 82,
+        "id": "weight-2026-09-17"
+      },
+      {
+        "date": "2026-09-18",
+        "weightKg": 81.9,
+        "id": "weight-2026-09-18"
+      },
+      {
+        "date": "2026-09-19",
+        "weightKg": 81.5,
+        "id": "weight-2026-09-19"
+      },
+      {
+        "date": "2026-09-20",
+        "weightKg": 81.3,
+        "id": "weight-2026-09-20"
+      },
+      {
+        "date": "2026-09-21",
+        "weightKg": 81.4,
+        "id": "weight-2026-09-21"
+      },
+      {
+        "date": "2026-09-22",
+        "weightKg": 81.6,
+        "id": "weight-2026-09-22"
+      },
+      {
+        "date": "2026-09-23",
+        "weightKg": 81.5,
+        "id": "weight-2026-09-23"
+      },
+      {
+        "date": "2026-09-24",
+        "weightKg": 81.2,
+        "id": "weight-2026-09-24"
+      },
+      {
+        "date": "2026-09-25",
+        "weightKg": 81,
+        "id": "weight-2026-09-25"
+      },
+      {
+        "date": "2026-09-26",
+        "weightKg": 81.1,
+        "id": "weight-2026-09-26"
+      },
+      {
+        "date": "2026-09-27",
+        "weightKg": 81.2,
+        "id": "weight-2026-09-27"
+      },
+      {
+        "date": "2026-09-28",
+        "weightKg": 80.9,
+        "id": "weight-2026-09-28"
+      },
+      {
+        "date": "2026-09-29",
+        "weightKg": 80.5,
+        "id": "weight-2026-09-29"
+      },
+      {
+        "date": "2026-09-30",
+        "weightKg": 80.3,
+        "id": "weight-2026-09-30"
+      },
+      {
+        "date": "2026-10-07",
+        "weightKg": 80.4,
+        "id": "weight-2026-10-07"
+      }
+    ],
+    "intake": [
+      {
+        "date": "2026-09-18",
+        "kcal": 1679,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        }
+      },
+      {
+        "date": "2026-09-19",
+        "kcal": 1688,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        }
+      },
+      {
+        "date": "2026-09-20",
+        "kcal": 1775,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        }
+      },
+      {
+        "date": "2026-09-21",
+        "kcal": 1846,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        }
+      },
+      {
+        "date": "2026-09-22",
+        "kcal": 1823,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        }
+      },
+      {
+        "date": "2026-09-23",
+        "kcal": 1731,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        }
+      },
+      {
+        "date": "2026-09-24",
+        "kcal": 1671,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        }
+      },
+      {
+        "date": "2026-09-25",
+        "kcal": 1708,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        }
+      },
+      {
+        "date": "2026-09-26",
+        "kcal": 1802,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        }
+      },
+      {
+        "date": "2026-09-27",
+        "kcal": 1850,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        }
+      },
+      {
+        "date": "2026-09-28",
+        "kcal": 1800,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        }
+      },
+      {
+        "date": "2026-09-29",
+        "kcal": 1706,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        }
+      },
+      {
+        "date": "2026-09-30",
+        "kcal": 1671,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        }
+      },
+      {
+        "date": "2026-10-07",
+        "kcal": 1180,
+        "macros": {
+          "proteinG": 78,
+          "carbsG": 128,
+          "fatG": 36
+        },
+        "micros": {
+          "fiberG": 15,
+          "sugarG": 30,
+          "saturatedFatG": 12,
+          "sodiumMg": 1400
+        }
+      }
+    ],
+    "exercises": [
+      {
+        "id": "ex-seed-strength",
+        "date": "2026-10-07",
+        "typeId": "strength",
+        "durationMin": 36,
+        "kcal": 240
+      }
+    ],
+    "water": [
+      {
+        "date": "2026-10-07",
+        "amountMl": 1500,
+        "id": "water-2026-10-07"
+      }
+    ],
+    "streak": 1,
+    "customFoods": [],
+    "favoriteFoodIds": [],
+    "recentFoodIds": [],
+    "setupCompleted": true,
+    "schemaVersion": 2,
+    "revision": 0,
+    "legacyIntake": [
+      {
+        "date": "2026-09-18",
+        "kcal": 1679,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        },
+        "id": "legacy-intake-2026-09-18"
+      },
+      {
+        "date": "2026-09-19",
+        "kcal": 1688,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        },
+        "id": "legacy-intake-2026-09-19"
+      },
+      {
+        "date": "2026-09-20",
+        "kcal": 1775,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        },
+        "id": "legacy-intake-2026-09-20"
+      },
+      {
+        "date": "2026-09-21",
+        "kcal": 1846,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        },
+        "id": "legacy-intake-2026-09-21"
+      },
+      {
+        "date": "2026-09-22",
+        "kcal": 1823,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        },
+        "id": "legacy-intake-2026-09-22"
+      },
+      {
+        "date": "2026-09-23",
+        "kcal": 1731,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        },
+        "id": "legacy-intake-2026-09-23"
+      },
+      {
+        "date": "2026-09-24",
+        "kcal": 1671,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        },
+        "id": "legacy-intake-2026-09-24"
+      },
+      {
+        "date": "2026-09-25",
+        "kcal": 1708,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        },
+        "id": "legacy-intake-2026-09-25"
+      },
+      {
+        "date": "2026-09-26",
+        "kcal": 1802,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        },
+        "id": "legacy-intake-2026-09-26"
+      },
+      {
+        "date": "2026-09-27",
+        "kcal": 1850,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        },
+        "id": "legacy-intake-2026-09-27"
+      },
+      {
+        "date": "2026-09-28",
+        "kcal": 1800,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        },
+        "id": "legacy-intake-2026-09-28"
+      },
+      {
+        "date": "2026-09-29",
+        "kcal": 1706,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        },
+        "id": "legacy-intake-2026-09-29"
+      },
+      {
+        "date": "2026-09-30",
+        "kcal": 1671,
+        "macros": {
+          "proteinG": 132,
+          "carbsG": 178,
+          "fatG": 54
+        },
+        "micros": {
+          "fiberG": 24,
+          "sugarG": 45,
+          "saturatedFatG": 18,
+          "sodiumMg": 2100
+        },
+        "id": "legacy-intake-2026-09-30"
+      },
+      {
+        "date": "2026-10-07",
+        "kcal": 1180,
+        "macros": {
+          "proteinG": 78,
+          "carbsG": 128,
+          "fatG": 36
+        },
+        "micros": {
+          "fiberG": 15,
+          "sugarG": 30,
+          "saturatedFatG": 12,
+          "sodiumMg": 1400
+        },
+        "id": "legacy-intake-2026-10-07"
+      }
+    ],
+    "intakeEntries": [],
+    "deletedRecords": [],
+    "processedOperations": [],
+    "legacyGuidance": {
+      "goalWeightKg": 72,
+      "weeklyLossKg": 0.6
+    },
+    "guidanceMode": "tracking-only",
+    "safetyFlags": {
+      "pregnant": null,
+      "breastfeeding": null,
+      "eatingDisorderRisk": null
+    }
+  }
+}

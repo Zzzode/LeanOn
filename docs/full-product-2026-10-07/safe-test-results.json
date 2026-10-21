@@ -1,0 +1,206 @@
+{
+  "recordedUTC": "2026-10-07T07:45:56.937857+00:00",
+  "scope": "Layered results only, no accumulated intermediate totals; no raw private logs, runtime stores or account credentials.",
+  "logEvidence": [
+    {
+      "localLog": "/tmp/leanon-full-product-final-build.log",
+      "sha256": "0c1406c9dbb68009a92255f63d5c48644b373527dbdc4063c4d1e4eb15ea8a5e",
+      "sizeBytes": 4723,
+      "scope": "Workspace build",
+      "status": "passed",
+      "frameworkSummaryLines": []
+    },
+    {
+      "localLog": "/tmp/leanon-full-product-final-typecheck.log",
+      "sha256": "a81c7c5b206f0eb8dd1a07f995a2f84127b10532ca8c2d70b8f7a5aba398ef24",
+      "sizeBytes": 853,
+      "scope": "Workspace typecheck",
+      "status": "passed",
+      "frameworkSummaryLines": []
+    },
+    {
+      "localLog": "/tmp/leanon-full-product-final-tests.log",
+      "sha256": "f7d28f912878d94e03da8fc8ae50d8f0fce12763a9eb0891b75b55a0f948229d",
+      "sizeBytes": 15032,
+      "scope": "Workspace single420 run",
+      "status": "passed",
+      "frameworkSummaryLines": []
+    },
+    {
+      "localLog": "/tmp/leanon-personal-ios-native-final190.log",
+      "sha256": "d2f6348e63191708b2ded545c8df88770cd044e89fb02512ca8f584fd5023cfb",
+      "sizeBytes": 55406,
+      "scope": "iOS final190,189passed+1skip",
+      "status": "passed",
+      "frameworkSummaryLines": [
+        "Executed 28 tests, with 0 failures (0 unexpected) in 0.386 (0.393) seconds",
+        "Executed 11 tests, with 0 failures (0 unexpected) in 0.282 (0.284) seconds",
+        "Executed 8 tests, with 0 failures (0 unexpected) in 0.016 (0.017) seconds",
+        "Executed 15 tests, with 0 failures (0 unexpected) in 0.008 (0.011) seconds",
+        "Executed 4 tests, with 0 failures (0 unexpected) in 0.015 (0.015) seconds",
+        "Executed 190 tests, with 1 test skipped and 0 failures (0 unexpected) in 5.129 (5.182) seconds",
+        "Executed 190 tests, with 1 test skipped and 0 failures (0 unexpected) in 5.129 (5.183) seconds",
+        "** TEST EXECUTE SUCCEEDED **"
+      ]
+    },
+    {
+      "localLog": "/tmp/leanon-personal-ios-final-privacy-two.log",
+      "sha256": "6cf9a61e97357e196a4b8262439ed03938cb7f343d5e15eee861154f3ee9f548",
+      "sizeBytes": 77481,
+      "scope": "iOS finalaffected2UI",
+      "status": "passed",
+      "frameworkSummaryLines": [
+        "Executed 2 tests, with 0 failures (0 unexpected) in 113.651 (113.652) seconds",
+        "Executed 2 tests, with 0 failures (0 unexpected) in 113.651 (113.653) seconds",
+        "** TEST EXECUTE SUCCEEDED **"
+      ]
+    },
+    {
+      "localLog": "/tmp/leanon-personal-ios-final-seven-preview.log",
+      "sha256": "62281a15abf6cca58dd7be4f073136f7d93d1fefe9e74563ffbb526b65d23dc8",
+      "sizeBytes": 179408,
+      "scope": "iOS earlierpixel-aware7UI",
+      "status": "passed-before-final-native-delta",
+      "frameworkSummaryLines": [
+        "Executed 7 tests, with 0 failures (0 unexpected) in 293.734 (293.737) seconds",
+        "Executed 7 tests, with 0 failures (0 unexpected) in 293.734 (293.738) seconds",
+        "Executed 7 tests, with 0 failures (0 unexpected) in 293.734 (293.740) seconds",
+        "** TEST EXECUTE SUCCEEDED **"
+      ]
+    },
+    {
+      "localLog": "/tmp/leanon-personal-ios-release-build-7.log",
+      "sha256": "17d3388975e9ad89ab967b0e0bb6e5fb8c561d0d7b5ea9eecfe608ec254c500d",
+      "sizeBytes": 63935,
+      "scope": "iOS unsignediphoneosRelease",
+      "status": "passed",
+      "frameworkSummaryLines": [
+        "** BUILD SUCCEEDED **"
+      ]
+    },
+    {
+      "localLog": "/tmp/leanon-android-companion-preview-purge-tests.log",
+      "sha256": "5406f41e9c82a459bf7c8c8695d9c3cd4e6e9a6648c8efd44c84cf608c938538",
+      "sizeBytes": 3210,
+      "scope": "Androidscoped11realHTTP/crypto/fault",
+      "status": "passed",
+      "frameworkSummaryLines": []
+    },
+    {
+      "localLog": "/tmp/leanon-companion-interop-android-verify.log",
+      "sha256": "86c9aea74eb0a1ce9db6eb072b1c349df5af0854d4fbbd2306d4ab433138f5d9",
+      "sizeBytes": 135,
+      "scope": "AndroidsenderVERIFY",
+      "status": "passed",
+      "frameworkSummaryLines": []
+    },
+    {
+      "localLog": "/tmp/leanon-companion-interop-android-deletion-recover.log",
+      "sha256": "51ac2bcaab92457eaad98fc6aebc78eba9514746ee62431225a6f7cacf628bd0",
+      "sizeBytes": 164,
+      "scope": "AndroidCnewprocessrecoveryPID8590",
+      "status": "passed",
+      "frameworkSummaryLines": []
+    },
+    {
+      "localLog": "/tmp/leanon-companion-interop-revoke-approved.log",
+      "sha256": "c8b85e08a27c15e880143c62629f79f19bb0962dce3eaafd87c8c52f0a6a23af",
+      "sizeBytes": 4977,
+      "scope": "SwiftREVOKE",
+      "status": "passed",
+      "frameworkSummaryLines": [
+        "Executed 1 test, with 0 failures (0 unexpected) in 0.214 (0.214) seconds",
+        "Executed 1 test, with 0 failures (0 unexpected) in 0.214 (0.215) seconds",
+        "** TEST EXECUTE SUCCEEDED **"
+      ]
+    },
+    {
+      "localLog": "/tmp/leanon-companion-interop-android-revoked.log",
+      "sha256": "d36d12c1140048490b85ab32f132e16ce7187d500de1edc83f5d8949d0f1ee46",
+      "sizeBytes": 136,
+      "scope": "AndroidREVOKED",
+      "status": "passed",
+      "frameworkSummaryLines": []
+    },
+    {
+      "localLog": "/tmp/leanon-companion-interop-cleanup-approved.log",
+      "sha256": "f59e0acf939199ec23dcf6cf20d96acc23c37968d1624d4a7eed589b922f606f",
+      "sizeBytes": 4981,
+      "scope": "SwiftCLEANUP",
+      "status": "passed",
+      "frameworkSummaryLines": [
+        "Executed 1 test, with 0 failures (0 unexpected) in 0.352 (0.352) seconds",
+        "Executed 1 test, with 0 failures (0 unexpected) in 0.352 (0.353) seconds",
+        "** TEST EXECUTE SUCCEEDED **"
+      ]
+    },
+    {
+      "localLog": "/tmp/leanon-companion-interop-android-cleanup.log",
+      "sha256": "598e9bc11323455d7f7e724a85142f7335b39e92c7090cf42c3797eaffb3a8c0",
+      "sizeBytes": 136,
+      "scope": "AndroidCLEANUP",
+      "status": "passed",
+      "frameworkSummaryLines": []
+    },
+    {
+      "localLog": "/tmp/leanon-personal-ios-public-backup-kotlin-import.log",
+      "sha256": "2ca68534ff600b8757eaf8bcd93fd3b2a0c5208e2c575f1fb2a9a3dea0af3de5",
+      "sizeBytes": 5063,
+      "scope": "PUBLICKotlin\u2192Swiftbackup",
+      "status": "passed",
+      "frameworkSummaryLines": [
+        "Executed 1 test, with 0 failures (0 unexpected) in 0.305 (0.305) seconds",
+        "Executed 1 test, with 0 failures (0 unexpected) in 0.305 (0.306) seconds",
+        "** TEST EXECUTE SUCCEEDED **"
+      ]
+    },
+    {
+      "localLog": "/tmp/leanon-android-full-product-final-bounded-image-build.log",
+      "sha256": "9282f0086b3c8fd8df8c95b39919b624c87c6ae550fb3f4829180554883d8f8e",
+      "sizeBytes": 10052,
+      "scope": "FinalAndroid224cases223pass1skip/debug/test/unsignedrelease",
+      "status": "passed"
+    }
+  ],
+  "tests": {
+    "workspace": {
+      "passed": 420,
+      "failed": 0
+    },
+    "androidJVM": {
+      "executed": 224,
+      "passed": 223,
+      "skipped": 1,
+      "failed": 0
+    },
+    "androidProviderDevice": {
+      "passed": 14
+    },
+    "androidScopedActualHTTP": {
+      "passed": 11,
+      "failed": 0
+    },
+    "iOSNative": {
+      "executed": 190,
+      "passed": 189,
+      "skipped": 1,
+      "failed": 0
+    },
+    "iOSEarlierPixelUI": {
+      "passed": 7,
+      "failed": 0,
+      "scope": "build21 before final logical-purge/desiredActive native delta"
+    },
+    "iOSFinalAffectedUI": {
+      "passed": 2,
+      "failed": 0
+    },
+    "androidFinalPhotoUI": {
+      "passedCases": 2,
+      "officialActionsExecuted": 8,
+      "scope": "final30e04 photo/modal/lifecycle; no Dconsent submit"
+    }
+  },
+  "CProcessBoundary": "Earlier failurePID5479; pre-force-stop no live QA process; fresh targetPID8590 resumed durable intent. No live-process kill claim.",
+  "currentApprovalBlocker": "Separate fictional D checkbox denied before execution, no attach/submit/upload; ABC stages resolved and cleaned."
+}

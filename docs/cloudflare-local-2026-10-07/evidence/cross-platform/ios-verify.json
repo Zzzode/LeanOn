@@ -1,0 +1,9 @@
+{
+  "capturedUtc": "2026-10-07T20:34:02Z",
+  "checks": [
+    "android-durable-recipient-ack-delivers-ios-message"
+  ],
+  "passed": true,
+  "platform": "iOS",
+  "stage": "verify"
+}

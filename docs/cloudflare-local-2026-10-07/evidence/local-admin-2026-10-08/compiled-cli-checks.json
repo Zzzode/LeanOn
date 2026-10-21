@@ -1,0 +1,195 @@
+{
+  "scope": "PUBLIC fictional data and localhost only",
+  "compiledCli": true,
+  "checks": [
+    {
+      "name": "init-stderr-filter",
+      "passed": true
+    },
+    {
+      "name": "init-summary-filter",
+      "passed": true
+    },
+    {
+      "name": "default-init-no-write",
+      "passed": true
+    },
+    {
+      "name": "init-stderr-filter",
+      "passed": true
+    },
+    {
+      "name": "init-summary-filter",
+      "passed": true
+    },
+    {
+      "name": "synthetic-register-public-owner",
+      "passed": true
+    },
+    {
+      "name": "synthetic-old-vault-public-owner",
+      "passed": true
+    },
+    {
+      "name": "synthetic-register-public-partner",
+      "passed": true
+    },
+    {
+      "name": "synthetic-old-vault-public-partner",
+      "passed": true
+    },
+    {
+      "name": "migration-plan-stderr-filter",
+      "passed": true
+    },
+    {
+      "name": "migration-plan-summary-filter",
+      "passed": true
+    },
+    {
+      "name": "legacy-plan-two-accounts",
+      "passed": true
+    },
+    {
+      "name": "plan-fingerprints-unchanged",
+      "passed": true
+    },
+    {
+      "name": "migration-stage-stderr-filter",
+      "passed": true
+    },
+    {
+      "name": "migration-stage-summary-filter",
+      "passed": true
+    },
+    {
+      "name": "two-account-stage",
+      "passed": true
+    },
+    {
+      "name": "legacy-source-byte-preservation",
+      "passed": true
+    },
+    {
+      "name": "backup-stderr-filter",
+      "passed": true
+    },
+    {
+      "name": "backup-summary-filter",
+      "passed": true
+    },
+    {
+      "name": "deletion-floor-stderr-filter",
+      "passed": true
+    },
+    {
+      "name": "deletion-floor-summary-filter",
+      "passed": true
+    },
+    {
+      "name": "restore-stderr-filter",
+      "passed": true
+    },
+    {
+      "name": "restore-summary-filter",
+      "passed": true
+    },
+    {
+      "name": "restore-preview-no-authentication",
+      "passed": true
+    },
+    {
+      "name": "restore-preview-no-write",
+      "passed": true
+    },
+    {
+      "name": "restore-stderr-filter",
+      "passed": true
+    },
+    {
+      "name": "restore-summary-filter",
+      "passed": true
+    },
+    {
+      "name": "compiled-command-two-account-restore",
+      "passed": true
+    },
+    {
+      "name": "exact-r2-packet-restored",
+      "passed": true
+    },
+    {
+      "name": "restored-sessions-cleared",
+      "passed": true
+    },
+    {
+      "name": "native-core-login-for-public-deletion",
+      "passed": true
+    },
+    {
+      "name": "actual-worker-delete",
+      "passed": true
+    },
+    {
+      "name": "actual-worker-delete-ack",
+      "passed": true
+    },
+    {
+      "name": "deletion-floor-stderr-filter",
+      "passed": true
+    },
+    {
+      "name": "deletion-floor-summary-filter",
+      "passed": true
+    },
+    {
+      "name": "init-stderr-filter",
+      "passed": true
+    },
+    {
+      "name": "init-summary-filter",
+      "passed": true
+    },
+    {
+      "name": "restore-stderr-filter",
+      "passed": true
+    },
+    {
+      "name": "restore-summary-filter",
+      "passed": true
+    },
+    {
+      "name": "latest-floor-blocks-deleted-owner-restoration",
+      "passed": true
+    },
+    {
+      "name": "restored-r2-zero-byte-fence",
+      "passed": true
+    },
+    {
+      "name": "remote-refused-https://remote.invalid",
+      "passed": true
+    },
+    {
+      "name": "remote-refused-http://10.0.2.2:64043",
+      "passed": true
+    },
+    {
+      "name": "remote-flag-refused",
+      "passed": true
+    },
+    {
+      "name": "remote-refusals-no-write",
+      "passed": true
+    }
+  ],
+  "cleanup": {
+    "ownedWorkspacesRemoved": 2,
+    "allOwnedDirectoriesGone": true,
+    "parameterDirectoryRemoved": true,
+    "runtimesDisposed": true,
+    "noNativeDeviceOrQASettingChanges": true,
+    "noProviderCredentialsCreated": true,
+    "noRemoteResources": true
+  }
+}

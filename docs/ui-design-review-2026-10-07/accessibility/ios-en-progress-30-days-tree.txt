@@ -1,0 +1,90 @@
+Attributes: Application, 0x1150a8000, pid: 33837, label: 'LeanOn'
+Element subtree:
+ →Application, 0x1150a8000, pid: 33837, label: 'LeanOn'
+    Window (Main), 0x1150a8c80, {{0.0, 0.0}, {375.0, 667.0}}
+      Other, 0x1150a8dc0, {{0.0, 0.0}, {375.0, 667.0}}
+        Other, 0x1150a8f00, {{0.0, 0.0}, {375.0, 667.0}}
+          Other, 0x1150a9040, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x1150a9180, {{0.0, 0.0}, {375.0, 667.0}}
+              Other, 0x1150a92c0, {{0.0, 0.0}, {375.0, 667.0}}
+                Other, 0x1150a9400, {{0.0, 0.0}, {375.0, 667.0}}
+                  Other, 0x1150a9540, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x1150a8140, {{0.0, 0.0}, {375.0, 667.0}}
+                      Other, 0x1150a8280, {{0.0, 0.0}, {375.0, 667.0}}
+                        Other, 0x1150a83c0, {{0.0, 20.0}, {375.0, 564.0}}, label: 'lynxview'
+                          Other, 0x1150a8500, {{0.0, 20.0}, {375.0, 564.0}}
+                            ScrollView, 0x1150a8640, {{0.0, 20.0}, {375.0, 564.0}}
+                              Other, 0x1150a8780, {{0.0, 20.0}, {375.0, 1290.0}}
+                                StaticText, 0x1150a88c0, {{24.0, 52.0}, {327.0, 36.0}}, label: 'Progress'
+                                StaticText, 0x1150a8a00, {{24.0, 122.0}, {327.0, 50.0}}, label: 'Tracking only · no calorie budget or weight-loss guidance'
+                                Other, 0x1150a9f40, {{24.0, 172.0}, {327.0, 56.0}}
+                                  Button, 0x1150aa080, {{28.0, 176.0}, {159.5, 48.0}}, label: '7 days'
+                                  Button, 0x1150aa1c0, {{187.5, 176.0}, {159.5, 48.0}}, label: '30 days', value: ✓
+                                Other, 0x1150aa300, {{24.0, 252.0}, {327.0, 461.0}}
+                                  StaticText, 0x1150aa440, {{44.0, 272.0}, {287.0, 26.0}}, label: 'Weight'
+                                  StaticText, 0x1150aa580, {{44.0, 305.0}, {92.0, 58.0}}, label: '-0.6'
+                                  StaticText, 0x1150aa6c0, {{141.0, 335.5}, {15.5, 21.0}}, label: 'kg'
+                                  StaticText, 0x1150aa800, {{44.0, 369.0}, {287.0, 21.0}}, label: 'Fitted trend · -0.7 kg/week'
+                                  StaticText, 0x1150aa940, {{44.0, 400.0}, {287.0, 25.0}}, label: 'Tue, Sep 8 – Wed, Oct 7 · 4 weights'
+                                  Other, 0x1150aaa80, {{44.0, 445.0}, {287.0, 190.0}}
+                                    Other, 0x1150a9680, {{44.0, 445.0}, {287.0, 190.0}}
+                                  StaticText, 0x1150a97c0, {{44.0, 643.0}, {79.0, 21.0}}, label: '● Recorded'
+                                  StaticText, 0x1150a9900, {{232.0, 643.0}, {99.0, 21.0}}, label: '– – Fitted trend'
+                                  StaticText, 0x1150a9a40, {{44.0, 672.0}, {126.5, 21.0}}, label: '··· Unlogged dates'
+                                Other, 0x1150a9b80, {{24.0, 737.0}, {327.0, 109.0}}
+                                  StaticText, 0x1150a9cc0, {{24.0, 761.0}, {327.0, 26.0}}, label: 'Nutrition'
+                                  StaticText, 0x1150a9e00, {{24.0, 794.0}, {327.0, 27.0}}, label: 'Not enough data yet'
+                                Other, 0x1150aabc0, {{24.0, 846.0}, {327.0, 178.0}}
+                                  StaticText, 0x1150aad00, {{24.0, 870.0}, {327.0, 26.0}}, label: 'Exercise'
+                                  StaticText, 0x1150aae40, {{24.0, 915.0}, {83.0, 24.0}}, label: 'Active days'
+                                  StaticText, 0x1150aaf80, {{340.5, 915.0}, {10.5, 24.0}}, label: '0'
+                                  StaticText, 0x1150ab0c0, {{24.0, 963.0}, {99.5, 24.0}}, label: 'Total exercise'
+                                  StaticText, 0x1150ab200, {{250.0, 963.0}, {101.0, 24.0}}, label: '0 kcal · 0 min'
+                                Other, 0x1150ab340, {{24.0, 1024.0}, {327.0, 178.0}}
+                                  StaticText, 0x1150ab480, {{24.0, 1048.0}, {327.0, 26.0}}, label: 'Consistency'
+                                  StaticText, 0x1150ab5c0, {{24.0, 1093.0}, {105.5, 24.0}}, label: 'Weight logged'
+                                  StaticText, 0x1150ab700, {{316.0, 1093.0}, {35.0, 24.0}}, label: '4/30'
+                                  StaticText, 0x1150ab840, {{24.0, 1141.0}, {91.0, 24.0}}, label: 'Food logged'
+                                  StaticText, 0x1150ab980, {{316.0, 1141.0}, {35.0, 24.0}}, label: '0/30'
+                  Other, 0x1150abac0, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x1150abc00, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x1150abd40, {{0.0, 584.0}, {375.0, 83.0}}
+              Other, 0x1150abe80, {{0.0, 0.0}, {375.0, 667.0}}
+                TabBar, 0x104e370c0, {{0.0, 584.0}, {375.0, 83.0}}, label: '标签页栏'
+                  Other, 0x104e37200, {{21.0, 584.0}, {333.0, 62.0}}
+                    Other, 0x104e37340, {{21.0, 584.0}, {76.0, 54.0}}
+                    Other, 0x104e37480, {{21.0, 584.0}, {333.0, 62.0}}
+                      Button, 0x104e37700, {{25.0, 588.0}, {74.0, 54.0}}, label: 'Today'
+                        Image, 0x104e36f80, {{48.0, 593.0}, {29.0, 29.5}}, identifier: 'sun.max', label: '调高亮度'
+                      Button, 0x104e37d40, {{87.2, 588.0}, {74.0, 54.0}}, label: 'Diary'
+                        Image, 0x104e37e80, {{108.2, 595.0}, {31.5, 25.5}}, identifier: 'book', label: '书签'
+                      Button, 0x104e37ac0, {{149.5, 588.0}, {76.0, 54.0}}, label: 'Progress', Selected
+                        Image, 0x104e37c00, {{169.5, 595.5}, {35.5, 25.5}}, identifier: 'chart.bar', label: '图表柱形图'
+                      Button, 0x104e37840, {{213.8, 588.0}, {74.0, 54.0}}, label: 'Partner'
+                        Image, 0x104e37980, {{236.8, 596.0}, {29.0, 25.0}}, identifier: 'heart', label: '喜欢'
+                      Button, 0x104e375c0, {{276.0, 588.0}, {74.0, 54.0}}, label: 'Me'
+                        Image, 0x115045180, {{300.0, 595.5}, {26.0, 25.0}}, identifier: 'person', label: 'person'
+                    Other, 0x1150470c0, {{149.5, 588.0}, {76.0, 54.0}}
+                      Other, 0x115047200, {{149.5, 588.0}, {76.0, 54.0}}
+                        Other, 0x115047340, {{149.5, 588.0}, {76.0, 54.0}}
+                        Other, 0x115047840, {{149.5, 588.0}, {76.0, 54.0}}
+                          Other, 0x115047980, {{149.5, 588.0}, {76.0, 54.0}}
+                            Other, 0x115047480, {{149.5, 588.0}, {76.0, 54.0}}
+                              Other, 0x1150475c0, {{149.5, 588.0}, {76.0, 54.0}}
+                            Other, 0x115044140, {{149.5, 588.0}, {76.0, 54.0}}
+                          Other, 0x115047e80, {{149.5, 588.0}, {76.0, 54.0}}
+              Other, 0x115047700, {{0.0, 584.0}, {375.0, 83.0}}
+                Other, 0x1150452c0, {{0.0, 584.0}, {375.0, 83.0}}
+                  Other, 0x115045400, {{0.0, 584.0}, {375.0, 83.0}}
+                    Other, 0x115045540, {{0.0, 584.0}, {375.0, 83.0}}
+                      Other, 0x115046580, {{0.0, 584.0}, {375.0, 83.0}}
+                        Other, 0x1150466c0, {{0.0, 584.0}, {375.0, 83.0}}
+                    Other, 0x115046940, {{0.0, 584.0}, {375.0, 83.0}}
+                      Other, 0x1150448c0, {{0.0, 584.0}, {375.0, 83.0}}
+Path to element:
+ →Application, 0x1150a8000, pid: 33837, label: 'LeanOn'
+Query chain:
+ →Find: Target Application 'com.zzzode.leanon.uiqa'
+  Output: {
+    Application, 0x115044280, pid: 33837, label: 'LeanOn'
+  }

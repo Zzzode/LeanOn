@@ -1,0 +1,6 @@
+{
+  "phase": "rolled-back",
+  "healthAndOriginalPhotosPreserved": true,
+  "repeatActionIdempotent": true,
+  "encryptedSourceJournalRetained": true
+}

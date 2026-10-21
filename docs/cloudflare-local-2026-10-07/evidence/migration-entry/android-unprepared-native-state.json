@@ -1,0 +1,19 @@
+{
+  "phase": "idle",
+  "sourceEndpoint": "http://10.0.2.2:64041",
+  "targetEndpoint": null,
+  "targetServiceId": null,
+  "accountId": "08784ea4-103b-4f43-8e72-3b861ee1c828",
+  "accountName": "migration-owner",
+  "operationId": null,
+  "previewToken": null,
+  "errorCode": null,
+  "counts": {
+    "weights": 0,
+    "water": 0,
+    "exercises": 0,
+    "meals": 0,
+    "measurements": 0,
+    "photos": 0
+  }
+}

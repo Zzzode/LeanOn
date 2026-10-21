@@ -1,0 +1,2854 @@
+{
+  "utc": "2026-10-07T20:50:33.801074+00:00",
+  "HEAD": "89b5e157844d62933a5ebfa773e7aa7b8d076cb9",
+  "source": [
+    {
+      "path": "rfcs/0034-private-personal-data-and-companion-sync.md",
+      "sha256": "f563158287eaf168af50a8b116c1787592f991f4f960fb921d325e573d885c16"
+    },
+    {
+      "path": "rfcs/0023-water-tracking.zh-CN.md",
+      "sha256": "13535dca1c2767507565e23a344d9ecbb72fdd77d70aefcb8c4a79b6e21c9366"
+    },
+    {
+      "path": "rfcs/0000-template.md",
+      "sha256": "d43da645c6ad7187bf48a8bd27a67fa83e4100bef993aace3fd6412573f23cee"
+    },
+    {
+      "path": "rfcs/0016-barcode-scan-and-open-food-facts.zh-CN.md",
+      "sha256": "1fe55d2b892d1132cff42fa6ac273dc9975398fe8cce55c65d18abd7b7feaea6"
+    },
+    {
+      "path": "rfcs/0000-template.zh-CN.md",
+      "sha256": "f0c13796c164996ab54af85ffd0a8ba77d6932d61b385feca477c68fee5062a2"
+    },
+    {
+      "path": "rfcs/0021-health-connect-export.md",
+      "sha256": "8bfe5b382861b7466222416655d288386929be6c683dd50473e4007f47b7c0e1"
+    },
+    {
+      "path": "rfcs/0003-docs-typescript7-build-system.zh-CN.md",
+      "sha256": "9c9a85f3ddab40d4edd959b7578fc479f4c20c5f15a31411b6c7ab02c0dd2252"
+    },
+    {
+      "path": "rfcs/0005-typed-bridge.md",
+      "sha256": "c2dbe97809b060bb7a4b26d709fd8c0697c805b292d76af33645cfe9b3790624"
+    },
+    {
+      "path": "rfcs/0032-personal-daily-records.md",
+      "sha256": "09f99f17d6b2efa0cb1723291e9f1ef7f7aa419c5e31d511d4bc4d75231c28bb"
+    },
+    {
+      "path": "rfcs/0031-platform-capability-parity.md",
+      "sha256": "7af9908f56c5ff76accdd33b2ee6b972c0f9ba8201d369e3d56a3400f685a674"
+    },
+    {
+      "path": "rfcs/0025-health-connect-two-way-sync.md",
+      "sha256": "a0b5fb254b415f76266ba0774fcdee3f90f8f9092fa3e66a32315384e60a2ce1"
+    },
+    {
+      "path": "rfcs/0008-data-model-encrypted-storage-sync.md",
+      "sha256": "eefe252e186154bb72da678a7bdc272fb427dbff9f3b431ffe6a2eff9acbb0b6"
+    },
+    {
+      "path": "rfcs/0003-docs-typescript7-build-system.md",
+      "sha256": "a23e6cb3fa2f53077333931f95cbfa8f2acfb5644dd1135a588f350c0fd37d94"
+    },
+    {
+      "path": "rfcs/0010-interactive-logging-write-path.zh-CN.md",
+      "sha256": "6a78c20bac826256253c8797e67bfbab846d75781830e66d559d7977a438cdee"
+    },
+    {
+      "path": "rfcs/0029-native-form-and-content-reliability.zh-CN.md",
+      "sha256": "8c14156fb8fb95f1e2eb0d487c825ce34c669187145f4982d3090fa6a7b49ecd"
+    },
+    {
+      "path": "rfcs/0014-manage-custom-foods.zh-CN.md",
+      "sha256": "75f50d37153faa17952247469e9cd7df35900e7cb1cf9c6876f277bd11d3d690"
+    },
+    {
+      "path": "rfcs/0001-monorepo-and-tooling.md",
+      "sha256": "9dfd0fa64ee321061d7ca90b772cee6f02c0847d5ab40eeee2ec8b17f57d0108"
+    },
+    {
+      "path": "rfcs/README.zh-CN.md",
+      "sha256": "e8183adf665dd0349f1eeb08e40b5740f060011377dc9a3921e7b7462d0e76b1"
+    },
+    {
+      "path": "rfcs/0020-smart-reminders.zh-CN.md",
+      "sha256": "9ccc40220d53253adb5d3bb58d0a58ef590ea26f2d1780f017d28e40f9f9e944"
+    },
+    {
+      "path": "rfcs/0028-bottom-tab-native-shell.zh-CN.md",
+      "sha256": "415ff0db747efd93b42d005855868b86a95272a9ca113fa930b90f540ab85da4"
+    },
+    {
+      "path": "rfcs/0033-barcode-recovery-and-product-units.md",
+      "sha256": "84976bf9e0d4fad0107d1d9b523608de8b45a89dfe5d292feda5d68d16d55c37"
+    },
+    {
+      "path": "rfcs/0035-private-cloudflare-companion.zh-CN.md",
+      "sha256": "275b7b77f4421825e23f00603df75b4be09e8a163ab117ecf5bd9bbe53a823bd"
+    },
+    {
+      "path": "rfcs/0015-favorites-and-recent-foods.md",
+      "sha256": "16e52085f329396b7c1b9be3e1bb6f8bd6189736a8258ed241884275b4f85436"
+    },
+    {
+      "path": "rfcs/0029-native-form-and-content-reliability.md",
+      "sha256": "e00a17e6bd4c5969156ee33e34526667ff41dbaa8e9f81e93d840fc8ab8ec1cb"
+    },
+    {
+      "path": "rfcs/0021-health-connect-export.zh-CN.md",
+      "sha256": "587b36b155a83ee3452f4bb23d0fa12df59377cc8483c546bd5aad06b1c0c241"
+    },
+    {
+      "path": "rfcs/0016-barcode-scan-and-open-food-facts.md",
+      "sha256": "d32b4a042f36b71045be1668dc294e93388cae6833c99daef472746ce0f585a2"
+    },
+    {
+      "path": "rfcs/0026-icon-visual-proportions.zh-CN.md",
+      "sha256": "e8b55ffda4d8b7d56028eba0bf7a4709557ed79f801ef75229dbba249c6e3b78"
+    },
+    {
+      "path": "rfcs/0009-internationalization.zh-CN.md",
+      "sha256": "ddd9791c06b48950f76dbe38cbae97c940546675c83a477bad4fb69f2176e9c9"
+    },
+    {
+      "path": "rfcs/0034-private-personal-data-and-companion-sync.zh-CN.md",
+      "sha256": "2d80365e7bfa0aa0e5b69d0b3809e753ca3449bf4098ffb8ff6cbfeddeb573af"
+    },
+    {
+      "path": "rfcs/0025-health-connect-two-way-sync.zh-CN.md",
+      "sha256": "c1fe4415349bf7dffc21ec4331b3942d358b095988a3af1b9f537f2d7a8887dd"
+    },
+    {
+      "path": "rfcs/0022-adaptive-launcher-icon.md",
+      "sha256": "64b0b98777af5889aefcea70e731961cd6db9a648c44644435fdd12b2af37e5e"
+    },
+    {
+      "path": "rfcs/README.md",
+      "sha256": "66dbbb1a629d14374138aefe7bf40f7e5269d18f4d6d2ad38f84fcf86d6175fe"
+    },
+    {
+      "path": "rfcs/0032-personal-daily-records.zh-CN.md",
+      "sha256": "527186743091fae7a905bd7769443486b58e27e8d19f1358166ee9a20e2eb96b"
+    },
+    {
+      "path": "rfcs/0011-ble-scale-and-records-changed.md",
+      "sha256": "56e31d9682ffce0e27888c1c64339911359df8418ffb0ae78ac2158502798122"
+    },
+    {
+      "path": "rfcs/0024-micronutrients.zh-CN.md",
+      "sha256": "2d2f59a083223a0dc25646434112cad55791d5b9dc2ec3707fe00dbeb3ac58fd"
+    },
+    {
+      "path": "rfcs/0010-interactive-logging-write-path.md",
+      "sha256": "1d01b0803086c7f28ede63ed34678e1c7dcb005df14382cefece4d307dc9c437"
+    },
+    {
+      "path": "rfcs/0011-ble-scale-and-records-changed.zh-CN.md",
+      "sha256": "8bdb26b50dfeb71a29952500582de680b911fd1810fa6d837971254a90ac9a76"
+    },
+    {
+      "path": "rfcs/0022-adaptive-launcher-icon.zh-CN.md",
+      "sha256": "0789b802e7acac96728922b0fc2b4547a36182fa6150fbfb41fc45c4d76ad90c"
+    },
+    {
+      "path": "rfcs/0018-manage-exercise.md",
+      "sha256": "f3bddc7164d254e497445f163b276b7404f4533d3bb032cf1f51020c78428c55"
+    },
+    {
+      "path": "rfcs/0004-core-domain-engine.md",
+      "sha256": "ebf04950c8145c27da3a8beb64023d644079809cf01ef585293cd20e52842fe1"
+    },
+    {
+      "path": "rfcs/0001-monorepo-and-tooling.zh-CN.md",
+      "sha256": "b090a6968c482a27ef842161163ff8f25e434517cd49e9a8aea3e588548da907"
+    },
+    {
+      "path": "rfcs/0023-water-tracking.md",
+      "sha256": "fccd2f683d8d6dfd08118d3a279fafc3365ba84240e8b8e2534c09239d539235"
+    },
+    {
+      "path": "rfcs/0024-micronutrients.md",
+      "sha256": "36782ef445a2a9efcdaadf5b0753ccd9799e6bd15227aaf18d5913f2a11a53d5"
+    },
+    {
+      "path": "rfcs/0002-project-naming-and-open-source-governance.zh-CN.md",
+      "sha256": "eb11a88bb0a5a0f2967c546afa51d69a14926f229a0c55a29e82508c6d324768"
+    },
+    {
+      "path": "rfcs/0018-manage-exercise.zh-CN.md",
+      "sha256": "63e05d39f678ff93e1a493dcf76465f3fd2aeca104bdc879862155fd4de2e023"
+    },
+    {
+      "path": "rfcs/0027-ios-host-landing.zh-CN.md",
+      "sha256": "8342216efc1f5e03432e1274a06f2a01316b9bcd2afe826de575577abcf06f43"
+    },
+    {
+      "path": "rfcs/0033-barcode-recovery-and-product-units.zh-CN.md",
+      "sha256": "c1f8a8c22fd5ef756b347e5f8a34a6f200849c90286418e905254df74c261c16"
+    },
+    {
+      "path": "rfcs/0028-bottom-tab-native-shell.md",
+      "sha256": "10d7edbbb89ab0a0fdaa5bbec17b74ad2f1ef3ab07226e4bddb8d65387757994"
+    },
+    {
+      "path": "rfcs/0027-ios-host-landing.md",
+      "sha256": "62b07b294d1492d39e471339f9dae55b4951c2049ace0e840c9c9dd7f52fb287"
+    },
+    {
+      "path": "rfcs/0014-manage-custom-foods.md",
+      "sha256": "89576a266bf3a3ab5b4bb596564ed5dc7d8485769f3bac0dfe56e58c6d937d22"
+    },
+    {
+      "path": "rfcs/0002-project-naming-and-open-source-governance.md",
+      "sha256": "af9ce7226edcfce92d2cf4c7fce4fe50d41a2ce7bdf85b77cc96027093f07ac9"
+    },
+    {
+      "path": "rfcs/0017-exercise-logging.md",
+      "sha256": "20b0f2578930a1ca4f3cf85074438704a060a9cdd3897647d8a07c4e3cd1d0a0"
+    },
+    {
+      "path": "rfcs/0006-native-host-and-container.zh-CN.md",
+      "sha256": "d7aa6ccd5c1bb29ec58791a3dceddde3279833d359a2a40c23fe5c9099aa0404"
+    },
+    {
+      "path": "rfcs/0019-progress-insights.zh-CN.md",
+      "sha256": "228f7326b8f76e84d606b1f7ddbe445fc2c6e157834f1827851cfc950cff838a"
+    },
+    {
+      "path": "rfcs/0030-persisted-appearance.md",
+      "sha256": "93f593a56aa6261c4517fea4a868d58695a2c3733a1ea914ca0c12bc6f613ab9"
+    },
+    {
+      "path": "rfcs/0019-progress-insights.md",
+      "sha256": "19bc313f66e228a640bbf9c387737cc8e4385862bd89cbc0444a1ea2e8f9c79b"
+    },
+    {
+      "path": "rfcs/0020-smart-reminders.md",
+      "sha256": "482fbce838c92f4cc2d2df650e543c848ea0d5241e2a18d2b5b3810c71095a5d"
+    },
+    {
+      "path": "rfcs/0009-internationalization.md",
+      "sha256": "6d45adcab2fb8d2b620ef7a987e5ee76c0181faada96be2be736972552ea27a7"
+    },
+    {
+      "path": "rfcs/0008-data-model-encrypted-storage-sync.zh-CN.md",
+      "sha256": "fef435e2488cd82baa8e936472fab998b251d9ff0e90f3841c54a421c2cf5201"
+    },
+    {
+      "path": "rfcs/0012-offline-food-logging.zh-CN.md",
+      "sha256": "1288651a48c54de83317501f00eb47d26b80fe679c9e34dae827c181e5c8abf9"
+    },
+    {
+      "path": "rfcs/0006-native-host-and-container.md",
+      "sha256": "2a7bedc256b53a6f2c4a86f8bef0f6bdb93bee18d6506fc31b0ed9577f313ecd"
+    },
+    {
+      "path": "rfcs/0015-favorites-and-recent-foods.zh-CN.md",
+      "sha256": "d3a81146c65ab08ae24074b39472b0c3a2dadf32b43f4aa8f5497ae92f2af6b9"
+    },
+    {
+      "path": "rfcs/0030-persisted-appearance.zh-CN.md",
+      "sha256": "9a0b004e10483635cda7a9a95e92b520828bee1d20d846f23d7379e70e864c7c"
+    },
+    {
+      "path": "rfcs/0004-core-domain-engine.zh-CN.md",
+      "sha256": "b9303a552619c217a855028dedfb35765de3f660cb8d047369d7c264287b9a98"
+    },
+    {
+      "path": "rfcs/0026-icon-visual-proportions.md",
+      "sha256": "a5728970e18bc30836d22fd202ac4194b647faabb18ff1918e3485c0ad25b503"
+    },
+    {
+      "path": "rfcs/0013-custom-foods.zh-CN.md",
+      "sha256": "eb4bf2dd2eb4ef002e65ceff7f0dc25f26b9cb13006f2d089c78ec259ae42877"
+    },
+    {
+      "path": "rfcs/0005-typed-bridge.zh-CN.md",
+      "sha256": "633acb894ef1f480b4e86b338fc2fd1f463582a508afc37b117f6a56caa74b17"
+    },
+    {
+      "path": "rfcs/0012-offline-food-logging.md",
+      "sha256": "bc8644c60b1b01fb8f231a51473b71e9ad47f885862364169e1119842c046e24"
+    },
+    {
+      "path": "rfcs/0017-exercise-logging.zh-CN.md",
+      "sha256": "16cb9feb6f21bf315b6ac33a1499febabfca66679826819a9086a6bf016bc689"
+    },
+    {
+      "path": "rfcs/0013-custom-foods.md",
+      "sha256": "9e75d29d95891f70a06f4a0dc5cd1dfd17a61867da5566ed40021a8bdbd4976d"
+    },
+    {
+      "path": "rfcs/0007-dynamic-delivery.zh-CN.md",
+      "sha256": "e8409ebd67a3a0732bcac91a2db9e45b13b73e7148ac36285a048dfc6a3115d5"
+    },
+    {
+      "path": "rfcs/0007-dynamic-delivery.md",
+      "sha256": "0bc67b283bfc5b9cb343d3668148783559d86e6f95814230780ba41c9c883af7"
+    },
+    {
+      "path": "rfcs/0035-private-cloudflare-companion.md",
+      "sha256": "c01d0c220298ecc4dce426d8d0c12439d9860ece913b6a08d30580b64e7151b5"
+    },
+    {
+      "path": "rfcs/0031-platform-capability-parity.zh-CN.md",
+      "sha256": "d14a8afee5198d02f2451ab85fa0f629671db6568e711113ed0173b184719f58"
+    },
+    {
+      "path": "apps/android/gradlew.bat",
+      "sha256": "2209f919a22528af59a2af2ad97e8d056cca18e39f7d87aa3fd549a73b180150"
+    },
+    {
+      "path": "server/companion/src/index.ts",
+      "sha256": "63c73e2b07e89aa344eb6ccf72bde2343c5f667021d4a399b93cc6eea2f5d82a"
+    },
+    {
+      "path": "server/companion/src/types.ts",
+      "sha256": "44999750bfb848a0fb1c7995f9e2055567b335bfcaefd3d4df353fb679de9760"
+    },
+    {
+      "path": "server/companion/src/cli.ts",
+      "sha256": "c9fd9d09a9eb2cb2a0c27c3b9ae68b7ab066691f85493584e047288f041c305f"
+    },
+    {
+      "path": "server/companion/src/index.test.ts",
+      "sha256": "a986abe5ec23e773735923ca61a143e6153740c866a692adddf882b2fb1734b7"
+    },
+    {
+      "path": "server/companion/protocol.md",
+      "sha256": "ccb9ce8cd8dc27a2f6c49a989a3edb784f126682de645ac1efab53d970694774"
+    },
+    {
+      "path": "server/companion/native-interop.zh-CN.md",
+      "sha256": "ce64c4d824339abdd73b651d3a39b4879cfae7e15978caa724f483b38fce57c9"
+    },
+    {
+      "path": "server/companion/tsconfig.json",
+      "sha256": "1bb9ea5c4e3c9f4d1f441e76188848b4f3bc9f80fde3931e2f3dca7f5eb55665"
+    },
+    {
+      "path": "server/companion/README.zh-CN.md",
+      "sha256": "79f5877259510aa4f8d951f5e3e8cc13d50de5949ef7762ac00f5bb5469d416b"
+    },
+    {
+      "path": "server/companion/package.json",
+      "sha256": "9ec896e7f8bea1a447dbe983e0722c42f5492a49bd5a087bee53e85815f3c7eb"
+    },
+    {
+      "path": "server/companion/README.md",
+      "sha256": "e5fab6560f888ce695690e62f6ad2c7b5f3f2ab06140ed5fcd5744472e8df6c0"
+    },
+    {
+      "path": "server/companion/native-interop.md",
+      "sha256": "4e906e2486b6997740dfa51ece469578a17e6ec81b1dd626275e22d5a37d9924"
+    },
+    {
+      "path": "server/companion/rslib.config.ts",
+      "sha256": "8d14ba3fe207870c12c4279a50eea95125f8244a67bec532cae1e1f3e2396b95"
+    },
+    {
+      "path": "server/companion/rstest.config.ts",
+      "sha256": "2050cc746aa8236f8c284047528310119f2cd75b8e323a19c3364ed8fc7886d8"
+    },
+    {
+      "path": "server/companion/protocol.zh-CN.md",
+      "sha256": "cbbf2d6acc180dba292ed1ce1bbe79c5fb6989ae00d13486c8afd227bf3a93be"
+    },
+    {
+      "path": "packages/pages/src/theme.generated.css",
+      "sha256": "8a4ecb691232b45e108a873421696c12ed3cbb20cd7e20f46a6b746fae61a33f"
+    },
+    {
+      "path": "server/companion-worker/src/sync.ts",
+      "sha256": "9e791290ea2cc444b092a7ef55f548b984ba732f1a9490192321da4d16f06978"
+    },
+    {
+      "path": "server/companion-worker/src/worker.ts",
+      "sha256": "c8d98144525d24d4b82775a94c74b8eac25033932b40cb8fca965f61c7ef9570"
+    },
+    {
+      "path": "server/companion-worker/src/auth.ts",
+      "sha256": "c119782042cdc758beb09cc5c09acce751db0a179f7010697379139e8285c1fd"
+    },
+    {
+      "path": "server/companion-worker/src/worker.test.ts",
+      "sha256": "b3eba6a13cab3e27bde01ae8e544c54f96f437361e6f1b821ea3501e685b0b7c"
+    },
+    {
+      "path": "server/companion-worker/src/protocol.ts",
+      "sha256": "bae5c2a9515511108c65f636f72a46863c780165635633b90d0d52ce75f7195b"
+    },
+    {
+      "path": "server/companion-worker/src/database.ts",
+      "sha256": "2890dcbd2b3d395ef62d67282d83f07c239ad212a79700c79022fa1a2499fb9d"
+    },
+    {
+      "path": "server/companion-worker/src/groups.ts",
+      "sha256": "57538130bce0e5509c778456808a4d2bd413619ff2288870ee8a0984ab1c01f0"
+    },
+    {
+      "path": "server/companion-worker/src/admin.test.ts",
+      "sha256": "eeb63162e65fa5aab6319834d1792fb1f66834c9b3fc383e0f3f5a55f370eac0"
+    },
+    {
+      "path": "server/companion-worker/src/admin.ts",
+      "sha256": "9dcd47badd0eca1c2d8b4aff63f14a59a46c96904e1324adebf088c431979bb2"
+    },
+    {
+      "path": "server/companion-worker/src/entry.ts",
+      "sha256": "b6e8f1b50501e0a2251c2c2bceaa76d2b705a8bbfb2eef9f4d7a9e4aca201e12"
+    },
+    {
+      "path": "server/companion-worker/src/deletion.ts",
+      "sha256": "f62c036a9ed508047aa9e8aa59839a144a425a4e2d8c3bfdae4ae043a81e06e3"
+    },
+    {
+      "path": "server/companion-worker/src/objects.ts",
+      "sha256": "33b70be7c5bdc2553fad3e6c7747894748d156ac2f9a7f3d2c01c5ecaee97cee"
+    },
+    {
+      "path": "server/companion-worker/rslib.admin.config.ts",
+      "sha256": "1e491efeb06fcb379dbb9f4ee042960649a50c9ca97a8d5651de09951fc632aa"
+    },
+    {
+      "path": "server/companion-worker/tsconfig.json",
+      "sha256": "2398debabbec2369fb76f0cb0cb7536963b35b4ae3bb6fd596394574dc00f624"
+    },
+    {
+      "path": "server/companion-worker/README.zh-CN.md",
+      "sha256": "9916684ad9bc8e985adf26b65d018416587506cf255855ac7a53bb6ebfb4c892"
+    },
+    {
+      "path": "server/delivery/manifest.example.json",
+      "sha256": "e72e42b064df1fc3c5a11d4eda4c1b2027572e982c3a31c7c2a6d95ff2f9f284"
+    },
+    {
+      "path": "server/delivery/README.zh-CN.md",
+      "sha256": "337809f91ba974e6ee2e055071f0781d04f8ceae6ee9f388cbc251083918e63c"
+    },
+    {
+      "path": "server/delivery/README.md",
+      "sha256": "6c9ccb6494f4155ea0b3e5cb9ed53afbc77b473d8b669b7af9f89a5d8f061445"
+    },
+    {
+      "path": "server/README.zh-CN.md",
+      "sha256": "257c85797e69a3dda5299bf8ffb242b40564de969e5c7c21d27fe5d8a121967f"
+    },
+    {
+      "path": "packages/pages/lynx.config.ts",
+      "sha256": "fb5f50c00ff97304a3d2c8b59d43989617fc6bed823ac16cf94fc0154516699e"
+    },
+    {
+      "path": "packages/pages/rstest.config.ts",
+      "sha256": "489c00c179ac77abb697e1707dc93b12923907e33e8a4cf413f1398ecd445422"
+    },
+    {
+      "path": "server/companion-worker/scripts/local-profile.mjs",
+      "sha256": "a054172318f073c4a34ac3caddb70a8b3ae87f5aff7200e1677e00ee29be5cb7"
+    },
+    {
+      "path": "server/companion-worker/scripts/local-fixture.mjs",
+      "sha256": "c0a5043a6405ec084c4270cf440371c4fb3ea01d2d67a0d134ed18457ab16f90"
+    },
+    {
+      "path": "server/companion-worker/scripts/local-migration-fixture.mjs",
+      "sha256": "b608bab184e17286c45ff310cac3b8761ca805f7e5fae960b96b3b8f0786703b"
+    },
+    {
+      "path": "server/companion-worker/package.json",
+      "sha256": "f6a7ea2be3141a55bf452cda112859ff90dee3bd62ba8b948997aa71a7613f9c"
+    },
+    {
+      "path": "server/companion-worker/README.md",
+      "sha256": "95f334b90165a65b5fb42c948d889c2a4abf459e9b97e01f90405e0550a984b3"
+    },
+    {
+      "path": "server/companion-worker/wrangler.jsonc",
+      "sha256": "04c187688685703dfd21396e215152a990f09f4d12647853275614a5a3f0a9d2"
+    },
+    {
+      "path": "server/companion-worker/rslib.config.ts",
+      "sha256": "db77441cd6ad5a9b9aeb96bf594fae2345d47fbfb5cb025a7a42ecc7261d0ebd"
+    },
+    {
+      "path": "packages/pages/src/components/HealthConnectSheet.tsx",
+      "sha256": "9dd202d46515658bf9fe1b5385edff94ead83cab2bf466a74507293658bb8976"
+    },
+    {
+      "path": "packages/pages/src/components/PhotoPager.tsx",
+      "sha256": "cd8ffac35b7823d31513ca25b0d748a9ae09f30e44e5c5ee9f8ebed862f81f51"
+    },
+    {
+      "path": "packages/pages/src/components/WaterCard.tsx",
+      "sha256": "d443b67ab168b4d7e506303e1cf42506b272ae55f6168462375b658ef29342f5"
+    },
+    {
+      "path": "packages/pages/src/components/RecordEditSheet.tsx",
+      "sha256": "e8f402ad8e61899a0b2b6efdf214e11e6ffe13de5e2ffe56c7f802484dd0ad19"
+    },
+    {
+      "path": "packages/pages/src/components/MacroCard.tsx",
+      "sha256": "bc7bf041260e6b6fb48a51d139aebae9a454a2166c5735157e1beda386462624"
+    },
+    {
+      "path": "packages/pages/src/components/ExerciseSheet.tsx",
+      "sha256": "36e894327b914b98c6fbd2d2b85f9172e5f536726cd300676e468b2366d22336"
+    },
+    {
+      "path": "packages/pages/src/components/EnergyCard.tsx",
+      "sha256": "9f19d18352d625f25797e70a5d818f1e0ab96176fb1ea56a32b63ab780a3406e"
+    },
+    {
+      "path": "packages/pages/src/components/WeightCard.tsx",
+      "sha256": "c4284439b9774bfe35365537f9dce10376b5613bd1447881091c960407189ba1"
+    },
+    {
+      "path": "packages/pages/src/components/PersonalConflictSheet.tsx",
+      "sha256": "b82d6093168dddbd16cca4634a2f8320f64c22dda108bd1d88d84b947c2930f9"
+    },
+    {
+      "path": "packages/pages/src/components/ConflictReviewSheet.tsx",
+      "sha256": "7993d15a95c719e59ba4698d78c3eac08922be44c86c4faa065b90da27d1969a"
+    },
+    {
+      "path": "packages/pages/src/components/ModalFocusContext.tsx",
+      "sha256": "af2c0474514894a85262f4cfd54ec00b72aef9350dd43f3ebac34d41213da2a3"
+    },
+    {
+      "path": "packages/pages/src/components/SheetFeedback.tsx",
+      "sha256": "b59abf53b2046fd56a8aa33d2c2abb065b6d242418bb7f943bda59772b393646"
+    },
+    {
+      "path": "packages/pages/src/components/Header.tsx",
+      "sha256": "d0b9d23d69d52ee104665b6d8ea1a836f555c200f5a27df0afdfe26999245f27"
+    },
+    {
+      "path": "packages/pages/src/components/QuickActions.tsx",
+      "sha256": "8ebb22d6183dd38f1e6e366fe17cef630d806548819fa358a1fb0f4613cb91ed"
+    },
+    {
+      "path": "packages/pages/src/components/DietaryPreferencesSheet.tsx",
+      "sha256": "f19570c3093f147caf61ee9dfdfc77b396823390e46a11d61d5ac906d456f398"
+    },
+    {
+      "path": "packages/pages/src/components/BackupSheet.tsx",
+      "sha256": "a5652897cd16fad416a45fb4584be9f1ead6d48e1883f6241c8d9c27416ae771"
+    },
+    {
+      "path": "packages/pages/src/components/SettingsScreen.tsx",
+      "sha256": "b0fb796b384b0f26a57be06b129b29ef641c50e1ea23bc5caff2afdf14b79007"
+    },
+    {
+      "path": "packages/pages/src/components/MicrosCard.tsx",
+      "sha256": "357a3661d143c423ac79ec468278071d939681b4eda25a52e64cba8969623549"
+    },
+    {
+      "path": "packages/pages/src/components/ThemeContext.tsx",
+      "sha256": "57d1c5905bf768818a1ac81c786b08e063c14a0e52e719a9d452cbb78ee63ef9"
+    },
+    {
+      "path": "packages/pages/src/components/PhotosSheet.tsx",
+      "sha256": "887a0247441fd078141d0cc97342acf62ab546eb4d86220ac9c1363be554d33b"
+    },
+    {
+      "path": "packages/pages/src/components/ScaleSheet.tsx",
+      "sha256": "23e7935776682974b23650942e99663de473cf9821df3eabf42ee7a8cc8b42e5"
+    },
+    {
+      "path": "packages/pages/src/components/IntakeEditSheet.tsx",
+      "sha256": "a2999baef7fa645a4ca5125584fa16e1c7b139bc2a51733b571204925ba59d45"
+    },
+    {
+      "path": "packages/pages/src/components/WeightSheet.tsx",
+      "sha256": "1c1030fb2155a8c37a8d3529d7098f638dfa2dbf716146c64d4eb7aa9b484aa3"
+    },
+    {
+      "path": "packages/pages/src/components/CompanionSheet.tsx",
+      "sha256": "a4dda7956c067896ce9d5165c3aeec382f140e9a0ed7bdd531e48533f6373198"
+    },
+    {
+      "path": "packages/pages/src/components/WorkflowSheet.tsx",
+      "sha256": "82a84709271d1dfa54181bca490361d5c042771f67dd22fdf5d2b470fefb1173"
+    },
+    {
+      "path": "packages/pages/src/components/ProgressBar.tsx",
+      "sha256": "d86ed8e8dce8d37ff59a8e7497e68d9d4fdf28dc8e8a97282057431dc3a746e4"
+    },
+    {
+      "path": "packages/pages/src/components/BottomTabBar.tsx",
+      "sha256": "e1045b50b02d2efcb238a86d64fa6e430318230bfbb5712515955bb86c71c7bb"
+    },
+    {
+      "path": "packages/pages/src/components/ExerciseCard.tsx",
+      "sha256": "1a02a676c2a01a7ca8cf825f9092e839298aa3859f2f2fba553879d150db7fb4"
+    },
+    {
+      "path": "packages/pages/src/components/ReminderSheet.tsx",
+      "sha256": "1e0d625cd8d198d4a48445da35475a9602fa0c561100af6c09121fc7c31ea4f3"
+    },
+    {
+      "path": "packages/pages/src/components/AccountDeletionSheet.tsx",
+      "sha256": "132d958d624d261d708aaa41a123991b6bee1331accdec9a5f81eed807186db5"
+    },
+    {
+      "path": "packages/pages/src/components/MeIcons.tsx",
+      "sha256": "2e1a4094cf874bd001dd5a5691ab500c38e0ac07b028424e490c6dbd37725292"
+    },
+    {
+      "path": "packages/pages/src/components/BrandHeader.tsx",
+      "sha256": "bbdb3094ade94e3aa0e7dc2c7e5a0bbae4b7abcf202590e3017ebecc581b6c29"
+    },
+    {
+      "path": "packages/pages/src/components/PhotoPreviewContext.tsx",
+      "sha256": "f3640ffe3896e81762a4e0ace0c338f126916e6d98206fb43886f0016e0ca1ad"
+    },
+    {
+      "path": "packages/pages/src/components/Card.tsx",
+      "sha256": "527896d0cefd7ffdeacc3babc768e26169c57f1f49a0f8fdb4d7fcac4591bc00"
+    },
+    {
+      "path": "packages/pages/src/components/GreetingHeader.tsx",
+      "sha256": "7b840c431e48849f2d7088e5079b14ea11f0c1d1fb9cfb6d6812316f59b4811c"
+    },
+    {
+      "path": "packages/pages/src/components/FoodSheet.tsx",
+      "sha256": "ec44542bf8f0d471f5342f4dd98ca09932254e57a6989c61fa589c28aee7f512"
+    },
+    {
+      "path": "packages/pages/src/components/ProfileSheet.tsx",
+      "sha256": "412ffca688c7257ea6a0a6aaf75d280a04541aed974e40caa4e7976b64f2875c"
+    },
+    {
+      "path": "packages/pages/src/components/BarcodeLookupSheet.tsx",
+      "sha256": "094bf8935c52a604a092ba4ddf9ba1e2571b1f3cd8dd82f66e16c421de612d76"
+    },
+    {
+      "path": "packages/pages/src/components/InsightsScreen.tsx",
+      "sha256": "202733623a4370992bb0660064988c7ae317ce871012d02e146b7d3e9a4333d4"
+    },
+    {
+      "path": "packages/pages/src/components/MeasurementsSheet.tsx",
+      "sha256": "648d525ce23869de46ee4114e5916f7fc3198b8a7e97232f92ac7c716b8602c3"
+    },
+    {
+      "path": "server/README.md",
+      "sha256": "56b897ce80880776887c344608b32227366712ed4c1fd8e571233e51faab8b19"
+    },
+    {
+      "path": "server/companion-worker/rstest.config.ts",
+      "sha256": "18ba758623804d076bf2d44c8a49e16b94555a217226ecb088c51c4e031c18f6"
+    },
+    {
+      "path": "packages/data/package.json",
+      "sha256": "622eab69c1b41e69a8d6eea0a4b2e85e761a635462931b4d40feae3371bf3b83"
+    },
+    {
+      "path": "packages/data/README.md",
+      "sha256": "fd90f78a87ebcdcf55cc454858bdc19468684dc1638c9459253b7cd1e5066391"
+    },
+    {
+      "path": "packages/data/rslib.config.ts",
+      "sha256": "2580c7f118a61ce194781394341919a276e318be300643b5cc6218c47f107938"
+    },
+    {
+      "path": "packages/data/README.zh-CN.md",
+      "sha256": "0bbba70e63ad8353aba734fbb050acbdc0da26806cca79ea933acb3e1dfcdb43"
+    },
+    {
+      "path": "packages/data/tsconfig.json",
+      "sha256": "1a9f0873fec04475a675b9b11b9402a9eca94c930c65a199019538b9f521b861"
+    },
+    {
+      "path": "packages/pages/tsconfig.json",
+      "sha256": "96c24336dd3698aa0e184cc68816f01530db5115781fb729763d6e07ae5662aa"
+    },
+    {
+      "path": "packages/pages/src/lynx-env.d.ts",
+      "sha256": "5cad531483cfda1a7520e823f9c9407b319a0dde16a66ce4b3cd44d5068fb938"
+    },
+    {
+      "path": "packages/pages/src/App.css",
+      "sha256": "7233f6e684fce4a4c666239bab1c7e2c02ee3debe1e1cbfa8f849ba658fab031"
+    },
+    {
+      "path": "packages/pages/package.json",
+      "sha256": "fd7c822474a57b31f6a3a518562439c39222fa810f768e6f18010cc78c380eb0"
+    },
+    {
+      "path": "packages/pages/README.md",
+      "sha256": "34f09a49cda7e08917e7d3834b18c71f1cc4e5010cbef0fb7fe9426222f760d0"
+    },
+    {
+      "path": "packages/pages/README.zh-CN.md",
+      "sha256": "7ee4fbf23377cf535c31461a39cefd73cb20959c2e4f6f1a964ff9fe9e83e589"
+    },
+    {
+      "path": "packages/pages/src/index.tsx",
+      "sha256": "5975dd71fcbb2cbce31092a3d1fd475e336b3c714b2594053e90f0be1bcb2830"
+    },
+    {
+      "path": "packages/pages/src/App.tsx",
+      "sha256": "880ccd0c8b8f3396a072a6860245dbbb8a9400d55fe3f2e20f9c084fc1358b18"
+    },
+    {
+      "path": "apps/android/README.md",
+      "sha256": "d07187a2fee48d562c306c89c28e0afa51c2f428f78e3f622021f784f071b33f"
+    },
+    {
+      "path": "apps/android/parity-audit-2026-10-06.md",
+      "sha256": "4cd123ea8c2c6621fa67a2053a64ae1aa5c5ac0be20384aaee869787f95dc095"
+    },
+    {
+      "path": "apps/android/local.properties",
+      "sha256": "9a06102c3e86efb1d3b19c091709482bfc5e936ff1cca627c4b5469b52d7f95d"
+    },
+    {
+      "path": "apps/android/parity-audit-2026-10-06.zh-CN.md",
+      "sha256": "8719f5ae30b25044064f8fc7e5f2cd37f01fcaa9130c59c57133fc116e1ef49f"
+    },
+    {
+      "path": "apps/android/build.gradle.kts",
+      "sha256": "9b3ddf498faeb627fdeeebb6bb0962fad292b233cb47c22a86b5b8cabfcf631f"
+    },
+    {
+      "path": "apps/android/full-product-acceptance-2026-10-07.md",
+      "sha256": "46abc4d7aefc8769f2dd604513367c8013556e96d0b836e40522efed1a79b75c"
+    },
+    {
+      "path": "apps/android/gradlew",
+      "sha256": "a3648413b47ef77af21d5ebc36c687c7d103aaef3e17f33de7d4f080a6f300a3"
+    },
+    {
+      "path": "apps/android/settings.gradle.kts",
+      "sha256": "9169fca7dad4f13b6cda1f92b4b2c0bdc0b44f3d5223763238bf3300cd567310"
+    },
+    {
+      "path": "apps/android/README.zh-CN.md",
+      "sha256": "109466addf9467b9aaf1c5f9ee08f453724d3aa64a2ab30e829eb888e3f77c20"
+    },
+    {
+      "path": "apps/android/gradle.properties",
+      "sha256": "050fe9bbf9ad83a1dd6a31347e1f2b49b23c9fcfefc3b17da62dda2f711f4576"
+    },
+    {
+      "path": "server/companion-worker/migrations/0001-private-relay.sql",
+      "sha256": "c79d4d3a55a4b1c4d6de84f8642ed070e7f9e22dbb053748107e442ad9b16fe5"
+    },
+    {
+      "path": "packages/pages/src/screens/ProgressScreen.tsx",
+      "sha256": "8a28e02454fd484c963e90b2dfdc9a8c0fb3c125f0459e47e5734a4e23b7c587"
+    },
+    {
+      "path": "packages/pages/src/screens/DiaryScreen.tsx",
+      "sha256": "b2638df0e0f1aa2d17edd6a13be6462d43454b34ba2f238c4c75b9401e086c8c"
+    },
+    {
+      "path": "packages/pages/src/screens/types.ts",
+      "sha256": "4888278a1cffd2894e07d0e783ce641b57725fdb04d1611d5e7d2614470cb618"
+    },
+    {
+      "path": "packages/pages/src/screens/TodayScreen.tsx",
+      "sha256": "d9911d09fea557a61ff28136caab57c5b29509096e1ae595d4b5d2855c7a1aa0"
+    },
+    {
+      "path": "packages/pages/src/screens/TrackingTodayScreen.tsx",
+      "sha256": "68f1cbf48b5597e82156380a626c107dc3b576ea063b4c06c5bc885e19d0e8f6"
+    },
+    {
+      "path": "packages/pages/src/screens/PartnerScreen.tsx",
+      "sha256": "2eeb473a0702cb236d7c855dc7e9d7d66a62790f83b8585dc5c0519a7ec45b01"
+    },
+    {
+      "path": "packages/pages/src/screens/MeScreen.tsx",
+      "sha256": "d3eab5a0dbf0bc680b2e96cde47f561721d211551207fe1ac2851430ba4bf66a"
+    },
+    {
+      "path": "packages/data/src/backup.test.ts",
+      "sha256": "f008810b0789e8ea8d583021171f223864f82cb4588ff2da5bbff87da0dd1af6"
+    },
+    {
+      "path": "packages/data/src/sync.ts",
+      "sha256": "b287f56ca6da73d130dec763e65a5fbab73b10d2c1d635e72191e91dc6f7cb62"
+    },
+    {
+      "path": "packages/data/src/merge.ts",
+      "sha256": "5292db272ed53a4df02c7e2623eb822a78052be0d41853119291a86585e6659b"
+    },
+    {
+      "path": "packages/data/src/backup.ts",
+      "sha256": "104573461560bcd409ef0c7bf3d8bcbf34262027e1a21005f8578c99264b37e4"
+    },
+    {
+      "path": "packages/data/src/companion.test.ts",
+      "sha256": "222946d445a910fb5669536301b68b37776f3a0bcb84d5ed71a83ca7f204ca8e"
+    },
+    {
+      "path": "packages/data/src/vault-merge.test.ts",
+      "sha256": "a09b83ca002006b721422a4ad0510f9c2504a954f2745be0ab625538b6521cf1"
+    },
+    {
+      "path": "packages/data/src/companion.ts",
+      "sha256": "10797d4b6c546107a645aa34ceed420714b0ed4d70eda070bd585c84d3c812f4"
+    },
+    {
+      "path": "packages/data/src/index.ts",
+      "sha256": "ce3b41dbd58b47a9465cd4757cb1676b348f769b3bafbb41fd3a28bf40b56040"
+    },
+    {
+      "path": "packages/data/scripts/generate-public-backup-fixture.mjs",
+      "sha256": "bceb1f8dd33cec0a11a2d2c29d0bc2e4d23c65af08a38fe0f9ab91922425305b"
+    },
+    {
+      "path": "packages/pages/scripts/generate-theme.cjs",
+      "sha256": "dd87a282607162f612ab01017e92166f7fa9264bd70d0b4187ae8f4186ab5598"
+    },
+    {
+      "path": "apps/android/full-product-acceptance-2026-10-07.zh-CN.md",
+      "sha256": "51f5ade6c3b09698ad6a22d56e9539415060af55ce9df1dccef253b08556fe64"
+    },
+    {
+      "path": "packages/pages/src/state/exercise-estimate.test.ts",
+      "sha256": "e909d267701b4f068437619e370614976b0a6e8d751bac59aa6cd9d43e004bce"
+    },
+    {
+      "path": "packages/pages/src/state/barcode-feedback.test.ts",
+      "sha256": "9b02e2c5c7dade22e0361dd4f885b3bfd0e932895189df8d37dfbd27ce4b22b4"
+    },
+    {
+      "path": "packages/pages/src/state/scan-food.ts",
+      "sha256": "dbaacd32697c4268f94717a53a70306d853c39b57e0171ccbcbe40af8e6c82cd"
+    },
+    {
+      "path": "packages/pages/src/state/photo-page-anchor.ts",
+      "sha256": "93efa4f88d087dae18b335e788994d1f6a7bc396cf27fe845e7fb77593e5d38c"
+    },
+    {
+      "path": "packages/pages/src/state/theme.test.ts",
+      "sha256": "2f2e03b8bf6d6bed8bf7685def1303e2767f432e5a86b0f5be90ee0874122c37"
+    },
+    {
+      "path": "packages/pages/src/state/food-selection.test.ts",
+      "sha256": "4bf9bbaa9524607357f705b8a780e58a34262f2b9d048256db66c04910222db4"
+    },
+    {
+      "path": "packages/pages/src/state/food-selection.ts",
+      "sha256": "423f34db5c9fc141bd18f67d9cf8e9496800c609c893cab40e865a410c3388a3"
+    },
+    {
+      "path": "packages/pages/src/state/chart-trend.test.ts",
+      "sha256": "feedfcc0346e2554c57fd00aef6ea564be6075bc42d6529f45c4f2feefe4142e"
+    },
+    {
+      "path": "packages/pages/src/state/companion-actions.ts",
+      "sha256": "724f677dfa1611a0d7152c511f232f2f2c5a9ca05d038e740fb0cab06caa7806"
+    },
+    {
+      "path": "packages/pages/src/state/photo-page.test.ts",
+      "sha256": "59729d97eebe3fdf0afee657329a16974190f515bc06f89845e94333c4f4157f"
+    },
+    {
+      "path": "packages/pages/src/state/photo-preview.ts",
+      "sha256": "b12e8ab32a5bc974494e0318309b76d895d6be7131908a2248d3cc8b0a57a696"
+    },
+    {
+      "path": "packages/pages/src/state/theme.ts",
+      "sha256": "0182cc2ba4fcdbebfc29facec9330664946eb6cff31791b12a0cf76f99a5cdf9"
+    },
+    {
+      "path": "packages/pages/src/state/health-connection.ts",
+      "sha256": "69e95c1b25c74b9dd7363be5c0488bd21468fd8edb513d35ce3d43b75a644b96"
+    },
+    {
+      "path": "packages/pages/src/state/barcode-feedback.ts",
+      "sha256": "85eafca612b8b5d3098da6164474f85b290cf1549b81658e871fea78ef840d07"
+    },
+    {
+      "path": "packages/pages/src/state/backup-ui.ts",
+      "sha256": "00856f2137ee3cf8123033ec337791ad7cfb54d1faacfc80fe2bcca979adcbe8"
+    },
+    {
+      "path": "packages/pages/src/state/reminders.test.ts",
+      "sha256": "5ec2215330274c1926cd5c0183912f7b7dfa95282108778296628f06a017165f"
+    },
+    {
+      "path": "packages/pages/src/state/water.ts",
+      "sha256": "64bde9adda87f16ee52152e3768bf1a19b10780a09166c44efa28b98f2a1e014"
+    },
+    {
+      "path": "packages/pages/src/state/photo-page.ts",
+      "sha256": "00450c9f605a3d78c567dcd5118ef768a159f500db02e53c5fa33366d3e8db90"
+    },
+    {
+      "path": "packages/pages/src/state/exercise-estimate.ts",
+      "sha256": "438ef75bfe19e83d33244d0d26d579e5b453554babce245c70bc61ecb609c306"
+    },
+    {
+      "path": "packages/pages/src/state/diary.ts",
+      "sha256": "0c0ae535162d9910d93fa19b4f216ed14df8fedd5017c6286a16fe5db86b9728"
+    },
+    {
+      "path": "packages/pages/src/state/profile.ts",
+      "sha256": "1bce1a9c5d9ab67aba1d401047d1c04ff57ab9b0d11eb818a83dafeb51b84934"
+    },
+    {
+      "path": "packages/pages/src/state/companion-ui.ts",
+      "sha256": "da9ede607c05dde2f31ab4789da4bfa2f1dd3d8241e16fd7907733f72d75bc39"
+    },
+    {
+      "path": "packages/pages/src/state/modal-focus.ts",
+      "sha256": "3e5df1a3224d773c7a8c62134c91e41f2413bbe9ac08de6b0c82d9156aa17ee4"
+    },
+    {
+      "path": "packages/pages/src/state/dietary-foods.test.ts",
+      "sha256": "bb9e384c5c3bfca1d0e2e10a861faeea0d2d84dbe40442552386e1f34832d82d"
+    },
+    {
+      "path": "packages/pages/src/state/diary.test.ts",
+      "sha256": "dc1d8af333e2b5f3153cd0b11ef2ab63f69f752521cff8bf4d35cb5d8ddfb5b8"
+    },
+    {
+      "path": "packages/pages/src/state/modal-dismiss.test.ts",
+      "sha256": "6896690ae47aa264107994ae4db8541daa77d3cd523550adf09681918e49eab4"
+    },
+    {
+      "path": "packages/pages/src/state/chart.ts",
+      "sha256": "bf9e9dc92443960aee7eca8c4d03d9e2bdb62ccc5a5481a1e092fd69f65021f4"
+    },
+    {
+      "path": "packages/pages/src/state/backup-ui.test.ts",
+      "sha256": "68f89adbabf2feed60dfa2cdbfdbd395047bbbf6a72352b1f685ef98834f44cb"
+    },
+    {
+      "path": "packages/pages/src/state/types.ts",
+      "sha256": "b510ed0134287949b25617cb63b939a87c2d4f63dc8c132ced26d30e0d9846c8"
+    },
+    {
+      "path": "packages/pages/src/state/reminders.ts",
+      "sha256": "661876ac5be15ef1655d6a8261f120133c76f878ef31b21a4e85ffe690fce952"
+    },
+    {
+      "path": "packages/pages/src/state/personal-ui.test.ts",
+      "sha256": "39a69a920cde178126416bf9880a2ae00ff4e46547acdcce95a0d6681c95244f"
+    },
+    {
+      "path": "packages/pages/src/state/local-attachment.test.ts",
+      "sha256": "e5337fd3d4990564c6eb8e11a93e0aedff6f98241b886f6c62bf1c7cf05ab29b"
+    },
+    {
+      "path": "packages/pages/src/state/dietary-foods.ts",
+      "sha256": "61c2d881de3563338a1b0234db4755a5ebe9c1b421449917e8e456d6db66eae6"
+    },
+    {
+      "path": "packages/pages/src/state/record-mutation.ts",
+      "sha256": "92597f08e0bc506d2366afb56542b59b00972936a3754e3585f48808c0d087d5"
+    },
+    {
+      "path": "packages/pages/src/state/theme-palette.json",
+      "sha256": "9db47d2942b4f07be7ced10ab31d47164bb2c9562923e031a17ea2bb998fc318"
+    },
+    {
+      "path": "packages/pages/src/state/photo-preview.test.ts",
+      "sha256": "db98d352b3ba44bca2e438b7a33dc385d363f350228ab4c0e854d185c9e46d45"
+    },
+    {
+      "path": "packages/pages/src/state/water.test.ts",
+      "sha256": "26a3e87d118bdd7316edc09e10a4cfa14e3cc0f665fba3f2d327d8936e6cc2bd"
+    },
+    {
+      "path": "packages/pages/src/state/scan-food.test.ts",
+      "sha256": "66034e7e1e6bd800ecaba7222f4e3c8a1c0cde151c740dae76fe4bfbe04f4cf4"
+    },
+    {
+      "path": "packages/pages/src/state/food-edit.ts",
+      "sha256": "bbc5ff575a103c9ee00d06805e60ea1290fe01e7b0513acb3aac5145d4c26c51"
+    },
+    {
+      "path": "packages/pages/src/state/account-deletion.test.ts",
+      "sha256": "f50ad2e7c65103a656769f2fb68c5ba6598cf83e4c6a1b195f1fc6e2fbc41a5b"
+    },
+    {
+      "path": "packages/pages/src/state/app-bridge.ts",
+      "sha256": "bf2f486e25f4dad4880be583934c1e1f0035693d4e543823982858cb1fa6d4ff"
+    },
+    {
+      "path": "packages/pages/src/state/food-edit.test.ts",
+      "sha256": "ac1865a068062023efb78f4d6d4e1007a24dcf6832c496ac6850f3da86cf187c"
+    },
+    {
+      "path": "packages/pages/src/state/modal-dismiss.ts",
+      "sha256": "12be4b17373cf71d53687a17e89e2e2e57a452a5be65c070ca0daf905bba18d4"
+    },
+    {
+      "path": "packages/pages/src/state/capabilities.ts",
+      "sha256": "bfb2bac4196ba2f5c74fd276862328eb60d2ed42f7f63fad317f4cd90ba80d4d"
+    },
+    {
+      "path": "packages/pages/src/state/host-data.ts",
+      "sha256": "ddbbbfa166da4add97ad61d1ad129a310f4997d1b4e5b9e2efab8e1ef4a481ec"
+    },
+    {
+      "path": "packages/pages/src/state/backup-client.ts",
+      "sha256": "9a9e14384b95b6a3827078fff9a6fc8d50cdd2ccd7e038b3e2b03c558decdbd0"
+    },
+    {
+      "path": "packages/pages/src/state/local-attachment.ts",
+      "sha256": "7e644208425dec64e39cd55b33ec653fc74a41f6444cb0c7ba70a0501e239175"
+    },
+    {
+      "path": "packages/pages/src/state/workflow-layout.test.ts",
+      "sha256": "205c63f3d15e56cfff5bb3eff12fafea3b007bd90519e01bda06f3c95c734226"
+    },
+    {
+      "path": "packages/pages/src/state/sample.ts",
+      "sha256": "f94d27e1e2a1e5d9643394adf897d62e2ce14b3d0490d648a3b8896cf68a7b62"
+    },
+    {
+      "path": "packages/pages/src/state/companion-client.ts",
+      "sha256": "9fe3953346000af9d10da0ff85fcd638e311915bd7be06b682436758f5558378"
+    },
+    {
+      "path": "packages/pages/src/state/workflow-accessibility.ts",
+      "sha256": "219346999b6ec95a94a32049dc37f24e41c2e838df2c74b5e655b54efebad8be"
+    },
+    {
+      "path": "packages/pages/src/state/workflow-layout.ts",
+      "sha256": "09ae22f332df4fef539f04a12720353f019605fd9b578750bebc186ec5a2377a"
+    },
+    {
+      "path": "packages/pages/src/state/select.ts",
+      "sha256": "61b23a14ff126948dc253329576085075a70ee0aeac556d1617eb1edf6e022ea"
+    },
+    {
+      "path": "packages/pages/src/state/personal-ui.ts",
+      "sha256": "e54b78023ca27f766efa0667e33c11df4b43fa577ba1706d3159f6740e31af80"
+    },
+    {
+      "path": "packages/pages/src/state/app-bridge.test.ts",
+      "sha256": "415000d65b11d9b6ae966cdad3b02fd842c91827278b1936be860f30977c43b0"
+    },
+    {
+      "path": "packages/pages/src/state/personal-client.ts",
+      "sha256": "043c8cd16d229b9f09cb1ea8f91484e1dc4061bb2aac0c7cc5bff0a94853e673"
+    },
+    {
+      "path": "packages/pages/src/state/capabilities.test.ts",
+      "sha256": "55a584802a9f49b2662fe666fcadc3a8b0465fd92b6483d248dd9857ff000d99"
+    },
+    {
+      "path": "packages/pages/src/state/record-mutation.test.ts",
+      "sha256": "47b42433b033985c602fe265697c86d72a5ab3c8a5453385d20422211fdb6ad7"
+    },
+    {
+      "path": "packages/pages/src/state/account-deletion.ts",
+      "sha256": "430352a23b82a7cf0d21dab317dd85ef2179c2ed62e0c7567384848fd099b554"
+    },
+    {
+      "path": "packages/pages/src/state/chart-trend.ts",
+      "sha256": "62b9c87b862236b26bdbd28ab0ccc4343edae8ad3f5e56260c8959762c90a5fe"
+    },
+    {
+      "path": "packages/pages/src/state/companion-client.test.ts",
+      "sha256": "f3e371f8e5110a57a48f3be5586258bba214d5aa110ee2a659bad11d0955984d"
+    },
+    {
+      "path": "packages/pages/src/state/chart.test.ts",
+      "sha256": "03e26905f6de665aa48bf1eefd676f4eebd559033a54094b028af15333467b61"
+    },
+    {
+      "path": "packages/pages/src/state/modal-focus.test.ts",
+      "sha256": "3ecf8af8c296e8c03cc5279150406d68547f13345dc5aad2fb4c29abdf87d20e"
+    },
+    {
+      "path": "packages/pages/src/state/workflow-accessibility.test.ts",
+      "sha256": "08cf68e5f7c07429a257b11bf127b12f4e45830ec5faff24c58fdd4f939d879d"
+    },
+    {
+      "path": "packages/pages/src/state/select.test.ts",
+      "sha256": "664aae54c23cbf5b7ed508b37c5c456c017e13a7145189e3d0fbd45f90d515a7"
+    },
+    {
+      "path": "packages/pages/src/state/routes.ts",
+      "sha256": "73a9932894ac14a1ccfae18492586d4c93d835583703deba57bc72bbb56897e0"
+    },
+    {
+      "path": "packages/pages/src/state/health-connection.test.ts",
+      "sha256": "52056f6a27479ec07707f90564bd083a2d64cdad0cf74f7a51d6c07fd25cd57b"
+    },
+    {
+      "path": "packages/pages/src/state/host-data.test.ts",
+      "sha256": "9b63826e87de466da776df1663fefc77d8aeaec71fbecea51bbb47b87cd5df1c"
+    },
+    {
+      "path": "packages/pages/src/state/profile.test.ts",
+      "sha256": "0b428a04ff963ae277471b196729864e8cf717b174f4ba6b79641d16ae10015c"
+    },
+    {
+      "path": "packages/delivery/package.json",
+      "sha256": "d1f3f4ff4e790c28851e6e9d1e420c51167f5a430e6fc66e89e5c602ce63f517"
+    },
+    {
+      "path": "packages/delivery/README.md",
+      "sha256": "66192697c9975fc7768a49676a7d26b99dc935d56d5a8060b1c235a2e996d981"
+    },
+    {
+      "path": "packages/delivery/rslib.config.ts",
+      "sha256": "2580c7f118a61ce194781394341919a276e318be300643b5cc6218c47f107938"
+    },
+    {
+      "path": "packages/delivery/README.zh-CN.md",
+      "sha256": "83c4ece15ea25637147f9b8e7b7889d4f65e1c2bb9d6a0d24921bb853e681ec6"
+    },
+    {
+      "path": "packages/delivery/tsconfig.json",
+      "sha256": "1a9f0873fec04475a675b9b11b9402a9eca94c930c65a199019538b9f521b861"
+    },
+    {
+      "path": "packages/i18n/package.json",
+      "sha256": "60ea1645c7589f2ce6dbbe9db617c2e5e21e8d242a58d5f40b05a3813aa83ad2"
+    },
+    {
+      "path": "packages/i18n/README.md",
+      "sha256": "381e83adecb45176819cf38d003bf9f8602481fcd1aa5c6ff9a02235ac24f8a4"
+    },
+    {
+      "path": "packages/i18n/rslib.config.ts",
+      "sha256": "2580c7f118a61ce194781394341919a276e318be300643b5cc6218c47f107938"
+    },
+    {
+      "path": "packages/i18n/README.zh-CN.md",
+      "sha256": "b3bccbf7f70203f11203e2bdcfe1e48956ad4a842b0f208b4c7f227963588984"
+    },
+    {
+      "path": "packages/i18n/tsconfig.json",
+      "sha256": "1a9f0873fec04475a675b9b11b9402a9eca94c930c65a199019538b9f521b861"
+    },
+    {
+      "path": "apps/android/app/build.gradle.kts",
+      "sha256": "3853f116052ca52149dc5a1d78b4ee111801c94e730f753d67a99a8b44dfe9d4"
+    },
+    {
+      "path": "packages/data/src/fixtures/public-vault-merge-v1.json",
+      "sha256": "80108d669ad725ff76c1304cf88c185d5c5cabe2c0455893df7557a3c8e95a47"
+    },
+    {
+      "path": "packages/data/src/fixtures/public-backup-v1.json",
+      "sha256": "01371c842df6c560a8142873ed25b501559647b03c3d87ec72f31e2f869d4be3"
+    },
+    {
+      "path": "packages/data/src/fixtures/public-backup-v1.jpeg",
+      "sha256": "902b88fb192ea99ddf99e5f2bd279afc0203dbbbb8ac79b5ee6356677d3d53c1"
+    },
+    {
+      "path": "packages/data/src/fixtures/public-backup-v1.envelope.json",
+      "sha256": "584be6a5b6ed29ec690417fb8aba28567265a5d739ca7022d13a0d90ad75736b"
+    },
+    {
+      "path": "packages/data/src/types.ts",
+      "sha256": "2f70502342d03c11edda3363825f63b22142a7db09c5f31857f621250d91d193"
+    },
+    {
+      "path": "packages/data/src/vault-merge.ts",
+      "sha256": "251297ba5152a15703a40705a14aa1949b714f36e965a8bc9f95e8ffb6c8b68f"
+    },
+    {
+      "path": "packages/data/src/data.test.ts",
+      "sha256": "8b1ae8f39632b2317ca76d8a9939a402def19de783402d6525aec6c065a80c53"
+    },
+    {
+      "path": "packages/data/src/backup-crypto.test.ts",
+      "sha256": "35bb5f4be78e5d8eb14fd5381135f14c397bda97ac4050447f1890d74b978e52"
+    },
+    {
+      "path": "packages/data/src/migration.ts",
+      "sha256": "0a26db4b8a244898130ff23172abebeeb9ab357bd771a053f5af7217536220a4"
+    },
+    {
+      "path": "packages/data/src/personal.ts",
+      "sha256": "b9a68e760bdb06ce9cfd9d459307bef24a496ed522da22f56a10c62e40146a46"
+    },
+    {
+      "path": "packages/data/src/personal.test.ts",
+      "sha256": "5db70b8a2e787e2332073e2a491aff9b72a8dc61324f1ed5e299efa739134ec1"
+    },
+    {
+      "path": "packages/data/src/privacy.ts",
+      "sha256": "d40cf291c3fe1917702ac2ef4a3af446566ba9f3df4b2ee674dc90631c2d2acc"
+    },
+    {
+      "path": "packages/data/src/validation.ts",
+      "sha256": "86da8fe7deac849c1f4235c8ab1967a9f1e952ba53d395e40a50b0955fa36058"
+    },
+    {
+      "path": "packages/exercise-data/README.md",
+      "sha256": "bd34fdaf92d29f0840dd813a7b12562ba5837b8d9636e10fe730515e3cdcb9e9"
+    },
+    {
+      "path": "packages/exercise-data/rslib.config.ts",
+      "sha256": "2580c7f118a61ce194781394341919a276e318be300643b5cc6218c47f107938"
+    },
+    {
+      "path": "packages/exercise-data/package.json",
+      "sha256": "571cf89d823d7e3dcbb0dc70ce4ba545f18521bf7939de0373587d03ea7cc821"
+    },
+    {
+      "path": "packages/exercise-data/tsconfig.json",
+      "sha256": "1a9f0873fec04475a675b9b11b9402a9eca94c930c65a199019538b9f521b861"
+    },
+    {
+      "path": "apps/android/gradle/libs.versions.toml",
+      "sha256": "44f3a79033c4f7f39b32b3c240a0e2bee32d90e1e42eb7e802ac82e4b5a4dbca"
+    },
+    {
+      "path": "packages/food-data/README.md",
+      "sha256": "9f2380fcf4ece13af913dabe6a96479527f04613146d340c141f3cc070132790"
+    },
+    {
+      "path": "packages/food-data/rslib.config.ts",
+      "sha256": "2580c7f118a61ce194781394341919a276e318be300643b5cc6218c47f107938"
+    },
+    {
+      "path": "packages/delivery/src/delivery.test.ts",
+      "sha256": "dd07073acca0d10776a7d41df51aefdfbbcc6f1dc79a29c4da9adb7ab55dd60a"
+    },
+    {
+      "path": "packages/delivery/src/version.ts",
+      "sha256": "29c49736608e1779e303a5a2082d9e75bef6b3afaf9670f12ae64f4cc6417add"
+    },
+    {
+      "path": "packages/delivery/src/index.ts",
+      "sha256": "9af80b8b527466e3a14509318b4622523017dbb8bbb380c741d0635b74ed0863"
+    },
+    {
+      "path": "packages/delivery/src/manifest.ts",
+      "sha256": "4c9ad7151e6d9b60554490faf91e7cbe47d8137aa34a7918fdc3aeada5a8456c"
+    },
+    {
+      "path": "packages/delivery/src/decision.ts",
+      "sha256": "8c34a79573329732d5055fcda175b325f0fa08e7128adaba92cc56eedf760fc0"
+    },
+    {
+      "path": "packages/delivery/src/types.ts",
+      "sha256": "f9b75b26e70e740cf43eca23bee911d883667de789a7efaf1b0e93de754cf1a0"
+    },
+    {
+      "path": "packages/delivery/src/rollout.ts",
+      "sha256": "03068386888ab96206e85aab176e5bb2be3b2f6c59f2da1bb2326171029f60d8"
+    },
+    {
+      "path": "packages/delivery/src/integrity.ts",
+      "sha256": "9e348cdec037e7b1c3ae3bfe51a06c95180c23f6a99f32b69832bc4b0b0b2e1f"
+    },
+    {
+      "path": "packages/food-data/README.zh-CN.md",
+      "sha256": "a3c73fb090d36aa0ee554daee892fb9e05a1a125c8f5fa262671c8a1dec51d30"
+    },
+    {
+      "path": "packages/food-data/package.json",
+      "sha256": "1182f684bf4529106c0185611321b3649d4ed9e85ad684d05414b0c56474d3b4"
+    },
+    {
+      "path": "packages/food-data/tsconfig.json",
+      "sha256": "1a9f0873fec04475a675b9b11b9402a9eca94c930c65a199019538b9f521b861"
+    },
+    {
+      "path": "packages/cards/package.json",
+      "sha256": "97d104ff5d0cc2dc198ada83bc43b699baefdb8cbd4c355ed5e268d8e440da0f"
+    },
+    {
+      "path": "packages/cards/README.md",
+      "sha256": "365c7b840b31e6cc7d936ffd49a5e6339fa195d3b3e19cec3ff7f9bbe7d0c0ef"
+    },
+    {
+      "path": "packages/cards/README.zh-CN.md",
+      "sha256": "672da5c6182de39e308e36143c4bb2ecaae21d862d7de3bbb5249236637e63db"
+    },
+    {
+      "path": "packages/cards/tsconfig.json",
+      "sha256": "1a9f0873fec04475a675b9b11b9402a9eca94c930c65a199019538b9f521b861"
+    },
+    {
+      "path": "packages/i18n/src/i18n.test.ts",
+      "sha256": "db11d0070c5629e9a3bab082ac18b7aeccd90f09b1e7b9c939a060deadbd0dae"
+    },
+    {
+      "path": "packages/i18n/src/translate.ts",
+      "sha256": "6d6e8514be5b0113eb6056b0dc812421127ab9747896b457df81626e290c4411"
+    },
+    {
+      "path": "packages/i18n/src/catalog-parity.test.ts",
+      "sha256": "ddc3615518f029be23cdaa2188bcc1342c144db89155ca0333d72e4062e2c17a"
+    },
+    {
+      "path": "packages/i18n/src/index.ts",
+      "sha256": "d8333c5186efce1f9b871233ba8a3044ab7900d4b34e8e71f88546e28c033ddf"
+    },
+    {
+      "path": "packages/i18n/src/resolve-locale.ts",
+      "sha256": "fe731ab26994376b2e083e532d7a47306f1027dbc6d8fff832e7ff325bf96c98"
+    },
+    {
+      "path": "packages/i18n/src/format-date.ts",
+      "sha256": "930294a9d6c02a58aca07acdf8e39072204b4a4d3ddb0e97a7078cac105015fc"
+    },
+    {
+      "path": "apps/ios/Podfile.lock",
+      "sha256": "712079ec4d9a877dd5b511fe4fdf6d7762df68e596bc1eaf45278ed1afa520f5"
+    },
+    {
+      "path": "apps/ios/Podfile",
+      "sha256": "ab8eca15f695e2ac94ed76983d19024e77b8915cb8425ddcdd582233aa13d54e"
+    },
+    {
+      "path": "packages/food-data/src/custom.ts",
+      "sha256": "54193485dd160052fc56df441e34a435b22f4a3bc43380967dd99ce231514723"
+    },
+    {
+      "path": "packages/food-data/src/index.ts",
+      "sha256": "242a909f1291d7fa6745c4c0d28e7ca0773684fb5a3142fd540a250023aaa423"
+    },
+    {
+      "path": "packages/food-data/src/product-barcode.test.ts",
+      "sha256": "d4bc2a6e34178637e4e506ea47452e422dc25747475d6de66abb100428831c05"
+    },
+    {
+      "path": "packages/food-data/src/food-data.test.ts",
+      "sha256": "2ebe287c4047fd6a840b03a92c7967d7ed22c0cbe33204da5d514f8b7f5e175c"
+    },
+    {
+      "path": "packages/food-data/src/product-barcode.ts",
+      "sha256": "b181bcf4d5b1d2a7edfa586e31f558abbece8db9bf5b2eedeba71df61b6cec31"
+    },
+    {
+      "path": "packages/food-data/src/types.ts",
+      "sha256": "60078e5f187f82ceee154bcc2c1ca9ac58f327576a91ba19181aeb7d4fc93d58"
+    },
+    {
+      "path": "packages/food-data/src/portion.ts",
+      "sha256": "1802338ecabe149136a03df536682dfdb3eb1054920c9efd5d73a19c69635e5b"
+    },
+    {
+      "path": "packages/food-data/src/barcode.ts",
+      "sha256": "165e3e8c38ace60ccfb9927b872ffdc968ab5b26cc5353c11e9aa808a1ea0830"
+    },
+    {
+      "path": "packages/food-data/src/search.ts",
+      "sha256": "8f0f4cc2247c91a08b123598724ffdf973a65a57a88ea787aeba64f18cff45c9"
+    },
+    {
+      "path": "packages/food-data/src/barcode.test.ts",
+      "sha256": "6a449ec969b1a16ec1109ad7e54d47ad0f83d7729051fc95b985d2fc930fe372"
+    },
+    {
+      "path": "packages/food-data/src/data.ts",
+      "sha256": "90815011615751de2bd66b667bb1905a839f361f0fdc49731227edb1d5e7486a"
+    },
+    {
+      "path": "packages/bridge/package.json",
+      "sha256": "38ad95b5beb64e1beb827ab299a89fd7a7885b489f8293b402e6626bef4a569f"
+    },
+    {
+      "path": "packages/bridge/README.md",
+      "sha256": "00a18d963f2ee7de60857662965965f67effd7f962ed39c3abb955f1ca6a7908"
+    },
+    {
+      "path": "packages/bridge/rslib.config.ts",
+      "sha256": "2580c7f118a61ce194781394341919a276e318be300643b5cc6218c47f107938"
+    },
+    {
+      "path": "packages/bridge/README.zh-CN.md",
+      "sha256": "7571681447990a2869256553c9e23e85d914a91bd38e007cae8ede380bc7b20f"
+    },
+    {
+      "path": "packages/bridge/tsconfig.json",
+      "sha256": "1a9f0873fec04475a675b9b11b9402a9eca94c930c65a199019538b9f521b861"
+    },
+    {
+      "path": "apps/ios/README.md",
+      "sha256": "030ee1c6af3ad12632e43128092b70f5338df77e11dc58ce518fce4250ac7dcd"
+    },
+    {
+      "path": "packages/cards/src/index.ts",
+      "sha256": "2a3617f6d890455980017b813d70e5fe6ac545b3b9818e6170d117b4354691cd"
+    },
+    {
+      "path": "packages/exercise-data/src/index.ts",
+      "sha256": "778ba09ce6db3a0d8812fa2317b7642e62a448c8f123d3100235aae52340fd33"
+    },
+    {
+      "path": "packages/exercise-data/src/types.ts",
+      "sha256": "e71222ae0e480a59a388c396b4a60cac6eecb0a20f2e5e5cb23fefc230347de2"
+    },
+    {
+      "path": "packages/exercise-data/src/calc.ts",
+      "sha256": "949db184942e1e1d5c40fa08e47b7f9e2511dc2bc3699f4284aff437c4ced9f2"
+    },
+    {
+      "path": "packages/exercise-data/src/exercises.ts",
+      "sha256": "66d3a77e885c9bbf7d0f1a1505594758f359374e5a0c0e37fe6af5bab2142a8f"
+    },
+    {
+      "path": "packages/exercise-data/src/calc.test.ts",
+      "sha256": "0e4788d42cc9709a08212e381ef786c1c9818a4624c5285b41aff64bcfe92bc1"
+    },
+    {
+      "path": "apps/ios/README.zh-CN.md",
+      "sha256": "4147168756881384e1511dbe740a3f89deb50be7786fda0c3380eb5257c8e8e7"
+    },
+    {
+      "path": "apps/android/gradle/wrapper/gradle-wrapper.properties",
+      "sha256": "d7010368a34c1c06df2bae1a85d8b24c39b2499c74ac892fc7e66d005dbd7b8a"
+    },
+    {
+      "path": "apps/android/gradle/wrapper/gradle-wrapper.jar",
+      "sha256": "2db75c40782f5e8ba1fc278a5574bab070adccb2d21ca5a6e5ed840888448046"
+    },
+    {
+      "path": "apps/ios/project.yml",
+      "sha256": "4e28e739325f12bd80c329ed68af9b25e03f7cc53ced8b31222c70586175c67a"
+    },
+    {
+      "path": "apps/ios/LeanOn/Companion/companion-store.swift",
+      "sha256": "7458aa1bb2473c29ecfd95f072683da49d4cc00379b30dd41021a069d473fe23"
+    },
+    {
+      "path": "apps/ios/LeanOn/Companion/companion-http.swift",
+      "sha256": "fa68cdafb0b7d01dd2c952c6a72852cecc714b89b1f0269c7d8cab911485e837"
+    },
+    {
+      "path": "apps/ios/LeanOn/Companion/companion-photos.swift",
+      "sha256": "240759ad9d5057cd66f85d285865c78730eb8cc6a1d2b9301bd793e70b3725bb"
+    },
+    {
+      "path": "apps/ios/LeanOn/Companion/companion-peer-data.swift",
+      "sha256": "0f7121c98ff1558b2e3bba83e9e6f0df1e8723dbb87f2b5ea569cd77d6ef9a02"
+    },
+    {
+      "path": "apps/ios/LeanOn/Companion/companion-crypto.swift",
+      "sha256": "4961ff904339f87321b281474cb7c91868f6711e2af0e18f5328ccf43254e46f"
+    },
+    {
+      "path": "apps/ios/LeanOn/Companion/companion-service.swift",
+      "sha256": "e7532341ef85746cc88f66389923b54a8f67643edc09761e44dc9244fac3678c"
+    },
+    {
+      "path": "apps/ios/LeanOn/Companion/companion-cloudflare-migration.swift",
+      "sha256": "a146b12aceb0b7738e837995187cdd885e343df8cfdac69dbfc63555c8e91097"
+    },
+    {
+      "path": "apps/ios/LeanOn/Companion/companion-vault.swift",
+      "sha256": "a0d126621b72eb52de4c4bb2ef70dfd82bd4a54be95f92db534a5a0688757e5d"
+    },
+    {
+      "path": "packages/i18n/src/locales/en.ts",
+      "sha256": "96bef4589e296b03f31e257b0713a5f9d8b557dec2197193fc21b6fab1c147a9"
+    },
+    {
+      "path": "apps/ios/LeanOn/Info.plist",
+      "sha256": "c9de499e6d40d5b908a25e100795f74e273be5a56ff505f3502052f3de37ffd1"
+    },
+    {
+      "path": "packages/i18n/src/locales/zh-CN.ts",
+      "sha256": "44a669dac4a4ba8954fbac52b11e762b1aa8e1bce39165955bc2cc874ee09159"
+    },
+    {
+      "path": "packages/ui/package.json",
+      "sha256": "a2c4450e561a8ee3967a5500f6acb63f3256430677c9ff627743a9c05344e960"
+    },
+    {
+      "path": "packages/ui/README.md",
+      "sha256": "3398018323355019fda47141047fb93c0f5552fe7f85a04be9d6c034c1286779"
+    },
+    {
+      "path": "packages/ui/rslib.config.ts",
+      "sha256": "2580c7f118a61ce194781394341919a276e318be300643b5cc6218c47f107938"
+    },
+    {
+      "path": "packages/ui/README.zh-CN.md",
+      "sha256": "b24032a872cdcd09af0b3020f883f42f59b6850faf2a4b7eeeae4d4c3fdc3464"
+    },
+    {
+      "path": "packages/ui/tsconfig.json",
+      "sha256": "1a9f0873fec04475a675b9b11b9402a9eca94c930c65a199019538b9f521b861"
+    },
+    {
+      "path": "packages/ui/src/index.ts",
+      "sha256": "8f26c37d3a32e3b998fe17a4684fd63af7e3abb526fcf527f9cc652f1c88c96a"
+    },
+    {
+      "path": "packages/bridge/src/scanner.test.ts",
+      "sha256": "9478f6ea93bafb835d976d6333b54998f1307c8392e959b8b92ab9fbc9bdafa1"
+    },
+    {
+      "path": "packages/bridge/src/client.test.ts",
+      "sha256": "996d69efd1c285b540c1025fbf0d06bca15980eee63cdef85e02b5caecbef39b"
+    },
+    {
+      "path": "packages/bridge/src/records.test.ts",
+      "sha256": "665916a815f2e2016541dbc37f29d809101394ded76c252cd7aa4fba1ec5ae9f"
+    },
+    {
+      "path": "packages/bridge/src/index.ts",
+      "sha256": "2d2659525f2f7ae16e48b6d6feb1f00bccd0e2563103c60d504af5232cd5ae10"
+    },
+    {
+      "path": "packages/bridge/src/client.ts",
+      "sha256": "7d7231d7da3a59a1c0119b4ff9399ebbff1793a94a931493b3c83c7898bd2113"
+    },
+    {
+      "path": "packages/bridge/src/appearance.test.ts",
+      "sha256": "9a5330dcd1a85e252d2ea8a28842ca9e4142861681740aa7c3c4c6681fc4616e"
+    },
+    {
+      "path": "packages/bridge/src/types.ts",
+      "sha256": "da0dd930aaa7648984f6076d55972714d0190843a99866f56e88ae65203b98f7"
+    },
+    {
+      "path": "packages/bridge/src/lynx-transport.ts",
+      "sha256": "953a41077634f7c9e12ad9eebab1da230bd694ce6cb4f6d1bf8b1520f7a56b3c"
+    },
+    {
+      "path": "packages/bridge/src/memory-transport.ts",
+      "sha256": "d5db7d0ab037d051b277b52cbbe52fbdc8169b0ce68b0c0e2e74f97a51433296"
+    },
+    {
+      "path": "packages/bridge/src/contracts.ts",
+      "sha256": "5bb0a20da094afbea6dd7e3695a254ec3ddc8aa9999acf2edcfc99ead4af11aa"
+    },
+    {
+      "path": "packages/bridge/src/lynx-transport.test.ts",
+      "sha256": "fc1602556dd710ea7405aa42f4fc55b5f25f195f884f9f2fbeb5d1d7674b6f28"
+    },
+    {
+      "path": "apps/android/app/src/debug/AndroidManifest.xml",
+      "sha256": "574c38731c7383eeceff355cf7d791995be11ec9477bef44d973d30a0bef9fa9"
+    },
+    {
+      "path": "apps/ios/support/lynx-build-config.h",
+      "sha256": "39a94e42ce5edc2bdfe2b479044546b964ddef62a759bb3bec48050683b6cf95"
+    },
+    {
+      "path": "apps/ios/LeanOn/Reminders/reminder-settings.swift",
+      "sha256": "67d569c8b716a34850a2679651f2312a7ec9de8da961a82018c847626557eeb7"
+    },
+    {
+      "path": "apps/ios/LeanOn/Reminders/reminder-manager.swift",
+      "sha256": "9dca2334415dc92535805193583090c579f302f07f6caeee822a086c956efa00"
+    },
+    {
+      "path": "apps/ios/LeanOnUITests/daily-life-ui-tests.swift",
+      "sha256": "e6913a119163e9b8db4e143e41fa64a3bfeb0d271b18d2b4a79da1b90d105bc6"
+    },
+    {
+      "path": "apps/ios/LeanOnUITests/reminder-read-ui-tests.swift",
+      "sha256": "bf54a3c301c663cade49ded64545ffa3335273b7089492a326ba8222abc201d1"
+    },
+    {
+      "path": "apps/ios/LeanOnUITests/appearance-ui-tests.swift",
+      "sha256": "68f6c05f237b933bcd464003f13e57c6e3fa57c34c9f89b19b973d7e21451d38"
+    },
+    {
+      "path": "apps/ios/LeanOnUITests/notification-ui-tests.swift",
+      "sha256": "0d0d3fb818b2cdd485831d0b400e6200ae8f7689bed8fac4557f581cc3f432d0"
+    },
+    {
+      "path": "apps/ios/LeanOnUITests/encrypted-qa-record-reader.swift",
+      "sha256": "a6848c16e65b6ddc06656c5f71e7ea3cbcbeeb01b6760692743d07e4dbebaf89"
+    },
+    {
+      "path": "apps/ios/LeanOnUITests/health-status-ui-tests.swift",
+      "sha256": "c2e5617e52359f7d2cbd7af9c997580e6e714a8289545a2924ea4555b9e823ac"
+    },
+    {
+      "path": "apps/ios/LeanOnUITests/scanner-ui-tests.swift",
+      "sha256": "9970d3479b53b6f7aeab4708aa322e1c8ab5e69fbea8bfd37e86491f443f64c5"
+    },
+    {
+      "path": "apps/ios/LeanOnUITests/basic-records-ui-tests.swift",
+      "sha256": "d245321e76797bce02ddd7b8f46953642a4164d35a5d9a93d15e84b27a7b0f22"
+    },
+    {
+      "path": "apps/ios/LeanOnUITests/personal-workflows-ui-tests.swift",
+      "sha256": "a66b77e8a36df35e0317e45ac6f50eca4025d3737d3a4af0c6d30ad6c2e7191c"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/open-food-facts-tests.swift",
+      "sha256": "52ef3d5e7d9e1f30c856b1dfa33dc30effa90da056d78aa50ea59fd92cb8c804"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/record-parity-tests.swift",
+      "sha256": "2d4dbaa829a8d6223560907c96a7a3a23ecb1ec17dbec9095801d2254df6b694"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/companion-store-migration-tests.swift",
+      "sha256": "7d727167ed8e4806576cd2116a8ed38e7d0dc52a87f6d10850688a851bb9ca1d"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/store-key-migration-tests.swift",
+      "sha256": "0518a001e6c3cf086c9e718e4d287bb9e0c59d9b8d6bca6d092ede56c55f2077"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/companion-interop-tests.swift",
+      "sha256": "442eed25571d85cfb4a9dcfc6e1af1138709820ef3531a8241b9ddcdf9314444"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/reminder-parity-tests.swift",
+      "sha256": "337eb718870c34ce18df8c38076b44fb1f35ef4ab38232929b4df80282df6759"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/record-day-clock-tests.swift",
+      "sha256": "9bbae4c99b24100868dd7f69aacb4cc0d8a3f8a2986959731c1c27bb1274fe87"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/scanned-food-barcode-tests.swift",
+      "sha256": "da76a3c6bbc33552bfd11b1412eeb41a6b9cb7f5d9369d8ee3afbc3e1dc9c890"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/app-appearance-tests.swift",
+      "sha256": "50815507f83a1557be2d867d14619981e3e861b06101488605578d6a7afa4b6e"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/HealthModuleWriteWeightTests.swift",
+      "sha256": "7319a28013718073b895cadfc36d94a4035ced94fa720b010a40d9b6bebcdb95"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/scale-manager-tests.swift",
+      "sha256": "3efd533905827f6d3aabc92f261a8974ade463886172d8e372de0d5e1f5e5a8d"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/companion-tests.swift",
+      "sha256": "c247732c74e9c76b5e34589bfc39e3b76d5a67d3a391285288c920532b4a4187"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/companion-live-tests.swift",
+      "sha256": "6c0aeac76116ca80b5923deef0fb2e4201f78b8a6ed4319ab6f1bf87b4a67282"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/record-clock-mirror-tests.swift",
+      "sha256": "f5f97f07b35cacd50d19573cfa5ea4b458d165889d563acfb2c22f375ad2110f"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/companion-http-boundary-tests.swift",
+      "sha256": "d84a9858e14ab4fdf5fea7b9a925bdfc618973e1b8fe9a2d4ee39d183415b3d6"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/companion-photo-tests.swift",
+      "sha256": "c676bae19e386ef5b2513ec72d0139b4ab13f128de296102c7fe4910193d293e"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/companion-cloudflare-tests.swift",
+      "sha256": "d5abe42ff29d6fa8573498e177f2b845acac70e6672ddb806de33b9bdb9ef637"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/companion-deletion-live-tests.swift",
+      "sha256": "25c679435aef7c2a714fd27553ed85c9a26da5588aef7c782728673b1a14fdaf"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/companion-deletion-tests.swift",
+      "sha256": "62513b9e5d47bc7f8b962e58feaf857e29d3e0c6af82b777259dbae6a4a6442b"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/record-transaction-tests.swift",
+      "sha256": "1a7f90f13e77bbf77e6a60ade940ac42fe2760243a2a23aa4451437733a586ae"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/backup-coordinator-tests.swift",
+      "sha256": "9f41c59dba18c60f941165ebfbedc1efc125a01392310ee3e636f853206fcfc7"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/barcode-scanner-tests.swift",
+      "sha256": "1fc305eaca7b3f230088189b74bf88fa2cafbeed4d56229531ed3eb2a1919f7e"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/personal-store-tests.swift",
+      "sha256": "37298308d4dc0b882beb0b804a6f01bb42775dd8f4197b42d2ada8a5f817caf9"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/RecordsStoreTests.swift",
+      "sha256": "173226b5afb8d095030237ee8e55d82f176e4ecdd418845a26aab96f2ff13e3e"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/health-kit-sync-tests.swift",
+      "sha256": "5416fbcf55688b117c373daca1b770eea2ef33fac15b88b3cf3d9d0ea274ce27"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/native-crypto-tests.swift",
+      "sha256": "d22ce0761299c239fe2e4695f83f381e03f539d692996498443e8285c988fbaf"
+    },
+    {
+      "path": "apps/ios/LeanOn/Scanner/product-barcode.swift",
+      "sha256": "b6939c254735649c15fff938f21ac0edb4a4a56950d52a3b2dd95ba7f52759f2"
+    },
+    {
+      "path": "apps/ios/LeanOn/Scanner/barcode-scan-view-controller.swift",
+      "sha256": "79ce66ac1f81c53dea8a615374fbcb15481621ef136c70ced7f01ddbd97669de"
+    },
+    {
+      "path": "apps/ios/LeanOn/Scanner/barcode-scan-coordinator.swift",
+      "sha256": "85a6c1d340b9b2fd3b520d6f02dd3d74bfe395912832b2fff70a886536bc27a0"
+    },
+    {
+      "path": "packages/core/src/hydration.test.ts",
+      "sha256": "4c9358e4172af2284f0d6539ddc4cbeee39f1ce79c227ccd44333597972d2501"
+    },
+    {
+      "path": "apps/ios/LeanOn/Resources/hostData.json",
+      "sha256": "bf2eb866a8d4011f4329d5f50eee9b587c8821c969606172cae4dd8b208c088b"
+    },
+    {
+      "path": "apps/ios/LeanOn/Modules/NotificationModule.swift",
+      "sha256": "e461010435b6949a21f4cbf53ea9104adba05864c6fa8626cb034a50592f12e9"
+    },
+    {
+      "path": "apps/ios/LeanOn/Modules/HealthModule.swift",
+      "sha256": "4b6599a3b424d949cc756da79304f735f6bf7aa3b79b20a4efe2f3926e8689d3"
+    },
+    {
+      "path": "apps/ios/LeanOn/Modules/PersonalModule.swift",
+      "sha256": "369c26c269ff68cca13f83585021e556ab8e6eb096a60bad5b7a08808c43ebfd"
+    },
+    {
+      "path": "apps/ios/LeanOn/Modules/ScaleModule.swift",
+      "sha256": "236986f0b654b2b62926a440d62018c48c1cd353c455658d80985e9faa004bfa"
+    },
+    {
+      "path": "apps/ios/LeanOn/Modules/StorageModule.swift",
+      "sha256": "86ac80687f3caf728b5ff1b0794659a643229ceca67069b5f97a899c49e3a224"
+    },
+    {
+      "path": "apps/ios/LeanOn/Modules/BackupModule.swift",
+      "sha256": "245723069c18b7c0a9d8a82a15ed680780cc24d9571ea6fbf9a2f9918227fc52"
+    },
+    {
+      "path": "apps/ios/LeanOn/Modules/RecordsModule.swift",
+      "sha256": "47cedde19c75cfa956b0d8b313ca198a0734022a93a2d64d3367eda762c2bcf0"
+    },
+    {
+      "path": "apps/ios/LeanOn/Modules/FoodModule.swift",
+      "sha256": "b3229a77e46e10c62ba8b34ff8ae999a18a5d190926bc6eb89bd67ae6f38245f"
+    },
+    {
+      "path": "apps/ios/LeanOn/Modules/HealthKitModule.swift",
+      "sha256": "b08ac3eee11597ce7258708c531d6480c96240615a6b51d4cf84f37d2d28c30a"
+    },
+    {
+      "path": "apps/ios/LeanOn/Modules/AppModule.swift",
+      "sha256": "655dcfec073103acad7abe615f7880ac81415a1d08d92ae7d75ad5eeefb72bde"
+    },
+    {
+      "path": "apps/ios/LeanOn/Modules/CompanionModule.swift",
+      "sha256": "3b0ad957e0fe52de9a8073371f0019d3ce0e832d91860efdb04cd15dc6064fb8"
+    },
+    {
+      "path": "apps/ios/LeanOn/Modules/ResourceModule.swift",
+      "sha256": "36e2c54c22116c92ffc8cfa24970b316bd4789d2990700515e03c099d987ef60"
+    },
+    {
+      "path": "apps/ios/LeanOn/Modules/ScannerModule.swift",
+      "sha256": "2091574a80f6343507eec275a4de65970cabae08be1231b0115620f21785785c"
+    },
+    {
+      "path": "apps/ios/LeanOn/LeanOn-Bridging-Header.h",
+      "sha256": "0b9e706c005472dcf4a8a5809036cf9cb56a25fefc2d5182ede58111ae01ae9c"
+    },
+    {
+      "path": "apps/ios/LeanOn/LeanOn.entitlements",
+      "sha256": "e82a7f6e130b0fe65a40214c15b4116c5245125329c63954d9ccdd9cc80f039e"
+    },
+    {
+      "path": "apps/ios/support/lynx-3.9.0-generated/README.md",
+      "sha256": "1620a0c1f92d7acea563824132006e694b796f633b02406fe3b2fef045ceffc7"
+    },
+    {
+      "path": "apps/android/app/src/debug/res/xml/qa_network_security.xml",
+      "sha256": "6f89fe88a813ad14f124e2f1240df4dff3a40eb727287daec751dcdd134b3cfa"
+    },
+    {
+      "path": "packages/core/src/nutrition/macros.test.ts",
+      "sha256": "9430389b7e2d00c2d2497d05ccf7ce0669b902c77423e4df15f9fdb48a9041ed"
+    },
+    {
+      "path": "packages/core/src/nutrition/macros.ts",
+      "sha256": "ad5854c99e6f317796b94e534bcd130a70ca0aa36019ade3b78e77da6981e062"
+    },
+    {
+      "path": "packages/core/src/nutrition/micros.ts",
+      "sha256": "9aa66c225ad7f6ade99111704c2a5b40643e5eabe2ab4c6e5a36fe0d98632187"
+    },
+    {
+      "path": "packages/core/src/nutrition/micros.test.ts",
+      "sha256": "ff6b6e7e3e68439b4c40dab931b0678f4d686a2492e1de18690f495772e1a50f"
+    },
+    {
+      "path": "packages/core/src/index.ts",
+      "sha256": "8201757bb9dd5ae9fa389ef5c4cb4777394909ed42f3338f8f842defb01f46b0"
+    },
+    {
+      "path": "packages/core/src/reminders.test.ts",
+      "sha256": "1fb7f2d98fd32e282d9fb8c6bd19405c9ce76cf98d3490d8d0a647d6ba3bff35"
+    },
+    {
+      "path": "packages/core/src/types.ts",
+      "sha256": "c4ca0e4f4f377cc27b1eed000e7adcaf919636d2f891e9b24d52f12e0f2f4ba3"
+    },
+    {
+      "path": "packages/core/src/reminders.ts",
+      "sha256": "bd943cffca9d54d081eaa7f64938871a1d9772316561c84dfba26d3c5b2b6953"
+    },
+    {
+      "path": "packages/core/src/insights.test.ts",
+      "sha256": "bb37c1f4423b6de7911e9e6a89f66b9a3267667baa7a618e14e30635d69725f4"
+    },
+    {
+      "path": "packages/core/src/hydration.ts",
+      "sha256": "41cd1879f9c7afa2ed1339808f5863e8a8b8b4a6e126506dd676ffb23cec9fc4"
+    },
+    {
+      "path": "apps/ios/LeanOn/Bluetooth/core-bluetooth-scale-driver.swift",
+      "sha256": "9535d98fb1c72762485839b5556fcedfa0e25fc5189a7d9820dcf2dedf9c2900"
+    },
+    {
+      "path": "apps/ios/LeanOn/Bluetooth/weight-measurement-parser.swift",
+      "sha256": "0f4ffec9fc71874d0f2af23486da7549a42c528fe95c1eca144f78e9b72ba1fb"
+    },
+    {
+      "path": "apps/ios/LeanOn/Bluetooth/scale-manager.swift",
+      "sha256": "7a54c1f461073ce8fa8e11e4004885fbcdaec90db01574acb48ffe3f51793ce0"
+    },
+    {
+      "path": "apps/ios/LeanOn/Container/private-photo-image-fetcher.swift",
+      "sha256": "b87fed993a4d02ad907b4e023aee52e53770d19772f6a9a8ba7f1a922e8fd713"
+    },
+    {
+      "path": "apps/ios/LeanOn/Container/LynxContainerViewController.swift",
+      "sha256": "b05905ef49cd4ccce22e0a13af672d016a7180e0ba4228db1eba9c22c3560a49"
+    },
+    {
+      "path": "apps/ios/LeanOn/Container/BundleResourceProvider.swift",
+      "sha256": "ab838e9f6c4a4ac2002cfde4e7481f7ff8ab6a47a313ffb9fc3f491736700305"
+    },
+    {
+      "path": "apps/ios/LeanOn/HealthKit/system-health-kit-client.swift",
+      "sha256": "e0e71907cbb73f37c36183d1e7a0a881ec0ffbe3c51b32ad095c8b9859f98e12"
+    },
+    {
+      "path": "apps/ios/LeanOn/HealthKit/health-kit-manager.swift",
+      "sha256": "11b5cb8f7e1b0c0355cba9eda4b94a843be32cd67e8a359d726826454defc3eb"
+    },
+    {
+      "path": "apps/ios/LeanOn/HealthKit/health-kit-models.swift",
+      "sha256": "2074f4b1fe0d24d0984ea75e120ef5cfa662f6823a4eba5eab1cd5d92dd746ed"
+    },
+    {
+      "path": "apps/ios/LeanOn/Resources/Assets.xcassets/AppIcon.appiconset/Contents.json",
+      "sha256": "9cf2928dad89427abd581b6852db081352417f400afb65e60c479228cdc4f4da"
+    },
+    {
+      "path": "apps/ios/LeanOn/Resources/Assets.xcassets/AppIcon.appiconset/AppIcon-1024.png",
+      "sha256": "446e02f23507b47c420380aba1a256ba977ad34efbee538bdbeca201419de5c0"
+    },
+    {
+      "path": "apps/android/app/src/main/assets/seed/hostData.json",
+      "sha256": "bf2eb866a8d4011f4329d5f50eee9b587c8821c969606172cae4dd8b208c088b"
+    },
+    {
+      "path": "packages/core/src/energy/bmr.ts",
+      "sha256": "b34ce6b71cdec6c6286821955a245d7625ff02b1a611e6a237cd2c9d8a18861a"
+    },
+    {
+      "path": "packages/core/src/energy/tdee.test.ts",
+      "sha256": "b964aff722f24788032553c2e9dfbddca82d0063517e8120939c647a445c3428"
+    },
+    {
+      "path": "packages/core/src/energy/bmr.test.ts",
+      "sha256": "d1924633a10a800493dfc0ba9269124f3e894229c83add33db013139fbcfa2a7"
+    },
+    {
+      "path": "packages/core/src/energy/tdee.ts",
+      "sha256": "24e38f34c6f138b1e9850c208607ccdf398547526437666637f496e9cb9c88b4"
+    },
+    {
+      "path": "apps/ios/LeanOn/Storage/backup-codec.swift",
+      "sha256": "d05ee9b4819dea2a114f18faf31f1e53a834c79cb5a7ca5ebcb0d1ecd41880d9"
+    },
+    {
+      "path": "apps/ios/LeanOn/Storage/private-photo-store.swift",
+      "sha256": "8d5c6704d0d8c94c04a39b906635637635f75a90d2f95e90f738fa0251d0b3dd"
+    },
+    {
+      "path": "apps/ios/LeanOn/Storage/native-crypto.swift",
+      "sha256": "242e79538aaefb562dc193c533a3a9f320ab2953d54a53fd3af2cb44c5bcb84e"
+    },
+    {
+      "path": "apps/ios/LeanOn/Storage/store-recovery-gate.swift",
+      "sha256": "17195f22c1c39590f4044d3d628b0172ef5f736d8e43846284f3a4729ef72095"
+    },
+    {
+      "path": "apps/ios/LeanOn/Storage/record-schema.swift",
+      "sha256": "c2080f38b332d0db4f3d61808216c1eef357238ea5e7b647402b9508586af436"
+    },
+    {
+      "path": "apps/ios/LeanOn/Storage/native-backup-picker.swift",
+      "sha256": "95e73f41b6b23e2291d05a0d6e1457d4a7b51eae189bc98e699da98c6a6230c1"
+    },
+    {
+      "path": "apps/ios/LeanOn/Storage/relocatable-store-key.swift",
+      "sha256": "c5b8fce731ddfd3bbc864ffa0d7d2b3744dd6d8f7aa1a617c9371d83ee201ff1"
+    },
+    {
+      "path": "apps/ios/LeanOn/Storage/encrypted-records-file.swift",
+      "sha256": "4faf2bd67ebf549dfb7e987120f6d6b729a51f980ab8c34a6a85c8a26664d102"
+    },
+    {
+      "path": "apps/ios/LeanOn/Storage/RecordsStore.swift",
+      "sha256": "a536632bfb9387ff0e83db0a4bf43b903122e3d3e4f0d537fd04d77058c4d4ab"
+    },
+    {
+      "path": "apps/ios/LeanOn/Storage/encrypted-legacy-json-file.swift",
+      "sha256": "6db08a16fd0d937a5ec9b3853a75ff8e9e7b27f5219ebcff367a1e0fa28ca0d2"
+    },
+    {
+      "path": "apps/ios/LeanOn/Storage/personal-store.swift",
+      "sha256": "97315c2a92e99d7b8008145af01820ac0d9ad8b6406e049f69396c7b4f53d2ac"
+    },
+    {
+      "path": "apps/ios/LeanOn/Storage/private-photo-picker.swift",
+      "sha256": "e84ddcd0341fcdb338f8461145ec9c943ff3b235e3f2f092dd6fb338e8d5e505"
+    },
+    {
+      "path": "apps/ios/LeanOn/Storage/backup-coordinator.swift",
+      "sha256": "a35c269fa67fa91026d5aceedd0514312958b2e88afafbaa86e5b28a55dbabf3"
+    },
+    {
+      "path": "apps/ios/LeanOn/Storage/record-day-clock.swift",
+      "sha256": "6d78b272ac8e1b80271e767689184ad5e3efadf446d3ce123e73ba50927d5557"
+    },
+    {
+      "path": "apps/ios/LeanOn/App/SceneDelegate.swift",
+      "sha256": "e470c77cf9442cce84106c2e3ee136c72f1e284e7557afe2d4563b2434d016d2"
+    },
+    {
+      "path": "apps/ios/LeanOn/Resources/Assets.xcassets/app-canvas.colorset/Contents.json",
+      "sha256": "8a77abfcd4ec79dbdf95a4e62f23828404331bf44de9d2122fc6a7bf3a284c10"
+    },
+    {
+      "path": "apps/ios/LeanOn/App/AppDelegate.swift",
+      "sha256": "1818e5168cf66c0ebc228f75a89f51ce39603d662a59d3761a2b37a777e33b8c"
+    },
+    {
+      "path": "apps/ios/LeanOn/App/app-appearance.swift",
+      "sha256": "68b552360db8de80345e403b0797514e79e004bfc6836cdec071282518df09eb"
+    },
+    {
+      "path": "apps/ios/LeanOn/App/RootTabBarController.swift",
+      "sha256": "f3ad9a24a2b75c7386b075ec5e47e637ec4d31225326b7953ae0ba9df012f546"
+    },
+    {
+      "path": "apps/android/app/src/test/resources/companion/public-vault-merge-v1.json",
+      "sha256": "80108d669ad725ff76c1304cf88c185d5c5cabe2c0455893df7557a3c8e95a47"
+    },
+    {
+      "path": "apps/android/app/src/test/resources/companion/public-companion-crypto-v1.json",
+      "sha256": "34086b1b3de8c0c72eea1b7de0cb9d3537919759e321daf10bad676d5f697140"
+    },
+    {
+      "path": "apps/android/app/src/test/resources/records-conformance.json",
+      "sha256": "75554d5e5972399584eca6d2866b60d8b798e1c39e1c7105cef96ee965bf7f22"
+    },
+    {
+      "path": "apps/ios/LeanOn/Resources/en.lproj/InfoPlist.strings",
+      "sha256": "c91fa9f1c385877adc0b396ac08525d5401a6390c505abb829eadbcfda69642a"
+    },
+    {
+      "path": "apps/ios/LeanOn/Net/open-food-facts-client.swift",
+      "sha256": "b2ebd499bca3119660d830dc8d1c739dba32522d0010e074743bba80e6f0eb00"
+    },
+    {
+      "path": "apps/ios/LeanOn/Resources/en.lproj/Localizable.strings",
+      "sha256": "3dd8074aa4bc6c33f7f9ff965f36154e5e91ee167b2318911c1457c5fe395939"
+    },
+    {
+      "path": "apps/ios/LeanOn/Resources/en.lproj/Scanner.strings",
+      "sha256": "d6a4df18998b964c899db605007928cb0dc9900682bfe39ebed1d0e067e4b717"
+    },
+    {
+      "path": "apps/ios/LeanOn/Resources/en.lproj/Reminders.strings",
+      "sha256": "bc95060f795007a0da4610520d38eff294f9b83bbebd75d95d8e01dd38e1c5f9"
+    },
+    {
+      "path": "packages/core/src/util/date.test.ts",
+      "sha256": "f3292b59570833d39ae61ec20f6a993c6cc677cafc44ad3085f8fc6f4c460386"
+    },
+    {
+      "path": "packages/core/src/util/date.ts",
+      "sha256": "58b0dd898f83b58dc79134e6830e877818fb530b106a105706442f889617c6fd"
+    },
+    {
+      "path": "packages/core/src/insights.ts",
+      "sha256": "c842e9771bc1aafe52274b68f514e51d1d2cb880dde7c6f78a1d4e16b9521bf0"
+    },
+    {
+      "path": "apps/android/app/src/test/resources/personal/public-backup-v1.json",
+      "sha256": "01371c842df6c560a8142873ed25b501559647b03c3d87ec72f31e2f869d4be3"
+    },
+    {
+      "path": "apps/android/app/src/test/resources/personal/public-backup-v1.envelope.json",
+      "sha256": "584be6a5b6ed29ec690417fb8aba28567265a5d739ca7022d13a0d90ad75736b"
+    },
+    {
+      "path": "apps/ios/LeanOn/Resources/zh-Hans.lproj/InfoPlist.strings",
+      "sha256": "68616a5f83ced24d2941813fbd1dfb28755850e834e507073e9b1828adac3ce5"
+    },
+    {
+      "path": "apps/ios/LeanOn/Resources/zh-Hans.lproj/Localizable.strings",
+      "sha256": "354be89b860c53539d50d609508cfcf67cdac1f2f976ae04544339c834e3ebde"
+    },
+    {
+      "path": "apps/ios/LeanOn/Resources/zh-Hans.lproj/Scanner.strings",
+      "sha256": "0763bca5cdc13ef695e7b55bea93c7c3ca0302a4ca031aec0f5abab9c232c5da"
+    },
+    {
+      "path": "apps/ios/LeanOn/Resources/zh-Hans.lproj/Reminders.strings",
+      "sha256": "ceb361fefebdfd371f9989a91b771abf2e1b8567bfd048d21b937f59c592afd5"
+    },
+    {
+      "path": "packages/core/src/records/records.test.ts",
+      "sha256": "f87b72cd0a6ae75fade74a89b20afba7e37cb56b70bdc766b366744f6d563aac"
+    },
+    {
+      "path": "packages/core/src/records/transaction.ts",
+      "sha256": "57f87f936b43f04631ccdff25519664b23eacfbb5c659a7aaf386c451a0c4de5"
+    },
+    {
+      "path": "packages/core/src/records/types.ts",
+      "sha256": "92979b7149661c2548d821c3d8e15ac2b0ba9e2d51bf142bb9bfb276d5e158c1"
+    },
+    {
+      "path": "packages/core/src/records/projection.ts",
+      "sha256": "3e01bf844ee8429511f4a8f2a090962824b72f435df1c8768feeb926be6ff977"
+    },
+    {
+      "path": "packages/core/src/records/validation.ts",
+      "sha256": "4e5166047d5af462ca4fa73fd07ca59a64a0cfc598b4a18a66426498827fd406"
+    },
+    {
+      "path": "apps/ios/LeanOn/Bridge/NativeRouter.swift",
+      "sha256": "42abd05ed352b2eb3cf1c37ebf9c24e747a3cb0d350239e3006d147b18d82f20"
+    },
+    {
+      "path": "apps/ios/LeanOn/Bridge/GlobalEventDispatcher.swift",
+      "sha256": "706f0b89de3d8e240c22fe9152e945e233e770f168e48595da79766167c01600"
+    },
+    {
+      "path": "apps/ios/LeanOn/Bridge/LynxRuntime.swift",
+      "sha256": "486fdfb0b88b7838883351489b4ebd27b6848ea8718ff4870387328f44a8b37b"
+    },
+    {
+      "path": "apps/ios/LeanOn/Bridge/ServiceRegistry.swift",
+      "sha256": "bacff0f46b02c60764f9187ebe3ae62201d1372884e8a8d2d3db26ff2a83e6ee"
+    },
+    {
+      "path": "apps/ios/LeanOn/Bridge/CapabilityRegistry.swift",
+      "sha256": "1b5ed401a0e8085a9424943d2fc5d8af2a90366829878104e406352f5c2aee5a"
+    },
+    {
+      "path": "apps/ios/LeanOn/Bridge/LifecycleLogger.swift",
+      "sha256": "a3759d50bb37c3b3ed2183909f212d47b6579bd71ed0cc15e1abd582b5226be1"
+    },
+    {
+      "path": "packages/core/src/weight/trend.test.ts",
+      "sha256": "9acd09ed2ac2582c285db811491c94b67c7c9d102a8fd7e76795a7a80bf68fee"
+    },
+    {
+      "path": "packages/core/src/weight/cycle.ts",
+      "sha256": "5daf29f098819b173452eef565206464335ae5beea34bcc765d1feea190498ab"
+    },
+    {
+      "path": "packages/core/src/weight/trend.ts",
+      "sha256": "5031d33c0c0ff81909e0222c74fda052688cc454080c743a83e671137f207d92"
+    },
+    {
+      "path": "packages/core/src/weight/plateau.test.ts",
+      "sha256": "587adcd360625258348acd0512d668ce466c21af01e7d33e70653be78f1052e8"
+    },
+    {
+      "path": "packages/core/src/weight/smoothing.ts",
+      "sha256": "c238faa3fcba7a54b5220ce94bb84ebd48153855eb720b67af86f0adf1bec75c"
+    },
+    {
+      "path": "packages/core/src/weight/cycle.test.ts",
+      "sha256": "3bba78dfd2d96d108c715be85683987cc78533c6419d30ca4fee31deec8ec503"
+    },
+    {
+      "path": "packages/core/src/weight/smoothing.test.ts",
+      "sha256": "f8ff6473e07fbd7f81491d1abde486ce4b22d886de44ef6791cd5ec2b233fdf9"
+    },
+    {
+      "path": "packages/core/src/weight/plateau.ts",
+      "sha256": "538ba44422746a000b653e5e714917bd7d688b16ffaad9ddf5ee93bd2bfab0d0"
+    },
+    {
+      "path": "packages/core/tsconfig.json",
+      "sha256": "1a9f0873fec04475a675b9b11b9402a9eca94c930c65a199019538b9f521b861"
+    },
+    {
+      "path": "packages/core/README.zh-CN.md",
+      "sha256": "527442af63543257aad484809a4dc07c48f031133bdab193a3b54e8ae879c23d"
+    },
+    {
+      "path": "packages/core/package.json",
+      "sha256": "4a4c13dfb5095ba0568ad7104d994765c2f63527c91eaecfb0cd6814bc2670fe"
+    },
+    {
+      "path": "packages/core/README.md",
+      "sha256": "ee7590c83d479d7c263462312a1b190f195bdf639e3340856ff5a93d0864edcf"
+    },
+    {
+      "path": "packages/core/rslib.config.ts",
+      "sha256": "fbb12056d95f0b217e1dd89f6c4cbf176b7a135dab63697089732adba00764b7"
+    },
+    {
+      "path": "packages/core/rstest.config.ts",
+      "sha256": "0a2d2d5bafe8d6136e8ff41bf2af6e38f9041e272201567029066a09f78d19d3"
+    },
+    {
+      "path": "apps/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml",
+      "sha256": "ada31da9e23f4520f3753e71ca23799a107431473daa3774b6cecac26847260c"
+    },
+    {
+      "path": "apps/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml",
+      "sha256": "ada31da9e23f4520f3753e71ca23799a107431473daa3774b6cecac26847260c"
+    },
+    {
+      "path": "apps/ios/support/lynx-3.9.0-generated/platform/darwin/common/lynx/public/LynxSubErrorCode.h",
+      "sha256": "f156ac06d9bded85e0b441262a395fe0a0b362a75e6ff385c3b0114dc0be9125"
+    },
+    {
+      "path": "apps/ios/support/lynx-3.9.0-generated/platform/darwin/common/lynx/public/LynxErrorBehavior.h",
+      "sha256": "44bf22ff19c6c0bea361b163f3588418b65e34fae257cc4adfd6d79570b3c879"
+    },
+    {
+      "path": "apps/ios/support/lynx-3.9.0-generated/platform/darwin/common/lynx/LynxErrorBehavior.m",
+      "sha256": "b18f1b2fd40051f210efbdeb4981fb4a063b510b3dde0d05ac858cdd27a54642"
+    },
+    {
+      "path": "apps/ios/support/lynx-3.9.0-generated/platform/darwin/common/lynx/LynxSubErrorCode.m",
+      "sha256": "0f9f1c01af831db13dc400cddbf16003a765d7af144452061c436259276629e0"
+    },
+    {
+      "path": "apps/ios/support/lynx-3.9.0-generated/LICENSE",
+      "sha256": "8c6db340475136df3c1201d458fa5755698eace76e510471ecc9d857d6083dac"
+    },
+    {
+      "path": "apps/android/app/src/main/res/values-v31/themes.xml",
+      "sha256": "83c82491af72da0cec74c9c7feeb0c05be18fb89e4e73e9badab02cef00e894c"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/companion/CompanionCryptoTest.kt",
+      "sha256": "fb2ff6859b299c7c420363d44167b920cd4b06b0608da8c98fafb840b8b328fa"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/companion/CompanionHttpNetworkTest.kt",
+      "sha256": "13e82ba15a5a5c0b536609de000a260b7ec1d6d2b082f6a88f732f648beaf538"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/companion/CompanionHttpTest.kt",
+      "sha256": "47e0fb0a177e747680755640cf5bc0508475f87f832ddf845d8d5320253d58cb"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/companion/CompanionDeletionRecoveryTest.kt",
+      "sha256": "c949a6ccc2c3050686c1cfaff7fce029bf15d105e7c01f11490fdc961bcaf07f"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/companion/CompanionRepositoryHttpTest.kt",
+      "sha256": "6e40e1b4e45db7d7485c57961d9340a655aeb752bf8bf3a5474f7bfa52f219b9"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/companion/CompanionVaultMergeTest.kt",
+      "sha256": "5126f3cce017f584939ba6700cbfe39d013de4846cef6f01c914ad9978261518"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/companion/CompanionDeletionValidationTest.kt",
+      "sha256": "d7e2a9fbf0beece006a46d63c71f9d71a5183b3c0ab80c6f3d976633f2660724"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/companion/CompanionPhotoProtocolTest.kt",
+      "sha256": "4315802455f03c3d39d24a28ff8aa94ea16a3dcacacdc10e1baf5444aef9772b"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/reminders/ReminderDecisionTest.kt",
+      "sha256": "0859236b7185ec31220f89d16ea9a61a7a52a16ef345dad10feb80d667633841"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/reminders/ReminderClockTest.kt",
+      "sha256": "a0338a7bc0e45c320b85b5108ee964f14a41eeff4c429fa29d5ce38b6999fa3e"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/reminders/ReminderSettingsUpdateTest.kt",
+      "sha256": "7874a2a4af419b83bd834b70093fe71b9d0ba3c70f4f7482db7f8300c599087b"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/companion/CompanionCrypto.kt",
+      "sha256": "6a5f8cea9f0aa452b3d4c189fb11b71b5f5ef95dfe96cb9909d837fad645e9cc"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/companion/CompanionVaultMerge.kt",
+      "sha256": "7b54dc6a2d6362b4132abad39eb70685aa5faececc00639496f55481bff81447"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/companion/CompanionStore.kt",
+      "sha256": "b8cfe751f02630c9ebb60e96ada42d60431aa9b2b6b0fae52a2028b9fccd91d3"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/companion/CompanionPhotoProtocol.kt",
+      "sha256": "82454cc7c92bed148fc22945b109dbda9a56d9713d04fdf2474a2bf9253c25c8"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/companion/CompanionRepository.kt",
+      "sha256": "6c856ca41e1b892516437ed371f36c9efbec12b918168cd371538422b749ebaa"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/companion/CompanionHttp.kt",
+      "sha256": "3c2fa976b92bbd15d583f57ae4e320815eeabf47b5a335834f02375438c9fc16"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/companion/CompanionValidation.kt",
+      "sha256": "17eeeaf79d9a4ea20cc42f7f9e54053970760e2a09b7eb8a812a863d75c80aca"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/companion/CompanionCloudflareMigration.kt",
+      "sha256": "57827594b3befca669ec884c453c14696e8391f24b67bfa76521ab05f79c55b8"
+    },
+    {
+      "path": "apps/android/app/src/main/res/raw/background_frag.frag",
+      "sha256": "e5f5ba72cc8e098864c12ced0c5fe0a2ecdc89946b3d0476c2f0b66ee9a0f249"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/scanner/ProductBarcodeTest.kt",
+      "sha256": "9fa5bda76c7ed3018454a0fb6c1a411849fc2aff9245b9a168107ed259f76ca7"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/scanner/BarcodeCameraStatusTest.kt",
+      "sha256": "e3deef9bc15d2650ee0228a9b327733c1bfa1a3281edafc2cebca4369d5d4206"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/scanner/BarcodeResultGateTest.kt",
+      "sha256": "87a1ae6e7f3f16c3d5bdc30ebf8faf3085ae5de92542a7d7981b0e90c9df147c"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/reminders/Notifier.kt",
+      "sha256": "f04b26ef9a33a6b3c03784907f81ecf121736958adb6cad2bc0382e495038ecc"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/reminders/ReminderDecision.kt",
+      "sha256": "cee7d38360ef27ef7139314acbd810be864dd5fbb1480c8e8979d304f0f432e8"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/reminders/ReminderSettingsUpdate.kt",
+      "sha256": "5889a478b5481407a4ed504567461ef93939a21e57ec225245921cbc2f9abc82"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/reminders/NotificationPermission.kt",
+      "sha256": "ac862e6064a037fe984eb58b195cde8a5b771163316ffdcb4f366bc0350542bf"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/reminders/ReminderWorker.kt",
+      "sha256": "97f8284c7e28171c282af0c456f81d6ed6bba36877250eb3389a93b4f2fa445f"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/reminders/ReminderScheduler.kt",
+      "sha256": "10520dae96ead3d79b78f33f1008e3819b90a71d1f3f642a2b2a08f9e2b35ff7"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/reminders/ReminderClockWorker.kt",
+      "sha256": "a7df6526b25756440bdc5c7e97dc64d6285487ddf2397160bd02580f5d0b9760"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/reminders/ReminderSettings.kt",
+      "sha256": "cb114dfa97219ef2754671ccb74873ea69a34d71c758de7dbef1b0e08750353f"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/reminders/ReminderClockReceiver.kt",
+      "sha256": "ff491c6ff5a901bbe4b5c5dfd7ac5aaf12a0750852d98c77662d09be72c07a36"
+    },
+    {
+      "path": "apps/android/app/src/main/res/values/ids.xml",
+      "sha256": "88a15fbd120dc024325aef40b402965807a5f4a3f51736798d6392285fa7ced9"
+    },
+    {
+      "path": "apps/android/app/src/main/res/values/strings.xml",
+      "sha256": "beb83816dd6bedf01f43cf151f49b6631ea9d90fd24f7c2d51ab17ee2503fc84"
+    },
+    {
+      "path": "apps/android/app/src/main/res/values/styles.xml",
+      "sha256": "bfbb57a7801bd4275be84b2dc91bcfa4d5d71a7db4f40edd8dbd7681c8665495"
+    },
+    {
+      "path": "apps/android/app/src/main/res/values/themes.xml",
+      "sha256": "a09024138796e16409f6f06ac5f4c1762e4bac4d4b6c835c02e9dbf85af5599a"
+    },
+    {
+      "path": "apps/android/app/src/main/res/values/dimens.xml",
+      "sha256": "d7d3bcc821497589321cb12620399cb747c75f563dab0fc5259eb476d0ddc521"
+    },
+    {
+      "path": "apps/android/app/src/main/res/values/colors.xml",
+      "sha256": "1aff8e2809f146e5c3e667d7446a9b7686400679871328ff14d0379930730c42"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/data/RecordsRepositoryTest.kt",
+      "sha256": "ecdefdd6b2582a8f72bb30ad125991e33873a3ad5e6757026702deaa4275742a"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/data/SettingsRepositoryTest.kt",
+      "sha256": "a8b0413d7bcc413e7722e1f4d3c8a5fae345353ddf18c5aaaac298ecd8c947ae"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/data/DailyRecordsTest.kt",
+      "sha256": "b70ba593dd8154f8447bddf70d6e77263127e93c6f990e562267a4bb2908ba11"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/data/DailyRecordsConformanceTest.kt",
+      "sha256": "a299e83c494def017996a80f138470a5600afa030a3859d57db8a44dce29c04e"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/data/CurrentSnapshotTest.kt",
+      "sha256": "84d5f82e3c9839300cd147ae8b535a5624d7c72bbce792c922960d11e4d715d3"
+    },
+    {
+      "path": "apps/android/app/src/main/res/values-night/themes.xml",
+      "sha256": "716778affa65a4a51bfce02118f367baecd5835ccbb487175ede6142cb98e26a"
+    },
+    {
+      "path": "apps/android/app/src/main/res/values-night/colors.xml",
+      "sha256": "50e8e76c188fc06f93cc67331b8b802fe4a19c4312f7a6de211f7d556888b3e7"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/scanner/BarcodeScanActivity.kt",
+      "sha256": "3be45b934c70fd6139b5403e513c82621a207036f59e99c92a4d5ea717f858eb"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/scanner/BarcodeCameraStatus.kt",
+      "sha256": "2db2a5385e23b8b8bbab1936ee10380c6a713ee3c1e0a980470b8d88b5e373e3"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/scanner/BarcodeScanLauncher.kt",
+      "sha256": "e3dbc7d1309f2182b5ee89ba67cc37bc35e236e770f1bdc673d8804885ee702d"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/scanner/ProductBarcode.kt",
+      "sha256": "4600b9f6c380b1e5d5de4bdbd03d31a85bef5b3691c19ab98b378a3410e07028"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/scanner/ProductBarcodeDecoder.kt",
+      "sha256": "eb764d1d19e1d27e71d7672f92de46a107c68424ef42a680dd0d956a04680664"
+    },
+    {
+      "path": "apps/android/app/src/androidTest/java/com/zzzode/leanon/companion/receipt-process-native-checks.kt",
+      "sha256": "91e0c07e780cfa88b5c87a9802e65815c2dde93ef05d57ec96901da17168055d"
+    },
+    {
+      "path": "apps/android/app/src/androidTest/java/com/zzzode/leanon/companion/CompanionInteropNativeChecks.kt",
+      "sha256": "8308d81451f81bebfc50c77d6cdc7ce1051f67e74e7a67fcf600016315bd77f1"
+    },
+    {
+      "path": "apps/android/app/src/androidTest/java/com/zzzode/leanon/companion/CloudflareNativeChecks.kt",
+      "sha256": "054cc3a305a007e0253daee86148d907ea1044ef7760012d9d17efbf2647f82e"
+    },
+    {
+      "path": "apps/android/app/src/androidTest/java/com/zzzode/leanon/companion/CloudflareInteropChecks.kt",
+      "sha256": "b3325274013d8c7591e3eecccfe66a8582e45a9a63636618a802d5473a808910"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/modules/PersonalModuleTest.kt",
+      "sha256": "7b14b2079c7560abbd350be826bf29f60c8cde7d22d30bc88e1cb6b4e5b93050"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/modules/RecordsModuleTest.kt",
+      "sha256": "d6fb4ec4a08ec551c4d6cc77cf0bf51cd1304a4d1cbd0e0f2840dbb108f21011"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/modules/ReminderRequestTest.kt",
+      "sha256": "a0c009b4584a7dfe8c1b05247bd1ffd5275034ed4ead9dd2a7dbe5b5d5039767"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/modules/HealthConnectEnableTest.kt",
+      "sha256": "bf30a19882d9348e8f1bc8001af9910c90996dd34fa062fa8d7ff676feb02fe5"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/modules/RecordRequestTest.kt",
+      "sha256": "96a637ac2bed147b2dda832180e35a154ed18077db265a5659e0545c9b519ca8"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/modules/FoodRequestTest.kt",
+      "sha256": "f611a2031965209e6d4f9ee3e570ea2f5b67529a48a936dc100e170219f8d339"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/data/DailyRecordsSchema.kt",
+      "sha256": "b49b93604080f264aceb8b264352b611bd28ef7b825c717abcd4386ac5030f2c"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/data/JsonConversions.kt",
+      "sha256": "6a7263af3d4e2d73493c99a1d0877ac65f174b3ae8e568af07176d1b65197de6"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/data/RecordsRepository.kt",
+      "sha256": "dbcb9ab709b1cb12b8ab907219b873c15106fb858fb1484688eb2976da96edc8"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/data/CurrentSnapshot.kt",
+      "sha256": "3ef75bc3279ed166e4ce55b3e91881b27a863785a9d0deb99566ce3a3136926a"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/data/SettingsRepository.kt",
+      "sha256": "9c23cb67507dd82c81a5f04f34a2496ab77e1a1c4aca26b84e03e67a8af56a9b"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/data/AtomicRecordsFile.kt",
+      "sha256": "9957b736980d69c89c394eb288081a5e34a1705f3f988d5ce7d08adb3c28adb3"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/data/DailyRecordsMutation.kt",
+      "sha256": "6c68f13fd815a92341ac67ba6600754cb5686d7ceaf238ef6e2ce4773b5bf12f"
+    },
+    {
+      "path": "apps/android/app/src/main/res/color/tab_item_color.xml",
+      "sha256": "9be41c0554ce3161eff776e311476391d3d2f859b829cda65efd71167ad74d9e"
+    },
+    {
+      "path": "apps/android/app/src/androidTest/java/com/zzzode/leanon/qa/PublicBackupInteropChecks.kt",
+      "sha256": "99096bcd75c45431b5112a3e82e5d50acdebc526451afecbddefaa40e0cbd1cc"
+    },
+    {
+      "path": "apps/android/app/src/androidTest/java/com/zzzode/leanon/qa/DailyUiSession.kt",
+      "sha256": "ff577c1e9526a5aaca1c800369b2a01df7ce67ce467bd457e68c305f7b13a5b4"
+    },
+    {
+      "path": "apps/android/app/src/androidTest/java/com/zzzode/leanon/qa/ParityInstrumentation.kt",
+      "sha256": "2cf1f1b47b467b6739f5bfdec3d22ebf7325dfc313e9eda626ca5593141b97d7"
+    },
+    {
+      "path": "apps/android/app/src/androidTest/java/com/zzzode/leanon/qa/ScannerNativeChecks.kt",
+      "sha256": "e03b5cff11cfcc2266bfbb989117475212ef8932a5ebf18a77564074ff08d827"
+    },
+    {
+      "path": "apps/android/app/src/androidTest/java/com/zzzode/leanon/qa/PersonalNativeChecks.kt",
+      "sha256": "1ddfe6aa97b46c28e7bf71d04ff70202137b5bbbb2b115c4d5c800504e687e70"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/TabBarMotionTest.kt",
+      "sha256": "2902e62aa6c4053caa1d821188a79ed2e3bdca43685f33339cfef5b95dae84ac"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/healthconnect/HealthConnectExportLedgerTest.kt",
+      "sha256": "570924dcf61a604b200d1de6774619595cde45d83d813f5f76bee64f85da30da"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/healthconnect/HealthConnectMappersTest.kt",
+      "sha256": "f41e9a8914b8105cecb816e442bd7739d19dba3130c7c382038404264ce069dc"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/healthconnect/HealthSyncCommitGateTest.kt",
+      "sha256": "58371035b420bbca1670b6d7dffffa374dba0356b05439f29728f8b94bd2998b"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/healthconnect/HealthConnectLedgerEncryptionTest.kt",
+      "sha256": "e79f21f15cf1f5ea9ce258155776e0a274cf735ddbc223abf27c03ce2080810a"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/healthconnect/HealthConnectSyncResultTest.kt",
+      "sha256": "dc1ad1fa82170dfff9db345096b580a8dee763a62c1872ce19dbdb259a503801"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/healthconnect/HealthConnectReadMappersTest.kt",
+      "sha256": "c7a30993df683c69d23ce5a1b277513388285bdb5c56c15ba7a56bbf13195bbb"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/healthconnect/ExerciseTypeMappingTest.kt",
+      "sha256": "ed904506fe8ef44f793c2d03be11db3ff090888d5b4ae52e4ae2e5ae9ea97ee1"
+    },
+    {
+      "path": "apps/android/app/src/main/res/drawable/ic_launcher_background.xml",
+      "sha256": "474dceecfe5b435752a3670f2852cd4f1278c1a74f8ec7e2439706cd107080c9"
+    },
+    {
+      "path": "apps/android/app/src/main/res/drawable/ic_tab_partner.xml",
+      "sha256": "b0213934b89c59ee465c69c709a02996d95cb8820e6c4e12272758cc6c676759"
+    },
+    {
+      "path": "apps/android/app/src/main/res/drawable/ic_tab_diary.xml",
+      "sha256": "6cb29b416838979ad8c72a797d068a61b9656a4c9695171e403cbe999bf3908b"
+    },
+    {
+      "path": "apps/android/app/src/main/res/drawable/ic_tab_progress.xml",
+      "sha256": "da1a2c054e1a269dd813542ba74862f7935a38cf3d5a14427591cf01eb8e1444"
+    },
+    {
+      "path": "apps/android/app/src/main/res/drawable/bg_tab_pill.xml",
+      "sha256": "8112743bed5d9141441bf91568bd400b4dba162655eb5023c21ec3627bf410cd"
+    },
+    {
+      "path": "apps/android/app/src/main/res/drawable/ic_launcher_foreground.xml",
+      "sha256": "edb9f64a1129042d35b067afd007fde4440332020a595b619e384e3a094e607c"
+    },
+    {
+      "path": "apps/android/app/src/main/res/drawable/ic_tab_today.xml",
+      "sha256": "e57430a585055be721d1371ac38c49478e3124f07590dae5f4cc3390a69f5219"
+    },
+    {
+      "path": "apps/android/app/src/main/res/drawable/ic_tab_me.xml",
+      "sha256": "599cf6b5936783eaabc25c0c0ecbb477b45876b664140f4031720ff4fba480c4"
+    },
+    {
+      "path": "apps/android/app/src/main/res/drawable/ic_notification.xml",
+      "sha256": "86c52711449292f65f3c2d65e275cd09bbeb075a3f4e045d35650533ec6faaa8"
+    },
+    {
+      "path": "apps/android/app/src/main/res/drawable/ic_launcher_monochrome.xml",
+      "sha256": "195bc4b839b8586b2c6aaa6c7ec9c74721ed9b7f745ab136d586801622ffdf3e"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/modules/ScannerModule.kt",
+      "sha256": "e3e8717b7eb8fc7e1108da490d13aca0d41eb2f6e5d26a0cb0ce8d118f30ff82"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/modules/FoodRequest.kt",
+      "sha256": "cdd1a5d9d74246f4639e6766e6fa501e626e73f95248a519cbba976d1f20ecd3"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/modules/RecordRequest.kt",
+      "sha256": "1368349b2d78b117d45bfc56ae6b6522794df751f40502e352d99b258df546af"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/modules/HealthConnectModule.kt",
+      "sha256": "489e9d2b2f2bf08fbf7c552dcb0b32299c90acccbf4d6fd463471bb7e2c6b47a"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/modules/ReminderRequest.kt",
+      "sha256": "f3f019d961e4d912b64d54c8c2a74f189d599e1514952efa9a42595004d225c8"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/modules/ResourceModule.kt",
+      "sha256": "dd776cddbfe7fff3103219dfe6e38c85b52cd70f5f1a028b4f96e7e30e078e19"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/modules/CompanionModule.kt",
+      "sha256": "502fa19074a2e296aacd7186455a248b1b4e2df2cb0adabeebc689a5bc113246"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/modules/ScaleModule.kt",
+      "sha256": "d201d7bb4bc32f06f19903d81a5911bd02b3796bb9cd0ec10faccd24eced1547"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/modules/HealthModule.kt",
+      "sha256": "3fc1103b25754a0f58758a99402285bea92347641dd1c8edb1e876889078b1f4"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/modules/RecordsModule.kt",
+      "sha256": "7233b5cfc5f45c5e53a945728f20e4ada8ec0bbb99c76703ed83b67c1d318abf"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/modules/BackupModule.kt",
+      "sha256": "e7e9cd0ceaebe2c52e3e976ba555e286c24e218e9868049ea1382604eca23e13"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/modules/NotificationModule.kt",
+      "sha256": "2624b651bab09edfeaa03080a11d952e6b284256d553aa2d578d69f211a84155"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/modules/StorageModule.kt",
+      "sha256": "228c303cfcb2504dac828116411de75e1e4e7f25db077915ac235afc7587e13b"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/modules/PersonalModule.kt",
+      "sha256": "ebfdaf4f5f566c4c8083733d709c7bfb36f82ad716875eacca647ca233d034b4"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/modules/ModuleHost.kt",
+      "sha256": "3f174a2bfcb62eebc4a8527faeb983a5ca2d4b5baa9dd28abf6b06c404973c53"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/modules/FoodModule.kt",
+      "sha256": "0c776dd970cc8cc6e79c307b826c15943e44e4e536d66e51d699957c8cdf9943"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/modules/AppModule.kt",
+      "sha256": "8ae86a86955a2a11ae9e662a95da68e01c9e1a34ba29e29ac7978264d02f7ae0"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/bridge/PendingRequestTest.kt",
+      "sha256": "482d96be9eaac090fedf3ae995237b1918ac68f05a47fa50754fc0bd167001f9"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/bridge/CapabilityRegistryTest.kt",
+      "sha256": "02b69515105cad3cc8fe22f7762b55b0548f3a87c9631ad686dca7d4d789d325"
+    },
+    {
+      "path": "apps/android/app/src/main/res/values-zh-rCN/strings.xml",
+      "sha256": "52d3d8f4c6f079af3fe7eeabb18e9d2b536244e97b1820f5fee64256cab8c3f1"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/healthconnect/HealthConnectMappers.kt",
+      "sha256": "bf5f0d7e12abcba06f61803ad04bc5b5e215df1856f7f2ffecc93045bf57ac63"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/healthconnect/HealthConnectRationaleActivity.kt",
+      "sha256": "ded992dce52d5877f6cf2bc8cc32fa7b13bc954560bba7c09e0addd91fffac39"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/healthconnect/HealthConnectSyncResult.kt",
+      "sha256": "3882f2a352b5fda39ffee63c866f7b16c94d1b972ae6b4327baf9bc6a9166617"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/healthconnect/ExerciseTypeMapping.kt",
+      "sha256": "105e4229f1ac9f5e558794d64e88ebfea57854b051e1faae364df73863d28f28"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/healthconnect/HealthConnectManager.kt",
+      "sha256": "302ed05857951c9d1b4b86fa2c1b1d8cff2db0aa8f71dd95a1adf98d1dfa8f15"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/healthconnect/HealthConnectExportLedger.kt",
+      "sha256": "83c479c782b915d3af1dec17f72c0cf4d62dc119b5ab5af1f37ef3498c7d7635"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/healthconnect/HealthConnectPermission.kt",
+      "sha256": "5a01a8d50b692ff6b2a80287f5daaeb31a9c11ac69ec8f8d3d60b68c0157f588"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/healthconnect/HealthConnectReadMappers.kt",
+      "sha256": "0eede1f1bbd87ad06f94c56f95a5c3e325e316ebbf69f44f22ad27ce197bd317"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/healthconnect/HealthSyncCommitGate.kt",
+      "sha256": "95b7d43e334426deac8098f9226f1b747800567f928ac2cf75d9f9714e43e448"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/LeanOnApplication.kt",
+      "sha256": "111a6bb893722ee255da8925dfc78d870c4e87253f2141dc386da996f6e8731d"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/LeanOnGlassCapsule.kt",
+      "sha256": "51738e35b80db5470aa1022fee368ffd25a76d4c692116263cff0f060d0f37f4"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/appearance/NativeRequestShapeTest.kt",
+      "sha256": "4400913846c03a8b9efc6defc7adede00537483c62b471c7421a2e534440ce4d"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/appearance/NativeEventArgumentsTest.kt",
+      "sha256": "d455c92864d1b4425d1c17a2b18cad1d94842e57b2c5e830620335df76b369e9"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/appearance/AppearanceRequestTest.kt",
+      "sha256": "8b38346f2532cd2286eefc742439ff4c395719910038d990395a8725bbbb4cde"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/appearance/SystemAppearanceTest.kt",
+      "sha256": "81bae864164155d3243f25f402155c7dc88e29041e767e369f3d6f9eac2852c8"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/appearance/AppearancePreferenceTest.kt",
+      "sha256": "dea64225807014f3fc2792f87f5b95ae5a886c95b881961b0b635a452fe5649b"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/container/AssetsTemplateProvider.kt",
+      "sha256": "a24f4d5dff7ca539a3f2c7eb7776fd1b57f61da0e7bf1a1364e908adfc123ac7"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/container/BundleResourceProvider.kt",
+      "sha256": "e88832b739b297755b6b39c9b6d0a0a0bcba7b0ef7454811bdc5f0058a9b8920"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/ble/BleSubscriptionTest.kt",
+      "sha256": "32961820d6f5536b7b03cc2cdb4523daad257c9cd4e30ace5a7bca08aed7cd75"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/ble/WeightMeasurementParserTest.kt",
+      "sha256": "f8184a5bad68b9a550a3a771b2176e2fc3ee382984863f8ac91c93f9339643e7"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/navigation/NativeRouter.kt",
+      "sha256": "91616ba662131a4c6435952eaf942426229d9756ee7b1d054422f4cc28ebe508"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/navigation/LynxContainerFragment.kt",
+      "sha256": "db93c93e97b280e78c491c1255d84a79d836c74bf15c64bb6f73e7606b7ba035"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/net/OpenFoodFactsClientTest.kt",
+      "sha256": "d534bc52b0b39b5b7a9cc48821f6fae148385482ff74f57365c5d4fcf327162e"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/bridge/GlobalEventDispatcher.kt",
+      "sha256": "2649dc58aae4816355f8966faa18a80ccc04779bf9b13c0f9e906456fa9164e6"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/bridge/CapabilityRegistry.kt",
+      "sha256": "6e1980f23e4864e5476d4d5ddca5e92fe02ac674f3d683d232c3b660b3f70d5c"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/bridge/PendingRequest.kt",
+      "sha256": "b376ef12b9306838d83af7d02f4dede9ad32405f6580d21d9705d80be736081f"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/bridge/LynxModuleBootstrap.kt",
+      "sha256": "8018dae47a80c6bd514d7bec6fe4e89c6e9619ab6729aaddd65d32ef0bf03335"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/bridge/LeanOnModuleAuthValidator.kt",
+      "sha256": "b552f0447c2659f530ae97159acdcf83a4567090ee1cb8b0b4eb6c99f8a69c6c"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/personal/BoundedPhotoDecoderTest.kt",
+      "sha256": "226c718d57c3e413a5e79da18b29295248c983a8d3d5ed6a41f7fadb19456eda"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/personal/BackupCoordinatorTest.kt",
+      "sha256": "201d4b19c80552709befb6cf023ed5c80a21da8a8d7ec53667c2666b40846cea"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/personal/EncryptedDocumentFileTest.kt",
+      "sha256": "859c5ae50ea3f72098b6caa65ffb39fe2890a8a58723a57155d7cc95f8119a7f"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/personal/PrivateTransactionJournalTest.kt",
+      "sha256": "7aaa39430979d8c65780c13f1f20bb75a10832a101a672cb4372ad1f9d861546"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/personal/PersonalCryptoTest.kt",
+      "sha256": "4c4087368438012bfe1a8ed7607b5bf135eb7931844ef731eea592ce357f047c"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/personal/PersonalRepositoryTest.kt",
+      "sha256": "996d4d6231f7371bb019e2f7a25dfc157ee3b3cc620c0a8cdd6a698eb39cf36b"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/personal/BackupCodecTest.kt",
+      "sha256": "d71501d0d20f3da6df9af44ad1d7ba22eee0d6acc620c13d9390cd963fa9bac1"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/personal/QaBackupOverridePolicyTest.kt",
+      "sha256": "6b1370243109b667de09226be3bfe2cef21b42a2eb6fca67eae74bdf9cfee2f8"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/TabBarRefractionStrip.kt",
+      "sha256": "a5c9959220dab4837e248eb22901d8c99655318716722e1c69b7b78a882baf98"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/MainActivity.kt",
+      "sha256": "10e373f489a93410921ba36c80e7ffcf48244c2b563ce5e29e114cbd66878582"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/appearance/AppearanceRequest.kt",
+      "sha256": "03e105f63acf068e46de86cd0c097ba32ee5e706870e2ca88f380ad47ee34a8f"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/appearance/AppearanceRepository.kt",
+      "sha256": "54b6becccd142667a62cc828fac3906c66f0d9f1052139ce86fc31e2a9d715ce"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/appearance/AppearancePreference.kt",
+      "sha256": "d1098403e995832430fb283cdf9607a1e6f8bfa86450bb482706e82c56a3c78d"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/TabBarMotion.kt",
+      "sha256": "06138b1edb5004d95f3ca59a850542aebb57ab881449e51af98e97a7d24361dd"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/personal/PersonalImageProcessor.kt",
+      "sha256": "f9c3422694e737edffdc2091594d99129bd51c421f3f52ee4e60ae4a8e42cfab"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/personal/PersonalPreviews.kt",
+      "sha256": "5c2555fd06936be1fac135f0fadf4f5bb83053de60b38333bbfed8f232807129"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/personal/EncryptedDocumentFile.kt",
+      "sha256": "f398b47882f2fbd09df6bf9846ddf8f71356e0cb2ceb63ffb4baea8951ce9ad6"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/personal/ApprovedPhotoImageService.kt",
+      "sha256": "23f823b0a8a200ff4dabb1b1b3e1b1acfccbbf125097ce047bd16195253020de"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/personal/BoundedPhotoDecoder.kt",
+      "sha256": "5d20f63f86a220139fc7f6545e7ac06525077158e58d62f0de87823e3245670e"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/personal/EncryptedLegacyJsonCodec.kt",
+      "sha256": "9671854d17c12a8bb15b6f0e8352a8573db9a6997ca0abe316bdfcaea82d5886"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/personal/PersonalDocumentActivity.kt",
+      "sha256": "52f50897333af3fd737fa0214e5122709298606a60788f19421479cd631568d9"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/personal/PersonalRepository.kt",
+      "sha256": "d3cb8c8d248683df4b28715ef79eb313cc6390bdd9fe26f1d8b8638ea92396dc"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/personal/PrivateTransactionJournal.kt",
+      "sha256": "c0be14efeb88c9fc5782f1dc76c45f9badb106da9be58203964c3a438cf34f63"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/personal/PersonalSchema.kt",
+      "sha256": "81a1ad45629ed1b0159d88d2671c2be8fad86fd8442e8296add2a778abd71f3c"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/personal/AtomicPrivateWrite.kt",
+      "sha256": "831ee5f7ac79104b2188fbfdd159099c295d8cec10b598264eef3ffb09656579"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/personal/BackupCoordinator.kt",
+      "sha256": "06e653ecad7c9962d751210c4845abe1825338b8c0e94d9cec7568cc615337af"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/personal/PersonalCrypto.kt",
+      "sha256": "d06451218fc4b6b95b9f5245a41de3375884c1ece2e2ddfd397961b0a681c18f"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/personal/EncryptedRecordsCodec.kt",
+      "sha256": "c107f3d3ca6ab4ffe33e7f2a866df98d054686918c244392372a6444f285d02d"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/personal/BackupCodec.kt",
+      "sha256": "c03986cfad2b8324ad834c566be3a04bfaec74213923ffb450c57679fcf8d8a7"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/personal/PersonalKeyStore.kt",
+      "sha256": "5083a962d5530c73b18c8c27f66fbaf1a94025520ed61157c23e6bfff681972f"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/personal/QaBackupOverridePolicy.kt",
+      "sha256": "6756fa315898334135771ae8b4136b16871fa93d4be543230d178f9d0859df2b"
+    },
+    {
+      "path": "apps/android/app/src/main/AndroidManifest.xml",
+      "sha256": "ccf68d4ade1cbd15016e4ad5677314b8e9bacce67e46e9502f6f95e13c152c29"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/net/OpenFoodFactsClient.kt",
+      "sha256": "a2a082455174d4882991ca788cde2b3488670e7b7f3dcab7f0e913f3b69892ab"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/ble/BleScaleManager.kt",
+      "sha256": "9ab6e02665bb98354f9c6c7fb4deecc45667cc5497ead3b52beee833801d1839"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/ble/BlePermissions.kt",
+      "sha256": "87905c7f2aa4320c4964152075cceb667df08409dadb43115441a088dbababac"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/ble/WeightMeasurementParser.kt",
+      "sha256": "420f5bf57175400eda506d44070c5e1c30d7e46a505f2c044a32796d28fce8a0"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/ble/BleSubscription.kt",
+      "sha256": "f30140b8273ba12fc521e36b35a61263529281f484b1e24ac694d1731d0fe7c3"
+    }
+  ]
+}

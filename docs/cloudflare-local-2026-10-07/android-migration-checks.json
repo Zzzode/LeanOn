@@ -1,0 +1,40 @@
+{
+  "checks": [
+    {
+      "id": "legacy-opaque-preflight-refusal-writes-no-target-data",
+      "passed": true
+    },
+    {
+      "id": "interrupted-cutover-preserves-original-collection-and-encrypted-journal",
+      "passed": true
+    },
+    {
+      "id": "retry-reuses-identical-photo-ciphertext",
+      "passed": true
+    },
+    {
+      "id": "both-legacy-identities-republished-under-new-key-and-epoch",
+      "passed": true
+    },
+    {
+      "id": "migrated-mutual-sharing-decrypts-independent-r2-photo",
+      "passed": true
+    },
+    {
+      "id": "fresh-approved-device-recovers-complete-migrated-health-backup",
+      "passed": true
+    },
+    {
+      "id": "durable-native-and-server-cutover-completion",
+      "passed": true
+    },
+    {
+      "id": "isolated-fixture-files-and-keystore-keys-removed",
+      "passed": true
+    }
+  ],
+  "capturedUtc": "2026-10-07T20:11:20.439645Z",
+  "injectedErrorType": "IOException",
+  "cutoverPhase": "publishing",
+  "passed": true
+}

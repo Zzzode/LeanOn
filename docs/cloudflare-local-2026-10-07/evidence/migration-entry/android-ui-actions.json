@@ -1,0 +1,250 @@
+{
+  "passed": true,
+  "actions": [
+    {
+      "name": "android-migration-open",
+      "action": "tap"
+    },
+    {
+      "name": "android-unprepared",
+      "action": "capture"
+    },
+    {
+      "name": "android-target-focus",
+      "action": "tap"
+    },
+    {
+      "name": "android-target-typed",
+      "action": "text"
+    },
+    {
+      "name": "android-target",
+      "action": "back"
+    },
+    {
+      "name": "android-preview-password-focus",
+      "action": "tap"
+    },
+    {
+      "name": "android-preview-password-typed",
+      "action": "text"
+    },
+    {
+      "name": "android-preview-password",
+      "action": "back"
+    },
+    {
+      "name": "android-check-target",
+      "action": "tap"
+    },
+    {
+      "name": "android-wait-4784",
+      "action": "capture"
+    },
+    {
+      "name": "android-wait-9227",
+      "action": "capture"
+    },
+    {
+      "name": "android-wait-fd5e",
+      "action": "capture"
+    },
+    {
+      "name": "android-wait-7d1d",
+      "action": "capture"
+    },
+    {
+      "name": "android-preview",
+      "action": "capture"
+    },
+    {
+      "name": "android-consent-free-tap",
+      "action": "tap"
+    },
+    {
+      "name": "android-scroll-e710",
+      "action": "swipe"
+    },
+    {
+      "name": "android-confirm-password-focus",
+      "action": "tap"
+    },
+    {
+      "name": "android-confirm-password-typed",
+      "action": "text"
+    },
+    {
+      "name": "android-confirm-password",
+      "action": "back"
+    },
+    {
+      "name": "android-backup-password-focus",
+      "action": "tap"
+    },
+    {
+      "name": "android-backup-password-typed",
+      "action": "text"
+    },
+    {
+      "name": "android-backup-password",
+      "action": "back"
+    },
+    {
+      "name": "android-consent",
+      "action": "tap"
+    },
+    {
+      "name": "android-start",
+      "action": "tap"
+    },
+    {
+      "name": "android-wait-54f2",
+      "action": "capture"
+    },
+    {
+      "name": "android-wait-ee89",
+      "action": "capture"
+    },
+    {
+      "name": "android-wait-303e",
+      "action": "capture"
+    },
+    {
+      "name": "android-wait-b523",
+      "action": "capture"
+    },
+    {
+      "name": "android-wait-ec3a",
+      "action": "capture"
+    },
+    {
+      "name": "android-publishing",
+      "action": "capture"
+    },
+    {
+      "name": "android-pause-request",
+      "action": "tap"
+    },
+    {
+      "name": "android-pausing",
+      "action": "capture"
+    },
+    {
+      "name": "android-reopen-migration",
+      "action": "tap"
+    },
+    {
+      "name": "android-paused-after-process-restart",
+      "action": "capture"
+    },
+    {
+      "name": "android-paused-source-verification",
+      "action": "verify"
+    },
+    {
+      "name": "android-scroll-a798",
+      "action": "swipe"
+    },
+    {
+      "name": "android-scroll-e6b8",
+      "action": "swipe"
+    },
+    {
+      "name": "android-resume-password-focus",
+      "action": "tap"
+    },
+    {
+      "name": "android-resume-password-typed",
+      "action": "text"
+    },
+    {
+      "name": "android-resume-password",
+      "action": "back"
+    },
+    {
+      "name": "android-resume-backup-focus",
+      "action": "tap"
+    },
+    {
+      "name": "android-resume-backup-typed",
+      "action": "text"
+    },
+    {
+      "name": "android-resume-backup",
+      "action": "back"
+    },
+    {
+      "name": "android-resume-consent",
+      "action": "tap"
+    },
+    {
+      "name": "android-resume",
+      "action": "tap"
+    },
+    {
+      "name": "android-wait-536f",
+      "action": "capture"
+    },
+    {
+      "name": "android-wait-8a8d",
+      "action": "capture"
+    },
+    {
+      "name": "android-active",
+      "action": "capture"
+    },
+    {
+      "name": "android-active-verification",
+      "action": "verify"
+    },
+    {
+      "name": "android-active-relaunch",
+      "action": "launch"
+    },
+    {
+      "name": "android-active-reopen",
+      "action": "tap"
+    },
+    {
+      "name": "android-active-after-relaunch",
+      "action": "capture"
+    },
+    {
+      "name": "android-scroll-85fd",
+      "action": "swipe"
+    },
+    {
+      "name": "android-scroll-a313",
+      "action": "swipe"
+    },
+    {
+      "name": "android-rollback-consent",
+      "action": "tap"
+    },
+    {
+      "name": "android-rollback",
+      "action": "tap"
+    },
+    {
+      "name": "android-rolled-back",
+      "action": "capture"
+    },
+    {
+      "name": "android-rolled-back-verification",
+      "action": "verify"
+    },
+    {
+      "name": "android-rollback-relaunch",
+      "action": "launch"
+    },
+    {
+      "name": "android-rollback-reopen",
+      "action": "tap"
+    },
+    {
+      "name": "android-rolled-back-after-relaunch",
+      "action": "capture"
+    }
+  ],
+  "processInterruption": "actual am force-stop during pausing"
+}

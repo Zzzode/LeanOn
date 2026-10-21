@@ -1,0 +1,43 @@
+{
+  "kind": "observed native node and automation failure",
+  "description": "Initial official ACTION_CLICK for Settings failed; ordinary pointer tap subsequently opened Settings. Exact node retained in current dark Me capture also has no ACTION_CLICK. TalkBack not run.",
+  "device": "emulator-5582/Android15/API35/440dpi",
+  "utcOfRetainedNode": "2026-10-07T21:37:47.260101Z",
+  "node": {
+    "description": "Settings \u00b7 English",
+    "class": "android.view.ViewGroup",
+    "bounds": "[66,1289][1014,1443]",
+    "clickable": false,
+    "focused": false,
+    "focusable": true,
+    "accessibilityFocused": false,
+    "visibleToUser": true,
+    "heading": false,
+    "screenReaderFocusable": false,
+    "editable": false,
+    "inputType": 0,
+    "enabled": true,
+    "selected": false,
+    "checkable": false,
+    "checked": false,
+    "password": false,
+    "actions": [
+      4,
+      8,
+      1,
+      64,
+      131072,
+      256,
+      512,
+      16908342
+    ],
+    "widthDp": 344.72726,
+    "heightDp": 56
+  },
+  "initialFailure": "java.lang.IllegalStateException: Accessible click target missing",
+  "ordinaryPointerNavigationEvidence": [
+    "screens/android-en-light-settings.png",
+    "screens/android-en-dark-settings.png"
+  ],
+  "captureBoundary": "Some later synthetic fixture reloads produced a read error, not form states. These are separately named QA-read-error."
+}

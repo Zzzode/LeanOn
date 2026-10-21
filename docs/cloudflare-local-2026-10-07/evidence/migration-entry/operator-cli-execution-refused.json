@@ -1,0 +1,8 @@
+{
+  "arguments": [
+    "--execute"
+  ],
+  "exitCode": 1,
+  "stderr": "Migration dry-run refused: check schema, supported size, explicit offline mode and verified target identity.",
+  "scope": "Offline argument validation; no bindings or network."
+}

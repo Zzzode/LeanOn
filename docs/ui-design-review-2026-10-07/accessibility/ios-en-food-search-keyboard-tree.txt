@@ -1,0 +1,134 @@
+Attributes: Application, 0x108cc8780, pid: 25933, label: 'LeanOn'
+Element subtree:
+ →Application, 0x108cc8780, pid: 25933, label: 'LeanOn'
+    Window (Main), 0x108cc88c0, {{0.0, 0.0}, {375.0, 667.0}}
+      Other, 0x108cc8a00, {{0.0, 0.0}, {375.0, 667.0}}
+        Other, 0x108cc83c0, {{0.0, 0.0}, {375.0, 667.0}}
+          Other, 0x108cc8640, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x108cc8500, {{0.0, 0.0}, {375.0, 667.0}}
+              Other, 0x108cc8140, {{0.0, 0.0}, {375.0, 667.0}}
+                Other, 0x108cc8280, {{0.0, 0.0}, {375.0, 667.0}}
+                  Other, 0x108cc8000, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x108cca300, {{0.0, 0.0}, {375.0, 667.0}}
+                      Other, 0x108cca440, {{0.0, 0.0}, {375.0, 667.0}}
+                        Other, 0x108cca580, {{0.0, 20.0}, {375.0, 387.0}}, label: 'lynxview'
+                          Other, 0x108cca6c0, {{0.0, 20.0}, {375.0, 387.0}}
+                          Other, 0x108cca800, {{0.0, 20.0}, {375.0, 387.0}}
+                            Other, 0x108cca940, {{16.0, 44.0}, {343.0, 347.0}}
+                              StaticText, 0x108ccb0c0, {{36.0, 68.0}, {255.0, 33.0}}, label: 'Log food'
+                              Button, 0x108ccb200, {{291.0, 60.5}, {48.0, 48.0}}, label: 'Cancel'
+                              StaticText, 0x108ccabc0, {{36.0, 121.0}, {303.0, 17.0}}, label: 'Journal date · 2026-10-07'
+                              StaticText, 0x108ccad00, {{36.0, 154.0}, {303.0, 21.0}}, label: 'Search foods'
+                              Other, 0x108ccae40, {{36.0, 183.0}, {128.0, 56.0}}
+                                TextField, 0x108ccaf80, {{50.0, 195.0}, {100.0, 32.0}}, label: 'Search foods', placeholderValue: 'Search foods', value: rice, Keyboard Focused
+                              Button, 0x108cc9e00, {{171.0, 187.0}, {168.0, 48.0}}, label: 'Scan or enter barcode'
+                              ScrollView, 0x108cc9f40, {{36.0, 248.0}, {303.0, 224.0}}
+                                Button, 0x108cca080, {{36.0, 248.0}, {303.0, 56.0}}, label: 'Rice congee'
+                                Button, 0x108cc9040, {{36.0, 304.0}, {303.0, 56.0}}, label: 'Brown rice, cooked'
+                                Button, 0x108cc9180, {{36.0, 360.0}, {303.0, 56.0}}, label: 'Egg fried rice'
+                                Button, 0x108cc92c0, {{36.0, 416.0}, {303.0, 56.0}}, label: 'White rice, cooked'
+                  Other, 0x108cc9400, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x108cc9540, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x108cc9680, {{0.0, 584.0}, {375.0, 83.0}}
+              Other, 0x108cc97c0, {{0.0, 0.0}, {375.0, 667.0}}
+              Other, 0x108ccaa80, {{0.0, 584.0}, {375.0, 83.0}}
+    Window, 0x108cc9900, {{0.0, 0.0}, {375.0, 667.0}}
+      Other, 0x108cc9a40, {{0.0, 0.0}, {375.0, 667.0}}
+        Other, 0x108cc9b80, {{0.0, 0.0}, {375.0, 667.0}}
+        Other, 0x108cc9cc0, {{0.0, 407.0}, {375.0, 260.0}}
+          Other, 0x108cc8b40, {{0.0, 407.0}, {375.0, 260.0}}, identifier: 'inputView'
+    Window, 0x108cc8c80, {{0.0, 0.0}, {375.0, 667.0}}
+      Other, 0x108cc8dc0, {{0.0, 0.0}, {375.0, 667.0}}
+        Other, 0x108cc8f00, {{0.0, 407.0}, {375.0, 260.0}}
+          Other, 0x108ccb340, {{0.0, 407.0}, {375.0, 44.0}}, identifier: 'SystemInputAssistantView'
+            Other, 0x108ccb480, {{0.0, 407.0}, {375.0, 44.0}}
+              Other, 0x108ccb5c0, {{0.0, 407.0}, {375.0, 44.0}}, identifier: 'CenterPageView'
+                Other, 0x108ccb700, {{0.0, -193.0}, {375.0, 1244.0}}
+                  ScrollView, 0x108ccb840, {{0.0, 407.0}, {375.0, 44.0}}
+                Other, 0x108ccb980, {{0.0, 407.0}, {375.0, 44.0}}
+                  Other, 0x108ccbac0, {{0.0, 407.0}, {375.0, 44.0}}
+                    Other, 0x108ccbc00, {{0.0, 407.0}, {375.0, 54.0}}
+                      Other, 0x108ccbd40, {{0.0, 407.0}, {375.0, 54.0}}
+                        Other, 0x108ccbe80, {{0.0, 407.0}, {331.0, 54.0}}
+                          CollectionView, 0x10561f340, {{0.0, 407.0}, {331.0, 54.0}}
+                            Cell, 0x10561fe80, {{1.0, 407.0}, {41.0, 44.0}}, identifier: '我', label: '我, 我们的我'
+                              Other, 0x10561fd40, {{1.0, 407.0}, {41.0, 44.0}}
+                                StaticText, 0x10561f700, {{11.0, 411.0}, {21.0, 44.0}}, label: '我'
+                            Cell, 0x10561f980, {{42.0, 407.0}, {41.0, 44.0}}, identifier: '你', label: '你, 你们的你'
+                              Other, 0x10561fc00, {{42.0, 407.0}, {41.0, 44.0}}
+                                StaticText, 0x10561fac0, {{52.0, 411.0}, {21.0, 44.0}}, label: '你'
+                            Cell, 0x10561f840, {{83.0, 407.0}, {41.0, 44.0}}, identifier: '在', label: '在, 现在的在'
+                              Other, 0x10561f5c0, {{83.0, 407.0}, {41.0, 44.0}}
+                                StaticText, 0x10561f480, {{93.0, 411.0}, {21.0, 44.0}}, label: '在'
+                            Cell, 0x108fd2080, {{124.0, 407.0}, {41.0, 44.0}}, identifier: '这', label: '这, 这个的这'
+                              Other, 0x108fd0dc0, {{124.0, 407.0}, {41.0, 44.0}}
+                                StaticText, 0x108fd0f00, {{134.0, 411.0}, {21.0, 44.0}}, label: '这'
+                            Cell, 0x108fd2d00, {{165.0, 407.0}, {41.0, 44.0}}, identifier: '不', label: '不, 不是的不'
+                              Other, 0x108fd21c0, {{165.0, 407.0}, {41.0, 44.0}}
+                                StaticText, 0x108fd2300, {{175.0, 411.0}, {21.0, 44.0}}, label: '不'
+                            Cell, 0x108fd26c0, {{206.0, 407.0}, {41.0, 44.0}}, identifier: '是', label: '是, 还是的是'
+                              Other, 0x108fd2800, {{206.0, 407.0}, {41.0, 44.0}}
+                                StaticText, 0x108fd03c0, {{216.0, 411.0}, {21.0, 44.0}}, label: '是'
+                            Cell, 0x108fd0c80, {{247.0, 407.0}, {41.0, 44.0}}, identifier: '一', label: '一, 一二三的一'
+                              Other, 0x108fd0b40, {{247.0, 407.0}, {41.0, 44.0}}
+                                StaticText, 0x108fd1400, {{257.0, 411.0}, {21.0, 44.0}}, label: '一'
+                            Cell, 0x108fd1540, {{288.0, 407.0}, {41.0, 44.0}}, identifier: '好', label: '好, 好友的好'
+                              Other, 0x108fd1680, {{288.0, 407.0}, {41.0, 44.0}}
+                                StaticText, 0x108fd0140, {{298.0, 411.0}, {21.0, 44.0}}, label: '好'
+                            Cell, 0x108fd0280, {{329.0, 407.0}, {41.0, 44.0}}, identifier: '他', label: '他, 男他的他'
+                              Other, 0x108fd17c0, {{329.0, 407.0}, {41.0, 44.0}}
+                                StaticText, 0x108fd1900, {{339.0, 411.0}, {21.0, 44.0}}, label: '他'
+                        Button, 0x108fd1a40, {{331.0, 411.0}, {44.0, 44.0}}, label: '更多建议'
+          Other, 0x108fd1b80, {{0.0, 407.0}, {375.0, 260.0}}
+            Other, 0x108fd1e00, {{0.0, 407.0}, {375.0, 260.0}}
+              Other, 0x108fd0500, {{0.0, 407.0}, {375.0, 260.0}}
+          Other, 0x108fd0000, {{0.0, 451.0}, {375.0, 216.0}}
+            Keyboard, 0x108fd2940, {{0.0, 451.0}, {375.0, 216.0}}
+              Other, 0x108fd12c0, {{0.0, 451.0}, {375.0, 216.0}}
+                Other, 0x108fd1180, {{0.0, 451.0}, {375.0, 216.0}}, identifier: 'UIKeyboardLayoutStar Preview'
+                  Key, 0x108fd08c0, {{0.0, 451.0}, {0.0, 0.0}}, label: 'Padding-Left'
+                  Key, 0x108fd2a80, {{0.0, 451.0}, {0.0, 0.0}}, label: 'Padding-Right'
+                  Key, 0x108fd1040, {{0.0, 451.0}, {0.0, 0.0}}, label: 'Padding-Left'
+                  Key, 0x108fd2bc0, {{0.0, 451.0}, {0.0, 0.0}}, label: 'Padding-Right'
+                  Key, 0x108fd0a00, {{0.0, 451.0}, {0.0, 0.0}}, label: 'Padding-Left'
+                  Key, 0x108fd0780, {{0.0, 451.0}, {0.0, 0.0}}, label: 'Padding-Right'
+                  Key, 0x108fd0640, {{4.5, 458.0}, {37.0, 54.0}}, label: 'q'
+                  Key, 0x108fd1cc0, {{41.5, 458.0}, {36.5, 54.0}}, label: 'w'
+                  Key, 0x108fd1f40, {{78.0, 458.0}, {37.0, 54.0}}, label: 'e'
+                  Key, 0x108fd2e40, {{115.0, 458.0}, {36.5, 54.0}}, label: 'r'
+                  Key, 0x108fd2f80, {{151.5, 458.0}, {37.0, 54.0}}, label: 't'
+                  Key, 0x108fd30c0, {{188.5, 458.0}, {37.0, 54.0}}, label: 'y'
+                  Key, 0x108fd3200, {{225.5, 458.0}, {36.5, 54.0}}, label: 'u'
+                  Key, 0x108fd3340, {{262.0, 458.0}, {37.0, 54.0}}, label: 'i'
+                  Key, 0x108fd3480, {{299.0, 458.0}, {36.5, 54.0}}, label: 'o'
+                  Key, 0x108fd35c0, {{335.5, 458.0}, {37.0, 54.0}}, label: 'p'
+                  Key, 0x108fd3700, {{23.0, 512.0}, {36.5, 54.0}}, label: 'a'
+                  Key, 0x108fd3840, {{59.5, 512.0}, {37.0, 54.0}}, label: 's'
+                  Key, 0x108fd3980, {{96.5, 512.0}, {37.0, 54.0}}, label: 'd'
+                  Key, 0x108fd3ac0, {{133.5, 512.0}, {36.5, 54.0}}, label: 'f'
+                  Key, 0x108fd3d40, {{170.0, 512.0}, {37.0, 54.0}}, label: 'g'
+                  Key, 0x108fd3e80, {{207.0, 512.0}, {36.5, 54.0}}, label: 'h'
+                  Key, 0x108fd3c00, {{243.5, 512.0}, {37.0, 54.0}}, label: 'j'
+                  Key, 0x116aa4000, {{280.5, 512.0}, {37.0, 54.0}}, label: 'k'
+                  Key, 0x116aa4140, {{317.5, 512.0}, {36.5, 54.0}}, label: 'l'
+                  Button, 0x116aa4280, {{4.5, 566.0}, {48.0, 54.0}}, identifier: 'shift', label: 'shift'
+                  Key, 0x116aa43c0, {{59.5, 566.0}, {37.0, 54.0}}, label: 'z'
+                  Key, 0x116aa4500, {{96.5, 566.0}, {37.0, 54.0}}, label: 'x'
+                  Key, 0x116aa4640, {{133.5, 566.0}, {36.5, 54.0}}, label: 'c'
+                  Key, 0x116aa4780, {{170.0, 566.0}, {37.0, 54.0}}, label: 'v'
+                  Key, 0x116aa48c0, {{207.0, 566.0}, {36.5, 54.0}}, label: 'b'
+                  Key, 0x116aa4a00, {{243.5, 566.0}, {37.0, 54.0}}, label: 'n'
+                  Key, 0x116aa4b40, {{280.5, 566.0}, {37.0, 54.0}}, label: 'm'
+                  Key, 0x116aa4c80, {{324.5, 566.0}, {48.0, 54.0}}, identifier: 'delete', label: '删除'
+                  Key, 0x116aa4dc0, {{4.5, 620.0}, {46.0, 54.0}}, identifier: 'more', label: '数字'
+                  Button, 0x116aa4f00, {{50.5, 620.0}, {46.0, 54.0}}, identifier: 'emoji', label: '下一个键盘', value: 表情符号
+                  Button, 0x116aa5040, {{96.5, 620.0}, {37.0, 54.0}}, identifier: 'dictation', label: '听写'
+                  Key, 0x116aa5180, {{133.5, 620.0}, {147.0, 54.0}}, identifier: 'space', label: ' '
+                  Button, 0x116aa52c0, {{280.5, 620.0}, {92.0, 54.0}}, identifier: 'Search', label: '搜索'
+Path to element:
+ →Application, 0x108cc8780, pid: 25933, label: 'LeanOn'
+Query chain:
+ →Find: Target Application 'com.zzzode.leanon.uiqa'
+  Output: {
+    Application, 0x116aa5400, pid: 25933, label: 'LeanOn'
+  }

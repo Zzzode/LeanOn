@@ -1,0 +1,575 @@
+{
+  "capturedUtc": "2026-10-07T20:40:18.528032+00:00",
+  "files": [
+    {
+      "path": "apps/android/app/src/androidTest/java/com/zzzode/leanon/companion/CloudflareInteropChecks.kt",
+      "sha256": "b3325274013d8c7591e3eecccfe66a8582e45a9a63636618a802d5473a808910",
+      "bytes": 11164
+    },
+    {
+      "path": "apps/android/app/src/androidTest/java/com/zzzode/leanon/companion/CloudflareNativeChecks.kt",
+      "sha256": "054cc3a305a007e0253daee86148d907ea1044ef7760012d9d17efbf2647f82e",
+      "bytes": 15390
+    },
+    {
+      "path": "apps/android/app/src/androidTest/java/com/zzzode/leanon/qa/ParityInstrumentation.kt",
+      "sha256": "2cf1f1b47b467b6739f5bfdec3d22ebf7325dfc313e9eda626ca5593141b97d7",
+      "bytes": 17796
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/companion/CompanionCloudflareMigration.kt",
+      "sha256": "57827594b3befca669ec884c453c14696e8391f24b67bfa76521ab05f79c55b8",
+      "bytes": 7167
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/companion/CompanionHttp.kt",
+      "sha256": "3c2fa976b92bbd15d583f57ae4e320815eeabf47b5a335834f02375438c9fc16",
+      "bytes": 5182
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/companion/CompanionPhotoProtocol.kt",
+      "sha256": "82454cc7c92bed148fc22945b109dbda9a56d9713d04fdf2474a2bf9253c25c8",
+      "bytes": 6928
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/companion/CompanionRepository.kt",
+      "sha256": "6c856ca41e1b892516437ed371f36c9efbec12b918168cd371538422b749ebaa",
+      "bytes": 56459
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/modules/CompanionModule.kt",
+      "sha256": "502fa19074a2e296aacd7186455a248b1b4e2df2cb0adabeebc689a5bc113246",
+      "bytes": 6862
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/personal/BackupCoordinator.kt",
+      "sha256": "06e653ecad7c9962d751210c4845abe1825338b8c0e94d9cec7568cc615337af",
+      "bytes": 10578
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/companion/CompanionPhotoProtocolTest.kt",
+      "sha256": "4315802455f03c3d39d24a28ff8aa94ea16a3dcacacdc10e1baf5444aef9772b",
+      "bytes": 2731
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/companion/CompanionRepositoryHttpTest.kt",
+      "sha256": "6e40e1b4e45db7d7485c57961d9340a655aeb752bf8bf3a5474f7bfa52f219b9",
+      "bytes": 18337
+    },
+    {
+      "path": "apps/ios/LeanOn/Companion/companion-cloudflare-migration.swift",
+      "sha256": "a146b12aceb0b7738e837995187cdd885e343df8cfdac69dbfc63555c8e91097",
+      "bytes": 7089
+    },
+    {
+      "path": "apps/ios/LeanOn/Companion/companion-http.swift",
+      "sha256": "fa68cdafb0b7d01dd2c952c6a72852cecc714b89b1f0269c7d8cab911485e837",
+      "bytes": 6642
+    },
+    {
+      "path": "apps/ios/LeanOn/Companion/companion-photos.swift",
+      "sha256": "240759ad9d5057cd66f85d285865c78730eb8cc6a1d2b9301bd793e70b3725bb",
+      "bytes": 6268
+    },
+    {
+      "path": "apps/ios/LeanOn/Companion/companion-service.swift",
+      "sha256": "e7532341ef85746cc88f66389923b54a8f67643edc09761e44dc9244fac3678c",
+      "bytes": 71400
+    },
+    {
+      "path": "apps/ios/LeanOn/Storage/backup-coordinator.swift",
+      "sha256": "a35c269fa67fa91026d5aceedd0514312958b2e88afafbaa86e5b28a55dbabf3",
+      "bytes": 25277
+    },
+    {
+      "path": "apps/ios/LeanOnTests/companion-cloudflare-tests.swift",
+      "sha256": "d5abe42ff29d6fa8573498e177f2b845acac70e6672ddb806de33b9bdb9ef637",
+      "bytes": 19643
+    },
+    {
+      "path": "apps/ios/LeanOnTests/companion-http-boundary-tests.swift",
+      "sha256": "d84a9858e14ab4fdf5fea7b9a925bdfc618973e1b8fe9a2d4ee39d183415b3d6",
+      "bytes": 7567
+    },
+    {
+      "path": "apps/ios/LeanOnTests/companion-photo-tests.swift",
+      "sha256": "c676bae19e386ef5b2513ec72d0139b4ab13f128de296102c7fe4910193d293e",
+      "bytes": 2649
+    },
+    {
+      "path": "apps/ios/LeanOnTests/companion-tests.swift",
+      "sha256": "c247732c74e9c76b5e34589bfc39e3b76d5a67d3a391285288c920532b4a4187",
+      "bytes": 22037
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/android-migration-checks.json",
+      "sha256": "00a8d9cc8a26f631e7ddc69e6985247b7422d562ec5e838265fbe11d5c0525b7",
+      "bytes": 984
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/android-native-checks.json",
+      "sha256": "3ff6d20810ce7035129c290bb6089db0e6826e68f5ed76e32af1b48b7241d631",
+      "bytes": 964
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/baseline.json",
+      "sha256": "b7dbfda3d1c5ac87fbe9a24390a630a80f95d657cd782b1b428572e270426bc1",
+      "bytes": 1734204
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/code-evidence.json",
+      "sha256": "81d8834a21443ea351658f38d45b1834253bac83803288f190c504437897d06f",
+      "bytes": 4369
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/code-evidence.md",
+      "sha256": "663676a9f735c71e51c65e2a78fe960d4f143b02c5b1660470aacccf09daaeba",
+      "bytes": 3393
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/cross-platform-checks.json",
+      "sha256": "e4d954db555d2dae39fab66dea207690c733adfcaee3540848ea7fadacdc8ff5",
+      "bytes": 3940
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/TEST-com.zzzode.leanon.companion.CompanionCryptoTest.xml",
+      "sha256": "0ccb659af22f7bbd3fa3ea307038ea482e61ab3aed67f61d8e45c2c97fdcaae7",
+      "bytes": 864
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/TEST-com.zzzode.leanon.companion.CompanionDeletionRecoveryTest.xml",
+      "sha256": "350af6d804ec01cc42971bbbe53448e3dc9d763fc06f00eb3a82cae34728090f",
+      "bytes": 1623
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/TEST-com.zzzode.leanon.companion.CompanionDeletionValidationTest.xml",
+      "sha256": "057f87eab4e51904a70b99761eaa922bcf917138e00d4bd9bd24b115cab5a399",
+      "bytes": 670
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/TEST-com.zzzode.leanon.companion.CompanionHttpNetworkTest.xml",
+      "sha256": "e51e1622ee157eeb833c42cd50d657210abb8301f7fdea8e709e8f9a18f28fc7",
+      "bytes": 644
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/TEST-com.zzzode.leanon.companion.CompanionHttpTest.xml",
+      "sha256": "6ce6ed9f19ecb5b89fe7eb7e9dfd74513bb754a835ac650ea4ded0ca4ec192ed",
+      "bytes": 459
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/TEST-com.zzzode.leanon.companion.CompanionPhotoProtocolTest.xml",
+      "sha256": "3e93d9ac38008ca2be23f40fcce82e4e9987bd79fc39bcee1963fcd6f10df6fe",
+      "bytes": 653
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/TEST-com.zzzode.leanon.companion.CompanionRepositoryHttpTest.xml",
+      "sha256": "9c56b95829d6af478774edadc21fe75a35ffcb24e3bb87869d98357796292b0f",
+      "bytes": 1157
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/TEST-com.zzzode.leanon.companion.CompanionVaultMergeTest.xml",
+      "sha256": "413573dd8fac2ceb2112a0195f5865d99d2416f4772e1287d57e276dc859d734",
+      "bytes": 791
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cloudflare-android-device-build.log",
+      "sha256": "aa40a4d56b9355f35a140281e0958349244792275d46c3725c78874917fed206",
+      "bytes": 5010
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cloudflare-android-device.log",
+      "sha256": "0dd86ff86544355a1f3ed1280f9b564e3ba937c377c81199bf900c507cee8f06",
+      "bytes": 128
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cloudflare-android-final.log",
+      "sha256": "e5bade520779c9ff2d80cfcd624090e32ea82050be3ae90ac0281f564b4f6778",
+      "bytes": 2139
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cloudflare-android-migration.log",
+      "sha256": "0dd86ff86544355a1f3ed1280f9b564e3ba937c377c81199bf900c507cee8f06",
+      "bytes": 128
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cloudflare-cross-android-build.log",
+      "sha256": "508bfe61d950ec80d8f4e4b8d0e8763f53fc7492c008dc3fc026efc1d60c9204",
+      "bytes": 3597
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cloudflare-cross-ios-build.log",
+      "sha256": "b8773e8cc37dbeeed72ecdc460e4dcd6d4534a754ad99c7854695b56ddfbd14c",
+      "bytes": 50860
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cloudflare-ios-build.log",
+      "sha256": "347ecc82c1b3e8bc513d18677ad601981656950672fd79be289333912308a7cd",
+      "bytes": 81023
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cloudflare-ios-final.log",
+      "sha256": "e8ff4b18134f765c2716d8ef8b19184b1b55b562c3f4eb348c70d6745316797f",
+      "bytes": 9541
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cloudflare-ios-migration.log",
+      "sha256": "360dabd0544b185f83d1b4431a63211501225fec483720ae6d4868df1bbad064",
+      "bytes": 3692
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cloudflare-test.log",
+      "sha256": "4d7cdc7cf67792c065f23ce2fb7b9cdfe931fb2fa3d1ff12172c532872769429",
+      "bytes": 1823
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cloudflare-workspace-build.log",
+      "sha256": "8744f1401823ea9cb69324cb915017cdf44436f7521baa12f8db847a048663ff",
+      "bytes": 5591
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cloudflare-workspace-test.log",
+      "sha256": "bc321b2e6c363da174af0bb62e315f0e8549a49bab9f37d66a8067e3de6129a1",
+      "bytes": 16896
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cloudflare-workspace-typecheck.log",
+      "sha256": "e4fd27b6f6c07269dca0740118ee5aa7a577012a72ec94fc2b5c757900a5dfea",
+      "bytes": 941
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cross-platform/android-accept.json",
+      "sha256": "b9810d334ed8b4cf9e68d9191ce233e2275d88444b1c1b838572d901eecc968a",
+      "bytes": 219
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cross-platform/android-accept.log",
+      "sha256": "ea3f9ecf82cdfbc563b7df691c44767c4e35335194cd1964869eb2dc2b75b2ce",
+      "bytes": 61
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cross-platform/android-cleanup.json",
+      "sha256": "01da77a81442de644fcc1897986aeb4f50e75cdc13a80644b0c1c233ef0322c7",
+      "bytes": 221
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cross-platform/android-cleanup.log",
+      "sha256": "ea3f9ecf82cdfbc563b7df691c44767c4e35335194cd1964869eb2dc2b75b2ce",
+      "bytes": 61
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cross-platform/android-publish.json",
+      "sha256": "4b7673b149492760f9f16b5d8d972126917c0b2ee71195151289b80cc55a22d5",
+      "bytes": 493
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cross-platform/android-publish.log",
+      "sha256": "ea3f9ecf82cdfbc563b7df691c44767c4e35335194cd1964869eb2dc2b75b2ce",
+      "bytes": 61
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cross-platform/android-revoke.json",
+      "sha256": "3a6db8259cfa9fd21221a97c0091acbb7c7a11c3134900afe75f919f305ab4a3",
+      "bytes": 412
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cross-platform/android-revoke.log",
+      "sha256": "ea3f9ecf82cdfbc563b7df691c44767c4e35335194cd1964869eb2dc2b75b2ce",
+      "bytes": 61
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cross-platform/android-verify.json",
+      "sha256": "03e0c2b8dad99d924ac1e6225dd83c410557f552d9e8e64375ccf68ea6b910b1",
+      "bytes": 210
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cross-platform/android-verify.log",
+      "sha256": "ea3f9ecf82cdfbc563b7df691c44767c4e35335194cd1964869eb2dc2b75b2ce",
+      "bytes": 61
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cross-platform/ios-cleanup.json",
+      "sha256": "92540d9958d2a2cf03e0b7f167cd7d589ba61ebf23916dc0b7ab00548fbe6267",
+      "bytes": 189
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cross-platform/ios-cleanup.log",
+      "sha256": "aeb43722705b4fbfc17f05d09456df71aec1b70d6b18ad0fdc11f6913ba9b8b8",
+      "bytes": 4648
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cross-platform/ios-confirm.json",
+      "sha256": "f608f6f01b0e5f6e42988603da41828ace8f943febfad9c4b35a943503d9db75",
+      "bytes": 180
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cross-platform/ios-confirm.log",
+      "sha256": "9a76408d582f47ab4263a6cada99748daf22c5caaf97133ddd987c3ea6611c60",
+      "bytes": 4208
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cross-platform/ios-create.json",
+      "sha256": "1d111976d6565d5fa7bbedbb3bec900dddd97676433984f563ba9a6fe8b39bef",
+      "bytes": 279
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cross-platform/ios-create.log",
+      "sha256": "88d1a236ac032d74c7c2a9891dcd6cd1d077f160060b94ddaee21b77d1a80e84",
+      "bytes": 4208
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cross-platform/ios-receive.json",
+      "sha256": "b922431ea3d59aa1503cf52dc76bf5130199136faa2dfc5dcc48c6c3f3b81876",
+      "bytes": 351
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cross-platform/ios-receive.log",
+      "sha256": "e5cf9d75af5f6e1002e60f0a82d81c76fa27c5009f8eaaf4b34edf7ce837a2c9",
+      "bytes": 4625
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cross-platform/ios-revoke.json",
+      "sha256": "de8cc657e323ef551f98027d4b2a06c2179742a8d797e734c7dd82d1c991da08",
+      "bytes": 178
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cross-platform/ios-revoke.log",
+      "sha256": "8bf4bc87144bed05d96c4113c7a590a20729a015813911301e3ff0e0e9e23e8b",
+      "bytes": 4625
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cross-platform/ios-revoked.json",
+      "sha256": "79dbb653c2e68dd9b4a2c0c345754bfacf6a532d80a76900d77acac670afd499",
+      "bytes": 254
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cross-platform/ios-revoked.log",
+      "sha256": "4334f50d3afd0ee06740ff408baa182f10f8c7662bf2b66dcd975c2eff2a4706",
+      "bytes": 4229
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cross-platform/ios-verify.json",
+      "sha256": "b984304619e5c7c7c8d52376b1a128bd9bf22611c3362e0afe7818563a0b6299",
+      "bytes": 180
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/evidence/cross-platform/ios-verify.log",
+      "sha256": "e8b8c5c8a8482aabcdf618d60fb793d004e843221525a560855ab329385ed924",
+      "bytes": 4208
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/local-performance.json",
+      "sha256": "37b43744f304caa0b4cfef2fdef0a51cf0a207aafb97fa62cc9fbf137633bfa5",
+      "bytes": 569
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/report.md",
+      "sha256": "cd7f1a2b6b6a507c9e297b6259e17cb529810117b2e87c20fb3e9f9151777fa9",
+      "bytes": 17836
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/report.zh-CN.md",
+      "sha256": "1244e3f6eb7cce1d1ddf918bdc121e846f5c1713a7a36fcd372ba714c5aade2e",
+      "bytes": 14660
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/scoped-change-audit.json",
+      "sha256": "a7a0f7562d1a436693c8ae26c4bdf788e016e003e38e708f690c8bbccf2908a2",
+      "bytes": 4637
+    },
+    {
+      "path": "package.json",
+      "sha256": "ec4d7abac21535e920f3ac394ae99cd0556d7e535343d062176fee643e51ee11",
+      "bytes": 781
+    },
+    {
+      "path": "packages/bridge/src/contracts.ts",
+      "sha256": "5bb0a20da094afbea6dd7e3695a254ec3ddc8aa9999acf2edcfc99ead4af11aa",
+      "bytes": 18961
+    },
+    {
+      "path": "packages/i18n/src/locales/en.ts",
+      "sha256": "96bef4589e296b03f31e257b0713a5f9d8b557dec2197193fc21b6fab1c147a9",
+      "bytes": 37262
+    },
+    {
+      "path": "packages/i18n/src/locales/zh-CN.ts",
+      "sha256": "44a669dac4a4ba8954fbac52b11e762b1aa8e1bce39165955bc2cc874ee09159",
+      "bytes": 35505
+    },
+    {
+      "path": "packages/pages/src/components/CompanionSheet.tsx",
+      "sha256": "a4dda7956c067896ce9d5165c3aeec382f140e9a0ed7bdd531e48533f6373198",
+      "bytes": 12022
+    },
+    {
+      "path": "packages/pages/src/state/companion-actions.ts",
+      "sha256": "724f677dfa1611a0d7152c511f232f2f2c5a9ca05d038e740fb0cab06caa7806",
+      "bytes": 1146
+    },
+    {
+      "path": "packages/pages/src/state/companion-client.ts",
+      "sha256": "9fe3953346000af9d10da0ff85fcd638e311915bd7be06b682436758f5558378",
+      "bytes": 3553
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "98b63547a86c6aa7a57fdf9838ff036f23bcc797e3fd03f9ce4ef5e4d59bfae9",
+      "bytes": 172751
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "sha256": "50d1c53fe7555fbd4055507ba336c983457dfc594a848a3cbd0a63fc6c17a751",
+      "bytes": 113
+    },
+    {
+      "path": "rfcs/0035-private-cloudflare-companion.md",
+      "sha256": "c01d0c220298ecc4dce426d8d0c12439d9860ece913b6a08d30580b64e7151b5",
+      "bytes": 7252
+    },
+    {
+      "path": "rfcs/0035-private-cloudflare-companion.zh-CN.md",
+      "sha256": "275b7b77f4421825e23f00603df75b4be09e8a163ab117ecf5bd9bbe53a823bd",
+      "bytes": 5593
+    },
+    {
+      "path": "rfcs/README.md",
+      "sha256": "66dbbb1a629d14374138aefe7bf40f7e5269d18f4d6d2ad38f84fcf86d6175fe",
+      "bytes": 5653
+    },
+    {
+      "path": "rfcs/README.zh-CN.md",
+      "sha256": "e8183adf665dd0349f1eeb08e40b5740f060011377dc9a3921e7b7462d0e76b1",
+      "bytes": 5300
+    },
+    {
+      "path": "server/companion/package.json",
+      "sha256": "9ec896e7f8bea1a447dbe983e0722c42f5492a49bd5a087bee53e85815f3c7eb",
+      "bytes": 424
+    },
+    {
+      "path": "server/companion/src/index.ts",
+      "sha256": "63c73e2b07e89aa344eb6ccf72bde2343c5f667021d4a399b93cc6eea2f5d82a",
+      "bytes": 42753
+    },
+    {
+      "path": "server/companion-worker/README.md",
+      "sha256": "95f334b90165a65b5fb42c948d889c2a4abf459e9b97e01f90405e0550a984b3",
+      "bytes": 8170
+    },
+    {
+      "path": "server/companion-worker/README.zh-CN.md",
+      "sha256": "9916684ad9bc8e985adf26b65d018416587506cf255855ac7a53bb6ebfb4c892",
+      "bytes": 6557
+    },
+    {
+      "path": "server/companion-worker/migrations/0001-private-relay.sql",
+      "sha256": "c79d4d3a55a4b1c4d6de84f8642ed070e7f9e22dbb053748107e442ad9b16fe5",
+      "bytes": 5742
+    },
+    {
+      "path": "server/companion-worker/package.json",
+      "sha256": "f6a7ea2be3141a55bf452cda112859ff90dee3bd62ba8b948997aa71a7613f9c",
+      "bytes": 705
+    },
+    {
+      "path": "server/companion-worker/rslib.admin.config.ts",
+      "sha256": "1e491efeb06fcb379dbb9f4ee042960649a50c9ca97a8d5651de09951fc632aa",
+      "bytes": 305
+    },
+    {
+      "path": "server/companion-worker/rslib.config.ts",
+      "sha256": "db77441cd6ad5a9b9aeb96bf594fae2345d47fbfb5cb025a7a42ecc7261d0ebd",
+      "bytes": 316
+    },
+    {
+      "path": "server/companion-worker/rstest.config.ts",
+      "sha256": "18ba758623804d076bf2d44c8a49e16b94555a217226ecb088c51c4e031c18f6",
+      "bytes": 119
+    },
+    {
+      "path": "server/companion-worker/scripts/local-fixture.mjs",
+      "sha256": "c0a5043a6405ec084c4270cf440371c4fb3ea01d2d67a0d134ed18457ab16f90",
+      "bytes": 1767
+    },
+    {
+      "path": "server/companion-worker/scripts/local-migration-fixture.mjs",
+      "sha256": "b608bab184e17286c45ff310cac3b8761ca805f7e5fae960b96b3b8f0786703b",
+      "bytes": 2822
+    },
+    {
+      "path": "server/companion-worker/scripts/local-profile.mjs",
+      "sha256": "a054172318f073c4a34ac3caddb70a8b3ae87f5aff7200e1677e00ee29be5cb7",
+      "bytes": 3619
+    },
+    {
+      "path": "server/companion-worker/src/admin.test.ts",
+      "sha256": "eeb63162e65fa5aab6319834d1792fb1f66834c9b3fc383e0f3f5a55f370eac0",
+      "bytes": 14482
+    },
+    {
+      "path": "server/companion-worker/src/admin.ts",
+      "sha256": "9dcd47badd0eca1c2d8b4aff63f14a59a46c96904e1324adebf088c431979bb2",
+      "bytes": 19534
+    },
+    {
+      "path": "server/companion-worker/src/auth.ts",
+      "sha256": "c119782042cdc758beb09cc5c09acce751db0a179f7010697379139e8285c1fd",
+      "bytes": 8127
+    },
+    {
+      "path": "server/companion-worker/src/database.ts",
+      "sha256": "2890dcbd2b3d395ef62d67282d83f07c239ad212a79700c79022fa1a2499fb9d",
+      "bytes": 1458
+    },
+    {
+      "path": "server/companion-worker/src/deletion.ts",
+      "sha256": "f62c036a9ed508047aa9e8aa59839a144a425a4e2d8c3bfdae4ae043a81e06e3",
+      "bytes": 5079
+    },
+    {
+      "path": "server/companion-worker/src/entry.ts",
+      "sha256": "b6e8f1b50501e0a2251c2c2bceaa76d2b705a8bbfb2eef9f4d7a9e4aca201e12",
+      "bytes": 148
+    },
+    {
+      "path": "server/companion-worker/src/groups.ts",
+      "sha256": "57538130bce0e5509c778456808a4d2bd413619ff2288870ee8a0984ab1c01f0",
+      "bytes": 10952
+    },
+    {
+      "path": "server/companion-worker/src/objects.ts",
+      "sha256": "33b70be7c5bdc2553fad3e6c7747894748d156ac2f9a7f3d2c01c5ecaee97cee",
+      "bytes": 6597
+    },
+    {
+      "path": "server/companion-worker/src/protocol.ts",
+      "sha256": "bae5c2a9515511108c65f636f72a46863c780165635633b90d0d52ce75f7195b",
+      "bytes": 6781
+    },
+    {
+      "path": "server/companion-worker/src/sync.ts",
+      "sha256": "9e791290ea2cc444b092a7ef55f548b984ba732f1a9490192321da4d16f06978",
+      "bytes": 9211
+    },
+    {
+      "path": "server/companion-worker/src/worker.test.ts",
+      "sha256": "b3eba6a13cab3e27bde01ae8e544c54f96f437361e6f1b821ea3501e685b0b7c",
+      "bytes": 16287
+    },
+    {
+      "path": "server/companion-worker/src/worker.ts",
+      "sha256": "c8d98144525d24d4b82775a94c74b8eac25033932b40cb8fca965f61c7ef9570",
+      "bytes": 6336
+    },
+    {
+      "path": "server/companion-worker/tsconfig.json",
+      "sha256": "2398debabbec2369fb76f0cb0cb7536963b35b4ae3bb6fd596394574dc00f624",
+      "bytes": 189
+    },
+    {
+      "path": "server/companion-worker/wrangler.jsonc",
+      "sha256": "04c187688685703dfd21396e215152a990f09f4d12647853275614a5a3f0a9d2",
+      "bytes": 612
+    }
+  ]
+}

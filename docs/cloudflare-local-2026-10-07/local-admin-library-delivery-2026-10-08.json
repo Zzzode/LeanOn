@@ -1,0 +1,73 @@
+{
+  "saved": [
+    {
+      "key": "chinese",
+      "local_path": "/Users/bytedance/Develop/LeanOn/docs/cloudflare-local-2026-10-07/report.zh-CN.md",
+      "operation": "replace_library_file",
+      "status": "succeeded",
+      "path": "/report.zh-CN(2).md",
+      "file_id": "file_0000000082e8821184a2f5f242ccafc6",
+      "library_file_id": "libfile_8ccb1354c21c8191b7ea096a80e90d0b",
+      "file_name": "report.zh-CN(2).md",
+      "current_version_number": 3,
+      "restored_from_version_number": null,
+      "xattrs": [
+        {
+          "name": "user.library-file-version",
+          "value": "3"
+        }
+      ],
+      "directory_id": "libdir_bd0591b91fb88191bd01900a376bc9a8",
+      "mime_type": "text/markdown",
+      "library_artifact_type": "report",
+      "file_size_bytes": 25181,
+      "external_connectors_accessed": false
+    },
+    {
+      "key": "english",
+      "local_path": "/Users/bytedance/Develop/LeanOn/docs/cloudflare-local-2026-10-07/report.md",
+      "operation": "replace_library_file",
+      "status": "succeeded",
+      "path": "/report(1).md",
+      "file_id": "file_0000000027fc82078090177ee121e0a2",
+      "library_file_id": "libfile_102899c512508191a4f7f5667e2b3147",
+      "file_name": "report(1).md",
+      "current_version_number": 2,
+      "restored_from_version_number": null,
+      "xattrs": [
+        {
+          "name": "user.library-file-version",
+          "value": "2"
+        }
+      ],
+      "directory_id": "libdir_bd0591b91fb88191bd01900a376bc9a8",
+      "mime_type": "text/markdown",
+      "library_artifact_type": "report",
+      "file_size_bytes": 29850,
+      "external_connectors_accessed": false
+    },
+    {
+      "key": "evidence",
+      "local_path": "/Users/bytedance/Develop/LeanOn/docs/cloudflare-local-2026-10-07/local-admin-evidence-2026-10-08.zip",
+      "operation": "create_library_file",
+      "status": "succeeded",
+      "path": "/local-admin-evidence-2026-10-08.zip",
+      "file_id": "file_0000000092188207926559e63c2e6dd3",
+      "library_file_id": "libfile_e136f5ea05fc81918c77b96fa9e4dcd5",
+      "file_name": "local-admin-evidence-2026-10-08.zip",
+      "current_version_number": 0,
+      "restored_from_version_number": null,
+      "xattrs": [
+        {
+          "name": "user.library-file-version",
+          "value": "0"
+        }
+      ],
+      "directory_id": "libdir_bd0591b91fb88191bd01900a376bc9a8",
+      "mime_type": "application/zip",
+      "library_artifact_type": "report",
+      "file_size_bytes": 90717,
+      "external_connectors_accessed": false
+    }
+  ]
+}

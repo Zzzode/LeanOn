@@ -1,0 +1,93 @@
+Attributes: Application, 0x108cc9540, pid: 26047, label: 'LeanOn'
+Element subtree:
+ →Application, 0x108cc9540, pid: 26047, label: 'LeanOn'
+    Window (Main), 0x108ccbac0, {{0.0, 0.0}, {375.0, 667.0}}
+      Other, 0x108cc9180, {{0.0, 0.0}, {375.0, 667.0}}
+        Other, 0x108cc92c0, {{0.0, 0.0}, {375.0, 667.0}}
+          Other, 0x108cc8dc0, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x108ccb340, {{0.0, 0.0}, {375.0, 667.0}}
+              Other, 0x108cca1c0, {{0.0, 0.0}, {375.0, 667.0}}
+                Other, 0x108cca080, {{0.0, 0.0}, {375.0, 667.0}}
+                  Other, 0x108cc8640, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x108cc8780, {{0.0, 0.0}, {375.0, 667.0}}
+                      Other, 0x108ccb200, {{0.0, 0.0}, {375.0, 667.0}}
+                        Other, 0x108cc8500, {{0.0, 20.0}, {375.0, 564.0}}, label: 'lynxview'
+                          Other, 0x108cc8f00, {{0.0, 20.0}, {375.0, 564.0}}
+                          Other, 0x108cc8b40, {{0.0, 20.0}, {375.0, 564.0}}
+                            Other, 0x108cc8c80, {{0.0, 49.5}, {375.0, 534.5}}
+                              StaticText, 0x108ccb480, {{24.0, 73.5}, {327.0, 33.0}}, label: 'Profile and goals'
+                              ScrollView, 0x108cc97c0, {{24.0, 121.5}, {327.0, 338.5}}
+                                StaticText, 0x108ccaa80, {{24.0, 131.5}, {327.0, 50.0}}, label: 'Your journal starts with your own details. Nothing is saved until you finish.'
+                                StaticText, 0x108cc8a00, {{24.0, 197.5}, {327.0, 21.0}}, label: 'Sex used for energy estimates'
+                                Other, 0x108cc88c0, {{24.0, 234.5}, {327.0, 48.0}}
+                                  Button, 0x108cc9a40, {{24.0, 234.5}, {157.5, 48.0}}, label: 'Female'
+                                  Other, 0x108cc9e00, {{193.5, 234.5}, {157.5, 48.0}}, label: 'Male', Selected
+                                Other, 0x108cc9900, {{24.0, 282.5}, {327.0, 123.0}}
+                                  StaticText, 0x108ccad00, {{24.0, 298.5}, {327.0, 21.0}}, label: 'Date of birth'
+                                  Other, 0x108ccbd40, {{24.0, 327.5}, {327.0, 78.0}}
+                                    TextField, 0x108ccbe80, {{39.0, 338.5}, {297.0, 56.0}}, label: 'Date of birth', placeholderValue: 'YYYY-MM-DD', value: 1993-05-12
+                                Other, 0x108ccb0c0, {{24.0, 405.5}, {327.0, 123.0}}
+                                  StaticText, 0x108cca300, {{24.0, 421.5}, {327.0, 21.0}}, label: 'Height'
+                                  Other, 0x108cc9040, {{24.0, 450.5}, {327.0, 78.0}}
+                                    TextField, 0x108cc9680, {{39.0, 461.5}, {268.5, 56.0}}, label: 'Height', placeholderValue: '80–250', value: 178
+                                    StaticText, 0x108cc9400, {{313.5, 477.5}, {22.5, 24.0}}, label: 'cm'
+                                StaticText, 0x108ccb700, {{24.0, 544.5}, {327.0, 21.0}}, label: 'Usual activity'
+                                Other, 0x108ccaf80, {{24.0, 581.5}, {327.0, 48.0}}
+                                  Button, 0x108ccae40, {{24.0, 581.5}, {327.0, 48.0}}, label: 'Mostly seated'
+                                Other, 0x108cc9f40, {{24.0, 637.5}, {327.0, 48.0}}
+                                  Other, 0x108cc9cc0, {{24.0, 637.5}, {327.0, 48.0}}, label: 'Lightly active', Selected
+                                Other, 0x108cc9b80, {{24.0, 693.5}, {327.0, 48.0}}
+                                  Button, 0x108ccabc0, {{24.0, 693.5}, {327.0, 48.0}}, label: 'Moderately active'
+                                Other, 0x108ccbc00, {{24.0, 749.5}, {327.0, 48.0}}
+                                  Button, 0x108ccb5c0, {{24.0, 749.5}, {327.0, 48.0}}, label: 'Very active'
+                                Other, 0x108ccb840, {{24.0, 805.5}, {327.0, 48.0}}
+                                  Button, 0x108ccb980, {{24.0, 805.5}, {327.0, 48.0}}, label: 'Extremely active'
+                                Other, 0x108cca440, {{24.0, 853.5}, {327.0, 123.0}}
+                                  StaticText, 0x108cca6c0, {{24.0, 869.5}, {327.0, 21.0}}, label: 'Body fat (%)'
+                                  Other, 0x108cca800, {{24.0, 898.5}, {327.0, 78.0}}
+                                    TextField, 0x108cca580, {{39.0, 909.5}, {276.5, 56.0}}, label: 'Body fat (%)', placeholderValue: 'Optional'
+                                    StaticText, 0x117524000, {{321.5, 925.5}, {14.5, 24.0}}, label: '%'
+                                StaticText, 0x117524140, {{24.0, 992.5}, {327.0, 21.0}}, label: 'Journal mode'
+                                Other, 0x117524280, {{24.0, 1029.5}, {327.0, 72.0}}
+                                  Button, 0x1175243c0, {{24.0, 1029.5}, {157.5, 72.0}}, label: 'Weight-loss guidance'
+                                  Other, 0x117524500, {{193.5, 1029.5}, {157.5, 72.0}}, label: 'Tracking only', Selected
+                                StaticText, 0x117524640, {{24.0, 1111.5}, {327.0, 50.0}}, label: 'Log your daily life without calorie budgets or weight-loss targets.'
+                                Other, 0x117524780, {{24.0, 1161.5}, {327.0, 123.0}}
+                                  StaticText, 0x1175248c0, {{24.0, 1177.5}, {327.0, 21.0}}, label: 'Goal weight'
+                                  Other, 0x117524a00, {{24.0, 1206.5}, {327.0, 78.0}}
+                                    TextField, 0x117524b40, {{39.0, 1217.5}, {273.5, 56.0}}, label: 'Goal weight', placeholderValue: 'Optional', value: 72
+                                    StaticText, 0x117524c80, {{318.5, 1233.5}, {17.5, 24.0}}, label: 'kg'
+                                StaticText, 0x117524dc0, {{24.0, 1300.5}, {327.0, 21.0}}, label: 'A little context for safe guidance'
+                                StaticText, 0x117524f00, {{24.0, 1339.5}, {327.0, 100.0}}, label: 'For pregnancy, breastfeeding, eating concerns or uncertainty, use tracking only and seek advice from a qualified professional.'
+                                Other, 0x117525040, {{24.0, 1439.5}, {327.0, 149.0}}
+                                  StaticText, 0x117525180, {{24.0, 1455.5}, {327.0, 21.0}}, label: 'Are you pregnant?'
+                                  Button, 0x1175252c0, {{24.0, 1492.5}, {101.0, 96.0}}, label: 'Yes'
+                                  Button, 0x117525400, {{137.0, 1492.5}, {101.0, 96.0}}, label: 'No'
+                                  Other, 0x117525540, {{250.0, 1492.5}, {101.0, 96.0}}, label: 'Not sure / prefer not to say', Selected
+                                Other, 0x117525680, {{24.0, 1588.5}, {327.0, 149.0}}
+                                  StaticText, 0x1175257c0, {{24.0, 1604.5}, {327.0, 21.0}}, label: 'Are you breastfeeding?'
+                                  Button, 0x117525900, {{24.0, 1641.5}, {101.0, 96.0}}, label: 'Yes'
+                                  Button, 0x117525a40, {{137.0, 1641.5}, {101.0, 96.0}}, label: 'No'
+                                  Other, 0x117525b80, {{250.0, 1641.5}, {101.0, 96.0}}, label: 'Not sure / prefer not to say', Selected
+                                Other, 0x117525cc0, {{24.0, 1737.5}, {327.0, 170.0}}
+                                  StaticText, 0x117525e00, {{24.0, 1753.5}, {327.0, 42.0}}, label: 'Do you have an eating disorder, or concerns about restrictive eating?'
+                                  Button, 0x117525f40, {{24.0, 1811.5}, {101.0, 96.0}}, label: 'Yes'
+                                  Button, 0x117526080, {{137.0, 1811.5}, {101.0, 96.0}}, label: 'No'
+                                  Other, 0x1175261c0, {{250.0, 1811.5}, {101.0, 96.0}}, label: 'Not sure / prefer not to say', Selected
+                              Button, 0x117526300, {{24.0, 480.0}, {157.5, 72.0}}, label: 'Cancel'
+                              Button, 0x117526440, {{193.5, 480.0}, {157.5, 72.0}}, label: 'Save profile and goals'
+                  Other, 0x117526580, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x1175266c0, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x117526800, {{0.0, 584.0}, {375.0, 83.0}}
+              Other, 0x117526940, {{0.0, 0.0}, {375.0, 667.0}}
+              Other, 0x117526a80, {{0.0, 584.0}, {375.0, 83.0}}
+    Window, 0x117526bc0, {{0.0, 0.0}, {375.0, 667.0}}
+      Other, 0x117526d00, {{0.0, 0.0}, {375.0, 667.0}}
+        Other, 0x117526e40, {{0.0, 0.0}, {375.0, 667.0}}
+Path to element:
+ →Application, 0x108cc9540, pid: 26047, label: 'LeanOn'
+Query chain:
+ →Find: Target Application 'com.zzzode.leanon.uiqa'
+  Output: {
+    Application, 0x117526f80, pid: 26047, label: 'LeanOn'
+  }

@@ -1,0 +1,132 @@
+[
+  {
+    "path": "accepted-checks.json",
+    "bytes": 824,
+    "sha256": "52001871b3ece4ae929940e6a619a6d91d435e4289d1b026aa1f04eb36657df7"
+  },
+  {
+    "path": "build-final.log",
+    "bytes": 512,
+    "sha256": "4047ed13b0b08063d2f4e6f4f1bba5529b93ceda321fb6fccf25518dd00fc74b"
+  },
+  {
+    "path": "cleanup.json",
+    "bytes": 738,
+    "sha256": "b10bef66ba94f87c9fd2bfa1a65c07e10d08f72d85a65c49974ae7fc11e77b1e"
+  },
+  {
+    "path": "code-evidence.json",
+    "bytes": 19703,
+    "sha256": "efdaa50139e02d8ad9aecbdfa4e7bbf24478c383aa608e7024de669a7a2ace19"
+  },
+  {
+    "path": "code-evidence.md",
+    "bytes": 15103,
+    "sha256": "760d3849150485d8e913c2a30d1411d809c569defa27d8e3906a882d200f574d"
+  },
+  {
+    "path": "code-evidence.zh-CN.md",
+    "bytes": 15096,
+    "sha256": "ed169fbe3d8a29f51c2d0f3319b8a9c3ff6e69f543561836512d0f39396b414e"
+  },
+  {
+    "path": "compiled-cli-checks.json",
+    "bytes": 3888,
+    "sha256": "328c7f6ed98f14aac45545aa4b85633724f2e3d02e46b9a9779fc5ac9344e8c1"
+  },
+  {
+    "path": "compiled-cli-drill-final.log",
+    "bytes": 256,
+    "sha256": "deb709f78ff6edc16c1682e4a7387ff1c93c7e765adceae08a18e63a0846b60c"
+  },
+  {
+    "path": "dependency-build.log",
+    "bytes": 246,
+    "sha256": "e3f8671a79cc3df13b3200db25eacf458d9a8d3951635920d35be7b81e1a4f77"
+  },
+  {
+    "path": "scoped-source/server/companion-worker/README.md",
+    "bytes": 10012,
+    "sha256": "a6e70b514168576904e95a6e85beaa700b148fb2fab52e921830cd23bec54422"
+  },
+  {
+    "path": "scoped-source/server/companion-worker/README.zh-CN.md",
+    "bytes": 8093,
+    "sha256": "ede7a9215d0ddba46aef2954971997a403167fbdb92f476efe5a0785c9644124"
+  },
+  {
+    "path": "scoped-source/server/companion-worker/local-admin.md",
+    "bytes": 6497,
+    "sha256": "01738cb9e6d051e2bfe049b99db682f7df6066ef09cff7c036236ff23501be90"
+  },
+  {
+    "path": "scoped-source/server/companion-worker/local-admin.zh-CN.md",
+    "bytes": 5280,
+    "sha256": "5f70b246338b20b03a57cbbb64f3580fbad866b408bacfe087096c3c4c4d48c6"
+  },
+  {
+    "path": "scoped-source/server/companion-worker/package.json",
+    "bytes": 756,
+    "sha256": "c58881adfd22dd4f1a08d23469d558fe0ff486e8bf00113e3e1d35a8aebf0722"
+  },
+  {
+    "path": "scoped-source/server/companion-worker/rslib.admin.config.ts",
+    "bytes": 357,
+    "sha256": "7f16d1deed775ab649cae88b7b6da6fb0788beaf388dafc8aba5f62b8da76381"
+  },
+  {
+    "path": "scoped-source/server/companion-worker/scripts/local-admin.mjs",
+    "bytes": 232,
+    "sha256": "7c25dac4bb8956b4633b26d21ea9c24ec479c0cd5b36b567636c8a92f0512bdf"
+  },
+  {
+    "path": "scoped-source/server/companion-worker/src/admin.test.ts",
+    "bytes": 15109,
+    "sha256": "78c9858926aa1407142134f91130162146cb07cb5ebad7307f41effc0213767f"
+  },
+  {
+    "path": "scoped-source/server/companion-worker/src/admin.ts",
+    "bytes": 21511,
+    "sha256": "48ba9126026e33aee6b80689890d35cf32652c2f501bd41a2c9bded3ee03b069"
+  },
+  {
+    "path": "scoped-source/server/companion-worker/src/local-admin.test.ts",
+    "bytes": 22348,
+    "sha256": "28b552fd107c567e402908c8904b68f78c1e1a95fbd9082e14fb4219e33b42af"
+  },
+  {
+    "path": "scoped-source/server/companion-worker/src/local-admin.ts",
+    "bytes": 18684,
+    "sha256": "236f4149a973cd1b46095452cc47eebf1b71d75d9421c068984a3761fee61367"
+  },
+  {
+    "path": "scoped-source/server/companion-worker/templates/local-admin.example.json",
+    "bytes": 580,
+    "sha256": "291a393f549376c359d237a22dc6e0b70f9441f3b1cbd689cbf0cd8de0b5a1e4"
+  },
+  {
+    "path": "scoped-source-audit.json",
+    "bytes": 2816,
+    "sha256": "78f90b0869a2da072ad82a43695dc1a0fa7dd00f61c3c133306865f09deeb718"
+  },
+  {
+    "path": "typecheck-final.log",
+    "bytes": 15,
+    "sha256": "8366207267355d3e3d5bf3bf6e8c94c5f93f6078c34f08973fa2b38cdda6cc92"
+  },
+  {
+    "path": "workspace-build.log",
+    "bytes": 5727,
+    "sha256": "cb898a4987e1c868ab6f1079428923c4c458c682f49866bba05194aae0079e76"
+  },
+  {
+    "path": "workspace-test-final.log",
+    "bytes": 16900,
+    "sha256": "8787d2b759aba4a59b649b161f45ba92820dd21f3d8810357f8131e39bc92b39"
+  },
+  {
+    "path": "workspace-typecheck.log",
+    "bytes": 941,
+    "sha256": "6c426e96932e9d577dec3bc387b3d03e049698725722e9dba8bcf2922036b40e"
+  }
+]

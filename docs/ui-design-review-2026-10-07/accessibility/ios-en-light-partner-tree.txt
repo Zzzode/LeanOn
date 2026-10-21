@@ -1,0 +1,74 @@
+Attributes: Application, 0x1177dc000, pid: 24826, label: 'LeanOn'
+Element subtree:
+ →Application, 0x1177dc000, pid: 24826, label: 'LeanOn'
+    Window (Main), 0x1177dc140, {{0.0, 0.0}, {375.0, 667.0}}
+      Other, 0x1177dc3c0, {{0.0, 0.0}, {375.0, 667.0}}
+        Other, 0x1177dc500, {{0.0, 0.0}, {375.0, 667.0}}
+          Other, 0x1177dc640, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x1177dc780, {{0.0, 0.0}, {375.0, 667.0}}
+              Other, 0x1177dc8c0, {{0.0, 0.0}, {375.0, 667.0}}
+                Other, 0x1177dca00, {{0.0, 0.0}, {375.0, 667.0}}
+                  Other, 0x1177dcb40, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x1177dcc80, {{0.0, 0.0}, {375.0, 667.0}}
+                      Other, 0x1177dcdc0, {{0.0, 0.0}, {375.0, 667.0}}
+                        Other, 0x1177dcf00, {{0.0, 20.0}, {375.0, 564.0}}, label: 'lynxview'
+                          Other, 0x1177dd040, {{0.0, 20.0}, {375.0, 564.0}}
+                            ScrollView, 0x1177dd180, {{0.0, 20.0}, {375.0, 564.0}}
+                              Other, 0x1177dd2c0, {{0.0, 20.0}, {375.0, 903.5}}
+                                Other, 0x1177dd400, {{24.0, 40.0}, {327.0, 19.5}}
+                                  Other, 0x1177dd540, {{24.0, 41.0}, {18.0, 18.0}}
+                                  StaticText, 0x1177dd680, {{48.0, 40.0}, {57.0, 19.5}}, label: 'LeanOn'
+                                StaticText, 0x1177dd7c0, {{24.0, 77.5}, {327.0, 36.0}}, label: 'Partner'
+                                Other, 0x1177dd900, {{24.0, 153.5}, {327.0, 140.0}}
+                                  Other, 0x1177dda40, {{107.5, 153.5}, {160.0, 140.0}}
+                                StaticText, 0x1177ddb80, {{24.0, 321.5}, {327.0, 35.0}}, label: 'Better, together.'
+                                StaticText, 0x1177ddcc0, {{24.0, 372.5}, {327.0, 50.0}}, label: 'Small routines, shared at your own pace. A walk, a meal, a kind word.'
+                                Other, 0x1177dde00, {{24.0, 422.5}, {327.0, 393.0}}
+                                  StaticText, 0x1177ddf40, {{24.0, 446.5}, {327.0, 26.0}}, label: 'Local use · no account connected'
+                                  StaticText, 0x1177de080, {{24.0, 496.5}, {327.0, 50.0}}, label: 'Your journal works offline. Connect a relay to invite your partner.'
+                                  Button, 0x1177de1c0, {{24.0, 562.5}, {327.0, 48.0}}, label: 'Self-hosted server'
+                                  Button, 0x1177de300, {{24.0, 620.5}, {327.0, 48.0}}, label: 'Sign in', value: Unavailable
+                                  Button, 0x1177de440, {{24.0, 678.5}, {327.0, 48.0}}, label: 'Create account', value: Unavailable
+                                  Button, 0x1177de580, {{24.0, 742.5}, {327.0, 48.0}}, label: 'Refresh connection'
+                  Other, 0x1177de6c0, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x1177de800, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x1177de940, {{0.0, 584.0}, {375.0, 83.0}}
+              Other, 0x1177dea80, {{0.0, 0.0}, {375.0, 667.0}}
+                TabBar, 0x1177debc0, {{0.0, 584.0}, {375.0, 83.0}}, label: '标签页栏'
+                  Other, 0x1177ded00, {{21.0, 584.0}, {333.0, 62.0}}
+                    Other, 0x1177dee40, {{21.0, 584.0}, {74.0, 54.0}}
+                    Other, 0x1177def80, {{21.0, 584.0}, {333.0, 62.0}}
+                      Button, 0x1177df0c0, {{25.0, 588.0}, {74.0, 54.0}}, label: 'Today'
+                        Image, 0x1177df200, {{48.0, 593.0}, {29.0, 29.5}}, identifier: 'sun.max', label: '调高亮度'
+                      Button, 0x1177df340, {{87.2, 588.0}, {74.0, 54.0}}, label: 'Diary'
+                        Image, 0x1177df480, {{108.2, 595.0}, {31.5, 25.5}}, identifier: 'book', label: '书签'
+                      Button, 0x1177df5c0, {{149.5, 588.0}, {76.0, 54.0}}, label: 'Progress'
+                        Image, 0x1177df700, {{169.5, 595.5}, {35.5, 25.5}}, identifier: 'chart.bar', label: '图表柱形图'
+                      Button, 0x1177df840, {{213.8, 588.0}, {74.0, 54.0}}, label: 'Partner', Selected
+                        Image, 0x1177df980, {{236.8, 596.0}, {29.0, 25.0}}, identifier: 'heart', label: '喜欢'
+                      Button, 0x1177dfac0, {{276.0, 588.0}, {74.0, 54.0}}, label: 'Me'
+                        Image, 0x1177dfc00, {{300.0, 595.5}, {26.0, 25.0}}, identifier: 'person', label: 'person'
+                    Other, 0x1177dfd40, {{213.8, 588.0}, {74.0, 54.0}}
+                      Other, 0x1177dfe80, {{213.8, 588.0}, {74.0, 54.0}}
+                        Other, 0x10761b700, {{213.8, 588.0}, {74.0, 54.0}}
+                        Other, 0x10761b980, {{213.8, 588.0}, {74.0, 54.0}}
+                          Other, 0x10761bac0, {{213.8, 588.0}, {74.0, 54.0}}
+                            Other, 0x10761bc00, {{213.8, 588.0}, {74.0, 54.0}}
+                              Other, 0x10761b5c0, {{213.8, 588.0}, {74.0, 54.0}}
+                            Other, 0x10761be80, {{213.8, 588.0}, {74.0, 54.0}}
+                          Other, 0x10761bd40, {{213.8, 588.0}, {74.0, 54.0}}
+              Other, 0x10761b840, {{0.0, 584.0}, {375.0, 83.0}}
+                Other, 0x10761b480, {{0.0, 584.0}, {375.0, 83.0}}
+                  Other, 0x1179e0000, {{0.0, 584.0}, {375.0, 83.0}}
+                    Other, 0x1179e0140, {{0.0, 584.0}, {375.0, 83.0}}
+                      Other, 0x1179e0280, {{0.0, 584.0}, {375.0, 83.0}}
+                        Other, 0x1179e03c0, {{0.0, 584.0}, {375.0, 83.0}}
+                    Other, 0x1179e0500, {{0.0, 584.0}, {375.0, 83.0}}
+                      Other, 0x1179e0640, {{0.0, 584.0}, {375.0, 83.0}}
+Path to element:
+ →Application, 0x1177dc000, pid: 24826, label: 'LeanOn'
+Query chain:
+ →Find: Target Application 'com.zzzode.leanon.uiqa'
+  Output: {
+    Application, 0x1179e0780, pid: 24826, label: 'LeanOn'
+  }

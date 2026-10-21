@@ -1,0 +1,63 @@
+{
+  "utc": "2026-10-06T18:06:03.812746+00:00",
+  "level": "executed synthetic unit/store tests and actual core native UI acceptance; platform-specific limits retained",
+  "branch": "main",
+  "head": "89b5e157844d62933a5ebfa773e7aa7b8d076cb9",
+  "workingTree": "uncommitted concurrent implementation; HEAD alone does not identify built source",
+  "sharedBundleSha256": "23593dc3f5eecd295b451d9068aa33d5a3f550d62dceb1961e2b7dc071b636e1",
+  "sharedTests": {
+    "packages/exercise-data": 7,
+    "packages/data": 14,
+    "packages/delivery": 23,
+    "packages/core": 83,
+    "packages/i18n": 18,
+    "packages/food-data": 36,
+    "packages/bridge": 45,
+    "packages/pages": 81
+  },
+  "sharedTotal": 307,
+  "iosUnitTests": {
+    "passed": 138,
+    "log": "/tmp/leanon-daily-ios-unit-final-138.log",
+    "nativeBinarySha256": "57d73ccdacea1f078fe88cbae8fb8161446022d5d08745b6843d7a3b0e507a09",
+    "stagedUiBundle": "5bb0923a... duringunits; nativebinaryunchanged after827restage",
+    "finalUiAppBundle": "23593dc3f5eecd295b451d9068aa33d5a3f550d62dceb1961e2b7dc071b636e1"
+  },
+  "androidUnitTests": {
+    "passed": 154,
+    "log": "/tmp/leanon-android-daily-qa/final-native-validation.log",
+    "apkSha256": "35dd007aff2e99630a1dd23995ea25c9911cb144570bd495cdc588d26986399f",
+    "appBundleStagedForUi": "23593dc3f5eecd295b451d9068aa33d5a3f550d62dceb1961e2b7dc071b636e1"
+  },
+  "crossHostConformance": {
+    "successes": 10,
+    "rejections": 3,
+    "comparedFields": 16,
+    "entityOrdering": "normalized by stable ID; receipt commit order preserved",
+    "floatPrecision": "nine decimal places",
+    "script": "compare-conformance.py",
+    "status": "pass"
+  },
+  "uiAcceptance": {
+    "sharedBundleSha256": "23593dc3f5eecd295b451d9068aa33d5a3f550d62dceb1961e2b7dc071b636e1",
+    "iosUniquePassed": 11,
+    "iosSelectedScreenshots": 59,
+    "iosManifest": "/tmp/leanon-daily-ios-evidence/recovery-final-235/evidence-manifest.json",
+    "androidGroupsPassedWithStatedCoverage": 7,
+    "androidValidScreenshots": 69,
+    "androidManifest": "/tmp/leanon-android-daily-recovery-qa/evidence-manifest.json",
+    "boundaries": "six-screen/state combinations, naturalmidnight, fullscreenreader andphysicalprovider/hardware unverified; internalpollflag behindmodal inferred only; AndroidsaveError requiresbodyscroll P1"
+  },
+  "previousSharedBundleSha256": "98f1a4d69055a6e58ce15b93df89a6e9324c9205ea72492d00dd8cecfe126d00",
+  "nullTransportFix": "Private JSON request envelope preserves explicit null and does not default missing fields; strict native adapters",
+  "sharedFinalLogs": {
+    "typecheck": "/tmp/leanon-daily-workspace-final-typecheck.log",
+    "build": "/tmp/leanon-daily-workspace-final-build.log",
+    "test": "/tmp/leanon-daily-workspace-final-tests.log"
+  },
+  "finalNativeChecks": "138iOS/154AndroidunitsPASS; actual235coreclosurePASS",
+  "supersededBeforeUi": "5bb0923a... replaced only after actual empty-trash copy issue; no final UI pass claimed",
+  "recovery": "Read-only strictsnapshot before retry exact originaldraft/request ID+revision; explicitconflictonchangeddata",
+  "p1UpdateCheckpoint": "p1-checkpoint.json",
+  "historicalBaselineNote": "235 baseline retained verbatim; its save-error scrolling defect is resolved by bounded ae747 P1, see p1-checkpoint.json."
+}

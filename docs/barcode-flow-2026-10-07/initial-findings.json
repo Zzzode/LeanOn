@@ -1,0 +1,41 @@
+{
+  "utc": "2026-10-07T02:05:54.046959+00:00",
+  "branch": "main",
+  "head": "89b5e157844d62933a5ebfa773e7aa7b8d076cb9",
+  "origin": "https://github.com/Zzzode/LeanOn.git",
+  "initialWorkingTreeEntries": 223,
+  "scope": "Barcode recovery and public product lookup; existing parallel changes preserved",
+  "permissionBoundary": "No physical camera use or OS permission prompt allowed without separate explicit user approval",
+  "platformQuestion": "Asked which platform; continuing both without an answer",
+  "knownInstalledAndroidBaseline": {
+    "qaPackage": "com.zzzode.leanon.uiqa",
+    "apkSha256": "eac3243490dbe725a83da2595d34130917db88efda8ebdf39f5bad255fc4a74c",
+    "bundleSha256": "ae747dd3bbe6ddac6cf56a5ac4172522784ab2bbc61bfa9ea363c41954443497"
+  },
+  "knownInstalledIosFormal": {
+    "checkedUtc": "2026-10-07T02:04:08.835809+00:00",
+    "bundleIdentifier": "com.zzzode.leanon",
+    "device": "iPhone 17 Pro, iOS26.5",
+    "deviceId": "59F79721-D8FF-4A1D-925C-905C011DB1C9",
+    "operation": "read binary and Lynx bundle only; no launch/install/record read",
+    "LeanOn": {
+      "sha256": "be285734f8551b7bcf84b6062930bb518688ce8a437ba27bf36c543efb7ff260",
+      "bytes": 52144744
+    },
+    "main.lynx.bundle": {
+      "sha256": "5e00a89740d78d17ce0dfcaad708a78396f50911725275f13e5afb338cb6a583",
+      "bytes": 700943
+    }
+  },
+  "livePublicLookup": {
+    "barcode": "3017620422003",
+    "elapsedSeconds": 0.7334280014038086,
+    "energy-kcal_100g": 539,
+    "product_name": "Nutella",
+    "result": "found",
+    "runtime": "macOS Foundation URLSession using actual iOS shared native client source",
+    "serving_quantity_unit": "g",
+    "userDataSent": false
+  },
+  "qualification": "Existing installed versions and simulator constraints are measured facts; exact user platform and barcode/error are unresolved; no claim of physical camera acceptance"
+}

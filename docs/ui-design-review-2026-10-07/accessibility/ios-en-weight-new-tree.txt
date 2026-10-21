@@ -1,0 +1,39 @@
+Attributes: Application, 0x10561f480, pid: 25933, label: 'LeanOn'
+Element subtree:
+ →Application, 0x10561f480, pid: 25933, label: 'LeanOn'
+    Window (Main), 0x10561f5c0, {{0.0, 0.0}, {375.0, 667.0}}
+      Other, 0x10561f700, {{0.0, 0.0}, {375.0, 667.0}}
+        Other, 0x10561f840, {{0.0, 0.0}, {375.0, 667.0}}
+          Other, 0x10561f980, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x10561fac0, {{0.0, 0.0}, {375.0, 667.0}}
+              Other, 0x10561fc00, {{0.0, 0.0}, {375.0, 667.0}}
+                Other, 0x10561fd40, {{0.0, 0.0}, {375.0, 667.0}}
+                  Other, 0x10561fe80, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x108cc8000, {{0.0, 0.0}, {375.0, 667.0}}
+                      Other, 0x108cc8140, {{0.0, 0.0}, {375.0, 667.0}}
+                        Other, 0x108cc8280, {{0.0, 20.0}, {375.0, 564.0}}, label: 'lynxview'
+                          Other, 0x108cc83c0, {{0.0, 20.0}, {375.0, 564.0}}
+                          Other, 0x108cc8500, {{0.0, 20.0}, {375.0, 564.0}}
+                            Other, 0x108cc8640, {{0.0, 194.0}, {375.0, 390.0}}
+                              StaticText, 0x108cc8780, {{24.0, 218.0}, {327.0, 33.0}}, label: 'Log weight'
+                              StaticText, 0x108cc88c0, {{24.0, 276.0}, {327.0, 25.0}}, label: 'Journal date · 2026-10-07'
+                              ScrollView, 0x108cc8a00, {{24.0, 301.0}, {327.0, 123.0}}
+                                StaticText, 0x108cc8b40, {{24.0, 317.0}, {327.0, 21.0}}, label: 'Weight'
+                                Other, 0x108cc8c80, {{24.0, 346.0}, {327.0, 78.0}}
+                                  TextField, 0x108cc8dc0, {{39.0, 357.0}, {273.5, 56.0}}, label: 'Weight', placeholderValue: 'Current weight', value: 80.4
+                                  StaticText, 0x108cc8f00, {{318.5, 373.0}, {17.5, 24.0}}, label: 'kg'
+                              Button, 0x108cc9040, {{24.0, 444.0}, {157.5, 48.0}}, label: 'Cancel'
+                              Button, 0x108cc9180, {{193.5, 444.0}, {157.5, 48.0}}, label: 'Save'
+                              Button, 0x108cc92c0, {{24.0, 504.0}, {327.0, 48.0}}, label: 'Pair a scale'
+                  Other, 0x108cc9400, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x108cc9540, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x108cc9680, {{0.0, 584.0}, {375.0, 83.0}}
+              Other, 0x108cc97c0, {{0.0, 0.0}, {375.0, 667.0}}
+              Other, 0x108cc9900, {{0.0, 584.0}, {375.0, 83.0}}
+Path to element:
+ →Application, 0x10561f480, pid: 25933, label: 'LeanOn'
+Query chain:
+ →Find: Target Application 'com.zzzode.leanon.uiqa'
+  Output: {
+    Application, 0x108cc9a40, pid: 25933, label: 'LeanOn'
+  }

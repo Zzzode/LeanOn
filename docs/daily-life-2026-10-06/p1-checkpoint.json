@@ -1,0 +1,209 @@
+{
+  "utc": "2026-10-06T19:15:27.814554+00:00",
+  "scope": "P1 visible save-error feedback; bounded native verification, prior 235 baseline preserved",
+  "branch": "main",
+  "head": "89b5e157844d62933a5ebfa773e7aa7b8d076cb9",
+  "sourceCheckpoint": "source-checkpoint.json",
+  "sourceFileArraySha256": "89badea701ad3e027cd79b001d9d74975f5cc320832fa738558d0afdf3b74122",
+  "sourceFiles": 402,
+  "sharedBundleSha256": "ae747dd3bbe6ddac6cf56a5ac4172522784ab2bbc61bfa9ea363c41954443497",
+  "typecheck": "PASS",
+  "build": "PASS",
+  "sharedTests": {
+    "passed": 307,
+    "log": "/tmp/leanon-daily-p1-workspace-tests.log"
+  },
+  "nativeUnitsAndFullUiBaseline": "checkpoint.json retained historical 235 acceptance; not rerun as P1",
+  "android": {
+    "manifest": "/tmp/leanon-android-bounded-p1-qa/evidence-manifest.json",
+    "manifestSha256": "964d114dad7314b1e0f58865e861bf01173c1365f5fd02a675495008ac0021fe",
+    "apkSha256": "eac3243490dbe725a83da2595d34130917db88efda8ebdf39f5bad255fc4a74c",
+    "authoritativeMatrix": [
+      {
+        "id": "light-closed-error",
+        "role": "authoritative P1 matrix",
+        "png": "/tmp/leanon-android-bounded-p1-qa/light-closed-error.png",
+        "pngSha256": "fbb3531be4c397cc175cdb0782b53cec1c77869d0b2ac30b1da1fa315819b856",
+        "metadata": "/tmp/leanon-android-bounded-p1-qa/light-closed-error.json",
+        "metadataSha256": "61cb99fcb5033840cfb34238628d0419b77145722755592154b87e50419a0862",
+        "utc": "2026-10-06T18:41:15.828940Z",
+        "pid": 32703,
+        "appearance": "light",
+        "ime": "closed",
+        "draftGrams": 180,
+        "date": "2026-10-05",
+        "meal": "dinner",
+        "instrumentationApkSha256": "e4bc51f127edfd78caf62030832c07b9f9913c5e007d55b25a105c10b0420a42",
+        "result": "PASS",
+        "observed": "Visible save error directly above Cancel/Save; draft retained; no manual form-body scroll"
+      },
+      {
+        "id": "dark-closed-error",
+        "role": "authoritative P1 matrix",
+        "png": "/tmp/leanon-android-bounded-p1-qa/dark-closed-error.png",
+        "pngSha256": "07c44f4ca6225cafa222fa29196154c0f692220e74c124323487f7d113503b7b",
+        "metadata": "/tmp/leanon-android-bounded-p1-qa/dark-closed-error.json",
+        "metadataSha256": "1201c1fdf3fb213940e7789949ac00b443dd374ff033917e763dba9b7020fef4",
+        "utc": "2026-10-06T18:43:10.623361Z",
+        "pid": 32703,
+        "appearance": "dark",
+        "ime": "closed",
+        "draftGrams": 190,
+        "date": "2026-10-05",
+        "meal": "dinner",
+        "instrumentationApkSha256": "e4bc51f127edfd78caf62030832c07b9f9913c5e007d55b25a105c10b0420a42",
+        "result": "PASS",
+        "observed": "Visible save error directly above Cancel/Save; draft retained; no manual form-body scroll"
+      },
+      {
+        "id": "light-docked-error-visible",
+        "role": "authoritative P1 matrix",
+        "png": "/tmp/leanon-android-bounded-p1-qa/light-docked-error-visible.png",
+        "pngSha256": "4317550ae60b205c67e3d642032e84eb35b23b8bb86641cda096d1c8e97220da",
+        "metadata": "/tmp/leanon-android-bounded-p1-qa/light-docked-error-visible.json",
+        "metadataSha256": "545050d517bc0ce45fefa22b479efc3f5c95a3bf3cab32e71a3464da30f662c9",
+        "utc": "2026-10-06T19:06:12.178172Z",
+        "pid": 2629,
+        "appearance": "light",
+        "ime": "docked-open",
+        "draftGrams": 195,
+        "date": "2026-10-05",
+        "meal": "dinner",
+        "instrumentationApkSha256": "37e9e2d2979faf6d7411014020e56c9c35e38ae1d7194befddd1ad1bef2da71d",
+        "result": "PASS",
+        "observed": "Visible save error directly above Cancel/Save; draft retained; no manual form-body scroll"
+      },
+      {
+        "id": "dark-docked-error-visible",
+        "role": "authoritative P1 matrix",
+        "png": "/tmp/leanon-android-bounded-p1-qa/dark-docked-error-visible.png",
+        "pngSha256": "07476741d88406460f9357bdb9a66c8c3abe527d36093a92e3d82787c9b762d2",
+        "metadata": "/tmp/leanon-android-bounded-p1-qa/dark-docked-error-visible.json",
+        "metadataSha256": "74aa357573c7a1cbae8e95decba708086cf81e067062ee00edcbc381a7194537",
+        "utc": "2026-10-06T19:08:43.424093Z",
+        "pid": 2629,
+        "appearance": "dark",
+        "ime": "docked-open",
+        "draftGrams": 195,
+        "date": "2026-10-05",
+        "meal": "dinner",
+        "instrumentationApkSha256": "37e9e2d2979faf6d7411014020e56c9c35e38ae1d7194befddd1ad1bef2da71d",
+        "result": "PASS",
+        "observed": "Visible save error directly above Cancel/Save; draft retained; no manual form-body scroll"
+      }
+    ],
+    "captures": 53,
+    "closures": {
+      "lightClosedRepair": {
+        "capture": {
+          "id": "light-closed-retry-saved",
+          "role": "same-modal retry",
+          "png": "/tmp/leanon-android-bounded-p1-qa/light-closed-retry-saved.png",
+          "pngSha256": "f51c4c25701c9ee3c7ad4ab3364ef4bbb64ab02a54921d49a1450ec503d32e9a",
+          "metadata": "/tmp/leanon-android-bounded-p1-qa/light-closed-retry-saved.json",
+          "metadataSha256": "b7e811dfc73ea38932eccf1c9803cf74852e9e2a9e86ecd59207827d1c9a0037",
+          "utc": "2026-10-06T18:41:49.244099Z",
+          "pid": 32703
+        },
+        "revision": 15,
+        "grams": 180,
+        "result": "PASS"
+      },
+      "darkCancel": {
+        "capture": {
+          "id": "dark-closed-cancel",
+          "role": "cancel after unavailable save",
+          "png": "/tmp/leanon-android-bounded-p1-qa/dark-closed-cancel.png",
+          "pngSha256": "e540f982dba056597201349dc1d879189482919e78ffa33eb86f2ad38a4f0896",
+          "metadata": "/tmp/leanon-android-bounded-p1-qa/dark-closed-cancel.json",
+          "metadataSha256": "f7c94b93d48670d03b91fe4b476fd2a36098062a51f9321649f185096f87f86b",
+          "utc": "2026-10-06T18:43:52.964770Z",
+          "pid": 32703
+        },
+        "before": "dark-closed-before.json",
+        "after": "dark-closed-after-cancel.json",
+        "bothSha256": "5d4cb71806d5f8698a00fa1df3a1a91e1d61f2571afb7999a493ed57fe29250f",
+        "revision": 15,
+        "result": "PASS byte-identical; 190g unsaved draft was not committed"
+      },
+      "dockedRepair": {
+        "capture": {
+          "id": "docked-retry-saved",
+          "role": "same-modal retry after exact fixture repair",
+          "png": "/tmp/leanon-android-bounded-p1-qa/docked-retry-saved.png",
+          "pngSha256": "d60274180398517ed27c7f0ff7810b48ba4c7071f58fb245e28ed2d998e3c28c",
+          "metadata": "/tmp/leanon-android-bounded-p1-qa/docked-retry-saved.json",
+          "metadataSha256": "be77fc1acc572d6510bbfe28fee4edd613ba5979be45cad0f2bb582844278b11",
+          "utc": "2026-10-06T19:09:10.729358Z",
+          "pid": 2629
+        },
+        "validBefore": "light-docked-before.json",
+        "validBeforeSha256": "5d4cb71806d5f8698a00fa1df3a1a91e1d61f2571afb7999a493ed57fe29250f",
+        "revisionBefore": 15,
+        "revisionAfter": 16,
+        "gramsAfter": 195,
+        "kcalAfter": 253.49999999999997,
+        "result": "PASS actual Save closed modal and durable fixture contains retained same entry/date/meal"
+      }
+    },
+    "isolation": {
+      "repository": "Only .uiqa disposable cache/daily-ui/records.json overridden by guarded official test runner",
+      "originalQaRecordsBeforeSha256": "bf2eb866a8d4011f4329d5f50eee9b587c8821c969606172cae4dd8b208c088b",
+      "originalQaRecordsAfterSha256": "bf2eb866a8d4011f4329d5f50eee9b587c8821c969606172cae4dd8b208c088b",
+      "unchanged": true,
+      "normalProductionRecords": "Not accessed or mutated",
+      "sessionReports": {
+        "closed-session-report.json": {
+          "sha256": "ebad0044754450dbebb09bdcaa7b83c4c2cce2766ac678c5f3cbb7e1bd6659b9",
+          "success": true,
+          "originalBefore": "bf2eb866a8d4011f4329d5f50eee9b587c8821c969606172cae4dd8b208c088b",
+          "originalAfter": "bf2eb866a8d4011f4329d5f50eee9b587c8821c969606172cae4dd8b208c088b"
+        },
+        "finger-session-report.json": {
+          "sha256": "ea9472f54aebf75a2180b3c9380dea68e9951bc373831c5712cedac457006ec2",
+          "success": true,
+          "originalBefore": "bf2eb866a8d4011f4329d5f50eee9b587c8821c969606172cae4dd8b208c088b",
+          "originalAfter": "bf2eb866a8d4011f4329d5f50eee9b587c8821c969606172cae4dd8b208c088b"
+        }
+      }
+    },
+    "restoration": {
+      "originalValue": "1",
+      "readUtc": "2026-10-06T18:49:05.811696+00:00",
+      "temporaryChange": "0 then1 to refresh existing emulator keyboard visibility",
+      "scope": "parent explicitly authorized reversible QA-device keyboard setting; no OS clock/permissions",
+      "stylusHandwritingOriginal": "null",
+      "stylusTemporaryValue": "0",
+      "stylusChangeUtc": "2026-10-06T19:03:36.936642+00:00",
+      "restoreUtc": "2026-10-06T19:09:46.393480+00:00",
+      "restoredShowImeWithHardKeyboard": "1",
+      "restoredStylusHandwritingEnabled": "null",
+      "restoredScope": "Original absent handwriting setting and original show_ime_with_hard_keyboard=1 restored; no Gboard data cleared, default IME unchanged, no Gboard process restart"
+    },
+    "cleanup": {
+      "appAppearance": "Restored system by existing QA hook",
+      "recordClock": "Restored system by QA hook and runner finally",
+      "repository": "Runner finally restored original repository pointer",
+      "appStopped": "Only com.zzzode.leanon.uiqa force-stopped after exports",
+      "osClockChanged": false,
+      "permissionsOrProviderActions": false,
+      "gboardClearedOrRestarted": false
+    }
+  },
+  "ios": {
+    "manifest": "/tmp/leanon-ios-p1-feedback-evidence/evidence-manifest.json",
+    "manifestSha256": "887e4de79d36317629adb24bd811f1f4df220d75c53803a1ace7c72dd77a43b1",
+    "nativeBinarySha256": "57d73ccdacea1f078fe88cbae8fb8161446022d5d08745b6843d7a3b0e507a09",
+    "officialUiTestsPassed": 2,
+    "officialScreenshots": 14,
+    "keyboard": "closed only",
+    "cleanup": "QA uninstalled; original app and records unchanged"
+  },
+  "limits": [
+    "Other four render nodes only source reviewed",
+    "Other keyboard configurations, iOS keyboard-open, full screen readers and physical devices unverified",
+    "Full baseline UI suite not rerun against P1",
+    "Partner sync/login and future retention policy are separate new work"
+  ],
+  "commitOrPush": false
+}

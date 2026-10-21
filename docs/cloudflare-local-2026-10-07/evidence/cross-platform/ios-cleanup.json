@@ -1,0 +1,9 @@
+{
+  "capturedUtc": "2026-10-07T20:37:03Z",
+  "checks": [
+    "cross-platform-ios-fixture-files-and-keychain-keys-removed"
+  ],
+  "passed": true,
+  "platform": "iOS",
+  "stage": "cleanup"
+}

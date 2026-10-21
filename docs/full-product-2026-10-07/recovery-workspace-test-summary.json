@@ -1,0 +1,49 @@
+{
+  "checkedAtUTC": "2026-10-07T08:21:19.293258+00:00",
+  "scope": "One post-recovery full workspace run; targeted/interim and old native checkpoint runs are not added. Native post-recovery acceptance is separately pending.",
+  "sourceLog": "/tmp/leanon-recovery-workspace-tests.log",
+  "sourceLogSHA256": "8e0b5df8d0760fdbed5777643c657dd57428f25ea3328ed6af96247e14ebfc1a",
+  "passed": 437,
+  "failed": 0,
+  "packages": [
+    {
+      "package": "packages/delivery",
+      "passed": 23
+    },
+    {
+      "package": "packages/exercise-data",
+      "passed": 7
+    },
+    {
+      "package": "packages/food-data",
+      "passed": 42
+    },
+    {
+      "package": "packages/core",
+      "passed": 83
+    },
+    {
+      "package": "packages/i18n",
+      "passed": 18
+    },
+    {
+      "package": "server/companion",
+      "passed": 29
+    },
+    {
+      "package": "packages/data",
+      "passed": 49
+    },
+    {
+      "package": "packages/bridge",
+      "passed": 50
+    },
+    {
+      "package": "packages/pages",
+      "passed": 136
+    }
+  ],
+  "buildLog": "/tmp/leanon-recovery-workspace-build.log",
+  "typecheckLog": "/tmp/leanon-recovery-workspace-typecheck.log",
+  "sharedBundleSHA256": "f69d802611453a749d400c85214c1263c68468e81ceb62735e8122b17827bad4"
+}

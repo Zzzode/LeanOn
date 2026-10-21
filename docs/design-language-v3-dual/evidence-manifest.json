@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-06",
+  "branch": "main",
+  "head": "89b5e157844d62933a5ebfa773e7aa7b8d076cb9",
+  "type": "static-design-before-implementation",
+  "scope": {
+    "screens": 6,
+    "forms": 3,
+    "states": 12,
+    "modes": [
+      "light",
+      "dark"
+    ],
+    "nativeBar": "light uses actual crop; dark static adaptation preserves approved geometry",
+    "keyboard": "static design specimen, not actual native keyboard evidence"
+  },
+  "retainedLibraryIds": {
+    "sixScreens": "libfile_bf25147e22f0819184e57f2e1bdf3d13",
+    "forms": "libfile_806101d4039c819193f2139abaf62d57",
+    "states": "libfile_652563d722648191aebddc0c0197917a"
+  },
+  "artifacts": [
+    {
+      "file": "06-light-six-screens.png",
+      "sha256": "8dc40b046f14ee38b5da2471068d61c2e0f7954f6dad7873bd90bfec267da3ce",
+      "bytes": 513071
+    },
+    {
+      "file": "07-dark-six-screens.png",
+      "sha256": "68f146248f8eea1c2522c99c61a4b19a7c6f0955164c0d8d2ee06fe1a649360c",
+      "bytes": 478250
+    },
+    {
+      "file": "04-forms-dual.png",
+      "sha256": "a04450b55fcbb58cb9882ab3954448c17a865b818b833e4ac1625363e5644398",
+      "bytes": 463562
+    },
+    {
+      "file": "05-states-dual.png",
+      "sha256": "aae06933f5546555d1131efec01aafd7fea359ba5355695f9a2a57ad3f5e742c",
+      "bytes": 566511
+    }
+  ]
+}

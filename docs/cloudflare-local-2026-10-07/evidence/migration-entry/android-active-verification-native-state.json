@@ -1,0 +1,19 @@
+{
+  "phase": "active",
+  "sourceEndpoint": "http://10.0.2.2:64041",
+  "targetEndpoint": "http://10.0.2.2:64043",
+  "targetServiceId": "c492fdb157fd1e0223d39e79be799b700633258670af61b6f17062b13f8249a3",
+  "accountId": "08784ea4-103b-4f43-8e72-3b861ee1c828",
+  "accountName": "migration-owner",
+  "operationId": "PUBLIC-cloudflare-cutover-01",
+  "previewToken": null,
+  "errorCode": null,
+  "counts": {
+    "weights": 2,
+    "water": 1,
+    "exercises": 1,
+    "meals": 1,
+    "measurements": 0,
+    "photos": 1
+  }
+}

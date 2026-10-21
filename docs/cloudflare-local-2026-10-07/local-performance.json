@@ -1,0 +1,17 @@
+{
+  "capturedUtc": "2026-10-07T19:03:44.211Z",
+  "runtime": "actual local workerd child process",
+  "scrypt": {
+    "N": 16384,
+    "r": 8,
+    "p": 5,
+    "maxmemMiB": 32
+  },
+  "requests": 20,
+  "cpuDeltaMs": 1620,
+  "aggregateCpuPerRequestMs": 81,
+  "sampledProcessRssPeakMiB": 114.671875,
+  "wallMedianMs": 84.44987500000002,
+  "wallP95Ms": 88.22249999999985,
+  "scope": "CPU includes the Worker and local D1/R2 subworkers. Sampled process RSS is not isolate heap or a guaranteed peak. Warm sequential successful logins. No inference of remote Free feasibility."
+}

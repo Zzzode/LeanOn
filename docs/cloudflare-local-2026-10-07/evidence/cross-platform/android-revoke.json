@@ -1,0 +1,17 @@
+{
+  "stage": "revoke",
+  "checks": [
+    {
+      "id": "ios-withdrawal-purges-android-peer-cache-and-worker-denies-prior-photo-url",
+      "passed": true
+    },
+    {
+      "id": "android-withdrawal-committed-for-ios-observation",
+      "passed": true
+    }
+  ],
+  "capturedUtc": "2026-10-07T20:36:27.772702Z",
+  "revokedPhotoHttpStatus": 404,
+  "revokedPhotoErrorCode": "object_unavailable",
+  "passed": true
+}

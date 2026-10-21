@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-07T02:32:58.147699+00:00",
+  "bundleSha256": "3a598649f5f5ed6b02929cb351677a05579c0d6da894e191f0305b13a3f7a134",
+  "build": "PASS",
+  "typecheck": "PASS after final build",
+  "tests": {
+    "packages/data": 14,
+    "packages/exercise-data": 7,
+    "packages/delivery": 23,
+    "packages/core": 83,
+    "packages/i18n": 18,
+    "packages/food-data": 42,
+    "packages/bridge": 47,
+    "packages/pages": 101
+  },
+  "totalPassed": 335,
+  "failed": 0,
+  "logs": [
+    "/tmp/leanon-scan-workspace-recovery-build.log",
+    "/tmp/leanon-scan-workspace-recovery-typecheck.log",
+    "/tmp/leanon-scan-workspace-recovery-tests.log"
+  ],
+  "interimQualification": "ab498 read old i18n declarations in initial pre-build typecheck; later pass and historical failure logs retained. a2c05 final UI found Android input event clearing failure feedback; corrected recovery candidate is separately validated.",
+  "nativeUnitQualification": "Android170 and iOS targeted36 passed with native product source frozen; subsequent changes were pages/TS regressions and isolated UI harness only. Native UI tested separately against final bundle."
+}
