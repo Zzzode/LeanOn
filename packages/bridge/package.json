@@ -48,6 +48,7 @@
     "test:watch": "rstest"
   },
   "dependencies": {
+    "@zzzode/data": "workspace:*",
     "@zzzode/core": "workspace:*",
     "@zzzode/food-data": "workspace:*"
   },
