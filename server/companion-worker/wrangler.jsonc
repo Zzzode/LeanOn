@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "leanon-private-companion-local",
+  "main": "dist/worker.js",
+  "compatibility_date": "2026-10-07",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
+  "preview_urls": false,
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "leanon-local-only",
+    "database_id": "00000000-0000-0000-0000-000000000000",
+    "migrations_dir": "migrations",
+    "remote": false
+  }],
+  "r2_buckets": [{ "binding": "PHOTOS", "bucket_name": "leanon-local-private", "remote": false }],
+  "triggers": { "crons": ["*/15 * * * *"] }
+}

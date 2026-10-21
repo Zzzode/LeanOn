@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "syntheticOnly": true,
+  "quiesced": true,
+  "workspace": "/tmp/leanon-admin-synthetic-example",
+  "paths": {
+    "sourceState": "state/source",
+    "targetState": "state/target",
+    "operatorKey": "keys/public-fixture-key.bin",
+    "backup": "backups/snapshot.json",
+    "deletionFloor": "floors/latest.json",
+    "legacySource": "inputs/legacy.json"
+  },
+  "migration": {
+    "targetOrigin": "http://127.0.0.1:64043",
+    "targetServiceId": "0000000000000000000000000000000000000000000000000000000000000000",
+    "operationId": "PUBLIC-local-cutover"
+  }
+}

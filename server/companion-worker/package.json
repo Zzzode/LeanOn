@@ -1,0 +1,22 @@
+{
+  "name": "@zzzode/companion-worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Private two-person ciphertext relay for local Cloudflare verification",
+  "scripts": {
+    "build": "rslib build && rslib build -c rslib.admin.config.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "rstest run",
+    "admin:local": "node scripts/local-admin.mjs",
+    "dev:local": "wrangler dev --local --persist-to ../../.tmp-tool-results/companion-worker-state"
+  },
+  "dependencies": { "@zzzode/companion-server": "workspace:*" },
+  "devDependencies": {
+    "@cloudflare/workers-types": "5.20261007.1",
+    "@rstest/core": "0.12.2",
+    "@types/node": "26.6.3",
+    "miniflare": "5.20261001.0-alpha",
+    "wrangler": "4.147.0"
+  }
+}
