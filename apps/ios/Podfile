@@ -5,6 +5,7 @@ platform :ios, '15.0'
 use_modular_headers!
 
 target 'LeanOn' do
+  pod 'XElement', '3.9.0', :subspecs => ['Input', 'SVG']
   pod 'Lynx', '3.9.0', :subspecs => ['Framework']
   pod 'PrimJS', '3.8.0-alpha.6', :subspecs => ['quickjs', 'napi']
 
@@ -14,8 +15,30 @@ target 'LeanOn' do
   end
 end
 
+# Restore official generated files omitted by the pinned source archive before
+# CocoaPods enumerates its source files and public headers.
+pre_install do |installer|
+  generated_root = File.join(__dir__, 'support/lynx-3.9.0-generated')
+  Dir.glob(File.join(generated_root, '{core,platform}/**/*')).each do |source|
+    next unless File.file?(source)
+    relative = source.delete_prefix(generated_root + '/')
+    destination = installer.sandbox.root.join('Lynx', relative)
+    next if destination.exist?
+    FileUtils.mkdir_p(destination.dirname)
+    FileUtils.cp(source, destination)
+  end
+end
+
 # Xcode 26 may otherwise treat warnings in the Lynx pod as errors.
 post_install do |installer|
+  # LynxBase 3.9.0 references a GN header absent from its CocoaPods archive.
+  # Stage our iOS-only SDK configuration on every clean Pod installation.
+  build_config = installer.sandbox.root.join('LynxBase/build/build_config.h')
+  unless build_config.exist?
+    FileUtils.mkdir_p(build_config.dirname)
+    FileUtils.cp(File.join(__dir__, 'support/lynx-build-config.h'), build_config)
+  end
+
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
       config.build_settings['GCC_TREAT_WARNINGS_AS_ERRORS'] = 'NO'

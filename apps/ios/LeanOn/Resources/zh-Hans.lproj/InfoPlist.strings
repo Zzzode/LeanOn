@@ -1,0 +1,4 @@
+"NSCameraUsageDescription" = "当你选择扫码时，用相机识别包装食品条码。";
+"NSBluetoothAlwaysUsageDescription" = "当你选择搜索或连接时，通过蓝牙连接体重秤。";
+"NSHealthShareUsageDescription" = "导入你选择分享给 LeanOn 的体重与运动记录。";
+"NSHealthUpdateUsageDescription" = "当你开启同步时，将 LeanOn 的体重、运动和每日营养记录写入 Apple 健康。";

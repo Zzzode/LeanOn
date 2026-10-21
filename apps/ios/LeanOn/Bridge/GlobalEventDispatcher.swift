@@ -1,3 +1,4 @@
+import Foundation
 import Lynx
 
 /// Fans native -> JS global events out to every mounted LynxView. Each tab and
@@ -12,6 +13,10 @@ final class GlobalEventDispatcher {
   }
 
   func dispatch(_ event: String, payload: Any?) {
+    if !Thread.isMainThread {
+      DispatchQueue.main.async { self.dispatch(event, payload: payload) }
+      return
+    }
     // Global events deliver a parameter list; wrap a single payload.
     for view in views.allObjects {
       view.sendGlobalEvent(event, withParams: [payload as Any])
