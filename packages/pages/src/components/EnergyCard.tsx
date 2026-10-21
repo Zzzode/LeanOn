@@ -1,43 +1,26 @@
 import type { Translator } from '@zzzode/i18n';
 import type { TodayState } from '../state/types.js';
+import { formatQuantity } from '../state/theme.js';
 import { Card } from './Card.js';
 import { ProgressBar } from './ProgressBar.js';
+import { useTheme } from './ThemeContext.js';
 
-function Row({ label, value }: { label: string; value: number }) {
-  const text = value > 0 ? `+${value}` : `${value}`;
-  return (
-    <view className="Energy-row">
-      <text className="Energy-row-label">{label}</text>
-      <text className="Energy-row-value">{text}</text>
+export function EnergyCard({ state, t, hasIntake = true }: { state: TodayState; t: Translator; hasIntake?: boolean }) {
+  const palette = useTheme();
+  return <Card className="Energy-card">
+    <view className="Summary-heading">
+      <text className="Category-label food">{t('design.foodToday')}</text>
+      <text className="Summary-status">{t(hasIntake ? 'design.recorded' : 'design.noIntake')}</text>
     </view>
-  );
-}
-
-export function EnergyCard({ state, t }: { state: TodayState; t: Translator }) {
-  const usedFraction = 1 - state.remainingFraction;
-  const accent = state.overBudget ? '#E0594B' : '#218967';
-  return (
-    <Card>
-      <text className="Card-title">{t('energy.title')}</text>
-      <view className="Energy-main">
-        <view className="Energy-headline">
-          <text
-            className="Energy-num"
-            style={state.overBudget ? { color: '#E0594B' } : undefined}
-          >
-            {Math.abs(state.remainingKcal)}
-          </text>
-          <text className="Energy-unit">
-            {t(state.overBudget ? 'energy.kcalOver' : 'energy.kcalLeft')}
-          </text>
-        </view>
-        <view className="Energy-rows">
-          <Row label={t('energy.goal')} value={state.energyGoalKcal} />
-          <Row label={t('energy.food')} value={-state.foodKcal} />
-          <Row label={t('energy.exercise')} value={state.exerciseKcal} />
-        </view>
-      </view>
-      <ProgressBar fraction={usedFraction} color={accent} />
-    </Card>
-  );
+    {hasIntake ? <view className="Energy-figure">
+      <text className="Energy-num">{formatQuantity(state.foodKcal)}</text><text className="Energy-unit">kcal</text>
+    </view> : <text className="Empty-title">{t('design.noIntake')}</text>}
+    {hasIntake && <ProgressBar fraction={state.foodKcal / Math.max(1, state.energyGoalKcal + state.exerciseKcal)} color={palette.food} />}
+    <view className="Energy-reference-row">
+      <text className="Energy-reference">{t('design.reference', { n: formatQuantity(state.energyGoalKcal) })}</text>
+      <text className="Energy-reference exercise">{t('design.movementEstimate', { n: formatQuantity(state.exerciseKcal) })}</text>
+    </view>
+    {hasIntake ? <text className="Energy-remaining">{formatQuantity(Math.abs(state.remainingKcal))} {t(state.overBudget ? 'energy.kcalOver' : 'energy.kcalLeft')}</text>
+      : <text className="Section-note">{t('review.noFoodBody')}</text>}
+  </Card>;
 }

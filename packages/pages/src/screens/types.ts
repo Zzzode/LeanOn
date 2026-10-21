@@ -12,10 +12,12 @@ export interface ScreenActions {
   logWeight: () => void;
   logExercise: () => void;
   openReminders: () => void;
+  openScale: () => void;
+  openAbout: () => void;
   openHealthConnections: () => void;
   openRoute: (route: PushedRoute) => void;
   openSettings: () => void;
-  setWaterTotal: (totalMl: number) => void;
+  setWaterTotal: (totalMl: number) => Promise<void>;
   editExercise: (session: {
     id: string;
     typeId: string;
@@ -25,6 +27,7 @@ export interface ScreenActions {
 }
 
 export interface ScreenProps {
+  supports?: (method: string) => boolean;
   hostData: HostData;
   state: TodayState;
   locale: Locale;

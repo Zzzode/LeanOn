@@ -46,7 +46,7 @@ export interface TodayState {
     durationMin: number;
     kcal: number;
     /** External read-only mirror from Health Connect (RFC 0025). */
-    source?: 'leanon' | 'health_connect';
+    source?: 'leanon' | 'health_connect' | 'healthkit';
   }[];
   /** Calories still available (goal - food + exercise). */
   remainingKcal: number;
