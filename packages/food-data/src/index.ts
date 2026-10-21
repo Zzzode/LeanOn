@@ -1,4 +1,5 @@
-export { createFoodFromBarcode } from './barcode.js';
+export { createFoodFromBarcode, OffNutritionError } from './barcode.js';
+export { normalizeProductBarcode } from './product-barcode.js';
 export { createCustomFood, updateCustomFood } from './custom.js';
 export { foods } from './data.js';
 export { portion } from './portion.js';
