@@ -50,7 +50,7 @@
     "test:watch": "rstest"
   },
   "devDependencies": {
-    "@rstest/core": "^0.12.2",
+    "@rstest/core": "^0.12.3",
     "@types/node": "^26.6.3"
   },
   "dependencies": {
