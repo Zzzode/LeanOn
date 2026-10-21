@@ -25,6 +25,9 @@ coverage/
 .env
 .env.local
 
+# Local pnpm store
+.pnpm-store/
+
 # Android (Gradle)
 apps/android/.gradle/
 apps/android/build/
@@ -45,3 +48,10 @@ apps/ios/LeanOn/Info.plist
 
 # Navigation redesign working screenshots
 docs/navigation-redesign/_shots/
+
+# Review deliverables: generated bundles and self-contained HTML reports
+# (handed off as evidence packages; the Markdown/JSON/PNG sources stay tracked)
+docs/**/*.zip
+docs/**/*.html
+docs/**/scoped-source/
+!docs/navigation-redesign/*.html
