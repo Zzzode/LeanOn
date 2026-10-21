@@ -1,2 +1,5 @@
 packages:
   - 'packages/*'
+  - 'server/*'
+minimumReleaseAgeExclude:
+  - '@cloudflare/workers-types@5.20261007.1'
