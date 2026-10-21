@@ -5,6 +5,8 @@ import android.util.TypedValue
 import android.view.Gravity
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import com.zzzode.leanon.R
 
 /**
  * Explains why LeanOn requests Health Connect write permissions. Shown by the
@@ -23,7 +25,8 @@ class HealthConnectRationaleActivity : AppCompatActivity() {
       )
       setPadding(padding, padding, padding, padding)
       gravity = Gravity.START or Gravity.TOP
-      setTextColor(0xFF16261F.toInt())
+      setTextColor(ContextCompat.getColor(this@HealthConnectRationaleActivity, R.color.ink))
+      setBackgroundColor(ContextCompat.getColor(this@HealthConnectRationaleActivity, R.color.surface))
       setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
     }
     setContentView(textView)

@@ -2,6 +2,16 @@
 <resources>
     <color name="ic_launcher_background">#FFFFFF</color>
     <color name="botanical">#218967</color>
-    <color name="surface">#edf2ef</color>
+    <color name="surface">#F8F7F4</color>
     <color name="white">#FFFFFF</color>
+    <color name="paper">#FFFFFF</color>
+    <color name="ink">#28242C</color>
+    <color name="muted">#69616B</color>
+    <color name="brand">#573C58</color>
+    <color name="on_brand">#FFFFFF</color>
+    <color name="control">#EEEBE6</color>
+    <color name="tab_unselected">#5B6B63</color>
+    <color name="tab_capture_fill">#FAFDFB</color>
+    <color name="tab_platter">#D2FAFDFB</color>
+    <color name="tab_rest_pill">#E6ECE8</color>
 </resources>

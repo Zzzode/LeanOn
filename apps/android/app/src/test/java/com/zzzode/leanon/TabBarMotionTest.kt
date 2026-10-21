@@ -165,4 +165,184 @@ class TabBarMotionTest {
     assertTrue(spring.isSettled)
     assertEquals(0f, spring.value, 0.002f)
   }
+
+  @Test fun elapsedTimeProducesTheSameCurveAcrossFrameRatesAndDelayedFrames() {
+    val expected = TabBarSpring(0.72f, 1000f, 0.0001f)
+    expected.target = 180f
+    expected.advance(0.15f)
+    for (fps in listOf(30, 60, 120)) {
+      val spring = TabBarSpring(0.72f, 1000f, 0.0001f)
+      spring.target = 180f
+      val wholeFrames = (0.15f * fps).toInt()
+      repeat(wholeFrames) { spring.advance(1f / fps) }
+      spring.advance(0.15f - wholeFrames.toFloat() / fps)
+      assertEquals("Position at $fps fps", expected.value, spring.value, 0.001f)
+      assertEquals("Velocity at $fps fps", expected.velocity, spring.velocity, 0.01f)
+    }
+  }
+
+  @Test fun quickTapExpandsAtTheSourceThenTravelsAndReboundsOnce() {
+    val motion = TabBarMotion()
+    motion.finish(100f)
+    motion.press(280f, 0L)
+    motion.release(tap = true, 20_000_000L)
+    assertEquals(100f, motion.position.value, 0f)
+    assertTrue(motion.pressure.value > 0f)
+    motion.advance(40_000_000L)
+    assertEquals(100f, motion.position.value, 0f)
+    motion.advance(150_000_000L)
+    assertTrue(motion.position.value > 262f)
+    assertEquals(1f, motion.pressure.target, 0f)
+    motion.advance(190_000_000L)
+    assertTrue(motion.pressure.value > 1f)
+    assertEquals(0f, motion.pressure.target, 0f)
+    motion.advance(350_000_000L)
+    assertTrue(motion.pressure.value < 0f)
+    motion.advance(900_000_000L)
+    assertFalse(motion.isAnimating)
+    assertEquals(280f, motion.position.value, 0f)
+    assertEquals(0f, motion.pressure.value, 0f)
+  }
+
+  @Test fun delayedFrameCrossesTravelAndReleaseBoundariesAtTheirActualTimes() {
+    val expected = TabBarMotion()
+    expected.finish(100f)
+    expected.press(280f, 0L)
+    expected.release(tap = true, 20_000_000L)
+    for (fps in listOf(30, 60, 120)) {
+      val motion = TabBarMotion()
+      motion.finish(100f)
+      motion.press(280f, 0L)
+      motion.release(tap = true, 20_000_000L)
+      var nanos = 20_000_000L
+      while (nanos + 1_000_000_000L / fps < 350_000_000L) {
+        nanos += 1_000_000_000L / fps
+        motion.advance(nanos)
+      }
+      motion.advance(350_000_000L)
+      expected.advance(350_000_000L)
+      assertEquals(expected.position.value, motion.position.value, 0.001f)
+      assertEquals(expected.pressure.value, motion.pressure.value, 0.0001f)
+      assertEquals(0f, motion.pressure.target, 0f)
+    }
+  }
+
+  @Test fun settledLongPressContractsImmediatelyOnRelease() {
+    val motion = TabBarMotion()
+    motion.finish(100f)
+    motion.press(100f, 0L)
+    motion.advance(800_000_000L)
+    assertEquals(1f, motion.pressure.value, 0f)
+    motion.release(tap = true, 800_000_000L)
+    assertEquals(0f, motion.pressure.target, 0f)
+    motion.advance(850_000_000L)
+    assertTrue(motion.pressure.value in 0f..0.9f)
+  }
+
+  @Test fun dragPauseHoldsTheFingerPositionAndReleasePreservesMomentum() {
+    val motion = TabBarMotion()
+    motion.finish(100f)
+    motion.press(100f, 0L)
+    motion.drag(240f, 400f, 0.1f, 100_000_000L)
+    motion.advance(200_000_000L)
+    assertEquals(240f, motion.position.value, 0f)
+    assertEquals(400f, motion.position.velocity, 0f)
+    motion.release(tap = false, 200_000_000L)
+    motion.moveTo(250f, 200_000_000L)
+    assertEquals(400f, motion.position.velocity, 0f)
+    motion.advance(210_000_000L)
+    assertTrue(motion.position.value > 242f)
+    assertEquals(0f, motion.pressure.target, 0f)
+  }
+
+  @Test fun aFastReleaseCannotEscapeThePlatter() {
+    val motion = TabBarMotion()
+    motion.setBounds(96f, 404f)
+    motion.finish(100f)
+    motion.press(100f, 0L)
+    motion.drag(390f, 2000f, 0.18f, 100_000_000L)
+    motion.release(tap = false, 100_000_000L)
+    motion.moveTo(400f, 100_000_000L)
+    repeat(60) {
+      motion.advance(100_000_000L + (it + 1) * 16_666_667L)
+      assertTrue(motion.position.value in 96f..404f)
+    }
+    assertEquals(400f, motion.position.value, 0f)
+  }
+
+  @Test fun cancellationRestoresSelectionAndRemovesThePendingTap() {
+    val motion = TabBarMotion()
+    motion.finish(100f)
+    motion.press(280f, 0L)
+    motion.release(tap = true, 10_000_000L)
+    motion.cancel(100f, 20_000_000L)
+    motion.advance(900_000_000L)
+    assertEquals(100f, motion.position.value, 0f)
+    assertEquals(0f, motion.pressure.value, 0f)
+    assertFalse(motion.isAnimating)
+  }
+
+  @Test fun rapidRepressAndFinishCannotInheritAnEarlierRelease() {
+    val motion = TabBarMotion()
+    motion.finish(100f)
+    motion.press(280f, 0L)
+    motion.release(tap = true, 10_000_000L)
+    motion.press(460f, 60_000_000L)
+    motion.advance(900_000_000L)
+    assertEquals(460f, motion.position.value, 0f)
+    assertEquals(1f, motion.pressure.value, 0f)
+    motion.release(tap = true, 910_000_000L)
+    motion.finish(100f)
+    motion.advance(2_000_000_000L)
+    assertEquals(100f, motion.position.value, 0f)
+    assertEquals(0f, motion.pressure.value, 0f)
+    assertFalse(motion.isAnimating)
+  }
+
+  @Test fun pressingDuringTravelRetargetsWithoutBrakingOrFollowingTheOldDestination() {
+    val motion = TabBarMotion()
+    motion.finish(100f)
+    motion.press(460f, 0L)
+    motion.release(tap = true, 10_000_000L)
+    motion.advance(80_000_000L)
+    val value = motion.position.value
+    val velocity = motion.position.velocity
+    motion.press(100f, 80_000_000L)
+    assertFalse(motion.isTravelDelayed)
+    assertEquals(value, motion.position.value, 0f)
+    assertEquals(velocity, motion.position.velocity, 0f)
+    assertEquals(100f, motion.position.target, 0f)
+  }
+
+  @Test fun peakTimeSkipsTheInitialValleyWhenExpansionStartsWithNegativeVelocity() {
+    val pressure = TabBarSpring(0.55f, 500f, 0.002f)
+    pressure.follow(0.5f, -10f)
+    pressure.target = 1f
+    val peakTime = pressure.secondsUntilPeak()
+    pressure.advance(0.02f)
+    assertTrue(pressure.value < 0.5f)
+    pressure.advance(peakTime - 0.02f)
+    assertTrue(pressure.value > 1f)
+    assertEquals(0f, pressure.velocity, 0.001f)
+  }
+
+  @Test fun quickRepressDuringContractionStillCompletesAnExpansionBeforeRelease() {
+    val motion = TabBarMotion()
+    motion.finish(100f)
+    motion.press(100f, 0L)
+    motion.release(tap = true, 20_000_000L)
+    motion.advance(250_000_000L)
+    assertTrue(motion.pressure.velocity < 0f)
+    motion.press(280f, 250_000_000L)
+    val peakAt = 250_000_000L +
+      (motion.pressure.secondsUntilPeak() * 1_000_000_000.0).toLong()
+    motion.release(tap = true, 260_000_000L)
+    motion.advance(300_000_000L)
+    assertEquals(1f, motion.pressure.target, 0f)
+    motion.advance(peakAt + 1_000L)
+    assertTrue(motion.pressure.value > 1f)
+    assertEquals(0f, motion.pressure.target, 0f)
+    motion.advance(1_500_000_000L)
+    assertFalse(motion.isAnimating)
+  }
 }

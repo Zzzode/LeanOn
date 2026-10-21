@@ -1,6 +1,7 @@
 package com.zzzode.leanon.modules
 
 import android.app.Activity
+import android.util.Log
 import android.content.Context
 import androidx.core.app.ActivityCompat
 import com.lynx.jsbridge.LynxMethod
@@ -21,7 +22,7 @@ import com.zzzode.leanon.data.toJavaOnlyMap
 class ScaleModule(context: Context) : LynxModule(context) {
 
   private val moduleContext: Context = context
-  private var actionCallback: Callback? = null
+  private val actions get() = app().scaleManager.pendingAction
 
   private fun androidContext(): Context =
     (moduleContext as? LynxContext)?.getContext() ?: moduleContext
@@ -41,44 +42,32 @@ class ScaleModule(context: Context) : LynxModule(context) {
     }
 
     override fun onStateChanged(state: BleState) {
-      val callback = actionCallback ?: return
       when (state) {
-        BleState.SCANNING -> {
-          val result = JavaOnlyMap()
-          result.putBoolean("scanning", true)
-          callback.invoke(result)
-          actionCallback = null
-        }
-        BleState.CONNECTED -> {
-          val result = JavaOnlyMap()
-          result.putBoolean("connected", true)
-          callback.invoke(result)
-          actionCallback = null
-        }
-        else -> {}
+        BleState.SCANNING -> actions.complete(JavaOnlyMap().apply { putBoolean("scanning", true) })
+        BleState.CONNECTED -> actions.complete(JavaOnlyMap().apply { putBoolean("connected", true) })
+        else -> Unit
       }
     }
 
     override fun onReading(deviceId: String, weightKg: Double) {
-      val records = app().records
-      val today = records.loadHostData().getString("today")
-      val hostData = records.addWeight(today, weightKg)
-
-      val reading = JavaOnlyMap()
-      reading.putString("deviceId", deviceId)
-      reading.putString("date", today)
-      reading.putDouble("weightKg", weightKg)
-      app().events.dispatch("scale.reading", reading)
-
-      val changed = JavaOnlyMap()
-      changed.putMap("hostData", hostData.toJavaOnlyMap())
-      app().events.dispatch("records.changed", changed)
+      try {
+        if (!weightKg.isFinite() || weightKg < 20.0 || weightKg > 300.0) return
+        val records = app().records
+        val today = records.currentSnapshot().getString("today")
+        val hostData = records.addWeight(today, weightKg)
+        val reading = JavaOnlyMap().apply {
+          putString("deviceId", deviceId); putString("date", today); putDouble("weightKg", weightKg)
+        }
+        app().events.dispatch("scale.reading", reading)
+        app().events.dispatch("records.changed", JavaOnlyMap().apply { putMap("hostData", hostData.toJavaOnlyMap()) })
+        app().healthConnect.onRecordsChanged()
+      } catch (error: Exception) {
+        Log.w("ScaleModule", "Could not persist scale reading", error)
+      }
     }
 
     override fun onError(code: String, message: String) {
-      val callback = actionCallback
-      actionCallback = null
-      callback?.invoke(errorResult(code, message))
+      actions.complete(errorResult(code, message))
     }
   }
 
@@ -87,24 +76,34 @@ class ScaleModule(context: Context) : LynxModule(context) {
   }
 
   @LynxMethod
-  fun scan(callback: Callback) {
-    actionCallback = callback
-    withPermission { app().scaleManager.startScan() }
+  @Suppress("UNUSED_PARAMETER")
+  fun scan(params: ReadableMap?, callback: Callback) {
+    if (!actions.begin { result -> callback.invoke(result) }) {
+      callback.invoke(errorResult("unavailable", "Scale action already pending"))
+      return
+    }
+    withPermission {
+      val manager = app().scaleManager
+      if (manager.getState() == BleState.SCANNING) actions.complete(JavaOnlyMap().apply { putBoolean("scanning", true) })
+      else manager.startScan()
+    }
   }
 
   @LynxMethod
   fun connect(params: ReadableMap, callback: Callback) {
-    val deviceId = params.getString("deviceId")
-    if (deviceId == null) {
-      callback.invoke(errorResult("invalid-request", "Missing deviceId"))
+    val deviceId = try { RecordRequest.string(params, "deviceId") } catch (error: InvalidRecordRequest) {
+      callback.invoke(errorResult("invalid-request", error.message ?: "Invalid deviceId")); return
+    }
+    if (!actions.begin { result -> callback.invoke(result) }) {
+      callback.invoke(errorResult("unavailable", "Scale action already pending"))
       return
     }
-    actionCallback = callback
     withPermission { app().scaleManager.connect(deviceId) }
   }
 
   @LynxMethod
-  fun disconnect(callback: Callback) {
+  @Suppress("UNUSED_PARAMETER")
+  fun disconnect(params: ReadableMap?, callback: Callback) {
     app().scaleManager.disconnect()
     val result = JavaOnlyMap()
     result.putBoolean("connected", false)
@@ -112,7 +111,8 @@ class ScaleModule(context: Context) : LynxModule(context) {
   }
 
   @LynxMethod
-  fun getStatus(callback: Callback) {
+  @Suppress("UNUSED_PARAMETER")
+  fun getStatus(params: ReadableMap?, callback: Callback) {
     val manager = app().scaleManager
     val result = JavaOnlyMap()
     result.putString("state", manager.getState().wire())
@@ -133,24 +133,21 @@ class ScaleModule(context: Context) : LynxModule(context) {
       finishWithError("not-authorized", "Bluetooth permission denied")
       return
     }
-    PermissionRequests.onResult = { granted ->
-      if (granted) {
-        action()
-      } else {
-        finishWithError("not-authorized", "Bluetooth permission denied")
+    currentActivity.runOnUiThread {
+      if (!PermissionRequests.begin { granted ->
+          if (granted) action() else finishWithError("not-authorized", "Bluetooth permission denied")
+        }) {
+        finishWithError("unavailable", "Bluetooth permission request already pending")
+        return@runOnUiThread
       }
+      try {
+        ActivityCompat.requestPermissions(currentActivity, BlePermissions.required(), PermissionRequests.REQUEST_CODE)
+      } catch (_: Exception) { PermissionRequests.cancel() }
     }
-    ActivityCompat.requestPermissions(
-      currentActivity,
-      BlePermissions.required(),
-      PermissionRequests.REQUEST_CODE,
-    )
   }
 
   private fun finishWithError(code: String, message: String) {
-    val callback = actionCallback
-    actionCallback = null
-    callback?.invoke(errorResult(code, message))
+    actions.complete(errorResult(code, message))
   }
 
   private fun errorResult(code: String, message: String): JavaOnlyMap {

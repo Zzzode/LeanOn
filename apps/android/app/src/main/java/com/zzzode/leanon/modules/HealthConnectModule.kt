@@ -15,6 +15,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 
 /**
  * Lynx module for Health Connect (RFC 0021 export; RFC 0025 two-way sync):
@@ -33,46 +35,66 @@ class HealthConnectModule(context: Context) : LynxModule(context) {
     androidContext().applicationContext as LeanOnApplication
 
   @LynxMethod
-  fun getStatus(callback: Callback) {
-    val application = app()
+  @Suppress("UNUSED_PARAMETER")
+  fun getStatus(params: ReadableMap?, callback: Callback) {
     scope.launch {
-      val manager = application.healthConnect
-      val supported = manager.isSupported()
-      val granted = if (supported) manager.permissionsGranted() else false
-      val result = JavaOnlyMap()
-      result.putBoolean("supported", supported)
-      result.putBoolean("enabled", application.settings.getHealthConnectEnabled())
-      result.putBoolean("permissionsGranted", granted)
-      result.putDouble(
-        "lastSyncEpochMs",
-        application.settings.getLastSyncEpochMs().toDouble(),
-      )
+      val result = try {
+        val application = app()
+        val manager = application.healthConnect
+        val supported = manager.isSupported()
+        val granted = supported && manager.permissionsGranted()
+        JavaOnlyMap().apply {
+          putBoolean("supported", supported)
+          putBoolean("enabled", application.settings.getHealthConnectEnabled())
+          putBoolean("permissionsGranted", granted)
+          putDouble("lastSyncEpochMs", application.settings.getLastSyncEpochMs().toDouble())
+        }
+      } catch (_: Exception) { errorResult("unavailable", "Unable to read Health Connect status") }
       callback.invoke(result)
     }
   }
 
   @LynxMethod
-  fun requestPermission(callback: Callback) {
+  @Suppress("UNUSED_PARAMETER")
+  fun requestPermission(params: ReadableMap?, callback: Callback) {
     val application = app()
     val activity = androidContext() as? MainActivity
     if (activity == null || !application.healthConnect.isSupported()) {
       callback.invoke(JavaOnlyMap().apply { putBoolean("granted", false) })
       return
     }
-    HealthConnectPermission.launch(activity.healthConnectPermissionLauncher) { granted ->
-      callback.invoke(JavaOnlyMap().apply { putBoolean("granted", granted) })
+    activity.runOnUiThread {
+      if (!HealthConnectPermission.launch(activity.healthConnectPermissionLauncher) { granted ->
+          callback.invoke(JavaOnlyMap().apply { putBoolean("granted", granted) })
+        }) {
+        callback.invoke(JavaOnlyMap().apply {
+          putString("code", "unavailable"); putString("message", "Health permission request already pending")
+        })
+      }
     }
   }
 
   @LynxMethod
   fun setEnabled(params: ReadableMap, callback: Callback) {
-    val enabled = params.getBoolean("enabled")
-    val application = app()
-    application.settings.setHealthConnectEnabled(enabled)
-    if (enabled) {
-      application.healthConnect.syncAsync { }
+    val enabled = try { RecordRequest.boolean(params, "enabled") } catch (error: InvalidRecordRequest) {
+      callback.invoke(errorResult("invalid-request", error.message ?: "Invalid Health Connect setting"))
+      return
     }
-    callback.invoke(JavaOnlyMap().apply { putBoolean("success", true) })
+    scope.launch {
+      val result = try {
+        ENABLE_LOCK.withLock {
+          val application = app()
+          val manager = application.healthConnect
+          enableHealthConnectDurably(enabled, manager::isSupported, manager::permissionsGranted,
+            application.settings::getHealthConnectEnabled, application.settings::setHealthConnectEnabled,
+            manager::sync)
+          JavaOnlyMap().apply { putBoolean("success", true) }
+        }
+      } catch (error: HealthConnectOperationFailure) {
+        errorResult(error.code, error.message ?: "Health Connect update failed")
+      } catch (_: Exception) { errorResult("unavailable", "Unable to persist Health Connect setting") }
+      callback.invoke(result)
+    }
   }
 
   /**
@@ -80,21 +102,52 @@ class HealthConnectModule(context: Context) : LynxModule(context) {
    * export LeanOn records, then return the refreshed HostData.
    */
   @LynxMethod
-  fun sync(callback: Callback) {
-    val application = app()
-    application.healthConnect.syncAsync { ok ->
-      if (ok) {
-        val hostData = application.records.loadHostData()
-        val result = JavaOnlyMap()
-        result.putBoolean("success", true)
-        result.putMap("hostData", hostData.toJavaOnlyMap())
-        callback.invoke(result)
-      } else {
-        val error = JavaOnlyMap()
-        error.putString("code", "unavailable")
-        error.putString("message", "Health Connect sync failed")
-        callback.invoke(error)
-      }
+  @Suppress("UNUSED_PARAMETER")
+  fun sync(params: ReadableMap?, callback: Callback) {
+    scope.launch {
+      val result = try {
+        val application = app()
+        val manager = application.healthConnect
+        if (!manager.isSupported()) errorResult("unavailable", "Health Connect is unavailable")
+        else if (!manager.permissionsGranted()) errorResult("not-authorized", "Health Connect permissions are required")
+        else if (!manager.sync()) errorResult("unavailable", "Health Connect sync failed")
+        else JavaOnlyMap().apply {
+          putBoolean("success", true)
+          putMap("hostData", application.records.currentSnapshot().toJavaOnlyMap())
+        }
+      } catch (_: Exception) { errorResult("unavailable", "Health Connect sync failed") }
+      callback.invoke(result)
+    }
+  }
+
+  private fun errorResult(code: String, message: String) = JavaOnlyMap().apply {
+    putString("code", code); putString("message", message)
+  }
+
+  private companion object { val ENABLE_LOCK = Mutex() }
+}
+
+internal class HealthConnectOperationFailure(val code: String, message: String) : Exception(message)
+
+/** Enabling acknowledges both the durable preference and the initial sync. */
+internal suspend fun enableHealthConnectDurably(
+  enabled: Boolean,
+  supported: () -> Boolean,
+  permissionsGranted: suspend () -> Boolean,
+  read: () -> Boolean,
+  persist: (Boolean) -> Unit,
+  sync: suspend () -> Boolean,
+) {
+  if (enabled && !supported()) throw HealthConnectOperationFailure("unavailable", "Health Connect is unavailable")
+  if (enabled && !permissionsGranted()) throw HealthConnectOperationFailure("not-authorized", "Health Connect permissions are required")
+  val previous = read()
+  persist(enabled)
+  if (enabled) {
+    try {
+      if (!sync()) throw HealthConnectOperationFailure("unavailable", "Health Connect initial sync failed")
+    } catch (failure: Exception) {
+      runCatching { persist(previous) }.onFailure { failure.addSuppressed(it) }
+      throw failure
     }
   }
 }
