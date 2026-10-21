@@ -1,6 +1,6 @@
 package com.zzzode.leanon.healthconnect
 
-import android.app.Activity
+import com.zzzode.leanon.bridge.PendingRequest
 import androidx.activity.result.ActivityResultLauncher
 import androidx.health.connect.client.permission.HealthPermission
 import androidx.health.connect.client.records.ExerciseSessionRecord
@@ -25,20 +25,20 @@ object HealthConnectPermission {
   val contract = androidx.health.connect.client.PermissionController
     .createRequestPermissionResultContract()
 
-  @Volatile
-  private var pending: ((Boolean) -> Unit)? = null
+  private val pending = PendingRequest<Boolean>()
 
   fun launch(
     launcher: ActivityResultLauncher<Set<String>>,
     onResult: (Boolean) -> Unit,
-  ) {
-    pending = onResult
-    launcher.launch(PERMISSIONS)
+  ): Boolean {
+    if (!pending.begin(onResult)) return false
+    try { launcher.launch(PERMISSIONS) } catch (_: Exception) { pending.complete(false) }
+    return true
   }
 
+  fun cancel() { pending.complete(false) }
+
   fun handleResult(grantedPermissions: Set<String>) {
-    val callback = pending
-    pending = null
-    callback?.invoke(grantedPermissions.containsAll(PERMISSIONS))
+    pending.complete(grantedPermissions.containsAll(PERMISSIONS))
   }
 }

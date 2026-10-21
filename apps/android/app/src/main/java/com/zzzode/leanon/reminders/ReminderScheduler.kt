@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.work.ExistingWorkPolicy.REPLACE
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
+import androidx.work.Operation
 import androidx.work.workDataOf
 import java.util.Calendar
 import java.util.concurrent.TimeUnit
@@ -27,17 +28,30 @@ class ReminderScheduler(context: Context) {
     scheduleKind(ReminderDecision.KIND_MEALS, settings.meals)
   }
 
+  /** Await WorkManager's durable operation acknowledgement on an IO thread. */
+  fun applySettingsAndAwait(settings: ReminderSettings) {
+    scheduleKindAndAwait(ReminderDecision.KIND_WEIGHT, settings.weight)
+    scheduleKindAndAwait(ReminderDecision.KIND_MEALS, settings.meals)
+  }
+
+  fun scheduleKindAndAwait(kind: String, slot: ReminderSlot) {
+    operation(kind, slot).result.get(30, TimeUnit.SECONDS)
+  }
+
   /** Create, replace, or cancel the unique work for one kind. */
   fun scheduleKind(kind: String, slot: ReminderSlot) {
+    operation(kind, slot)
+  }
+
+  private fun operation(kind: String, slot: ReminderSlot): Operation {
     if (!slot.enabled) {
-      workManager.cancelUniqueWork(workName(kind))
-      return
+      return workManager.cancelUniqueWork(workName(kind))
     }
     val request = OneTimeWorkRequestBuilder<ReminderWorker>()
       .setInitialDelay(delayToNext(slot.hour, slot.minute, Calendar.getInstance()), TimeUnit.MILLISECONDS)
       .setInputData(workDataOf(KEY_KIND to kind))
       .build()
-    workManager.enqueueUniqueWork(workName(kind), REPLACE, request)
+    return workManager.enqueueUniqueWork(workName(kind), REPLACE, request)
   }
 
   companion object {

@@ -1,10 +1,10 @@
-import { useState } from '@lynx-js/react';
+import { useEffect, useRef, useState } from '@lynx-js/react';
 import {
-  DEFAULT_REMINDER_SETTINGS,
   type ReminderKind,
   type ReminderSettings,
 } from '@zzzode/core';
 import type { Translator } from '@zzzode/i18n';
+import { permissionDenied } from '../state/reminders.js';
 
 interface TimeOption {
   hour: number;
@@ -32,7 +32,11 @@ interface ReminderSheetProps {
   t: Translator;
   settings: ReminderSettings | null;
   onClose: () => void;
-  onSave: (settings: ReminderSettings) => void;
+  onSave: (settings: ReminderSettings) => void | Promise<void>;
+  platform?: 'ios' | 'android' | null;
+  loading?: boolean;
+  loadError?: boolean;
+  onRetry?: () => Promise<void>;
 }
 
 /**
@@ -45,20 +49,47 @@ export function ReminderSheet({
   settings,
   onClose,
   onSave,
+  platform,
+  loading = false,
+  loadError = false,
+  onRetry,
 }: ReminderSheetProps) {
-  const [draft, setDraft] = useState<ReminderSettings>(
-    settings ?? DEFAULT_REMINDER_SETTINGS,
-  );
+  const pending = useRef(false);
+  const handleClose = () => { if (!pending.current) onClose(); };
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [draft, setDraft] = useState<ReminderSettings | null>(settings);
+  const blocked = loading || loadError || settings === null || draft === null;
+  useEffect(() => {
+    if (!loading && !loadError && settings !== null) setDraft(settings);
+  }, [settings, loading, loadError]);
+
+  const handleSave = async () => {
+    if (pending.current || blocked || draft === null) return;
+    pending.current = true;
+    setSaving(true);
+    setError(null);
+    try {
+      await onSave(draft);
+    } catch (failure) {
+      setError(t(permissionDenied(failure) ? 'reminder.permissionDenied' : 'review.retryError'));
+    } finally {
+      pending.current = false;
+      setSaving(false);
+    }
+  };
 
   const toggle = (kind: ReminderKind) => {
-    setDraft((previous) => ({
+    if (pending.current || blocked) return;
+    setDraft((previous) => previous === null ? null : ({
       ...previous,
       [kind]: { ...previous[kind], enabled: !previous[kind].enabled },
     }));
   };
 
   const pickTime = (kind: ReminderKind, hour: number, minute: number) => {
-    setDraft((previous) => ({
+    if (pending.current || blocked) return;
+    setDraft((previous) => previous === null ? null : ({
       ...previous,
       [kind]: { ...previous[kind], hour, minute, enabled: true },
     }));
@@ -69,6 +100,7 @@ export function ReminderSheet({
     label: string,
     times: ReadonlyArray<TimeOption>,
   ) => {
+    if (draft === null) return null;
     const slot = draft[kind];
     return (
       <view className="Reminder-kind">
@@ -76,11 +108,14 @@ export function ReminderSheet({
           <text className="Reminder-label">{label}</text>
           <view className="Reminder-toggle">
             <view
+              accessibility-element={true}
+              accessibility-traits={saving ? 'disabled' : slot.enabled ? 'selected' : 'button'}
+              accessibility-label={t('reminder.on')}
               className={
                 slot.enabled ? 'Reminder-seg active' : 'Reminder-seg'
               }
               hover-class="tap-feedback-hover"
-              bindtap={slot.enabled ? undefined : () => toggle(kind)}
+              bindtap={saving || slot.enabled ? undefined : () => toggle(kind)}
             >
               <text
                 className={
@@ -93,11 +128,14 @@ export function ReminderSheet({
               </text>
             </view>
             <view
+              accessibility-element={true}
+              accessibility-traits={saving ? 'disabled' : slot.enabled ? 'button' : 'selected'}
+              accessibility-label={t('reminder.off')}
               className={
                 slot.enabled ? 'Reminder-seg' : 'Reminder-seg active'
               }
               hover-class="tap-feedback-hover"
-              bindtap={slot.enabled ? () => toggle(kind) : undefined}
+              bindtap={!saving && slot.enabled ? () => toggle(kind) : undefined}
             >
               <text
                 className={
@@ -119,8 +157,11 @@ export function ReminderSheet({
               <view
                 key={formatTime(time.hour, time.minute)}
                 className={active ? 'Reminder-time active' : 'Reminder-time'}
+                accessibility-element={true}
+                accessibility-traits={saving ? 'disabled' : active ? 'selected' : 'button'}
+                accessibility-label={formatTime(time.hour, time.minute)}
                 hover-class="tap-feedback-hover"
-                bindtap={() => pickTime(kind, time.hour, time.minute)}
+                bindtap={saving ? undefined : () => pickTime(kind, time.hour, time.minute)}
               >
                 <text
                   className={
@@ -143,26 +184,44 @@ export function ReminderSheet({
     <view
       className="Sheet-overlay"
       hover-class="tap-feedback-hover"
-      bindtap={onClose}
+      bindtap={saving ? undefined : handleClose}
     >
-      <view className="Sheet Reminder-sheet" catchtap={() => {}}>
+      <view className="Sheet Reminder-sheet Theme-brand" catchtap={() => {}}>
         <text className="Sheet-title">{t('reminder.title')}</text>
-        {renderKind('weight', t('reminder.weight'), WEIGHT_TIMES)}
-        {renderKind('meals', t('reminder.meals'), MEALS_TIMES)}
+        {platform === 'ios' && <text className="Section-note">{t('reminder.iosWindow')}</text>}
+        <scroll-view scroll-orientation="vertical" className="Sheet-body-scroll">
+        {loading && <text className="Settings-status" accessibility-element={true}>{t('reminder.loading')}</text>}
+        {!loading && (loadError || settings === null) && <view>
+          <text className="Sheet-error" accessibility-element={true}>{t('reminder.loadError')}</text>
+          {onRetry !== undefined && <view className="Sheet-btn" accessibility-element={true} accessibility-traits="button"
+            accessibility-label={t('reminder.retry')} bindtap={() => void onRetry()}>
+            <text className="Sheet-btn-label">{t('reminder.retry')}</text>
+          </view>}
+        </view>}
+        {!blocked && renderKind('weight', t('reminder.weight'), WEIGHT_TIMES)}
+        {!blocked && renderKind('meals', t('reminder.meals'), MEALS_TIMES)}
+        {error !== null && <text className="Sheet-error" accessibility-element={true}>{error}</text>}
+        </scroll-view>
         <view className="Sheet-actions">
           <view
             className="Sheet-btn"
+            accessibility-element={true}
+            accessibility-traits={saving ? 'disabled' : 'button'}
+            accessibility-label={t('reminder.cancel')}
             hover-class="tap-feedback-hover"
-            bindtap={onClose}
+            bindtap={saving ? undefined : handleClose}
           >
             <text className="Sheet-btn-label">{t('reminder.cancel')}</text>
           </view>
           <view
-            className="Sheet-btn primary"
+            className={`Sheet-btn primary${saving || blocked ? ' disabled' : ''}`}
+            accessibility-element={true}
+            accessibility-traits={saving || blocked ? 'disabled' : 'button'}
+            accessibility-label={saving ? t('review.saving') : t('reminder.save')}
             hover-class="tap-feedback-hover"
-            bindtap={() => onSave(draft)}
+            bindtap={saving || blocked ? undefined : handleSave}
           >
-            <text className="Sheet-btn-label primary">{t('reminder.save')}</text>
+            <text className="Sheet-btn-label primary">{saving ? t('review.saving') : t('reminder.save')}</text>
           </view>
         </view>
       </view>

@@ -1,0 +1,777 @@
+{
+  "kind": "first-basic-parity-checkpoint",
+  "ios": {
+    "platform": "iOS",
+    "device": "iPhone17Pro iOS26.5",
+    "udid": "59F79721-D8FF-4A1D-925C-905C011DB1C9",
+    "branch": "main",
+    "head": "89b5e157844d62933a5ebfa773e7aa7b8d076cb9",
+    "bundleSHA256": "fd1f1ceb7ff182eac340b798109fb42ee3139c99332a8e1525f96a43c4ee55b8",
+    "appBinarySHA256": "1aaa3c0ff2a723d1043d6bf755ddfa12c05bed17b2bac9a1afbcd0478c17f037",
+    "nativeUnits": {
+      "count": 99,
+      "failed": 0,
+      "log": "/tmp/leanon-parity-ios-unit-run.log"
+    },
+    "customLightUI": {
+      "passed": true,
+      "log": "/tmp/leanon-parity-ios-custom-ui-pass.log"
+    },
+    "waterUI": {
+      "passed": true,
+      "log": "/tmp/leanon-parity-ios-basic-ui.log",
+      "screenshotBoundary": "Final readable Light water captures provided; initial clipped captures diagnostic only"
+    },
+    "qaData": "Synthetic isolated /tmp/leanon-basic-parity-ios-records.json; no normal records",
+    "qaHashesBoundary": "initial/final bytes not attached in first run; controlled final runs now attach actual bytes",
+    "diagnosticFailedHarness": "/tmp/leanon-parity-ios-basic-ui.xcresult; expected Cancel after automatic deletion dismiss; test corrected, app unchanged",
+    "screens": [
+      {
+        "name": "light-custom-food-deleted-history-retained",
+        "path": "/tmp/leanon-parity-ios-evidence/screens/light-custom-food-deleted-history-retained.png",
+        "sha256": "19d6a5a5b35fcf6a1095de21eca833a324a749c29f3bd0c079f4c8b5f22b9ef6",
+        "utc": "2026-10-06T14:08:16.319000+00:00",
+        "mode": "light",
+        "modeEvidence": "actual pixels; initial QA preference not explicitly selected"
+      },
+      {
+        "name": "light-custom-food-delete-confirmation",
+        "path": "/tmp/leanon-parity-ios-evidence/screens/light-custom-food-delete-confirmation.png",
+        "sha256": "061f89452b1d5a3114f15128990b44dc12134d84648daba1dda233e547afa126",
+        "utc": "2026-10-06T14:08:11.764000+00:00",
+        "mode": "light",
+        "modeEvidence": "actual pixels; initial QA preference not explicitly selected"
+      },
+      {
+        "name": "light-custom-food-edited",
+        "path": "/tmp/leanon-parity-ios-evidence/screens/light-custom-food-edited.png",
+        "sha256": "6c61bd41b419da7917f47c49c630669f50046a08d20fc5dc82be9495ebfa88ad",
+        "utc": "2026-10-06T14:08:09.990000+00:00",
+        "mode": "light",
+        "modeEvidence": "actual pixels; initial QA preference not explicitly selected"
+      },
+      {
+        "name": "light-custom-food-favorite-recent-relaunch",
+        "path": "/tmp/leanon-parity-ios-evidence/screens/light-custom-food-favorite-recent-relaunch.png",
+        "sha256": "4565b5d3c30e4ff910d5f3b76712489918ec87daa4a0f4323f8683ad4f21b118",
+        "utc": "2026-10-06T14:07:41.045000+00:00",
+        "mode": "light",
+        "modeEvidence": "actual pixels; initial QA preference not explicitly selected"
+      },
+      {
+        "name": "light-custom-food-created",
+        "path": "/tmp/leanon-parity-ios-evidence/screens/light-custom-food-created.png",
+        "sha256": "a5d50854da0a36ce6c542e028967f8a0a0cc54f4dbdfa48f14097ea11674751c",
+        "utc": "2026-10-06T14:07:21.091000+00:00",
+        "mode": "light",
+        "modeEvidence": "actual pixels; initial QA preference not explicitly selected"
+      },
+      {
+        "name": "light-custom-food-draft",
+        "path": "/tmp/leanon-parity-ios-evidence/screens/light-custom-food-draft.png",
+        "sha256": "1ffd7802acf2895ba1690cb7ec66714fe489f3c3a5e1f000815fae1aa5133213",
+        "utc": "2026-10-06T14:07:02.073000+00:00",
+        "mode": "light",
+        "modeEvidence": "actual pixels; initial QA preference not explicitly selected"
+      },
+      {
+        "name": "light-water-error-recovered",
+        "path": "/tmp/leanon-parity-ios-evidence/screens/light-water-error-recovered.png",
+        "sha256": "1f3f506f366787671fd25a372aca5e52915210e903374582e1c28758858f711c",
+        "utc": "2026-10-06T14:10:35.032000+00:00",
+        "mode": "light",
+        "modeEvidence": "Settings selected Light, Current appearance Light assertion"
+      },
+      {
+        "name": "light-water-write-error",
+        "path": "/tmp/leanon-parity-ios-evidence/screens/light-water-write-error.png",
+        "sha256": "2c2208de3bedde01998d7b65dba219692ab4f7e8491a0539bb36fba1db6b222a",
+        "utc": "2026-10-06T14:10:31.942000+00:00",
+        "mode": "light",
+        "modeEvidence": "Settings selected Light, Current appearance Light assertion"
+      },
+      {
+        "name": "light-water-after-relaunch",
+        "path": "/tmp/leanon-parity-ios-evidence/screens/light-water-after-relaunch.png",
+        "sha256": "5a39f2678574e6617c618a158610d0ae0ae0738ac47d112358f291f6669623c7",
+        "utc": "2026-10-06T14:10:28.653000+00:00",
+        "mode": "light",
+        "modeEvidence": "Settings selected Light, Current appearance Light assertion"
+      },
+      {
+        "name": "light-water-250-saved",
+        "path": "/tmp/leanon-parity-ios-evidence/screens/light-water-250-saved.png",
+        "sha256": "bd6e89e51bb741920e7ea77398757e4b945f8f745d6330d2a57846f672774a43",
+        "utc": "2026-10-06T14:10:19.734000+00:00",
+        "mode": "light",
+        "modeEvidence": "Settings selected Light, Current appearance Light assertion"
+      },
+      {
+        "name": "dark-custom-food-deleted-history-retained",
+        "path": "/tmp/leanon-parity-ios-evidence/screens/dark-custom-food-deleted-history-retained.png",
+        "sha256": "91aa9d4a57f58e9e7448c7ee8ea0eea674587340b91ae29c156be26674f983ca",
+        "utc": "2026-10-06T14:13:04.521000+00:00",
+        "mode": "dark",
+        "modeEvidence": "Settings selected Dark, Current appearance Dark assertion"
+      },
+      {
+        "name": "dark-custom-food-delete-confirmation",
+        "path": "/tmp/leanon-parity-ios-evidence/screens/dark-custom-food-delete-confirmation.png",
+        "sha256": "89c09453602e72bca46078e526ecc8189e3c553e47af5b008c75eb0c4bfbd30d",
+        "utc": "2026-10-06T14:12:59.891000+00:00",
+        "mode": "dark",
+        "modeEvidence": "Settings selected Dark, Current appearance Dark assertion"
+      },
+      {
+        "name": "dark-custom-food-edited",
+        "path": "/tmp/leanon-parity-ios-evidence/screens/dark-custom-food-edited.png",
+        "sha256": "b3c212690c9a9733ff624497d7090da14d8e19c736571a83c9f62b4564845261",
+        "utc": "2026-10-06T14:12:58.138000+00:00",
+        "mode": "dark",
+        "modeEvidence": "Settings selected Dark, Current appearance Dark assertion"
+      },
+      {
+        "name": "dark-custom-food-favorite-recent-relaunch",
+        "path": "/tmp/leanon-parity-ios-evidence/screens/dark-custom-food-favorite-recent-relaunch.png",
+        "sha256": "995a1d4f5c4bd8f0a627865dbb52ba0719007d17b47b183559e579d4eca25cc3",
+        "utc": "2026-10-06T14:12:29.268000+00:00",
+        "mode": "dark",
+        "modeEvidence": "Settings selected Dark, Current appearance Dark assertion"
+      },
+      {
+        "name": "dark-custom-food-created",
+        "path": "/tmp/leanon-parity-ios-evidence/screens/dark-custom-food-created.png",
+        "sha256": "df500be6606dd7d5bb5cfb7231d399f37e083a699a0f08fa7ba21c12c5aa1deb",
+        "utc": "2026-10-06T14:12:10.024000+00:00",
+        "mode": "dark",
+        "modeEvidence": "Settings selected Dark, Current appearance Dark assertion"
+      },
+      {
+        "name": "dark-custom-food-draft",
+        "path": "/tmp/leanon-parity-ios-evidence/screens/dark-custom-food-draft.png",
+        "sha256": "4e73c95cb50aa0aa7e2bca17f77cf258efd245b766b90aa01b6c41c83351a784",
+        "utc": "2026-10-06T14:11:51.167000+00:00",
+        "mode": "dark",
+        "modeEvidence": "Settings selected Dark, Current appearance Dark assertion"
+      },
+      {
+        "name": "dark-water-error-recovered",
+        "path": "/tmp/leanon-parity-ios-evidence/screens/dark-water-error-recovered.png",
+        "sha256": "7c7483a6c44c72888b2e73b0b7502b860f80090778ce61d00668e92ff545d627",
+        "utc": "2026-10-06T14:13:49.991000+00:00",
+        "mode": "dark",
+        "modeEvidence": "Settings selected Dark, Current appearance Dark assertion"
+      },
+      {
+        "name": "dark-water-write-error",
+        "path": "/tmp/leanon-parity-ios-evidence/screens/dark-water-write-error.png",
+        "sha256": "3293a1bd8afb65e97f145ca002243fc78f5edddd35d52765ee9aa19d08004ee6",
+        "utc": "2026-10-06T14:13:45.980000+00:00",
+        "mode": "dark",
+        "modeEvidence": "Settings selected Dark, Current appearance Dark assertion"
+      },
+      {
+        "name": "dark-water-after-relaunch",
+        "path": "/tmp/leanon-parity-ios-evidence/screens/dark-water-after-relaunch.png",
+        "sha256": "9007f415ed868943d3afa1c3b7b01259eb6cbe0fcbf231e204d9207e986cb9d6",
+        "utc": "2026-10-06T14:13:42.736000+00:00",
+        "mode": "dark",
+        "modeEvidence": "Settings selected Dark, Current appearance Dark assertion"
+      },
+      {
+        "name": "dark-water-250-saved",
+        "path": "/tmp/leanon-parity-ios-evidence/screens/dark-water-250-saved.png",
+        "sha256": "1043b3e9b3def701c050c0cb2f8bfbd547e6b8c123ac6a7a8682b04949f7b4e0",
+        "utc": "2026-10-06T14:13:33.560000+00:00",
+        "mode": "dark",
+        "modeEvidence": "Settings selected Dark, Current appearance Dark assertion"
+      }
+    ],
+    "remaining": "Physical camera/live OpenFoodFacts/HealthKit/BLE and actual notification delivery require separate runtime/device QA; unit mocks do not prove those capabilities. Live timezone change while HealthKit manager remains mounted also not validated. No new full appearance6screen run forfd1; prior appearance evidence isversionedseparately.",
+    "waterLightControlled": {
+      "passed": true,
+      "log": "/tmp/leanon-parity-ios-light-water.log",
+      "qa": {
+        "qa-after-records": {
+          "path": "/tmp/leanon-parity-ios-evidence/light-water-qa-after-records.json",
+          "sha256": "eb0c4f1aca57ea59cb9da74b30cb4b3f8c87f651d8da2a810c62a728ee56f1a2"
+        },
+        "qa-before-records": {
+          "path": "/tmp/leanon-parity-ios-evidence/light-water-qa-before-records.json",
+          "sha256": "6a1aa9a04664f7c56ed80c69432a6cce203ac73210430eb9fdb350c064578c1e"
+        }
+      }
+    },
+    "build": {
+      "log": "/tmp/leanon-parity-ios-build-generated.log",
+      "result": "TEST BUILD SUCCEEDED",
+      "derivedData": "/tmp/leanon-parity-ios-build",
+      "missingSDKArtifactsFixed": {
+        "tag": "3.9.0",
+        "officialTreeSHA": "d7f13487df0d69497148e93b71aded676a8fe243",
+        "generator": "tools/error_code/gen_error_code.py --lang cpp oc",
+        "specSHA256": "f990e27f6bf4fefa25c4854995667d8062adf15e5897bfde56fb0b2a7762e918",
+        "vendoredOutputDirectory": "apps/ios/support/lynx-3.9.0-generated",
+        "platformHeader": "apps/ios/support/lynx-build-config.h",
+        "staging": "Podfile pre_install/post_install"
+      }
+    },
+    "clock": "Runtime local date/hour/streak projected on reads/events; synthetic actual records use2026-10-06; stored legacy today/todayHour/streak metadata preserved.",
+    "darkBasicUI": {
+      "passed": true,
+      "count": 2,
+      "failed": 0,
+      "log": "/tmp/leanon-parity-ios-dark-basic.log",
+      "xcresult": "/tmp/leanon-parity-ios-dark-basic.xcresult",
+      "qa": {
+        "custom": {
+          "qa-after-records": {
+            "path": "/tmp/leanon-parity-ios-evidence/dark-custom-qa-after-records.json",
+            "sha256": "c06e723d20828b716d2d34e4440d1bc6990704ef1a8195778992a6218b0b9ae2"
+          },
+          "qa-before-records": {
+            "path": "/tmp/leanon-parity-ios-evidence/dark-custom-qa-before-records.json",
+            "sha256": "73d63397bde0d72d5bdf229b43b06036cedab389e09ba796465a02df401dc50b"
+          }
+        },
+        "water": {
+          "qa-after-records": {
+            "path": "/tmp/leanon-parity-ios-evidence/dark-water-qa-after-records.json",
+            "sha256": "a065a368aa944e1329ac87c210c38e82816d27e47c87dc8ffc6384619e212886"
+          },
+          "qa-before-records": {
+            "path": "/tmp/leanon-parity-ios-evidence/dark-water-qa-before-records.json",
+            "sha256": "18a441e0fbb12564a2e437261fb47a3838860e5fd63cf6b9e6fc7107eb608ee0"
+          }
+        }
+      }
+    },
+    "summary": "99 nativeunitspass; two distinct basicUIcases pass inactual Light andDark;20actualPNG captures. Normalrecords/preferencesuntouched; onlyisolatedQAfile andsuite.",
+    "archivedFirstBatchApp": "/tmp/leanon-parity-ios-evidence/first-batch-app/LeanOn.app"
+  },
+  "android": {
+    "kind": "android-platform-instrumentation-native-persistence-and-accessibility",
+    "capturedUtc": "2026-10-06T13:53:58.200151Z",
+    "uiButtonSaveCoverage": false,
+    "fixtureSnapshot": {
+      "today": "2026-10-07",
+      "todayHour": 0,
+      "profile": {
+        "sex": "male",
+        "birthDate": "1993-05-12",
+        "heightCm": 178,
+        "activityLevel": "lightly_active"
+      },
+      "goalWeightKg": 72,
+      "weeklyLossKg": 0.6,
+      "weights": [
+        {
+          "date": "2026-08-28",
+          "weightKg": 84
+        },
+        {
+          "date": "2026-08-29",
+          "weightKg": 84.2
+        },
+        {
+          "date": "2026-08-30",
+          "weightKg": 84
+        },
+        {
+          "date": "2026-08-31",
+          "weightKg": 83.7
+        },
+        {
+          "date": "2026-09-01",
+          "weightKg": 83.5
+        },
+        {
+          "date": "2026-09-02",
+          "weightKg": 83.6
+        },
+        {
+          "date": "2026-09-03",
+          "weightKg": 83.6
+        },
+        {
+          "date": "2026-09-04",
+          "weightKg": 83.3
+        },
+        {
+          "date": "2026-09-05",
+          "weightKg": 82.9
+        },
+        {
+          "date": "2026-09-06",
+          "weightKg": 82.8
+        },
+        {
+          "date": "2026-09-07",
+          "weightKg": 82.9
+        },
+        {
+          "date": "2026-09-08",
+          "weightKg": 83
+        },
+        {
+          "date": "2026-09-09",
+          "weightKg": 82.8
+        },
+        {
+          "date": "2026-09-10",
+          "weightKg": 82.5
+        },
+        {
+          "date": "2026-09-11",
+          "weightKg": 82.5
+        },
+        {
+          "date": "2026-09-12",
+          "weightKg": 82.7
+        },
+        {
+          "date": "2026-09-13",
+          "weightKg": 82.7
+        },
+        {
+          "date": "2026-09-14",
+          "weightKg": 82.3
+        },
+        {
+          "date": "2026-09-15",
+          "weightKg": 82
+        },
+        {
+          "date": "2026-09-16",
+          "weightKg": 81.9
+        },
+        {
+          "date": "2026-09-17",
+          "weightKg": 82
+        },
+        {
+          "date": "2026-09-18",
+          "weightKg": 81.9
+        },
+        {
+          "date": "2026-09-19",
+          "weightKg": 81.5
+        },
+        {
+          "date": "2026-09-20",
+          "weightKg": 81.3
+        },
+        {
+          "date": "2026-09-21",
+          "weightKg": 81.4
+        },
+        {
+          "date": "2026-09-22",
+          "weightKg": 81.6
+        },
+        {
+          "date": "2026-09-23",
+          "weightKg": 81.5
+        },
+        {
+          "date": "2026-09-24",
+          "weightKg": 81.2
+        },
+        {
+          "date": "2026-09-25",
+          "weightKg": 81
+        },
+        {
+          "date": "2026-09-26",
+          "weightKg": 81.1
+        },
+        {
+          "date": "2026-09-27",
+          "weightKg": 81.2
+        },
+        {
+          "date": "2026-09-28",
+          "weightKg": 80.9
+        },
+        {
+          "date": "2026-09-29",
+          "weightKg": 80.5
+        },
+        {
+          "date": "2026-09-30",
+          "weightKg": 80.3
+        },
+        {
+          "date": "2026-10-01",
+          "weightKg": 80.4
+        }
+      ],
+      "intake": [
+        {
+          "date": "2026-09-18",
+          "kcal": 1679,
+          "macros": {
+            "proteinG": 132,
+            "carbsG": 178,
+            "fatG": 54
+          },
+          "micros": {
+            "fiberG": 24,
+            "sugarG": 45,
+            "saturatedFatG": 18,
+            "sodiumMg": 2100
+          }
+        },
+        {
+          "date": "2026-09-19",
+          "kcal": 1688,
+          "macros": {
+            "proteinG": 132,
+            "carbsG": 178,
+            "fatG": 54
+          },
+          "micros": {
+            "fiberG": 24,
+            "sugarG": 45,
+            "saturatedFatG": 18,
+            "sodiumMg": 2100
+          }
+        },
+        {
+          "date": "2026-09-20",
+          "kcal": 1775,
+          "macros": {
+            "proteinG": 132,
+            "carbsG": 178,
+            "fatG": 54
+          },
+          "micros": {
+            "fiberG": 24,
+            "sugarG": 45,
+            "saturatedFatG": 18,
+            "sodiumMg": 2100
+          }
+        },
+        {
+          "date": "2026-09-21",
+          "kcal": 1846,
+          "macros": {
+            "proteinG": 132,
+            "carbsG": 178,
+            "fatG": 54
+          },
+          "micros": {
+            "fiberG": 24,
+            "sugarG": 45,
+            "saturatedFatG": 18,
+            "sodiumMg": 2100
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "kcal": 1823,
+          "macros": {
+            "proteinG": 132,
+            "carbsG": 178,
+            "fatG": 54
+          },
+          "micros": {
+            "fiberG": 24,
+            "sugarG": 45,
+            "saturatedFatG": 18,
+            "sodiumMg": 2100
+          }
+        },
+        {
+          "date": "2026-09-23",
+          "kcal": 1731,
+          "macros": {
+            "proteinG": 132,
+            "carbsG": 178,
+            "fatG": 54
+          },
+          "micros": {
+            "fiberG": 24,
+            "sugarG": 45,
+            "saturatedFatG": 18,
+            "sodiumMg": 2100
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "kcal": 1671,
+          "macros": {
+            "proteinG": 132,
+            "carbsG": 178,
+            "fatG": 54
+          },
+          "micros": {
+            "fiberG": 24,
+            "sugarG": 45,
+            "saturatedFatG": 18,
+            "sodiumMg": 2100
+          }
+        },
+        {
+          "date": "2026-09-25",
+          "kcal": 1708,
+          "macros": {
+            "proteinG": 132,
+            "carbsG": 178,
+            "fatG": 54
+          },
+          "micros": {
+            "fiberG": 24,
+            "sugarG": 45,
+            "saturatedFatG": 18,
+            "sodiumMg": 2100
+          }
+        },
+        {
+          "date": "2026-09-26",
+          "kcal": 1802,
+          "macros": {
+            "proteinG": 132,
+            "carbsG": 178,
+            "fatG": 54
+          },
+          "micros": {
+            "fiberG": 24,
+            "sugarG": 45,
+            "saturatedFatG": 18,
+            "sodiumMg": 2100
+          }
+        },
+        {
+          "date": "2026-09-27",
+          "kcal": 1850,
+          "macros": {
+            "proteinG": 132,
+            "carbsG": 178,
+            "fatG": 54
+          },
+          "micros": {
+            "fiberG": 24,
+            "sugarG": 45,
+            "saturatedFatG": 18,
+            "sodiumMg": 2100
+          }
+        },
+        {
+          "date": "2026-09-28",
+          "kcal": 1800,
+          "macros": {
+            "proteinG": 132,
+            "carbsG": 178,
+            "fatG": 54
+          },
+          "micros": {
+            "fiberG": 24,
+            "sugarG": 45,
+            "saturatedFatG": 18,
+            "sodiumMg": 2100
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "kcal": 1706,
+          "macros": {
+            "proteinG": 132,
+            "carbsG": 178,
+            "fatG": 54
+          },
+          "micros": {
+            "fiberG": 24,
+            "sugarG": 45,
+            "saturatedFatG": 18,
+            "sodiumMg": 2100
+          }
+        },
+        {
+          "date": "2026-09-30",
+          "kcal": 1671,
+          "macros": {
+            "proteinG": 132,
+            "carbsG": 178,
+            "fatG": 54
+          },
+          "micros": {
+            "fiberG": 24,
+            "sugarG": 45,
+            "saturatedFatG": 18,
+            "sodiumMg": 2100
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "kcal": 1180,
+          "macros": {
+            "proteinG": 78,
+            "carbsG": 128,
+            "fatG": 36
+          },
+          "micros": {
+            "fiberG": 15,
+            "sugarG": 30,
+            "saturatedFatG": 12,
+            "sodiumMg": 1400
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "kcal": 318,
+          "macros": {
+            "proteinG": 4.8,
+            "carbsG": 24,
+            "fatG": 2.8
+          },
+          "micros": {
+            "fiberG": 0,
+            "sugarG": 0,
+            "saturatedFatG": 0,
+            "sodiumMg": 0
+          }
+        }
+      ],
+      "exercises": [
+        {
+          "id": "ex-seed-strength",
+          "date": "2026-10-01",
+          "typeId": "strength",
+          "durationMin": 36,
+          "kcal": 240
+        }
+      ],
+      "water": [
+        {
+          "date": "2026-10-01",
+          "amountMl": 1500
+        },
+        {
+          "date": "2026-10-06",
+          "amountMl": 250
+        }
+      ],
+      "streak": 1,
+      "customFoods": [],
+      "favoriteFoodIds": [],
+      "recentFoodIds": [
+        "qa-10",
+        "qa-15",
+        "qa-14",
+        "qa-13",
+        "qa-12",
+        "qa-11",
+        "qa-9",
+        "qa-8",
+        "qa-7",
+        "qa-6",
+        "qa-5"
+      ]
+    },
+    "fixtureRecordsSha256": "c005b518002705221a35706161af0a1607a48121701177172edbca7b2934a6b5",
+    "applicationRecordsSha256Before": "bf2eb866a8d4011f4329d5f50eee9b587c8821c969606172cae4dd8b208c088b",
+    "applicationRecordsSha256After": "bf2eb866a8d4011f4329d5f50eee9b587c8821c969606172cae4dd8b208c088b",
+    "success": true,
+    "nativeChecks": [
+      {
+        "name": "water-upsert-restart",
+        "passed": true
+      },
+      {
+        "name": "custom-update-restart-default-clear",
+        "passed": true
+      },
+      {
+        "name": "favorite-idempotent",
+        "passed": true
+      },
+      {
+        "name": "recent-most-first-dedup-limit12",
+        "passed": true
+      },
+      {
+        "name": "delete-cleans-favorite-recent",
+        "passed": true
+      },
+      {
+        "name": "local-clock-rollover-no-record-rewrite",
+        "passed": true
+      },
+      {
+        "name": "application-health-record-file-unchanged",
+        "passed": true
+      }
+    ],
+    "accessibilityActions": [
+      {
+        "capture": "today-light.png",
+        "capturedUtc": "2026-10-06T13:54:01.506324Z",
+        "actualDeviceScreenshot": true,
+        "path": "/tmp/leanon-android-parity-qa/today-light.png",
+        "sha256": "12ce13488a0be009b51b05b4a8b18a406a3c7f9f096b41abd1d973bb49ee5c1b"
+      },
+      {
+        "label": "记录饮食",
+        "action": 16,
+        "nodeFound": false,
+        "performed": false
+      },
+      {
+        "capture": "today-dark.png",
+        "capturedUtc": "2026-10-06T13:54:05.795367Z",
+        "actualDeviceScreenshot": true,
+        "path": "/tmp/leanon-android-parity-qa/today-dark.png",
+        "sha256": "086a2fa7595ed7fd29bbfeb51997f6c8b5c30dbf37cd7172d0efbfb7c2ede917"
+      }
+    ],
+    "uiCoverageBoundary": "Native fixture checks are persistence/SDK checks; only logged successful accessibility actions are UI interactions. No water/add or save button is invoked.",
+    "platform": "android",
+    "applicationId": "com.zzzode.leanon.uiqa",
+    "branch": "main",
+    "head": "89b5e157844d62933a5ebfa773e7aa7b8d076cb9",
+    "workspace": "uncommitted implementation; not clean HEAD",
+    "bundleSha256": "fd1f1ceb7ff182eac340b798109fb42ee3139c99332a8e1525f96a43c4ee55b8",
+    "apkSha256": "6aa9c863864d6ca00f23c151a5e02c11c6d4daa713236a4b5746363440f45995",
+    "instrumentationApkSha256": "8e4dc39a3a8e43ed02dbc11f5e29862200503c22115113d9d24cd3113b9f21d8",
+    "deviceSerial": "emulator-5554",
+    "deviceModel": "sdk_gphone64_arm64",
+    "osVersion": "15",
+    "pixelDimensions": [
+      1080,
+      2400
+    ],
+    "nativeUnitTests": {
+      "tests": 88,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "log": "/tmp/leanon-android-parity-build.log"
+    },
+    "qaClock": "2026-10-01T19:00:00+08:00 (explicit .uiqa launch extra; not persisted or accepted by production)",
+    "instrumentationCommand": "adb -s emulator-5554 shell am instrument -w -r com.zzzode.leanon.uiqa.test/com.zzzode.leanon.qa.ParityInstrumentation",
+    "restoredQaClock": "system",
+    "restoredQaAppearance": "system",
+    "realClockCapture": {
+      "path": "/tmp/leanon-android-parity-qa/today-real-clock.png",
+      "sha256": "0ba83fa56084d67a811fe088cf1d993b8efea38e35506e8580e9e98ee992742b",
+      "capturedUtc": "2026-10-06T13:58:58.505273+00:00",
+      "actualDeviceScreenshot": true
+    },
+    "applicationRecordsSha256Final": "bf2eb866a8d4011f4329d5f50eee9b587c8821c969606172cae4dd8b208c088b"
+  },
+  "artifactImages": [
+    {
+      "name": "ios-food-dual.png",
+      "sha256": "c65db360eda377b20c9f1ff0d4875882c68a6531b29513972b01f53eb73f95ae"
+    },
+    {
+      "name": "ios-water-dual.png",
+      "sha256": "d5624fd7b9c91321c239f7f5615ceb101ffdc46f34d92d14b4fa505ba263e2cc"
+    },
+    {
+      "name": "android-basic-dual.png",
+      "sha256": "2cd044a976c4d9c76d0dcc17871d771c2554593eeda03f87d81ab113b7047870"
+    }
+  ]
+}

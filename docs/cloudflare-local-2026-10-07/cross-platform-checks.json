@@ -1,0 +1,143 @@
+{
+  "passed": true,
+  "endpointPort": 64045,
+  "runtime": "same official local workerd/D1/private R2",
+  "iosDevice": "E563015C-5EE9-4E73-8F65-89C8714BE540",
+  "androidDevice": "emulator-5580 API35 arm64",
+  "results": [
+    {
+      "capturedUtc": "2026-10-07T20:32:02Z",
+      "checks": [
+        "ios-independent-owner-registers-and-publishes-protocol2-vault"
+      ],
+      "iosPhotoSha256": "902b88fb192ea99ddf99e5f2bd279afc0203dbbbb8ac79b5ee6356677d3d53c1",
+      "passed": true,
+      "platform": "iOS",
+      "stage": "create"
+    },
+    {
+      "stage": "accept",
+      "checks": [
+        {
+          "id": "android-independent-partner-account-accepted-ios-family-proof",
+          "passed": true
+        }
+      ],
+      "capturedUtc": "2026-10-07T20:32:07.435221Z",
+      "passed": true
+    },
+    {
+      "capturedUtc": "2026-10-07T20:32:24Z",
+      "checks": [
+        "ios-confirms-android-partner-and-explicit-sharing"
+      ],
+      "passed": true,
+      "platform": "iOS",
+      "stage": "confirm"
+    },
+    {
+      "stage": "publish",
+      "checks": [
+        {
+          "id": "ios-to-android-real-weight-and-independent-r2-jpeg-exact-bytes",
+          "passed": true
+        },
+        {
+          "id": "android-to-ios-encrypted-message-published",
+          "passed": true
+        }
+      ],
+      "capturedUtc": "2026-10-07T20:33:26.049913Z",
+      "iosPhotoSha256": "902b88fb192ea99ddf99e5f2bd279afc0203dbbbb8ac79b5ee6356677d3d53c1",
+      "androidPhotoSha256": "8cb4d535227e357f46caf0b15e09626db2473a5c59c607948b52e52364a68548",
+      "passed": true
+    },
+    {
+      "androidPhotoSha256": "8cb4d535227e357f46caf0b15e09626db2473a5c59c607948b52e52364a68548",
+      "capturedUtc": "2026-10-07T20:33:43Z",
+      "checks": [
+        "android-to-ios-real-weight-and-independent-r2-jpeg-exact-bytes",
+        "android-encrypted-message-received-and-ios-reply-published"
+      ],
+      "passed": true,
+      "platform": "iOS",
+      "stage": "receive"
+    },
+    {
+      "stage": "verify",
+      "checks": [
+        {
+          "id": "both-message-directions-and-ios-durable-delivery-ack",
+          "passed": true
+        }
+      ],
+      "capturedUtc": "2026-10-07T20:33:48.036994Z",
+      "passed": true
+    },
+    {
+      "capturedUtc": "2026-10-07T20:34:02Z",
+      "checks": [
+        "android-durable-recipient-ack-delivers-ios-message"
+      ],
+      "passed": true,
+      "platform": "iOS",
+      "stage": "verify"
+    },
+    {
+      "capturedUtc": "2026-10-07T20:34:20Z",
+      "checks": [
+        "ios-withdrawal-committed-for-android-observation"
+      ],
+      "passed": true,
+      "platform": "iOS",
+      "stage": "revoke"
+    },
+    {
+      "stage": "revoke",
+      "checks": [
+        {
+          "id": "ios-withdrawal-purges-android-peer-cache-and-worker-denies-prior-photo-url",
+          "passed": true
+        },
+        {
+          "id": "android-withdrawal-committed-for-ios-observation",
+          "passed": true
+        }
+      ],
+      "capturedUtc": "2026-10-07T20:36:27.772702Z",
+      "revokedPhotoHttpStatus": 404,
+      "revokedPhotoErrorCode": "object_unavailable",
+      "passed": true
+    },
+    {
+      "capturedUtc": "2026-10-07T20:36:44Z",
+      "checks": [
+        "android-withdrawal-purges-ios-peer-cache-and-worker-denies-prior-photo-url"
+      ],
+      "passed": true,
+      "platform": "iOS",
+      "revokedPhotoErrorCode": "object_unavailable",
+      "stage": "revoked"
+    },
+    {
+      "stage": "cleanup",
+      "checks": [
+        {
+          "id": "cross-platform-fixture-files-and-android-keystore-keys-removed",
+          "passed": true
+        }
+      ],
+      "capturedUtc": "2026-10-07T20:36:48.766229Z",
+      "passed": true
+    },
+    {
+      "capturedUtc": "2026-10-07T20:37:03Z",
+      "checks": [
+        "cross-platform-ios-fixture-files-and-keychain-keys-removed"
+      ],
+      "passed": true,
+      "platform": "iOS",
+      "stage": "cleanup"
+    }
+  ]
+}

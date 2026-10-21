@@ -1,0 +1,53 @@
+Attributes: Application, 0x1090df200, pid: 29191, label: 'LeanOn'
+Element subtree:
+ →Application, 0x1090df200, pid: 29191, label: 'LeanOn'
+    Window (Main), 0x1090dea80, {{0.0, 0.0}, {375.0, 667.0}}
+      Other, 0x1090debc0, {{0.0, 0.0}, {375.0, 667.0}}
+        Other, 0x1090ded00, {{0.0, 0.0}, {375.0, 667.0}}
+          Other, 0x1090dee40, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x1090dc500, {{0.0, 0.0}, {375.0, 667.0}}
+              Other, 0x1090dda40, {{0.0, 0.0}, {375.0, 667.0}}
+                Other, 0x1090dc280, {{0.0, 0.0}, {375.0, 667.0}}
+                  Other, 0x1090dc3c0, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x1090dcc80, {{0.0, 0.0}, {375.0, 667.0}}
+                      Other, 0x1090ddb80, {{0.0, 0.0}, {375.0, 667.0}}
+                        Other, 0x1090ddcc0, {{0.0, 20.0}, {375.0, 564.0}}, label: 'lynxview'
+                          Other, 0x1090dde00, {{0.0, 20.0}, {375.0, 564.0}}
+                          Other, 0x1090ddf40, {{0.0, 20.0}, {375.0, 564.0}}
+                            Other, 0x1090de080, {{0.0, 73.5}, {375.0, 510.5}}
+                              StaticText, 0x1090de1c0, {{24.0, 97.5}, {327.0, 33.0}}, label: 'Edit meal'
+                              ScrollView, 0x1090de300, {{24.0, 145.5}, {327.0, 338.5}}
+                                StaticText, 0x1090de440, {{24.0, 161.5}, {327.0, 21.0}}, label: 'Recorded food'
+                                StaticText, 0x1090dca00, {{24.0, 190.5}, {327.0, 24.0}}, label: 'White rice, cooked'
+                                Other, 0x1090dcb40, {{24.0, 214.5}, {327.0, 123.0}}
+                                  StaticText, 0x1090de940, {{24.0, 230.5}, {327.0, 21.0}}, label: 'Journal date'
+                                  Other, 0x1090dd7c0, {{24.0, 259.5}, {327.0, 78.0}}
+                                    TextField, 0x1090dd900, {{39.0, 270.5}, {297.0, 56.0}}, label: 'Journal date', value: 2026-10-07
+                                StaticText, 0x1090dc640, {{24.0, 369.5}, {327.0, 21.0}}, label: 'Meal'
+                                Other, 0x1090dc780, {{24.0, 410.5}, {327.0, 104.0}}
+                                  Button, 0x1090def80, {{24.0, 410.5}, {93.5, 48.0}}, label: 'Breakfast'
+                                  Button, 0x1090df0c0, {{125.5, 410.5}, {72.0, 48.0}}, label: 'Lunch'
+                                  Button, 0x1090dc8c0, {{205.5, 410.5}, {74.5, 48.0}}, label: 'Dinner'
+                                  Button, 0x1090dd040, {{24.0, 466.5}, {87.5, 48.0}}, label: 'Snack'
+                                Other, 0x1090dd180, {{24.0, 530.5}, {327.0, 123.0}}
+                                  StaticText, 0x1090dd2c0, {{24.0, 546.5}, {327.0, 21.0}}, label: 'Portion (g)'
+                                  Other, 0x1090dd400, {{24.0, 575.5}, {327.0, 78.0}}
+                                    TextField, 0x1090de800, {{39.0, 586.5}, {297.0, 56.0}}, label: 'Portion (g)', value: 150
+                                StaticText, 0x1090de6c0, {{24.0, 679.5}, {327.0, 50.0}}, label: '195 kcal · Protein 4.1 g · Carbs 42.0 g · Fat 0.5 g'
+                              Button, 0x1090dc000, {{24.0, 504.0}, {157.5, 48.0}}, label: 'Cancel'
+                              Button, 0x1090dc140, {{193.5, 504.0}, {157.5, 48.0}}, label: 'Save'
+                  Other, 0x1090df340, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x1090df480, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x1090df5c0, {{0.0, 584.0}, {375.0, 83.0}}
+              Other, 0x1090df700, {{0.0, 0.0}, {375.0, 667.0}}
+              Other, 0x1090df840, {{0.0, 584.0}, {375.0, 83.0}}
+    Window, 0x1090df980, {{0.0, 0.0}, {375.0, 667.0}}
+      Other, 0x1090dfac0, {{0.0, 0.0}, {375.0, 667.0}}
+        Other, 0x1090dfc00, {{0.0, 0.0}, {375.0, 667.0}}
+Path to element:
+ →Application, 0x1090df200, pid: 29191, label: 'LeanOn'
+Query chain:
+ →Find: Target Application 'com.zzzode.leanon.uiqa'
+  Output: {
+    Application, 0x1090de580, pid: 29191, label: 'LeanOn'
+  }

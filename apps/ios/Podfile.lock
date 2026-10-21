@@ -1,4 +1,6 @@
 PODS:
+  - Lynx (3.9.0):
+    - Lynx/Framework (= 3.9.0)
   - Lynx/Framework (3.9.0):
     - Lynx/ReleaseResource
     - LynxBase/Framework
@@ -35,11 +37,19 @@ PODS:
     - PrimJS/quickjs
   - PrimJS/quickjs (3.8.0-alpha.6):
     - PrimJS/log
+  - ServalSVG (0.2.4)
+  - XElement/Input (3.9.0):
+    - Lynx (= 3.9.0)
+  - XElement/SVG (3.9.0):
+    - Lynx (= 3.9.0)
+    - ServalSVG (>= 0.0.17)
 
 DEPENDENCIES:
   - Lynx/Framework (= 3.9.0)
   - PrimJS/napi (= 3.8.0-alpha.6)
   - PrimJS/quickjs (= 3.8.0-alpha.6)
+  - XElement/Input (= 3.9.0)
+  - XElement/SVG (= 3.9.0)
 
 SPEC REPOS:
   trunk:
@@ -47,13 +57,17 @@ SPEC REPOS:
     - LynxBase
     - LynxServiceAPI
     - PrimJS
+    - ServalSVG
+    - XElement
 
 SPEC CHECKSUMS:
   Lynx: ad5ed649ccf1d761e6697bc5d6d4fa6f30ad13e3
   LynxBase: c90f118654a8b5ca43ce4fe2dae9661bd289ec7f
   LynxServiceAPI: 015608819cdcbc6a398613170baf27d07a2b5797
   PrimJS: a917134ed564e22594bcda526b940bc9a1de4e4d
+  ServalSVG: 19bf88f72dae928c28a744c9b91475a3691ded42
+  XElement: 49b95dcd304c4a3bd4af335962c45a65173033b3
 
-PODFILE CHECKSUM: 3d887375fd0a7c855d046d0727295f42c54741f6
+PODFILE CHECKSUM: c0771fe7e5c1a6d587523a76d337bbb1c11ce4cc
 
 COCOAPODS: 1.17.0

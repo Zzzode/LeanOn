@@ -1,0 +1,70 @@
+{
+  "baselineUTC": "2026-10-08T17:25:27.194329+00:00",
+  "finalUTC": "2026-10-08T17:56:29.918145+00:00",
+  "head": "89b5e157844d62933a5ebfa773e7aa7b8d076cb9",
+  "branch": "main",
+  "origin": "https://github.com/Zzzode/LeanOn.git",
+  "baselineDirtyEntries": 369,
+  "baselineFiles": 1024,
+  "unchangedBaselineFiles": 1018,
+  "changedFiles": [
+    {
+      "path": "server/companion-worker/rslib.admin.config.ts",
+      "before": "1e491efeb06fcb379dbb9f4ee042960649a50c9ca97a8d5651de09951fc632aa",
+      "after": "7f16d1deed775ab649cae88b7b6da6fb0788beaf388dafc8aba5f62b8da76381"
+    },
+    {
+      "path": "server/companion-worker/README.zh-CN.md",
+      "before": "d79be2ab679955c1390cfc62b7196468dba3f96c3e92d00acf8b8e9959e9ee49",
+      "after": "ede7a9215d0ddba46aef2954971997a403167fbdb92f476efe5a0785c9644124"
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/report.md",
+      "before": "753c2a3532592f024aa552db91e15470b9f2fab9c526e9e76bfa0ab61e7bd4fb",
+      "after": "5bf9392f9cf2a72950bf07a14baa0102af26a482dfca0e28b96799ce0d2e7cb3"
+    },
+    {
+      "path": "server/companion-worker/package.json",
+      "before": "f6a7ea2be3141a55bf452cda112859ff90dee3bd62ba8b948997aa71a7613f9c",
+      "after": "c58881adfd22dd4f1a08d23469d558fe0ff486e8bf00113e3e1d35a8aebf0722"
+    },
+    {
+      "path": "server/companion-worker/README.md",
+      "before": "e0ef398b5e5485922b8eef701e95c368f8b2ea2b7710334ed1f47d4211dcc227",
+      "after": "a6e70b514168576904e95a6e85beaa700b148fb2fab52e921830cd23bec54422"
+    },
+    {
+      "path": "docs/cloudflare-local-2026-10-07/report.zh-CN.md",
+      "before": "8604551d04ddf831785f6167be78ce3adc7359c51999354466bf87ea0cf8a63d",
+      "after": "b146e211a9a1c78b765f0e7b8ccaa72039e31499c97317248cefba7d6e280796"
+    }
+  ],
+  "newFiles": [
+    {
+      "path": "server/companion-worker/src/local-admin.ts",
+      "sha256": "236f4149a973cd1b46095452cc47eebf1b71d75d9421c068984a3761fee61367"
+    },
+    {
+      "path": "server/companion-worker/src/local-admin.test.ts",
+      "sha256": "28b552fd107c567e402908c8904b68f78c1e1a95fbd9082e14fb4219e33b42af"
+    },
+    {
+      "path": "server/companion-worker/scripts/local-admin.mjs",
+      "sha256": "7c25dac4bb8956b4633b26d21ea9c24ec479c0cd5b36b567636c8a92f0512bdf"
+    },
+    {
+      "path": "server/companion-worker/templates/local-admin.example.json",
+      "sha256": "291a393f549376c359d237a22dc6e0b70f9441f3b1cbd689cbf0cd8de0b5a1e4"
+    },
+    {
+      "path": "server/companion-worker/local-admin.md",
+      "sha256": "01738cb9e6d051e2bfe049b99db682f7df6066ef09cff7c036236ff23501be90"
+    },
+    {
+      "path": "server/companion-worker/local-admin.zh-CN.md",
+      "sha256": "5f70b246338b20b03a57cbbb64f3580fbad866b408bacfe087096c3c4c4d48c6"
+    }
+  ],
+  "nativeUIAndAdminCoreUnchanged": true,
+  "noCommitPush": true
+}

@@ -4,23 +4,33 @@ import android.content.Context
 import com.lynx.jsbridge.LynxMethod
 import com.lynx.jsbridge.LynxModule
 import com.lynx.react.bridge.Callback
+import com.lynx.react.bridge.JavaOnlyMap
 import com.lynx.react.bridge.ReadableMap
 
-/** Native module backing the `storage.*` methods; backed by encrypted storage (RFC 0008). */
+/** Reserved `storage.*` adapter (RFC 0008); encrypted storage is not implemented or advertised. */
 class StorageModule(context: Context) : LynxModule(context) {
 
   @LynxMethod
   fun get(params: ReadableMap, callback: Callback) {
-    // TODO: encrypted read of {key}; callback {value: String?}
+    callback.invoke(JavaOnlyMap().apply {
+      putString("code", "unavailable")
+      putString("message", "This native capability is not implemented")
+    })
   }
 
   @LynxMethod
   fun set(params: ReadableMap, callback: Callback) {
-    // TODO: encrypted write of {key, value}; callback {ok: true}
+    callback.invoke(JavaOnlyMap().apply {
+      putString("code", "unavailable")
+      putString("message", "This native capability is not implemented")
+    })
   }
 
   @LynxMethod
   fun remove(params: ReadableMap, callback: Callback) {
-    // TODO: remove {key}; callback {ok: true}
+    callback.invoke(JavaOnlyMap().apply {
+      putString("code", "unavailable")
+      putString("message", "This native capability is not implemented")
+    })
   }
 }

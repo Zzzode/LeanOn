@@ -1,0 +1,89 @@
+{
+  "scope": "Selectedmetadataonly; rawhierarchy/snapshot/personal/previewFiles excluded",
+  "screenshots": [
+    {
+      "archiveName": "evidence/android/earlier-ordinary-ui/final-diet-reopened.png",
+      "captureUTC": "2026-10-07T06:45:45.719068Z",
+      "pid": 5694,
+      "sha256": "b7bd64fb5cd50b1495c2cb7a60c8d64c4c148fd4c2ec1e4a3c20abe3d9a9d9c3",
+      "device": "emulator-5554/Android15/API35/1080x2400/420dpi",
+      "artifactHashes": {
+        "leanon.uiqa.apk": "24e9f58f8d8b30eda4ebd4e4cbbb8620c4e65a965dd16fbfac65a75ca2a34167",
+        "embeddedBundle": "3bbe6225013ec611f0cde9c69a614d5ab15250234448f1d8ecf99d190606387d",
+        "runner.apk": "6805ed4e14dffd37f163b97d487c08755b8c4e7bc2df6d193953b704b41b7b71",
+        "release-unsigned.apk": "2e383ef4a14ca4748b91e76db50a25971251cddfb231649ffbcb8b7d5bb8abe1"
+      },
+      "scope": "Actualearlier24e9nativeordinaryUI, samefinal3bbe JS; nofinalphoto/pickerproof. QAwindow/font override only wherefilenameindicates."
+    },
+    {
+      "archiveName": "evidence/android/earlier-ordinary-ui/final-diet-cancel-draft.png",
+      "captureUTC": "2026-10-07T06:45:47.000836Z",
+      "pid": 5694,
+      "sha256": "df899981b42a7704b082ed3f89d25897c413071331e437c08868077bf380e6fe",
+      "device": "emulator-5554/Android15/API35/1080x2400/420dpi",
+      "artifactHashes": {
+        "leanon.uiqa.apk": "24e9f58f8d8b30eda4ebd4e4cbbb8620c4e65a965dd16fbfac65a75ca2a34167",
+        "embeddedBundle": "3bbe6225013ec611f0cde9c69a614d5ab15250234448f1d8ecf99d190606387d",
+        "runner.apk": "6805ed4e14dffd37f163b97d487c08755b8c4e7bc2df6d193953b704b41b7b71",
+        "release-unsigned.apk": "2e383ef4a14ca4748b91e76db50a25971251cddfb231649ffbcb8b7d5bb8abe1"
+      },
+      "scope": "Actualearlier24e9nativeordinaryUI, samefinal3bbe JS; nofinalphoto/pickerproof. QAwindow/font override only wherefilenameindicates."
+    },
+    {
+      "archiveName": "evidence/android/earlier-ordinary-ui/final-measurement-save.png",
+      "captureUTC": "2026-10-07T06:53:40.033185Z",
+      "pid": 5694,
+      "sha256": "f7fb041340a62da792f1987583edec36e8fd6b435f7f34b7fc037a8d7d5d3663",
+      "device": "emulator-5554/Android15/API35/1080x2400/420dpi",
+      "artifactHashes": {
+        "leanon.uiqa.apk": "24e9f58f8d8b30eda4ebd4e4cbbb8620c4e65a965dd16fbfac65a75ca2a34167",
+        "embeddedBundle": "3bbe6225013ec611f0cde9c69a614d5ab15250234448f1d8ecf99d190606387d",
+        "runner.apk": "6805ed4e14dffd37f163b97d487c08755b8c4e7bc2df6d193953b704b41b7b71",
+        "release-unsigned.apk": "2e383ef4a14ca4748b91e76db50a25971251cddfb231649ffbcb8b7d5bb8abe1"
+      },
+      "scope": "Actualearlier24e9nativeordinaryUI, samefinal3bbe JS; nofinalphoto/pickerproof. QAwindow/font override only wherefilenameindicates."
+    },
+    {
+      "archiveName": "evidence/android/earlier-ordinary-ui/final-measurement-320dp.png",
+      "captureUTC": "2026-10-07T06:48:32.611140Z",
+      "pid": 5694,
+      "sha256": "92658f685f89725d79d99096345971043246eac398aa496f188f62772be96942",
+      "device": "emulator-5554/Android15/API35/1080x2400/420dpi",
+      "artifactHashes": {
+        "leanon.uiqa.apk": "24e9f58f8d8b30eda4ebd4e4cbbb8620c4e65a965dd16fbfac65a75ca2a34167",
+        "embeddedBundle": "3bbe6225013ec611f0cde9c69a614d5ab15250234448f1d8ecf99d190606387d",
+        "runner.apk": "6805ed4e14dffd37f163b97d487c08755b8c4e7bc2df6d193953b704b41b7b71",
+        "release-unsigned.apk": "2e383ef4a14ca4748b91e76db50a25971251cddfb231649ffbcb8b7d5bb8abe1"
+      },
+      "scope": "Actualearlier24e9nativeordinaryUI, samefinal3bbe JS; nofinalphoto/pickerproof. QAwindow/font override only wherefilenameindicates."
+    },
+    {
+      "archiveName": "evidence/android/earlier-ordinary-ui/final-measurement-focus-scale.png",
+      "captureUTC": "2026-10-07T06:53:23.408561Z",
+      "pid": 5694,
+      "sha256": "9464abcbbf9a0f77c7aa076a1b343c748e86f9abf6dcbf562470b2e044bc4a8a",
+      "device": "emulator-5554/Android15/API35/1080x2400/420dpi",
+      "artifactHashes": {
+        "leanon.uiqa.apk": "24e9f58f8d8b30eda4ebd4e4cbbb8620c4e65a965dd16fbfac65a75ca2a34167",
+        "embeddedBundle": "3bbe6225013ec611f0cde9c69a614d5ab15250234448f1d8ecf99d190606387d",
+        "runner.apk": "6805ed4e14dffd37f163b97d487c08755b8c4e7bc2df6d193953b704b41b7b71",
+        "release-unsigned.apk": "2e383ef4a14ca4748b91e76db50a25971251cddfb231649ffbcb8b7d5bb8abe1"
+      },
+      "scope": "Actualearlier24e9nativeordinaryUI, samefinal3bbe JS; nofinalphoto/pickerproof. QAwindow/font override only wherefilenameindicates."
+    },
+    {
+      "archiveName": "evidence/android/earlier-ordinary-ui/final-measurement-edit.png",
+      "captureUTC": "2026-10-07T06:48:28.239960Z",
+      "pid": 5694,
+      "sha256": "1298d5eb80a4bef62ab67cd1b5cd5b79c786f6ff864f98bb407f84ce346e639a",
+      "device": "emulator-5554/Android15/API35/1080x2400/420dpi",
+      "artifactHashes": {
+        "leanon.uiqa.apk": "24e9f58f8d8b30eda4ebd4e4cbbb8620c4e65a965dd16fbfac65a75ca2a34167",
+        "embeddedBundle": "3bbe6225013ec611f0cde9c69a614d5ab15250234448f1d8ecf99d190606387d",
+        "runner.apk": "6805ed4e14dffd37f163b97d487c08755b8c4e7bc2df6d193953b704b41b7b71",
+        "release-unsigned.apk": "2e383ef4a14ca4748b91e76db50a25971251cddfb231649ffbcb8b7d5bb8abe1"
+      },
+      "scope": "Actualearlier24e9nativeordinaryUI, samefinal3bbe JS; nofinalphoto/pickerproof. QAwindow/font override only wherefilenameindicates."
+    }
+  ]
+}

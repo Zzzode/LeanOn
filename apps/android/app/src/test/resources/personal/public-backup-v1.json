@@ -1,0 +1,98 @@
+{
+  "classification": "PUBLIC TEST FIXTURE — fixed test inputs, no account or production secret; never reuse this salt/nonce/key in production.",
+  "generator": "Node crypto PBKDF2-HMAC-SHA256 + AES-256-GCM; sharp synthetic 4×4 neutral grey JPEG without input image or metadata",
+  "password": "PUBLIC LeanOn 伙伴 é 🔒",
+  "passwordUtf8Hex": "5055424c4943204c65616e4f6e20e4bc99e4bcb42065cc8120f09f9492",
+  "saltHex": "000102030405060708090a0b0c0d0e0f",
+  "nonceHex": "101112131415161718191a1b",
+  "aadUtf8": "LeanOn backup v1",
+  "iterations": 600000,
+  "derivedKeyHex": "8deeb9095ea41eec8a00fa2c5bb57de848c79dc8a2e58e9080403fff8ef09185",
+  "plaintextUtf8Base64": "eyJmb3JtYXRWZXJzaW9uIjoxLCJjcmVhdGVkQXQiOiIyMDI2LTEwLTA3VDAwOjAwOjAwWiIsInJlY29yZHMiOnsic2NoZW1hVmVyc2lvbiI6MiwicmV2aXNpb24iOjAsInNldHVwQ29tcGxldGVkIjpmYWxzZSwicHJvZmlsZSI6bnVsbCwiZ29hbFdlaWdodEtnIjpudWxsLCJ3ZWVrbHlMb3NzS2ciOm51bGwsImd1aWRhbmNlTW9kZSI6InRyYWNraW5nLW9ubHkiLCJzYWZldHlGbGFncyI6eyJwcmVnbmFudCI6bnVsbCwiYnJlYXN0ZmVlZGluZyI6bnVsbCwiZWF0aW5nRGlzb3JkZXJSaXNrIjpudWxsfSwid2VpZ2h0cyI6W10sIndhdGVyIjpbXSwiZXhlcmNpc2VzIjpbXSwibGVnYWN5SW50YWtlIjpbXSwiaW50YWtlRW50cmllcyI6W10sImludGFrZSI6W10sImRlbGV0ZWRSZWNvcmRzIjpbXSwicHJvY2Vzc2VkT3BlcmF0aW9ucyI6W119LCJjdXN0b21Gb29kcyI6W10sImZhdm9yaXRlRm9vZElkcyI6W10sInJlY2VudEZvb2RJZHMiOltdLCJwZXJzb25hbCI6eyJ2ZXJzaW9uIjoxLCJyZXZpc2lvbiI6MCwiZGlldGFyeVByZWZlcmVuY2VzIjp7InBhdHRlcm4iOiJub25lIiwiZXhjbHVkZWRGb29kSWRzIjpbXSwibm90ZXMiOiLlhazlvIDmtYvor5XvvJrkvJnkvLTmlK/mjIHvvIzplb/mnJ/lgaXlurciLCJmdXR1cmUiOnsiY2FwdGlvbiI6IuS4reaWhyDCtyDmnKrmnaXlsZ7mgKciLCJudWxsYWJsZSI6bnVsbCwiZmxhZ3MiOlt0cnVlLGZhbHNlLG51bGxdfX0sIm1lYXN1cmVtZW50cyI6W10sInBob3RvcyI6W3siaWQiOiJwdWJsaWMtcGhvdG8tMSIsImRhdGUiOiIyMDI2LTEwLTA3IiwidmlldyI6Im90aGVyIiwibm90ZSI6IkdlbmVyYXRlZCBuZXV0cmFsIGdyZXkgcGl4ZWxzOyBubyBwZXJzb24gb3Igc291cmNlIHBob3RvLiIsImNyZWF0ZWRBdCI6IjIwMjYtMTAtMDdUMDA6MDA6MDBaIiwibWltZSI6ImltYWdlL2pwZWciLCJ3aWR0aCI6NCwiaGVpZ2h0Ijo0fV0sInByb2Nlc3NlZE9wZXJhdGlvbnMiOltdfSwicGhvdG9zIjpbeyJpZCI6InB1YmxpYy1waG90by0xIiwiYnl0ZXNCYXNlNjQiOiIvOWovMndCREFBWUVCUVlGQkFZR0JRWUhCd1lJQ2hBS0Nna0pDaFFPRHd3UUZ4UVlHQmNVRmhZYUhTVWZHaHNqSEJZV0lDd2dJeVluS1NvcEdSOHRNQzBvTUNVb0tTai8yd0JEQVFjSEJ3b0lDaE1LQ2hNb0doWWFLQ2dvS0Nnb0tDZ29LQ2dvS0Nnb0tDZ29LQ2dvS0Nnb0tDZ29LQ2dvS0Nnb0tDZ29LQ2dvS0Nnb0tDZ29LQ2dvS0NqL3dBQVJDQUFFQUFRREFSRUFBaEVCQXhFQi84UUFGQUFCQUFBQUFBQUFBQUFBQUFBQUFBQUFBUC9FQUJRUUFRQUFBQUFBQUFBQUFBQUFBQUFBQUFEL3hBQVVBUUVBQUFBQUFBQUFBQUFBQUFBQUFBQUEvOFFBRkJFQkFBQUFBQUFBQUFBQUFBQUFBQUFBQVAvYUFBd0RBUUFDRVFNUkFEOEFBLy9aIn1dfQ==",
+  "payload": {
+    "formatVersion": 1,
+    "createdAt": "2026-10-07T00:00:00Z",
+    "records": {
+      "schemaVersion": 2,
+      "revision": 0,
+      "setupCompleted": false,
+      "profile": null,
+      "goalWeightKg": null,
+      "weeklyLossKg": null,
+      "guidanceMode": "tracking-only",
+      "safetyFlags": {
+        "pregnant": null,
+        "breastfeeding": null,
+        "eatingDisorderRisk": null
+      },
+      "weights": [],
+      "water": [],
+      "exercises": [],
+      "legacyIntake": [],
+      "intakeEntries": [],
+      "intake": [],
+      "deletedRecords": [],
+      "processedOperations": []
+    },
+    "customFoods": [],
+    "favoriteFoodIds": [],
+    "recentFoodIds": [],
+    "personal": {
+      "version": 1,
+      "revision": 0,
+      "dietaryPreferences": {
+        "pattern": "none",
+        "excludedFoodIds": [],
+        "notes": "公开测试：伙伴支持，长期健康",
+        "future": {
+          "caption": "中文 · 未来属性",
+          "nullable": null,
+          "flags": [
+            true,
+            false,
+            null
+          ]
+        }
+      },
+      "measurements": [],
+      "photos": [
+        {
+          "id": "public-photo-1",
+          "date": "2026-10-07",
+          "view": "other",
+          "note": "Generated neutral grey pixels; no person or source photo.",
+          "createdAt": "2026-10-07T00:00:00Z",
+          "mime": "image/jpeg",
+          "width": 4,
+          "height": 4
+        }
+      ],
+      "processedOperations": []
+    },
+    "photos": [
+      {
+        "id": "public-photo-1",
+        "bytesBase64": "/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAEAAQDAREAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAAAP/EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AA//Z"
+      }
+    ]
+  },
+  "envelope": {
+    "formatVersion": 1,
+    "cipher": "AES-256-GCM",
+    "kdf": "PBKDF2-HMAC-SHA256",
+    "iterations": 600000,
+    "salt": "AAECAwQFBgcICQoLDA0ODw==",
+    "nonce": "EBESExQVFhcYGRob",
+    "ciphertext": "kU6Mz8b9pkdAHgT1K3xamGMrfoo1cfLGAWf8pNQ+9AI3p2mxdffyR0Ui1OUpEnVnQm7K2dcgVcrNMVjt0FKZTchtmemfSBByojBQnIhI+HZ+hVvqIwCHlOiy1kMVrfgsguhDEjVElmO36GU2tjf7c6hpxpbBapgOyDPrw8YwBtNP+lJYL7fWGtHXPdQ06ZxqXPeEdctLEgpEXSWvI8eNA56h8eSRhPgjnSgR4SOcZG9IN0m7HWLz+Ci2ZwkQvuMYd4jBw6IdGSUX9+IuJXAxAWd14XXHr/Ktn3gZX+KmOk6JApWSixziyI0NookVygX40t6sM7STxSTgOQykyM+IpWSah3DA5jXb+mRvAzD1Vd30LilYu1SZM0l0xoI05g+ollN7T578AntFR8Z63+ajPFIJDO02WA1itSDInZgv/pndVlgeLipSvzJ0xsifb/B2Ect4gwYAt2HoYTQ7Eb6rlbpm9Bt7aVRu+0ytdb1UQJMA6SzS41YtswpuBrZt5HTCoip37Tll+xXD1pQnxqVrvpPklUf8NHxGOMRs4U1c/PCVnF3cw4L7ZGjf9rPc+uuW5I4YiNKAu9FdgWF51XpxFAy7jCi9moB4XeJjxLXKl1sI5fVEsComOiCgLzNqgmBF4UGUuCZoxsavGo0MaqwF3j9Z1Cdq1UgBtOUnLCJuXs/f9yiqNMgrNpJbnR5MCIXD6jnKo3K18mwKef0C8gh8RCQUCIUeccyWqxL3FCY4XjvrF9D+4AWR3KGdErVePrFYlhpN+Jzt8gSWVKGcULtR+iD+ZZoH4++ns7bIVSgZ1B6uKNvNrNSdIecRwT5GHPLpk3S+sSlFWNNcnEupcIpBKAeFE5mi8PBa/iYyTfTFehNs2DNqvUgPmvgYPiXm0gYgP+d9qfCDbsDRTLZ56ZyStY+BSSBx2c0dxrghrCRrLzTe29j53847G5aagqKvo6cOO/YCdQ3/9n6g2zezRQv2tJx2XQgbDuak0yUYScBG1VukitOMbteQ3iFnftgDSlr8YJfO+JI12XxuHDkFZZdjV/Aq/zrM1B4Yx9+jsIRT4wihSYeuXdngJOQagmTqDBsMH9TjnVnLrhgfbaoPrQEAl5oCb2ph2/Epx+iOt4pEuvtzfBc2iy3llPrn0KnFpcNEDeU9QO0FWp+J8enmJj6ptF8WL/nkO9clZSKYRTU2TYPU1j9Nd9ngjsrn40IIOvd95PHUp/n4+MqZr2V4LDSo+C0w1+idog5dfnZePuLSa9bhWuPwFYtFN6ZKHUTMIMM48dtj4QTX2oEk0tpUxVqx1EEOpWSJwS/C6v8FSlJq6C453oAN0/Qd6vEs78tkxMtVVgrE+d5Ck0JzSKvBa18ryDgpn4ZlrpgexDdiXqg68w+e2dF2i/cJ00DJqBpsl0rv7+xZJtzOhon3vHj9ygmjQVo3Zujan7fObA5M+s932i+a21QKcenlaQUwV7Vu/5HzJK62FPrsKCvAopwxrk65czjjW8t5fFQroTcvRhaO7w9lPcMPa7+wKxmcShtzTt5R+0ihmsHe926AftUGrmsAdqMJj086wUBE/n96BRfjlWe4jowT6lpbO418MXbM1zQr1CAl9Fs1vTJNMoeauwSknMDKh+MV95sKpgAIMU/VFJ3eQ9OLx8FGxHm5xHoHXNrqja9VnFAP3xBTF+21DEBm6YnDMUiVDaTRmQgZykrYkzbYLvw3LjCwjN0D/OuuS7WCThpnhHhZzNRLQ1vvISAVz9SaIPFVrQZEbgyexU4rAc4zzCAjp37OdQPvFtJI0L4UfkX82J8ZD418MevcBFKiIJCauzNAw8HJ6QGhIlGvwrJZKnikcwyxFOjRTOXTAPM="
+  },
+  "expected": {
+    "passwordUtf8Bytes": 29,
+    "photoBytes": 264,
+    "plaintextBytes": 1375,
+    "ciphertextBytes": 1391,
+    "photoSha256": "902b88fb192ea99ddf99e5f2bd279afc0203dbbbb8ac79b5ee6356677d3d53c1",
+    "plaintextSha256": "fb4483275bf106a523340bff913f2c8705f413e31120e89b93d76fbb8a6547ea",
+    "ciphertextSha256": "607c2dad8ec145083ce8c08af099833b0aa87912d10b40c25cc2bdb25ca59414",
+    "envelopeJsonSha256": "584be6a5b6ed29ec690417fb8aba28567265a5d739ca7022d13a0d90ad75736b"
+  }
+}

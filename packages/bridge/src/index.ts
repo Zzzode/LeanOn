@@ -11,6 +11,11 @@
 export const BRIDGE_VERSION = '0.1.0' as const;
 
 export type {
+  DeletedRecord, GuidanceMode, IntakeEntry, LegacyIntakeRecord, MealType, OperationReceipt, RecordKind,
+  RecordMutation, RecordsMutationRequest, RecordsState, SafetyFlags, WaterRecord, WeightRecord,
+} from '@zzzode/core';
+
+export type {
   BridgeTransport,
   JsonObject,
   JsonPrimitive,
@@ -34,9 +39,14 @@ export type {
   TypedBridgeClient,
 } from './client';
 
-export { BridgeEvents, RpcMethods } from './contracts';
+export { BridgeEvents, RpcMethods, isAppearanceState, isScannerStatus } from './contracts';
 export type {
+  CompanionResponseDto,
+  CompanionRuntimeDto,
+  CompanionAccountDeletionDto,
   AppInfo,
+  AppearancePreference,
+  AppearanceState,
   HealthDataType,
   HealthSampleDto,
   HostCapabilities,
@@ -44,6 +54,8 @@ export type {
   LeanOnEventContract,
   LeanOnRpcContract,
   ReadSamplesRequest,
+  ResolvedAppearance,
+  ScannerStatus,
   ScaleConnectionState,
   ScaleDeviceDto,
   ScaleReadingDto,
@@ -66,3 +78,5 @@ export function createLeanOnBridgeClient(
 ): LeanOnBridgeClient {
   return createBridgeClient<LeanOnRpcContract, LeanOnEventContract>(transport);
 }
+
+export type { CompanionMigrationState, CompanionMigrationResponse } from './contracts.js';

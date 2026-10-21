@@ -1,0 +1,11 @@
+{
+  "androidPhotoSha256": "8cb4d535227e357f46caf0b15e09626db2473a5c59c607948b52e52364a68548",
+  "capturedUtc": "2026-10-07T20:33:43Z",
+  "checks": [
+    "android-to-ios-real-weight-and-independent-r2-jpeg-exact-bytes",
+    "android-encrypted-message-received-and-ios-reply-published"
+  ],
+  "passed": true,
+  "platform": "iOS",
+  "stage": "receive"
+}

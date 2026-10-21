@@ -1,4 +1,15 @@
-import { useEffect, useMemo, useState } from '@lynx-js/react';
+import { filterExcludedFoods } from '../state/dietary-foods.js';
+import { WorkflowChoice } from './WorkflowSheet.js';
+import type { LayoutChangeEvent } from '@lynx-js/types';
+import type { RegisterInnerDismiss } from '../state/modal-dismiss.js';
+import { resolveFoodSelection, type FoodSelectionToken } from '../state/food-selection.js';
+import { foodUpdateRequest } from '../state/food-edit.js';
+import type { LeanOnRpcContract, ScannerStatus } from '@zzzode/bridge';
+import type { ScanFoodPhase, ScanFoodResult } from '../state/scan-food.js';
+import { BarcodeLookupSheet } from './BarcodeLookupSheet.js';
+import { isRecordConflict } from '../state/record-mutation.js';
+import { foodCapabilities } from '../state/capabilities.js';
+import { useEffect, useMemo, useRef, useState } from '@lynx-js/react';
 import {
   foods,
   portion,
@@ -21,11 +32,7 @@ interface FoodFields {
   fatG: number;
 }
 
-interface UpdateFoodRequest extends FoodFields {
-  id: string;
-  /** A number sets the default serving; null clears it. */
-  defaultGrams: number | null;
-}
+type UpdateFoodRequest = LeanOnRpcContract['health.updateCustomFood']['request'];
 
 interface CreateFoodRequest extends FoodFields {
   defaultGrams?: number;
@@ -38,6 +45,10 @@ function isUserOwned(item: FoodItem): boolean {
 
 interface FoodSheetProps {
   t: Translator;
+  date?: string;
+  canSave?: boolean;
+  supportedMethods?: readonly string[];
+  preview?: boolean;
   locale: FoodLocale;
   /** User-created foods the host persisted (RFC 0013). */
   customFoods: readonly FoodItem[];
@@ -45,9 +56,13 @@ interface FoodSheetProps {
   favoriteFoodIds: readonly string[];
   /** Most recently logged food ids first (RFC 0015). */
   recentFoodIds: readonly string[];
+  excludedFoodIds?:readonly string[];
   onClose: () => void;
   onSave: (meal: {
     foodId: string;
+    name: string;
+    grams: number;
+    meal: 'breakfast'|'lunch'|'dinner'|'snack';
     kcal: number;
     macros: FoodItem['macros'];
     micros: FoodItem['micros'];
@@ -62,10 +77,12 @@ interface FoodSheetProps {
   onSetFavorite: (id: string, favorite: boolean) => Promise<void>;
   /** When set after a barcode scan (RFC 0016), open this food's detail. */
   initialSelectedId?: string;
-  /** Inline message for a failed barcode lookup (not found/offline). */
-  scanError?: string;
-  /** Trigger the native barcode scan and lookup orchestration (RFC 0016). */
-  onScanBarcode: () => void;
+  initialSelectedGrams?: number;
+  initialSelectionVersion?: number;
+  registerInnerDismiss?: RegisterInnerDismiss;
+  onGetScannerStatus: () => Promise<ScannerStatus>;
+  onScanBarcode: (allowPermission: boolean, onPhase: (phase: ScanFoodPhase) => void, isCancelled: () => boolean) => Promise<ScanFoodResult>;
+  onLookupBarcode: (barcode: string, onPhase: (phase: ScanFoodPhase) => void, isCancelled: () => boolean) => Promise<ScanFoodResult>;
 }
 
 /**
@@ -76,10 +93,15 @@ interface FoodSheetProps {
  */
 export function FoodSheet({
   t,
+  date,
+  canSave = true,
+  supportedMethods,
+  preview = false,
   locale,
   customFoods,
   favoriteFoodIds,
   recentFoodIds,
+  excludedFoodIds=[],
   onClose,
   onSave,
   onCreateCustomFood,
@@ -87,11 +109,23 @@ export function FoodSheet({
   onDeleteCustomFood,
   onSetFavorite,
   initialSelectedId,
-  scanError,
+  initialSelectedGrams,
+  initialSelectionVersion,
+  registerInnerDismiss,
+  onGetScannerStatus,
   onScanBarcode,
+  onLookupBarcode,
 }: FoodSheetProps) {
+  const pending = useRef(false);
+  const consumedSelection = useRef<FoodSelectionToken | null>(null);
+  const handleClose = () => { if (!pending.current) onClose(); };
+  const capabilities = foodCapabilities(supportedMethods, preview);
+  const { create: canCreate, edit: canEdit, delete: canDelete, favorite: canFavorite, camera: canCamera, lookup: canLookup } = capabilities;
+  const [showExcluded,setShowExcluded]=useState(false);
+  const [barcodeOpen, setBarcodeOpen] = useState(false);
   const [query, setQuery] = useState<string>('');
   const [selected, setSelected] = useState<FoodItem | null>(null);
+  const [mealType, setMealType] = useState<'breakfast'|'lunch'|'dinner'|'snack'>('snack');
   const [grams, setGrams] = useState<string>('100');
   const [creating, setCreating] = useState<boolean>(false);
   const [editing, setEditing] = useState<boolean>(false);
@@ -107,14 +141,38 @@ export function FoodSheet({
   const [cFat, setCFat] = useState<string>('');
   const [cDefault, setCDefault] = useState<string>('');
   const [formError, setFormError] = useState<string | null>(null);
+  const [focusedField, setFocusedField] = useState<string | null>(null);
+  const portionFocused = useRef(false);
+  const portionViewportHeight = useRef<number | null>(null);
+  const revealPortion = () => {
+    lynx.createSelectorQuery().select('#food-grams-field').invoke({
+      method: 'scrollIntoView',
+      params: {scrollIntoViewOptions:{block:'center',inline:'start',behavior:'none'}},
+    }).exec();
+  };
+  const handlePortionLayout = (event: LayoutChangeEvent) => {
+    const height=event.detail.height;
+    if(portionViewportHeight.current===height)return;
+    portionViewportHeight.current=height;
+    if(portionFocused.current)revealPortion();
+  };
+  const [invalidFields, setInvalidFields] = useState<readonly string[]>([]);
+  const fieldClass = (base: string, id: string): string =>
+    `${base}${focusedField === id ? ' focused' : ''}${invalidFields.includes(id) ? ' invalid' : ''}`;
+  const clearFieldError = (id: string) => {
+    setInvalidFields((current) => current.filter((field) => field !== id));
+    if (invalidFields.length === 0 || (invalidFields.length === 1 && invalidFields[0] === id)) {
+      setFormError(null);
+    }
+  };
 
   const database = useMemo<FoodDatabase>(
     () => [...foods, ...customFoods],
     [customFoods],
   );
   const results = useMemo(
-    () => searchFoods(database, query, locale),
-    [database, query, locale],
+    () => filterExcludedFoods(searchFoods(database, query, locale),excludedFoodIds,showExcluded),
+    [database, query, locale,excludedFoodIds,showExcluded],
   );
 
   // Resolve the favorite/recent id indexes to foods for the empty-query shortcuts.
@@ -128,12 +186,12 @@ export function FoodSheet({
       .map((id) => foodById.get(id))
       .filter((item): item is FoodItem => item !== undefined);
   const favoriteItems = useMemo(
-    () => resolveIds(favoriteFoodIds),
-    [foodById, favoriteFoodIds],
+    () => filterExcludedFoods(resolveIds(favoriteFoodIds),excludedFoodIds,showExcluded),
+    [foodById, favoriteFoodIds,excludedFoodIds,showExcluded],
   );
   const recentItems = useMemo(
-    () => resolveIds(recentFoodIds),
-    [foodById, recentFoodIds],
+    () => filterExcludedFoods(resolveIds(recentFoodIds),excludedFoodIds,showExcluded),
+    [foodById, recentFoodIds,excludedFoodIds,showExcluded],
   );
   // Empty-query fallback: common staples not already shown as favorite/recent.
   const suggestedItems = useMemo(() => {
@@ -142,17 +200,17 @@ export function FoodSheet({
     return results.filter((item) => !shown.has(item.id));
   }, [query, results, favoriteFoodIds, recentFoodIds]);
 
-  // After a barcode scan, land on the scanned food's detail once it is present.
+  // Consume each initial selection once; refreshed catalogs must preserve edited portions.
   useEffect(() => {
-    if (initialSelectedId === undefined) return;
-    const item = foodById.get(initialSelectedId);
-    if (item !== undefined) {
-      setSelected(item);
-      setQuery('');
-      setCreating(false);
-      setEditing(false);
-    }
-  }, [initialSelectedId, foodById]);
+    const selection = resolveFoodSelection(consumedSelection.current,initialSelectedId,initialSelectionVersion ?? 0,foodById);
+    if (selection === null) return;
+    consumedSelection.current = selection.token;
+    setSelected(selection.food);
+    setGrams(String(initialSelectedGrams ?? selection.food.defaultGrams ?? 100));
+    setQuery('');
+    setCreating(false);
+    setEditing(false);
+  }, [initialSelectedId, initialSelectedGrams, initialSelectionVersion, foodById]);
 
   const meal = useMemo(() => {
     if (selected === null) return null;
@@ -176,7 +234,7 @@ export function FoodSheet({
   // Controlled `value` is unavailable on Lynx 3.9 input, so prefill imperatively.
   useEffect(() => {
     if (selected === null) return;
-    setField('#food-grams', String(selected.defaultGrams ?? 100));
+    setField('#food-grams', grams);
   }, [selected]);
 
   // Prefill the shared form: create seeds the name with the query and clears the
@@ -201,6 +259,7 @@ export function FoodSheet({
   }, [creating, editing]);
 
   const choose = (item: FoodItem) => {
+    if (pending.current) return;
     setSelected(item);
     setGrams(String(item.defaultGrams ?? 100));
     setError(null);
@@ -208,6 +267,7 @@ export function FoodSheet({
   };
 
   const openCreate = () => {
+    if (pending.current || !canCreate) return;
     setCName(query);
     setCKcal('');
     setCProtein('');
@@ -215,11 +275,12 @@ export function FoodSheet({
     setCFat('');
     setCDefault('');
     setFormError(null);
+    setInvalidFields([]);
     setCreating(true);
   };
 
   const openEdit = () => {
-    if (selected === null) return;
+    if (selected === null || pending.current || !canEdit) return;
     setCName(selected.name[locale]);
     setCKcal(String(selected.kcal));
     setCProtein(String(selected.macros.proteinG));
@@ -227,24 +288,30 @@ export function FoodSheet({
     setCFat(String(selected.macros.fatG));
     setCDefault(selected.defaultGrams === undefined ? '' : String(selected.defaultGrams));
     setFormError(null);
+    setInvalidFields([]);
     setConfirmDelete(false);
     setEditing(true);
   };
 
   const closeForm = () => {
+    if (pending.current) return;
     setCreating(false);
     setEditing(false);
     setFormError(null);
+    setInvalidFields([]);
   };
 
   const submitForm = async () => {
+    if (pending.current || (editing ? !canEdit : !canCreate)) return;
     const name = cName.trim();
     const kcal = Number(cKcal);
     if (name.length === 0) {
+      setInvalidFields(['cf-name']);
       setFormError(t('customFood.nameRequired'));
       return;
     }
     if (!Number.isFinite(kcal) || kcal <= 0) {
+      setInvalidFields(['cf-kcal']);
       setFormError(t('customFood.kcalRequired'));
       return;
     }
@@ -254,6 +321,11 @@ export function FoodSheet({
     const carbsG = optional(cCarbs);
     const fatG = optional(cFat);
     if (![proteinG, carbsG, fatG].every((v) => Number.isFinite(v) && v >= 0)) {
+      setInvalidFields([
+        ...(!Number.isFinite(proteinG) || proteinG < 0 ? ['cf-protein'] : []),
+        ...(!Number.isFinite(carbsG) || carbsG < 0 ? ['cf-carbs'] : []),
+        ...(!Number.isFinite(fatG) || fatG < 0 ? ['cf-fat'] : []),
+      ]);
       setFormError(t('customFood.invalidMacros'));
       return;
     }
@@ -261,21 +333,25 @@ export function FoodSheet({
     if (cDefault.trim() !== '') {
       const value = Number(cDefault);
       if (!Number.isFinite(value) || value <= 0) {
+        setInvalidFields(['cf-default']);
         setFormError(t('customFood.invalidDefault'));
         return;
       }
       defaultNumber = value;
     }
 
+    pending.current = true;
     setSaving(true);
+    setFormError(null);
+    setInvalidFields([]);
     try {
       if (editing && selected !== null) {
-        const updated = await onUpdateCustomFood({
-          id: selected.id, name, kcal, proteinG, carbsG, fatG,
-          defaultGrams: defaultNumber,
-        });
+        const updated = await onUpdateCustomFood(foodUpdateRequest(selected,{
+          name, kcal, proteinG, carbsG, fatG, defaultGrams: defaultNumber,
+        }));
         setEditing(false);
         setSelected(updated);
+        setGrams(String(updated.defaultGrams ?? 100));
       } else {
         const created = await onCreateCustomFood({
           name, kcal, proteinG, carbsG, fatG,
@@ -288,29 +364,42 @@ export function FoodSheet({
     } catch {
       setFormError(t('customFood.error'));
     }
+    pending.current = false;
     setSaving(false);
   };
 
   const isFavorite =
     selected !== null && favoriteFoodIds.includes(selected.id);
   const toggleFavorite = async () => {
-    if (selected === null) return;
+    if (selected === null || pending.current || !canFavorite) return;
+    pending.current = true;
+    setSaving(true);
+    setError(null);
     try {
       await onSetFavorite(selected.id, !isFavorite);
-    } catch {
-      setError(t('customFood.error'));
+    } catch (error) {
+      setError(t(isRecordConflict(error) ? 'closure.conflict' : 'customFood.error'));
+    } finally {
+      pending.current = false;
+      setSaving(false);
     }
   };
 
   const handleDelete = async () => {
-    if (selected === null) return;
+    if (selected === null || pending.current || !canDelete) return;
+    pending.current = true;
+    setError(null);
     setSaving(true);
     try {
       await onDeleteCustomFood(selected.id);
-    } catch {
-      setError(t('customFood.error'));
-      setSaving(false);
+      setSelected(null);
       setConfirmDelete(false);
+    } catch (error) {
+      setError(t(isRecordConflict(error) ? 'closure.conflict' : 'customFood.error'));
+      setConfirmDelete(false);
+    } finally {
+      pending.current = false;
+      setSaving(false);
     }
   };
 
@@ -322,20 +411,28 @@ export function FoodSheet({
     micros.sodiumMg > 0;
 
   const handleSave = async () => {
-    if (meal === null) {
+    if (pending.current || !canSave) return;
+    if (meal === null || selected === null) {
       setError(t('foodSheet.invalid'));
       return;
     }
+    pending.current = true;
     setSaving(true);
+    setError(null);
     try {
       await onSave({
-        foodId: selected!.id,
+        foodId: selected.id,
+        name: selected.name[locale],
+        grams: Number(grams),
+        meal: mealType,
         kcal: meal.kcal,
         macros: meal.macros,
         micros: meal.micros,
       });
-    } catch {
-      setError(t('foodSheet.error'));
+    } catch (error) {
+      setError(t(isRecordConflict(error) ? 'closure.conflict' : 'foodSheet.error'));
+    } finally {
+      pending.current = false;
       setSaving(false);
     }
   };
@@ -345,87 +442,146 @@ export function FoodSheet({
   const showForm = creating || editing;
 
   return (
+    <>
     <view
+      accessibility-elements-hidden={barcodeOpen}
       className="Sheet-overlay Food-overlay"
       hover-class="tap-feedback-hover"
-      bindtap={onClose}
+      bindtap={saving ? undefined : handleClose}
     >
-      <view className="FoodSheet" catchtap={() => {}}>
+      <view className="FoodSheet Theme-food" catchtap={() => {}}>
+        <view className="Sheet-header">
         <text className="Sheet-title">
           {showForm
             ? editing
               ? t('customFood.editTitle')
               : t('customFood.title')
-            : t('foodSheet.title')}
+            : selected !== null ? t('review.portionTitle') : t('foodSheet.title')}
         </text>
 
+        {!showForm && selected === null && <view className="Sheet-close-button" accessibility-element={true} accessibility-traits={saving ? 'disabled' : 'button'} accessibility-label={t('foodSheet.cancel')} bindtap={saving ? undefined : handleClose}>
+          <text className="Food-back-label">{t('foodSheet.cancel')}</text>
+        </view>}
+        </view>
+        {date !== undefined && <text className="Section-note">{t('daily.date')} · {date}</text>}
         {showForm ? (
+          <>
+        <scroll-view scroll-orientation="vertical" className="Food-form-scroll">
           <view className="Food-detail">
+            <text className="Section-kicker">{t('review.per100g')}</text>
             <view className="Food-form">
-              <view className="Sheet-field">
+              <text className="Form-label">{t('customFood.name')}</text>
+              <view className={fieldClass('Sheet-field', 'cf-name')}>
                 <input
+            accessibility-element={true}
+                  disabled={saving}
+                  confirm-type="done"
+                  accessibility-label={t('customFood.name')}
+                  bindconfirm={() => lynx.createSelectorQuery().select('#cf-name').invoke({ method: 'blur' }).exec()}
                   id="cf-name"
+                  bindfocus={() => setFocusedField('cf-name')}
+                  bindblur={() => setFocusedField(null)}
                   className="Sheet-input"
                   bindinput={(event: InputEvent) =>
-                    setCName(event.detail.value)
+                    { setCName(event.detail.value); clearFieldError('cf-name'); }
                   }
                   placeholder={t('customFood.name')}
                 />
               </view>
-              <view className="Sheet-field">
+              <text className="Form-label">{t('customFood.kcal')}</text>
+              <view className={fieldClass('Sheet-field', 'cf-kcal')}>
                 <input
+            accessibility-element={true}
+                  disabled={saving}
+                  confirm-type="done"
+                  accessibility-label={t('customFood.kcal')}
+                  bindconfirm={() => lynx.createSelectorQuery().select('#cf-kcal').invoke({ method: 'blur' }).exec()}
                   id="cf-kcal"
+                  bindfocus={() => setFocusedField('cf-kcal')}
+                  bindblur={() => setFocusedField(null)}
                   className="Sheet-input"
                   type="digit"
                   bindinput={(event: InputEvent) =>
-                    setCKcal(event.detail.value)
+                    { setCKcal(event.detail.value); clearFieldError('cf-kcal'); }
                   }
                   placeholder={t('customFood.kcal')}
                 />
                 <text className="Sheet-unit">kcal/100g</text>
               </view>
               <view className="Food-form-row">
-                <view className="Food-form-cell">
-                  <input
-                    id="cf-protein"
+                <view className={fieldClass('Food-form-cell', 'cf-protein')}>
+                  <text className="Form-label">{t('customFood.protein')}</text>
+                <input
+            accessibility-element={true}
+                    disabled={saving}
+                  confirm-type="done"
+                  accessibility-label={t('customFood.protein')}
+                  bindconfirm={() => lynx.createSelectorQuery().select('#cf-protein').invoke({ method: 'blur' }).exec()}
+                  id="cf-protein"
+                  bindfocus={() => setFocusedField('cf-protein')}
+                  bindblur={() => setFocusedField(null)}
                     className="Sheet-input"
                     type="digit"
                     bindinput={(event: InputEvent) =>
-                      setCProtein(event.detail.value)
+                      { setCProtein(event.detail.value); clearFieldError('cf-protein'); }
                     }
                     placeholder={t('customFood.protein')}
                   />
                 </view>
-                <view className="Food-form-cell">
-                  <input
-                    id="cf-carbs"
+                <view className={fieldClass('Food-form-cell', 'cf-carbs')}>
+                  <text className="Form-label">{t('customFood.carbs')}</text>
+                <input
+            accessibility-element={true}
+                    disabled={saving}
+                  confirm-type="done"
+                  accessibility-label={t('customFood.carbs')}
+                  bindconfirm={() => lynx.createSelectorQuery().select('#cf-carbs').invoke({ method: 'blur' }).exec()}
+                  id="cf-carbs"
+                  bindfocus={() => setFocusedField('cf-carbs')}
+                  bindblur={() => setFocusedField(null)}
                     className="Sheet-input"
                     type="digit"
                     bindinput={(event: InputEvent) =>
-                      setCCarbs(event.detail.value)
+                      { setCCarbs(event.detail.value); clearFieldError('cf-carbs'); }
                     }
                     placeholder={t('customFood.carbs')}
                   />
                 </view>
-                <view className="Food-form-cell">
-                  <input
-                    id="cf-fat"
+                <view className={fieldClass('Food-form-cell', 'cf-fat')}>
+                  <text className="Form-label">{t('customFood.fat')}</text>
+                <input
+            accessibility-element={true}
+                    disabled={saving}
+                  confirm-type="done"
+                  accessibility-label={t('customFood.fat')}
+                  bindconfirm={() => lynx.createSelectorQuery().select('#cf-fat').invoke({ method: 'blur' }).exec()}
+                  id="cf-fat"
+                  bindfocus={() => setFocusedField('cf-fat')}
+                  bindblur={() => setFocusedField(null)}
                     className="Sheet-input"
                     type="digit"
                     bindinput={(event: InputEvent) =>
-                      setCFat(event.detail.value)
+                      { setCFat(event.detail.value); clearFieldError('cf-fat'); }
                     }
                     placeholder={t('customFood.fat')}
                   />
                 </view>
               </view>
-              <view className="Sheet-field">
+              <text className="Form-label">{t('customFood.defaultGrams')}</text>
+              <view className={fieldClass('Sheet-field', 'cf-default')}>
                 <input
+            accessibility-element={true}
+                  disabled={saving}
+                  confirm-type="done"
+                  accessibility-label={t('customFood.defaultGrams')}
+                  bindconfirm={() => lynx.createSelectorQuery().select('#cf-default').invoke({ method: 'blur' }).exec()}
                   id="cf-default"
+                  bindfocus={() => setFocusedField('cf-default')}
+                  bindblur={() => setFocusedField(null)}
                   className="Sheet-input"
                   type="digit"
                   bindinput={(event: InputEvent) =>
-                    setCDefault(event.detail.value)
+                    { setCDefault(event.detail.value); clearFieldError('cf-default'); }
                   }
                   placeholder={t('customFood.defaultGrams')}
                 />
@@ -433,13 +589,18 @@ export function FoodSheet({
               </view>
             </view>
             {formError !== null && (
-              <text className="Sheet-error">{formError}</text>
+              <text className="Sheet-error" accessibility-element={true}>{formError}</text>
             )}
+          </view>
+          </scroll-view>
             <view className="Sheet-actions">
               <view
                 className="Sheet-btn"
+                accessibility-element={true}
+                accessibility-traits={saving ? 'disabled' : 'button'}
+                accessibility-label={t('foodSheet.cancel')}
                 hover-class="tap-feedback-hover"
-                bindtap={closeForm}
+                bindtap={saving ? undefined : closeForm}
               >
                 <text className="Sheet-btn-label">
                   {t('customFood.cancel')}
@@ -447,42 +608,54 @@ export function FoodSheet({
               </view>
               <view
                 className={`Sheet-btn primary${saving ? ' disabled' : ''}`}
+                accessibility-element={true}
+                accessibility-traits={saving ? 'disabled' : 'button'}
+                accessibility-label={saving ? t('review.saving') : editing ? t('customFood.saveChanges') : t('customFood.save')}
                 hover-class="tap-feedback-hover"
                 bindtap={saving ? undefined : submitForm}
               >
                 <text className="Sheet-btn-label primary">
-                  {editing
+                  {saving ? t('review.saving') : editing
                     ? t('customFood.saveChanges')
                     : t('customFood.save')}
                 </text>
               </view>
             </view>
-          </view>
+          </>
         ) : selected === null ? (
           <view className="Food-search">
+            {excludedFoodIds.length>0&&<view><text className="Section-note">{t('personal.hiddenFoods')}</text><WorkflowChoice t={t} label={t('personal.showExcluded')} selected={showExcluded} disabled={saving} onTap={()=>setShowExcluded(value=>!value)}/></view>}
+            <text className="Form-label">{t('foodSheet.searchPlaceholder')}</text>
             <view className="Food-search-row">
-              <view className="Food-search-field">
+              <view className={fieldClass('Food-search-field', 'food-search-input')}>
                 <input
+            accessibility-element={true}
+                  accessibility-label={t('foodSheet.searchPlaceholder')}
+                  bindconfirm={() => lynx.createSelectorQuery().select('#food-search-input').invoke({ method: 'blur' }).exec()}
                   id="food-search-input"
+                  bindfocus={() => setFocusedField('food-search-input')}
+                  bindblur={() => setFocusedField(null)}
                   className="Food-search-input"
+                  confirm-type="search"
+                  disabled={saving}
                   bindinput={(event: InputEvent) => setQuery(event.detail.value)}
                   placeholder={t('foodSheet.searchPlaceholder')}
                 />
               </view>
-              <view
+              {<view
                 className="Food-scan-btn"
+                accessibility-element={true}
+                accessibility-traits={saving ? 'disabled' : 'button'}
+                accessibility-label={t('barcode.open')}
                 hover-class="tap-feedback-hover"
-                bindtap={onScanBarcode}
+                bindtap={saving ? undefined : () => setBarcodeOpen(true)}
               >
                 <text className="Food-scan-label">
-                  {t('foodSheet.scan')}
+                  {t('barcode.open')}
                 </text>
-              </view>
+              </view>}
             </view>
-            {scanError !== undefined && scanError.length > 0 && (
-              <text className="Food-scan-error">{scanError}</text>
-            )}
-            <view className="Food-results">
+            <scroll-view scroll-orientation="vertical" className="Food-results">
               {trimmedQuery === '' && favoriteItems.length > 0 && (
                 <view className="Food-quick-section">
                   <text className="Food-quick-title">
@@ -492,6 +665,9 @@ export function FoodSheet({
                     <view
                       key={`fav-${item.id}`}
                       className="Food-row"
+                      accessibility-element={true}
+                      accessibility-traits={saving ? 'disabled' : 'button'}
+                      accessibility-label={item.name[locale]}
                       hover-class="tap-feedback-hover"
                       bindtap={() => choose(item)}
                     >
@@ -514,6 +690,9 @@ export function FoodSheet({
                     <view
                       key={`recent-${item.id}`}
                       className="Food-row"
+                      accessibility-element={true}
+                      accessibility-traits={saving ? 'disabled' : 'button'}
+                      accessibility-label={item.name[locale]}
                       hover-class="tap-feedback-hover"
                       bindtap={() => choose(item)}
                     >
@@ -532,6 +711,9 @@ export function FoodSheet({
                   <view
                     key={item.id}
                     className="Food-row"
+                      accessibility-element={true}
+                      accessibility-traits={saving ? 'disabled' : 'button'}
+                      accessibility-label={item.name[locale]}
                     hover-class="tap-feedback-hover"
                     bindtap={() => choose(item)}
                   >
@@ -543,9 +725,13 @@ export function FoodSheet({
                     </text>
                   </view>
                 ))}
-              {trimmedQuery !== '' && showCreateRow && (
+              {showCreateRow && !canCreate && <text className="Section-note">{t('review.unavailableBody')}</text>}
+              {trimmedQuery !== '' && showCreateRow && canCreate && (
                 <view
                   className="Food-row Food-create-row"
+                  accessibility-element={true}
+                  accessibility-traits={saving ? 'disabled' : 'button'}
+                  accessibility-label={t('customFood.title')}
                   hover-class="tap-feedback-hover"
                   bindtap={openCreate}
                 >
@@ -563,6 +749,9 @@ export function FoodSheet({
                     <view
                       key={`sug-${item.id}`}
                       className="Food-row"
+                      accessibility-element={true}
+                      accessibility-traits={saving ? 'disabled' : 'button'}
+                      accessibility-label={item.name[locale]}
                       hover-class="tap-feedback-hover"
                       bindtap={() => choose(item)}
                     >
@@ -576,25 +765,19 @@ export function FoodSheet({
                   ))}
                 </view>
               )}
-            </view>
-            <view className="Sheet-actions">
-              <view
-                className="Sheet-btn"
-                hover-class="tap-feedback-hover"
-                bindtap={onClose}
-              >
-                <text className="Sheet-btn-label">
-                  {t('foodSheet.cancel')}
-                </text>
-              </view>
-            </view>
+            </scroll-view>
           </view>
         ) : (
+          <>
+          <scroll-view scroll-orientation="vertical" className="Food-detail-scroll" bindlayoutchange={handlePortionLayout}>
           <view className="Food-detail">
             <view
               className="Food-back"
+              accessibility-element={true}
+              accessibility-traits={saving ? 'disabled' : 'button'}
+              accessibility-label={t('foodSheet.back')}
               hover-class="tap-feedback-hover"
-              bindtap={() => setSelected(null)}
+              bindtap={saving ? undefined : () => { if (!pending.current) { setSelected(null); setError(null); } }}
             >
               <text className="Food-back-label">{t('foodSheet.back')}</text>
             </view>
@@ -602,32 +785,47 @@ export function FoodSheet({
               <text className="Food-selected-name">
                 {selected.name[locale]}
               </text>
-              <view
+              {canFavorite && <view
                 className="Food-star"
+                accessibility-element={true}
+                accessibility-traits={isFavorite ? 'selected' : 'button'}
+                accessibility-label={t('foodSheet.favorites')}
                 hover-class="tap-feedback-hover"
-                bindtap={toggleFavorite}
+                bindtap={saving ? undefined : toggleFavorite}
               >
                 <text
                   className={`Food-star-label${isFavorite ? ' on' : ''}`}
                 >
                   {isFavorite ? '★' : '☆'}
                 </text>
-              </view>
+              </view>}
             </view>
-            <view className="Sheet-field">
+            <text className="Form-label">{t('review.portionLabel')}</text>
+            <view id="food-grams-field" flatten={false} className={`Sheet-field${focusedField === 'food-grams' ? ' focused' : ''}${meal === null ? ' invalid' : ''}`}>
               <input
-                id="food-grams"
+            accessibility-element={true}
+                disabled={saving}
+                confirm-type="done"
+                accessibility-label={t('review.portionLabel')}
+                  bindconfirm={() => lynx.createSelectorQuery().select('#food-grams').invoke({ method: 'blur' }).exec()}
+                  id="food-grams"
+                  bindfocus={() => {portionFocused.current=true;setFocusedField('food-grams');revealPortion();}}
+                  bindblur={() => {portionFocused.current=false;setFocusedField(null);}}
                 className="Sheet-input"
                 type="digit"
                 bindinput={(event: InputEvent) =>
-                  setGrams(event.detail.value)
+                  { setGrams(event.detail.value); setError(null); }
                 }
               />
               <text className="Sheet-unit">g</text>
             </view>
 
+            <text className="Form-label">{t('daily.meal')}</text>
+            <view className="LangSwitch Food-meal-options">{(['breakfast','lunch','dinner','snack'] as const).map(value=><view key={value} className={`LangSwitch-item${mealType===value?' active':''}`} accessibility-element={true} accessibility-traits="button" accessibility-value={mealType===value?'✓':''} accessibility-label={t(`daily.${value}`)} bindtap={saving?undefined:()=>setMealType(value)}><text className={`LangSwitch-label${mealType===value?' active':''}`}>{t(`daily.${value}`)}</text></view>)}</view>
+
             {meal !== null ? (
-              <view className="Food-result">
+            <view className="Food-result">
+                <text className="Estimate-label">{t('review.estimatedEnergy')}</text>
                 <view className="Food-result-kcal">
                   <text className="Food-result-value">{meal.kcal}</text>
                   <text className="Food-result-unit">kcal</text>
@@ -661,27 +859,34 @@ export function FoodSheet({
                 )}
               </view>
             ) : (
-              <text className="Sheet-error">{t('foodSheet.invalid')}</text>
+              <text className="Sheet-error" accessibility-element={true}>{t('foodSheet.invalid')}</text>
             )}
-            {error !== null && <text className="Sheet-error">{error}</text>}
+            {error !== null && meal !== null && <text className="Sheet-error" accessibility-element={true}>{error}</text>}
+            {!canSave && <text className="Section-note">{t('review.unavailableBody')}</text>}
 
-            {isUserOwned(selected) && (
+            {isUserOwned(selected) && (canEdit || canDelete) && (
               <view className="Food-manage">
-                <view
+                {canEdit && <view
                   className="Food-manage-btn"
+                  accessibility-element={true}
+                  accessibility-traits={saving ? 'disabled' : 'button'}
+                  accessibility-label={t('customFood.edit')}
                   hover-class="tap-feedback-hover"
-                  bindtap={openEdit}
+                  bindtap={saving ? undefined : openEdit}
                 >
                   <text className="Food-manage-label">
                     {t('customFood.edit')}
                   </text>
-                </view>
-                {confirmDelete ? (
+                </view>}
+                {canDelete && (confirmDelete ? (
                   <view className="Food-manage-row">
                     <view
                       className="Food-manage-btn"
+                      accessibility-element={true}
+                      accessibility-traits={saving ? 'disabled' : 'button'}
+                      accessibility-label={t('customFood.cancel')}
                       hover-class="tap-feedback-hover"
-                      bindtap={() => setConfirmDelete(false)}
+                      bindtap={saving ? undefined : () => setConfirmDelete(false)}
                     >
                       <text className="Food-manage-label">
                         {t('customFood.cancel')}
@@ -689,6 +894,9 @@ export function FoodSheet({
                     </view>
                     <view
                       className="Food-manage-btn danger"
+                      accessibility-element={true}
+                      accessibility-traits={saving ? 'disabled' : 'button'}
+                      accessibility-label={t('customFood.deleteNow')}
                       hover-class="tap-feedback-hover"
                       bindtap={saving ? undefined : handleDelete}
                     >
@@ -700,40 +908,59 @@ export function FoodSheet({
                 ) : (
                   <view
                     className="Food-manage-btn danger"
+                    accessibility-element={true}
+                    accessibility-traits={saving ? 'disabled' : 'button'}
+                    accessibility-label={t('customFood.delete')}
                     hover-class="tap-feedback-hover"
-                    bindtap={() => setConfirmDelete(true)}
+                    bindtap={saving ? undefined : () => setConfirmDelete(true)}
                   >
                     <text className="Food-manage-label danger">
                       {t('customFood.delete')}
                     </text>
                   </view>
-                )}
+                ))}
               </view>
             )}
 
+          </view>
+          </scroll-view>
             <view className="Sheet-actions">
               <view
                 className="Sheet-btn"
+                accessibility-element={true}
+                accessibility-traits={saving ? 'disabled' : 'button'}
+                accessibility-label={t('foodSheet.cancel')}
                 hover-class="tap-feedback-hover"
-                bindtap={onClose}
+                bindtap={saving ? undefined : handleClose}
               >
                 <text className="Sheet-btn-label">
                   {t('foodSheet.cancel')}
                 </text>
               </view>
               <view
-                className={`Sheet-btn primary${saving ? ' disabled' : ''}`}
+                className={`Sheet-btn primary${saving || !canSave ? ' disabled' : ''}`}
+                accessibility-element={true}
+                accessibility-traits={saving || !canSave ? 'disabled' : 'button'}
+                accessibility-label={saving ? t('review.saving') : t('foodSheet.save')}
                 hover-class="tap-feedback-hover"
-                bindtap={saving ? undefined : handleSave}
+                bindtap={saving || !canSave ? undefined : handleSave}
               >
                 <text className="Sheet-btn-label primary">
-                  {t('foodSheet.save')}
+                  {saving ? t('review.saving') : t('foodSheet.save')}
                 </text>
               </view>
             </view>
-          </view>
+          </>
         )}
       </view>
     </view>
+    {barcodeOpen && <BarcodeLookupSheet
+      t={t} date={date} canCamera={canCamera} canLookup={canLookup} canCreate={canCreate}
+      registerInnerDismiss={registerInnerDismiss}
+      onGetStatus={onGetScannerStatus} onScan={onScanBarcode} onLookup={onLookupBarcode}
+      onClose={() => setBarcodeOpen(false)}
+      onCreate={() => {setBarcodeOpen(false);openCreate();setCName('');}}
+    />}
+    </>
   );
 }

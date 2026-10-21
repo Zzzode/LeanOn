@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.zzzode.leanon.companion.CompanionCryptoTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-07T20:13:59" hostname="CM9FWJPGP6" time="0.045">
+  <properties/>
+  <testcase name="exactNodePublicCipherAndInviteInteropFixture" classname="com.zzzode.leanon.companion.CompanionCryptoTest" time="0.037"/>
+  <testcase name="invitationSecretWrapIsIndependentFromAcceptProof" classname="com.zzzode.leanon.companion.CompanionCryptoTest" time="0.002"/>
+  <testcase name="rfc5869Sha256WorkedVector" classname="com.zzzode.leanon.companion.CompanionCryptoTest" time="0.003"/>
+  <testcase name="exactAadAndMetadataTamperAuthentication" classname="com.zzzode.leanon.companion.CompanionCryptoTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -74,18 +74,14 @@ export function MicrosCard({
   ];
 
   return (
-    <Card>
+    <Card className="Open-section">
       <text className="Card-title">{t('micros.title')}</text>
-      <view className="Macro-grid">
+      <view className="Micro-list">
         {rows.map((r) => (
-          <view className="Macro-col" key={r.key}>
-            <text className={`Micros-val ${r.status}`}>{r.value}</text>
-            <text className="Macro-label">{t(r.labelKey)}</text>
-            <text className="Macro-target">
-              {r.unit === 'g'
-                ? t('micros.ofGrams', { n: r.goal })
-                : t('micros.ofMg', { n: r.goal })}
-            </text>
+          <view className="Micro-row" key={r.key}>
+            <text className="Micro-label">{t(r.labelKey)}</text>
+            <text className="Micro-number">{r.value} {r.unit}</text>
+            <text className="Micro-target">{r.unit === 'g' ? t('micros.ofGrams', { n: r.goal }) : t('micros.ofMg', { n: r.goal })}</text>
           </view>
         ))}
       </view>

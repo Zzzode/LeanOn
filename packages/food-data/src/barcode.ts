@@ -6,6 +6,7 @@ export interface OffNutriments {
   'energy-kcal_100g'?: number;
   /** Energy in kilojoules per 100 g (fallback). */
   energy_100g?: number;
+  'energy-kj_100g'?: number;
   proteins_100g?: number;
   carbohydrates_100g?: number;
   fat_100g?: number;
@@ -24,7 +25,36 @@ export interface OffProduct {
   generic_name?: string;
   nutriments?: OffNutriments;
   serving_quantity?: number;
+  serving_quantity_unit?: string;
   serving_size?: string;
+  product_quantity_unit?: string;
+}
+
+/** Import errors are recoverable; never assume that millilitres equal grams. */
+export class OffNutritionError extends RangeError {
+  constructor(public readonly reason: 'no-energy' | 'volume-basis') {
+    super(reason === 'volume-basis' ? 'Open Food Facts nutrition is volume-based; mass conversion requires density' : 'Open Food Facts product has no usable energy value');
+    this.name = 'OffNutritionError';
+  }
+}
+
+function volumeUnit(value: string | undefined): boolean {
+  return typeof value === 'string' && /^(?:ml|cl|dl|l|fl\s*oz|floz|毫升|公升)$/i.test(value.trim());
+}
+
+function volumeServing(value: string | undefined): boolean {
+  return typeof value === 'string' && /\d\s*(?:ml|cl|dl|l|fl\s*oz|毫升|公升)(?:\b|\s|\)|$)/i.test(value);
+}
+
+function defaultServingGrams(product: OffProduct): number | undefined {
+  const serving = finiteNumber(product.serving_quantity);
+  if (serving === undefined || serving <= 0) return undefined;
+  const unit = typeof product.serving_quantity_unit === 'string' ? product.serving_quantity_unit.trim().toLowerCase() : undefined;
+  if (unit === 'g' || unit === '克' || unit === '公克') return serving;
+  if (unit !== undefined && unit !== '') return undefined;
+  if (volumeServing(product.serving_size)) return undefined;
+  // OFF's quantity is already normalized; only a known mass serving is a gram default.
+  return typeof product.serving_size === 'string' && /\d\s*(?:kg|mg|g|oz|lbs?|公斤|毫克|公克|克)(?:\b|\s|\)|$)/i.test(product.serving_size) ? serving : undefined;
 }
 
 const KJ_PER_KCAL = 4.184;
@@ -69,9 +99,13 @@ export function createFoodFromBarcode(
   barcode: string,
   product: OffProduct,
 ): FoodItem {
+  if (volumeUnit(product.product_quantity_unit) || volumeUnit(product.serving_quantity_unit) || volumeServing(product.serving_size)) {
+    throw new OffNutritionError('volume-basis');
+  }
   const nutriments = product.nutriments ?? {};
   const kcalDirect = finiteNumber(nutriments['energy-kcal_100g']);
-  const kj = finiteNumber(nutriments.energy_100g);
+  const energy = finiteNumber(nutriments.energy_100g);
+  const kj = energy !== undefined && energy > 0 ? energy : finiteNumber(nutriments['energy-kj_100g']);
 
   let kcal: number | undefined;
   if (kcalDirect !== undefined && kcalDirect > 0) {
@@ -80,14 +114,14 @@ export function createFoodFromBarcode(
     kcal = kj / KJ_PER_KCAL;
   }
   if (kcal === undefined || kcal <= 0) {
-    throw new RangeError('Open Food Facts product has no usable energy value');
+    throw new OffNutritionError('no-energy');
   }
 
   const name =
-    product.product_name?.trim() ||
-    product.generic_name?.trim() ||
+    (typeof product.product_name === 'string' ? product.product_name.trim() : '') ||
+    (typeof product.generic_name === 'string' ? product.generic_name.trim() : '') ||
     barcode;
-  const serving = finiteNumber(product.serving_quantity);
+  const serving = defaultServingGrams(product);
 
   const item: FoodItem = {
     id: `off-${barcode}`,

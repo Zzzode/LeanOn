@@ -5,14 +5,16 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
 import java.util.UUID
+import java.time.Clock
+import com.zzzode.leanon.personal.EncryptedRecordsCodec
 
 /**
  * App-private JSON record store. The native side is the persistence authority
- * (RFC 0010). On first launch the packaged seed is copied into filesDir; each
+ * (RFC 0010). On first launch an empty schema-2 store is created; each
  * write upserts the weight for a date and returns the full HostData snapshot.
  *
- * This slice stores plain JSON. Encryption and the envelope/migration model are
- * tracked under RFC 0008 and deliberately not applied here.
+ * Normal app writes are encrypted under RFC 0008. Existing plaintext is read
+ * compatibly and migrates only with the next explicit successful write.
  */
 /**
  * An exercise session mirrored from Health Connect (RFC 0025). It lives in the
@@ -27,22 +29,46 @@ data class ExternalExercise(
   val kcal: Double,
 )
 
-class RecordsRepository(context: Context) {
+class RecordsRepository internal constructor(
+  private val recordFile: File,
+  private val seed: () -> String,
+  private val persist: (File, String) -> Unit = ::writeRecordsAtomically,
+  private val clock: () -> Clock = { Clock.systemDefaultZone() },
+) {
+  private var readStored: (File) -> String = { it.readText(Charsets.UTF_8) }
+  private var encodeStored: (String) -> String = { it }
+  internal var eraseStorageKeys: () -> Unit = {}
+  internal var eraseDerivedStorageKeys: () -> Unit = {}
+  internal var availabilityCheck: () -> Unit = {}
+  internal val storageFile: File get() = recordFile
+  @Synchronized internal fun prepareReplacement(data: JSONObject): ByteArray = encodeStored(migrateDailyRecords(data, clock()).toString()).toByteArray(Charsets.UTF_8)
+  constructor(context: Context, clock: () -> Clock = { Clock.systemDefaultZone() }) : this(context, clock, EncryptedRecordsCodec(context))
 
-  private val appContext: Context = context.applicationContext
-  private val recordFile: File = File(appContext.filesDir, RECORD_FILE)
-
-  /** Load the current HostData, seeding the private store on first launch. */
-  fun loadHostData(): JSONObject {
-    ensureSeeded()
-    val data = JSONObject(recordFile.readText(Charsets.UTF_8))
-    var modified = ensureExerciseIds(data)
-    if (ensureMicros(data)) modified = true
-    if (modified) {
-      recordFile.writeText(data.toString(), Charsets.UTF_8)
-    }
-    return data
+  private constructor(context: Context, clock: () -> Clock, codec: EncryptedRecordsCodec) : this(
+    File(context.applicationContext.filesDir, RECORD_FILE),
+    { emptyDailyRecords().toString() },
+    persist = codec::write,
+    clock = clock,
+  ) {
+    readStored = codec::read; encodeStored = codec::encode; eraseStorageKeys = codec::eraseKeys
+    eraseDerivedStorageKeys = { com.zzzode.leanon.personal.PersonalKeyStore(context,
+      File(context.filesDir, "health-connect-ledger-key-v1"), "health-connect-ledger").delete() }
   }
+
+  /** Read a projected schema-2 snapshot; migration commits only with a successful write. */
+  @Synchronized
+  fun loadHostData(): JSONObject {
+    availabilityCheck()
+    val original = if (recordFile.exists()) readStored(recordFile) else seed()
+    val data = JSONObject(original)
+    if (data.optInt("schemaVersion", 1) != 2) { ensureExerciseIds(data); ensureMicros(data) }
+    val upgraded = migrateDailyRecords(data, clock())
+    return upgraded
+  }
+
+  /** Current local date/hour and a check-in streak; persisted seed metadata is not authoritative. */
+  @Synchronized
+  fun currentSnapshot(): JSONObject = currentSnapshot(loadHostData(), clock())
 
   /** A zeroed micronutrients object (RFC 0024). */
   private fun zeroMicros(): JSONObject =
@@ -58,7 +84,7 @@ class RecordsRepository(context: Context) {
    */
   private fun ensureMicros(data: JSONObject): Boolean {
     var changed = false
-    for (key in listOf(INTAKE, CUSTOM_FOODS)) {
+    for (key in listOf(INTAKE, "legacyIntake", CUSTOM_FOODS)) {
       val array = data.optJSONArray(key) ?: continue
       for (index in 0 until array.length()) {
         val record = array.optJSONObject(index) ?: continue
@@ -99,7 +125,9 @@ class RecordsRepository(context: Context) {
    * HostData. This slice only logs today's weight, which is always the latest
    * date, so a new sample is appended and date ordering is preserved.
    */
+  @Synchronized
   fun addWeight(date: String, weightKg: Double): JSONObject {
+    requireWriteDate(date)
     val data = loadHostData()
     val weights = data.getJSONArray(WEIGHTS)
 
@@ -111,7 +139,11 @@ class RecordsRepository(context: Context) {
       }
     }
 
+    val baseId = "weight-$date"
+    val id = if (existing >= 0 && owned(weights.getJSONObject(existing))) weights.getJSONObject(existing).getString(ID)
+      else if ((0 until weights.length()).any { it != existing && weights.getJSONObject(it).getString(ID) == baseId }) "$baseId-${UUID.randomUUID()}" else baseId
     val sample = JSONObject()
+      .put(ID, id)
       .put(DATE, date)
       .put(WEIGHT_KG, weightKg)
 
@@ -121,8 +153,8 @@ class RecordsRepository(context: Context) {
       weights.put(sample)
     }
 
-    recordFile.writeText(data.toString(), Charsets.UTF_8)
-    return data
+    commit(data)
+    return currentSnapshot(data, clock())
   }
 
   /**
@@ -130,6 +162,7 @@ class RecordsRepository(context: Context) {
    * sample (multiple meals add together) or creating it, then persist and return
    * the full HostData (RFC 0012).
    */
+  @Synchronized
   fun addIntake(
     date: String,
     kcal: Double,
@@ -142,8 +175,9 @@ class RecordsRepository(context: Context) {
     sodiumMg: Double = 0.0,
     foodId: String? = null,
   ): JSONObject {
+    requireWriteDate(date)
     val data = loadHostData()
-    val intake = data.getJSONArray(INTAKE)
+    val intake = data.getJSONArray("legacyIntake")
 
     var existing = -1
     for (index in 0 until intake.length()) {
@@ -185,8 +219,8 @@ class RecordsRepository(context: Context) {
 
     if (foodId !== null) touchRecent(data, foodId)
 
-    recordFile.writeText(data.toString(), Charsets.UTF_8)
-    return data
+    commit(data)
+    return currentSnapshot(data, clock())
   }
 
   /**
@@ -194,7 +228,9 @@ class RecordsRepository(context: Context) {
    * the full HostData. Only today's total is logged (the latest date), so a new
    * day is appended and date ordering is preserved.
    */
+  @Synchronized
   fun upsertWater(date: String, amountMl: Double): JSONObject {
+    requireWriteDate(date)
     val data = loadHostData()
     val water =
       data.optJSONArray(WATER)
@@ -208,7 +244,11 @@ class RecordsRepository(context: Context) {
       }
     }
 
+    val baseId = "water-$date"
+    val id = if (existing >= 0) water.getJSONObject(existing).getString(ID)
+      else if ((0 until water.length()).any { water.getJSONObject(it).getString(ID) == baseId }) "$baseId-${UUID.randomUUID()}" else baseId
     val sample = JSONObject()
+      .put(ID, id)
       .put(DATE, date)
       .put(AMOUNT_ML, amountMl)
 
@@ -218,20 +258,22 @@ class RecordsRepository(context: Context) {
       water.put(sample)
     }
 
-    recordFile.writeText(data.toString(), Charsets.UTF_8)
-    return data
+    commit(data)
+    return currentSnapshot(data, clock())
   }
 
   /**
    * Append an exercise session (RFC 0017) to `exercises`, persist, and return the
    * full HostData. Sessions are kept individually rather than merged per day.
    */
+  @Synchronized
   fun addExercise(
     date: String,
     typeId: String,
     durationMin: Double,
     kcal: Double,
   ): JSONObject {
+    requireWriteDate(date)
     val data = loadHostData()
     val exercises = data.getJSONArray(EXERCISES)
     val session = JSONObject()
@@ -242,11 +284,12 @@ class RecordsRepository(context: Context) {
       .put(KCAL, kcal)
     exercises.put(session)
 
-    recordFile.writeText(data.toString(), Charsets.UTF_8)
-    return data
+    commit(data)
+    return currentSnapshot(data, clock())
   }
 
   /** Replace a session (RFC 0018) in place, keeping its id; throw if absent. */
+  @Synchronized
   fun updateExercise(
     id: String,
     date: String,
@@ -254,12 +297,14 @@ class RecordsRepository(context: Context) {
     durationMin: Double,
     kcal: Double,
   ): JSONObject {
+    requireWriteDate(date)
     val data = loadHostData()
     val exercises = data.getJSONArray(EXERCISES)
     var found = false
     for (index in 0 until exercises.length()) {
       val session = exercises.getJSONObject(index)
       if (session.optString(ID) == id) {
+        if (!owned(session)) throw RecordsFailure("not-authorized", "External exercise is read-only")
         session
           .put(DATE, date)
           .put(TYPE_ID, typeId)
@@ -273,11 +318,12 @@ class RecordsRepository(context: Context) {
       throw NoSuchElementException("Exercise session not found: $id")
     }
 
-    recordFile.writeText(data.toString(), Charsets.UTF_8)
-    return data
+    commit(data)
+    return currentSnapshot(data, clock())
   }
 
   /** Remove a session (RFC 0018); throw if the id is absent. */
+  @Synchronized
   fun deleteExercise(id: String): JSONObject {
     val data = loadHostData()
     val existing = data.getJSONArray(EXERCISES)
@@ -286,6 +332,7 @@ class RecordsRepository(context: Context) {
     for (index in 0 until existing.length()) {
       val session = existing.getJSONObject(index)
       if (session.optString(ID) == id) {
+        if (!owned(session)) throw RecordsFailure("not-authorized", "External exercise is read-only")
         found = true
       } else {
         updated.put(session)
@@ -296,8 +343,8 @@ class RecordsRepository(context: Context) {
     }
     data.put(EXERCISES, updated)
 
-    recordFile.writeText(data.toString(), Charsets.UTF_8)
-    return data
+    commit(data)
+    return currentSnapshot(data, clock())
   }
 
   /**
@@ -305,6 +352,7 @@ class RecordsRepository(context: Context) {
    * owned sample, drop previous mirrors, then add one mirror per external date
    * LeanOn did not log. Weights are sorted by date and persisted.
    */
+  @Synchronized
   fun replaceExternalWeights(weightsByDate: Map<String, Double>): JSONObject {
     val data = loadHostData()
     val weights = data.getJSONArray(WEIGHTS)
@@ -320,6 +368,7 @@ class RecordsRepository(context: Context) {
       if (ownedDates.contains(date)) continue
       samples.add(
         JSONObject()
+          .put(ID, if (samples.any { it.getString(ID) == "hc-weight-$date" }) "hc-weight-$date-${UUID.randomUUID()}" else "hc-weight-$date")
           .put(DATE, date)
           .put(WEIGHT_KG, kg)
           .put(SOURCE, HEALTH_CONNECT),
@@ -330,14 +379,15 @@ class RecordsRepository(context: Context) {
     samples.forEach { rebuilt.put(it) }
     data.put(WEIGHTS, rebuilt)
 
-    recordFile.writeText(data.toString(), Charsets.UTF_8)
-    return data
+    commit(data)
+    return currentSnapshot(data, clock())
   }
 
   /**
    * Rebuild the Health Connect exercise mirrors (RFC 0025), keeping LeanOn-owned
    * sessions and replacing the mirror set with [items]. Persisted.
    */
+  @Synchronized
   fun replaceExternalExercises(items: List<ExternalExercise>): JSONObject {
     val data = loadHostData()
     val existing = data.getJSONArray(EXERCISES)
@@ -360,8 +410,8 @@ class RecordsRepository(context: Context) {
     }
     data.put(EXERCISES, rebuilt)
 
-    recordFile.writeText(data.toString(), Charsets.UTF_8)
-    return data
+    commit(data)
+    return currentSnapshot(data, clock())
   }
 
   /**
@@ -369,6 +419,7 @@ class RecordsRepository(context: Context) {
    * the full HostData. Records written before this slice lack the field, so it is
    * created on demand. The typed name is mirrored across both locales.
    */
+  @Synchronized
   fun addCustomFood(
     id: String,
     name: String,
@@ -411,8 +462,8 @@ class RecordsRepository(context: Context) {
     }
     customFoods.put(item)
 
-    recordFile.writeText(data.toString(), Charsets.UTF_8)
-    return data
+    commit(data)
+    return currentSnapshot(data, clock())
   }
 
   /**
@@ -420,6 +471,7 @@ class RecordsRepository(context: Context) {
    * and return the full HostData. An entry with the same id is replaced instead
    * of being duplicated.
    */
+  @Synchronized
   fun upsertUserFood(item: JSONObject): JSONObject {
     val data = loadHostData()
     val customFoods =
@@ -436,8 +488,8 @@ class RecordsRepository(context: Context) {
     }
     if (index >= 0) customFoods.put(index, item) else customFoods.put(item)
 
-    recordFile.writeText(data.toString(), Charsets.UTF_8)
-    return data
+    commit(data)
+    return currentSnapshot(data, clock())
   }
 
   /**
@@ -445,6 +497,7 @@ class RecordsRepository(context: Context) {
    * source (RFC 0014), then persist and return the full HostData. Throws when the
    * id is absent.
    */
+  @Synchronized
   fun updateCustomFood(
     id: String,
     name: String,
@@ -471,7 +524,11 @@ class RecordsRepository(context: Context) {
       }
     }
     if (index < 0) throw NoSuchElementException("Custom food $id not found")
-    val source = customFoods.getJSONObject(index).optString(SOURCE, CUSTOM)
+    val original = customFoods.getJSONObject(index)
+    val source = original.optString(SOURCE, CUSTOM)
+    if (source != CUSTOM && source != OPEN_FOOD_FACTS) {
+      throw NoSuchElementException("Custom food $id not found")
+    }
 
     val foodName = JSONObject().put(EN, name).put(ZH_CN, name)
     val macros = JSONObject()
@@ -491,13 +548,15 @@ class RecordsRepository(context: Context) {
       .put(MICROS, micros)
       .put(SOURCE, source)
     if (defaultGrams !== null) item.put(DEFAULT_GRAMS, defaultGrams)
+    if (original.has(BARCODE)) item.put(BARCODE, original.getString(BARCODE))
     customFoods.put(index, item)
 
-    recordFile.writeText(data.toString(), Charsets.UTF_8)
-    return data
+    commit(data)
+    return currentSnapshot(data, clock())
   }
 
   /** Remove the custom food with [id], persist, and return the full HostData. */
+  @Synchronized
   fun deleteCustomFood(id: String): JSONObject {
     val data = loadHostData()
     val customFoods =
@@ -508,7 +567,7 @@ class RecordsRepository(context: Context) {
     var found = false
     for (candidate in 0 until customFoods.length()) {
       val existing = customFoods.getJSONObject(candidate)
-      if (existing.getString(ID) == id) {
+      if (existing.getString(ID) == id && existing.optString(SOURCE, CUSTOM) in listOf(CUSTOM, OPEN_FOOD_FACTS)) {
         found = true
       } else {
         remaining.put(existing)
@@ -520,8 +579,8 @@ class RecordsRepository(context: Context) {
     removeIdFromList(data, FAVORITE_FOOD_IDS, id)
     removeIdFromList(data, RECENT_FOOD_IDS, id)
 
-    recordFile.writeText(data.toString(), Charsets.UTF_8)
-    return data
+    commit(data)
+    return currentSnapshot(data, clock())
   }
 
   /**
@@ -529,6 +588,7 @@ class RecordsRepository(context: Context) {
    * return the full HostData. Works for both bundled and user-owned foods and
    * tolerates ids that do not currently resolve to a food.
    */
+  @Synchronized
   fun setFoodFavorite(id: String, favorite: Boolean): JSONObject {
     val data = loadHostData()
     val current = data.optJSONArray(FAVORITE_FOOD_IDS) ?: JSONArray()
@@ -549,17 +609,18 @@ class RecordsRepository(context: Context) {
     }
     data.put(FAVORITE_FOOD_IDS, result)
 
-    recordFile.writeText(data.toString(), Charsets.UTF_8)
-    return data
+    commit(data)
+    return currentSnapshot(data, clock())
   }
 
   /** Move [foodId] to the front of recent, removing duplicates and capping it. */
   private fun touchRecent(data: JSONObject, foodId: String) {
     val current = data.optJSONArray(RECENT_FOOD_IDS) ?: JSONArray()
     val updated = JSONArray().put(foodId)
+    val seen = mutableSetOf(foodId)
     for (index in 0 until current.length()) {
       val existing = current.getString(index)
-      if (existing == foodId) continue
+      if (!seen.add(existing)) continue
       if (updated.length() >= RECENT_LIMIT) break
       updated.put(existing)
     }
@@ -577,18 +638,36 @@ class RecordsRepository(context: Context) {
     data.put(key, result)
   }
 
-  private fun ensureSeeded() {
-    if (recordFile.exists()) return
-    val seed = appContext.assets
-      .open(SEED_ASSET)
-      .bufferedReader(Charsets.UTF_8)
-      .use { it.readText() }
-    recordFile.writeText(seed, Charsets.UTF_8)
+  private fun requireWriteDate(date: String) {
+    strictDate(JSONObject().put("date", date))
+    if (date > java.time.LocalDate.now(clock()).toString()) throw RecordsFailure("invalid-request", "Future record date")
+  }
+
+  /** All legacy native writes share the revision and derived intake projection. */
+  private fun commit(data: JSONObject) {
+    val legacy = data.getJSONArray("legacyIntake")
+    val used = (0 until legacy.length()).map { legacy.getJSONObject(it).optString("id") }.filter { it.isNotBlank() }.toMutableSet()
+    for (i in 0 until legacy.length()) if (!legacy.getJSONObject(i).has("id")) {
+      val base = "legacy-intake-${legacy.getJSONObject(i).getString("date")}"
+      legacy.getJSONObject(i).put("id", if (used.add(base)) base else "$base-${UUID.randomUUID()}")
+    }
+    projectDailyIntake(data)
+    if (data.getLong("revision") >= 9007199254740991L) throw RecordsFailure("unavailable", "Revision exhausted")
+    data.put("revision", data.getLong("revision") + 1L)
+    val validated = migrateDailyRecords(data, clock())
+    persist(recordFile, validated.toString())
+  }
+
+  @Synchronized
+  fun mutate(operationId: String, expectedRevision: Long, mutation: JSONObject): JSONObject {
+    val data = loadHostData()
+    val result = applyDailyMutation(data, operationId, expectedRevision, mutation, clock())
+    if (!result.getBoolean("replayed")) persist(recordFile, data.toString())
+    return result.put("hostData", currentSnapshot(data, clock()))
   }
 
   private companion object {
     const val RECORD_FILE = "records.json"
-    const val SEED_ASSET = "seed/hostData.json"
     const val WEIGHTS = "weights"
     const val INTAKE = "intake"
     const val EXERCISES = "exercises"

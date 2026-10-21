@@ -3,7 +3,12 @@ import {
   buildProgressInsights,
   type ProgressInsights,
 } from '@zzzode/core';
-import type { Translator } from '@zzzode/i18n';
+import { formatDate, type Translator } from '@zzzode/i18n';
+import { buildWeightChartGeometry } from '../state/chart.js';
+import { datePartsFor } from '../state/select.js';
+import { fitChartTrend } from '../state/chart-trend.js';
+import { formatQuantity } from '../state/theme.js';
+import { useTheme } from './ThemeContext.js';
 import type { HostData } from '../state/types';
 
 interface InsightsScreenProps {
@@ -17,89 +22,43 @@ function signed1(value: number): string {
   return `${value < 0 ? '-' : '+'}${Math.abs(value).toFixed(1)}`;
 }
 
-const CHART_WIDTH = 350;
-const CHART_HEIGHT = 200;
-const PLOT_LEFT = 20;
-const PLOT_RIGHT = 330;
-const PLOT_TOP = 30;
-const PLOT_BOTTOM = CHART_HEIGHT - 40;
 
 const r1 = (value: number): number => Math.round(value * 10) / 10;
 
-/**
- * Weight trend as an SVG line chart. Lynx renders SVG through the `svg`
- * element's `content` attribute (a markup string), which works on both the
- * web runtime and native; presentation attributes are inlined so the chart
- * renders even if page CSS does not reach SVG sub-elements. The optional
- * goal weight is folded into the y-domain so its dashed line stays visible.
- */
-function TrendChart({
-  points,
-  goalWeightKg,
-}: {
-  points: ProgressInsights['weight']['points'];
-  goalWeightKg?: number;
+/** Actual points, genuine fitted line, calendar ticks and marked unlogged intervals. */
+function TrendChart({ points, windowDays, startDate, endDate, t }: {
+  points: ProgressInsights['weight']['points']; windowDays: number;
+  startDate: string; endDate: string; t: Translator;
 }) {
+  const palette = useTheme();
   if (points.length === 0) return null;
-  const ys = points.map((point) => point.y);
-  const dataMin = Math.min(...ys);
-  const dataMax = Math.max(...ys);
-  let min = dataMin;
-  let max = dataMax;
-  if (goalWeightKg !== undefined) {
-    min = Math.min(min, goalWeightKg);
-    max = Math.max(max, goalWeightKg);
-  }
-  const span = max - min;
-  const count = points.length;
-  const xAt = (index: number): number =>
-    count === 1
-      ? (PLOT_LEFT + PLOT_RIGHT) / 2
-      : PLOT_LEFT + ((PLOT_RIGHT - PLOT_LEFT) * index) / (count - 1);
-  const yAt = (weight: number): number =>
-    span === 0
-      ? (PLOT_TOP + PLOT_BOTTOM) / 2
-      : PLOT_BOTTOM - ((weight - min) / span) * (PLOT_BOTTOM - PLOT_TOP);
-
-  const coords = points.map((point, index) => ({
-    x: xAt(index),
-    y: yAt(point.y),
-  }));
-  const first = coords[0]!;
-  const last = coords[count - 1]!;
-  const linePoints = coords
-    .map((coord) => `${r1(coord.x)},${r1(coord.y)}`)
-    .join(' ');
-  const areaPoints = `${r1(first.x)},${PLOT_BOTTOM} ${linePoints} ${r1(last.x)},${PLOT_BOTTOM}`;
-  const dots = coords
-    .map(
-      (coord) =>
-        `<circle class="TrendChart-dot" cx="${r1(coord.x)}" cy="${r1(coord.y)}" r="3" fill="#218967"/>`,
-    )
-    .join('');
-  const currentDot = `<circle class="TrendChart-dot-current" cx="${r1(last.x)}" cy="${r1(last.y)}" r="5" fill="#218967" stroke="#ffffff" stroke-width="3"/>`;
-  const goalLine =
-    goalWeightKg === undefined
-      ? ''
-      : `<line class="TrendChart-goal" x1="${PLOT_LEFT}" y1="${r1(yAt(goalWeightKg))}" x2="${PLOT_RIGHT}" y2="${r1(yAt(goalWeightKg))}" stroke="#b6c0ba" stroke-width="2" stroke-dasharray="8 6"/>`;
-  const labels =
-    `<text class="TrendChart-label" x="2" y="${PLOT_TOP + 2}" font-size="10" fill="#8a988f">${dataMax.toFixed(1)}</text>` +
-    `<text class="TrendChart-label" x="2" y="${PLOT_BOTTOM + 12}" font-size="10" fill="#8a988f">${dataMin.toFixed(1)}</text>`;
-  const content =
-    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${CHART_WIDTH} ${CHART_HEIGHT}">` +
-    `<polygon class="TrendChart-area" points="${areaPoints}" fill="#218967" opacity="0.08"/>` +
-    goalLine +
-    `<polyline class="TrendChart-line" points="${linePoints}" fill="none" stroke="#218967" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>` +
-    dots +
-    currentDot +
-    labels +
-    `</svg>`;
-
-  return (
-    <view className="TrendChart">
-      <svg className="TrendChart-svg" content={content} />
-    </view>
-  );
+  const geometry = buildWeightChartGeometry(points, windowDays);
+  const xAt = (fraction: number) => 54 + fraction * 278;
+  const yAt = (fraction: number) => 16 + fraction * 116;
+  const ticks = geometry.ticks.map(tick => {
+    const y = r1(yAt(tick.y));
+    return `<line x1="54" y1="${y}" x2="332" y2="${y}" stroke="${palette.line}" stroke-width="1"/>` +
+      `<text x="0" y="${y + 5}" font-size="16" fill="${palette.muted}">${tick.value.toFixed(1)}</text>`;
+  }).join('');
+  const dots = geometry.points.map(point => `<circle cx="${r1(xAt(point.x))}" cy="${r1(yAt(point.y))}" r="3.5" fill="${palette.weight}" stroke="${palette.paper}" stroke-width="1.5"/>`).join('');
+  const intervals = geometry.points.slice(1).map((point, index) => {
+    const previous = geometry.points[index]!;
+    const missing = point.x - previous.x > 1 / Math.max(1, windowDays - 1) + 0.0001;
+    return `<line x1="${r1(xAt(previous.x))}" y1="${r1(yAt(previous.y))}" x2="${r1(xAt(point.x))}" y2="${r1(yAt(point.y))}" stroke="${missing ? palette.muted : palette.weight}" stroke-width="2" ${missing ? 'stroke-dasharray="2 5"' : ''}/>`;
+  }).join('');
+  const trend = fitChartTrend(geometry.points);
+  const fitted = trend.length < 2 ? '' : `<polyline points="${trend.map(point => `${r1(xAt(point.x))},${r1(yAt(point.y))}`).join(' ')}" fill="none" stroke="${palette.weight}" stroke-width="1.5" stroke-dasharray="5 4"/>`;
+  const midpoint = new Date(`${startDate}T00:00:00Z`);
+  midpoint.setUTCDate(midpoint.getUTCDate() + Math.floor((windowDays - 1) / 2));
+  const dates = [startDate, midpoint.toISOString().slice(0, 10), endDate];
+  const dateLabels = dates.map((date, index) => {
+    const parts = datePartsFor(date);
+    const label = t('design.chartTick', { month: parts.month + 1, day: parts.day });
+    return `<text x="${xAt(index / 2)}" y="157" text-anchor="${index === 0 ? 'start' : index === 2 ? 'end' : 'middle'}" font-size="16" fill="${palette.muted}">${label}</text>`;
+  }).join('');
+  const content = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 170">${ticks}${intervals}${fitted}${dots}${dateLabels}</svg>`;
+  const hasGaps = geometry.points.slice(1).some((point, index) => point.x - geometry.points[index]!.x > 1 / Math.max(1, windowDays - 1) + 0.0001);
+  return <view><view className="TrendChart" accessibility-hidden={true}><svg className="TrendChart-svg" content={content} /></view><view className="Chart-legend"><text className="Chart-legend-text">● {t('design.chartObserved')}</text>{trend.length > 0 && <text className="Chart-legend-text">– – {t('design.chartTrend')}</text>}{hasGaps && <text className="Chart-legend-text">··· {t('design.chartGap')}</text>}</view></view>;
 }
 
 /** Progress / Insights screen: weight trend, adherence and consistency (RFC 0019). */
@@ -119,13 +78,6 @@ export function InsightsScreen({
   });
   const { weight, nutrition, exercise } = insights;
 
-  const tone =
-    weight.changeKg === null || weight.changeKg === 0
-      ? ''
-      : weight.changeKg < 0
-        ? ' loss'
-        : ' gain';
-
   return (
     <view className="Insights">
       <view className="LangSwitch Insights-range">
@@ -137,6 +89,10 @@ export function InsightsScreen({
               className={
                 active ? 'LangSwitch-item active' : 'LangSwitch-item'
               }
+              accessibility-element={true}
+              accessibility-traits="button"
+              accessibility-label={days === 7 ? t('insights.range7') : t('insights.range30')}
+              accessibility-value={active ? '✓' : ''}
               hover-class="tap-feedback-hover"
               bindtap={() => setWindowDays(days)}
             >
@@ -156,14 +112,14 @@ export function InsightsScreen({
         })}
       </view>
 
-      <view className="Card Insights-card">
+      <view className="Card Insights-card Insights-weight-card">
         <text className="Insights-card-title">{t('insights.weight')}</text>
         {weight.changeKg === null ? (
           <text className="Insights-empty">{t('insights.notEnough')}</text>
         ) : (
           <view className="Insights-weight-body">
             <view className="Insights-weight-main">
-              <text className={`Insights-big${tone}`}>
+              <text className="Insights-big">
                 {signed1(weight.changeKg)}
               </text>
               <text className="Insights-big-unit">{t('insights.kg')}</text>
@@ -171,17 +127,19 @@ export function InsightsScreen({
             <text className="Insights-slope">
               {weight.slopeKgPerWeek === null
                 ? t('insights.notEnough')
-                : `${signed1(weight.slopeKgPerWeek)} ${t('insights.kgPerWeek')}`}
+                : `${t('design.chartTrend')} · ${signed1(weight.slopeKgPerWeek)} ${t('insights.kgPerWeek')}`}
             </text>
+            <text className="Section-note">{t('review.chartDates', { start: formatDate(t, datePartsFor(insights.startDate)), end: formatDate(t, datePartsFor(insights.endDate)), n: weight.loggedDays })}</text>
             <TrendChart
               points={weight.points}
-              goalWeightKg={hostData.goalWeightKg}
+              windowDays={windowDays}
+              startDate={insights.startDate} endDate={insights.endDate} t={t}
             />
           </view>
         )}
       </view>
 
-      <view className="Card Insights-card">
+      <view className="Card Insights-card Insights-secondary">
         <text className="Insights-card-title">{t('insights.nutrition')}</text>
         {nutrition.averageKcal === null ? (
           <text className="Insights-empty">{t('insights.notEnough')}</text>
@@ -192,33 +150,15 @@ export function InsightsScreen({
                 {t('insights.average')}
               </text>
               <text className="Insights-row-value">
-                {Math.round(nutrition.averageKcal)} {t('insights.kcal')}
+                {formatQuantity(nutrition.averageKcal)} {t('insights.kcal')}
               </text>
             </view>
-            <view className="Insights-row">
-              <text className="Insights-row-label">
-                {t('insights.onTarget')}
-              </text>
-              <text className="Insights-row-value">
-                {nutrition.onTargetDays}/{nutrition.loggedDays}
-              </text>
-            </view>
-            <view className="Insights-row">
-              <text className="Insights-row-label">
-                {t('insights.deficit')}
-              </text>
-              <text className="Insights-row-value">
-                {Math.round(
-                  Math.max(0, nutrition.averageDeficitKcal ?? 0),
-                )}{' '}
-                {t('insights.kcal')}
-              </text>
-            </view>
+            <text className="Section-note">{t('design.foodCoverage', { n: nutrition.loggedDays, total: windowDays })}</text><text className="Section-note">{t('review.nutritionNote')}</text>
           </view>
         )}
       </view>
 
-      <view className="Card Insights-card">
+      <view className="Card Insights-card Insights-secondary">
         <text className="Insights-card-title">{t('insights.exercise')}</text>
         <view className="Insights-row">
           <text className="Insights-row-label">
@@ -237,7 +177,7 @@ export function InsightsScreen({
         </view>
       </view>
 
-      <view className="Card Insights-card">
+      <view className="Card Insights-card Insights-secondary">
         <text className="Insights-card-title">
           {t('insights.consistency')}
         </text>

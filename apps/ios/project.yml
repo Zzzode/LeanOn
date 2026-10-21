@@ -33,7 +33,8 @@ targets:
       properties:
         # Enables native full-screen resolution; without it the app launches in
         # a 320x480 compatibility mode with black top/bottom bars.
-        UILaunchScreen: {}
+        UILaunchScreen:
+          UIColorName: app-canvas
         UIApplicationSceneManifest:
           UIApplicationSupportsMultipleScenes: false
           UISceneConfigurations:
@@ -47,12 +48,26 @@ targets:
           - UIInterfaceOrientationPortraitUpsideDown
           - UIInterfaceOrientationLandscapeLeft
           - UIInterfaceOrientationLandscapeRight
+        UIFileSharingEnabled: true
+        LSSupportsOpeningDocumentsInPlace: true
+        NSAppTransportSecurity:
+          NSAllowsLocalNetworking: true
         CFBundleLocalizations:
           - en
           - zh-Hans
+        NSCameraUsageDescription: Scan a packaged food barcode when you choose Scan.
+        NSBluetoothAlwaysUsageDescription: Connect to your weight scale when you choose to scan or connect.
+        NSHealthShareUsageDescription: Import weight and workouts that you choose to share with LeanOn.
+        NSHealthUpdateUsageDescription: Export your LeanOn weight, workouts and daily nutrition to Apple Health when you enable sync.
+    entitlements:
+      path: LeanOn/LeanOn.entitlements
+      properties:
+        com.apple.developer.healthkit: true
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.zzzode.leanon
+        # Override only this app identifier for isolated OS-permission QA.
+        LEANON_APP_BUNDLE_IDENTIFIER: com.zzzode.leanon
+        PRODUCT_BUNDLE_IDENTIFIER: $(LEANON_APP_BUNDLE_IDENTIFIER)
         SWIFT_OBJC_BRIDGING_HEADER: LeanOn/LeanOn-Bridging-Header.h
         TARGETED_DEVICE_FAMILY: "1,2"
         ENABLE_USER_SCRIPT_SANDBOXING: "NO"
@@ -66,11 +81,29 @@ targets:
     platform: iOS
     sources:
       - path: LeanOnTests
+      - path: ../../packages/data/src/fixtures/public-vault-merge-v1.json
+        buildPhase: resources
+      - path: ../../packages/data/src/fixtures/public-backup-v1.json
+        buildPhase: resources
     dependencies:
       - target: LeanOn
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.zzzode.leanon.tests
+
+  LeanOnUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: LeanOnUITests
+      - path: ../../packages/data/src/fixtures/public-backup-v1.json
+        buildPhase: resources
+    dependencies:
+      - target: LeanOn
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.zzzode.leanon.ui-tests
+        TEST_TARGET_NAME: LeanOn
 
 schemes:
   LeanOn:
@@ -83,3 +116,4 @@ schemes:
       config: Debug
       targets:
         - LeanOnTests
+        - LeanOnUITests

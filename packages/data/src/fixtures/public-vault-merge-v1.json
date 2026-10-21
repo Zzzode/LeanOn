@@ -1,0 +1,2194 @@
+{
+  "classification": "PUBLIC FIXED TEST FIXTURE: fictional records, synthetic photo, no account or credential. Reference algorithm packages/data/src/vault-merge.ts.",
+  "cases": [
+    {
+      "name": "offline-additions",
+      "local": {
+        "version": 1,
+        "kind": "vault-snapshot",
+        "payload": {
+          "formatVersion": 1,
+          "createdAt": "2026-10-07T00:00:00Z",
+          "records": {
+            "schemaVersion": 2,
+            "revision": 0,
+            "setupCompleted": false,
+            "profile": null,
+            "goalWeightKg": null,
+            "weeklyLossKg": null,
+            "guidanceMode": "tracking-only",
+            "safetyFlags": {
+              "pregnant": null,
+              "breastfeeding": null,
+              "eatingDisorderRisk": null
+            },
+            "weights": [
+              {
+                "id": "wa",
+                "date": "2026-10-01",
+                "weightKg": 80
+              }
+            ],
+            "water": [],
+            "exercises": [],
+            "legacyIntake": [],
+            "intakeEntries": [],
+            "intake": [],
+            "deletedRecords": [],
+            "processedOperations": []
+          },
+          "customFoods": [],
+          "favoriteFoodIds": [],
+          "recentFoodIds": [],
+          "personal": {
+            "version": 1,
+            "revision": 0,
+            "dietaryPreferences": {
+              "pattern": "none",
+              "excludedFoodIds": [],
+              "notes": ""
+            },
+            "measurements": [],
+            "photos": [],
+            "processedOperations": []
+          },
+          "photos": []
+        },
+        "clocks": {
+          "profile": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-profile"
+          },
+          "preferences": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-preferences"
+          },
+          "favorites": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-favorites"
+          },
+          "recent": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-recent"
+          },
+          "weight:wa": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-weight-wa"
+          }
+        },
+        "tombstones": {
+          "customFoods": []
+        }
+      },
+      "remote": {
+        "version": 1,
+        "kind": "vault-snapshot",
+        "payload": {
+          "formatVersion": 1,
+          "createdAt": "2026-10-07T00:00:00Z",
+          "records": {
+            "schemaVersion": 2,
+            "revision": 0,
+            "setupCompleted": false,
+            "profile": null,
+            "goalWeightKg": null,
+            "weeklyLossKg": null,
+            "guidanceMode": "tracking-only",
+            "safetyFlags": {
+              "pregnant": null,
+              "breastfeeding": null,
+              "eatingDisorderRisk": null
+            },
+            "weights": [
+              {
+                "id": "wb",
+                "date": "2026-10-02",
+                "weightKg": 79
+              }
+            ],
+            "water": [],
+            "exercises": [],
+            "legacyIntake": [],
+            "intakeEntries": [],
+            "intake": [],
+            "deletedRecords": [],
+            "processedOperations": []
+          },
+          "customFoods": [],
+          "favoriteFoodIds": [],
+          "recentFoodIds": [],
+          "personal": {
+            "version": 1,
+            "revision": 0,
+            "dietaryPreferences": {
+              "pattern": "none",
+              "excludedFoodIds": [],
+              "notes": ""
+            },
+            "measurements": [],
+            "photos": [],
+            "processedOperations": []
+          },
+          "photos": []
+        },
+        "clocks": {
+          "profile": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-profile"
+          },
+          "preferences": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-preferences"
+          },
+          "favorites": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-favorites"
+          },
+          "recent": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-recent"
+          },
+          "weight:wb": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-weight-wb"
+          }
+        },
+        "tombstones": {
+          "customFoods": []
+        }
+      },
+      "expected": {
+        "version": 1,
+        "kind": "vault-snapshot",
+        "payload": {
+          "formatVersion": 1,
+          "createdAt": "2026-10-07T00:00:00Z",
+          "records": {
+            "schemaVersion": 2,
+            "revision": 1,
+            "setupCompleted": false,
+            "profile": null,
+            "goalWeightKg": null,
+            "weeklyLossKg": null,
+            "guidanceMode": "tracking-only",
+            "safetyFlags": {
+              "pregnant": null,
+              "breastfeeding": null,
+              "eatingDisorderRisk": null
+            },
+            "weights": [
+              {
+                "id": "wa",
+                "date": "2026-10-01",
+                "weightKg": 80
+              },
+              {
+                "id": "wb",
+                "date": "2026-10-02",
+                "weightKg": 79
+              }
+            ],
+            "water": [],
+            "exercises": [],
+            "legacyIntake": [],
+            "intakeEntries": [],
+            "intake": [],
+            "deletedRecords": [],
+            "processedOperations": []
+          },
+          "customFoods": [],
+          "favoriteFoodIds": [],
+          "recentFoodIds": [],
+          "personal": {
+            "version": 1,
+            "revision": 1,
+            "dietaryPreferences": {
+              "pattern": "none",
+              "excludedFoodIds": [],
+              "notes": ""
+            },
+            "measurements": [],
+            "photos": [],
+            "processedOperations": []
+          },
+          "photos": []
+        },
+        "clocks": {
+          "profile": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-profile"
+          },
+          "preferences": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-preferences"
+          },
+          "favorites": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-favorites"
+          },
+          "recent": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-recent"
+          },
+          "weight:wa": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-weight-wa"
+          },
+          "weight:wb": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-weight-wb"
+          }
+        },
+        "tombstones": {
+          "customFoods": []
+        }
+      }
+    },
+    {
+      "name": "date-identities",
+      "local": {
+        "version": 1,
+        "kind": "vault-snapshot",
+        "payload": {
+          "formatVersion": 1,
+          "createdAt": "2026-10-07T00:00:00Z",
+          "records": {
+            "schemaVersion": 2,
+            "revision": 0,
+            "setupCompleted": false,
+            "profile": null,
+            "goalWeightKg": null,
+            "weeklyLossKg": null,
+            "guidanceMode": "tracking-only",
+            "safetyFlags": {
+              "pregnant": null,
+              "breastfeeding": null,
+              "eatingDisorderRisk": null
+            },
+            "weights": [
+              {
+                "id": "wa",
+                "date": "2026-10-01",
+                "weightKg": 80
+              }
+            ],
+            "water": [
+              {
+                "id": "water-a",
+                "date": "2026-10-01",
+                "amountMl": 1000
+              }
+            ],
+            "exercises": [],
+            "legacyIntake": [],
+            "intakeEntries": [],
+            "intake": [],
+            "deletedRecords": [],
+            "processedOperations": []
+          },
+          "customFoods": [],
+          "favoriteFoodIds": [],
+          "recentFoodIds": [],
+          "personal": {
+            "version": 1,
+            "revision": 0,
+            "dietaryPreferences": {
+              "pattern": "none",
+              "excludedFoodIds": [],
+              "notes": ""
+            },
+            "measurements": [],
+            "photos": [],
+            "processedOperations": []
+          },
+          "photos": []
+        },
+        "clocks": {
+          "profile": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-profile"
+          },
+          "preferences": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-preferences"
+          },
+          "favorites": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-favorites"
+          },
+          "recent": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-recent"
+          },
+          "weight:wa": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-weight-wa"
+          },
+          "water:water-a": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-water-water-a"
+          }
+        },
+        "tombstones": {
+          "customFoods": []
+        }
+      },
+      "remote": {
+        "version": 1,
+        "kind": "vault-snapshot",
+        "payload": {
+          "formatVersion": 1,
+          "createdAt": "2026-10-07T00:00:00Z",
+          "records": {
+            "schemaVersion": 2,
+            "revision": 0,
+            "setupCompleted": false,
+            "profile": null,
+            "goalWeightKg": null,
+            "weeklyLossKg": null,
+            "guidanceMode": "tracking-only",
+            "safetyFlags": {
+              "pregnant": null,
+              "breastfeeding": null,
+              "eatingDisorderRisk": null
+            },
+            "weights": [
+              {
+                "id": "wb",
+                "date": "2026-10-01",
+                "weightKg": 79
+              }
+            ],
+            "water": [
+              {
+                "id": "water-b",
+                "date": "2026-10-01",
+                "amountMl": 1500
+              }
+            ],
+            "exercises": [],
+            "legacyIntake": [],
+            "intakeEntries": [],
+            "intake": [],
+            "deletedRecords": [],
+            "processedOperations": []
+          },
+          "customFoods": [],
+          "favoriteFoodIds": [],
+          "recentFoodIds": [],
+          "personal": {
+            "version": 1,
+            "revision": 0,
+            "dietaryPreferences": {
+              "pattern": "none",
+              "excludedFoodIds": [],
+              "notes": ""
+            },
+            "measurements": [],
+            "photos": [],
+            "processedOperations": []
+          },
+          "photos": []
+        },
+        "clocks": {
+          "profile": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-profile"
+          },
+          "preferences": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-preferences"
+          },
+          "favorites": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-favorites"
+          },
+          "recent": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-recent"
+          },
+          "weight:wb": {
+            "updatedAt": 1791331200001,
+            "deviceId": "b",
+            "id": "b-weight-wb"
+          },
+          "water:water-b": {
+            "updatedAt": 1791331200001,
+            "deviceId": "b",
+            "id": "b-water-water-b"
+          }
+        },
+        "tombstones": {
+          "customFoods": []
+        }
+      },
+      "expected": {
+        "version": 1,
+        "kind": "vault-snapshot",
+        "payload": {
+          "formatVersion": 1,
+          "createdAt": "2026-10-07T00:00:00Z",
+          "records": {
+            "schemaVersion": 2,
+            "revision": 1,
+            "setupCompleted": false,
+            "profile": null,
+            "goalWeightKg": null,
+            "weeklyLossKg": null,
+            "guidanceMode": "tracking-only",
+            "safetyFlags": {
+              "pregnant": null,
+              "breastfeeding": null,
+              "eatingDisorderRisk": null
+            },
+            "weights": [
+              {
+                "id": "wb",
+                "date": "2026-10-01",
+                "weightKg": 79
+              }
+            ],
+            "water": [
+              {
+                "id": "water-b",
+                "date": "2026-10-01",
+                "amountMl": 1500
+              }
+            ],
+            "exercises": [],
+            "legacyIntake": [],
+            "intakeEntries": [],
+            "intake": [],
+            "deletedRecords": [],
+            "processedOperations": []
+          },
+          "customFoods": [],
+          "favoriteFoodIds": [],
+          "recentFoodIds": [],
+          "personal": {
+            "version": 1,
+            "revision": 1,
+            "dietaryPreferences": {
+              "pattern": "none",
+              "excludedFoodIds": [],
+              "notes": ""
+            },
+            "measurements": [],
+            "photos": [],
+            "processedOperations": []
+          },
+          "photos": []
+        },
+        "clocks": {
+          "profile": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-profile"
+          },
+          "preferences": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-preferences"
+          },
+          "favorites": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-favorites"
+          },
+          "recent": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-recent"
+          },
+          "weight:wa": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-weight-wa"
+          },
+          "water:water-a": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-water-water-a"
+          },
+          "weight:wb": {
+            "updatedAt": 1791331200001,
+            "deviceId": "b",
+            "id": "b-weight-wb"
+          },
+          "water:water-b": {
+            "updatedAt": 1791331200001,
+            "deviceId": "b",
+            "id": "b-water-water-b"
+          }
+        },
+        "tombstones": {
+          "customFoods": []
+        }
+      }
+    },
+    {
+      "name": "unrelated-edit-preserves-preferences",
+      "local": {
+        "version": 1,
+        "kind": "vault-snapshot",
+        "payload": {
+          "formatVersion": 1,
+          "createdAt": "2026-10-07T00:00:00Z",
+          "records": {
+            "schemaVersion": 2,
+            "revision": 0,
+            "setupCompleted": false,
+            "profile": null,
+            "goalWeightKg": null,
+            "weeklyLossKg": null,
+            "guidanceMode": "tracking-only",
+            "safetyFlags": {
+              "pregnant": null,
+              "breastfeeding": null,
+              "eatingDisorderRisk": null
+            },
+            "weights": [],
+            "water": [],
+            "exercises": [],
+            "legacyIntake": [],
+            "intakeEntries": [],
+            "intake": [],
+            "deletedRecords": [],
+            "processedOperations": []
+          },
+          "customFoods": [],
+          "favoriteFoodIds": [],
+          "recentFoodIds": [],
+          "personal": {
+            "version": 1,
+            "revision": 0,
+            "dietaryPreferences": {
+              "pattern": "vegetarian",
+              "excludedFoodIds": [],
+              "notes": ""
+            },
+            "measurements": [],
+            "photos": [],
+            "processedOperations": []
+          },
+          "photos": []
+        },
+        "clocks": {
+          "profile": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-profile"
+          },
+          "preferences": {
+            "updatedAt": 1791331200100,
+            "deviceId": "a",
+            "id": "a-preferences"
+          },
+          "favorites": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-favorites"
+          },
+          "recent": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-recent"
+          }
+        },
+        "tombstones": {
+          "customFoods": []
+        }
+      },
+      "remote": {
+        "version": 1,
+        "kind": "vault-snapshot",
+        "payload": {
+          "formatVersion": 1,
+          "createdAt": "2026-10-07T00:00:00Z",
+          "records": {
+            "schemaVersion": 2,
+            "revision": 0,
+            "setupCompleted": false,
+            "profile": null,
+            "goalWeightKg": null,
+            "weeklyLossKg": null,
+            "guidanceMode": "tracking-only",
+            "safetyFlags": {
+              "pregnant": null,
+              "breastfeeding": null,
+              "eatingDisorderRisk": null
+            },
+            "weights": [],
+            "water": [],
+            "exercises": [],
+            "legacyIntake": [],
+            "intakeEntries": [],
+            "intake": [],
+            "deletedRecords": [],
+            "processedOperations": []
+          },
+          "customFoods": [],
+          "favoriteFoodIds": [],
+          "recentFoodIds": [],
+          "personal": {
+            "version": 1,
+            "revision": 0,
+            "dietaryPreferences": {
+              "pattern": "none",
+              "excludedFoodIds": [],
+              "notes": ""
+            },
+            "measurements": [
+              {
+                "id": "mb",
+                "date": "2026-10-02",
+                "waistCm": 85
+              }
+            ],
+            "photos": [],
+            "processedOperations": []
+          },
+          "photos": []
+        },
+        "clocks": {
+          "profile": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-profile"
+          },
+          "preferences": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-preferences"
+          },
+          "favorites": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-favorites"
+          },
+          "recent": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-recent"
+          },
+          "measurement:mb": {
+            "updatedAt": 1791331200200,
+            "deviceId": "b",
+            "id": "b-measurement-mb"
+          }
+        },
+        "tombstones": {
+          "customFoods": []
+        }
+      },
+      "expected": {
+        "version": 1,
+        "kind": "vault-snapshot",
+        "payload": {
+          "formatVersion": 1,
+          "createdAt": "2026-10-07T00:00:00Z",
+          "records": {
+            "schemaVersion": 2,
+            "revision": 1,
+            "setupCompleted": false,
+            "profile": null,
+            "goalWeightKg": null,
+            "weeklyLossKg": null,
+            "guidanceMode": "tracking-only",
+            "safetyFlags": {
+              "pregnant": null,
+              "breastfeeding": null,
+              "eatingDisorderRisk": null
+            },
+            "weights": [],
+            "water": [],
+            "exercises": [],
+            "legacyIntake": [],
+            "intakeEntries": [],
+            "intake": [],
+            "deletedRecords": [],
+            "processedOperations": []
+          },
+          "customFoods": [],
+          "favoriteFoodIds": [],
+          "recentFoodIds": [],
+          "personal": {
+            "version": 1,
+            "revision": 1,
+            "dietaryPreferences": {
+              "pattern": "vegetarian",
+              "excludedFoodIds": [],
+              "notes": ""
+            },
+            "measurements": [
+              {
+                "id": "mb",
+                "date": "2026-10-02",
+                "waistCm": 85
+              }
+            ],
+            "photos": [],
+            "processedOperations": []
+          },
+          "photos": []
+        },
+        "clocks": {
+          "profile": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-profile"
+          },
+          "preferences": {
+            "updatedAt": 1791331200100,
+            "deviceId": "a",
+            "id": "a-preferences"
+          },
+          "favorites": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-favorites"
+          },
+          "recent": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-recent"
+          },
+          "measurement:mb": {
+            "updatedAt": 1791331200200,
+            "deviceId": "b",
+            "id": "b-measurement-mb"
+          }
+        },
+        "tombstones": {
+          "customFoods": []
+        }
+      }
+    },
+    {
+      "name": "tombstone-beats-live",
+      "local": {
+        "version": 1,
+        "kind": "vault-snapshot",
+        "payload": {
+          "formatVersion": 1,
+          "createdAt": "2026-10-07T00:00:00Z",
+          "records": {
+            "schemaVersion": 2,
+            "revision": 1,
+            "setupCompleted": false,
+            "profile": null,
+            "goalWeightKg": null,
+            "weeklyLossKg": null,
+            "guidanceMode": "tracking-only",
+            "safetyFlags": {
+              "pregnant": null,
+              "breastfeeding": null,
+              "eatingDisorderRisk": null
+            },
+            "weights": [
+              {
+                "id": "weight-2026-10-07",
+                "date": "2026-10-07",
+                "weightKg": 80
+              }
+            ],
+            "water": [],
+            "exercises": [],
+            "legacyIntake": [],
+            "intakeEntries": [],
+            "intake": [],
+            "deletedRecords": [],
+            "processedOperations": [
+              {
+                "operationId": "add",
+                "mutation": {
+                  "type": "set-weight",
+                  "date": "2026-10-07",
+                  "weightKg": 80
+                },
+                "appliedRevision": 1
+              }
+            ]
+          },
+          "customFoods": [],
+          "favoriteFoodIds": [],
+          "recentFoodIds": [],
+          "personal": {
+            "version": 1,
+            "revision": 0,
+            "dietaryPreferences": {
+              "pattern": "none",
+              "excludedFoodIds": [],
+              "notes": ""
+            },
+            "measurements": [],
+            "photos": [],
+            "processedOperations": []
+          },
+          "photos": []
+        },
+        "clocks": {
+          "profile": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-profile"
+          },
+          "preferences": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-preferences"
+          },
+          "favorites": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-favorites"
+          },
+          "recent": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-recent"
+          },
+          "weight:weight-2026-10-07": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-weight-weight-2026-10-07"
+          }
+        },
+        "tombstones": {
+          "customFoods": []
+        }
+      },
+      "remote": {
+        "version": 1,
+        "kind": "vault-snapshot",
+        "payload": {
+          "formatVersion": 1,
+          "createdAt": "2026-10-07T00:00:00Z",
+          "records": {
+            "schemaVersion": 2,
+            "revision": 2,
+            "setupCompleted": false,
+            "profile": null,
+            "goalWeightKg": null,
+            "weeklyLossKg": null,
+            "guidanceMode": "tracking-only",
+            "safetyFlags": {
+              "pregnant": null,
+              "breastfeeding": null,
+              "eatingDisorderRisk": null
+            },
+            "weights": [],
+            "water": [],
+            "exercises": [],
+            "legacyIntake": [],
+            "intakeEntries": [],
+            "intake": [],
+            "deletedRecords": [
+              {
+                "token": "undo-remove",
+                "deletedAt": "2026-10-07T00:00:00Z",
+                "deletedRevision": 2,
+                "kind": "weight",
+                "record": {
+                  "id": "weight-2026-10-07",
+                  "date": "2026-10-07",
+                  "weightKg": 80
+                }
+              }
+            ],
+            "processedOperations": [
+              {
+                "operationId": "add",
+                "mutation": {
+                  "type": "set-weight",
+                  "date": "2026-10-07",
+                  "weightKg": 80
+                },
+                "appliedRevision": 1
+              },
+              {
+                "operationId": "remove",
+                "mutation": {
+                  "type": "delete-record",
+                  "kind": "weight",
+                  "id": "weight-2026-10-07"
+                },
+                "appliedRevision": 2,
+                "undoToken": "undo-remove"
+              }
+            ]
+          },
+          "customFoods": [],
+          "favoriteFoodIds": [],
+          "recentFoodIds": [],
+          "personal": {
+            "version": 1,
+            "revision": 0,
+            "dietaryPreferences": {
+              "pattern": "none",
+              "excludedFoodIds": [],
+              "notes": ""
+            },
+            "measurements": [],
+            "photos": [],
+            "processedOperations": []
+          },
+          "photos": []
+        },
+        "clocks": {
+          "profile": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-profile"
+          },
+          "preferences": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-preferences"
+          },
+          "favorites": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-favorites"
+          },
+          "recent": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-recent"
+          },
+          "weight:weight-2026-10-07": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-weight-weight-2026-10-07"
+          }
+        },
+        "tombstones": {
+          "customFoods": []
+        }
+      },
+      "expected": {
+        "version": 1,
+        "kind": "vault-snapshot",
+        "payload": {
+          "formatVersion": 1,
+          "createdAt": "2026-10-07T00:00:00Z",
+          "records": {
+            "schemaVersion": 2,
+            "revision": 3,
+            "setupCompleted": false,
+            "profile": null,
+            "goalWeightKg": null,
+            "weeklyLossKg": null,
+            "guidanceMode": "tracking-only",
+            "safetyFlags": {
+              "pregnant": null,
+              "breastfeeding": null,
+              "eatingDisorderRisk": null
+            },
+            "weights": [],
+            "water": [],
+            "exercises": [],
+            "legacyIntake": [],
+            "intakeEntries": [],
+            "intake": [],
+            "deletedRecords": [
+              {
+                "token": "undo-remove",
+                "deletedAt": "2026-10-07T00:00:00Z",
+                "deletedRevision": 2,
+                "kind": "weight",
+                "record": {
+                  "id": "weight-2026-10-07",
+                  "date": "2026-10-07",
+                  "weightKg": 80
+                }
+              }
+            ],
+            "processedOperations": [
+              {
+                "operationId": "add",
+                "mutation": {
+                  "type": "set-weight",
+                  "date": "2026-10-07",
+                  "weightKg": 80
+                },
+                "appliedRevision": 1
+              },
+              {
+                "operationId": "remove",
+                "mutation": {
+                  "type": "delete-record",
+                  "kind": "weight",
+                  "id": "weight-2026-10-07"
+                },
+                "appliedRevision": 2,
+                "undoToken": "undo-remove"
+              }
+            ]
+          },
+          "customFoods": [],
+          "favoriteFoodIds": [],
+          "recentFoodIds": [],
+          "personal": {
+            "version": 1,
+            "revision": 1,
+            "dietaryPreferences": {
+              "pattern": "none",
+              "excludedFoodIds": [],
+              "notes": ""
+            },
+            "measurements": [],
+            "photos": [],
+            "processedOperations": []
+          },
+          "photos": []
+        },
+        "clocks": {
+          "profile": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-profile"
+          },
+          "preferences": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-preferences"
+          },
+          "favorites": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-favorites"
+          },
+          "recent": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-recent"
+          },
+          "weight:weight-2026-10-07": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-weight-weight-2026-10-07"
+          }
+        },
+        "tombstones": {
+          "customFoods": []
+        }
+      }
+    },
+    {
+      "name": "causal-undo",
+      "local": {
+        "version": 1,
+        "kind": "vault-snapshot",
+        "payload": {
+          "formatVersion": 1,
+          "createdAt": "2026-10-07T00:00:00Z",
+          "records": {
+            "schemaVersion": 2,
+            "revision": 2,
+            "setupCompleted": false,
+            "profile": null,
+            "goalWeightKg": null,
+            "weeklyLossKg": null,
+            "guidanceMode": "tracking-only",
+            "safetyFlags": {
+              "pregnant": null,
+              "breastfeeding": null,
+              "eatingDisorderRisk": null
+            },
+            "weights": [],
+            "water": [],
+            "exercises": [],
+            "legacyIntake": [],
+            "intakeEntries": [],
+            "intake": [],
+            "deletedRecords": [
+              {
+                "token": "undo-remove",
+                "deletedAt": "2026-10-07T00:00:00Z",
+                "deletedRevision": 2,
+                "kind": "weight",
+                "record": {
+                  "id": "weight-2026-10-07",
+                  "date": "2026-10-07",
+                  "weightKg": 80
+                }
+              }
+            ],
+            "processedOperations": [
+              {
+                "operationId": "add",
+                "mutation": {
+                  "type": "set-weight",
+                  "date": "2026-10-07",
+                  "weightKg": 80
+                },
+                "appliedRevision": 1
+              },
+              {
+                "operationId": "remove",
+                "mutation": {
+                  "type": "delete-record",
+                  "kind": "weight",
+                  "id": "weight-2026-10-07"
+                },
+                "appliedRevision": 2,
+                "undoToken": "undo-remove"
+              }
+            ]
+          },
+          "customFoods": [],
+          "favoriteFoodIds": [],
+          "recentFoodIds": [],
+          "personal": {
+            "version": 1,
+            "revision": 0,
+            "dietaryPreferences": {
+              "pattern": "none",
+              "excludedFoodIds": [],
+              "notes": ""
+            },
+            "measurements": [],
+            "photos": [],
+            "processedOperations": []
+          },
+          "photos": []
+        },
+        "clocks": {
+          "profile": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-profile"
+          },
+          "preferences": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-preferences"
+          },
+          "favorites": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-favorites"
+          },
+          "recent": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-recent"
+          },
+          "weight:weight-2026-10-07": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-weight-weight-2026-10-07"
+          }
+        },
+        "tombstones": {
+          "customFoods": []
+        }
+      },
+      "remote": {
+        "version": 1,
+        "kind": "vault-snapshot",
+        "payload": {
+          "formatVersion": 1,
+          "createdAt": "2026-10-07T00:00:00Z",
+          "records": {
+            "schemaVersion": 2,
+            "revision": 3,
+            "setupCompleted": false,
+            "profile": null,
+            "goalWeightKg": null,
+            "weeklyLossKg": null,
+            "guidanceMode": "tracking-only",
+            "safetyFlags": {
+              "pregnant": null,
+              "breastfeeding": null,
+              "eatingDisorderRisk": null
+            },
+            "weights": [
+              {
+                "id": "weight-2026-10-07",
+                "date": "2026-10-07",
+                "weightKg": 80
+              }
+            ],
+            "water": [],
+            "exercises": [],
+            "legacyIntake": [],
+            "intakeEntries": [],
+            "intake": [],
+            "deletedRecords": [],
+            "processedOperations": [
+              {
+                "operationId": "add",
+                "mutation": {
+                  "type": "set-weight",
+                  "date": "2026-10-07",
+                  "weightKg": 80
+                },
+                "appliedRevision": 1
+              },
+              {
+                "operationId": "remove",
+                "mutation": {
+                  "type": "delete-record",
+                  "kind": "weight",
+                  "id": "weight-2026-10-07"
+                },
+                "appliedRevision": 2,
+                "undoToken": "undo-remove"
+              },
+              {
+                "operationId": "undo",
+                "mutation": {
+                  "type": "restore-record",
+                  "token": "undo-remove"
+                },
+                "appliedRevision": 3
+              }
+            ]
+          },
+          "customFoods": [],
+          "favoriteFoodIds": [],
+          "recentFoodIds": [],
+          "personal": {
+            "version": 1,
+            "revision": 0,
+            "dietaryPreferences": {
+              "pattern": "none",
+              "excludedFoodIds": [],
+              "notes": ""
+            },
+            "measurements": [],
+            "photos": [],
+            "processedOperations": []
+          },
+          "photos": []
+        },
+        "clocks": {
+          "profile": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-profile"
+          },
+          "preferences": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-preferences"
+          },
+          "favorites": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-favorites"
+          },
+          "recent": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-recent"
+          },
+          "weight:weight-2026-10-07": {
+            "updatedAt": 1791331200100,
+            "deviceId": "a",
+            "id": "a-weight-weight-2026-10-07"
+          }
+        },
+        "tombstones": {
+          "customFoods": []
+        }
+      },
+      "expected": {
+        "version": 1,
+        "kind": "vault-snapshot",
+        "payload": {
+          "formatVersion": 1,
+          "createdAt": "2026-10-07T00:00:00Z",
+          "records": {
+            "schemaVersion": 2,
+            "revision": 4,
+            "setupCompleted": false,
+            "profile": null,
+            "goalWeightKg": null,
+            "weeklyLossKg": null,
+            "guidanceMode": "tracking-only",
+            "safetyFlags": {
+              "pregnant": null,
+              "breastfeeding": null,
+              "eatingDisorderRisk": null
+            },
+            "weights": [
+              {
+                "id": "weight-2026-10-07",
+                "date": "2026-10-07",
+                "weightKg": 80
+              }
+            ],
+            "water": [],
+            "exercises": [],
+            "legacyIntake": [],
+            "intakeEntries": [],
+            "intake": [],
+            "deletedRecords": [],
+            "processedOperations": [
+              {
+                "operationId": "add",
+                "mutation": {
+                  "type": "set-weight",
+                  "date": "2026-10-07",
+                  "weightKg": 80
+                },
+                "appliedRevision": 1
+              },
+              {
+                "operationId": "remove",
+                "mutation": {
+                  "type": "delete-record",
+                  "kind": "weight",
+                  "id": "weight-2026-10-07"
+                },
+                "appliedRevision": 2,
+                "undoToken": "undo-remove"
+              },
+              {
+                "operationId": "undo",
+                "mutation": {
+                  "type": "restore-record",
+                  "token": "undo-remove"
+                },
+                "appliedRevision": 3
+              }
+            ]
+          },
+          "customFoods": [],
+          "favoriteFoodIds": [],
+          "recentFoodIds": [],
+          "personal": {
+            "version": 1,
+            "revision": 1,
+            "dietaryPreferences": {
+              "pattern": "none",
+              "excludedFoodIds": [],
+              "notes": ""
+            },
+            "measurements": [],
+            "photos": [],
+            "processedOperations": []
+          },
+          "photos": []
+        },
+        "clocks": {
+          "profile": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-profile"
+          },
+          "preferences": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-preferences"
+          },
+          "favorites": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-favorites"
+          },
+          "recent": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-recent"
+          },
+          "weight:weight-2026-10-07": {
+            "updatedAt": 1791331200100,
+            "deviceId": "a",
+            "id": "a-weight-weight-2026-10-07"
+          }
+        },
+        "tombstones": {
+          "customFoods": []
+        }
+      }
+    },
+    {
+      "name": "exact-photo-bytes-and-metadata",
+      "local": {
+        "version": 1,
+        "kind": "vault-snapshot",
+        "payload": {
+          "formatVersion": 1,
+          "createdAt": "2026-10-07T00:00:00Z",
+          "records": {
+            "schemaVersion": 2,
+            "revision": 0,
+            "setupCompleted": false,
+            "profile": null,
+            "goalWeightKg": null,
+            "weeklyLossKg": null,
+            "guidanceMode": "tracking-only",
+            "safetyFlags": {
+              "pregnant": null,
+              "breastfeeding": null,
+              "eatingDisorderRisk": null
+            },
+            "weights": [],
+            "water": [],
+            "exercises": [],
+            "legacyIntake": [],
+            "intakeEntries": [],
+            "intake": [],
+            "deletedRecords": [],
+            "processedOperations": []
+          },
+          "customFoods": [],
+          "favoriteFoodIds": [],
+          "recentFoodIds": [],
+          "personal": {
+            "version": 1,
+            "revision": 0,
+            "dietaryPreferences": {
+              "pattern": "none",
+              "excludedFoodIds": [],
+              "notes": "公开测试：伙伴支持，长期健康",
+              "future": {
+                "caption": "中文 · 未来属性",
+                "nullable": null,
+                "flags": [
+                  true,
+                  false,
+                  null
+                ]
+              }
+            },
+            "measurements": [],
+            "photos": [
+              {
+                "id": "public-photo-1",
+                "date": "2026-10-07",
+                "view": "other",
+                "note": "Generated neutral grey pixels; no person or source photo.",
+                "createdAt": "2026-10-07T00:00:00Z",
+                "mime": "image/jpeg",
+                "width": 4,
+                "height": 4
+              }
+            ],
+            "processedOperations": []
+          },
+          "photos": [
+            {
+              "id": "public-photo-1",
+              "bytesBase64": "/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAEAAQDAREAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAAAP/EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AA//Z"
+            }
+          ]
+        },
+        "clocks": {
+          "profile": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-profile"
+          },
+          "preferences": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-preferences"
+          },
+          "favorites": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-favorites"
+          },
+          "recent": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-recent"
+          },
+          "photo:public-photo-1": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-photo-public-photo-1"
+          }
+        },
+        "tombstones": {
+          "customFoods": []
+        }
+      },
+      "remote": {
+        "version": 1,
+        "kind": "vault-snapshot",
+        "payload": {
+          "formatVersion": 1,
+          "createdAt": "2026-10-07T00:00:00Z",
+          "records": {
+            "schemaVersion": 2,
+            "revision": 0,
+            "setupCompleted": false,
+            "profile": null,
+            "goalWeightKg": null,
+            "weeklyLossKg": null,
+            "guidanceMode": "tracking-only",
+            "safetyFlags": {
+              "pregnant": null,
+              "breastfeeding": null,
+              "eatingDisorderRisk": null
+            },
+            "weights": [],
+            "water": [],
+            "exercises": [],
+            "legacyIntake": [],
+            "intakeEntries": [],
+            "intake": [],
+            "deletedRecords": [],
+            "processedOperations": []
+          },
+          "customFoods": [],
+          "favoriteFoodIds": [],
+          "recentFoodIds": [],
+          "personal": {
+            "version": 1,
+            "revision": 0,
+            "dietaryPreferences": {
+              "pattern": "none",
+              "excludedFoodIds": [],
+              "notes": "公开测试：伙伴支持，长期健康",
+              "future": {
+                "caption": "中文 · 未来属性",
+                "nullable": null,
+                "flags": [
+                  true,
+                  false,
+                  null
+                ]
+              }
+            },
+            "measurements": [],
+            "photos": [
+              {
+                "id": "public-photo-1",
+                "date": "2026-10-07",
+                "view": "other",
+                "note": "Public synthetic image, edited metadata",
+                "createdAt": "2026-10-07T00:00:00Z",
+                "mime": "image/jpeg",
+                "width": 4,
+                "height": 4
+              }
+            ],
+            "processedOperations": []
+          },
+          "photos": [
+            {
+              "id": "public-photo-1",
+              "bytesBase64": "/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAEAAQDAREAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAAAP/EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AA//Z"
+            }
+          ]
+        },
+        "clocks": {
+          "profile": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-profile"
+          },
+          "preferences": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-preferences"
+          },
+          "favorites": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-favorites"
+          },
+          "recent": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-recent"
+          },
+          "photo:public-photo-1": {
+            "updatedAt": 1791331200200,
+            "deviceId": "b",
+            "id": "b-photo-public-photo-1"
+          }
+        },
+        "tombstones": {
+          "customFoods": []
+        }
+      },
+      "expected": {
+        "version": 1,
+        "kind": "vault-snapshot",
+        "payload": {
+          "formatVersion": 1,
+          "createdAt": "2026-10-07T00:00:00Z",
+          "records": {
+            "schemaVersion": 2,
+            "revision": 1,
+            "setupCompleted": false,
+            "profile": null,
+            "goalWeightKg": null,
+            "weeklyLossKg": null,
+            "guidanceMode": "tracking-only",
+            "safetyFlags": {
+              "pregnant": null,
+              "breastfeeding": null,
+              "eatingDisorderRisk": null
+            },
+            "weights": [],
+            "water": [],
+            "exercises": [],
+            "legacyIntake": [],
+            "intakeEntries": [],
+            "intake": [],
+            "deletedRecords": [],
+            "processedOperations": []
+          },
+          "customFoods": [],
+          "favoriteFoodIds": [],
+          "recentFoodIds": [],
+          "personal": {
+            "version": 1,
+            "revision": 1,
+            "dietaryPreferences": {
+              "pattern": "none",
+              "excludedFoodIds": [],
+              "notes": "公开测试：伙伴支持，长期健康",
+              "future": {
+                "caption": "中文 · 未来属性",
+                "nullable": null,
+                "flags": [
+                  true,
+                  false,
+                  null
+                ]
+              }
+            },
+            "measurements": [],
+            "photos": [
+              {
+                "id": "public-photo-1",
+                "date": "2026-10-07",
+                "view": "other",
+                "note": "Public synthetic image, edited metadata",
+                "createdAt": "2026-10-07T00:00:00Z",
+                "mime": "image/jpeg",
+                "width": 4,
+                "height": 4
+              }
+            ],
+            "processedOperations": []
+          },
+          "photos": [
+            {
+              "id": "public-photo-1",
+              "bytesBase64": "/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAEAAQDAREAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAAAP/EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AA//Z"
+            }
+          ]
+        },
+        "clocks": {
+          "profile": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-profile"
+          },
+          "preferences": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-preferences"
+          },
+          "favorites": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-favorites"
+          },
+          "recent": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-recent"
+          },
+          "photo:public-photo-1": {
+            "updatedAt": 1791331200200,
+            "deviceId": "b",
+            "id": "b-photo-public-photo-1"
+          }
+        },
+        "tombstones": {
+          "customFoods": []
+        }
+      }
+    },
+    {
+      "name": "custom-food-tombstone",
+      "local": {
+        "version": 1,
+        "kind": "vault-snapshot",
+        "payload": {
+          "formatVersion": 1,
+          "createdAt": "2026-10-07T00:00:00Z",
+          "records": {
+            "schemaVersion": 2,
+            "revision": 0,
+            "setupCompleted": false,
+            "profile": null,
+            "goalWeightKg": null,
+            "weeklyLossKg": null,
+            "guidanceMode": "tracking-only",
+            "safetyFlags": {
+              "pregnant": null,
+              "breastfeeding": null,
+              "eatingDisorderRisk": null
+            },
+            "weights": [],
+            "water": [],
+            "exercises": [],
+            "legacyIntake": [],
+            "intakeEntries": [],
+            "intake": [],
+            "deletedRecords": [],
+            "processedOperations": []
+          },
+          "customFoods": [],
+          "favoriteFoodIds": [],
+          "recentFoodIds": [],
+          "personal": {
+            "version": 1,
+            "revision": 0,
+            "dietaryPreferences": {
+              "pattern": "none",
+              "excludedFoodIds": [],
+              "notes": "公开测试：伙伴支持，长期健康",
+              "future": {
+                "caption": "中文 · 未来属性",
+                "nullable": null,
+                "flags": [
+                  true,
+                  false,
+                  null
+                ]
+              }
+            },
+            "measurements": [],
+            "photos": [
+              {
+                "id": "public-photo-1",
+                "date": "2026-10-07",
+                "view": "other",
+                "note": "Generated neutral grey pixels; no person or source photo.",
+                "createdAt": "2026-10-07T00:00:00Z",
+                "mime": "image/jpeg",
+                "width": 4,
+                "height": 4
+              }
+            ],
+            "processedOperations": []
+          },
+          "photos": [
+            {
+              "id": "public-photo-1",
+              "bytesBase64": "/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAEAAQDAREAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAAAP/EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AA//Z"
+            }
+          ]
+        },
+        "clocks": {
+          "profile": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-profile"
+          },
+          "preferences": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-preferences"
+          },
+          "favorites": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-favorites"
+          },
+          "recent": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-recent"
+          },
+          "photo:public-photo-1": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-photo-public-photo-1"
+          }
+        },
+        "tombstones": {
+          "customFoods": []
+        }
+      },
+      "remote": {
+        "version": 1,
+        "kind": "vault-snapshot",
+        "payload": {
+          "formatVersion": 1,
+          "createdAt": "2026-10-07T00:00:00Z",
+          "records": {
+            "schemaVersion": 2,
+            "revision": 0,
+            "setupCompleted": false,
+            "profile": null,
+            "goalWeightKg": null,
+            "weeklyLossKg": null,
+            "guidanceMode": "tracking-only",
+            "safetyFlags": {
+              "pregnant": null,
+              "breastfeeding": null,
+              "eatingDisorderRisk": null
+            },
+            "weights": [],
+            "water": [],
+            "exercises": [],
+            "legacyIntake": [],
+            "intakeEntries": [],
+            "intake": [],
+            "deletedRecords": [],
+            "processedOperations": []
+          },
+          "customFoods": [],
+          "favoriteFoodIds": [],
+          "recentFoodIds": [],
+          "personal": {
+            "version": 1,
+            "revision": 0,
+            "dietaryPreferences": {
+              "pattern": "none",
+              "excludedFoodIds": [],
+              "notes": "公开测试：伙伴支持，长期健康",
+              "future": {
+                "caption": "中文 · 未来属性",
+                "nullable": null,
+                "flags": [
+                  true,
+                  false,
+                  null
+                ]
+              }
+            },
+            "measurements": [],
+            "photos": [
+              {
+                "id": "public-photo-1",
+                "date": "2026-10-07",
+                "view": "other",
+                "note": "Generated neutral grey pixels; no person or source photo.",
+                "createdAt": "2026-10-07T00:00:00Z",
+                "mime": "image/jpeg",
+                "width": 4,
+                "height": 4
+              }
+            ],
+            "processedOperations": []
+          },
+          "photos": [
+            {
+              "id": "public-photo-1",
+              "bytesBase64": "/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAEAAQDAREAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAAAP/EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AA//Z"
+            }
+          ]
+        },
+        "clocks": {
+          "profile": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-profile"
+          },
+          "preferences": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-preferences"
+          },
+          "favorites": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-favorites"
+          },
+          "recent": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-recent"
+          },
+          "photo:public-photo-1": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-photo-public-photo-1"
+          }
+        },
+        "tombstones": {
+          "customFoods": []
+        }
+      },
+      "expected": {
+        "version": 1,
+        "kind": "vault-snapshot",
+        "payload": {
+          "formatVersion": 1,
+          "createdAt": "2026-10-07T00:00:00Z",
+          "records": {
+            "schemaVersion": 2,
+            "revision": 0,
+            "setupCompleted": false,
+            "profile": null,
+            "goalWeightKg": null,
+            "weeklyLossKg": null,
+            "guidanceMode": "tracking-only",
+            "safetyFlags": {
+              "pregnant": null,
+              "breastfeeding": null,
+              "eatingDisorderRisk": null
+            },
+            "weights": [],
+            "water": [],
+            "exercises": [],
+            "legacyIntake": [],
+            "intakeEntries": [],
+            "intake": [],
+            "deletedRecords": [],
+            "processedOperations": []
+          },
+          "customFoods": [],
+          "favoriteFoodIds": [],
+          "recentFoodIds": [],
+          "personal": {
+            "version": 1,
+            "revision": 0,
+            "dietaryPreferences": {
+              "pattern": "none",
+              "excludedFoodIds": [],
+              "notes": "公开测试：伙伴支持，长期健康",
+              "future": {
+                "caption": "中文 · 未来属性",
+                "nullable": null,
+                "flags": [
+                  true,
+                  false,
+                  null
+                ]
+              }
+            },
+            "measurements": [],
+            "photos": [
+              {
+                "id": "public-photo-1",
+                "date": "2026-10-07",
+                "view": "other",
+                "note": "Generated neutral grey pixels; no person or source photo.",
+                "createdAt": "2026-10-07T00:00:00Z",
+                "mime": "image/jpeg",
+                "width": 4,
+                "height": 4
+              }
+            ],
+            "processedOperations": []
+          },
+          "photos": [
+            {
+              "id": "public-photo-1",
+              "bytesBase64": "/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAEAAQDAREAAhEBAxEB/8QAFAABAAAAAAAAAAAAAAAAAAAAAP/EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AA//Z"
+            }
+          ]
+        },
+        "clocks": {
+          "profile": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-profile"
+          },
+          "preferences": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-preferences"
+          },
+          "favorites": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-favorites"
+          },
+          "recent": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-recent"
+          },
+          "photo:public-photo-1": {
+            "updatedAt": 1791331200000,
+            "deviceId": "b",
+            "id": "b-photo-public-photo-1"
+          }
+        },
+        "tombstones": {
+          "customFoods": []
+        }
+      }
+    },
+    {
+      "name": "reused-clock-conflict",
+      "local": {
+        "version": 1,
+        "kind": "vault-snapshot",
+        "payload": {
+          "formatVersion": 1,
+          "createdAt": "2026-10-07T00:00:00Z",
+          "records": {
+            "schemaVersion": 2,
+            "revision": 0,
+            "setupCompleted": false,
+            "profile": null,
+            "goalWeightKg": null,
+            "weeklyLossKg": null,
+            "guidanceMode": "tracking-only",
+            "safetyFlags": {
+              "pregnant": null,
+              "breastfeeding": null,
+              "eatingDisorderRisk": null
+            },
+            "weights": [],
+            "water": [],
+            "exercises": [],
+            "legacyIntake": [],
+            "intakeEntries": [],
+            "intake": [],
+            "deletedRecords": [],
+            "processedOperations": []
+          },
+          "customFoods": [],
+          "favoriteFoodIds": [],
+          "recentFoodIds": [],
+          "personal": {
+            "version": 1,
+            "revision": 0,
+            "dietaryPreferences": {
+              "pattern": "none",
+              "excludedFoodIds": [],
+              "notes": ""
+            },
+            "measurements": [],
+            "photos": [],
+            "processedOperations": []
+          },
+          "photos": []
+        },
+        "clocks": {
+          "profile": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-profile"
+          },
+          "preferences": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-preferences"
+          },
+          "favorites": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-favorites"
+          },
+          "recent": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-recent"
+          }
+        },
+        "tombstones": {
+          "customFoods": []
+        }
+      },
+      "remote": {
+        "version": 1,
+        "kind": "vault-snapshot",
+        "payload": {
+          "formatVersion": 1,
+          "createdAt": "2026-10-07T00:00:00Z",
+          "records": {
+            "schemaVersion": 2,
+            "revision": 0,
+            "setupCompleted": false,
+            "profile": null,
+            "goalWeightKg": null,
+            "weeklyLossKg": null,
+            "guidanceMode": "tracking-only",
+            "safetyFlags": {
+              "pregnant": null,
+              "breastfeeding": null,
+              "eatingDisorderRisk": null
+            },
+            "weights": [],
+            "water": [],
+            "exercises": [],
+            "legacyIntake": [],
+            "intakeEntries": [],
+            "intake": [],
+            "deletedRecords": [],
+            "processedOperations": []
+          },
+          "customFoods": [],
+          "favoriteFoodIds": [],
+          "recentFoodIds": [],
+          "personal": {
+            "version": 1,
+            "revision": 0,
+            "dietaryPreferences": {
+              "pattern": "none",
+              "excludedFoodIds": [],
+              "notes": "Different bytes under same authenticated clock"
+            },
+            "measurements": [],
+            "photos": [],
+            "processedOperations": []
+          },
+          "photos": []
+        },
+        "clocks": {
+          "profile": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-profile"
+          },
+          "preferences": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-preferences"
+          },
+          "favorites": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-favorites"
+          },
+          "recent": {
+            "updatedAt": 1791331200000,
+            "deviceId": "a",
+            "id": "a-recent"
+          }
+        },
+        "tombstones": {
+          "customFoods": []
+        }
+      },
+      "expectedError": true
+    }
+  ]
+}

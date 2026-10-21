@@ -1,0 +1,13 @@
+{
+  "kind": "native-photo-review-only",
+  "fullAcceptance": false,
+  "files": [
+    {
+      "local_path": "native-photo-review.png",
+      "status": "succeeded",
+      "library_file_id": "libfile_2c603dd60674819192166d43156b699f",
+      "file_id": "file_000000000bc08211bddf8f6625a95261",
+      "version": 0
+    }
+  ]
+}

@@ -9,7 +9,9 @@ export type ShareCategory =
   | 'meals'
   | 'photos'
   | 'menstrual'
-  | 'exact_weight';
+  | 'exact_weight'
+  | 'body_measurements'
+  | 'encouragement';
 
 /** Categories that are safe and useful to suggest sharing. */
 export const SUGGESTED_SHARED: readonly ShareCategory[] = [
@@ -24,6 +26,8 @@ export const PRIVATE_BY_DEFAULT: readonly ShareCategory[] = [
   'photos',
   'menstrual',
   'exact_weight',
+  'body_measurements',
+  'encouragement',
 ];
 
 /** A person's sharing configuration. */

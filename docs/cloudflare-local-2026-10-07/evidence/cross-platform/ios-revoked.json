@@ -1,0 +1,10 @@
+{
+  "capturedUtc": "2026-10-07T20:36:44Z",
+  "checks": [
+    "android-withdrawal-purges-ios-peer-cache-and-worker-denies-prior-photo-url"
+  ],
+  "passed": true,
+  "platform": "iOS",
+  "revokedPhotoErrorCode": "object_unavailable",
+  "stage": "revoked"
+}

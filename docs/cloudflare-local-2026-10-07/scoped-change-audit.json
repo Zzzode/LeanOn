@@ -1,0 +1,114 @@
+{
+  "capturedUtc": "2026-10-07T20:39:17.205700+00:00",
+  "branch": "main",
+  "HEAD": "89b5e157844d62933a5ebfa773e7aa7b8d076cb9",
+  "origin": "https://github.com/Zzzode/LeanOn.git",
+  "baselineUtc": "2026-10-07T17:31:56.388604+00:00",
+  "baselineDirtyEntries": 358,
+  "checkedSourceFiles": 677,
+  "changedBaselineSources": [
+    {
+      "path": "rfcs/README.zh-CN.md",
+      "withinAuthorizedScope": true,
+      "sha256": "e8183adf665dd0349f1eeb08e40b5740f060011377dc9a3921e7b7462d0e76b1"
+    },
+    {
+      "path": "rfcs/README.md",
+      "withinAuthorizedScope": true,
+      "sha256": "66dbbb1a629d14374138aefe7bf40f7e5269d18f4d6d2ad38f84fcf86d6175fe"
+    },
+    {
+      "path": "server/companion/src/index.ts",
+      "withinAuthorizedScope": true,
+      "sha256": "63c73e2b07e89aa344eb6ccf72bde2343c5f667021d4a399b93cc6eea2f5d82a"
+    },
+    {
+      "path": "server/companion/package.json",
+      "withinAuthorizedScope": true,
+      "sha256": "9ec896e7f8bea1a447dbe983e0722c42f5492a49bd5a087bee53e85815f3c7eb"
+    },
+    {
+      "path": "packages/pages/src/components/CompanionSheet.tsx",
+      "withinAuthorizedScope": true,
+      "sha256": "a4dda7956c067896ce9d5165c3aeec382f140e9a0ed7bdd531e48533f6373198"
+    },
+    {
+      "path": "packages/pages/src/state/companion-actions.ts",
+      "withinAuthorizedScope": true,
+      "sha256": "724f677dfa1611a0d7152c511f232f2f2c5a9ca05d038e740fb0cab06caa7806"
+    },
+    {
+      "path": "packages/pages/src/state/companion-client.ts",
+      "withinAuthorizedScope": true,
+      "sha256": "9fe3953346000af9d10da0ff85fcd638e311915bd7be06b682436758f5558378"
+    },
+    {
+      "path": "packages/bridge/src/contracts.ts",
+      "withinAuthorizedScope": true,
+      "sha256": "5bb0a20da094afbea6dd7e3695a254ec3ddc8aa9999acf2edcfc99ead4af11aa"
+    },
+    {
+      "path": "packages/i18n/src/locales/en.ts",
+      "withinAuthorizedScope": true,
+      "sha256": "96bef4589e296b03f31e257b0713a5f9d8b557dec2197193fc21b6fab1c147a9"
+    },
+    {
+      "path": "packages/i18n/src/locales/zh-CN.ts",
+      "withinAuthorizedScope": true,
+      "sha256": "44a669dac4a4ba8954fbac52b11e762b1aa8e1bce39165955bc2cc874ee09159"
+    },
+    {
+      "path": "apps/ios/LeanOn/Companion/companion-http.swift",
+      "withinAuthorizedScope": true,
+      "sha256": "fa68cdafb0b7d01dd2c952c6a72852cecc714b89b1f0269c7d8cab911485e837"
+    },
+    {
+      "path": "apps/ios/LeanOn/Companion/companion-service.swift",
+      "withinAuthorizedScope": true,
+      "sha256": "e7532341ef85746cc88f66389923b54a8f67643edc09761e44dc9244fac3678c"
+    },
+    {
+      "path": "apps/android/app/src/test/java/com/zzzode/leanon/companion/CompanionRepositoryHttpTest.kt",
+      "withinAuthorizedScope": true,
+      "sha256": "6e40e1b4e45db7d7485c57961d9340a655aeb752bf8bf3a5474f7bfa52f219b9"
+    },
+    {
+      "path": "apps/ios/LeanOn/Storage/backup-coordinator.swift",
+      "withinAuthorizedScope": true,
+      "sha256": "a35c269fa67fa91026d5aceedd0514312958b2e88afafbaa86e5b28a55dbabf3"
+    },
+    {
+      "path": "apps/android/app/src/androidTest/java/com/zzzode/leanon/qa/ParityInstrumentation.kt",
+      "withinAuthorizedScope": true,
+      "sha256": "2cf1f1b47b467b6739f5bfdec3d22ebf7325dfc313e9eda626ca5593141b97d7"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/companion/CompanionRepository.kt",
+      "withinAuthorizedScope": true,
+      "sha256": "6c856ca41e1b892516437ed371f36c9efbec12b918168cd371538422b749ebaa"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/companion/CompanionHttp.kt",
+      "withinAuthorizedScope": true,
+      "sha256": "3c2fa976b92bbd15d583f57ae4e320815eeabf47b5a335834f02375438c9fc16"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/modules/CompanionModule.kt",
+      "withinAuthorizedScope": true,
+      "sha256": "502fa19074a2e296aacd7186455a248b1b4e2df2cb0adabeebc689a5bc113246"
+    },
+    {
+      "path": "apps/android/app/src/main/java/com/zzzode/leanon/personal/BackupCoordinator.kt",
+      "withinAuthorizedScope": true,
+      "sha256": "06e653ecad7c9962d751210c4845abe1825338b8c0e94d9cec7568cc615337af"
+    },
+    {
+      "path": "apps/ios/LeanOnTests/companion-tests.swift",
+      "withinAuthorizedScope": true,
+      "sha256": "c247732c74e9c76b5e34589bfc39e3b76d5a67d3a391285288c920532b4a4187"
+    }
+  ],
+  "missingBaselineSources": [],
+  "unexpectedSourceChanges": [],
+  "scopeNote": "Build/Pods/dist/generated-project files excluded. Root workspace/lock configuration changes are separately included in the evidence package. This compares the 17:31 UTC checkpoint, not a clean committed baseline."
+}

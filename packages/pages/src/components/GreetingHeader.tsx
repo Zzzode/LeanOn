@@ -12,16 +12,10 @@ export function GreetingHeader({ state, t }: GreetingHeaderProps) {
     <view className="GreetingHeader">
       <view className="GreetingHeader-text">
         <text className="GreetingHeader-greeting">
-          {t(`home.greeting.${state.dayPart}`)}
+          {t('design.todayTitle')}
         </text>
         <text className="GreetingHeader-date">
           {formatDate(t, state.dateParts)}
-        </text>
-      </view>
-      <view className="GreetingHeader-streak">
-        <text className="GreetingHeader-streak-num">{state.streak}</text>
-        <text className="GreetingHeader-streak-label">
-          {t('home.dayStreak')}
         </text>
       </view>
     </view>

@@ -1,0 +1,10 @@
+{
+  "capturedUtc": "2026-10-07T20:32:02Z",
+  "checks": [
+    "ios-independent-owner-registers-and-publishes-protocol2-vault"
+  ],
+  "iosPhotoSha256": "902b88fb192ea99ddf99e5f2bd279afc0203dbbbb8ac79b5ee6356677d3d53c1",
+  "passed": true,
+  "platform": "iOS",
+  "stage": "create"
+}

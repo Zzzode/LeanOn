@@ -1,0 +1,37 @@
+Attributes: Application, 0x117525b80, pid: 26047, label: 'LeanOn'
+Element subtree:
+ →Application, 0x117525b80, pid: 26047, label: 'LeanOn'
+    Window (Main), 0x117525cc0, {{0.0, 0.0}, {375.0, 667.0}}
+      Other, 0x117525e00, {{0.0, 0.0}, {375.0, 667.0}}
+        Other, 0x1175257c0, {{0.0, 0.0}, {375.0, 667.0}}
+          Other, 0x117525a40, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x117525900, {{0.0, 0.0}, {375.0, 667.0}}
+              Other, 0x117525540, {{0.0, 0.0}, {375.0, 667.0}}
+                Other, 0x117525680, {{0.0, 0.0}, {375.0, 667.0}}
+                  Other, 0x117524000, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x117524280, {{0.0, 0.0}, {375.0, 667.0}}
+                      Other, 0x1175243c0, {{0.0, 0.0}, {375.0, 667.0}}
+                        Other, 0x117525400, {{0.0, 20.0}, {375.0, 647.0}}, label: 'lynxview'
+                          Other, 0x1175252c0, {{0.0, 20.0}, {375.0, 647.0}}
+                          Other, 0x117525180, {{0.0, 20.0}, {375.0, 647.0}}
+                            Other, 0x117524640, {{0.0, 396.0}, {375.0, 271.0}}
+                              StaticText, 0x117524c80, {{24.0, 420.0}, {327.0, 33.0}}, label: 'Delete this record?'
+                              StaticText, 0x117524f00, {{24.0, 468.0}, {327.0, 25.0}}, label: 'Weight'
+                              StaticText, 0x117525040, {{24.0, 517.0}, {327.0, 50.0}}, label: 'The record will move to Recently deleted. You can restore it later.'
+                              Button, 0x117524dc0, {{24.0, 587.0}, {157.5, 48.0}}, label: 'Cancel'
+                              Button, 0x117524780, {{193.5, 587.0}, {157.5, 48.0}}, label: 'Delete record'
+                  Other, 0x117524a00, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x117524b40, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x1175248c0, {{0.0, 584.0}, {375.0, 83.0}}
+              Other, 0x117524500, {{0.0, 0.0}, {375.0, 667.0}}
+              Other, 0x117524140, {{0.0, 584.0}, {375.0, 83.0}}
+    Window, 0x117526940, {{0.0, 0.0}, {375.0, 667.0}}
+      Other, 0x117526a80, {{0.0, 0.0}, {375.0, 667.0}}
+        Other, 0x117526bc0, {{0.0, 0.0}, {375.0, 667.0}}
+Path to element:
+ →Application, 0x117525b80, pid: 26047, label: 'LeanOn'
+Query chain:
+ →Find: Target Application 'com.zzzode.leanon.uiqa'
+  Output: {
+    Application, 0x117526800, pid: 26047, label: 'LeanOn'
+  }

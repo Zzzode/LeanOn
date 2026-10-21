@@ -1,5 +1,7 @@
 # RFC 流程
 
+简体中文 · [English](README.md)
+
 本仓库的所有重要设计决策都通过 **RFC（Request for Comments）** 沉淀。RFC 是一份简短的设计文档，描述一个变更、它的动机、技术方案、备选方案与未决问题。
 
 ## 什么时候需要 RFC
@@ -75,3 +77,10 @@
 | [0026](0026-icon-visual-proportions.zh-CN.md) | 图标视觉占比 | Proposed |
 | [0027](0027-ios-host-landing.zh-CN.md) | iOS 宿主落地（CocoaPods 接入 Lynx、容器、数据层、HealthKit） | Accepted |
 | [0028](0028-bottom-tab-native-shell.zh-CN.md) | 底部 Tab 导航与原生壳（Today/Diary/Progress/Partner/Me） | Proposed |
+| [0029](0029-native-form-and-content-reliability.zh-CN.md) | 原生表单与内容可靠性 | Proposed |
+| [0030](0030-persisted-appearance.zh-CN.md) | Lynx 与原生宿主协同持久化外观 | Proposed |
+| [0031](0031-platform-capability-parity.zh-CN.md) | 平台能力对齐 | Proposed |
+| [0032](0032-personal-daily-records.zh-CN.md) | 个人建档与可恢复的每日记录 | Proposed |
+| [0033](0033-barcode-recovery-and-product-units.zh-CN.md) | 条码恢复与商品营养单位 | Proposed |
+| [0034](0034-private-personal-data-and-companion-sync.zh-CN.md) | 私有个人数据与搭档同步 | Proposed |
+| [0035](0035-private-cloudflare-companion.zh-CN.md) | 私有 Cloudflare 搭档后端 | Proposed |

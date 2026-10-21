@@ -1,0 +1,9 @@
+{
+  "capturedUtc": "2026-10-07T20:34:20Z",
+  "checks": [
+    "ios-withdrawal-committed-for-android-observation"
+  ],
+  "passed": true,
+  "platform": "iOS",
+  "stage": "revoke"
+}

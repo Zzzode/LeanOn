@@ -21,6 +21,7 @@ export type RpcErrorCode =
   | 'not-authorized'
   | 'unavailable'
   | 'invalid-request'
+  | 'conflict'
   | 'cancelled'
   | 'unknown';
 

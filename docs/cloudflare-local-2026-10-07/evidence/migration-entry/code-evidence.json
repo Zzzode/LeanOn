@@ -1,0 +1,322 @@
+[
+  {
+    "path": "packages/pages/src/components/SettingsScreen.tsx",
+    "sha256": "eef206eb99a1c1655518960a34fa58dd0b7e653d1ef8b9c4412ebf65009b4675",
+    "anchors": [
+      {
+        "line": 93,
+        "text": "<view id=\"migration-open\" flatten={false} className=\"Settings-row Settings-tappable\" accessibility-element={true} accessibility-traits=\"button\" accessibility-label={t('migration.title')} bindtap={migrationAvailable?onOpenMigration:undefined}>"
+      }
+    ]
+  },
+  {
+    "path": "packages/pages/src/App.tsx",
+    "sha256": "7a0428289302f79efafd0f8dcd6a93cac26db69a5893b717f19bdac1219588ae",
+    "anchors": [
+      {
+        "line": 762,
+        "text": "<SettingsScreen t={t} locale={locale} appearance={appearance} onAppearanceChange={handleAppearanceChange} onLocaleChange={handleLocaleChange} onOpenReminders={handleOpenReminders} onOpenHealthConnect={handleOpenHealthConnect} remindersAvailable={toolsAvailable.reminders} healthAvailable={provider !== null} migrationAvailable={isNativeShell && supports('companion.getMigrationState')} onOpenMigration={()=>setActiveSheet('migration')} />"
+      },
+      {
+        "line": 834,
+        "text": "{activeSheet==='migration'&&<MigrationSheet bridge={bridge} t={t} onClose={()=>setActiveSheet('none')}/>}"
+      }
+    ]
+  },
+  {
+    "path": "packages/pages/src/components/MigrationSheet.tsx",
+    "sha256": "978c87c2899f8ccacb29e2f213b1a095aef5825fd85f4924c769d7ab7ed9fba7",
+    "anchors": [
+      {
+        "line": 9,
+        "text": "export function MigrationSheet({ bridge, t, onClose }: { bridge: LeanOnBridgeClient; t: Translator; onClose: () => void }) {"
+      },
+      {
+        "line": 15,
+        "text": "const refresh = async () => { if(polling.current)return;polling.current=true;try{apply(await bridge.invoke('companion.getMigrationState'));}catch{setError(t('migration.loadError'));}finally{polling.current=false;} };"
+      },
+      {
+        "line": 18,
+        "text": "void bridge.invoke('companion.getMigrationState').then(response=>{if(alive){const next=apply(response);setEndpoint(next.targetEndpoint??'');}}).catch(()=>{if(alive)setError(t('migration.loadError'));});"
+      },
+      {
+        "line": 28,
+        "text": "try{apply(await bridge.invoke('companion.getMigrationState'));}catch{/* Preserve the last confirmed native projection. */}"
+      },
+      {
+        "line": 31,
+        "text": "const pause = async () => {setError(null);try{apply(await bridge.invoke('companion.pauseMigration'));setConsent(false);}catch{setError(t('migration.error'));}};"
+      },
+      {
+        "line": 38,
+        "text": "if(review && view.previewToken!==null)void run(()=>bridge.invoke('companion.startMigration',{previewToken:view.previewToken!,password:secret,backupPassword:backup,consent:true}));"
+      },
+      {
+        "line": 39,
+        "text": "else void run(()=>bridge.invoke('companion.resumeMigration',{password:secret,backupPassword:backup,consent:true}));"
+      },
+      {
+        "line": 40,
+        "text": "}else if(phase==='active' && consent)void run(()=>bridge.invoke('companion.rollbackMigration',{consent:true}));"
+      }
+    ]
+  },
+  {
+    "path": "packages/pages/src/state/migration-ui.ts",
+    "sha256": "73ddfe6df477a35bbcf0ba1d8a616efc4a74edac83d52ae4decd85effb1d9fde",
+    "anchors": [
+      {
+        "line": 7,
+        "text": "export function readMigrationState(response: unknown): CompanionMigrationState | null {"
+      },
+      {
+        "line": 19,
+        "text": "export function migrationRunning(phase: CompanionMigrationState['phase']): boolean { return ['preparing','restoring','publishing','pausing','activating'].includes(phase); }"
+      },
+      {
+        "line": 20,
+        "text": "export function migrationConfirmed(state: CompanionMigrationState, consent: boolean, password: string, backupPassword: string): boolean {"
+      }
+    ]
+  },
+  {
+    "path": "packages/bridge/src/contracts.ts",
+    "sha256": "2490bfba90063e825a2690f56ddbf8506ed2eb0a619f3628a72f697833b85008",
+    "anchors": [
+      {
+        "line": 175,
+        "text": "'companion.getMigrationState': { request: void; response: CompanionMigrationResponse };"
+      },
+      {
+        "line": 176,
+        "text": "'companion.previewMigration': { request: { targetEndpoint: string; password: string }; response: CompanionMigrationResponse };"
+      },
+      {
+        "line": 177,
+        "text": "'companion.startMigration': { request: { previewToken: string; password: string; backupPassword: string; consent: true }; response: CompanionMigrationResponse };"
+      },
+      {
+        "line": 178,
+        "text": "'companion.resumeMigration': { request: { password: string; backupPassword: string; consent: true }; response: CompanionMigrationResponse };"
+      },
+      {
+        "line": 179,
+        "text": "'companion.pauseMigration': { request: void; response: CompanionMigrationResponse };"
+      },
+      {
+        "line": 180,
+        "text": "'companion.rollbackMigration': { request: { consent: true }; response: CompanionMigrationResponse };"
+      },
+      {
+        "line": 462,
+        "text": "'companion.migrationChanged': { payload: CompanionMigrationResponse };"
+      },
+      {
+        "line": 501,
+        "text": "companionGetMigrationState: 'companion.getMigrationState',"
+      },
+      {
+        "line": 502,
+        "text": "companionPreviewMigration: 'companion.previewMigration',"
+      },
+      {
+        "line": 503,
+        "text": "companionStartMigration: 'companion.startMigration',"
+      },
+      {
+        "line": 504,
+        "text": "companionResumeMigration: 'companion.resumeMigration',"
+      },
+      {
+        "line": 505,
+        "text": "companionPauseMigration: 'companion.pauseMigration',"
+      },
+      {
+        "line": 506,
+        "text": "companionRollbackMigration: 'companion.rollbackMigration',"
+      }
+    ]
+  },
+  {
+    "path": "apps/ios/LeanOn/Companion/companion-migration-controller.swift",
+    "sha256": "645fda23d240d9d4c9bba6dc861d5ec4ed48c23d2a3a867889582ec6fce80d61",
+    "anchors": [
+      {
+        "line": 11,
+        "text": "private func withControl<T>(_ operation: () throws -> T) rethrows -> T {"
+      },
+      {
+        "line": 73,
+        "text": "func start(token: String, password: String, backupPassword: String, consent: Bool) throws -> NSDictionary {"
+      },
+      {
+        "line": 85,
+        "text": "try withControl { running = true; pauseRequested = false; value[\"phase\"] = \"preparing\"; try save(value) }"
+      },
+      {
+        "line": 89,
+        "text": "let paused = try withControl { value[\"phase\"] = pauseRequested ? \"paused\" : \"prepared\"; value[\"previewToken\"] = NSNull(); try save(value); return pauseRequested }"
+      },
+      {
+        "line": 97,
+        "text": "func publish(password: String, backupPassword: String, consent: Bool) throws -> NSDictionary {"
+      },
+      {
+        "line": 107,
+        "text": "try withControl { if !running { pauseRequested = false }; running = true; value[\"phase\"] = \"publishing\"; value[\"errorCode\"] = NSNull(); try save(value) }"
+      },
+      {
+        "line": 142,
+        "text": "func rollback(consent: Bool) throws -> NSDictionary {"
+      }
+    ]
+  },
+  {
+    "path": "apps/android/app/src/main/java/com/zzzode/leanon/companion/CompanionMigrationController.kt",
+    "sha256": "a9b4ac37556637ea1968c99cfd5f767e5789cf964898e1855a3ff9ac714ea956",
+    "anchors": [
+      {
+        "line": 51,
+        "text": "@Synchronized fun preview(endpoint: String, password: String): JSONObject {"
+      },
+      {
+        "line": 70,
+        "text": "@Synchronized fun start(token: String, password: String, backupPassword: String, consent: Boolean): JSONObject {"
+      },
+      {
+        "line": 85,
+        "text": "@Synchronized fun resume(password: String, backupPassword: String, consent: Boolean): JSONObject {"
+      },
+      {
+        "line": 118,
+        "text": "@Synchronized fun rollback(consent: Boolean): JSONObject {"
+      }
+    ]
+  },
+  {
+    "path": "apps/ios/LeanOnTests/companion-migration-entry-tests.swift",
+    "sha256": "03882e8504ccdd94cd25d68cae7bdab500cfda1797514de32ca455e45dbb7f69",
+    "anchors": [
+      {
+        "line": 16,
+        "text": "func testSeedActualMigrationSettingsFixture() throws {"
+      },
+      {
+        "line": 45,
+        "text": "func testActualMigrationCheckpointPreservesHealthAndRepeatedAction() throws {"
+      },
+      {
+        "line": 74,
+        "text": "func testAddExplicitSyntheticHealthRecordsBeforeUIReview() throws {"
+      },
+      {
+        "line": 90,
+        "text": "func testActualPreviewUsesAuthenticatedTargetAndCancelsWithoutSwitching() throws {"
+      },
+      {
+        "line": 105,
+        "text": "func testMigrationControlWriteFailureReleasesLockForNextStatusRead() throws {"
+      }
+    ]
+  },
+  {
+    "path": "apps/ios/LeanOnUITests/migration-entry-ui-tests.swift",
+    "sha256": "c86f0b88a95bbd9472e6a08198212b7c46966fd0b17758d1955ffa6352686026",
+    "anchors": [
+      {
+        "line": 58,
+        "text": "func testSettingsPreviewConsentPauseRestartResumeAndActive() {"
+      },
+      {
+        "line": 65,
+        "text": "XCTAssertEqual(item(\"Confirm migration\").value as? String, \"Unavailable\")"
+      },
+      {
+        "line": 76,
+        "text": "XCTAssertEqual(item(\"Resume migration\").value as? String, \"Unavailable\")"
+      },
+      {
+        "line": 85,
+        "text": "func testSettingsConfirmedRollbackAndRestart() {"
+      },
+      {
+        "line": 87,
+        "text": "XCTAssertEqual(item(\"Return to source\").value as? String, \"Unavailable\")"
+      }
+    ]
+  },
+  {
+    "path": "apps/android/app/src/androidTest/java/com/zzzode/leanon/companion/MigrationEntryFixture.kt",
+    "sha256": "f86f620d2a49a22e626a7bb48bbdea7ea9252f4fb43c6bd484a540490cdf583a",
+    "anchors": [
+      {
+        "line": 56,
+        "text": "fun verify(context: Context): JSONObject {"
+      }
+    ]
+  },
+  {
+    "path": "apps/android/app/src/androidTest/java/com/zzzode/leanon/qa/MigrationEntryUiSession.kt",
+    "sha256": "7491babd7075da69225aadafe220e44f27dd8c59513340b2f89b7355ecf9357d",
+    "anchors": [
+      {
+        "line": 39,
+        "text": "if(android.os.Build.VERSION.SDK_INT>=33)automation.clearCache()"
+      },
+      {
+        "line": 48,
+        "text": "File(directory,\"$name-native-state.json\").writeText(app.migration.state().toString(2))"
+      }
+    ]
+  },
+  {
+    "path": "packages/pages/src/state/migration-ui.test.ts",
+    "sha256": "c117398a2dcc254e468fd84c048ef81b7705d97317a6794b256daf6f2d65f1c7",
+    "anchors": [
+      {
+        "line": 11,
+        "text": "it('accepts explicit native checkpoints without inventing missing state', () => {"
+      },
+      {
+        "line": 18,
+        "text": "it('requires consent and both passwords again after a persisted pause', () => {"
+      },
+      {
+        "line": 26,
+        "text": "it('polls only actual in-flight states', () => {"
+      }
+    ]
+  },
+  {
+    "path": "server/companion-worker/src/admin.ts",
+    "sha256": "48ba9126026e33aee6b80689890d35cf32652c2f501bd41a2c9bded3ee03b069",
+    "anchors": [
+      {
+        "line": 157,
+        "text": "export interface LegacyMigrationPlan {"
+      },
+      {
+        "line": 162,
+        "text": "export function planLegacyMigration(value: unknown, targetEndpoint: string, targetServiceId: string, operationId: string): LegacyMigrationPlan {"
+      }
+    ]
+  },
+  {
+    "path": "server/companion-worker/scripts/migration-plan.mjs",
+    "sha256": "c2d0442952a630e1dfea3d2561d7ef38bb80a3a1e230de12f49a6dbf6d4fbd43",
+    "anchors": [
+      {
+        "line": 2,
+        "text": "import { planLegacyMigration } from '../dist/admin.js';"
+      },
+      {
+        "line": 7,
+        "text": "if(argumentsList.length!==9 || argumentsList[0]!=='--dry-run')throw new Error('Use --dry-run --source FILE --target ORIGIN --service-id VERIFIED_ID --operation ID');"
+      },
+      {
+        "line": 15,
+        "text": "process.stdout.write(JSON.stringify(planLegacyMigration(state,options['--target'],options['--service-id'],options['--operation']),null,2)+'\\n');"
+      }
+    ]
+  }
+]

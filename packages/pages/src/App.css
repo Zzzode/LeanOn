@@ -1,8 +1,8 @@
 .Page {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  background-color: #edf2ef;
+  height: 100%;
+  background-color: var(--canvas);
 }
 .PageRoot {
   display: flex;
@@ -17,13 +17,14 @@
 }
 
 .Content {
+  display: flex;
   flex-direction: column;
   padding: 0 32rpx 180rpx;
 }
 
 /* Press feedback utilities */
 .tap-feedback { transition: opacity 150ms ease; }
-.tap-feedback-hover { opacity: 0.55; }
+.tap-feedback-hover { background-color: var(--control); }
 
 /* Animations */
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -42,19 +43,20 @@
 }
 
 .Header-text {
+  display: flex;
   flex-direction: column;
 }
 
 .Header-greeting {
-  font-size: 36rpx;
+  font-size: 19.3px;
   font-weight: 700;
-  color: #16261f;
+  color: var(--ink);
 }
 
 .Header-date {
   margin-top: 6rpx;
-  font-size: 26rpx;
-  color: #6c7c75;
+  font-size: 13.9px;
+  color: var(--muted);
 }
 
 .Header-side {
@@ -69,7 +71,7 @@
   flex-direction: row;
   padding: 4rpx;
   border-radius: 999rpx;
-  background-color: #e2eae5;
+  background-color: var(--control);
 }
 
 .LangSwitch-item {
@@ -78,17 +80,17 @@
 }
 
 .LangSwitch-item.active {
-  background-color: #ffffff;
+  background-color: var(--paper);
 }
 
 .LangSwitch-label {
-  font-size: 24rpx;
-  color: #78897f;
+  font-size: 12.9px;
+  color: var(--muted);
 }
 
 .LangSwitch-label.active {
   font-weight: 600;
-  color: #16261f;
+  color: var(--ink);
 }
 
 .Header-streak {
@@ -97,29 +99,29 @@
 }
 
 .Header-streak-num {
-  font-size: 36rpx;
+  font-size: 19.3px;
   font-weight: 700;
-  color: #218967;
+  color: var(--brand);
 }
 
 .Header-streak-label {
   margin-top: 2rpx;
-  font-size: 22rpx;
-  color: #6c7c75;
+  font-size: 11.8px;
+  color: var(--muted);
 }
 
 /* Card */
 .Card {
-  background-color: #ffffff;
+  background-color: var(--paper);
   border-radius: 28rpx;
   padding: 36rpx;
   margin-bottom: 28rpx;
 }
 
 .Card-title {
-  font-size: 24rpx;
+  font-size: 12.9px;
   letter-spacing: 0;
-  color: #82918a;
+  color: var(--muted);
   margin-bottom: 22rpx;
 }
 
@@ -132,20 +134,21 @@
 }
 
 .Energy-headline {
+  display: flex;
   flex-direction: column;
 }
 
 .Energy-num {
-  font-size: 92rpx;
+  font-size: 49.3px;
   font-weight: 700;
   line-height: 104rpx;
-  color: #14352a;
+  color: var(--ink);
 }
 
 .Energy-unit {
   margin-top: 4rpx;
-  font-size: 24rpx;
-  color: #6c7c75;
+  font-size: 12.9px;
+  color: var(--muted);
 }
 
 .Energy-rows {
@@ -160,22 +163,22 @@
 }
 
 .Energy-row-label {
-  font-size: 26rpx;
-  color: #6c7c75;
+  font-size: 13.9px;
+  color: var(--muted);
   margin-right: 20rpx;
 }
 
 .Energy-row-value {
-  font-size: 28rpx;
+  font-size: 15px;
   font-weight: 600;
-  color: #1c2b25;
+  color: var(--ink);
 }
 
 /* Progress bar */
 .ProgressBar {
   height: 16rpx;
   border-radius: 8rpx;
-  background-color: #e8efeb;
+  background-color: var(--control);
   margin-top: 26rpx;
   overflow: hidden;
 }
@@ -201,22 +204,22 @@
 }
 
 .Weight-current {
-  font-size: 76rpx;
+  font-size: 40.7px;
   font-weight: 700;
-  color: #14352a;
+  color: var(--ink);
 }
 
 .Weight-unit {
   margin-left: 8rpx;
   margin-bottom: 12rpx;
-  font-size: 28rpx;
-  color: #6c7c75;
+  font-size: 15px;
+  color: var(--muted);
 }
 
 .Weight-trend {
-  font-size: 26rpx;
+  font-size: 13.9px;
   font-weight: 600;
-  color: #218967;
+  color: var(--brand);
 }
 
 .Weight-rows {
@@ -231,15 +234,15 @@
 }
 
 .Weight-stat-value {
-  font-size: 32rpx;
+  font-size: 17.2px;
   font-weight: 600;
-  color: #1c2b25;
+  color: var(--ink);
 }
 
 .Weight-stat-label {
   margin-top: 4rpx;
-  font-size: 22rpx;
-  color: #82918a;
+  font-size: 11.8px;
+  color: var(--muted);
 }
 
 /* Macros */
@@ -249,6 +252,7 @@
 }
 
 .Macro-col {
+  display: flex;
   flex: 1;
   flex-direction: column;
 }
@@ -258,34 +262,34 @@
 }
 
 .Macro-grams {
-  font-size: 36rpx;
+  font-size: 19.3px;
   font-weight: 700;
-  color: #1c2b25;
+  color: var(--ink);
 }
 
 /* Micronutrients (RFC 0024): neutral value, good = green, bad = over limit. */
 .Micros-val {
-  font-size: 36rpx;
+  font-size: 19.3px;
   font-weight: 700;
-  color: #1c2b25;
+  color: var(--ink);
 }
 .Micros-val.good {
-  color: #218967;
+  color: var(--brand);
 }
 .Micros-val.bad {
-  color: #e0594b;
+  color: var(--danger);
 }
 
 .Macro-label {
   margin-top: 2rpx;
-  font-size: 24rpx;
-  color: #6c7c75;
+  font-size: 12.9px;
+  color: var(--muted);
 }
 
 .Macro-target {
   margin-top: 8rpx;
-  font-size: 20rpx;
-  color: #82918a;
+  font-size: 10.7px;
+  color: var(--muted);
 }
 
 .Macro-col .ProgressBar {
@@ -308,15 +312,15 @@
 }
 
 .Water-amount {
-  font-size: 40rpx;
+  font-size: 21.4px;
   font-weight: 700;
-  color: #1c2b25;
+  color: var(--ink);
 }
 
 .Water-unit {
   margin-left: 6rpx;
-  font-size: 22rpx;
-  color: #6c7c75;
+  font-size: 11.8px;
+  color: var(--muted);
 }
 
 .Water-meta {
@@ -328,13 +332,13 @@
 }
 
 .Water-status {
-  font-size: 24rpx;
-  color: #218967;
+  font-size: 12.9px;
+  color: var(--brand);
 }
 
 .Water-goal {
-  font-size: 22rpx;
-  color: #82918a;
+  font-size: 11.8px;
+  color: var(--muted);
 }
 
 .Water-controls {
@@ -351,7 +355,7 @@
   justify-content: center;
   padding: 18rpx 0;
   border-radius: 20rpx;
-  background: #eef3f0;
+  background: var(--control);
 }
 
 .Water-btn + .Water-btn {
@@ -359,7 +363,7 @@
 }
 
 .Water-btn.primary {
-  background: #218967;
+  background: var(--brand);
 }
 
 .Water-btn.disabled {
@@ -367,12 +371,12 @@
 }
 
 .Water-btn-label {
-  font-size: 26rpx;
-  color: #218967;
+  font-size: 13.9px;
+  color: var(--brand);
 }
 
 .Water-btn-label.primary {
-  color: #ffffff;
+  color: var(--paper);
 }
 
 /* Quick actions */
@@ -387,7 +391,7 @@
   border-radius: 22rpx;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: var(--paper);
 }
 
 .Action-btn + .Action-btn {
@@ -396,7 +400,7 @@
 }
 
 .Action-btn.primary {
-  background-color: #218967;
+  background-color: var(--brand);
 }
 
 .Action-row {
@@ -414,37 +418,38 @@
 }
 
 .Action-label {
-  font-size: 26rpx;
+  font-size: 13.9px;
   font-weight: 600;
-  color: #218967;
+  color: var(--brand);
 }
 
 .Action-label.primary {
-  color: #ffffff;
+  color: var(--paper);
 }
 
 /* Notice and footer */
 .Notice {
-  background-color: #fbf0e2;
+  background-color: var(--control);
   border-radius: 20rpx;
   padding: 24rpx 30rpx;
   margin-bottom: 28rpx;
 }
 
 .Notice-text {
-  font-size: 24rpx;
-  color: #97662c;
+  font-size: 12.9px;
+  color: var(--ink);
 }
 
 .Footer {
   margin-top: 14rpx;
   text-align: center;
-  font-size: 22rpx;
-  color: #6b7c74;
+  font-size: 11.8px;
+  color: var(--muted);
 }
 
 /* Weight logging sheet */
 .Sheet-overlay {
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
@@ -453,12 +458,12 @@
   z-index: 100;
   flex-direction: column;
   justify-content: flex-end;
-  background-color: rgba(0, 0, 0, 0.35);
+  background-color: var(--overlay);
   animation: fadeIn 200ms ease-out;
 }
 
 .Sheet {
-  background-color: #ffffff;
+  background-color: var(--paper);
   border-top-left-radius: 36rpx;
   border-top-right-radius: 36rpx;
   padding: 40rpx 36rpx 48rpx;
@@ -466,9 +471,9 @@
 }
 
 .Sheet-title {
-  font-size: 32rpx;
+  font-size: 17.2px;
   font-weight: 700;
-  color: #16261f;
+  color: var(--ink);
   margin-bottom: 30rpx;
 }
 
@@ -478,27 +483,27 @@
   align-items: center;
   border-bottom-width: 2rpx;
   border-bottom-style: solid;
-  border-bottom-color: #d9e3de;
+  border-bottom-color: var(--outline);
   padding-bottom: 12rpx;
 }
 
 .Sheet-input {
   flex: 1;
-  font-size: 56rpx;
+  font-size: 30px;
   font-weight: 700;
-  color: #14352a;
+  color: var(--ink);
 }
 
 .Sheet-unit {
   margin-left: 12rpx;
-  font-size: 30rpx;
-  color: #6c7c75;
+  font-size: 16.1px;
+  color: var(--muted);
 }
 
 .Sheet-error {
   margin-top: 18rpx;
-  font-size: 24rpx;
-  color: #e0594b;
+  font-size: 12.9px;
+  color: var(--danger);
 }
 
 .Sheet-actions {
@@ -513,7 +518,7 @@
   border-radius: 22rpx;
   align-items: center;
   justify-content: center;
-  background-color: #eef3f0;
+  background-color: var(--control);
 }
 
 .Sheet-btn + .Sheet-btn {
@@ -521,7 +526,7 @@
 }
 
 .Sheet-btn.primary {
-  background-color: #218967;
+  background-color: var(--brand);
 }
 
 .Sheet-btn.disabled {
@@ -529,18 +534,18 @@
 }
 
 .Sheet-btn-label {
-  font-size: 28rpx;
+  font-size: 15px;
   font-weight: 600;
-  color: #218967;
+  color: var(--brand);
 }
 
 .Sheet-btn-label.primary {
-  color: #ffffff;
+  color: var(--paper);
 }
 
 /* Scale pairing sheet */
 .ScaleSheet {
-  background-color: #ffffff;
+  background-color: var(--paper);
   border-top-left-radius: 36rpx;
   border-top-right-radius: 36rpx;
   padding: 40rpx 36rpx 48rpx;
@@ -556,21 +561,21 @@
 }
 
 .Scale-reading-value {
-  font-size: 96rpx;
+  font-size: 51.5px;
   font-weight: 700;
-  color: #14352a;
+  color: var(--ink);
 }
 
 .Scale-reading-unit {
   margin-left: 14rpx;
-  font-size: 32rpx;
-  color: #6c7c75;
+  font-size: 17.2px;
+  color: var(--muted);
 }
 
 .Scale-hint {
   margin: 20rpx 4rpx 8rpx;
-  font-size: 26rpx;
-  color: #6c7c75;
+  font-size: 13.9px;
+  color: var(--muted);
   text-align: center;
 }
 
@@ -585,23 +590,23 @@
   justify-content: space-between;
   padding: 28rpx;
   border-radius: 20rpx;
-  background-color: #f3f7f5;
+  background-color: var(--canvas);
   margin-bottom: 18rpx;
 }
 
 .Scale-device.active {
-  background-color: #e3f0ea;
+  background-color: var(--control);
 }
 
 .Scale-device-name {
-  font-size: 28rpx;
+  font-size: 15px;
   font-weight: 600;
-  color: #16261f;
+  color: var(--ink);
 }
 
 .Scale-device-meta {
-  font-size: 24rpx;
-  color: #218967;
+  font-size: 12.9px;
+  color: var(--brand);
 }
 
 .Sheet-link {
@@ -610,8 +615,8 @@
 }
 
 .Sheet-link-label {
-  font-size: 26rpx;
-  color: #218967;
+  font-size: 13.9px;
+  color: var(--brand);
 }
 
 /* Food logging sheet */
@@ -621,7 +626,7 @@
 
 .FoodSheet {
   flex: 1;
-  background-color: #ffffff;
+  background-color: var(--paper);
   border-radius: 36rpx;
   margin: 120rpx 24rpx 40rpx;
   padding: 40rpx 32rpx;
@@ -637,32 +642,32 @@
 
 .Food-search-field {
   flex: 1;
-  background-color: #f3f7f5;
+  background-color: var(--canvas);
   border-radius: 20rpx;
   padding: 22rpx 24rpx;
 }
 
 .Food-scan-btn {
   margin-left: 14rpx;
-  background-color: #218967;
+  background-color: var(--brand);
   border-radius: 20rpx;
   padding: 22rpx 26rpx;
 }
 
 .Food-scan-label {
-  font-size: 27rpx;
-  color: #ffffff;
+  font-size: 14.5px;
+  color: var(--paper);
 }
 
 .Food-scan-error {
-  font-size: 24rpx;
-  color: #e0594b;
+  font-size: 12.9px;
+  color: var(--danger);
   margin: 0 4rpx 14rpx;
 }
 
 .Food-search-input {
-  font-size: 28rpx;
-  color: #16261f;
+  font-size: 15px;
+  color: var(--ink);
 }
 
 .Food-row {
@@ -673,17 +678,17 @@
   padding: 26rpx 12rpx;
   border-bottom-width: 1rpx;
   border-bottom-style: solid;
-  border-bottom-color: #edf2ef;
+  border-bottom-color: var(--canvas);
 }
 
 .Food-row-name {
-  font-size: 28rpx;
-  color: #16261f;
+  font-size: 15px;
+  color: var(--ink);
 }
 
 .Food-row-meta {
-  font-size: 24rpx;
-  color: #6c7c75;
+  font-size: 12.9px;
+  color: var(--muted);
 }
 
 .Food-back {
@@ -691,14 +696,14 @@
 }
 
 .Food-back-label {
-  font-size: 26rpx;
-  color: #218967;
+  font-size: 13.9px;
+  color: var(--brand);
 }
 
 .Food-selected-name {
-  font-size: 34rpx;
+  font-size: 18.2px;
   font-weight: 700;
-  color: #14352a;
+  color: var(--ink);
   margin-bottom: 24rpx;
 }
 
@@ -714,15 +719,15 @@
 }
 
 .Food-result-value {
-  font-size: 80rpx;
+  font-size: 42.9px;
   font-weight: 700;
-  color: #14352a;
+  color: var(--ink);
 }
 
 .Food-result-unit {
   margin-left: 12rpx;
-  font-size: 30rpx;
-  color: #6c7c75;
+  font-size: 16.1px;
+  color: var(--muted);
 }
 
 .Food-macros {
@@ -732,8 +737,8 @@
 }
 
 .Food-macro {
-  font-size: 26rpx;
-  color: #3f544a;
+  font-size: 13.9px;
+  color: var(--muted);
   margin: 0 18rpx;
 }
 
@@ -761,8 +766,8 @@
 }
 
 .Food-create-label {
-  font-size: 28rpx;
-  color: #218967;
+  font-size: 15px;
+  color: var(--brand);
 }
 
 .Food-manage {
@@ -770,7 +775,7 @@
   flex-direction: column;
   margin: 10rpx 0 4rpx;
   padding: 14rpx 0 4rpx;
-  border-top: 1rpx solid #e4ece7;
+  border-top: 1rpx solid var(--control);
 }
 
 .Food-manage-row {
@@ -789,12 +794,12 @@
 }
 
 .Food-manage-label {
-  font-size: 27rpx;
-  color: #218967;
+  font-size: 14.5px;
+  color: var(--brand);
 }
 
 .Food-manage-label.danger {
-  color: #e0594b;
+  color: var(--danger);
 }
 
 .Food-quick-section {
@@ -802,8 +807,8 @@
 }
 
 .Food-quick-title {
-  font-size: 23rpx;
-  color: #7c8d86;
+  font-size: 12.3px;
+  color: var(--muted);
   letter-spacing: 1rpx;
   margin: 8rpx 4rpx 2rpx;
 }
@@ -824,12 +829,12 @@
 }
 
 .Food-star-label {
-  font-size: 46rpx;
-  color: #a9b6b0;
+  font-size: 24.7px;
+  color: var(--muted);
 }
 
 .Food-star-label.on {
-  color: #218967;
+  color: var(--brand);
 }
 
 /* Exercise sheet (RFC 0017). */
@@ -842,20 +847,20 @@
   padding: 24rpx;
   border-radius: 18rpx;
   margin-bottom: 10rpx;
-  background-color: #f3f7f5;
+  background-color: var(--canvas);
 }
 
 .Exercise-type.selected {
-  background-color: #218967;
+  background-color: var(--brand);
 }
 
 .Exercise-type-label {
-  font-size: 28rpx;
-  color: #16261f;
+  font-size: 15px;
+  color: var(--ink);
 }
 
 .Exercise-type.selected .Exercise-type-label {
-  color: #ffffff;
+  color: var(--paper);
 }
 
 .Exercise-duration-input {
@@ -863,6 +868,7 @@
 }
 
 .Exercise-kcal-row {
+  display: flex;
   flex-direction: row;
   align-items: baseline;
   justify-content: center;
@@ -870,14 +876,14 @@
 }
 
 .Exercise-kcal {
-  font-size: 64rpx;
+  font-size: 34.3px;
   font-weight: 700;
-  color: #14352a;
+  color: var(--ink);
 }
 
 .Exercise-kcal-unit {
-  font-size: 26rpx;
-  color: #5b6b63;
+  font-size: 13.9px;
+  color: var(--muted);
   margin-left: 10rpx;
 }
 
@@ -887,6 +893,7 @@
 }
 
 .Exercise-head {
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -894,18 +901,19 @@
 }
 
 .Exercise-head-title {
-  font-size: 30rpx;
+  font-size: 16.1px;
   font-weight: 700;
-  color: #14352a;
+  color: var(--ink);
 }
 
 .Exercise-head-total {
-  font-size: 26rpx;
+  font-size: 13.9px;
   font-weight: 600;
-  color: #218967;
+  color: var(--brand);
 }
 
 .Exercise-row-item {
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -920,26 +928,27 @@
 }
 
 .Exercise-row-name {
-  font-size: 27rpx;
-  color: #16261f;
+  font-size: 14.5px;
+  color: var(--ink);
 }
 
 .Exercise-row-badge {
-  font-size: 19rpx;
-  color: #1c7a5c;
-  background-color: #e4f0ea;
+  font-size: 10.2px;
+  color: var(--brand);
+  background-color: var(--control);
   font-weight: 500;
   border-radius: 10rpx;
   padding: 3rpx 12rpx;
 }
 
 .Exercise-row-meta {
-  font-size: 25rpx;
-  color: #6b7a72;
+  font-size: 13.4px;
+  color: var(--muted);
   margin-left: 12rpx;
 }
 
 .Exercise-row-actions {
+  display: flex;
   flex-direction: row;
   align-items: center;
   margin-left: 12rpx;
@@ -947,13 +956,13 @@
 }
 
 .Exercise-row-btn {
-  font-size: 24rpx;
-  color: #218967;
+  font-size: 12.9px;
+  color: var(--brand);
   padding: 8rpx 10rpx;
 }
 
 .Exercise-row-btn.danger {
-  color: #e0594b;
+  color: var(--danger);
 }
 
 .Exercise-row-btn.confirm {
@@ -979,60 +988,56 @@
 }
 
 .Insights-card-title {
-  font-size: 28rpx;
+  font-size: 15px;
   font-weight: 600;
-  color: #14352a;
+  color: var(--ink);
   margin-bottom: 14rpx;
 }
 
 .Insights-empty {
-  font-size: 26rpx;
-  color: #8a978f;
+  font-size: 13.9px;
+  color: var(--muted);
   padding: 6rpx 0;
 }
 
 .Insights-weight-main {
+  display: flex;
   flex-direction: row;
   align-items: baseline;
 }
 
 .Insights-big {
-  font-size: 56rpx;
+  font-size: 30px;
   font-weight: 700;
-  color: #14352a;
+  color: var(--ink);
 }
 
 .Insights-big.loss {
-  color: #218967;
+  color: var(--brand);
 }
 
 .Insights-big.gain {
-  color: #e0594b;
+  color: var(--danger);
 }
 
 .Insights-big-unit {
-  font-size: 26rpx;
-  color: #6b7a72;
+  font-size: 13.9px;
+  color: var(--muted);
   margin-left: 10rpx;
 }
 
 .Insights-slope {
-  font-size: 26rpx;
-  color: #6b7a72;
+  font-size: 13.9px;
+  color: var(--muted);
   margin-top: 10rpx;
 }
 
 /* SVG line chart */
 .TrendChart { width: 100%; height: 220rpx; margin-top: 24rpx; }
 .TrendChart-svg { width: 100%; height: 100%; }
-.TrendChart-area { fill: #218967; opacity: 0.08; }
-.TrendChart-line { fill: none; stroke: #218967; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
-.TrendChart-dot { fill: #218967; }
-.TrendChart-dot-current { fill: #218967; stroke: #ffffff; stroke-width: 3; }
-.TrendChart-goal { stroke: #b6c0ba; stroke-width: 2; stroke-dasharray: 8 6; }
-.TrendChart-label { font-size: 20rpx; fill: #8a988f; }
 
 .Insights-row {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -1040,13 +1045,13 @@
 }
 
 .Insights-row-label {
-  font-size: 26rpx;
-  color: #5a6b62;
+  font-size: 13.9px;
+  color: var(--muted);
 }
 
 .Insights-row-value {
-  font-size: 26rpx;
-  color: #16261f;
+  font-size: 13.9px;
+  color: var(--ink);
   font-weight: 600;
 }
 
@@ -1057,30 +1062,30 @@
   border-radius: 999rpx;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: var(--paper);
   margin-right: 16rpx;
 }
 
 .Header-bell-glyph {
-  font-size: 30rpx;
+  font-size: 16.1px;
 }
 
 /* Reminder sheet (RFC 0020) */
 .HealthConnect-desc {
   margin-top: 14rpx;
-  font-size: 26rpx;
+  font-size: 13.9px;
   line-height: 38rpx;
-  color: #51615a;
+  color: var(--muted);
 }
 
 .HealthConnect-unsupported {
   margin-top: 18rpx;
   padding: 24rpx;
   border-radius: 20rpx;
-  background-color: #f6f2ef;
-  font-size: 26rpx;
+  background-color: var(--control);
+  font-size: 13.9px;
   line-height: 38rpx;
-  color: #9a5b46;
+  color: var(--muted);
 }
 
 .HealthConnect-grant {
@@ -1100,7 +1105,7 @@
   justify-content: center;
   padding: 16rpx 30rpx;
   border-radius: 22rpx;
-  background-color: #e4f0ea;
+  background-color: var(--control);
 }
 
 .HealthConnect-sync.disabled {
@@ -1108,19 +1113,19 @@
 }
 
 .HealthConnect-sync .Sheet-btn-label {
-  color: #1c7a5c;
+  color: var(--brand);
 }
 
 .HealthConnect-lastsync {
-  font-size: 24rpx;
-  color: #7a8a83;
+  font-size: 12.9px;
+  color: var(--muted);
 }
 
 .Reminder-kind {
   margin-top: 16rpx;
   padding: 22rpx 24rpx;
   border-radius: 24rpx;
-  background-color: #f3f7f5;
+  background-color: var(--canvas);
 }
 
 .Reminder-row {
@@ -1131,9 +1136,9 @@
 }
 
 .Reminder-label {
-  font-size: 28rpx;
+  font-size: 15px;
   font-weight: 600;
-  color: #16261f;
+  color: var(--ink);
 }
 
 .Reminder-toggle {
@@ -1144,7 +1149,7 @@
 .Reminder-seg {
   padding: 8rpx 26rpx;
   border-radius: 999rpx;
-  background-color: #e3ebe6;
+  background-color: var(--control);
 }
 
 .Reminder-seg + .Reminder-seg {
@@ -1152,17 +1157,17 @@
 }
 
 .Reminder-seg.active {
-  background-color: #218967;
+  background-color: var(--brand);
 }
 
 .Reminder-seg-label {
-  font-size: 24rpx;
-  color: #5f7067;
+  font-size: 12.9px;
+  color: var(--muted);
 }
 
 .Reminder-seg-label.active {
   font-weight: 600;
-  color: #ffffff;
+  color: var(--paper);
 }
 
 .Reminder-times {
@@ -1177,21 +1182,21 @@
   border-radius: 16rpx;
   align-items: center;
   justify-content: center;
-  background-color: #e3ebe6;
+  background-color: var(--control);
 }
 
 .Reminder-time.active {
-  background-color: #d7ebe2;
+  background-color: var(--brandTint);
 }
 
 .Reminder-time-label {
-  font-size: 24rpx;
-  color: #5f7067;
+  font-size: 12.9px;
+  color: var(--muted);
 }
 
 .Reminder-time-label.active {
   font-weight: 600;
-  color: #218967;
+  color: var(--brand);
 }
 
 /* Header settings gear */
@@ -1200,28 +1205,29 @@
   height: 68rpx;
   padding: 0 22rpx;
   border-radius: 999rpx;
-  background-color: #e2eae5;
+  background-color: var(--control);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .Header-gear-glyph {
-  font-size: 34rpx;
+  font-size: 18.2px;
 }
 .Header-gear-done {
-  font-size: 26rpx;
+  font-size: 13.9px;
   font-weight: 600;
-  color: #218967;
+  color: var(--brand);
 }
 
 /* Settings screen (RFC: language + integrations) */
 .Settings {
+  display: flex;
   flex-direction: column;
 }
 .Settings-section {
-  font-size: 22rpx;
+  font-size: 11.8px;
   letter-spacing: 2rpx;
-  color: #8a978f;
+  color: var(--muted);
   margin: 26rpx 20rpx 12rpx;
 }
 .Settings-card {
@@ -1235,154 +1241,529 @@
   min-height: 100rpx;
 }
 .Settings-label {
-  font-size: 30rpx;
-  color: #16261f;
+  font-size: 16.1px;
+  color: var(--ink);
 }
 .Settings-chevron {
-  font-size: 40rpx;
-  color: #b3bfb8;
+  font-size: 21.4px;
+  color: var(--muted);
 }
 .Settings-divider {
   height: 1rpx;
-  background-color: #eef1ef;
+  background-color: var(--line);
 }
 .Settings-footerWrap {
   align-items: center;
   margin-top: 48rpx;
 }
 .Settings-footer {
-  font-size: 22rpx;
-  color: #93a098;
+  font-size: 11.8px;
+  color: var(--muted);
   text-align: center;
 }
 
 /* ===== Greeting header (Today) ===== */
 .GreetingHeader {
+  display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
   padding: 18rpx 4rpx 26rpx;
 }
-.GreetingHeader-text { flex-direction: column; }
-.GreetingHeader-greeting { font-size: 46rpx; font-weight: 700; color: #14352a; }
-.GreetingHeader-date { font-size: 24rpx; color: #6b7c74; margin-top: 6rpx; }
+.GreetingHeader-text {
+  display: flex; flex-direction: column; }
+.GreetingHeader-greeting { font-size: 24.7px; font-weight: 700; color: var(--ink); }
+.GreetingHeader-date { font-size: 12.9px; color: var(--muted); margin-top: 6rpx; }
 .GreetingHeader-streak {
+  display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #e2eae5;
+  background-color: var(--control);
   border-radius: 20rpx;
   padding: 12rpx 22rpx;
 }
-.GreetingHeader-streak-num { font-size: 32rpx; font-weight: 700; color: #218967; }
-.GreetingHeader-streak-label { font-size: 18rpx; color: #5b6b63; margin-top: 2rpx; }
+.GreetingHeader-streak-num { font-size: 17.2px; font-weight: 700; color: var(--brand); }
+.GreetingHeader-streak-label { font-size: 9.6px; color: var(--muted); margin-top: 2rpx; }
 
 /* ===== Screen titles ===== */
 .ScreenTitle { padding: 18rpx 4rpx 22rpx; }
 .ScreenTitleRow {
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding: 18rpx 4rpx 22rpx;
 }
-.ScreenTitle-text { font-size: 44rpx; font-weight: 700; color: #14352a; }
+.ScreenTitle-text { font-size: 23.6px; font-weight: 700; color: var(--ink); }
 
 /* ===== Diary ===== */
-.DiarySummary-head { flex-direction: row; align-items: baseline; justify-content: space-between; }
-.DiarySummary-label { font-size: 26rpx; color: #5b6b63; }
-.DiarySummary-kcal { font-size: 48rpx; font-weight: 700; color: #14352a; }
-.DiaryMacros { flex-direction: row; justify-content: space-between; margin-top: 18rpx; }
-.DiaryMacros-item { font-size: 22rpx; color: #5b6b63; }
+.DiarySummary-head {
+  display: flex; flex-direction: row; align-items: baseline; justify-content: space-between; }
+.DiarySummary-label { font-size: 13.9px; color: var(--muted); }
+.DiarySummary-kcal { font-size: 25.7px; font-weight: 700; color: var(--ink); }
+.DiaryMacros {
+  display: flex; flex-direction: row; justify-content: space-between; margin-top: 18rpx; }
+.DiaryMacros-item { font-size: 11.8px; color: var(--muted); }
 .MealCard { padding-top: 28rpx; padding-bottom: 28rpx; }
-.Meal-head { flex-direction: row; align-items: center; justify-content: space-between; }
-.Meal-name { font-size: 30rpx; font-weight: 600; color: #14352a; }
-.Meal-add { background-color: #e8efeb; border-radius: 16rpx; padding: 10rpx 22rpx; }
-.Meal-add-text { font-size: 24rpx; color: #218967; }
-.Meal-empty { font-size: 23rpx; color: #9aa8a0; margin-top: 16rpx; }
+.Meal-head {
+  display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.Meal-name { font-size: 16.1px; font-weight: 600; color: var(--ink); }
+.Meal-add { background-color: var(--control); border-radius: 16rpx; padding: 10rpx 22rpx; }
+.Meal-add-text { font-size: 12.9px; color: var(--brand); }
+.Meal-empty { font-size: 12.3px; color: var(--muted); margin-top: 16rpx; }
 .Meal-empty-body { align-items: center; padding: 28rpx 0 8rpx; }
-.Meal-empty-icon { font-size: 52rpx; color: #c5d0ca; margin-bottom: 10rpx; }
-.Meal-empty-text { font-size: 24rpx; color: #8a988f; }
-.Meal-recents { flex-direction: row; flex-wrap: wrap; margin-top: 18rpx; }
-.Meal-recent-chip { background-color: #e8efeb; border-radius: 999rpx; padding: 12rpx 22rpx; margin: 8rpx 10rpx 0 0; }
-.Meal-recent-label { font-size: 22rpx; color: #218967; }
-.DiaryTotals-row { flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 14rpx; }
-.DiaryTotals-label { font-size: 26rpx; color: #5b6b63; }
-.DiaryTotals-value { font-size: 28rpx; font-weight: 600; color: #14352a; }
-.DiaryTotals-line { height: 2rpx; background-color: #eef2f0; margin: 10rpx 0 18rpx; }
-.DiaryTotals-strong { color: #218967; font-weight: 700; font-size: 28rpx; }
+.Meal-empty-icon { font-size: 27.9px; color: var(--muted); margin-bottom: 10rpx; }
+.Meal-empty-text { font-size: 12.9px; color: var(--muted); }
+.Meal-recents {
+  display: flex; flex-direction: row; flex-wrap: wrap; margin-top: 18rpx; }
+.Meal-recent-chip { background-color: var(--control); border-radius: 999rpx; padding: 12rpx 22rpx; margin: 8rpx 10rpx 0 0; }
+.Meal-recent-label { font-size: 11.8px; color: var(--brand); }
+.DiaryTotals-row {
+  display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 14rpx; }
+.DiaryTotals-label { font-size: 13.9px; color: var(--muted); }
+.DiaryTotals-value { font-size: 15px; font-weight: 600; color: var(--ink); }
+.DiaryTotals-line { height: 2rpx; background-color: var(--line); margin: 10rpx 0 18rpx; }
+.DiaryTotals-strong { color: var(--brand); font-weight: 700; font-size: 15px; }
 
 /* ===== Partner ===== */
-.PartnerDays { background-color: #e2eae5; border-radius: 16rpx; padding: 10rpx 20rpx; }
-.PartnerDays-text { font-size: 22rpx; color: #218967; }
-.Person-head { flex-direction: row; align-items: center; justify-content: space-between; }
-.Person-id { flex-direction: row; align-items: center; }
+.PartnerDays { background-color: var(--control); border-radius: 16rpx; padding: 10rpx 20rpx; }
+.PartnerDays-text { font-size: 11.8px; color: var(--brand); }
+.Person-head {
+  display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.Person-id {
+  display: flex; flex-direction: row; align-items: center; }
 .Person-avatar {
   width: 76rpx; height: 76rpx; border-radius: 38rpx;
   text-align: center; line-height: 76rpx;
-  font-size: 32rpx; font-weight: 700; margin-right: 20rpx;
+  font-size: 17.2px; font-weight: 700; margin-right: 20rpx;
 }
-.Person-avatar-you { background-color: #218967; color: #ffffff; }
-.Person-avatar-empty { background-color: #e8efeb; color: #8a988f; }
-.Person-name { font-size: 30rpx; font-weight: 700; color: #14352a; }
-.Person-sub { font-size: 22rpx; color: #6b7c74; margin-top: 4rpx; }
-.Person-trend { font-size: 24rpx; font-weight: 600; }
-.Person-trend-good { color: #218967; }
-.Person-line { height: 2rpx; background-color: #eef2f0; margin: 22rpx 0; }
-.Person-foot { flex-direction: row; align-items: center; justify-content: space-between; }
-.Person-foot-label { font-size: 24rpx; color: #5b6b63; }
-.Person-foot-meta { font-size: 22rpx; color: #9aa8a0; }
-.Person-linkbody { font-size: 23rpx; color: #6b7c74; margin-bottom: 18rpx; }
-.Person-linkbtn { background-color: #218967; border-radius: 18rpx; padding: 20rpx; align-items: center; }
-.Person-linkbtn-text { font-size: 26rpx; font-weight: 600; color: #ffffff; }
-.Person-goalrow { flex-direction: row; align-items: center; justify-content: space-between; margin: 14rpx 0 16rpx; }
-.Person-goallabel { font-size: 25rpx; color: #5b6b63; }
-.Person-goalval { font-size: 28rpx; font-weight: 700; color: #14352a; }
-.GoalBar { height: 18rpx; border-radius: 9rpx; background-color: #e8efeb; overflow: hidden; }
-.GoalBar-fill { height: 18rpx; border-radius: 9rpx; background-color: #218967; transition: width 600ms ease-out; }
-.Support-row { flex-direction: row; }
-.Support-btn { flex-grow: 1; background-color: #e8efeb; border-radius: 18rpx; padding: 20rpx 0; align-items: center; margin: 0 8rpx; transition: opacity 150ms ease; }
-.Support-btn-text { font-size: 24rpx; color: #218967; font-weight: 600; }
+.Person-avatar-you { background-color: var(--brand); color: var(--paper); }
+.Person-avatar-empty { background-color: var(--control); color: var(--muted); }
+.Person-name { font-size: 16.1px; font-weight: 700; color: var(--ink); }
+.Person-sub { font-size: 11.8px; color: var(--muted); margin-top: 4rpx; }
+.Person-trend { font-size: 12.9px; font-weight: 600; }
+.Person-trend-good { color: var(--brand); }
+.Person-line { height: 2rpx; background-color: var(--line); margin: 22rpx 0; }
+.Person-foot {
+  display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.Person-foot-label { font-size: 12.9px; color: var(--muted); }
+.Person-foot-meta { font-size: 11.8px; color: var(--muted); }
+.Person-linkbody { font-size: 12.3px; color: var(--muted); margin-bottom: 18rpx; }
+.Person-linkbtn { background-color: var(--brand); border-radius: 18rpx; padding: 20rpx; align-items: center; }
+.Person-linkbtn-text { font-size: 13.9px; font-weight: 600; color: var(--paper); }
+.Person-goalrow {
+  display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin: 14rpx 0 16rpx; }
+.Person-goallabel { font-size: 13.4px; color: var(--muted); }
+.Person-goalval { font-size: 15px; font-weight: 700; color: var(--ink); }
+.GoalBar { height: 18rpx; border-radius: 9rpx; background-color: var(--control); overflow: hidden; }
+.GoalBar-fill { height: 18rpx; border-radius: 9rpx; background-color: var(--brand); transition: width 600ms ease-out; }
+.Support-row {
+  display: flex; flex-direction: row; }
+.Support-btn { flex-grow: 1; background-color: var(--control); border-radius: 18rpx; padding: 20rpx 0; align-items: center; margin: 0 8rpx; transition: opacity 150ms ease; }
+.Support-btn-text { font-size: 12.9px; color: var(--brand); font-weight: 600; }
 
 /* ===== Me ===== */
-.MeProfile-head { flex-direction: row; align-items: center; }
+.MeProfile-head {
+  display: flex; flex-direction: row; align-items: center; }
 .MeProfile-avatar {
   width: 96rpx; height: 96rpx; border-radius: 48rpx;
   text-align: center; line-height: 96rpx;
-  font-size: 40rpx; font-weight: 700; color: #ffffff;
-  background-color: #218967; margin-right: 22rpx;
+  font-size: 21.4px; font-weight: 700; color: var(--paper);
+  background-color: var(--brand); margin-right: 22rpx;
 }
-.MeProfile-id { flex-direction: column; }
-.MeProfile-name { font-size: 34rpx; font-weight: 700; color: #14352a; }
-.MeProfile-sub { font-size: 24rpx; color: #6b7c74; margin-top: 6rpx; }
-.MeSignin { flex-direction: row; align-items: center; justify-content: space-between; }
-.MeSignin-text { flex: 1; flex-direction: column; padding-right: 20rpx; }
-.MeSignin-title { font-size: 28rpx; font-weight: 700; color: #14352a; }
-.MeSignin-body { font-size: 22rpx; color: #6b7c74; margin-top: 6rpx; }
-.MeSignin-btn { background-color: #218967; border-radius: 18rpx; padding: 18rpx 28rpx; }
-.MeSignin-btn-text { font-size: 25rpx; font-weight: 600; color: #ffffff; }
+.MeProfile-id {
+  display: flex; flex-direction: column; }
+.MeProfile-name { font-size: 18.2px; font-weight: 700; color: var(--ink); }
+.MeProfile-sub { font-size: 12.9px; color: var(--muted); margin-top: 6rpx; }
+.MeSignin {
+  display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.MeSignin-text {
+  display: flex; flex: 1; flex-direction: column; padding-right: 20rpx; }
+.MeSignin-title { font-size: 15px; font-weight: 700; color: var(--ink); }
+.MeSignin-body { font-size: 11.8px; color: var(--muted); margin-top: 6rpx; }
+.MeSignin-btn { background-color: var(--brand); border-radius: 18rpx; padding: 18rpx 28rpx; }
+.MeSignin-btn-text { font-size: 13.4px; font-weight: 600; color: var(--paper); }
 .MeList { padding-top: 10rpx; padding-bottom: 10rpx; }
-.MeRow { flex-direction: row; align-items: center; min-height: 104rpx; padding: 20rpx 6rpx; }
+.MeRow {
+  display: flex; flex-direction: row; align-items: center; min-height: 104rpx; padding: 20rpx 6rpx; }
 .MeRow-icon { width: 44rpx; height: 44rpx; margin-right: 16rpx; }
-.MeRow-label { flex: 1; font-size: 27rpx; color: #14352a; }
-.MeRow-val { font-size: 24rpx; color: #8a988f; margin-right: 12rpx; }
-.MeRow-chev { font-size: 34rpx; color: #b6c0ba; }
-.MeList-line { height: 2rpx; background-color: #eef2f0; margin: 6rpx 0; }
-.MeVersion { text-align: center; font-size: 21rpx; color: #6b7c74; margin-top: 10rpx; }
+.MeRow-label { flex: 1; font-size: 14.5px; color: var(--ink); }
+.MeRow-val { font-size: 12.9px; color: var(--muted); margin-right: 12rpx; }
+.MeRow-chev { font-size: 18.2px; color: var(--muted); }
+.MeList-line { height: 2rpx; background-color: var(--line); margin: 6rpx 0; }
+.MeVersion { text-align: center; font-size: 11.3px; color: var(--muted); margin-top: 10rpx; }
 
 /* ===== Bottom tab bar (developer shell) ===== */
 .BottomTabBar {
   display: flex;
   flex-direction: row;
-  background-color: #ffffff;
+  background-color: var(--paper);
   border-top-width: 1rpx;
-  border-top-color: #e6ece9;
+  border-top-color: var(--line);
   padding: 10rpx 0 22rpx;
 }
 .BottomTab { flex-grow: 1; align-items: center; }
 .BottomTab-icon { width: 48rpx; height: 48rpx; }
 .BottomTab-svg { width: 48rpx; height: 48rpx; }
-.BottomTab-label { font-size: 20rpx; color: #93a09a; margin-top: 6rpx; }
-.BottomTab-label-active { color: #218967; font-weight: 600; }
+.BottomTab-label { font-size: 10.7px; color: var(--muted); margin-top: 6rpx; }
+.BottomTab-label-active { color: var(--navigation); font-weight: 600; }
 
 /* ===== Dev back row ===== */
 .DevBack { padding: 8rpx 4rpx 14rpx; }
-.DevBack-text { font-size: 28rpx; color: #218967; font-weight: 600; }
+.DevBack-text { font-size: 15px; color: var(--navigation); font-weight: 600; }
+
+/* Content design tokens: warm paper, graphite, quiet blue. Native tabs retain their shell. */
+.Content { padding: 16rpx 36rpx 200rpx; }
+.Card { border-radius: 24rpx; padding: 30rpx; margin-bottom: 22rpx; }
+.Card-title { font-size: 13.9px; font-weight: 600; color: var(--muted); margin-bottom: 20rpx; }
+.GreetingHeader { padding: 16rpx 0 28rpx; align-items: center; }
+.GreetingHeader-greeting, .ScreenTitle-text { font-size: 25.7px; font-weight: 600; }
+.GreetingHeader-date { font-size: 14.5px; }
+.GreetingHeader-streak { background-color: transparent; padding: 4rpx 0 4rpx 16rpx; }
+.GreetingHeader-streak-label { font-size: 11.8px; }
+.Actions { margin-bottom: 26rpx; }
+.Action-btn { min-height: 96rpx; border-radius: 18rpx; }
+.Action-label { font-size: 15px; }
+.Energy-num { font-size: 41.8px; line-height: 90rpx; font-weight: 600; }
+.Energy-row-label, .Energy-row-value { font-size: 13.4px; }
+.Macro-val, .Weight-value, .Insights-big { font-weight: 600; }
+.Insights-big.loss, .Insights-big.gain { color: var(--ink); }
+.Insights-row { min-height: 88rpx; }
+.MeRow { min-height: 108rpx; padding: 18rpx 0; }
+.MeRow-label, .Settings-label { font-size: 15.5px; }
+.MeRow-val { color: var(--muted); }
+.Sheet-overlay { display: flex; }
+.Sheet, .ScaleSheet, .FoodSheet { border-top-left-radius: 28rpx; border-top-right-radius: 28rpx; padding: 32rpx 36rpx 64rpx; max-height: 100%; }
+.Sheet-input { min-height: 100rpx; height: 100rpx; }
+.FoodSheet-search { min-height: 90rpx; }
+.Sheet-title { font-size: 19.3px; font-weight: 600; }
+.Sheet-btn, .FoodSheet-cancel, .FoodSheet-save { min-height: 96rpx; }
+.Sheet-error { color: var(--danger); font-size: 14.5px; line-height: 38rpx; }
+.Section-note { color: var(--muted); font-size: 14.5px; line-height: 40rpx; margin-top: 12rpx; }
+.Section-kicker { color: var(--muted); font-size: 13.4px; margin: 10rpx 0 16rpx; }
+.Unavailable-label { color: var(--muted); font-size: 12.9px; margin-left: 16rpx; }
+.Empty-title { font-size: 20.4px; color: var(--ink); font-weight: 600; margin-bottom: 18rpx; }
+.Empty-body { font-size: 15.5px; line-height: 44rpx; color: var(--muted); margin-bottom: 28rpx; }
+
+.PartnerWelcome { padding: 42rpx 34rpx; }
+.Pair-mark { display: flex; flex-direction: row; margin-bottom: 40rpx; padding-top: 8rpx; }
+.Pair-circle { width: 90rpx; height: 90rpx; border-radius: 45rpx; border: 3rpx solid var(--brand); background-color: var(--control); }
+.Pair-second { margin-left: -24rpx; margin-top: 20rpx; background-color: var(--canvas); }
+.Micro-list { display: flex; flex-direction: column; }
+.Micro-row { display: flex; flex-direction: row; justify-content: space-between; align-items: center; min-height: 76rpx; }
+.Micro-label { font-size: 14.5px; color: var(--muted); flex: 1; }
+.Micro-number { font-size: 15.5px; color: var(--ink); font-weight: 600; }
+.Micro-target { font-size: 13.4px; color: var(--muted); margin-left: 16rpx; }
+.Form-label { font-size: 13.9px; color: var(--muted); margin: 18rpx 0 8rpx; }
+.Sheet-scroll { max-height: 100%; }
+
+.Action-row { margin-top: 14rpx; }
+.Food-search-input { height: 60rpx; min-height: 60rpx; }
+.Food-form-scroll, .Sheet-body-scroll { flex: 1; min-height: 0; }
+.Food-form .Sheet-input { font-size: 17.2px; height: 84rpx; min-height: 84rpx; }
+.Food-form .Sheet-field { display: flex; flex-direction: column; align-items: stretch; }
+.Food-form-row { flex-wrap: wrap; }
+.Food-form-cell { min-width: 160rpx; }
+.TrendChart { height: 340rpx; }
+.Footer, .MeVersion, .Settings-footer { font-size: 13.4px; color: var(--muted); line-height: 36rpx; }
+.Exercise-row-btn { min-height: 88rpx; padding: 18rpx 8rpx; }
+.Sheet-header { display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 20rpx; }
+.Sheet-header .Sheet-title { flex: 1; margin-bottom: 0; }
+.Sheet-close-button { display: flex; align-items: center; justify-content: center; min-width: 88rpx; min-height: 88rpx; border-radius: 44rpx; background-color: var(--control); }
+.Sheet-close-label { font-size: 15px; color: var(--brand); }
+.Sheet-input-pair { display: flex; flex-direction: row; align-items: center; }
+.Food-results { flex: 1; min-height: 0; }
+.Food-detail-scroll { flex: 1; min-height: 0; }
+
+.Sheet-body-scroll { max-height: 60vh; flex-shrink: 1; }
+.Exercise-type-list { height: auto; max-height: none; }
+.Scale-devices { max-height: 40vh; }
+.Sheet { display: flex; flex-direction: column; }
+.FoodSheet { display: flex; flex-direction: column; }
+.MeProfile-avatar { display: flex; align-items: center; justify-content: center; background-color: var(--control); }
+.Settings-value { font-size: 13.4px; color: var(--muted); }
+.LangSwitch-item { display: flex; min-height: 88rpx; min-width: 88rpx; align-items: center; justify-content: center; }
+
+/* v3: semantic color, readable states and open secondary information. */
+.Page { --action: var(--brand); --focus: var(--brand); background-color: var(--canvas); }
+.Theme-food { --action: var(--foodText); --focus: var(--foodText); }
+.Theme-weight { --action: var(--weightText); --focus: var(--weightText); }
+.Theme-exercise { --action: var(--exerciseText); --focus: var(--exerciseText); }
+.Theme-water { --action: var(--waterText); --focus: var(--waterText); }
+.Theme-brand { --action: var(--brand); --focus: var(--brand); }
+.Content { padding: 20px 24px 108px; }
+.Card { padding: 20px; border-radius: 22px; margin-bottom: 24px; background-color: var(--paper); }
+.Card-title, .Section-heading { color: var(--ink); font-size: 18px; line-height: 26px; font-weight: 500; margin-bottom: 14px; }
+.Open-section { display: flex; flex-direction: column; background-color: transparent; border-radius: 0; padding: 24px 0; margin-bottom: 0; border-bottom: 1px solid var(--line); }
+.Section-note, .Empty-body, .Partner-body { font-size: 16px; line-height: 25px; color: var(--muted); }
+.Section-note { margin-top: 10px; }
+.Section-kicker, .ScreenTitle-note { font-size: 14px; line-height: 21px; color: var(--muted); }
+.ScreenTitle { padding: 12px 0 24px; }
+.ScreenTitle-text, .GreetingHeader-greeting { font-size: 27px; font-weight: 600; line-height: 36px; color: var(--ink); }
+.ScreenTitle-note { margin-top: 6px; }
+.GreetingHeader { padding: 12px 0 24px; }
+.GreetingHeader-date { font-size: 14px; line-height: 21px; margin-top: 6px; color: var(--muted); }
+.BrandHeader { display: flex; flex-direction: row; align-items: center; margin-bottom: 6px; }
+.BrandHeader-mark { width: 18px; height: 18px; margin-right: 6px; }
+.BrandHeader-name { font-size: 16px; font-weight: 500; color: var(--brand); }
+.Actions { display: flex; flex-direction: row; align-items: stretch; gap: 8px; margin: 0 0 24px; }
+.Action-btn { flex: 1; min-height: 48px; height: auto; padding: 10px 6px; border-radius: 12px; background-color: transparent; }
+.Action-btn + .Action-btn { margin: 0; }
+.Action-btn.primary { background-color: var(--action); }
+.Action-label { font-size: 14px; line-height: 20px; font-weight: 500; text-align: center; color: var(--brand); }
+.Action-label.primary { color: var(--actionInk); }
+.Action-btn.weight .Action-label { color: var(--weightText); }
+.Action-btn.exercise .Action-label { color: var(--exerciseText); }
+.Category-label { font-size: 14px; line-height: 21px; font-weight: 500; color: var(--ink); }
+.food { color: var(--foodText); }
+.exercise { color: var(--exerciseText); }
+.weight { color: var(--weightText); }
+.Summary-heading { display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 12px; }
+.Summary-status { font-size: 14px; line-height: 21px; color: var(--muted); }
+.Energy-card { padding: 20px; }
+.Energy-figure { display: flex; flex-direction: row; align-items: baseline; margin: 6px 0 12px; }
+.Energy-num { font-size: 52px; line-height: 62px; font-weight: 500; color: var(--ink); }
+.Energy-unit { font-size: 14px; line-height: 21px; color: var(--muted); margin: 0 0 0 12px; }
+.Energy-reference-row { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-top: 16px; }
+.Energy-reference { font-size: 14px; line-height: 21px; color: var(--muted); }
+.Energy-reference.exercise { color: var(--exerciseText); }
+.Energy-remaining { font-size: 14px; line-height: 21px; color: var(--ink); font-weight: 500; margin-top: 6px; }
+.ProgressBar, .ProgressBar-fill { height: 5px; border-radius: 3px; }
+.ProgressBar { margin-top: 0; background-color: var(--line); }
+.Today-metrics { display: flex; flex-direction: row; padding: 12px 0 24px; border-bottom: 1px solid var(--line); }
+.Metric-weight, .Metric-activity { flex: 1; min-width: 0; background-color: transparent; padding: 0; border-radius: 0; margin: 0; }
+.Metric-weight { padding-right: 16px; border-right: 1px solid var(--line); }
+.Metric-activity { display: flex; flex-direction: column; padding-left: 16px; }
+.Metric-weight .Card-title { font-size: 14px; line-height: 21px; font-weight: 400; color: var(--weightText); margin-bottom: 16px; }
+.Metric-activity .Category-label { margin-bottom: 16px; }
+.Weight-main { display: flex; flex-direction: column; align-items: flex-start; }
+.Weight-current-wrap, .Metric-figure { display: flex; flex-direction: row; align-items: baseline; }
+.Weight-current, .Metric-number { font-size: 32px; line-height: 40px; color: var(--ink); font-weight: 500; }
+.Weight-unit, .Metric-unit { font-size: 14px; line-height: 21px; color: var(--muted); margin: 0 0 0 8px; }
+.Weight-trend, .Metric-note { font-size: 14px; line-height: 21px; margin-top: 8px; color: var(--muted); }
+.Weight-trend { color: var(--weightText); }
+.Metric-note.exercise { color: var(--exerciseText); }
+.Weight-detail .Weight-current { font-size: 24px; line-height: 32px; }
+.Weight-rows { margin-top: 16px; margin-bottom: 16px; }
+.Weight-stat-value { font-size: 20px; line-height: 28px; color: var(--ink); font-weight: 500; }
+.Weight-stat-label { font-size: 14px; line-height: 21px; color: var(--muted); }
+.Macro-grid { gap: 16px; }
+.Macro-col + .Macro-col { margin-left: 0; }
+.Macro-grams { font-size: 26px; line-height: 34px; font-weight: 500; color: var(--ink); }
+.Macro-label, .Macro-target { font-size: 14px; line-height: 21px; color: var(--muted); }
+.Macro-target { margin-top: 8px; }
+.Micro-row { min-height: 48px; gap: 8px; }
+.Micro-label { font-size: 16px; color: var(--ink); }
+.Micro-number, .Micro-target { font-size: 14px; line-height: 21px; color: var(--muted); font-weight: 400; margin-left: 0; }
+.Water-head { margin-bottom: 12px; }
+.Water-amount { font-size: 26px; line-height: 34px; font-weight: 500; }
+.Water-unit, .Water-status, .Water-goal { font-size: 14px; line-height: 21px; color: var(--muted); }
+.Water-status, .Water-btn-label { color: var(--waterText); }
+.Water-btn { min-height: 48px; padding: 10px 12px; border-radius: 12px; background-color: var(--control); }
+.Water-btn.primary { background-color: var(--action); }
+.Water-btn-label.primary { color: var(--actionInk); }
+.Water-btn.disabled { opacity: 1; background-color: var(--control); }
+.Water-summary { padding-top: 18px; padding-bottom: 18px; }
+.Water-row { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.Water-heading { display: flex; flex-direction: column; }
+.Category-label.water { color: var(--waterText); }
+.Water-summary .Water-controls { margin-top: 0; margin-left: 12px; }
+.Water-summary .Water-btn { flex: none; min-width: 60px; min-height: 48px; padding: 8px; }
+.Water-summary .Water-btn + .Water-btn { margin-left: 8px; }
+.Water-summary .Water-btn.disabled .Water-btn-label { color: var(--muted); }
+.Water-summary .Water-meta { margin-top: 10px; }
+.Water-progress { margin-top: 8px; }
+.Exercise-card { margin-top: 0; }
+.Exercise-head { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.Exercise-head-title { font-size: 18px; line-height: 26px; font-weight: 500; }
+.Exercise-head-total { font-size: 14px; color: var(--exerciseText); font-weight: 400; }
+.Exercise-row-item { display: flex; flex-direction: column; align-items: stretch; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.Exercise-row-name { font-size: 16px; line-height: 24px; }
+.Exercise-row-meta { font-size: 14px; margin: 6px 0 0; }
+.Exercise-row-actions { margin: 4px 0 0; }
+.Exercise-row-btn { display: flex; align-items: center; justify-content: center; min-width: 48px; min-height: 48px; padding: 10px 12px; font-size: 14px; color: var(--exerciseText); }
+.Exercise-row-btn.danger { color: var(--danger); }
+.Exercise-row-badge { color: var(--muted); background-color: var(--control); font-size: 12px; }
+.Diary-primary .Action-btn { margin-top: 12px; }
+.Diary-macro-row { display: flex; flex-direction: row; align-items: center; justify-content: space-between; min-height: 64px; border-bottom: 1px solid var(--line); }
+.List-label { font-size: 16px; line-height: 24px; color: var(--ink); }
+.List-number { font-size: 24px; line-height: 32px; color: var(--ink); font-weight: 500; }
+.List-value { font-size: 16px; line-height: 24px; color: var(--ink); font-weight: 500; }
+.Meal-recents { display: flex; flex-direction: row; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.Meal-recent-chip { min-height: 48px; display: flex; align-items: center; justify-content: center; padding: 10px 16px; margin: 0; background-color: var(--foodTint); border-radius: 12px; }
+.Meal-recent-label { font-size: 14px; color: var(--foodText); }
+.DiaryTotals-row { min-height: 48px; margin-bottom: 0; }
+.Insights-secondary { background-color: transparent; border-radius: 0; padding: 24px 0; border-bottom: 1px solid var(--line); margin-bottom: 0; }
+.Insights-range { margin: 0 0 24px; }
+.Insights-card-title { font-size: 18px; line-height: 26px; font-weight: 500; }
+.Insights-weight-card .Insights-card-title { color: var(--weightText); }
+.Insights-big { font-size: 48px; line-height: 58px; font-weight: 500; color: var(--ink); }
+.Insights-big-unit, .Insights-slope, .Insights-empty { font-size: 14px; line-height: 21px; color: var(--muted); }
+.Insights-slope { margin-top: 6px; }
+.Insights-row { min-height: 48px; gap: 12px; padding: 8px 0; }
+.Insights-row-label, .Insights-row-value { font-size: 16px; line-height: 24px; color: var(--ink); }
+.Insights-row-value { font-weight: 500; }
+.TrendChart { height: 190px; margin-top: 20px; }
+.Chart-legend { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-top: 8px; }
+.Chart-legend-text { font-size: 14px; line-height: 21px; color: var(--muted); }
+.Partner-motif { align-items: center; margin: 16px 0 28px; }
+.Partner-motif-svg { width: 160px; height: 140px; }
+.Partner-heading { font-size: 25px; line-height: 35px; font-weight: 500; color: var(--ink); }
+.Partner-body { margin-top: 16px; }
+.Partner-status { margin-top: 24px; border-top: 1px solid var(--line); border-bottom: 0; }
+.Partner-local { font-size: 16px; line-height: 24px; color: var(--ink); }
+.Partner-settings { display: flex; justify-content: center; min-height: 48px; align-self: flex-start; padding: 8px 12px; border-radius: 12px; margin-left: -12px; }
+.Partner-settings-label { font-size: 16px; line-height: 24px; color: var(--brand); font-weight: 500; }
+.Partner-ideas { margin-top: 24px; }
+.MeProfile-stats { display: flex; flex-direction: row; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 16px; }
+.Metric-label { font-size: 14px; line-height: 21px; color: var(--muted); }
+.MeProfile-value { font-size: 16px; line-height: 24px; font-weight: 500; color: var(--ink); margin-top: 6px; }
+.MeList { padding: 20px 0; }
+.MeRow { min-height: 56px; padding: 12px 0; border-bottom: 1px solid var(--line); gap: 8px; }
+.MeRow-icon { flex-shrink: 0; width: 24px; height: 24px; margin-right: 4px; }
+.MeRow-label { font-size: 16px; line-height: 24px; font-weight: 400; }
+.MeRow-val { font-size: 14px; line-height: 21px; margin-right: 0; }
+.MeRow-chev { font-size: 24px; color: var(--muted); }
+.Settings-section { font-size: 16px; line-height: 24px; font-weight: 500; letter-spacing: 0; margin: 12px 0 14px; color: var(--ink); }
+.Settings-card { padding: 8px 16px; }
+.Settings-row { min-height: 56px; padding: 10px 0; gap: 12px; }
+.Settings-label { font-size: 16px; line-height: 24px; font-weight: 400; }
+.Settings-value, .Settings-status { font-size: 14px; line-height: 21px; color: var(--muted); }
+.Settings-status { padding: 12px 0 8px; }
+.Appearance-row { border-bottom: 1px solid var(--line); }
+.Appearance-check { font-size: 20px; color: var(--brand); min-width: 24px; }
+.LangSwitch { border-radius: 12px; background-color: var(--control); padding: 4px; }
+.LangSwitch-item { flex: 1; min-width: 48px; min-height: 48px; padding: 8px 12px; border-radius: 10px; }
+.LangSwitch-label { font-size: 14px; line-height: 21px; color: var(--muted); }
+.LangSwitch-item.active { background-color: var(--paper); }
+.LangSwitch-label.active { color: var(--ink); font-weight: 500; }
+.Settings-language { background-color: transparent; }
+.Settings-language .LangSwitch-item.active { background-color: var(--control); }
+.Settings-connections { margin-bottom: 16px; }
+.Footer, .MeVersion, .Settings-footer { font-size: 14px; line-height: 21px; color: var(--muted); }
+.Empty-title { font-size: 22px; line-height: 31px; font-weight: 500; }
+.Notice { background-color: var(--control); border: 1px solid var(--outline); border-radius: 12px; padding: 16px; }
+.Notice-text { color: var(--ink); font-size: 14px; line-height: 21px; }
+.Sheet-overlay { background-color: var(--overlay); }
+.Sheet-overlay.tap-feedback-hover { background-color: var(--overlay); }
+.Sheet, .ScaleSheet, .FoodSheet { background-color: var(--paper); padding: 24px 24px 32px; border-top-left-radius: 22px; border-top-right-radius: 22px; }
+.Sheet-title { font-size: 24px; line-height: 33px; font-weight: 600; }
+.Form-label { font-size: 14px; line-height: 21px; color: var(--muted); margin: 16px 0 8px; }
+.Sheet-field { border: 1px solid var(--outline); border-radius: 11px; padding: 10px 14px; }
+.Sheet-field.focused, .Food-search-field.focused, .Food-form-cell.focused { border: 2px solid var(--focus); }
+.Sheet-field.invalid, .Food-form-cell.invalid, .Exercise-type-list.invalid { border: 2px solid var(--danger); }
+.Sheet-input { min-height: 56px; height: 56px; font-size: 48px; line-height: 58px; font-weight: 500; color: var(--ink); background-color: transparent; caret-color: var(--focus); -x-placeholder-color: var(--muted); }
+.Sheet-unit { font-size: 16px; line-height: 24px; color: var(--muted); }
+.Sheet-error { font-size: 14px; line-height: 21px; color: var(--danger); margin-top: 12px; }
+.Sheet-actions { flex-shrink: 0; margin-top: 20px; gap: 12px; }
+.Sheet-btn { min-height: 48px; height: auto; padding: 12px 8px; border-radius: 12px; background-color: var(--control); }
+.Sheet-btn + .Sheet-btn { margin-left: 0; }
+.Sheet-btn.primary { background-color: var(--action); }
+.Sheet-btn-label { font-size: 16px; line-height: 24px; font-weight: 500; color: var(--ink); }
+.Sheet-btn-label.primary { color: var(--actionInk); }
+.Sheet-btn.disabled { opacity: 1; background-color: var(--control); }
+.Sheet-btn.disabled .Sheet-btn-label { color: var(--muted); }
+.Sheet-close-button { min-width: 48px; min-height: 48px; border-radius: 12px; background-color: var(--control); }
+.Sheet-close-label { font-size: 14px; color: var(--ink); }
+.Sheet-link { min-height: 48px; justify-content: center; margin-top: 12px; }
+.Sheet-link-label { font-size: 14px; line-height: 21px; color: var(--weightText); }
+.FoodSheet { border-radius: 22px; margin: 24px 16px 16px; padding: 24px 20px; }
+.Food-search-field { min-height: 48px; padding: 10px 12px; border-radius: 11px; background-color: var(--control); border: 1px solid var(--outline); }
+.Food-search-input { min-height: 32px; height: 32px; font-size: 16px; color: var(--ink); caret-color: var(--foodText); -x-placeholder-color: var(--muted); }
+.Food-detail-scroll, .Food-form-scroll { flex: 1; min-height: 0; }
+.Food-form .Sheet-input { min-height: 48px; height: 48px; font-size: 16px; line-height: 24px; }
+.Food-form-cell { border: 1px solid var(--outline); border-radius: 11px; padding: 8px; margin-right: 8px; }
+.Food-form-row { gap: 8px; }
+.Food-row { min-height: 56px; padding: 12px 0; border-bottom-color: var(--line); }
+.Food-row-name { flex: 1; font-size: 16px; line-height: 24px; }
+.Food-row-meta { font-size: 14px; line-height: 21px; }
+.Food-selected-name { font-size: 22px; line-height: 31px; font-weight: 500; }
+.Food-result-value, .Estimate-value { font-size: 28px; line-height: 36px; color: var(--ink); font-weight: 500; }
+.Food-result-unit, .Estimate-unit { font-size: 14px; line-height: 21px; color: var(--muted); margin-left: 8px; }
+.Food-result { margin-top: 20px; }
+.Food-macros { flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.Food-macro { font-size: 14px; line-height: 21px; color: var(--muted); margin: 0; }
+.Food-back, .Food-manage-btn, .Food-star { min-height: 48px; min-width: 48px; justify-content: center; }
+.Food-back-label, .Food-manage-label, .Food-create-label { color: var(--foodText); font-size: 14px; line-height: 21px; }
+.Food-manage-label.danger { color: var(--danger); }
+.Food-star-label { font-size: 28px; color: var(--muted); }
+.Food-star-label.on { color: var(--foodText); }
+.Food-scan-btn { min-height: 48px; justify-content: center; background-color: var(--action); border-radius: 12px; padding: 10px 12px; }
+.Food-scan-label { font-size: 14px; color: var(--actionInk); }
+.Exercise-current { display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: 12px; min-height: 56px; padding: 12px 0; }
+.Exercise-current-label { flex: 1; color: var(--ink); font-size: 16px; line-height: 24px; }
+.Exercise-current-action { min-height: 48px; justify-content: center; padding: 10px 8px; }
+.Exercise-current-action-label { color: var(--exerciseText); font-size: 14px; }
+.Exercise-type { min-height: 48px; padding: 12px; border: 1px solid var(--outline); border-radius: 11px; background-color: var(--paper); }
+.Exercise-type.selected { background-color: var(--exerciseTint); border-color: var(--exerciseText); }
+.Exercise-type-label { color: var(--ink); font-size: 16px; line-height: 24px; }
+.Exercise-type.selected .Exercise-type-label { color: var(--exerciseText); }
+.Exercise-duration-input { flex: 1; }
+.Estimate-block { padding: 16px 0; }
+.Estimate-label { color: var(--muted); font-size: 14px; line-height: 21px; }
+.Estimate-row { display: flex; flex-direction: row; align-items: baseline; margin-top: 6px; }
+.Reminder-seg, .Reminder-time, .HealthConnect-sync { min-height: 48px; border-radius: 12px; justify-content: center; padding: 10px 12px; }
+.Reminder-seg.active { background-color: var(--action); }
+.Reminder-seg-label.active { color: var(--actionInk); }
+.Reminder-time.active { background-color: var(--brandTint); }
+.HealthConnect-sync.disabled { opacity: 1; }
+.Scale-device { min-height: 56px; padding: 16px; border-radius: 12px; border: 1px solid var(--outline); }
+.Scale-reading-value { font-size: 48px; font-weight: 500; }
+.Scale-device-meta { color: var(--weightText); }
+.BottomTabBar { background-color: var(--paper); border-top-color: var(--line); }
+.BottomTab-label { color: var(--muted); }
+.BottomTab-label-active { color: var(--navigation); }
+.Action-btn.primary.tap-feedback-hover, .Sheet-btn.primary.tap-feedback-hover, .Water-btn.primary.tap-feedback-hover, .Food-scan-btn.tap-feedback-hover { background-color: var(--action); transform: scale(0.98); }
+.Sheet-btn.disabled.tap-feedback-hover { background-color: var(--control); transform: none; }
+.Exercise-current-action { color: var(--exerciseText); font-size: 14px; line-height: 21px; }
+
+/* Daily journal details remain readable without shrinking the shared form controls. */
+.DiaryMacros-item { font-size: 14px; line-height: 20px; }
+
+/* Personal and companion workflows use the same readable, keyboard-safe form structure. */
+.Workflow-sheet { flex: 1; max-height: 100%; margin: 24px 16px 16px; border-radius: 22px; }
+.Workflow-body { flex: 1; min-height: 0; }
+.Workflow-field { margin-bottom: 14px; }
+.Workflow-choice { min-height: 48px; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--outline); margin-bottom: 10px; background-color: var(--control); }
+.Workflow-choice.selected { background-color: var(--brandTint); border-color: var(--brand); }
+.Workflow-choice.disabled { background-color: var(--control); }
+.Workflow-list-item { padding: 14px 0; border-bottom: 1px solid var(--line); }
+.Workflow-actions { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+.Workflow-photo { width: 100%; height: 220px; border-radius: 12px; margin: 12px 0; }
+.Workflow-code { font-size: 16px; line-height: 24px; color: var(--ink); }
+.Workflow-caption { font-size: 14px; line-height: 21px; color: var(--muted); margin-top: 6px; }
+
+
+.Food-meal-options { flex-wrap: wrap; gap: 8px; }
+.Food-meal-options .LangSwitch-item { flex: none; width: 48%; padding: 8px 6px; }
+.Food-meal-options .LangSwitch-label { word-break: normal; }
+.Sheet-btn.danger { border: 1px solid var(--danger); }
+.Sheet-btn-label.danger { color: var(--danger); }
+.Workflow-field .Sheet-input { min-height: 48px; height: 48px; font-size: 16px; line-height: 24px; font-weight: 400; }
+.Workflow-code { word-break: break-all; }
+.Measurement-trend-options { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+.Measurement-trend-options .Workflow-choice { width: 48%; min-height: 48px; margin-bottom: 0; padding: 12px 8px; }
+.Measurement-trend-options .Action-label { word-break: normal; }
+.Workflow-viewport { flex: 1; min-height: 0; }
+.Workflow-content { display: flex; flex-direction: column; height: 100%; }
+.Workflow-heading-block, .Workflow-footer-block { flex-shrink: 0; }
+.Workflow-heading-block { display: flex; flex-direction: column; }
+.Workflow-heading-block > .Section-note { flex-shrink: 0; }
+.Workflow-sheet .Sheet-header { width: 100%; }
+.Workflow-sheet .Sheet-header > view { flex: 1; min-width: 0; }
+.Workflow-sheet .Sheet-title { word-break: normal; white-space: normal; }
+.Workflow-sheet .Sheet-btn-label { word-break: normal; white-space: normal; }
+.Workflow-sheet.whole-scroll .Workflow-content { height: auto; }
+.Workflow-field .Sheet-input { height: auto; min-height: 48px; }
+.Workflow-sheet.whole-scroll .Sheet-actions { flex-direction: column; }
+.Workflow-sheet.whole-scroll .Sheet-btn { flex: none; width: 100%; }
+.Workflow-sheet.whole-scroll .Sheet-title { word-break: break-word; }
+
+/* Bounded gallery controls retain readable labels and minimum touch targets. */
+.Photo-actions { flex-direction: row; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+.Photo-actions .Sheet-btn { flex: 1; min-width: 112px; }
+.Workflow-sheet.whole-scroll .Photo-actions .Sheet-btn { width: auto; flex: 1; min-width: 112px; }
+.Insights-empty, .Partner-local-note { color: var(--ink); }
+.Partner-tools { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line); }
+
+.Insights-weight-card .Insights-card-title { color: var(--ink); }

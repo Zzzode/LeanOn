@@ -1,0 +1,6 @@
+{
+  "phase": "active",
+  "healthAndOriginalPhotosPreserved": true,
+  "repeatActionIdempotent": true,
+  "encryptedSourceJournalRetained": true
+}

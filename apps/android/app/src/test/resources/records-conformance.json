@@ -1,0 +1,21 @@
+{
+  "clock": {"today": "2026-10-06", "deletedAt": "2026-10-06T12:00:00Z", "timeZone": "UTC"},
+  "purpose": "Fixed synthetic cross-host worked example; snapshots are actual native transactions, not UI acceptance.",
+  "operations": [
+    {"request":{"operationId":"gold-setup","expectedRevision":0,"mutation":{"type":"save-profile","profile":{"sex":"male","birthDate":"1993-05-12","heightCm":178,"activityLevel":"lightly_active"},"goalWeightKg":null,"weeklyLossKg":0,"guidanceMode":"tracking-only","safetyFlags":{"pregnant":null,"breastfeeding":null,"eatingDisorderRisk":null},"initialWeightKg":80}},"expect":{"revision":1,"setupCompleted":true,"weightDate":"2026-10-06","weightKg":80}},
+    {"request":{"operationId":"gold-water","expectedRevision":1,"mutation":{"type":"set-water","date":"2026-10-01","amountMl":500}},"expect":{"revision":2,"waterDate":"2026-10-01","waterMl":500}},
+    {"request":{"operationId":"gold-food-one","expectedRevision":2,"mutation":{"type":"save-intake","entry":{"id":"entry-gold-one","date":"2026-10-01","meal":"breakfast","name":"Synthetic breakfast","grams":100,"kcal":100,"macros":{"proteinG":10,"carbsG":10,"fatG":2},"micros":{"fiberG":2,"sugarG":3,"saturatedFatG":1,"sodiumMg":100}}}},"expect":{"revision":3,"intakeDate":"2026-10-01","entries":1,"kcal":100}},
+    {"request":{"operationId":"gold-food-two","expectedRevision":3,"mutation":{"type":"save-intake","entry":{"id":"entry-gold-two","date":"2026-10-01","meal":"lunch","name":"Synthetic lunch","grams":200,"kcal":200,"macros":{"proteinG":20,"carbsG":20,"fatG":4},"micros":{"fiberG":4,"sugarG":6,"saturatedFatG":2,"sodiumMg":200}}}},"expect":{"revision":4,"entries":2,"kcal":300}},
+    {"request":{"operationId":"gold-food-edit","expectedRevision":4,"mutation":{"type":"save-intake","entry":{"id":"entry-gold-one","date":"2026-10-01","meal":"breakfast","name":"Synthetic breakfast","grams":150,"kcal":150,"macros":{"proteinG":15,"carbsG":15,"fatG":3},"micros":{"fiberG":3,"sugarG":4.5,"saturatedFatG":1.5,"sodiumMg":150}}}},"expect":{"revision":5,"entries":2,"kcal":350,"proteinG":35,"fiberG":7,"sodiumMg":350}},
+    {"request":{"operationId":"gold-delete","expectedRevision":5,"mutation":{"type":"delete-record","kind":"intake","id":"entry-gold-two"}},"expect":{"revision":6,"entries":1,"kcal":150,"undoToken":"undo-gold-delete","deletedRecords":1}},
+    {"request":{"operationId":"gold-restore","expectedRevision":6,"mutation":{"type":"restore-record","token":"undo-gold-delete"}},"expect":{"revision":7,"entries":2,"kcal":350,"deletedRecords":0}},
+    {"request":{"operationId":"gold-weight-move","expectedRevision":7,"mutation":{"type":"set-weight","id":"weight-2026-10-06","date":"2026-10-05","weightKg":80.2}},"expect":{"revision":8,"stableWeightId":"weight-2026-10-06","weightDate":"2026-10-05","weightKg":80.2}},
+    {"request":{"operationId":"gold-weight-new","expectedRevision":8,"mutation":{"type":"set-weight","date":"2026-10-06","weightKg":81}},"expect":{"revision":9,"newWeightId":"weight-2026-10-06-gold-weight-new","weights":2}},
+    {"request":{"operationId":"gold-food-one","expectedRevision":2,"mutation":{"type":"save-intake","entry":{"id":"entry-gold-one","date":"2026-10-01","meal":"breakfast","name":"Synthetic breakfast","grams":100,"kcal":100,"macros":{"proteinG":10,"carbsG":10,"fatG":2},"micros":{"fiberG":2,"sugarG":3,"saturatedFatG":1,"sodiumMg":100}}}},"expect":{"revision":9,"entries":2,"kcal":350,"replayed":true,"appliedRevision":3}}
+  ],
+  "rejections": [
+    {"request":{"operationId":"gold-stale","expectedRevision":0,"mutation":{"type":"set-water","date":"2026-10-01","amountMl":750}},"expect":{"code":"conflict","revision":9,"waterMl":500}},
+    {"request":{"operationId":"gold-future","expectedRevision":9,"mutation":{"type":"set-water","date":"2026-10-07","amountMl":250}},"expect":{"code":"invalid-request","revision":9}},
+    {"request":{"operationId":"gold-water","expectedRevision":1,"mutation":{"type":"set-water","date":"2026-10-01","amountMl":999}},"expect":{"code":"invalid-request","revision":9,"waterMl":500}}
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "capturedUTC": "2026-10-07T21:54:27.819876+00:00",
+  "head": "89b5e157844d62933a5ebfa773e7aa7b8d076cb9",
+  "dirtyWorkspace": true,
+  "remoteHeadMatches": true,
+  "syntheticOnly": true,
+  "appRebuilt": false,
+  "businessOrUISourceEdited": false,
+  "browserUsedForScreenshots": false,
+  "ios": {
+    "device": "iPhone SE 3 / iOS26.5 / 375x667pt",
+    "uniqueGeneratedReviewScenariosPassed": 7,
+    "screens": "six English light/dark; five Chinese light tabs; empty/read error; weight new/invalid/edit; food search/portion; exercise new; aggregate/profile edit; delete confirmation; real added meal edit/invalid; 7/30 day multi-point chart",
+    "nativeOperationBoundary": "These are narrow capture/interaction scenarios, not full product regression or accessibility certification. Only a fictional meal is intentionally saved; no user records/profile/OS permission changes."
+  },
+  "android": {
+    "device": "owned emulator-5582 / API35 / 1080x2280 / 440dpi",
+    "retainedCoverage": "six English dark screens; light Today, Partner and Settings; later read-error Today/Diary/Progress/Me",
+    "formsPassed": false,
+    "reason": "Later direct reload of the synthetic QA record file produced read errors; intended weight/food form captures did not reach forms, and the disposable emulator later became unavailable. Failure-named captures are separately relabeled by actual content. No form coverage is inferred from filenames or completed pointer events.",
+    "a11y": "Settings ACTION_CLICK failed with a named focusable node having clickable=false and no ACTION_CLICK; ordinary pointer navigation reached Settings. Quick action named nodes absent in sampled Today hierarchy; TalkBack not run."
+  },
+  "notNewlyRun": [
+    "connected Partner/shared data/message delivery/photos/offline",
+    "production migration UI",
+    "saving in-flight/network loading/permission denials",
+    "custom-food create/edit and all other auxiliary sheets",
+    "physical devices",
+    "large text/reduced motion",
+    "full VoiceOver/TalkBack flows"
+  ],
+  "automationNotes": [
+    "Initial generated runner compile failed and a copied old theme runner began; stopped before record-writing scenarios. Not counted as review coverage.",
+    "Initial food result selection was not hittable with keyboard open; return/search dismissed keyboard and rerun passed.",
+    "Meal capture scrolling initially failed; smaller directed gestures completed the actual edit flow.",
+    "Completed screenshots support only their visible state, not off-screen behavior."
+  ]
+}

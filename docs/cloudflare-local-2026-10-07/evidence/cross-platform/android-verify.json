@@ -1,0 +1,11 @@
+{
+  "stage": "verify",
+  "checks": [
+    {
+      "id": "both-message-directions-and-ios-durable-delivery-ack",
+      "passed": true
+    }
+  ],
+  "capturedUtc": "2026-10-07T20:33:48.036994Z",
+  "passed": true
+}

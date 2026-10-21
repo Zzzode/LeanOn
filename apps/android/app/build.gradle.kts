@@ -28,6 +28,7 @@ android {
     targetSdk = 35
     versionCode = 1
     versionName = "0.1.0"
+    testInstrumentationRunner = "com.zzzode.leanon.qa.ParityInstrumentation"
   }
 
   compileOptions {
@@ -41,16 +42,31 @@ android {
     buildConfig = true
   }
 
+  buildTypes {
+    getByName("debug") {
+      // A separate app sandbox for disposable native UI regression fixtures.
+      if (providers.gradleProperty("leanonUiQa").orNull == "true") {
+        applicationIdSuffix = ".uiqa"
+      }
+    }
+  }
+
   sourceSets {
     getByName("main") {
       assets.srcDir(generatedLynxAssets)
     }
+    getByName("androidTest") {
+      // Public interoperability inputs only; no production credentials or user photographs.
+      assets.srcDir(rootProject.projectDir.resolve("../../packages/data/src/fixtures"))
+    }
   }
 }
 
-// Ensure the bundle is staged before any variant merges its assets.
+// Asset consumers must depend on staging, including Lint models run with a build.
 tasks.matching {
-  it.name.startsWith("merge") && it.name.endsWith("Assets")
+  (it.name.startsWith("merge") && it.name.endsWith("Assets")) ||
+    it.name.startsWith("lint") ||
+    (it.name.startsWith("generate") && it.name.contains("Lint") && it.name.endsWith("Model"))
 }.configureEach {
   dependsOn(prepareLynxAssets)
 }
@@ -74,6 +90,11 @@ dependencies {
   // CameraX ListenableFuture APIs (explicit after the toolchain upgrade).
   implementation("com.google.guava:guava:33.4.0-android")
 
+  implementation("org.lynxsdk.lynx:xelement:3.9.0")
+  implementation("org.lynxsdk.lynx:xelement-input:3.9.0")
+  implementation("org.lynxsdk.lynx:xelement-svg:3.9.0")
+  implementation("org.lynxsdk.lynx:lynx-service-image:3.9.0")
+  implementation("com.facebook.fresco:fresco:2.3.0")
   implementation(libs.lynx)
   implementation(libs.lynx.jssdk)
   implementation(libs.lynx.trace)

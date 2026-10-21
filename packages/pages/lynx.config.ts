@@ -13,7 +13,7 @@ export default defineConfig({
         return `${url}?fullscreen=true`;
       },
     }),
-    pluginReactLynx(),
+    pluginReactLynx({ enableCSSSelector: true }),
   ],
   // Build both the native Lynx bundle and a web bundle (used for previews).
   environments: {

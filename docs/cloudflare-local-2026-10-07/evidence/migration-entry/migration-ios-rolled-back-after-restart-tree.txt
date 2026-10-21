@@ -1,0 +1,53 @@
+Attributes: Application, 0x11407c000, pid: 49854, label: 'LeanOn'
+Element subtree:
+ →Application, 0x11407c000, pid: 49854, label: 'LeanOn'
+    Window (Main), 0x11407df40, {{0.0, 0.0}, {375.0, 667.0}}
+      Other, 0x11407e080, {{0.0, 0.0}, {375.0, 667.0}}
+        Other, 0x11407e1c0, {{0.0, 0.0}, {375.0, 667.0}}
+          Other, 0x11407e300, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x11407e440, {{0.0, 0.0}, {375.0, 667.0}}
+              Other, 0x11407e580, {{0.0, 0.0}, {375.0, 667.0}}
+                Other, 0x11407e6c0, {{0.0, 0.0}, {375.0, 667.0}}
+                  NavigationBar, 0x11407e800, {{0.0, 20.0}, {375.0, 54.0}}, identifier: 'Me'
+                    Button, 0x11407c140, {{16.0, 20.0}, {44.0, 44.0}}, identifier: 'BackButton', label: 'Me'
+                  Other, 0x11407c280, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x11407c3c0, {{0.0, 0.0}, {375.0, 667.0}}
+                      Other, 0x11407c500, {{0.0, 0.0}, {375.0, 667.0}}
+                        Other, 0x11407c640, {{0.0, 74.0}, {375.0, 593.0}}, label: 'lynxview'
+                          Other, 0x11407c780, {{0.0, 74.0}, {375.0, 593.0}}
+                          Other, 0x11407c8c0, {{0.0, 74.0}, {375.0, 593.0}}
+                            Other, 0x11407d180, {{16.0, 98.0}, {343.0, 553.0}}
+                              ScrollView, 0x11407d2c0, {{40.0, 122.0}, {295.0, 497.0}}
+                                Other, 0x11407d400, {{40.0, 122.0}, {295.0, 497.0}}
+                                  Other, 0x11407d540, {{40.0, 122.0}, {295.0, 43.0}}
+                                    Other, 0x11407d680, {{40.0, 122.0}, {295.0, 33.0}}, label: 'Move to private cloud'
+                                  ScrollView, 0x11407d7c0, {{40.0, 165.0}, {295.0, 386.0}}
+                                    Other, 0x11407d900, {{40.0, 165.0}, {295.0, 686.0}}
+                                      StaticText, 0x11407da40, {{40.0, 175.0}, {295.0, 100.0}}, label: 'Use an approved device after the administrator stages this same account on the target. Source data and an encrypted source backup are retained.'
+                                      StaticText, 0x11407db80, {{40.0, 275.0}, {295.0, 26.0}}, label: 'Returned to source service'
+                                      StaticText, 0x11407dcc0, {{40.0, 315.0}, {295.0, 24.0}}, label: 'Account · migration-owner'
+                                      StaticText, 0x11407ca00, {{40.0, 349.0}, {295.0, 50.0}}, label: 'b99660b8-8297-40b6-962f-39476ffedc3d'
+                                      StaticText, 0x11407cb40, {{40.0, 399.0}, {295.0, 24.0}}, label: 'Source service'
+                                      StaticText, 0x11407cc80, {{40.0, 433.0}, {295.0, 25.0}}, label: 'http://127.0.0.1:64041'
+                                      StaticText, 0x11407cdc0, {{40.0, 474.0}, {295.0, 21.0}}, label: 'Target service URL'
+                                      Other, 0x11407cf00, {{40.0, 503.0}, {295.0, 70.0}}
+                                        TextField, 0x11407d040, {{55.0, 514.0}, {265.0, 48.0}}, label: 'Target service URL', value: http://127.0.0.1:6...
+                                      StaticText, 0x11407e940, {{40.0, 603.0}, {295.0, 21.0}}, label: 'Account password'
+                                      Other, 0x11407ea80, {{40.0, 632.0}, {295.0, 70.0}}
+                                        SecureTextField, 0x11407ebc0, {{55.0, 643.0}, {265.0, 48.0}}, label: 'Account password'
+                                      StaticText, 0x11407ed00, {{40.0, 726.0}, {295.0, 125.0}}, label: 'An approved device/keyring or a usable encrypted health backup is required. Passwords and server snapshots cannot recover old cloud contents without the client keys.'
+                                  Other, 0x11407ee40, {{40.0, 551.0}, {295.0, 68.0}}
+                                    Button, 0x11407ef80, {{40.0, 571.0}, {141.5, 48.0}}, label: 'Cancel'
+                                    Button, 0x11407f0c0, {{193.5, 571.0}, {141.5, 48.0}}, label: 'Check target'
+                  Other, 0x11407f200, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x11407f340, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x11407f480, {{0.0, 584.0}, {375.0, 83.0}}
+              Other, 0x11407f5c0, {{0.0, 0.0}, {375.0, 667.0}}
+              Other, 0x11407f700, {{0.0, 584.0}, {375.0, 83.0}}
+Path to element:
+ →Application, 0x11407c000, pid: 49854, label: 'LeanOn'
+Query chain:
+ →Find: Target Application 'com.zzzode.leanon.uiqa'
+  Output: {
+    Application, 0x11407de00, pid: 49854, label: 'LeanOn'
+  }

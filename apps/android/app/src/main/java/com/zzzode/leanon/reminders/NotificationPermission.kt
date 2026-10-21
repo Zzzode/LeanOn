@@ -1,6 +1,7 @@
 package com.zzzode.leanon.reminders
 
 import android.Manifest
+import com.zzzode.leanon.bridge.PendingRequest
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
@@ -14,7 +15,11 @@ object NotificationPermission {
 
   const val REQUEST_CODE = 4021
 
-  var onResult: ((granted: Boolean) -> Unit)? = null
+  private val pending = PendingRequest<Boolean>()
+
+  fun begin(callback: (Boolean) -> Unit): Boolean = pending.begin(callback)
+
+  fun cancel() { pending.complete(false) }
 
   fun required(): Array<String> =
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -36,8 +41,6 @@ object NotificationPermission {
     val granted =
       grantResults.isNotEmpty() &&
         grantResults.all { it == PackageManager.PERMISSION_GRANTED }
-    val callback = onResult
-    onResult = null
-    callback?.invoke(granted)
+    pending.complete(granted)
   }
 }

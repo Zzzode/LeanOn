@@ -1,0 +1,56 @@
+{
+  "recordedUTC": "2026-10-07T11:29:44.709587+00:00",
+  "branch": "main",
+  "HEAD": "89b5e157844d62933a5ebfa773e7aa7b8d076cb9",
+  "artifactsSHA256": {
+    "shared": "7711c4ba96b81f8d0917c77b8b93618462f234a6782046db3a571af37d095f10",
+    "androidQA": "ca23ffd81e354d4d8119bb47bc3a81c12e2add9eb6422fc3adae7690119d8895",
+    "androidRunner": "d8c16ce03183f16d65abe16ac6523837dfdae6ff555580a6839efe0b181b62a6",
+    "androidUnsignedRelease": "29ef97c4c6de36801b5abcb9d996a2bc65f09b8f674653424037c4c174de3731",
+    "iosQA": "5a11b7ef13e026bcf82c8039ea553d391c30874ac04327bbadb35d0ba7f0ea06",
+    "iosUnsignedRelease": "a784bfb7a69c98718693b171ce6d8bb0ec75ae0113d65c29ff4cef2fb50a84fb"
+  },
+  "embeddedSharedBundlesMatch": true,
+  "build": "workspace build/typecheck and both unsigned native Release builds passed",
+  "tests": {
+    "Pages": 142,
+    "i18n": 18,
+    "iOSOneInvocation": {
+      "native": 85,
+      "affectedUI": 6,
+      "failures": 0
+    },
+    "iOSDarkSeparate": {
+      "UI": 2,
+      "failures": 0
+    }
+  },
+  "logsSHA256": {
+    "workspace-heading-build.log": "4a4ff920033737b732dad1f064fa39130563b0fa918f91721023747b813c5448",
+    "workspace-heading-typecheck.log": "9f75726ccdb5d96e2de0ba6689550c87f1e565e162c9691eb32048fe2144ab3f",
+    "pages-heading-tests.log": "af2ad60d37e6736b4d1417a098ecf3df247711b0f618e3f292a2bba6d0a197df",
+    "i18n-final-tests.log": "e1b265945baf0274185ed090544bf6796a279a7ca4d2632508a050e0352aa350",
+    "ios-final-native-ui.log": "397e51bf42f847b3a52417708896b72dbda2f0261fd03dcc4fca55be86928b86",
+    "ios-final-dark.log": "25ac801706c7867ef77c3a253dba79fb5f3f49fa740cc6e155f83c2b525826e6",
+    "ios-final-7711-release.log": "1e60605c59f6c7e72c1a1deff4f4f69ace088ee9f8781666c8a560589838c353",
+    "android-final-7711-release.log": "59aff6e9e2b2a361b4d10f8a3f8e4d736ab837c14c26f6e2694de8197278b572"
+  },
+  "androidActualReceiptProcesses": [
+    26419,
+    26499,
+    26576
+  ],
+  "androidNativeUI": "Final Next/Back item5/item1 actual generated gray pixels; header at320dp/font2 both locales; UI command fixture reports success",
+  "cleanup": {
+    "androidSyntheticGalleryRemoved": true,
+    "androidFourExactAliasesRemoved": true,
+    "androidOriginalQAFilesUnchanged": true,
+    "androidSecureSettingsUnchanged": true,
+    "iosOwnedSimulatorRemoved": true,
+    "iosQAAndRunnerTCCRows": 0,
+    "relayOwn64131ClosedExit0": true,
+    "relayOwnDirectoryRemoved": true,
+    "unrelated8787Preserved": true
+  },
+  "boundary": "No commit/push/deploy or real-user/hardware operations. Unfiltered contrast pass is only fully visible stable reading states; prior partial-edge failures retained. Physical readers/speech/hardware and production remain unverified."
+}

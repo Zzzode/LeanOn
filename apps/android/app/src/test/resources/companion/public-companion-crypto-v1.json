@@ -1,0 +1,25 @@
+{
+  "classification": "PUBLIC FIXED TEST FIXTURE. Synthetic keys and content only; never use these keys for real data.",
+  "version": 1,
+  "key": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=",
+  "inviteSecret": "AQIDBAUGBwgJCgsMDQ4PEBESExQVFhcYGRobHB0eHyA=",
+  "inviteId": "PUBLIC-invite",
+  "proof": "3rZpiUFRu88ac35WewIO+MYYsESZxqqQGxgIUuXMGCE=",
+  "proofHash": "2adb58565f32b3582289f0a8643acc68d43e8e48966c10201367170cbadd7186",
+  "wrapKey": "bW3eOOopFChkoR5TPXFxdFiDDEpQ/Yug7qN/fvHpgKQ=",
+  "wrappedRawGroupKey": {
+    "algorithm": "AES-256-GCM",
+    "nonce": "AAAAAAAAAAAAAAAA",
+    "ciphertext": "EGYgL1z9oUPOC/QgyyKqOyCkVyvOoBoFf23DfxWWtW0=",
+    "tag": "S++6tc0f9idYht+HN+LZig=="
+  },
+  "invitationCode": "leanon-invite-v1:eyJpZCI6IlBVQkxJQy1pbnZpdGUiLCJpbnZpdGVTZWNyZXQiOiJBUUlEQkFVR0J3Z0pDZ3NNRFE0UEVCRVNFeFFWRmhjWUdSb2JIQjBlSHlBPSJ9",
+  "aad": "[\"leanon-change-v1\",\"group-1\",1,\"owner-1\",\"device-1\",\"change-1\",\"photo-1\",\"photos\",\"record\",123,false]",
+  "plaintext": "UFVCTElDIGZpeHR1cmUgb25seQ==",
+  "payload": {
+    "algorithm": "AES-256-GCM",
+    "nonce": "AAAAAAAAAAAAAAAA",
+    "ciphertext": "Xun3kvxvo9th0N1Aakmx9rwvLw==",
+    "tag": "t1t3mJKFdWrvh5HudJY57g=="
+  }
+}

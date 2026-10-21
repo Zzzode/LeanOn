@@ -1,0 +1,4 @@
+/* Canonical source: packages/i18n/src/locales/en.ts — keep in sync. */
+"scanner.title" = "Scan a barcode";
+"scanner.cancel" = "Cancel";
+"scanner.hint" = "Point the camera at the product barcode.";

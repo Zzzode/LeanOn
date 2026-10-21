@@ -1,0 +1,82 @@
+Attributes: Application, 0x1179e08c0, pid: 25456, label: 'LeanOn'
+Element subtree:
+ →Application, 0x1179e08c0, pid: 25456, label: 'LeanOn'
+    Window (Main), 0x1179e2800, {{0.0, 0.0}, {375.0, 667.0}}
+      Other, 0x1179e2940, {{0.0, 0.0}, {375.0, 667.0}}
+        Other, 0x1179e2a80, {{0.0, 0.0}, {375.0, 667.0}}
+          Other, 0x1179e2f80, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x1179e30c0, {{0.0, 0.0}, {375.0, 667.0}}
+              Other, 0x1179e2bc0, {{0.0, 0.0}, {375.0, 667.0}}
+                Other, 0x1179e2d00, {{0.0, 0.0}, {375.0, 667.0}}
+                  Other, 0x1179e2e40, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x1179e0a00, {{0.0, 0.0}, {375.0, 667.0}}
+                      Other, 0x1179e0b40, {{0.0, 0.0}, {375.0, 667.0}}
+                        Other, 0x1179e0c80, {{0.0, 20.0}, {375.0, 564.0}}, label: 'lynxview'
+                          Other, 0x1179e1cc0, {{0.0, 20.0}, {375.0, 564.0}}
+                            ScrollView, 0x1179e1e00, {{0.0, 20.0}, {375.0, 564.0}}
+                              Other, 0x1179e2080, {{0.0, 20.0}, {375.0, 1088.0}}
+                                StaticText, 0x1179e26c0, {{24.0, 52.0}, {327.0, 36.0}}, label: 'Diary'
+                                StaticText, 0x1179e21c0, {{24.0, 94.0}, {327.0, 21.0}}, label: '2026-10-07'
+                                Other, 0x1179e2580, {{24.0, 139.0}, {327.0, 348.0}}
+                                  StaticText, 0x1179e2300, {{24.0, 179.0}, {327.0, 21.0}}, label: 'Journal date'
+                                  Other, 0x1179e2440, {{24.0, 208.0}, {327.0, 78.0}}
+                                    TextField, 0x1179e1f40, {{39.0, 219.0}, {297.0, 56.0}}, label: 'Journal date', placeholderValue: 'YYYY-MM-DD', value: 2026-10-07
+                                  Button, 0x1179e0f00, {{24.0, 286.0}, {327.0, 48.0}}, label: 'Show this day'
+                                  Button, 0x1179e1a40, {{24.0, 342.0}, {101.0, 72.0}}, label: 'Previous day'
+                                  Other, 0x1179e1b80, {{137.0, 342.0}, {101.0, 72.0}}, label: 'Next day', Disabled
+                                  Button, 0x1179e17c0, {{250.0, 342.0}, {101.0, 72.0}}, label: 'Today'
+                                  Button, 0x1179e1900, {{24.0, 414.0}, {327.0, 48.0}}, label: 'Journal history'
+                                Other, 0x1179e1540, {{24.0, 487.0}, {327.0, 160.0}}
+                                  StaticText, 0x1179e1680, {{44.0, 507.0}, {287.0, 21.0}}, label: 'Not logged yet'
+                                  StaticText, 0x1179e12c0, {{44.0, 528.0}, {287.0, 25.0}}, label: 'No records on this day.'
+                                  Button, 0x1179e1400, {{44.0, 579.0}, {287.0, 48.0}}, label: 'Log food'
+                                Other, 0x1179e1040, {{24.0, 671.0}, {327.0, 232.0}}
+                                  StaticText, 0x1179e1180, {{24.0, 695.0}, {327.0, 26.0}}, label: 'Daily records'
+                                  StaticText, 0x1179e0dc0, {{24.0, 745.0}, {327.0, 25.0}}, label: 'No records on this day.'
+                                  Button, 0x1179e0640, {{24.0, 782.0}, {157.5, 48.0}}, label: 'Log weight'
+                                  Button, 0x1179e0780, {{193.5, 782.0}, {157.5, 48.0}}, label: 'Log exercise'
+                                  Button, 0x1179e0500, {{24.0, 830.0}, {327.0, 48.0}}, label: 'Water (ml)'
+                                Other, 0x1179e0140, {{24.0, 903.0}, {327.0, 97.0}}
+                                  Button, 0x1179e03c0, {{24.0, 927.0}, {327.0, 48.0}}, label: 'Recently deleted'
+                  Other, 0x1179e0280, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x1179e0000, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x1179e3340, {{0.0, 584.0}, {375.0, 83.0}}
+              Other, 0x1179e3480, {{0.0, 0.0}, {375.0, 667.0}}
+                TabBar, 0x1179e35c0, {{0.0, 584.0}, {375.0, 83.0}}, label: '标签页栏'
+                  Other, 0x1179e3700, {{21.0, 584.0}, {333.0, 62.0}}
+                    Other, 0x1179e3840, {{21.0, 584.0}, {74.0, 54.0}}
+                    Other, 0x1179e3980, {{21.0, 584.0}, {333.0, 62.0}}
+                      Button, 0x1179e3ac0, {{25.0, 588.0}, {74.0, 54.0}}, label: 'Today'
+                        Image, 0x1179e3c00, {{48.0, 593.0}, {29.0, 29.5}}, identifier: 'sun.max', label: '调高亮度'
+                      Button, 0x1179e3d40, {{87.2, 588.0}, {74.0, 54.0}}, label: 'Diary', Selected
+                        Image, 0x1179e3e80, {{108.2, 595.0}, {31.5, 25.5}}, identifier: 'book', label: '书签'
+                      Button, 0x118de6300, {{149.5, 588.0}, {76.0, 54.0}}, label: 'Progress'
+                        Image, 0x118de43c0, {{169.5, 595.5}, {35.5, 25.5}}, identifier: 'chart.bar', label: '图表柱形图'
+                      Button, 0x118de4280, {{213.8, 588.0}, {74.0, 54.0}}, label: 'Partner'
+                        Image, 0x118de4140, {{236.8, 596.0}, {29.0, 25.0}}, identifier: 'heart', label: '喜欢'
+                      Button, 0x118de4000, {{276.0, 588.0}, {74.0, 54.0}}, label: 'Me'
+                        Image, 0x118de61c0, {{300.0, 595.5}, {26.0, 25.0}}, identifier: 'person', label: 'person'
+                    Other, 0x118de6080, {{87.2, 588.0}, {74.0, 54.0}}
+                      Other, 0x118de5f40, {{87.2, 588.0}, {74.0, 54.0}}
+                        Other, 0x118de4f00, {{87.2, 588.0}, {74.0, 54.0}}
+                        Other, 0x118de4dc0, {{87.2, 588.0}, {74.0, 54.0}}
+                          Other, 0x118de4b40, {{87.2, 588.0}, {74.0, 54.0}}
+                            Other, 0x118de4500, {{87.2, 588.0}, {74.0, 54.0}}
+                              Other, 0x118de4a00, {{87.2, 588.0}, {74.0, 54.0}}
+                            Other, 0x118de4640, {{87.2, 588.0}, {74.0, 54.0}}
+                          Other, 0x118de48c0, {{87.2, 588.0}, {74.0, 54.0}}
+              Other, 0x118de4780, {{0.0, 584.0}, {375.0, 83.0}}
+                Other, 0x118de4c80, {{0.0, 584.0}, {375.0, 83.0}}
+                  Other, 0x118de5cc0, {{0.0, 584.0}, {375.0, 83.0}}
+                    Other, 0x118de5180, {{0.0, 584.0}, {375.0, 83.0}}
+                      Other, 0x118de5040, {{0.0, 584.0}, {375.0, 83.0}}
+                        Other, 0x118de5400, {{0.0, 584.0}, {375.0, 83.0}}
+                    Other, 0x118de52c0, {{0.0, 584.0}, {375.0, 83.0}}
+                      Other, 0x118de5680, {{0.0, 584.0}, {375.0, 83.0}}
+Path to element:
+ →Application, 0x1179e08c0, pid: 25456, label: 'LeanOn'
+Query chain:
+ →Find: Target Application 'com.zzzode.leanon.uiqa'
+  Output: {
+    Application, 0x118de5540, pid: 25456, label: 'LeanOn'
+  }

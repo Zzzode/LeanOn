@@ -1,0 +1,10 @@
+{
+  "name": "@zzzode/companion-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Local ciphertext-only companion relay",
+  "exports": {".": {"types": "./dist/index.d.ts", "import": "./dist/index.js"}},
+  "scripts": {"build":"rslib build","typecheck":"tsc --noEmit","test":"rstest run","start":"node dist/cli.js"},
+  "devDependencies": {"@rstest/core":"0.12.3","@types/node":"26.6.3"}
+}

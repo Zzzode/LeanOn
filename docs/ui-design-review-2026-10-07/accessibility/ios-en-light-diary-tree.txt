@@ -1,0 +1,104 @@
+Attributes: Application, 0x1179e0000, pid: 24826, label: 'LeanOn'
+Element subtree:
+ →Application, 0x1179e0000, pid: 24826, label: 'LeanOn'
+    Window (Main), 0x1179e0280, {{0.0, 0.0}, {375.0, 667.0}}
+      Other, 0x1179e03c0, {{0.0, 0.0}, {375.0, 667.0}}
+        Other, 0x1179e0500, {{0.0, 0.0}, {375.0, 667.0}}
+          Other, 0x1179e0640, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x1179e0780, {{0.0, 0.0}, {375.0, 667.0}}
+              Other, 0x1179e08c0, {{0.0, 0.0}, {375.0, 667.0}}
+                Other, 0x1179e0a00, {{0.0, 0.0}, {375.0, 667.0}}
+                  Other, 0x1179e0b40, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x1179e0c80, {{0.0, 0.0}, {375.0, 667.0}}
+                      Other, 0x1179e0dc0, {{0.0, 0.0}, {375.0, 667.0}}
+                        Other, 0x1179e0f00, {{0.0, 20.0}, {375.0, 564.0}}, label: 'lynxview'
+                          Other, 0x1179e1040, {{0.0, 20.0}, {375.0, 564.0}}
+                            ScrollView, 0x1179e1180, {{0.0, 20.0}, {375.0, 564.0}}
+                              Other, 0x1179e12c0, {{0.0, 20.0}, {375.0, 1720.0}}
+                                StaticText, 0x1179e1400, {{24.0, 52.0}, {327.0, 36.0}}, label: 'Diary'
+                                StaticText, 0x1179e1540, {{24.0, 94.0}, {327.0, 21.0}}, label: '2026-10-07'
+                                Other, 0x1179e1680, {{24.0, 139.0}, {327.0, 348.0}}
+                                  StaticText, 0x1179e17c0, {{24.0, 179.0}, {327.0, 21.0}}, label: 'Journal date'
+                                  Other, 0x1179e1900, {{24.0, 208.0}, {327.0, 78.0}}
+                                    TextField, 0x1179e1a40, {{39.0, 219.0}, {297.0, 56.0}}, label: 'Journal date', placeholderValue: 'YYYY-MM-DD', value: 2026-10-07
+                                  Button, 0x1179e1b80, {{24.0, 286.0}, {327.0, 48.0}}, label: 'Show this day'
+                                  Button, 0x1179e1cc0, {{24.0, 342.0}, {101.0, 72.0}}, label: 'Previous day'
+                                  Other, 0x1179e1e00, {{137.0, 342.0}, {101.0, 72.0}}, label: 'Next day', Disabled
+                                  Button, 0x1179e1f40, {{250.0, 342.0}, {101.0, 72.0}}, label: 'Today'
+                                  Button, 0x1179e2080, {{24.0, 414.0}, {327.0, 48.0}}, label: 'Journal history'
+                                Other, 0x1179e21c0, {{24.0, 487.0}, {327.0, 230.0}}
+                                  StaticText, 0x1179e2300, {{44.0, 507.0}, {287.0, 21.0}}, label: 'Recorded'
+                                  StaticText, 0x1179e2440, {{44.0, 534.0}, {122.5, 62.0}}, label: '1,180'
+                                  StaticText, 0x1179e2580, {{178.5, 568.0}, {26.0, 21.0}}, label: 'kcal'
+                                  Button, 0x1179e26c0, {{44.0, 620.0}, {287.0, 48.0}}, label: 'Log food'
+                                  StaticText, 0x1179e2800, {{44.0, 677.0}, {90.0, 20.0}}, label: 'Protein 78.0 g'
+                                  StaticText, 0x1179e2940, {{155.5, 677.0}, {89.5, 20.0}}, label: 'Carbs 128.0 g'
+                                  StaticText, 0x1179e2a80, {{266.0, 677.0}, {65.0, 20.0}}, label: 'Fat 36.0 g'
+                                Other, 0x1179e2bc0, {{24.0, 741.0}, {327.0, 283.0}}
+                                  StaticText, 0x1179e2d00, {{24.0, 765.0}, {327.0, 26.0}}, label: 'Legacy daily total'
+                                  StaticText, 0x1179e2e40, {{24.0, 815.0}, {327.0, 75.0}}, label: 'This total was saved without individual meal details. You can correct the aggregate; it remains separate from meal entries.'
+                                  Other, 0x1179e2f80, {{24.0, 890.0}, {327.0, 109.0}}
+                                    StaticText, 0x1179e30c0, {{24.0, 906.0}, {327.0, 24.0}}, label: '1,180 kcal'
+                                    Button, 0x1179e3200, {{24.0, 934.0}, {157.5, 48.0}}, label: 'Edit · Legacy daily total'
+                                    Button, 0x1179e3340, {{193.5, 934.0}, {157.5, 48.0}}, label: 'Delete · Legacy daily total'
+                                Other, 0x1179e3480, {{24.0, 1024.0}, {327.0, 511.0}}
+                                  StaticText, 0x1179e35c0, {{24.0, 1048.0}, {327.0, 26.0}}, label: 'Daily records'
+                                  Other, 0x1179e3700, {{24.0, 1088.0}, {327.0, 109.0}}
+                                    StaticText, 0x1179e3840, {{24.0, 1104.0}, {327.0, 24.0}}, label: 'Weight · 80.4 kg'
+                                    Button, 0x1179e3980, {{24.0, 1132.0}, {157.5, 48.0}}, label: 'Edit · Weight'
+                                    Button, 0x1179e3ac0, {{193.5, 1132.0}, {157.5, 48.0}}, label: 'Delete · Weight'
+                                  Other, 0x1179e3c00, {{24.0, 1197.0}, {327.0, 109.0}}
+                                    StaticText, 0x1179e3d40, {{24.0, 1213.0}, {327.0, 24.0}}, label: 'Water (ml) · 1,500 ml'
+                                    Button, 0x1179e3e80, {{24.0, 1241.0}, {157.5, 48.0}}, label: 'Edit · Water (ml)'
+                                    Button, 0x10761be80, {{193.5, 1241.0}, {157.5, 48.0}}, label: 'Delete · Water (ml)'
+                                  Other, 0x10761b480, {{24.0, 1306.0}, {327.0, 144.0}}
+                                    StaticText, 0x10761b5c0, {{24.0, 1322.0}, {327.0, 24.0}}, label: 'Strength training'
+                                    StaticText, 0x10761b840, {{24.0, 1356.0}, {327.0, 25.0}}, label: '36 min · 240 kcal'
+                                    Button, 0x10761bd40, {{24.0, 1385.0}, {157.5, 48.0}}, label: 'Edit · Strength training'
+                                    Button, 0x10761bc00, {{193.5, 1385.0}, {157.5, 48.0}}, label: 'Delete · Strength training'
+                                  Button, 0x10761bac0, {{24.0, 1462.0}, {157.5, 48.0}}, label: 'Log weight'
+                                  Button, 0x10761b980, {{193.5, 1462.0}, {157.5, 48.0}}, label: 'Log exercise'
+                                Other, 0x10761b700, {{24.0, 1535.0}, {327.0, 97.0}}
+                                  Button, 0x1177dc000, {{24.0, 1559.0}, {327.0, 48.0}}, label: 'Recently deleted'
+                  Other, 0x1177dc140, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x1177dc280, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x1177dc3c0, {{0.0, 584.0}, {375.0, 83.0}}
+              Other, 0x1177dc500, {{0.0, 0.0}, {375.0, 667.0}}
+                TabBar, 0x1177dc640, {{0.0, 584.0}, {375.0, 83.0}}, label: '标签页栏'
+                  Other, 0x1177dc780, {{21.0, 584.0}, {333.0, 62.0}}
+                    Other, 0x1177dc8c0, {{21.0, 584.0}, {74.0, 54.0}}
+                    Other, 0x1177dca00, {{21.0, 584.0}, {333.0, 62.0}}
+                      Button, 0x1177dcb40, {{25.0, 588.0}, {74.0, 54.0}}, label: 'Today'
+                        Image, 0x1177dcc80, {{48.0, 593.0}, {29.0, 29.5}}, identifier: 'sun.max', label: '调高亮度'
+                      Button, 0x1177dcdc0, {{87.2, 588.0}, {74.0, 54.0}}, label: 'Diary', Selected
+                        Image, 0x1177dcf00, {{108.2, 595.0}, {31.5, 25.5}}, identifier: 'book', label: '书签'
+                      Button, 0x1177dd040, {{149.5, 588.0}, {76.0, 54.0}}, label: 'Progress'
+                        Image, 0x1177dd180, {{169.5, 595.5}, {35.5, 25.5}}, identifier: 'chart.bar', label: '图表柱形图'
+                      Button, 0x1177dd2c0, {{213.8, 588.0}, {74.0, 54.0}}, label: 'Partner'
+                        Image, 0x1177dd400, {{236.8, 596.0}, {29.0, 25.0}}, identifier: 'heart', label: '喜欢'
+                      Button, 0x1177dd540, {{276.0, 588.0}, {74.0, 54.0}}, label: 'Me'
+                        Image, 0x1177dd680, {{300.0, 595.5}, {26.0, 25.0}}, identifier: 'person', label: 'person'
+                    Other, 0x1177dd7c0, {{87.2, 588.0}, {74.0, 54.0}}
+                      Other, 0x1177dd900, {{87.2, 588.0}, {74.0, 54.0}}
+                        Other, 0x1177dda40, {{87.2, 588.0}, {74.0, 54.0}}
+                        Other, 0x1177ddb80, {{87.2, 588.0}, {74.0, 54.0}}
+                          Other, 0x1177ddcc0, {{87.2, 588.0}, {74.0, 54.0}}
+                            Other, 0x1177dde00, {{87.2, 588.0}, {74.0, 54.0}}
+                              Other, 0x1177ddf40, {{87.2, 588.0}, {74.0, 54.0}}
+                            Other, 0x1177de080, {{87.2, 588.0}, {74.0, 54.0}}
+                          Other, 0x1177de1c0, {{87.2, 588.0}, {74.0, 54.0}}
+              Other, 0x1177de300, {{0.0, 584.0}, {375.0, 83.0}}
+                Other, 0x1177de440, {{0.0, 584.0}, {375.0, 83.0}}
+                  Other, 0x1177de580, {{0.0, 584.0}, {375.0, 83.0}}
+                    Other, 0x1177de6c0, {{0.0, 584.0}, {375.0, 83.0}}
+                      Other, 0x1177de800, {{0.0, 584.0}, {375.0, 83.0}}
+                        Other, 0x1177de940, {{0.0, 584.0}, {375.0, 83.0}}
+                    Other, 0x1177dea80, {{0.0, 584.0}, {375.0, 83.0}}
+                      Other, 0x1177debc0, {{0.0, 584.0}, {375.0, 83.0}}
+Path to element:
+ →Application, 0x1179e0000, pid: 24826, label: 'LeanOn'
+Query chain:
+ →Find: Target Application 'com.zzzode.leanon.uiqa'
+  Output: {
+    Application, 0x1177ded00, pid: 24826, label: 'LeanOn'
+  }

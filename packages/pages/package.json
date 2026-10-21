@@ -26,9 +26,11 @@
     "leanon"
   ],
   "scripts": {
-    "build": "rspeedy build",
-    "dev": "rspeedy dev",
-    "typecheck": "tsc --noEmit"
+    "build": "node scripts/generate-theme.cjs && rspeedy build",
+    "dev": "node scripts/generate-theme.cjs && rspeedy dev",
+    "typecheck": "tsc --noEmit",
+    "test": "rstest run",
+    "test:watch": "rstest"
   },
   "dependencies": {
     "@lynx-js/react": "^0.126.2",
@@ -36,13 +38,15 @@
     "@zzzode/core": "workspace:*",
     "@zzzode/exercise-data": "workspace:*",
     "@zzzode/food-data": "workspace:*",
-    "@zzzode/i18n": "workspace:*"
+    "@zzzode/i18n": "workspace:*",
+    "@zzzode/data": "workspace:*"
   },
   "devDependencies": {
     "@lynx-js/qrcode-rsbuild-plugin": "^0.7.3",
     "@lynx-js/react-rsbuild-plugin": "^0.20.3",
     "@lynx-js/rspeedy": "^0.18.0",
     "@lynx-js/types": "^4.1.0",
+    "@rstest/core": "0.12.3",
     "typescript": "6.0.3"
   },
   "engines": {

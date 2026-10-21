@@ -1,3 +1,4 @@
+import { useTheme } from './ThemeContext.js';
 import type { Translator } from '@zzzode/i18n';
 import {
   PRIMARY_TABS,
@@ -29,10 +30,10 @@ const ICON_SHAPES: Record<PrimaryTab['icon'], string> = {
     '<path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/>',
 };
 
-function svgContent(icon: PrimaryTab['icon']): string {
+function svgContent(icon: PrimaryTab['icon'], color: string): string {
   return (
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" ' +
-    'fill="none" stroke="currentColor" stroke-width="2" ' +
+    `fill="none" stroke="${color}" stroke-width="2" ` +
     'stroke-linecap="round" stroke-linejoin="round">' +
     `${ICON_SHAPES[icon]}</svg>`
   );
@@ -40,11 +41,12 @@ function svgContent(icon: PrimaryTab['icon']): string {
 
 /** Developer-shell bottom tab bar; native hosts render their own tab bar. */
 export function BottomTabBar({ current, t, onSelect }: BottomTabBarProps) {
+  const palette = useTheme();
   return (
     <view className="BottomTabBar">
       {PRIMARY_TABS.map((tab) => {
         const active = current === tab.route;
-        const color = active ? '#218967' : '#93a09a';
+        const color = active ? palette.navigation : palette.muted;
         return (
           <view
             key={tab.route}
@@ -54,7 +56,7 @@ export function BottomTabBar({ current, t, onSelect }: BottomTabBarProps) {
             <view className="BottomTab-icon">
               <svg
                 className="BottomTab-svg"
-                content={svgContent(tab.icon)}
+                content={svgContent(tab.icon, color)}
                 current-color={color}
               />
             </view>

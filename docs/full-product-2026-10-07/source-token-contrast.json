@@ -1,0 +1,205 @@
+{
+  "scope": "Computed opaque source token pairs; not native pixel measurement or comprehensive accessibility acceptance",
+  "source": "packages/pages/src/state/theme-palette.json",
+  "sourceSha256": "9db47d2942b4f07be7ced10ab31d47164bb2c9562923e031a17ea2bb998fc318",
+  "pairs": [
+    {
+      "appearance": "light",
+      "foregroundToken": "ink",
+      "backgroundToken": "canvas",
+      "foreground": "#28242C",
+      "background": "#F8F7F4",
+      "ratio": 14.215,
+      "meets4_5": true
+    },
+    {
+      "appearance": "light",
+      "foregroundToken": "ink",
+      "backgroundToken": "paper",
+      "foreground": "#28242C",
+      "background": "#FFFFFF",
+      "ratio": 15.229,
+      "meets4_5": true
+    },
+    {
+      "appearance": "light",
+      "foregroundToken": "muted",
+      "backgroundToken": "paper",
+      "foreground": "#69616B",
+      "background": "#FFFFFF",
+      "ratio": 5.961,
+      "meets4_5": true
+    },
+    {
+      "appearance": "light",
+      "foregroundToken": "muted",
+      "backgroundToken": "control",
+      "foreground": "#69616B",
+      "background": "#EEEBE6",
+      "ratio": 5.013,
+      "meets4_5": true
+    },
+    {
+      "appearance": "light",
+      "foregroundToken": "actionInk",
+      "backgroundToken": "brand",
+      "foreground": "#FFFFFF",
+      "background": "#573C58",
+      "ratio": 9.578,
+      "meets4_5": true
+    },
+    {
+      "appearance": "light",
+      "foregroundToken": "danger",
+      "backgroundToken": "paper",
+      "foreground": "#B63D46",
+      "background": "#FFFFFF",
+      "ratio": 5.608,
+      "meets4_5": true
+    },
+    {
+      "appearance": "light",
+      "foregroundToken": "foodText",
+      "backgroundToken": "foodTint",
+      "foreground": "#93392F",
+      "background": "#FBEAE4",
+      "ratio": 6.275,
+      "meets4_5": true
+    },
+    {
+      "appearance": "light",
+      "foregroundToken": "exerciseText",
+      "backgroundToken": "exerciseTint",
+      "foreground": "#11606B",
+      "background": "#E3F1F1",
+      "ratio": 6.228,
+      "meets4_5": true
+    },
+    {
+      "appearance": "light",
+      "foregroundToken": "weightText",
+      "backgroundToken": "weightTint",
+      "foreground": "#5E4C96",
+      "background": "#EDEAF7",
+      "ratio": 6.004,
+      "meets4_5": true
+    },
+    {
+      "appearance": "light",
+      "foregroundToken": "waterText",
+      "backgroundToken": "waterTint",
+      "foreground": "#805619",
+      "background": "#FBF0D9",
+      "ratio": 5.69,
+      "meets4_5": true
+    },
+    {
+      "appearance": "light",
+      "foregroundToken": "partnerText",
+      "backgroundToken": "partnerTint",
+      "foreground": "#91435F",
+      "background": "#F8E7EF",
+      "ratio": 5.57,
+      "meets4_5": true
+    },
+    {
+      "appearance": "dark",
+      "foregroundToken": "ink",
+      "backgroundToken": "canvas",
+      "foreground": "#FAF5F3",
+      "background": "#201D26",
+      "ratio": 15.35,
+      "meets4_5": true
+    },
+    {
+      "appearance": "dark",
+      "foregroundToken": "ink",
+      "backgroundToken": "paper",
+      "foreground": "#FAF5F3",
+      "background": "#2B2731",
+      "ratio": 13.512,
+      "meets4_5": true
+    },
+    {
+      "appearance": "dark",
+      "foregroundToken": "muted",
+      "backgroundToken": "paper",
+      "foreground": "#CEC3CE",
+      "background": "#2B2731",
+      "ratio": 8.573,
+      "meets4_5": true
+    },
+    {
+      "appearance": "dark",
+      "foregroundToken": "muted",
+      "backgroundToken": "control",
+      "foreground": "#CEC3CE",
+      "background": "#37323D",
+      "ratio": 7.308,
+      "meets4_5": true
+    },
+    {
+      "appearance": "dark",
+      "foregroundToken": "actionInk",
+      "backgroundToken": "brand",
+      "foreground": "#201D26",
+      "background": "#D3B2D8",
+      "ratio": 8.797,
+      "meets4_5": true
+    },
+    {
+      "appearance": "dark",
+      "foregroundToken": "danger",
+      "backgroundToken": "paper",
+      "foreground": "#FF949C",
+      "background": "#2B2731",
+      "ratio": 6.935,
+      "meets4_5": true
+    },
+    {
+      "appearance": "dark",
+      "foregroundToken": "foodText",
+      "backgroundToken": "foodTint",
+      "foreground": "#F09B84",
+      "background": "#49312C",
+      "ratio": 5.53,
+      "meets4_5": true
+    },
+    {
+      "appearance": "dark",
+      "foregroundToken": "exerciseText",
+      "backgroundToken": "exerciseTint",
+      "foreground": "#70C7CC",
+      "background": "#213B40",
+      "ratio": 6.082,
+      "meets4_5": true
+    },
+    {
+      "appearance": "dark",
+      "foregroundToken": "weightText",
+      "backgroundToken": "weightTint",
+      "foreground": "#BCAAF0",
+      "background": "#39314A",
+      "ratio": 5.926,
+      "meets4_5": true
+    },
+    {
+      "appearance": "dark",
+      "foregroundToken": "waterText",
+      "backgroundToken": "waterTint",
+      "foreground": "#E7BE71",
+      "background": "#443823",
+      "ratio": 6.538,
+      "meets4_5": true
+    },
+    {
+      "appearance": "dark",
+      "foregroundToken": "partnerText",
+      "backgroundToken": "partnerTint",
+      "foreground": "#EAA6BF",
+      "background": "#482E3C",
+      "ratio": 6.182,
+      "meets4_5": true
+    }
+  ]
+}

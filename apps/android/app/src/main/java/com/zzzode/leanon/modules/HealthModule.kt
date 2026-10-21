@@ -9,6 +9,7 @@ import com.lynx.react.bridge.ReadableMap
 import com.lynx.tasm.behavior.LynxContext
 import com.zzzode.leanon.LeanOnApplication
 import com.zzzode.leanon.data.toJavaOnlyMap
+import com.zzzode.leanon.data.RecordsFailure
 import org.json.JSONObject
 import java.util.NoSuchElementException
 import java.util.UUID
@@ -20,13 +21,12 @@ class HealthModule(context: Context) : LynxModule(context) {
 
   @LynxMethod
   fun authorize(params: ReadableMap, callback: Callback) {
-    // TODO: request Health Connect permissions; callback {granted: Boolean, deniedTypes: String[]}
-    // Emit "health.authorizationChanged" when the grant set changes.
+    callback.invoke(errorResult("unavailable", "Use healthConnect.requestPermission for the Android adapter"))
   }
 
   @LynxMethod
   fun readSamples(params: ReadableMap, callback: Callback) {
-    // TODO: query Health Connect for the requested types/window; callback HealthSampleDto[]
+    callback.invoke(errorResult("unavailable", "Generic health samples are not implemented"))
   }
 
   /**
@@ -36,22 +36,10 @@ class HealthModule(context: Context) : LynxModule(context) {
   @LynxMethod
   fun writeWeight(params: ReadableMap, callback: Callback) {
     try {
-      if (!params.hasKey("date") || !params.hasKey("weightKg")) {
-        callback.invoke(errorResult("invalid-request", "Missing date or weightKg"))
-        return
-      }
-      val date = params.getString("date")
-      val weightKg = params.getDouble("weightKg")
-      if (
-        date == null ||
-        !weightKg.isFinite() ||
-        weightKg < MIN_WEIGHT_KG ||
-        weightKg > MAX_WEIGHT_KG
-      ) {
-        callback.invoke(
-          errorResult("invalid-request", "Weight must be between 20 and 300 kg"),
-        )
-        return
+      val date = RecordRequest.date(params)
+      val weightKg = RecordRequest.number(params, "weightKg")
+      if (weightKg < MIN_WEIGHT_KG || weightKg > MAX_WEIGHT_KG) {
+        throw InvalidRecordRequest("Weight must be between 20 and 300 kg")
       }
 
       val application = app()
@@ -60,9 +48,7 @@ class HealthModule(context: Context) : LynxModule(context) {
       application.healthConnect.onRecordsChanged()
       callback.invoke(successResult(hostData))
     } catch (error: Exception) {
-      callback.invoke(
-        errorResult("unavailable", error.message ?: "Could not save weight"),
-      )
+      callback.invoke(failure(error))
     }
   }
 
@@ -73,59 +59,22 @@ class HealthModule(context: Context) : LynxModule(context) {
   @LynxMethod
   fun writeIntake(params: ReadableMap, callback: Callback) {
     try {
-      if (
-        !params.hasKey("date") ||
-        !params.hasKey("kcal") ||
-        !params.hasKey("macros")
-      ) {
-        callback.invoke(
-          errorResult("invalid-request", "Missing date, kcal or macros"),
-        )
-        return
-      }
-      val date = params.getString("date")
-      val kcal = params.getDouble("kcal")
-      val macros = params.getMap("macros")
-      if (
-        date == null ||
-        !kcal.isFinite() ||
-        kcal <= 0 ||
-        macros == null ||
-        !macros.hasKey("proteinG") ||
-        !macros.hasKey("carbsG") ||
-        !macros.hasKey("fatG")
-      ) {
-        callback.invoke(errorResult("invalid-request", "Invalid meal"))
-        return
-      }
-      val proteinG = macros.getDouble("proteinG")
-      val carbsG = macros.getDouble("carbsG")
-      val fatG = macros.getDouble("fatG")
-      if (
-        !proteinG.isFinite() || !carbsG.isFinite() || !fatG.isFinite() ||
-        proteinG < 0 || carbsG < 0 || fatG < 0
-      ) {
-        callback.invoke(errorResult("invalid-request", "Invalid macros"))
-        return
-      }
-
-      val microsMap =
-        if (params.hasKey("micros") && !params.isNull("micros")) {
-          params.getMap("micros")
-        } else {
-          null
-        }
+      val date = RecordRequest.date(params)
+      val kcal = RecordRequest.number(params, "kcal", positive = true)
+      val macros = RecordRequest.map(params, "macros")
+      val proteinG = RecordRequest.number(macros, "proteinG")
+      val carbsG = RecordRequest.number(macros, "carbsG")
+      val fatG = RecordRequest.number(macros, "fatG")
+      val microsMap = if (params.hasKey("micros") && !params.isNull("micros")) {
+        RecordRequest.map(params, "micros")
+      } else null
       val fiberG = microsMap.microValue("fiberG")
       val sugarG = microsMap.microValue("sugarG")
       val saturatedFatG = microsMap.microValue("saturatedFatG")
       val sodiumMg = microsMap.microValue("sodiumMg")
-
-      val foodId =
-        if (params.hasKey("foodId") && !params.isNull("foodId")) {
-          params.getString("foodId")
-        } else {
-          null
-        }
+      val foodId = if (params.hasKey("foodId") && !params.isNull("foodId")) {
+        RecordRequest.string(params, "foodId")
+      } else null
 
       val application = app()
       val hostData =
@@ -145,9 +94,7 @@ class HealthModule(context: Context) : LynxModule(context) {
       application.healthConnect.onRecordsChanged()
       callback.invoke(successResult(hostData))
     } catch (error: Exception) {
-      callback.invoke(
-        errorResult("unavailable", error.message ?: "Could not save meal"),
-      )
+      callback.invoke(failure(error))
     }
   }
 
@@ -159,14 +106,8 @@ class HealthModule(context: Context) : LynxModule(context) {
   @LynxMethod
   fun writeWater(params: ReadableMap, callback: Callback) {
     try {
-      val date = requiredString(params, "date")
-      if (!params.hasKey("amountMl")) {
-        throw InvalidRequest("Missing amountMl")
-      }
-      val amountMl = params.getDouble("amountMl")
-      if (!amountMl.isFinite() || amountMl < 0) {
-        throw InvalidRequest("amountMl must be a finite non-negative number")
-      }
+      val date = RecordRequest.date(params)
+      val amountMl = RecordRequest.number(params, "amountMl")
 
       val application = app()
       val hostData = application.records.upsertWater(date, amountMl)
@@ -182,8 +123,7 @@ class HealthModule(context: Context) : LynxModule(context) {
   fun setFoodFavorite(params: ReadableMap, callback: Callback) {
     try {
       val id = requiredString(params, "id")
-      if (!params.hasKey("favorite")) throw InvalidRequest("Missing favorite")
-      val favorite = params.getBoolean("favorite")
+      val favorite = RecordRequest.boolean(params, "favorite")
       val application = app()
       val hostData = application.records.setFoodFavorite(id, favorite)
       application.events.dispatch("records.changed", changedPayload(hostData))
@@ -273,7 +213,7 @@ class HealthModule(context: Context) : LynxModule(context) {
   @LynxMethod
   fun writeScannedFood(params: ReadableMap, callback: Callback) {
     try {
-      val barcode = requiredString(params, "barcode")
+      val barcode = productBarcode(params) ?: throw InvalidRecordRequest("Invalid product barcode")
       val fields = parseCustomFoodFields(params)
       val foodName = JSONObject()
         .put("en", fields.name)
@@ -315,19 +255,13 @@ class HealthModule(context: Context) : LynxModule(context) {
   @LynxMethod
   fun writeExercise(params: ReadableMap, callback: Callback) {
     try {
-      val date = requiredString(params, "date")
+      val date = RecordRequest.date(params)
       val typeId = requiredString(params, "typeId")
-      if (!params.hasKey("durationMin")) {
-        throw InvalidRequest("Missing durationMin")
-      }
-      val durationMin = params.getDouble("durationMin")
-      if (!durationMin.isFinite() || durationMin <= 0) {
-        throw InvalidRequest("durationMin must be a finite positive number")
-      }
-      if (!params.hasKey("kcal")) throw InvalidRequest("Missing kcal")
-      val kcal = params.getDouble("kcal")
+      val durationMin = RecordRequest.duration(params)
+      if (!params.hasKey("kcal")) throw InvalidRecordRequest("Missing kcal")
+      val kcal = RecordRequest.number(params, "kcal", positive = true)
       if (!kcal.isFinite() || kcal <= 0) {
-        throw InvalidRequest("kcal must be a finite positive number")
+        throw InvalidRecordRequest("kcal must be a finite positive number")
       }
 
       val application = app()
@@ -346,19 +280,13 @@ class HealthModule(context: Context) : LynxModule(context) {
   fun updateExercise(params: ReadableMap, callback: Callback) {
     try {
       val id = requiredString(params, "id")
-      val date = requiredString(params, "date")
+      val date = RecordRequest.date(params)
       val typeId = requiredString(params, "typeId")
-      if (!params.hasKey("durationMin")) {
-        throw InvalidRequest("Missing durationMin")
-      }
-      val durationMin = params.getDouble("durationMin")
-      if (!durationMin.isFinite() || durationMin <= 0) {
-        throw InvalidRequest("durationMin must be a finite positive number")
-      }
-      if (!params.hasKey("kcal")) throw InvalidRequest("Missing kcal")
-      val kcal = params.getDouble("kcal")
+      val durationMin = RecordRequest.duration(params)
+      if (!params.hasKey("kcal")) throw InvalidRecordRequest("Missing kcal")
+      val kcal = RecordRequest.number(params, "kcal", positive = true)
       if (!kcal.isFinite() || kcal <= 0) {
-        throw InvalidRequest("kcal must be a finite positive number")
+        throw InvalidRecordRequest("kcal must be a finite positive number")
       }
 
       val application = app()
@@ -396,37 +324,25 @@ class HealthModule(context: Context) : LynxModule(context) {
     }
   }
 
-  /** Read an optional per-100 g macro; missing = 0, invalid = null. */
-  private fun optionalMacro(params: ReadableMap, key: String): Double? {
-    if (!params.hasKey(key)) return 0.0
-    val value = params.getDouble(key)
-    return if (value.isFinite() && value >= 0) value else null
-  }
+  /** Optional nutrients default to zero only when absent; explicit null is invalid. */
+  private fun optionalMacro(params: ReadableMap, key: String): Double =
+    RecordRequest.number(params, key, default = 0.0)
 
-  /** Read a nested optional micronutrient; missing map/key = 0, invalid = throw. */
-  private fun ReadableMap?.microValue(key: String): Double {
-    if (this == null) return 0.0
-    val value = optionalMacro(this, key)
-    if (value == null) throw InvalidRequest("Invalid $key")
-    return value
-  }
+  private fun ReadableMap?.microValue(key: String): Double =
+    if (this == null) 0.0 else optionalMacro(this, key)
 
-  /** Read a mandatory non-empty string parameter. */
-  private fun requiredString(params: ReadableMap, key: String): String {
-    val value = if (params.hasKey(key)) params.getString(key) else null
-    if (value == null) throw InvalidRequest("Missing $key")
-    return value
-  }
+  private fun requiredString(params: ReadableMap, key: String): String =
+    RecordRequest.string(params, key)
 
   /** Validate the editable content shared by create and update. */
   private fun parseCustomFoodFields(params: ReadableMap): CustomFoodFields {
     if (!params.hasKey("name") || !params.hasKey("kcal")) {
-      throw InvalidRequest("Missing name or kcal")
+      throw InvalidRecordRequest("Missing name or kcal")
     }
-    val name = params.getString("name")?.trim()
-    val kcal = params.getDouble("kcal")
-    if (name == null || name.isEmpty() || !kcal.isFinite() || kcal <= 0) {
-      throw InvalidRequest("Name is required and kcal > 0")
+    val name = RecordRequest.string(params, "name").trim()
+    val kcal = RecordRequest.number(params, "kcal", positive = true)
+    if (name.isEmpty() || !kcal.isFinite() || kcal <= 0) {
+      throw InvalidRecordRequest("Name is required and kcal > 0")
     }
     val proteinG = optionalMacro(params, "proteinG")
     val carbsG = optionalMacro(params, "carbsG")
@@ -435,17 +351,11 @@ class HealthModule(context: Context) : LynxModule(context) {
     val sugarG = optionalMacro(params, "sugarG")
     val saturatedFatG = optionalMacro(params, "saturatedFatG")
     val sodiumMg = optionalMacro(params, "sodiumMg")
-    if (
-      proteinG == null || carbsG == null || fatG == null ||
-      fiberG == null || sugarG == null || saturatedFatG == null || sodiumMg == null
-    ) {
-      throw InvalidRequest("Nutrition values must be finite and non-negative")
-    }
     var defaultGrams: Double? = null
     if (params.hasKey("defaultGrams") && !params.isNull("defaultGrams")) {
-      val value = params.getDouble("defaultGrams")
+      val value = RecordRequest.number(params, "defaultGrams", positive = true)
       if (!value.isFinite() || value <= 0) {
-        throw InvalidRequest("defaultGrams must be greater than 0")
+        throw InvalidRecordRequest("defaultGrams must be greater than 0")
       }
       defaultGrams = value
     }
@@ -466,14 +376,13 @@ class HealthModule(context: Context) : LynxModule(context) {
   /** Map a thrown error to the native error result the bridge expects. */
   private fun failure(error: Exception): JavaOnlyMap =
     when (error) {
+      is RecordsFailure -> errorResult(error.code, error.message ?: "Record request failed")
       is NoSuchElementException ->
         errorResult("not-found", error.message ?: "Not found")
-      is InvalidRequest ->
+      is InvalidRecordRequest ->
         errorResult("invalid-request", error.message ?: "Invalid request")
       else -> errorResult("unavailable", error.message ?: "Request failed")
     }
-
-  private class InvalidRequest(message: String) : Exception(message)
 
   private data class CustomFoodFields(
     val name: String,

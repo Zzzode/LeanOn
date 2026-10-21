@@ -1,0 +1,61 @@
+Attributes: Application, 0x113016940, pid: 49742, label: 'LeanOn'
+Element subtree:
+ →Application, 0x113016940, pid: 49742, label: 'LeanOn'
+    Window (Main), 0x113016440, {{0.0, 0.0}, {375.0, 667.0}}
+      Other, 0x113016580, {{0.0, 0.0}, {375.0, 667.0}}
+        Other, 0x1130166c0, {{0.0, 0.0}, {375.0, 667.0}}
+          Other, 0x113016800, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x113015680, {{0.0, 0.0}, {375.0, 667.0}}
+              Other, 0x113014280, {{0.0, 0.0}, {375.0, 667.0}}
+                Other, 0x113017340, {{0.0, 0.0}, {375.0, 667.0}}
+                  NavigationBar, 0x113017480, {{0.0, 20.0}, {375.0, 54.0}}, identifier: 'Me'
+                    Button, 0x113016bc0, {{16.0, 20.0}, {44.0, 44.0}}, identifier: 'BackButton', label: 'Me'
+                  Other, 0x113014140, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x1130157c0, {{0.0, 0.0}, {375.0, 667.0}}
+                      Other, 0x113015900, {{0.0, 0.0}, {375.0, 667.0}}
+                        Other, 0x113015a40, {{0.0, 74.0}, {375.0, 593.0}}, label: 'lynxview'
+                          Other, 0x113015b80, {{0.0, 74.0}, {375.0, 593.0}}
+                          Other, 0x113015cc0, {{0.0, 74.0}, {375.0, 593.0}}
+                            Other, 0x113016d00, {{16.0, 98.0}, {343.0, 553.0}}
+                              ScrollView, 0x113016080, {{40.0, 122.0}, {295.0, 497.0}}
+                                Other, 0x1130161c0, {{40.0, 122.0}, {295.0, 497.0}}
+                                  Other, 0x113015040, {{40.0, 122.0}, {295.0, 43.0}}
+                                    Other, 0x113015180, {{40.0, 122.0}, {295.0, 33.0}}, label: 'Move to private cloud'
+                                  ScrollView, 0x1130152c0, {{40.0, 165.0}, {295.0, 386.0}}
+                                    Other, 0x113015400, {{40.0, -486.0}, {295.0, 1179.0}}
+                                      StaticText, 0x113015540, {{40.0, -476.0}, {295.0, 100.0}}, label: 'Use an approved device after the administrator stages this same account on the target. Source data and an encrypted source backup are retained.'
+                                      StaticText, 0x113016e40, {{40.0, -376.0}, {295.0, 26.0}}, label: 'Connected to target service'
+                                      StaticText, 0x113016f80, {{40.0, -336.0}, {295.0, 24.0}}, label: 'Account · migration-owner'
+                                      StaticText, 0x1130170c0, {{40.0, -302.0}, {295.0, 50.0}}, label: 'b99660b8-8297-40b6-962f-39476ffedc3d'
+                                      StaticText, 0x113017200, {{40.0, -252.0}, {295.0, 24.0}}, label: 'Source service'
+                                      StaticText, 0x113014000, {{40.0, -218.0}, {295.0, 25.0}}, label: 'http://127.0.0.1:64041'
+                                      StaticText, 0x1130143c0, {{40.0, -193.0}, {295.0, 24.0}}, label: 'Target service URL'
+                                      StaticText, 0x113014500, {{40.0, -159.0}, {295.0, 25.0}}, label: 'http://127.0.0.1:64043'
+                                      StaticText, 0x113014640, {{40.0, -134.0}, {295.0, 24.0}}, label: 'Verified target service ID'
+                                      StaticText, 0x113014780, {{40.0, -110.0}, {295.0, 48.0}}, label: '734edc545a051ec9a9a0aefcc31152c6a3e475423875da2e837ce5a34feade8c'
+                                      StaticText, 0x1130148c0, {{40.0, -52.0}, {295.0, 50.0}}, label: 'Migration operation · PUBLIC-cloudflare-cutover-01'
+                                      StaticText, 0x113014a00, {{40.0, -2.0}, {295.0, 24.0}}, label: 'Weight records · 2'
+                                      StaticText, 0x113014b40, {{40.0, 22.0}, {295.0, 24.0}}, label: 'Water records · 1'
+                                      StaticText, 0x113016a80, {{40.0, 46.0}, {295.0, 24.0}}, label: 'Exercise records · 1'
+                                      StaticText, 0x113014f00, {{40.0, 70.0}, {295.0, 24.0}}, label: 'Meal records · 1'
+                                      StaticText, 0x1130175c0, {{40.0, 94.0}, {295.0, 24.0}}, label: 'Measurements · 0'
+                                      StaticText, 0x113017700, {{40.0, 118.0}, {295.0, 24.0}}, label: 'Original photos · 1'
+                                      StaticText, 0x113017840, {{40.0, 152.0}, {295.0, 150.0}}, label: 'Includes records, meals, preferences, measurements and original photos for this account. Existing sharing remains subject to both people’s permissions. Local counts may grow when authorized source data are synchronized.'
+                                      StaticText, 0x113017980, {{40.0, 312.0}, {295.0, 150.0}}, label: 'Rollback keeps current local records and restores the source connection. It does not delete either service. Unsynced changes on other target devices are not included; signing in again may be required.'
+                                      Button, 0x113017ac0, {{40.0, 462.0}, {295.0, 86.0}}, label: 'I confirm returning this device to the source while keeping its current local data. · Selected', value: Selected
+                                      StaticText, 0x113017c00, {{40.0, 568.0}, {295.0, 125.0}}, label: 'An approved device/keyring or a usable encrypted health backup is required. Passwords and server snapshots cannot recover old cloud contents without the client keys.'
+                                  Other, 0x113017d40, {{40.0, 551.0}, {295.0, 68.0}}
+                                    Button, 0x113017e80, {{40.0, 571.0}, {141.5, 48.0}}, label: 'Cancel'
+                                    Button, 0x1031ead00, {{193.5, 571.0}, {141.5, 48.0}}, label: 'Return to source'
+                  Other, 0x1031eae40, {{0.0, 0.0}, {375.0, 667.0}}
+                    Other, 0x1031eaf80, {{0.0, 0.0}, {375.0, 667.0}}
+            Other, 0x1031eb0c0, {{0.0, 584.0}, {375.0, 83.0}}
+              Other, 0x1031eb200, {{0.0, 0.0}, {375.0, 667.0}}
+              Other, 0x1031eb340, {{0.0, 584.0}, {375.0, 83.0}}
+Path to element:
+ →Application, 0x113016940, pid: 49742, label: 'LeanOn'
+Query chain:
+ →Find: Target Application 'com.zzzode.leanon.uiqa'
+  Output: {
+    Application, 0x1031eb480, pid: 49742, label: 'LeanOn'
+  }

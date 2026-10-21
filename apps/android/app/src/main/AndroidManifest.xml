@@ -53,6 +53,7 @@
 
     <activity
       android:name=".MainActivity"
+      android:configChanges="uiMode|fontScale"
       android:exported="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
@@ -60,10 +61,19 @@
       </intent-filter>
     </activity>
 
+    <receiver android:name=".reminders.ReminderClockReceiver" android:exported="false">
+      <intent-filter>
+        <action android:name="android.intent.action.TIME_SET" />
+        <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+      </intent-filter>
+    </receiver>
+
+    <activity android:name=".personal.PersonalDocumentActivity" android:exported="false" android:theme="@style/Theme.LeanOn" />
+
     <activity
       android:name=".scanner.BarcodeScanActivity"
       android:exported="false"
-      android:theme="@style/Theme.AppCompat.NoActionBar" />
+      android:theme="@style/Theme.LeanOn" />
 
     <!-- Health Connect permission rationale (pre-Android 14) and usage link (14+). -->
     <activity

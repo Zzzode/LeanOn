@@ -1,6 +1,7 @@
 package com.zzzode.leanon.ble
 
 import android.Manifest
+import com.zzzode.leanon.bridge.PendingRequest
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
@@ -37,15 +38,17 @@ object PermissionRequests {
 
   const val REQUEST_CODE = 4011
 
-  var onResult: ((granted: Boolean) -> Unit)? = null
+  private val pending = PendingRequest<Boolean>()
+
+  fun begin(callback: (Boolean) -> Unit): Boolean = pending.begin(callback)
+
+  fun cancel() { pending.complete(false) }
 
   fun handleResult(requestCode: Int, grantResults: IntArray) {
     if (requestCode != REQUEST_CODE) return
     val granted =
       grantResults.isNotEmpty() &&
         grantResults.all { it == PackageManager.PERMISSION_GRANTED }
-    val callback = onResult
-    onResult = null
-    callback?.invoke(granted)
+    pending.complete(granted)
   }
 }

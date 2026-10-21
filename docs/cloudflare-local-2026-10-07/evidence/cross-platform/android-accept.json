@@ -1,0 +1,11 @@
+{
+  "stage": "accept",
+  "checks": [
+    {
+      "id": "android-independent-partner-account-accepted-ios-family-proof",
+      "passed": true
+    }
+  ],
+  "capturedUtc": "2026-10-07T20:32:07.435221Z",
+  "passed": true
+}

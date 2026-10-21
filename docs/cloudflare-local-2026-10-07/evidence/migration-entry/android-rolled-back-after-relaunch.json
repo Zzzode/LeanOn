@@ -1,0 +1,394 @@
+[
+  {
+    "bounds": "[0,0][1080,2280]",
+    "enabled": true,
+    "class": "android.widget.FrameLayout",
+    "actions": [
+      4,
+      8,
+      64,
+      16908342
+    ]
+  },
+  {
+    "bounds": "[0,0][1080,2280]",
+    "enabled": true,
+    "class": "android.widget.LinearLayout",
+    "actions": [
+      4,
+      8,
+      64,
+      16908342
+    ]
+  },
+  {
+    "bounds": "[0,0][1080,2280]",
+    "enabled": true,
+    "class": "android.widget.FrameLayout",
+    "actions": [
+      4,
+      8,
+      64,
+      16908342
+    ]
+  },
+  {
+    "bounds": "[0,0][1080,2280]",
+    "enabled": true,
+    "class": "android.widget.LinearLayout",
+    "actions": [
+      4,
+      8,
+      64,
+      16908342
+    ]
+  },
+  {
+    "bounds": "[0,0][1080,2280]",
+    "enabled": true,
+    "class": "android.widget.FrameLayout",
+    "actions": [
+      4,
+      8,
+      64,
+      16908342
+    ]
+  },
+  {
+    "bounds": "[0,0][1080,2280]",
+    "enabled": true,
+    "class": "android.widget.FrameLayout",
+    "actions": [
+      4,
+      8,
+      64,
+      16908342
+    ]
+  },
+  {
+    "bounds": "[0,0][1080,2280]",
+    "enabled": true,
+    "class": "android.widget.FrameLayout",
+    "actions": [
+      4,
+      8,
+      64,
+      16908342
+    ]
+  },
+  {
+    "bounds": "[0,66][1080,2214]",
+    "enabled": true,
+    "class": "android.widget.FrameLayout",
+    "actions": [
+      4,
+      8,
+      64,
+      16908342
+    ]
+  },
+  {
+    "bounds": "[0,66][1080,2214]",
+    "enabled": true,
+    "class": "android.widget.FrameLayout",
+    "actions": [
+      4,
+      8,
+      1,
+      64,
+      16908342
+    ]
+  },
+  {
+    "bounds": "[0,66][1080,2214]",
+    "enabled": true,
+    "class": "android.view.ViewGroup",
+    "actions": [
+      4,
+      8,
+      64,
+      16908342
+    ]
+  },
+  {
+    "bounds": "[44,132][1036,2170]",
+    "enabled": true,
+    "class": "android.view.ViewGroup",
+    "actions": [
+      4,
+      8,
+      64,
+      16908342
+    ]
+  },
+  {
+    "bounds": "[110,198][970,2082]",
+    "enabled": true,
+    "class": "android.widget.ScrollView",
+    "actions": [
+      4,
+      8,
+      1,
+      64,
+      16908342
+    ]
+  },
+  {
+    "bounds": "[110,198][970,2082]",
+    "enabled": true,
+    "class": "android.widget.HorizontalScrollView",
+    "actions": [
+      4,
+      8,
+      1,
+      64,
+      16908342
+    ]
+  },
+  {
+    "bounds": "[110,198][970,2082]",
+    "enabled": true,
+    "class": "android.widget.LinearLayout",
+    "actions": [
+      4,
+      8,
+      1,
+      64,
+      16908342
+    ]
+  },
+  {
+    "bounds": "[110,198][970,2082]",
+    "enabled": true,
+    "class": "android.view.ViewGroup",
+    "actions": [
+      4,
+      8,
+      64,
+      16908342
+    ]
+  },
+  {
+    "label": "Move to private cloud",
+    "bounds": "[110,198][970,289]",
+    "enabled": true,
+    "class": "android.view.ViewGroup",
+    "actions": [
+      4,
+      8,
+      1,
+      64,
+      131072,
+      256,
+      512,
+      16908342
+    ]
+  },
+  {
+    "bounds": "[110,318][970,1895]",
+    "enabled": true,
+    "class": "android.widget.ScrollView",
+    "actions": [
+      4,
+      8,
+      1,
+      64,
+      16908342,
+      4096,
+      16908346
+    ]
+  },
+  {
+    "bounds": "[110,318][970,1895]",
+    "enabled": true,
+    "class": "android.widget.HorizontalScrollView",
+    "actions": [
+      4,
+      8,
+      1,
+      64,
+      16908342
+    ]
+  },
+  {
+    "bounds": "[110,318][970,1895]",
+    "enabled": true,
+    "class": "android.widget.LinearLayout",
+    "actions": [
+      4,
+      8,
+      1,
+      64,
+      16908342
+    ]
+  },
+  {
+    "bounds": "[110,318][970,1895]",
+    "enabled": true,
+    "class": "android.view.ViewGroup",
+    "actions": [
+      4,
+      8,
+      64,
+      16908342
+    ]
+  },
+  {
+    "bounds": "[110,1181][970,1374]",
+    "enabled": true,
+    "class": "android.view.ViewGroup",
+    "actions": [
+      4,
+      8,
+      64,
+      16908342
+    ]
+  },
+  {
+    "text": "http://10.0.2.2:64043",
+    "label": "Target service URL",
+    "bounds": "[152,1211][929,1343]",
+    "enabled": true,
+    "class": "android.widget.EditText",
+    "actions": [
+      4,
+      8,
+      1,
+      64,
+      16,
+      32,
+      16908342,
+      2097152,
+      256,
+      512,
+      131072
+    ]
+  },
+  {
+    "bounds": "[110,1536][970,1729]",
+    "enabled": true,
+    "class": "android.view.ViewGroup",
+    "actions": [
+      4,
+      8,
+      64,
+      16908342
+    ]
+  },
+  {
+    "text": "[masked]",
+    "label": "Account password",
+    "bounds": "[152,1567][929,1699]",
+    "enabled": true,
+    "class": "android.widget.EditText",
+    "actions": [
+      4,
+      8,
+      1,
+      64,
+      16,
+      32,
+      16908342,
+      2097152
+    ]
+  },
+  {
+    "label": "",
+    "bounds": "[110,1895][970,1895]",
+    "enabled": true,
+    "class": "android.view.ViewGroup",
+    "actions": [
+      4,
+      8,
+      1,
+      64,
+      16908342
+    ]
+  },
+  {
+    "label": "Cancel",
+    "bounds": "[110,1950][524,2082]",
+    "enabled": true,
+    "class": "android.view.ViewGroup",
+    "actions": [
+      4,
+      8,
+      1,
+      64,
+      131072,
+      256,
+      512,
+      16908342
+    ]
+  },
+  {
+    "label": "Check target",
+    "bounds": "[557,1950][970,2082]",
+    "enabled": true,
+    "class": "android.view.ViewGroup",
+    "actions": [
+      4,
+      8,
+      1,
+      64,
+      131072,
+      256,
+      512,
+      16908342
+    ]
+  },
+  {
+    "bounds": "[0,66][1080,2214]",
+    "enabled": true,
+    "class": "android.widget.ScrollView",
+    "actions": [
+      4,
+      8,
+      1,
+      64,
+      16908342,
+      4096,
+      16908346
+    ]
+  },
+  {
+    "bounds": "[0,66][1080,2214]",
+    "enabled": true,
+    "class": "android.widget.HorizontalScrollView",
+    "actions": [
+      4,
+      8,
+      1,
+      64,
+      16908342
+    ]
+  },
+  {
+    "bounds": "[0,66][1080,2214]",
+    "enabled": true,
+    "class": "android.widget.LinearLayout",
+    "actions": [
+      4,
+      8,
+      1,
+      64,
+      16908342
+    ]
+  },
+  {
+    "label": "Move to private cloud",
+    "bounds": "[66,2171][1014,2214]",
+    "enabled": true,
+    "class": "android.view.ViewGroup",
+    "actions": [
+      4,
+      8,
+      1,
+      64,
+      131072,
+      256,
+      512,
+      16908342
+    ]
+  }
+]

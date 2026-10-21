@@ -1,0 +1,88 @@
+{
+  "report": {
+    "operation": "create_library_file",
+    "status": "succeeded",
+    "path": "/leanon-ui-design-review-2026-10-07.html",
+    "file_id": "file_0000000082e482078d229bb665b6b8b0",
+    "library_file_id": "libfile_d8740c2df89081918c17f693076e3d60",
+    "file_name": "leanon-ui-design-review-2026-10-07.html",
+    "current_version_number": 0,
+    "restored_from_version_number": null,
+    "xattrs": [
+      {
+        "name": "user.library-file-version",
+        "value": "0"
+      }
+    ],
+    "directory_id": "libdir_bd0591b91fb88191bd01900a376bc9a8",
+    "mime_type": "text/html",
+    "library_artifact_type": "report",
+    "file_size_bytes": 5223369,
+    "external_connectors_accessed": false
+  },
+  "images": [
+    {
+      "operation": "create_library_file",
+      "status": "succeeded",
+      "path": "/annotated-main-overview.png",
+      "file_id": "file_000000004d308207bb797e8b5a1393b8",
+      "library_file_id": "libfile_328c8800660c8191bc6c107d1b82d01e",
+      "file_name": "annotated-main-overview.png",
+      "current_version_number": 0,
+      "restored_from_version_number": null,
+      "xattrs": [
+        {
+          "name": "user.library-file-version",
+          "value": "0"
+        }
+      ],
+      "directory_id": "libdir_bd0591b91fb88191bd01900a376bc9a8",
+      "mime_type": "image/png",
+      "library_artifact_type": "image",
+      "file_size_bytes": 575826,
+      "external_connectors_accessed": false
+    },
+    {
+      "operation": "create_library_file",
+      "status": "succeeded",
+      "path": "/annotated-forms-overview.png",
+      "file_id": "file_000000002e788207b2c298c797fbc5a9",
+      "library_file_id": "libfile_63f262c7d0248191ba7a31f180ba206f",
+      "file_name": "annotated-forms-overview.png",
+      "current_version_number": 0,
+      "restored_from_version_number": null,
+      "xattrs": [
+        {
+          "name": "user.library-file-version",
+          "value": "0"
+        }
+      ],
+      "directory_id": "libdir_bd0591b91fb88191bd01900a376bc9a8",
+      "mime_type": "image/png",
+      "library_artifact_type": "image",
+      "file_size_bytes": 535589,
+      "external_connectors_accessed": false
+    }
+  ],
+  "evidence": {
+    "operation": "create_library_file",
+    "status": "succeeded",
+    "path": "/leanon-ui-design-review-evidence-2026-10-07.zip",
+    "file_id": "file_00000000958882079de0ecf0232adb99",
+    "library_file_id": "libfile_ab500c9b73588191ade52b0e2089a685",
+    "file_name": "leanon-ui-design-review-evidence-2026-10-07.zip",
+    "current_version_number": 0,
+    "restored_from_version_number": null,
+    "xattrs": [
+      {
+        "name": "user.library-file-version",
+        "value": "0"
+      }
+    ],
+    "directory_id": "libdir_bd0591b91fb88191bd01900a376bc9a8",
+    "mime_type": "application/zip",
+    "library_artifact_type": "other",
+    "file_size_bytes": 10716394,
+    "external_connectors_accessed": false
+  }
+}

@@ -10,6 +10,7 @@ import com.lynx.react.bridge.JavaOnlyMap
 import com.lynx.react.bridge.ReadableMap
 import com.zzzode.leanon.data.toJavaOnlyMap
 import com.zzzode.leanon.net.OpenFoodFactsClient
+import com.zzzode.leanon.net.foodLookupFailureReason
 
 /** Native module backing `food.*`; looks packaged products up in Open Food Facts. */
 class FoodModule(context: Context) : LynxModule(context) {
@@ -22,11 +23,10 @@ class FoodModule(context: Context) : LynxModule(context) {
    * `unavailable`. The raw product is returned and parsed in TypeScript.
    */
   @LynxMethod
-  fun lookupProduct(params: ReadableMap, callback: Callback) {
-    val barcode =
-      if (params.hasKey("barcode")) params.getString("barcode") else null
-    if (barcode == null || barcode.isEmpty()) {
-      callback.invoke(errorResult("invalid-request", "Missing barcode"))
+  fun lookupProduct(params: ReadableMap?, callback: Callback) {
+    val barcode = productBarcode(params)
+    if (barcode == null) {
+      callback.invoke(errorResult("invalid-request", "Invalid product barcode"))
       return
     }
 
@@ -48,17 +48,20 @@ class FoodModule(context: Context) : LynxModule(context) {
       } catch (error: Exception) {
         main.post {
           callback.invoke(
-            errorResult("unavailable", error.message ?: "Lookup failed"),
+            errorResult("unavailable", error.message ?: "Lookup failed", foodLookupFailureReason(error)),
           )
         }
       }
     }.start()
   }
 
-  private fun errorResult(code: String, message: String): JavaOnlyMap {
+  private fun errorResult(code: String, message: String, reason: String? = null): JavaOnlyMap {
     val map = JavaOnlyMap()
     map.putString("code", code)
     map.putString("message", message)
+    if (reason != null) map.putMap("details", JavaOnlyMap().apply {
+      putString("reason", reason); putBoolean("retriable", true)
+    })
     return map
   }
 }

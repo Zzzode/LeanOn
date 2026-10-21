@@ -1,4 +1,4 @@
-import { useState } from '@lynx-js/react';
+import { useRef, useState } from '@lynx-js/react';
 import { getExerciseById } from '@zzzode/exercise-data';
 import type { Translator } from '@zzzode/i18n';
 import type { TodayState } from '../state/types';
@@ -25,26 +25,34 @@ export function ExerciseCard({
   onEdit,
   onDelete,
 }: ExerciseCardProps) {
+  const pending = useRef(false);
+  const [error, setError] = useState<string | null>(null);
   const [confirmId, setConfirmId] = useState<string | null>(null);
   const [deleting, setDeleting] = useState<boolean>(false);
   if (state.exerciseSessions.length === 0) return null;
 
   const handleDeleteTap = async (id: string) => {
+    if (pending.current) return;
+    setError(null);
     if (confirmId !== id) {
       setConfirmId(id);
       return;
     }
+    pending.current = true;
     setDeleting(true);
     try {
       await onDelete(id);
+    } catch {
+      setError(t('review.retryError'));
     } finally {
+      pending.current = false;
       setDeleting(false);
       setConfirmId(null);
     }
   };
 
   return (
-    <view className="Card Exercise-card">
+    <view className="Open-section Exercise-card">
       <view className="Exercise-head">
         <text className="Exercise-head-title">
           {t('exerciseCard.title')}
@@ -54,18 +62,19 @@ export function ExerciseCard({
           {t('exerciseCard.min')}
         </text>
       </view>
+      {error !== null && <text className="Sheet-error">{error}</text>}
       {state.exerciseSessions.map((session) => {
         const type = getExerciseById(session.typeId);
         const name = type ? type.name[locale] : session.typeId;
         const confirming = confirmId === session.id;
-        const isMirror = session.source === 'health_connect';
+        const isMirror = session.source === 'health_connect' || session.source === 'healthkit';
         return (
           <view key={session.id} className="Exercise-row-item">
             <view className="Exercise-row-titleline">
               <text className="Exercise-row-name">{name}</text>
               {isMirror ? (
                 <text className="Exercise-row-badge">
-                  {t('healthConnect.badge')}
+                  {t(session.source === 'healthkit' ? 'healthKit.title' : 'healthConnect.badge')}
                 </text>
               ) : null}
             </view>
@@ -77,7 +86,7 @@ export function ExerciseCard({
               <view className="Exercise-row-actions">
                 <text
                   className="Exercise-row-btn"
-                  bindtap={() =>
+                  bindtap={deleting ? undefined : () =>
                     onEdit({
                       id: session.id,
                       typeId: session.typeId,
@@ -95,7 +104,7 @@ export function ExerciseCard({
                     deleting ? undefined : () => handleDeleteTap(session.id)
                   }
                 >
-                  {confirming
+                  {deleting && confirming ? t('review.saving') : confirming
                     ? t('exerciseCard.confirmDelete')
                     : t('exerciseCard.delete')}
                 </text>
