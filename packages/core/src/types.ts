@@ -40,9 +40,11 @@ export interface Profile {
 }
 
 /** Where a sample originated (RFC 0025). Absence is treated as 'leanon'. */
-export type DataSource = 'leanon' | 'health_connect';
+export type DataSource = 'leanon' | 'health_connect' | 'healthkit';
 
 export interface WeightSample {
+  /** Added by schema-2 hosts; legacy inputs may omit it. */
+  id?: string;
   date: string;
   weightKg: number;
   source?: DataSource;
@@ -80,6 +82,8 @@ export interface ExerciseSample {
 
 /** Total drinking-water consumed on a given day (RFC 0023); one per date. */
 export interface WaterSample {
+  /** Stable daily identity in schema-2 hosts. */
+  id?: string;
   date: string;
   /** Total millilitres consumed that day (never negative). */
   amountMl: number;

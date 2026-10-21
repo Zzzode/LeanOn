@@ -14,6 +14,20 @@
 export const ENGINE_VERSION = '0.1.0' as const;
 
 export type {
+  DeletedRecord, GuidanceMode, IntakeEntry, LegacyIntakeRecord, MealType, OperationReceipt,
+  RecordKind, RecordMutation, RecordMutationResult, RecordsClock,
+  RecordsMutationRequest, RecordsState, SafetyFlags, WaterRecord, WeightRecord,
+} from './records/types';
+export { createEmptyRecordsState, projectIntake } from './records/projection';
+export { applyRecordMutation, canonicalRecordMutation, RecordOperationError } from './records/transaction';
+export {
+  isDeletedRecord, isExerciseRecord, isIntakeEntry, isIntakeSample, isIsoDate, isIsoDateTime,
+  isLegacyIntakeRecord, isMacros, isMicros, isOwnRecord, isProfile, isRecordMutation,
+  isRecordsState, isSafetyFlags, isWaterRecord, isWeightRecord, weightLossEligibility,
+} from './records/validation';
+export type { GuidanceEligibility } from './records/validation';
+
+export type {
   ActivityLevel,
   Confidence,
   DataSource,
