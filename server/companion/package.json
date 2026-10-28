@@ -6,5 +6,5 @@
   "description": "Local ciphertext-only companion relay",
   "exports": {".": {"types": "./dist/index.d.ts", "import": "./dist/index.js"}},
   "scripts": {"build":"rslib build","typecheck":"tsc --noEmit","test":"rstest run","start":"node dist/cli.js"},
-  "devDependencies": {"@rstest/core":"0.12.3","@types/node":"26.6.3"}
+  "devDependencies": {"@rstest/core":"0.12.4","@types/node":"26.6.3"}
 }
