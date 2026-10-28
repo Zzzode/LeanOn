@@ -33,7 +33,7 @@
     "test:watch": "rstest"
   },
   "dependencies": {
-    "@lynx-js/react": "^0.128.0",
+    "@lynx-js/react": "^0.129.0",
     "@zzzode/bridge": "workspace:*",
     "@zzzode/core": "workspace:*",
     "@zzzode/exercise-data": "workspace:*",
