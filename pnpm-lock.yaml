@@ -55,8 +55,8 @@ importers:
         specifier: ^0.12.3
         version: 0.12.3
       '@types/node':
-        specifier: ^26.6.3
-        version: 26.6.3
+        specifier: ^26.6.5
+        version: 26.6.5
 
   packages/delivery:
     devDependencies:
@@ -108,13 +108,13 @@ importers:
     devDependencies:
       '@lynx-js/qrcode-rsbuild-plugin':
         specifier: ^0.7.3
-        version: 0.7.3(@lynx-js/rspeedy@0.18.2(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.3)(tslib@2.8.1)(typescript@6.0.3)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5)))(@rsbuild/core@2.2.9)
+        version: 0.7.3(@lynx-js/rspeedy@0.18.2(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.5)(tslib@2.8.1)(typescript@6.0.3)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5)))(@rsbuild/core@2.2.9)
       '@lynx-js/react-rsbuild-plugin':
         specifier: ^0.21.0
-        version: 0.21.0(@lynx-js/react@0.128.0(@lynx-js/types@4.3.0)(@types/react@19.3.0))(@lynx-js/rspeedy@0.18.2(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.3)(tslib@2.8.1)(typescript@6.0.3)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5)))(@rsbuild/core@2.2.9)(tslib@2.8.1)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5))
+        version: 0.21.0(@lynx-js/react@0.128.0(@lynx-js/types@4.3.0)(@types/react@19.3.0))(@lynx-js/rspeedy@0.18.2(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.5)(tslib@2.8.1)(typescript@6.0.3)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5)))(@rsbuild/core@2.2.9)(tslib@2.8.1)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5))
       '@lynx-js/rspeedy':
         specifier: ^0.18.2
-        version: 0.18.2(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.3)(tslib@2.8.1)(typescript@6.0.3)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5))
+        version: 0.18.2(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.5)(tslib@2.8.1)(typescript@6.0.3)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5))
       '@lynx-js/types':
         specifier: ^4.1.0
         version: 4.3.0
@@ -133,8 +133,8 @@ importers:
         specifier: 0.12.3
         version: 0.12.3
       '@types/node':
-        specifier: 26.6.3
-        version: 26.6.3
+        specifier: 26.6.5
+        version: 26.6.5
 
   server/companion-worker:
     dependencies:
@@ -149,14 +149,14 @@ importers:
         specifier: 0.12.3
         version: 0.12.3
       '@types/node':
-        specifier: 26.6.3
-        version: 26.6.3
+        specifier: 26.6.5
+        version: 26.6.5
       miniflare:
         specifier: 5.20261001.0-alpha
-        version: 5.20261001.0-alpha(@types/node@26.6.3)
+        version: 5.20261001.0-alpha(@types/node@26.6.5)
       wrangler:
         specifier: 4.147.0
-        version: 4.147.0(@cloudflare/workers-types@5.20261007.1)(@types/node@26.6.3)
+        version: 4.147.0(@cloudflare/workers-types@5.20261007.1)(@types/node@26.6.5)
 
 packages:
 
@@ -1210,8 +1210,8 @@ packages:
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
-  '@types/node@26.6.3':
-    resolution: {integrity: sha512-dsqMQQoeTLqu9wynDD00q573mNzso3IdQOAfHRJqLCcmCFPoGo9A1bDpUcv/9tnKpErQWv9uKeGfl37EIS02Yg==}
+  '@types/node@26.6.5':
+    resolution: {integrity: sha512-uMzsv9stDdofIZBx4UGh4Z9ZgXnGC9seRDscilBcTHAeOFk67MZg/k9bWVfO+bk4qZmG+l52hRnLwUiH2LnJTg==}
 
   '@types/react@19.3.0':
     resolution: {integrity: sha512-N0rFCuH9YoxG9/m61l9MfpJKfmLOVU0em7ipIz6TRgSSkvReLB9vL85GB+yr8Bs5leqpvg96JSwF4ZS1s4viQg==}
@@ -1458,6 +1458,11 @@ packages:
     engines: {node: '>=6.0.0'}
     hasBin: true
 
+  baseline-browser-mapping@2.11.32:
+    resolution: {integrity: sha512-UvuxFU9P3hM29LrQdwu0cD6w6/+SFr+UlB9s/knI7+O2rK9xFxKUwSDWxGdbbqQ9/V7BJ5s0NI5nQAE4uJp3gQ==}
+    engines: {node: '>=6.0.0'}
+    hasBin: true
+
   blake3-wasm@2.1.5:
     resolution: {integrity: sha512-F1+K8EbfOZE49dtoPtmxUQrpXaBIl3ICvasLh+nJta0xkz+9kF/7uet9fLnwKqhDrmj6g+6K3Tw9yQPUg2ka5g==}
 
@@ -1466,6 +1471,11 @@ packages:
 
   browserslist@4.29.3:
     resolution: {integrity: sha512-1R4kiYKXGViqEN0CnoDrXc1StD9niAwu+j2dukWzrD4bJgsD4lDmEp0CRbc6E/vYJIfTHwPmwyaKtVSudICdPA==}
+    engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
+    hasBin: true
+
+  browserslist@4.29.4:
+    resolution: {integrity: sha512-2TcbbiwXEq+N0kD36tykpCfyyQigUXmuwNQbnPp4Xk4PX9JOqVIKjJlIDjpH7uY6tmRGoAd+apeT1p60T8wsdA==}
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
 
@@ -1492,6 +1502,9 @@ packages:
 
   caniuse-lite@1.0.30001816:
     resolution: {integrity: sha512-+8Yx7BXCoqk6IF8yTicjfUR6D/ldJzdlsodlEOiOSPmhK844WIgk67/zIQaGAOxNkZyyvBlrRFnLvqKIoqbAFw==}
+
+  caniuse-lite@1.0.30001819:
+    resolution: {integrity: sha512-LFUqIIAwpzsIuevnKnsR9qnStBcgzPShTX61lBwN9uFkkf8o8zLiebEjbW8AYtZiF+1YKDWfdt/pWDtMuG8Xwg==}
 
   chalk@4.1.2:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
@@ -1656,6 +1669,9 @@ packages:
   electron-to-chromium@1.5.459:
     resolution: {integrity: sha512-4SC9HHSFjO/liAhifpdOL5hG9b4BP7/5G3y3UPZVO8trlAXr1CaUEEJL0gWK3kOcYcZrOA5rkwG45Gra/lTIgg==}
 
+  electron-to-chromium@1.5.464:
+    resolution: {integrity: sha512-nRa65aFge40viPAKxMKULIY8tcXKwKboJWNn4RoKwyWXJ6SP7BnrDGKUTzc64818jIciH0PK7LSF8QzZes19GA==}
+
   enhanced-resolve@5.26.0:
     resolution: {integrity: sha512-9vhedylFonb2YGogzUKX6+Ja72gOJbN1QHAqdrvqLwhdl/QWbKopzoUC9EbQNVsAns/bx/4uyqalrQAoy1IByw==}
     engines: {node: '>=10.13.0'}
@@ -1721,8 +1737,8 @@ packages:
   fast-deep-equal@3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
 
-  fast-uri@3.1.8:
-    resolution: {integrity: sha512-GZMtZUTNRpOVIECoXwLNZS5xUGE+mVNbTB8h/7Rwh2TFWcBQiPzTgyZi05BF9UMZKkLJv8XBRJTlU7zg8+ZfMg==}
+  fast-uri@3.1.9:
+    resolution: {integrity: sha512-hS/0Wt3Ya043oKXs0sIxrMpKQITXhMLIrVAKKXi4gozGC9v7YRWVnXIZzjNPTO02M9BdxLCWqK1yRXgNziVyJQ==}
 
   for-each@0.3.5:
     resolution: {integrity: sha512-dKx12eRCVIzqCxFGplyFKJMPvLEWgmNtUrpTiJIR5u97zEhRG8ySrtboPHZXx7daLxQVrl643cTzbab2tkQjxg==}
@@ -1959,8 +1975,8 @@ packages:
     resolution: {integrity: sha512-GaimS5mSIOMyvd16ga+e1/QkI8cmp3z35QPHFex0DktqNQf2RVZQwMPQXdyoUreUiFP/0Gpe2MoQInTyMAD5xA==}
     engines: {node: '>=22.0.0'}
 
-  minimizer-webpack-plugin@5.13.0:
-    resolution: {integrity: sha512-OO1NF2zHj6sf4CNv2AsUWYcS8WEwkVKQDXxxKzlOxx1Xl+WlqYtVC+oNlGNwGkLAOnpj277BSHypWwRtd9w4JQ==}
+  minimizer-webpack-plugin@5.13.1:
+    resolution: {integrity: sha512-1mhAfvachWYYOm8tpmany5NLuvP+F2wxZWBSX8DC0uFS2wJpM9q3rWgN9wBooAH9d5V12wX0BjyJe4fMjHMarQ==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
       '@minify-html/node': '*'
@@ -2025,6 +2041,10 @@ packages:
 
   node-releases@2.0.59:
     resolution: {integrity: sha512-5qr2okC4ItAI0hG5SaV0HoYMpnM/Y6+Oqr7AmPYy/2uEoGvS+GbSKLeRxSS1uAdu59yz0ouzcuXievSgg///WA==}
+    engines: {node: '>=18'}
+
+  node-releases@2.0.60:
+    resolution: {integrity: sha512-OmO8+GM1JUZqXET720VrJCwkjUCXmCMQm0Z3UDDRbfNLHS4NEAvY60j5jiFv0tkKw2PNNlqOLhahVmwJIOLDIQ==}
     engines: {node: '>=18'}
 
   nth-check@2.1.1:
@@ -2296,6 +2316,16 @@ packages:
     engines: {node: '>= 10.13.0'}
     hasBin: true
 
+  schema-utils@4.8.1:
+    resolution: {integrity: sha512-x39pYlJPyH7Uge5QO64B9XGP9zLDc9WNmiQZc+CE3IzZPvMu3lHOuAMGpYNoPixEL7MSWlGhYTg5UlLSL8G6iw==}
+    engines: {node: '>= 10.13.0'}
+    hasBin: true
+    peerDependencies:
+      webpack: ^5.112.0
+    peerDependenciesMeta:
+      webpack:
+        optional: true
+
   semver@7.8.5:
     resolution: {integrity: sha512-Y7/KDsb8LjooZpwaqGyulO6DQlksgCncchHGk+sZIY4SBvUocMBEFH5Ur1fI4dV+Jvl0w6cjvucaIi40puRioA==}
     engines: {node: '>=10'}
@@ -2487,8 +2517,8 @@ packages:
   wasm-feature-detect@1.9.0:
     resolution: {integrity: sha512-zonE+xlIIYtxPy++L24ow0hAD8CICb4+FgPyROd3buyXIqsJvUEDkBgfCCoXOd1Hu3DUr0GOfnPIdcGV+YpNaA==}
 
-  watchpack@2.6.2:
-    resolution: {integrity: sha512-67nxRd7I5uAyn+KamYsCqU30iVgCgZ4aj8ZOGzmxs7zNPuvlnoYltm6+6JkOjEcD6WVXdu1BfH+gVQs3FUuW7Q==}
+  watchpack@2.6.3:
+    resolution: {integrity: sha512-s3NZy0QpTY9qGqzc0wtz4qI28z3+5qKbbAec4MV4G9N3CfgZ9wgvQRr0cl2jh/tqkWG1NWHkmVMHZpCamev5Wg==}
     engines: {node: '>=10.13.0'}
 
   webpack-sources@3.6.0:
@@ -2932,7 +2962,7 @@ snapshots:
 
   '@jest/pattern@30.5.0':
     dependencies:
-      '@types/node': 26.6.3
+      '@types/node': 26.6.5
       jest-regex-util: 30.5.0
 
   '@jest/schemas@30.5.0':
@@ -2945,7 +2975,7 @@ snapshots:
       '@jest/schemas': 30.5.0
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 26.6.3
+      '@types/node': 26.6.5
       '@types/yargs': 17.0.35
       chalk: 4.1.2
 
@@ -3000,25 +3030,25 @@ snapshots:
 
   '@lynx-js/internal-preact@11.0.0-rc.1-20260903085447-f95471a': {}
 
-  '@lynx-js/qrcode-rsbuild-plugin@0.7.3(@lynx-js/rspeedy@0.18.2(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.3)(tslib@2.8.1)(typescript@6.0.3)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5)))(@rsbuild/core@2.2.9)':
+  '@lynx-js/qrcode-rsbuild-plugin@0.7.3(@lynx-js/rspeedy@0.18.2(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.5)(tslib@2.8.1)(typescript@6.0.3)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5)))(@rsbuild/core@2.2.9)':
     optionalDependencies:
-      '@lynx-js/rspeedy': 0.18.2(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.3)(tslib@2.8.1)(typescript@6.0.3)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5))
+      '@lynx-js/rspeedy': 0.18.2(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.5)(tslib@2.8.1)(typescript@6.0.3)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5))
       '@rsbuild/core': 2.2.9
 
-  '@lynx-js/react-alias-rsbuild-plugin@0.21.0(@lynx-js/react@0.128.0(@lynx-js/types@4.3.0)(@types/react@19.3.0))(@lynx-js/rspeedy@0.18.2(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.3)(tslib@2.8.1)(typescript@6.0.3)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5)))(@rsbuild/core@2.2.9)':
+  '@lynx-js/react-alias-rsbuild-plugin@0.21.0(@lynx-js/react@0.128.0(@lynx-js/types@4.3.0)(@types/react@19.3.0))(@lynx-js/rspeedy@0.18.2(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.5)(tslib@2.8.1)(typescript@6.0.3)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5)))(@rsbuild/core@2.2.9)':
     optionalDependencies:
       '@lynx-js/react': 0.128.0(@lynx-js/types@4.3.0)(@types/react@19.3.0)
-      '@lynx-js/rspeedy': 0.18.2(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.3)(tslib@2.8.1)(typescript@6.0.3)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5))
+      '@lynx-js/rspeedy': 0.18.2(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.5)(tslib@2.8.1)(typescript@6.0.3)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5))
       '@rsbuild/core': 2.2.9
 
   '@lynx-js/react-refresh-webpack-plugin@0.4.4(@lynx-js/react-webpack-plugin@0.13.0(@lynx-js/react@0.128.0(@lynx-js/types@4.3.0)(@types/react@19.3.0))(@lynx-js/template-webpack-plugin@0.16.4(tslib@2.8.1)))':
     dependencies:
       '@lynx-js/react-webpack-plugin': 0.13.0(@lynx-js/react@0.128.0(@lynx-js/types@4.3.0)(@types/react@19.3.0))(@lynx-js/template-webpack-plugin@0.16.4(tslib@2.8.1))
 
-  '@lynx-js/react-rsbuild-plugin@0.21.0(@lynx-js/react@0.128.0(@lynx-js/types@4.3.0)(@types/react@19.3.0))(@lynx-js/rspeedy@0.18.2(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.3)(tslib@2.8.1)(typescript@6.0.3)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5)))(@rsbuild/core@2.2.9)(tslib@2.8.1)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5))':
+  '@lynx-js/react-rsbuild-plugin@0.21.0(@lynx-js/react@0.128.0(@lynx-js/types@4.3.0)(@types/react@19.3.0))(@lynx-js/rspeedy@0.18.2(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.5)(tslib@2.8.1)(typescript@6.0.3)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5)))(@rsbuild/core@2.2.9)(tslib@2.8.1)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5))':
     dependencies:
       '@lynx-js/css-extract-webpack-plugin': 0.11.1(@lynx-js/template-webpack-plugin@0.16.4(tslib@2.8.1))
-      '@lynx-js/react-alias-rsbuild-plugin': 0.21.0(@lynx-js/react@0.128.0(@lynx-js/types@4.3.0)(@types/react@19.3.0))(@lynx-js/rspeedy@0.18.2(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.3)(tslib@2.8.1)(typescript@6.0.3)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5)))(@rsbuild/core@2.2.9)
+      '@lynx-js/react-alias-rsbuild-plugin': 0.21.0(@lynx-js/react@0.128.0(@lynx-js/types@4.3.0)(@types/react@19.3.0))(@lynx-js/rspeedy@0.18.2(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.5)(tslib@2.8.1)(typescript@6.0.3)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5)))(@rsbuild/core@2.2.9)
       '@lynx-js/react-refresh-webpack-plugin': 0.4.4(@lynx-js/react-webpack-plugin@0.13.0(@lynx-js/react@0.128.0(@lynx-js/types@4.3.0)(@types/react@19.3.0))(@lynx-js/template-webpack-plugin@0.16.4(tslib@2.8.1)))
       '@lynx-js/react-webpack-plugin': 0.13.0(@lynx-js/react@0.128.0(@lynx-js/types@4.3.0)(@types/react@19.3.0))(@lynx-js/template-webpack-plugin@0.16.4(tslib@2.8.1))
       '@lynx-js/rsbuild-plugin': 0.1.5(@rsbuild/core@2.2.9)(tslib@2.8.1)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5))
@@ -3030,7 +3060,7 @@ snapshots:
       tiny-invariant: 1.3.3
     optionalDependencies:
       '@lynx-js/react': 0.128.0(@lynx-js/types@4.3.0)(@types/react@19.3.0)
-      '@lynx-js/rspeedy': 0.18.2(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.3)(tslib@2.8.1)(typescript@6.0.3)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5))
+      '@lynx-js/rspeedy': 0.18.2(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.5)(tslib@2.8.1)(typescript@6.0.3)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5))
       '@rsbuild/core': 2.2.9
     transitivePeerDependencies:
       - '@lynx-js/animax'
@@ -3087,11 +3117,11 @@ snapshots:
       - tslib
       - webpack
 
-  '@lynx-js/rspeedy@0.18.2(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.3)(tslib@2.8.1)(typescript@6.0.3)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5))':
+  '@lynx-js/rspeedy@0.18.2(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.5)(tslib@2.8.1)(typescript@6.0.3)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5))':
     dependencies:
       '@lynx-js/rsbuild-plugin': 0.1.5(@rsbuild/core@2.2.9)(tslib@2.8.1)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5))
       '@rsbuild/core': 2.2.9
-      '@rsdoctor/core': 2.0.0(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.3)
+      '@rsdoctor/core': 2.0.0(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.5)
     optionalDependencies:
       typescript: 6.0.3
     transitivePeerDependencies:
@@ -3223,10 +3253,10 @@ snapshots:
 
   '@rsdoctor/client@2.0.0': {}
 
-  '@rsdoctor/core@2.0.0(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.3)':
+  '@rsdoctor/core@2.0.0(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.5)':
     dependencies:
       '@rsdoctor/client': 2.0.0
-      '@rsdoctor/shared': 2.0.0(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.3)
+      '@rsdoctor/shared': 2.0.0(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.5)
       caniuse-lite: 1.0.30001816
       sirv: 3.0.2
       source-map: 0.8.0
@@ -3235,11 +3265,11 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@rsdoctor/shared@2.0.0(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.3)':
+  '@rsdoctor/shared@2.0.0(@rspack/core@2.2.8(@swc/helpers@0.5.23))(@types/node@26.6.5)':
     dependencies:
       '@rspack/lite-tapable': 1.3.0
       '@types/estree': 1.0.5
-      '@types/node': 26.6.3
+      '@types/node': 26.6.5
       buffer: 6.0.3
       connect-next: 5.0.0
       path-browserify: 1.0.1
@@ -3377,7 +3407,7 @@ snapshots:
 
   '@types/json-schema@7.0.15': {}
 
-  '@types/node@26.6.3':
+  '@types/node@26.6.5':
     dependencies:
       undici-types: 8.9.0
 
@@ -3550,7 +3580,7 @@ snapshots:
   ajv@8.20.0:
     dependencies:
       fast-deep-equal: 3.1.3
-      fast-uri: 3.1.8
+      fast-uri: 3.1.9
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
 
@@ -3589,6 +3619,8 @@ snapshots:
 
   baseline-browser-mapping@2.11.29: {}
 
+  baseline-browser-mapping@2.11.32: {}
+
   blake3-wasm@2.1.5: {}
 
   boolbase@1.0.0: {}
@@ -3600,6 +3632,14 @@ snapshots:
       electron-to-chromium: 1.5.459
       node-releases: 2.0.59
       update-browserslist-db: 1.3.4(browserslist@4.29.3)
+
+  browserslist@4.29.4:
+    dependencies:
+      baseline-browser-mapping: 2.11.32
+      caniuse-lite: 1.0.30001819
+      electron-to-chromium: 1.5.464
+      node-releases: 2.0.60
+      update-browserslist-db: 1.3.4(browserslist@4.29.4)
 
   buffer-from@1.1.2: {}
 
@@ -3633,6 +3673,8 @@ snapshots:
       lodash.uniq: 4.5.0
 
   caniuse-lite@1.0.30001816: {}
+
+  caniuse-lite@1.0.30001819: {}
 
   chalk@4.1.2:
     dependencies:
@@ -3809,6 +3851,8 @@ snapshots:
 
   electron-to-chromium@1.5.459: {}
 
+  electron-to-chromium@1.5.464: {}
+
   enhanced-resolve@5.26.0:
     dependencies:
       graceful-fs: 4.2.11
@@ -3947,7 +3991,7 @@ snapshots:
 
   fast-deep-equal@3.1.3: {}
 
-  fast-uri@3.1.8: {}
+  fast-uri@3.1.9: {}
 
   for-each@0.3.5:
     dependencies:
@@ -4144,7 +4188,7 @@ snapshots:
   jest-util@30.5.1:
     dependencies:
       '@jest/types': 30.5.1
-      '@types/node': 26.6.3
+      '@types/node': 26.6.5
       chalk: 4.1.2
       ci-info: 4.4.0
       graceful-fs: 4.2.11
@@ -4152,13 +4196,13 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 26.6.3
+      '@types/node': 26.6.5
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
   jest-worker@30.5.1:
     dependencies:
-      '@types/node': 26.6.3
+      '@types/node': 26.6.5
       '@ungap/structured-clone': 1.4.0
       jest-util: 30.5.1
       merge-stream: 2.0.0
@@ -4199,10 +4243,10 @@ snapshots:
 
   mime-db@1.54.0: {}
 
-  miniflare@5.20261001.0-alpha(@types/node@26.6.3):
+  miniflare@5.20261001.0-alpha(@types/node@26.6.5):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
-      sharp: 0.35.4(@types/node@26.6.3)
+      sharp: 0.35.4(@types/node@26.6.5)
       undici: 7.29.1
       workerd: 1.20261001.1
       ws: 8.21.0
@@ -4212,11 +4256,11 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  minimizer-webpack-plugin@5.13.0(postcss@8.5.28)(sharp@0.35.5)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5)):
+  minimizer-webpack-plugin@5.13.1(postcss@8.5.28)(sharp@0.35.5)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5)):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       jest-worker: 27.5.1
-      schema-utils: 4.6.0
+      schema-utils: 4.8.1(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5))
       terser: 5.51.2
       webpack: 5.111.1(postcss@8.5.28)(sharp@0.35.5)
     optionalDependencies:
@@ -4228,6 +4272,8 @@ snapshots:
   nanoid@3.3.19: {}
 
   node-releases@2.0.59: {}
+
+  node-releases@2.0.60: {}
 
   nth-check@2.1.1:
     dependencies:
@@ -4496,6 +4542,15 @@ snapshots:
       ajv-formats: 3.0.1(ajv@8.20.0)
       ajv-keywords: 5.1.0(ajv@8.20.0)
 
+  schema-utils@4.8.1(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5)):
+    dependencies:
+      '@types/json-schema': 7.0.15
+      ajv: 8.20.0
+      ajv-formats: 3.0.1(ajv@8.20.0)
+      ajv-keywords: 5.1.0(ajv@8.20.0)
+    optionalDependencies:
+      webpack: 5.111.1(postcss@8.5.28)(sharp@0.35.5)
+
   semver@7.8.5: {}
 
   serialize-javascript@7.1.2: {}
@@ -4522,7 +4577,7 @@ snapshots:
       es-errors: 1.3.0
       es-object-atoms: 1.1.2
 
-  sharp@0.35.4(@types/node@26.6.3):
+  sharp@0.35.4(@types/node@26.6.5):
     dependencies:
       '@img/colour': 1.1.0
       detect-libc: 2.1.2
@@ -4553,7 +4608,7 @@ snapshots:
       '@img/sharp-win32-arm64': 0.35.4
       '@img/sharp-win32-ia32': 0.35.4
       '@img/sharp-win32-x64': 0.35.4
-      '@types/node': 26.6.3
+      '@types/node': 26.6.5
 
   sharp@0.35.5:
     dependencies:
@@ -4784,11 +4839,17 @@ snapshots:
       escalade: 3.2.0
       picocolors: 1.1.1
 
+  update-browserslist-db@1.3.4(browserslist@4.29.4):
+    dependencies:
+      browserslist: 4.29.4
+      escalade: 3.2.0
+      picocolors: 1.1.1
+
   util-deprecate@1.0.2: {}
 
   wasm-feature-detect@1.9.0: {}
 
-  watchpack@2.6.2:
+  watchpack@2.6.3:
     dependencies:
       graceful-fs: 4.2.11
 
@@ -4801,17 +4862,17 @@ snapshots:
       '@webassemblyjs/ast': 1.14.1
       '@webassemblyjs/wasm-edit': 1.14.1
       '@webassemblyjs/wasm-parser': 1.14.1
-      browserslist: 4.29.3
+      browserslist: 4.29.4
       chrome-trace-event: 1.0.4
       enhanced-resolve: 5.26.0
       es-module-lexer: 2.3.2
       events: 3.3.0
       graceful-fs: 4.2.11
       mime-db: 1.54.0
-      minimizer-webpack-plugin: 5.13.0(postcss@8.5.28)(sharp@0.35.5)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5))
-      schema-utils: 4.6.0
+      minimizer-webpack-plugin: 5.13.1(postcss@8.5.28)(sharp@0.35.5)(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5))
+      schema-utils: 4.8.1(webpack@5.111.1(postcss@8.5.28)(sharp@0.35.5))
       tapable: 2.3.3
-      watchpack: 2.6.2
+      watchpack: 2.6.3
       webpack-sources: 3.6.0
     transitivePeerDependencies:
       - '@minify-html/node'
@@ -4880,13 +4941,13 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20261001.1
       '@cloudflare/workerd-windows-64': 1.20261001.1
 
-  wrangler@4.147.0(@cloudflare/workers-types@5.20261007.1)(@types/node@26.6.3):
+  wrangler@4.147.0(@cloudflare/workers-types@5.20261007.1)(@types/node@26.6.5):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.5.0
       '@cloudflare/unenv-preset': 2.16.2(unenv@2.0.0-rc.24)(workerd@1.20261001.1)
       blake3-wasm: 2.1.5
       esbuild: 0.28.1
-      miniflare: 5.20261001.0-alpha(@types/node@26.6.3)
+      miniflare: 5.20261001.0-alpha(@types/node@26.6.5)
       path-to-regexp: 6.3.0
       unenv: 2.0.0-rc.24
       workerd: 1.20261001.1
